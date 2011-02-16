@@ -82,3 +82,7 @@ _You will need to replace `www.example.com` with your actual domain name_.
 
 ### Accepting the software license ###
 ### (and so on) ###
+
+## Friendly URLs ##
+
+## Security ##

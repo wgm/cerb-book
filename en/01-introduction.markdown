@@ -14,6 +14,10 @@ The project has canonized the best practices, and learned from the longest misst
 *	Browser-based
 *	Toolkit mentality
 
+## Use Cases ##
+
+*	(Examples...)
+
 ## Philosophy ##
 
 ### We believe in commercial open source ###
@@ -47,6 +51,3 @@ The project has canonized the best practices, and learned from the longest misst
 *	Smarty templates
 *	Devblocks
 
-## Use Cases ##
-
-*	(Examples...)

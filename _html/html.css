@@ -25,8 +25,10 @@ div#TOC {
 	background-color:rgb(240,240,240);
 }
 div#TOC a {
-	color:rgb(80,80,80);
 	font-weight:normal;
+	color:rgb(80,80,80);
+	text-decoration:underline;
+	border:0px;
 }
 div#TOC > ul > li > a {
 	font-weight:bold;
