@@ -3,8 +3,6 @@
 
 ## What is Cerb5? ##
 
-![The Cerb5 interface](images/01_screenshot.gif)
-
 Cerb5 is a fast and flexible CRM toolkit. Remember anything about anybody, deftly reply to an e-mail flood, quarantine spam, capture organic feedback, track time, flag opportunities, share tasks, and otherwise collaborate or execute efficiently. Built for one-person startups to Fortune 500 giants.
 
 The project has canonized the best practices, and learned from the longest missteps, of over 9 years of e-mail management R&D (as of Jan 2011). More than 20,000 organizations have installed Cerberus Helpdesk over the years, and the project today represents a fusion of the brightest feedback from that community and the vigilant custodianship of a dedicated development team.
