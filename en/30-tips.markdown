@@ -1,7 +1,7 @@
 
-= Tips & Tricks =
+# Tips and Tricks #
 
-== Entering dates ==
+## Entering dates ##
 
 Cerb5 accepts date entry in multiple formats:
 
