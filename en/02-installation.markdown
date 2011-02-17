@@ -113,7 +113,7 @@ Once you have entered your database details, click the _"Test Settings"_ button 
 
 If successful, the installer will create your initial database structure from incremental patches for each plugin.  This may take a few moments, so don't worry if it doesn't look like anything is happening.
 
-### Configuring General Settings ###
+### Configuring general settings ###
 
 ![Personalizing your helpdesk.](images/02_installer_step6_settings.png)
 
@@ -176,53 +176,3 @@ If this is a development installation, then you should leave the `install` direc
 
 Once you're ready to log in, click the _"Take me there!"_ link.
 
-## Logging in for the first time ##
-
-![Logging in.](images/02_logging_in.png)
-
-Let's log in and take a look.  Enter your email address and password, then click the _"Sign On"_ button (or press `ENTER` after typing your password).
-
-## The Basics in 60 Seconds ##
-
-You only need to understand a few concepts to get started:
-
-* A **ticket** is a specific e-mail conversation and all the related data about a question or issue. Each ticket has a unique identifier for future reference by anyone involved.
-
-* The people on the originating end of tickets are called **recipients**. A ticket can have multiple recipients.
-
-* The people on the answering end of tickets are called **workers**.
-
-* A **watcher** is a worker who receives copies of messages. For example, a supervisor may be a watcher to monitor the quality of the messages workers are writing back to requesters.
-
-* The **helpdesk** is a software hub for centrally managing and archiving tickets, and routing messages between workers and recipients. This allows several workers to receive and share email without **recipients** writing to any of them individually.
-
-* A **bucket** is a container for storing similar tickets. Common buckets are: Leads, Receipts, Newsletters, Refunds and Spam.
-
-* A **group** is several workers who share responsibility for the same tickets and buckets. Common groups are: Sales, Support, Development, Billing and Corporate. These particular examples are departments, but groups can be related by anything.
-
-* A worker in a group is called a **member**. A member with the authority to modify the group is called a **manager**. Groups can have any number of managers.
-
-* Each group has an **inbox** where new tickets are delivered by default. These tickets are then moved into buckets either automatically by the helpdesk or by workers.
-
-## Friendly URLs ##
-
-![This URL isn't very pretty.](images/02_friendly_urls.png)
-
-You may notice that your URLs look a bit ugly with the omnipresent `/index.php/` in the path.  If you're using the Apache web server you can enable _"friendly URLs"_ with the following commands:
-
-	$ cd /path/to/cerb5
-	$ cp .htaccess-dist .htaccess
-	
-For this to work you will need `mod_rewrite` to be enabled in your Apache configuration.  This is usually the case, unless you have just installed it.
-
-If `mod_rewrite` isn't enabled, you can enable it with the following command on many Linux-based servers:
-
-	# a2enmod rewrite
-	
-Your URLs should now look more presentable:
-
-![Much nicer!](images/02_friendly_urls_done.png)
-
-## Security ##
-
-[Import info from the wiki](http://wiki.cerb5.com/wiki/Maintenance:Security_Considerations)
