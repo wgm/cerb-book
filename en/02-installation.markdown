@@ -135,16 +135,16 @@ Your helpdesk won't be very useful if it can't send mail to your contacts.
 
 *	**SMTP Server:** This is your SMTP mail server.  If your mail server is located on the same machine as your webserver then you can enter _"localhost"_.  Otherwise this should be a hostname or IP address that your webserver is authorized to relay through.  This is most often a corporate mail server or [Google Apps](https://www.google.com/a/).
 *	**SMTP Port:** This is the port where your SMTP server is listening for mail.  If you aren't sure what port to use, check with your server administrator.  Here are some defaults:
-** SMTP: `25`
-** SMTP-TLS: `587`
-** SMTP-SSL: `465`
-** If you're using Google Apps, instructions can be found  [here](http://mail.google.com/support/bin/answer.py?hl=en&answer=13287).
+	* SMTP: `25`
+	* SMTP-TLS: `587`
+	* SMTP-SSL: `465`
+	* If you're using Google Apps, instructions can be found  at <http://mail.google.com/support/bin/answer.py?hl=en&answer=13287>.
 *	**SMTP Auth User:** If your SMTP server requires authorization then enter your username here.
 *	**SMTP Auth Password:** This is only required if your SMTP server is using authentication.
 *	**SMTP Encryption:**
-**	TLS: Mail will be sent over a transport layer security ([TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)) connection.
-**	SSL: Mail will be sent over an secure socket layer ((SSL)[http://en.wikipedia.org/wiki/SSL]) connection.
-**	None: Encryption is disabled.
+	*	TLS: Mail will be sent over a transport layer security ([TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)) connection.
+	*	SSL: Mail will be sent over an secure socket layer ([SSL](http://en.wikipedia.org/wiki/SSL)) connection.
+	*	None: Encryption is disabled.
 
 Click the _"Test Outgoing Mail"_ button to verify your settings.
 
