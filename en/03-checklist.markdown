@@ -90,11 +90,9 @@ Community portals also make requests to your helpdesk.  If you install the Suppo
 
 ## Performance ##
 
-<http://wiki.cerb5.com/wiki/Performance>
-
 ### PHP opcode caching with XCache ###
 
-When a webserver receives an HTTP request for a PHP script, the human-readable source code is compiled into a machine-friendly format called _["opcodes"](http://en.wikipedia.org/wiki/Opcode)_. By default, these opcodes are only kept around long enough to serve an individual request and then they're disposed of to free up resources.
+When a webserver receives an HTTP request for a PHP script, the human-readable source code is compiled into a machine-friendly format called ["opcodes"](http://en.wikipedia.org/wiki/Opcode). By default, opcodes are only kept around long enough to serve an individual request and then they're disposed of to free up resources.
 The default behavior makes sense in a shared hosting environment where dozens of scripts and applications may be sharing the same system resources. However, as you can imagine, when a single PHP web-app receives a disproportionately large amount of the traffic then the process of constantly recompiling its source code can become a performance bottleneck.
 
 [XCache](http://xcache.lighttpd.net/) is an extension for PHP which caches the most frequently-accessed scripts in the machine-friendly opcode format. Typically, XCache is a moderate, turnkey performance-boost that doesn't require any application-level changes to benefit from the cache.
@@ -105,29 +103,82 @@ The default behavior makes sense in a shared hosting environment where dozens of
 
 Installing XCache is an advanced topic. If you don't have administrator-level control of your server then it's likely not something you're going to be able to do.
 
-XCache is not found in the 
+XCache is not found in the [PHP Extension and Application Repository](http://pear.php.net/) (PEAR), so you'll need to install it through a package manager or compile it manually.
 
-Like most PHP extensions, XCache is installed through the PECL repository. Installation instructions will vary according to your operating system and distribution. Check your package manager for the appropriate package for PHP's PEAR commands. For example, with Debian Etch Linux you want the php-pear package.
+On Debian and Ubuntu systems you can install XCache with `apt-get`:
 
-You can search for platform-specific instructions.
+	apt-get install php5-xcache
 
-Once PECL is installed, you can issue the following console command (you may need to use sudo or your root account):
+Depending on your installation method the XCache configuration will be at the end of your `php.ini` file, or in a `conf.d/xcache.ini` file.  
 
-<http://en.wikipedia.org/wiki/Opcode>
+If you have other applications on your webserver that you don't want to be managed by XCache, you can disable caching by default with the following settings in your `php.ini` or `conf.d/xcache.ini` file:
 
-<http://xcache.lighttpd.net/>
+	xcache.cacher = Off
+	
+Then you can add the following option in your helpdesk's vhost configuration or an `.htaccess` file:
 
+	php_flag xcache.cacher On
+	
 #### Don't use Alternative PHP Cache (APC) ####
 
-The [Alternative PHP Cache](http://php.net/manual/en/book.apc.php) (APC) is a popular choice for opcode caching because it's part of the [PHP Extension and Application Repository](http://pear.php.net/) (PEAR), which makes installing it really simple.  However, APC suffers from some major drawbacks.  It has limited support for recent versions of PHP, and there are many situations where it will produce segmentation faults [^apc-segfaults], cryptic `FATAL` errors on _"Line 0"_ [^apc-problems], or blank white pages in the web browser.
+The [Alternative PHP Cache](http://php.net/manual/en/book.apc.php) (APC) is a popular choice for opcode caching because it's part of PEAR, which makes installing it really simple.  However, APC suffers from some major drawbacks.  It has limited support for recent versions of PHP, and there are many situations where it will produce segmentation faults [^apc-segfaults], cryptic `FATAL` errors on _"Line 0"_ [^apc-problems], or blank white pages in the web browser.
 
 [^apc-segfaults]: Segfaults caused by APC. <http://www.google.com/search?q=apc+segfault>
 [^apc-problems]: Cryptic errors on "Line 0" found to be caused by APC.  <http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache>
 
 ### Memcached ###
 
+In web applications the majority of the latency in serving a request is caused by interactions with a database. Databases are often necessary for managing persistence and to providing a way to sort and filter large collections of information. However, databases are also overused to frequently read and write infrequently-changed information -- or worse, information that never changes.
+
+[Memcached](http://en.wikipedia.org/wiki/Memcached) provides a shared memory cache where arbitrary information can be read frequently without incurring the overhead of a database.
+
+Memcached advantages:
+
+* Shared memory allows multiple processes to share a single cache.
+* Cache requests can be distributed over multiple instances.
+* It's volatile memory and shouldn't be used to store anything that you can't repopulate from a persistent source (like the filesystem or a database).
+
+Memcached disadvantages:
+
+* Applications need to be designed with memcached support in mind.
+* It's yet another process running on your server.
+* It provides no means of authentication. That's up to you.
+
 ![Memcached flowchart](images/03_memcached_flowchart.png)
 
-<http://en.wikipedia.org/wiki/Memcached>
+#### Installing Memcached ####
 
-<http://memcached.org/>
+It's often best to install Memcached from your platform's package manager; however, some distributions (such as Debian Etch) will install rather old versions. You want version 1.2.2 or later.
+
+You'll use PECL to install [PHP's Memcached extension](http://us3.php.net/memcached). The similarly named [Memcache extension](http://us3.php.net/memcache) will also work, although it is an older library with fewer features.
+
+Once Memcached is installed you need to edit your Cerb5 `framework.config.php` file and change the following lines:
+
+	//define('DEVBLOCKS_CACHE_PREFIX',''); // ONLY A-Z, a-z, 0-9 and underscore
+	//define('DEVBLOCKS_MEMCACHED_SERVERS','127.0.0.1:11211');
+	
+To something like:
+
+	define('DEVBLOCKS_CACHE_PREFIX','myhelpdesk'); // ONLY A-Z, a-z, 0-9 and underscore
+	define('DEVBLOCKS_MEMCACHED_SERVERS','127.0.0.1:11211');
+	
+* `DEVBLOCKS_CACHE_PREFIX` - This prefix allows multiple applications to share a single Memcached. If no prefix is used, then only one application can use a particular key (e.g. "worker_list"). The prefix can be anything as long as it's unique. We often suggest using the database name as the prefix.
+
+* `DEVBLOCKS_MEMCACHED_SERVERS` - This is a list of Memcached instances to distribute requests between. Usually you won't need more than a single Memcached instance, but if you want to distribute requests then add more host:port pairs delimited by commas (e.g. `127.0.0.1:11211, 127.0.0.2:11211`).
+
+#### Security implications of Memcached ####
+
+By default, Memcached does not have any form of authentication.  Make sure you don't bind Memcached to a publicly-accessible network interface without establishing firewall rules. It defaults to only serving local requests on the `127.0.0.1` address.
+
+You also need to consider if other local users and scripts can connect to Memcached's port (`11211` by default). Choosing a unique prefix will help safeguard your cached data, but it shouldn't be all you rely on.
+
+In summary:
+
+* Don't bind Memcached to a public network interface without firewall rules.
+* Consider that local users can connect to Memcached's port. Choosing a non-standard port is a decent start, but local users with shell access can easily discover running services with commands like:
+
+~~~
+netstat --tcp -l
+~~~
+
+* If you don't set a prefix for Memcached keys then anyone connecting to the port can read your cached information if they're familiar with an application's source code (and Cerb5's source code is world-readable).
