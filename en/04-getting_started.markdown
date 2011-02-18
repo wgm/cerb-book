@@ -29,25 +29,3 @@ You only need to understand a few concepts to get started:
 
 * Each group has an **inbox** where new tickets are delivered by default. These tickets are then moved into buckets either automatically by the helpdesk or by workers.
 
-## Friendly URLs ##
-
-![This URL isn't very pretty.](images/02_friendly_urls.png)
-
-You may notice that your URLs look a bit ugly with the omnipresent `/index.php/` in the path.  If you're using the Apache web server you can enable _"friendly URLs"_ with the following commands:
-
-	$ cd /path/to/cerb5
-	$ cp .htaccess-dist .htaccess
-	
-For this to work you will need `mod_rewrite` to be enabled in your Apache configuration.  This is usually the case, unless you have just installed it.
-
-If `mod_rewrite` isn't enabled, you can enable it with the following command on many Linux-based servers:
-
-	# a2enmod rewrite
-	
-Your URLs should now look more presentable:
-
-![Much nicer!](images/02_friendly_urls_done.png)
-
-## Security ##
-
-[Import info from the wiki](http://wiki.cerb5.com/wiki/Maintenance:Security_Considerations)
