@@ -1,5 +1,5 @@
 
-# Mail #
+# Mail Page #
 
 ## Workflow ##
 

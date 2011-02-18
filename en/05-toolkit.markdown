@@ -11,13 +11,66 @@ As a toolkit, it is not our intention to quixotically try and replace all the ot
 
 If each application has to integrate with all the others, then you're going to spend an incredible amount of time and money tying lose ends together.  Your team members will have a dozen browser windows open, with a dozen tabs in each one, trying to navigate the confusion.  What you need is a piece of infrastructure in the middle that synchronizes information: what you're hearing on social networks, what customers owe in invoices, what the last thing said in email was, what each member of your team needs to work on, and what they need to know.  This infrastructure doesn't have to be your billing system, your forums, and your issue tracker -- it just needs to be very efficient at moving information around, forming relationships within and between data, and providing a single location for your team to monitor and be notified about everything else.
 
-## Plugins ##
+## Features & Plugins ##
 
-(**Plugins** are the building blocks of Cerb5...)
+In many web-based applications, third-party extensions are an afterthought that have limited support for changing existing behavior or adding new functionality.  Developers provide _hooks_ that allow custom code to run when a particular _event_ happens, but this code doesn't have access to the same tools, services, and conveniences as the _core_ application.  This ties the hands of plugin developers and requires them to recreate solutions for problems that have already been solved in other places throughout the project.
 
-## Features ##
+When architecting Devblocks as the web development platform for Cerb5 (and all our future web projects), we made **plugins** the primary building block for the entire application.  This means that every time we add new functionality and capabilities, we're creating new **extension points** and **event points** that provide the same tools, services, and conveniences to plugin developers.  We call our built-in functionality **features** to distinguish them from third-party add-ons, but these features are just a collection of plugins.
 
-(The built-in plugins are called features...)
+Our concept of plugins goes far beyond the ability to just add new interface elements like pages, tabs, and buttons; or providing a way to add custom behavior on built-in events.
+
+All of the content for a plugin is in a single directory.  To install a plugin you simply copy its directory to `/storage/plugins`, and to uninstall a plugin you simply delete that directory.  A plugin should never require you to make changes to the rest of the project.
+
+Plugins are only invoked when they are required, keeping your helpdesk fast and efficient even with a large number of plugins installed.  Plugins that are disabled become invisible to the application and have absolutely no impact on performance.
+
+Devblocks itself is a plugin, and the essence of Cerb5 is a _"core"_ plugin that provides all the common functionality for other plugins to share and build with.  These are the only two plugins that are required and cannot be disabled.
+
+Below is a list of the capabilities of Devblocks plugins.
+
+### Manifests ###
+
+Plugins provide an [XML](http://en.wikipedia.org/wiki/XML) _"manifest"_ that tells the platform what contributions it is making to the application.  Devblocks is designed to load and execute code to respond to requests in as few steps as possible.  Manifests are cached in memory, so a quick lookup can tell the platform which plugins are needed to respond to a particular request without having to load a single plugin in advance.
+
+This strategy makes the platform incredibly efficient, because it reduces the number of files accessed, the peak amount of memory utilized, and the amount of time spent compiling and executing unnecessary code.
+
+### Resources ###
+
+A plugin contributes new resources -- images, scripts, stylesheets -- as a bundle.  These resources are not requested directly from the filesystem, but through a **resource proxy** that controls requests for access in conjunction with their plugin identifier (_"ID"_).  When a browser is directed to make a request for resource -- like an image -- it uses the `/resources/` controller in the URL.  All resources must reside in a `resources` subdirectory in the plugin's home directory to be accessible.
+
+### Patches for change management ###
+
+Plugins provide incremental patches for automatic upgrades between any two versions.  These patches can create or change the database schema, migrate data, perform maintenance tasks, or run custom code.  Patches are automatically managed by Devblocks to ensure that they run in the proper order and only when they are needed.
+
+### Dependencies ###
+
+Plugins can specify other plugins as **dependencies**.  This means that a plugin should not be loaded unless other plugins are also loaded (i.e. it _depends_ on them).  Devblocks will analyze these dependencies to ensure plugins are loaded or updated in the proper order.  Dependencies are useful when a plugin requires the use of functionality from another plugin and cannot function without it.  Everything depends on `cerberusweb.core`, which itself depends on `devblocks.core`.  This dependencies doesn't need to be specified, as it is declared for you automatically.
+
+### Extensions ###
+
+### Extension points ###
+
+### Event listeners ###
+
+### Event points ###
+
+### Permissions ###
+
+### Templates ###
+
+A plugin provides all of its own templates for rendering interface elements.  It can also utilize common templates (known as _"internal"_) provided by Cerb5's _core_ plugin.  For example, if a plugin needs to display a search filter for a text field or a date, it can simply use the existing template.  There are many _internal_ templates: search filters, comments, displaying relationships between objects, etc.
+
+### User-editable templates ###
+
+A plugin can also specify if any of its templates should be available for user editing.  This allows you to make changes to a template. Devblocks will always maintain the original version of a template.  This is primarily used in situations where a plugin will be in use in disparate places, such as plugins that contribute to community portals like the Support Center.  You can customize these templates to be consistent with your brand on each community portal, without ever compromising the integrity (and sacrificing the upgradability) of your project files.
+
+### Classloading ###
+
+A plugin can register any of its classes in the global classloader.  Plugins aren't always loaded into memory, so classloading provides a hint to the platform telling it where the definition of particular objects comes from.
+
+### Routing ###
+
+### Translations ###
+
 
 ## Objects ##
 

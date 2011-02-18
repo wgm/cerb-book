@@ -1,7 +1,7 @@
 
 # Developer Guide #
 
-## The technology stack used by the official development team ##
+## The toolchain used by the official development team ##
 
 Cerb5 is written in [PHP](http://www.php.net/) and stores data in a [MySQL](http://www.mysql.com/) database.
 
@@ -28,6 +28,11 @@ We use the following tools at WebGroup Media when developing Cerb5:
 
 ## Technical information ##
 
+### Features vs. Plugins ###
+
+(`/features`)
+(`/storage/plugins`)
+
 ## Developer guidelines ##
 
 ### Code formatting ###
@@ -40,3 +45,27 @@ We use the following tools at WebGroup Media when developing Cerb5:
 ## Writing plugins ##
 
 (SDK in `/cerb5/install/extras/sdk`)
+
+### plugin.xml manifests ###
+
+### Extension points ###
+
+### Event points ###
+
+### Namespaces ###
+
+### Resource proxy ###
+
+### Smarty ###
+
+* {devblocks_url}
+* {$var|devblocks_date}
+* {$var|devblocks_prettybytes}
+* {$var|devblocks_prettytime}
+* {$var|devblocks_translate}
+
+### DevblocksPlatform class ###
+
+### CerberusApplication class ###
+
+### Scope (jQuery/Smarty/etc) ###
