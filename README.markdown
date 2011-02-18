@@ -27,7 +27,7 @@ You can reference Pandoc's Markdown syntax here:
 Creating an HTML manual
 -----------------------
 
-	$ pandoc -s -c _html/html.css -s -S --toc -N -o index.html en/*.markdown
+	$ pandoc -c _html/html.css -s -S --toc -N -o index.html en/*.markdown
 
 
 Credits

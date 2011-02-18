@@ -5,7 +5,13 @@
 
 ![This URL isn't very pretty.](images/02_friendly_urls.png)
 
-You may notice that your URLs look a bit ugly with the omnipresent `/index.php/` in the path.  If you're using the Apache web server you can enable _"friendly URLs"_ with the following commands:
+You may notice that your URLs look a bit ugly with the omnipresent `/index.php/` in the path.  Cerb5 can use _URL rewriting_ to make URLs shorter and more user-friendly, but this requires webserver support. 
+
+![This looks much nicer with friendly URLs enabled!](images/02_friendly_urls_done.png)
+
+### Enabling friendly URLs with Apache ###
+
+If you're using the Apache web server you can enable _"friendly URLs"_ with the following commands:
 
 	$ cd /path/to/cerb5
 	$ cp .htaccess-dist .htaccess
@@ -16,9 +22,38 @@ If `mod_rewrite` isn't enabled, you can enable it with the following command on 
 
 	# a2enmod rewrite
 	
-Your URLs should now look more presentable:
+### Enabling friendly URLs with nginx ###
 
-![Much nicer!](images/02_friendly_urls_done.png)
+[nginx](http://wiki.nginx.org/) is another popular lightweight webserver for serving PHP content.  It doesn't support the Apache `.htaccess` file format, but you can add the following directives to your server configuration to get the same effect:
+
+	location / {
+	    if (!-e $request_filename) { 
+	        rewrite ^/(.+)$ /index.php/$1 last;
+	    }
+	}
+	location ~ ^(.+.php)(.*)$ {
+	    fastcgi_split_path_info ^(.+.php)(.*)$;
+	    fastcgi_pass 127.0.0.1:9000;
+	    fastcgi_index  index.php;
+	    fastcgi_param  SCRIPT_FILENAME  /var/www$fastcgi_script_name;
+	    fastcgi_param  PATH_INFO        $fastcgi_path_info;
+	    include fastcgi_params;
+	    fastcgi_param  QUERY_STRING     $query_string;
+	    fastcgi_param  REQUEST_METHOD   $request_method;
+	    fastcgi_param  CONTENT_TYPE     $content_type;
+	    fastcgi_param  CONTENT_LENGTH   $content_length;
+	    fastcgi_intercept_errors        on;
+	    fastcgi_ignore_client_abort     off;
+	    fastcgi_connect_timeout 60;
+	    fastcgi_send_timeout 180;
+	    fastcgi_read_timeout 180;
+	    fastcgi_buffer_size 128k;
+	    fastcgi_buffers 4 256k;
+	    fastcgi_busy_buffers_size 256k;
+	    fastcgi_temp_file_write_size 256k;
+	}
+	
+This assumes that Cerb5 is installed in the root of the webserver.  Otherwise, just prepend the path in your configuration.  You also will want to create a blank `.htaccess` file so Cerb5 will automatically generate friendly URLs for you.
 
 ## Security ##
 
@@ -69,6 +104,12 @@ With Apache, you can use directives in your virtual host configuration to protec
 
 * <http://httpd.apache.org/docs/2.0/sections.html>
 * <http://httpd.apache.org/docs/2.0/misc/security_tips.html#protectserverfiles>
+
+With nginx, you can use the following directive in your server configuration:
+
+	location ~ ^/cerb5/(api|features|libs|storage)/ {
+	    return 403;
+	}
 
 ### Considerations for HTTP authentication and IP-based security ###
 
