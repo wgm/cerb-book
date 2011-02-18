@@ -1,5 +1,7 @@
 # Cerb5 User's Guide #
+
 Copyright (C) 2011, WebGroup Media LLC.
+
 <http://www.cerberusweb.com/>
 
 Introduction
@@ -32,10 +34,12 @@ Credits
 -------
 
 This project makes use of the following technology:
+
 * [Pandoc](http://johnmacfarlane.net/pandoc/) by John MacFarlane
 * [Markdown](http://daringfireball.net/projects/markdown/) by John Gruber
 * [OpenOffice](http://www.openoffice.org/) by Oracle and its open source contibutors
 * [ImageMagick](http://www.imagemagick.org/) by ImageMagick Studio LLC
+* [TextMate](http://macromates.com/) by Macromates Ltd
 
 License
 -------
