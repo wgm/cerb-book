@@ -3,13 +3,11 @@
 
 ## The "Toolkit" mentality ##
 
-Over the past 9 years we've built up a library of reusable web-based tools that can be applied to a wide variety of business requirements.  When we think about solving new problems or implementing interesting feedback, we think in terms of these tools that we have at our disposal.  The Cerb5 project has been strangely fortunate to spend a decade refining a set of business challenges that are essentially unsolvable; our improvements over time can leverage technology to make you faster, more efficient, and more informed -- but there isn't going to be a point in the future where anyone can declare that they've solved online collaboration once and for all.  Ideally, your company will continue to grow for countless years to come, and information will continue to grow at an exponential rate, while becoming increasingly interconnected.  You're always going to be looking for new tools to mine that data to better understand the needs of your community, and to improve your efforts.  There will always be room for improvement.
+The Cerb5 development team has been ironically fortunate in choosing our area of expertise.  When we started the project in 2002, we possessed the naive belief that a web-based shared inbox _"couldn't take more than a couple of weeks to build"_. We also couldn't have imagined where that simple idea would take us.  Nearly 10 years later, we've been pleasantly surprised.  Online collaboration is a business challenge that is inherently unsolvable.  We've had more than 20,000 organizations express interest in what we're working on -- including a countless number of companies, institutions, brands, and causes that we have always highly respected.  For every task that we complete, the community spawns a dozen more great ideas.  Every time we make a major improvement in some part of the application, we begin to see how that same approach could solve a wide variety of other feature requests or development obstacles.
 
-Cerb5 is a repository of your community contacts, a communications crossroads, and a storehouse for your past collaborative energies and accumulated team knowledge.  This makes it an ideal place for us to provide you with a platform for ongoing development and innovation.  There are more interesting things to work on than we could hope to accomplish in a hundred careers.  Recognizing this, we've focused our energy on building open source tools that allow any company to spend their valuable time directly attacking the problems that they find interesting and important, rather than reinventing the web-based wheel.  Interesting approaches can be shared with others who can help further improve them.
+Over the past 9 years, we've used this cumulative experience to refine a library of reusable web-based tools that can be applied to an increasingly wide variety of business requirements.  When you hear us talk about **Devblocks**, we're talking about these tools and the philosophy that guided their development.  As we're designing improvements to Cerb5 from interesting feedback, we assemble these tools like well-crafted _blocks_ that can be combined in new and interesting ways.  Every compelling idea that has come up so far can be reduced to a particular set of these blocks.  Any time we sense there's a missing piece, it leads us toward a new block that we can add to the toolkit.  It has become part of our DNA -- to the point that when we look at other applications, we start to instinctively break them down into the same compositional blocks.
 
-As a toolkit, it is not our intention to quixotically try and replace all the other applications that you currently use with a single package from a single vendor.  There are thousands of projects out there striving to be the best mailing list software, the best billing suite, the best social network, the best community forums, the best project management software, and so on.  The _"best"_ in every situation is relative to the needs of particular groups of users.  It is impossible for a single application to make everyone happy.  You should benefit from the energy of developers who are running projects that are deeply invested in improving the challenges that you face -- but you also don't want to end up managing fifteen different copies of your customer information in isolated islands of software that aren't interested in talking to each other.
-
-If each application has to integrate with all the others, then you're going to spend an incredible amount of time and money tying lose ends together.  Your team members will have a dozen browser windows open, with a dozen tabs in each one, trying to navigate the confusion.  What you need is a piece of infrastructure in the middle that synchronizes information: what you're hearing on social networks, what customers owe in invoices, what the last thing said in email was, what each member of your team needs to work on, and what they need to know.  This infrastructure doesn't have to be your billing system, your forums, and your issue tracker -- it just needs to be very efficient at moving information around, forming relationships within and between data, and providing a single location for your team to monitor and be notified about everything else.
+Our ongoing improvements can leverage technology to make you faster, more efficient, and better informed -- but there won't be a point in the future where we can put down the tools and declare that we've _solved_ online collaboration once and for all.  In a perfect world, your team will continue to grow for countless years to come, and the information you gather will continue to expand at an exponential rate and become increasingly interconnected.  There will always be room for improvement.
 
 ## Features & Plugins ##
 
@@ -35,29 +33,43 @@ This strategy makes the platform incredibly efficient, because it reduces the nu
 
 ### Resources ###
 
-A plugin contributes new resources -- images, scripts, stylesheets -- as a bundle.  These resources are not requested directly from the filesystem, but through a **resource proxy** that controls requests for access in conjunction with their plugin identifier (_"ID"_).  When a browser is directed to make a request for resource -- like an image -- it uses the `/resources/` controller in the URL.  All resources must reside in a `resources` subdirectory in the plugin's home directory to be accessible.
+A plugin can contribute new resources -- images, scripts, stylesheets -- as a bundle.  These resources are not requested directly from the filesystem, but through a **resource proxy** that controls requests for access in conjunction with their plugin identifier (_"ID"_).  When a browser is directed to make a request for resource -- like an image -- it uses the `/resources/` controller in the URL.  All resources must reside in a `resources` subdirectory in the plugin's home directory to be accessible.
 
 ### Patches for change management ###
 
-Plugins provide incremental patches for automatic upgrades between any two versions.  These patches can create or change the database schema, migrate data, perform maintenance tasks, or run custom code.  Patches are automatically managed by Devblocks to ensure that they run in the proper order and only when they are needed.
+A plugin can provide incremental **patches** for automatic upgrades between any two versions.  These patches can create or change the database schema, migrate data, perform maintenance tasks, or run custom code.  Patches are automatically managed by Devblocks to ensure that they run in the proper order and only when they are needed.
 
 ### Dependencies ###
 
-Plugins can specify other plugins as **dependencies**.  This means that a plugin should not be loaded unless other plugins are also loaded (i.e. it _depends_ on them).  Devblocks will analyze these dependencies to ensure plugins are loaded or updated in the proper order.  Dependencies are useful when a plugin requires the use of functionality from another plugin and cannot function without it.  Everything depends on `cerberusweb.core`, which itself depends on `devblocks.core`.  This dependencies doesn't need to be specified, as it is declared for you automatically.
+A plugin can specify other plugins as **dependencies**.  This means that a plugin should not be loaded unless other plugins are also loaded (i.e. it _depends_ on them).  Devblocks will analyze these dependencies to ensure plugins are loaded or updated in the proper order.  Dependencies are useful when a plugin requires the use of functionality from another plugin and cannot function without it.  Everything depends on `cerberusweb.core`, which itself depends on `devblocks.core`.  This dependencies doesn't need to be specified, as it is declared for you automatically.
 
 ### Extensions ###
 
+The primary purpose of plugins is to contribute new functionality, collectively referred to as **extensions**. Extensions are registered on **extension points** to notify the platform of their existence.  With this strategy, plugins become a _native_ part of the application, with the same _rights_ and _aesthetic_ as built-in features.
+
 ### Extension points ###
+
+A plugin can also declare new extension points that may be extended by other plugins.
 
 ### Event listeners ###
 
+A plugin can register **listeners** that _listen_ to **event points** and execute custom functionality when particular **events** occur.
+
 ### Event points ###
+
+A plugin can declare new events that may be observed by other plugins.
 
 ### Permissions ###
 
+A plugin can contribute its own _access control lists_ ([ACL](http://en.wikipedia.org/wiki/Access_control_list)) to the global list of worker permissions.  This allows seamless administration of the rights workers have when using plugins. 
+
+### Translations ###
+
+A plugin can contribute all of its interface text to the application's translation system, which then becomes translatable with the Translation Editor just like the rest of the text in the application.  No distinction is made between the text coming from plugins and that of built-in features, so popular plugins will become translated into new languages as a natural byproduct of their use.  Plugins should also make judicious use of the shared _internal_ translations for common words and phrases (e.g. _save changes_, _delete_, _worker_, _email_, etc), which reduces duplicate text and eases the work of translators.
+
 ### Templates ###
 
-A plugin provides all of its own templates for rendering interface elements.  It can also utilize common templates (known as _"internal"_) provided by Cerb5's _core_ plugin.  For example, if a plugin needs to display a search filter for a text field or a date, it can simply use the existing template.  There are many _internal_ templates: search filters, comments, displaying relationships between objects, etc.
+A plugin can provide all of its own templates for rendering interface elements.  It can also utilize common templates (known as _"internal"_) provided by Cerb5's _core_ plugin.  For example, if a plugin needs to display a search filter for a text field or a date, it can simply use the existing template.  There are many _internal_ templates: search filters, comments, displaying relationships between objects, etc.
 
 ### User-editable templates ###
 
@@ -69,8 +81,7 @@ A plugin can register any of its classes in the global classloader.  Plugins are
 
 ### Routing ###
 
-### Translations ###
-
+A plugin can take advantage of the platform's built-in request **routing** by registering a unique _uniform resource identifier_ ([URI](http://en.wikipedia.org/wiki/Uniform_Resource_Identifier)) and associating it with one of its **controllers**.  For example, the `files` URI routes a request to a built-in controller that authenticates requesters before serving file attachments from storage.
 
 ## Objects ##
 
