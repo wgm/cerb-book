@@ -58,11 +58,11 @@ We use the following tools at WebGroup Media when developing Cerb5:
 
 ### Smarty ###
 
-* {devblocks_url}
-* {$var|devblocks_date}
-* {$var|devblocks_prettybytes}
-* {$var|devblocks_prettytime}
-* {$var|devblocks_translate}
+* `{devblocks_url}`
+* `{$var|devblocks_date}`
+* `{$var|devblocks_prettybytes}`
+* `{$var|devblocks_prettytime}`
+* `{$var|devblocks_translate}`
 
 ### DevblocksPlatform class ###
 

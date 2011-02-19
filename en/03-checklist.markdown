@@ -127,7 +127,9 @@ If you have applications that use the [Web-API](http://wiki.cerb5.com/wiki/Web-A
 
 #### Community portals ####
 
-Community portals also make requests to your helpdesk.  If you install the Support Center, or another community portal, on an external webserver then you need to make sure that machine can make requests to the `/cerb5/portal/*` path.  The default community portal script doesn't provide a mechanism for HTTP authentication, but you could provide an override by IP address.  [This feature is on the project wishlist](http://wgmdev.com/jira/browse/CHD-679).
+Community portals also make requests to your helpdesk.  If you install the Support Center, or another community portal, on an external webserver then you need to make sure that machine can make requests to the `/cerb5/portal/*` path.  The default community portal script doesn't provide a mechanism for HTTP authentication, but you could provide an override by IP address.  This feature is on the project wishlist [^chd679].
+
+[^chd679]: Feature request: _Community Tools should support HTTP authentication if the parent helpdesk is password protected._  <<http://wgmdev.com/jira/browse/CHD-679>>
 
 ## Performance ##
 
@@ -164,8 +166,8 @@ Then you can add the following option in your helpdesk's vhost configuration or 
 
 The [Alternative PHP Cache](http://php.net/manual/en/book.apc.php) (APC) is a popular choice for opcode caching because it's part of PEAR, which makes installing it really simple.  However, APC suffers from some major drawbacks.  It has limited support for recent versions of PHP, and there are many situations where it will produce segmentation faults [^apc-segfaults], cryptic `FATAL` errors on _"Line 0"_ [^apc-problems], or blank white pages in the web browser.
 
-[^apc-segfaults]: Segfaults caused by APC. <http://www.google.com/search?q=apc+segfault>
-[^apc-problems]: Cryptic errors on "Line 0" found to be caused by APC.  <http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache>
+[^apc-segfaults]: Google: _Segfaults caused by APC._ <<http://www.google.com/search?q=apc+segfault>>
+[^apc-problems]: Cerb5 forums: _Cryptic errors on "Line 0" found to be caused by APC._  <<http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache>>
 
 ### Memcached ###
 

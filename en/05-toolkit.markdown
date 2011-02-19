@@ -61,7 +61,9 @@ A plugin can declare new events that may be observed by other plugins.
 
 ### Permissions ###
 
-A plugin can contribute its own _access control lists_ ([ACL](http://en.wikipedia.org/wiki/Access_control_list)) to the global list of worker permissions.  This allows seamless administration of the rights workers have when using plugins. 
+A plugin can contribute its own _access control lists_ (**ACL** [^wikipedia-acl]) to the global list of worker permissions.  This allows seamless administration of the rights workers have when using plugins. 
+
+[^wikipedia-acl]: Wikipedia: _Access Control List_ <<http://en.wikipedia.org/wiki/Access_control_list>>
 
 ### Translations ###
 
@@ -81,7 +83,9 @@ A plugin can register any of its classes in the global classloader.  Plugins are
 
 ### Routing ###
 
-A plugin can take advantage of the platform's built-in request **routing** by registering a unique _uniform resource identifier_ ([URI](http://en.wikipedia.org/wiki/Uniform_Resource_Identifier)) and associating it with one of its **controllers**.  For example, the `files` URI routes a request to a built-in controller that authenticates requesters before serving file attachments from storage.
+A plugin can take advantage of the platform's built-in request **routing** by registering a unique _uniform resource identifier_ (**URI** [^wikipedia-uri]) and associating it with one of its **controllers**.  For example, the `files` URI routes a request to a built-in controller that authenticates requesters before serving file attachments from storage.
+
+[^wikipedia-uri]: Wikipedia: _Uniform Resource Identifier_ <<http://en.wikipedia.org/wiki/Uniform_Resource_Identifier>>
 
 ## Objects ##
 
