@@ -1,5 +1,6 @@
+\newpage
 
-# Getting Started #
+# Getting Started as a New User #
 
 ## Logging in for the first time ##
 
