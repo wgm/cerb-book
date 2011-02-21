@@ -77,7 +77,9 @@ Configure your site in IIS.
 Create a new MySQL database using the console or your favorite GUI.
 
 	mysql> CREATE DATABASE cerb5 CHARACTER SET utf8;
-	mysql> GRANT ALL PRIVILEGES ON cerb5.* TO cerb5@localhost IDENTIFIED BY 'secret_password';
+	mysql> GRANT ALL PRIVILEGES ON cerb5.*  \
+			TO cerb5@localhost \
+			IDENTIFIED BY 'secret_password';
 
 ## Running the guided installer ##
 

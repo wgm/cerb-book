@@ -41,7 +41,7 @@ A plugin can provide incremental **patches** for automatic upgrades between any 
 
 ### Dependencies ###
 
-A plugin can specify other plugins as **dependencies**.  This means that a plugin should not be loaded unless other plugins are also loaded (i.e. it _depends_ on them).  Devblocks will analyze these dependencies to ensure plugins are loaded or updated in the proper order.  Dependencies are useful when a plugin requires the use of functionality from another plugin and cannot function without it.  Everything depends on `cerberusweb.core`, which itself depends on `devblocks.core`.  This dependencies doesn't need to be specified, as it is declared for you automatically.
+A plugin can specify other plugins as **dependencies**.  This means that a plugin should not be loaded unless other plugins are also loaded (i.e. it _depends_ on them).  Devblocks will analyze these dependencies to ensure plugins are loaded or updated in the proper order.  Dependencies are useful when a plugin requires the use of functionality from another plugin and cannot function without it.  Everything depends on `cerberusweb.core`, which itself depends on `devblocks.core`.  These two dependencies don't need to be specified in custom plugins, since they are declared for you automatically.
 
 ### Extensions ###
 
