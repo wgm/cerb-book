@@ -2,6 +2,78 @@
 
 # Preparing Your Helpdesk For Business #
 
+## Creating accounts for your workers ##
+
+The people who answer helpdesk issues are called _workers_. We chose this term because it's much less ambiguous than referring to your staff as _users_.  You can consider anybody that interacts with your helpdesk as a _user_, including your customers and partners.  When we mention _workers_, we're referring to the staff members that log in to the helpdesk to respond to your customers as representatives of your organization.  These workers might be in customer service, billing, sales, I.T., or marketing; or they may be executives, developers, or system administrators.
+
+While Cerb5 can be used effectively by a single worker, taking advantage of its powerful collaboration features requires you to invite your co-workers to use it.
+
+If this is a brand new helpdesk, the only worker that you should see listed is yourself.  This is the account that was created for you at the end of the installation process.
+
+Let's liven the place up by adding worker accounts for a few more people:
+
+1. Click _setup_ in the top right.
+1. Click the _Workers_ tab.
+
+First, let's update your own account information.  Click the link on your first or last name in the _Workers_ list.
+
+![Configuring a worker account.](images/03-adding_workers.png)
+
+* In **Contact Information** you can update a worker's name, title, and email address.  Keep in mind that if you change a worker's primary email address it will become their new helpdesk login.
+
+* **Authentication** is used to update a worker's password, and you can also promote them to _Administrator_, which will give them the permission to do absolutely everything in the helpdesk; they are like the `root` account on Unix-based systems, or the `Administrator` account in Windows.  Only workers who are administrators can enter _Setup_.  Grant administrator access judiciously.
+
+* Lastly, the **Memberships** box defines the worker's _membership_ to each of your groups.  You can also designate the worker as a _manager_ of a group.  Managers can perform group-level administration: adding other workers as new group _members_, creating _buckets_ for organizing the group's work, etc.
+
+When you've finished with your changes, click the _Save Changes_ button.
+
+You can use this knowledge to create several new workers in your helpdesk with the _Add Worker_ button.  Then we'll organize them into groups.
+
+![A list of helpdesk workers.](images/03-workers_list.png)
+
+## Creating groups ##
+
+Workers are organized into _groups_. Groups are a flexible concept that can be based on anything: brand, product, department, timezone, language, etc. By default your helpdesk will contain three groups based on common departments: Dispatch, Support, and Sales. The defaults were chosen because they're common departments across most industries, not because they're all-encompassing. You are free to modify these groups to suit your needs.
+
+If you stick with the defaults, this is the proposed workflow:
+
+* **Dispatch** catches all mail that isn't explicitly routed somewhere. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on skillsets -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always map to a group, the Dispatch group is also the best way to spot incoming e-mail addresses (like billing@example.com) that you may want to route directly to a particular group.
+* **Support** collects issues related to support: product support, customer service, FAQs, billing, etc.
+* **Sales** collects issues related to sales: leads, new orders, refunds, resellers, etc.
+
+The workers inside groups can be either _managers_ or _members_. Groups are designed to be autonomous; a group manager has the power to make most configuration changes related to the group without requiring help from an administrator. Managers can add new members to the group, and they can configure the group's workflow by creating buckets and inbox filters.
+
+The common practice is to use groups for building a roster of fairly interchangeable workers; work can be given to the group from the outside with the confidence that any member knows what to do with it. Groups share an organization system based on _buckets_, but workers outside the group aren't expected to know how other groups organize their work (and it shouldn't matter to them). Instead, new work is given to groups through their _inbox_, and the group's own filters will decide how work is routed or assigned from there.
+
+Let's add a couple new groups.  At this point you're also welcome to change the default groups.
+
+* Click _setup_ in the top right.
+* Click the _Groups_ tab.
+* Click the name of a group on the left, or click _add a new group_ to create one.
+
+![Configuring a group.](images/03-groups_add.png)
+
+* **Name** is what the group will be referred to as throughout the interface.
+* **Members** is the list of workers that you would like to designate as members or managers.
+
+If the configuration of a group seems too simple, that's because it is -- from _Setup_.  The rest of group configuration is handled by managers:
+
+* Click _groups_ in the top right.
+	
+	![Navigating to the groups page.](images/03-menu_groups.png)
+
+This page shows any worker the groups they are a member of, but only managers can make changes to a group.  Normally, if a worker isn't a member of a group then it won't show up in this list.  However, as an administrator you have access to every group as if you were a manager, even if you aren't on the roster.
+
+![Managing a group.](images/03-groups_manage.png)
+
+There are several tabs on group management:
+
+* **Workflow:** This is where new buckets are created and optionally flagged as assignable. The contents of assignable buckets will be shown as 'Available' when workers are looking for things to do in the _Workflow_ tab of the _mail_ page.
+* **Mail Preferences:** Each group can define their own 'From:' address, personal sender name, shared e-mail signature, and auto-responses for new tickets or closed tickets. Each group can also define a different spam filtering policy, as different workflows are more sensitive or forgiving of junk mail.
+* **Inbox Routing:** Group managers can define a number of inbox filters that will be applied to any new mail received by the group. This automates most of the work of putting things in their proper place.
+* **Members:** This is the group's roster.
+* **Ticket Fields:** Each group can track their own custom fields on new tickets. For example, the Sales department may want to track the source (Google, website, ad) of leads while Support is interested in tracking the category of requests (FAQ, feature request, etc). These custom fields can be used to generate reports.
+
 ## Friendly URLs ##
 
 ![This URL isn't very pretty.](images/02_friendly_urls.png)

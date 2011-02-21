@@ -1,6 +1,8 @@
 
 ## Setup ##
 
+![Navigating to the setup page.](images/06-menu_setup.png)
+
 ### System ###
 
 This tab provides access to branding, IP security, and updating your Cerb5 software license.
@@ -88,6 +90,8 @@ To update your product license:
 ### Scheduler ###
 
 ### Groups ###
+
+
 
 ### Workers ###
 
