@@ -107,7 +107,7 @@ Add your database connection details:
 *	**Host:** This is the hostname of your database server.  If it's on the same machine as your webserver you can enter _"localhost"_ to use sockets rather than TCP/IP connections (which are faster).  Otherwise, enter a hostname or IP address.
 *	**Database Name:** Enter the name of the new database you created.
 *	**Username:** Enter the username from your MySQL `GRANT PRIVILEGES` command.  This user should have full privileges to the database (`SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE/ALTER/DROP TABLE`, etc).
-*	**Password:** Enter the password from your MySQL `GRANT PRIVILGES` command.
+*	**Password:** Enter the password from your MySQL `GRANT PRIVILEGES` command.
 
 Once you have entered your database details, click the _"Test Settings"_ button to verify the software can connect to your database.
 

@@ -39,6 +39,12 @@ div#TOC > ul > li > a {
 code {
     font-family: monospace;
 }
+li > code, p > code, em > code {
+	background-color:rgb(240,240,240);
+	color:rgb(0,0,150);
+	padding:0px 3px;
+	font-weight:bold;
+}
 h1 a, h2 a, h3 a, h4 a, h5 a { 
     text-decoration: none;
     color: rgb(0,120,0);
@@ -53,28 +59,27 @@ h1, h2, h3, h4, h5 {
 	font-weight: bold;
 	color: rgb(0,120,0);
 }
-h1, h2, h3 {
+h1, h3 {
 	border-bottom: 1px solid rgb(180,180,180);
 }
 h1 {
-	font-size: 150%;
+	font-size: 190%;
 }
 
 h2 {
-	font-size: 130%;
+	font-size: 170%;
 }
 
 h3 {
-	font-size: 115%;
+	font-size: 145%;
 }
 
 h4 {
-	font-size: 90%;
-	font-style: italic;
+	font-size: 130%;
 }
 
 h5 {
-	font-size: 90%;
+	font-size: 110%;
 	font-style: italic;
 }
 
@@ -85,6 +90,14 @@ h1.title {
 	padding-bottom: 0.2em;
 	text-align: left;
 	border: none;
+}
+
+ul > li > ul > li > ul > li .toc-section-number {
+	display:none;
+}
+
+h3 .header-section-number, h4 .header-section-number, h5 .header-section-number, h6 .header-section-number {
+	display:none;
 }
 
 div.figure {
