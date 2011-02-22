@@ -196,7 +196,7 @@ Traditionally, when you access a URL like `http://www.example.com/help.html` fro
 Cerb5 uses a different approach for serving content, which is known to web application developers as the [Model-View-Controller](http://en.wikipedia.org/wiki/Model-View-Controller) (MVC) architectural pattern.  As a consequence of this, all the public interaction with your helpdesk occurs with two main files in the root directory of your Cerb5 installation. The pages that your helpdesk users interact with are _virtual_.  This means that there isn't a file on your webserver that corresponds with each URL.
 
 *	**index.php** returns _responses_ for "full-cycle" HTTP _requests_.  These requests occur when you type a URL into your browser, click a link, or request a resource (e.g. image, script, stylesheet, file download).  The typical response is to render a new page of output, often including a header, top-level menu, body content, and footer.
-*	**ajax.php** returns _responses_ for [Asynchronous Javascript And XML](http://en.wikipedia.org/wiki/Ajax_(programming)) (_"AJAX"_) _requests_.  _"Asynchronous"_ refers to the fact that these requests happen silently in the background, and your browser won't clear the existing page contents as it would during a full-cycle request.  Ajax requests are used to provide functionality aimed at making web applications feel more responsive and interactive (in a way that only desktop applications used to be).  These requests generally only affect one part of the greater whole.
+*	**ajax.php** returns _responses_ for [Asynchronous Javascript And XML](http://en.wikipedia.org/wiki/Ajax_(programming)) (**Ajax**) _requests_.  _"Asynchronous"_ refers to the fact that these requests happen silently in the background, and your browser won't clear the existing page contents as it would during a full-cycle request.  Ajax requests are used to provide functionality aimed at making web applications feel more responsive and interactive (in a way that only desktop applications used to be).  These requests generally only affect one part of the greater whole.
 
 Here are some common examples of Ajax functionality: 
 
@@ -298,7 +298,7 @@ Then you can add the following option in your helpdesk's vhost configuration or 
 	
 #### Don't use Alternative PHP Cache (APC) ####
 
-The [Alternative PHP Cache](http://php.net/manual/en/book.apc.php) (APC) is a popular choice for opcode caching because it's part of PEAR, which makes installing it really simple.  However, APC suffers from some major drawbacks.  It has limited support for recent versions of PHP, and there are many situations where it will produce segmentation faults [^apc-segfaults], cryptic `FATAL` errors on _"Line 0"_ [^apc-problems], or blank white pages in the web browser.
+The [Alternative PHP Cache](http://php.net/manual/en/book.apc.php) (**APC**) is a popular choice for opcode caching because it's part of PEAR, which makes installing it really simple.  However, APC suffers from some major drawbacks.  It has limited support for recent versions of PHP, and there are many situations where it will produce segmentation faults [^apc-segfaults], cryptic `FATAL` errors on _"Line 0"_ [^apc-problems], or blank white pages in the web browser.
 
 [^apc-segfaults]: Google: _Segfaults caused by APC._ <<http://www.google.com/search?q=apc+segfault>>
 [^apc-problems]: Cerb5 forums: _Cryptic errors on "Line 0" found to be caused by APC._  <<http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache>>
