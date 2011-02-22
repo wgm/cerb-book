@@ -41,7 +41,7 @@ code {
 }
 li > code, p > code, em > code {
 	background-color:rgb(240,240,240);
-	color:rgb(0,0,150);
+	color:rgb(0,0,0);
 	padding:0px 3px;
 	font-weight:bold;
 }
@@ -98,6 +98,10 @@ ul > li > ul > li > ul > li .toc-section-number {
 
 h3 .header-section-number, h4 .header-section-number, h5 .header-section-number, h6 .header-section-number {
 	display:none;
+}
+
+em {
+	color:rgb(74,110,158);
 }
 
 div.figure {

@@ -15,7 +15,7 @@ Let's liven the place up by adding worker accounts for a few more people:
 1. Click _setup_ in the top right.
 1. Click the _Workers_ tab.
 
-First, let's update your own account information.  Click the link on your first or last name in the _Workers_ list.
+First, let's update your own account information.  Click the link on the first or last name of _Super User_ in the _Workers_ list.
 
 ![Configuring a worker account.](images/03-adding_workers.png)
 
@@ -37,7 +37,7 @@ Workers are organized into _groups_. Groups are a flexible concept that can be b
 
 If you stick with the defaults, this is the proposed workflow:
 
-* **Dispatch** catches all mail that isn't explicitly routed somewhere. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on skillsets -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always map to a group, the Dispatch group is also the best way to spot incoming e-mail addresses (like billing@example.com) that you may want to route directly to a particular group.
+* **Dispatch** catches all mail that isn't explicitly routed somewhere. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on skillsets -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always map to a group, the Dispatch group is also the best way to spot incoming e-mail addresses (like `billing@example.com`) that you may want to route directly to a particular group.
 * **Support** collects issues related to support: product support, customer service, FAQs, billing, etc.
 * **Sales** collects issues related to sales: leads, new orders, refunds, resellers, etc.
 
@@ -59,8 +59,10 @@ Let's add a couple new groups.  At this point you're also welcome to change the 
 If the configuration of a group seems too simple, that's because it is -- from _Setup_.  The rest of group configuration is handled by managers:
 
 * Click _groups_ in the top right.
-	
+
 	![Navigating to the groups page.](images/03-menu_groups.png)
+
+* Click the name of any group to manage it.
 
 This page shows any worker the groups they are a member of, but only managers can make changes to a group.  Normally, if a worker isn't a member of a group then it won't show up in this list.  However, as an administrator you have access to every group as if you were a manager, even if you aren't on the roster.
 
@@ -68,11 +70,70 @@ This page shows any worker the groups they are a member of, but only managers ca
 
 There are several tabs on group management:
 
-* **Workflow:** This is where new buckets are created and optionally flagged as assignable. The contents of assignable buckets will be shown as 'Available' when workers are looking for things to do in the _Workflow_ tab of the _mail_ page.
-* **Mail Preferences:** Each group can define their own 'From:' address, personal sender name, shared e-mail signature, and auto-responses for new tickets or closed tickets. Each group can also define a different spam filtering policy, as different workflows are more sensitive or forgiving of junk mail.
+* **Workflow:** This is where new buckets are created and optionally flagged as assignable. The contents of assignable buckets will be shown as _Available_ when workers are looking for things to do in the _Workflow_ tab of the _mail_ page.
+* **Mail Preferences:** Each group can define their own `From:` address, personal sender name, shared e-mail signature, and auto-responses for new tickets or closed tickets. Each group can also define a different spam filtering policy, as different workflows are more sensitive or forgiving of junk mail.
 * **Inbox Routing:** Group managers can define a number of inbox filters that will be applied to any new mail received by the group. This automates most of the work of putting things in their proper place.
 * **Members:** This is the group's roster.
 * **Ticket Fields:** Each group can track their own custom fields on new tickets. For example, the Sales department may want to track the source (Google, website, ad) of leads while Support is interested in tracking the category of requests (FAQ, feature request, etc). These custom fields can be used to generate reports.
+
+### Creating buckets to organize work ###
+
+_Buckets_ are flexible containers used by groups to organize their workload. Work can queue up in buckets, making it more efficient to handle similar issues at the same time (e.g. processing orders, issuing refunds, sending out beta information). Buckets are also useful to move piles of work out of the way if they shouldn't be handled immediately (e.g. newsletters, survey responses, feature requests). 
+
+With department-themed groups your buckets might look like:
+
+* **Billing:** receipts, refunds
+* **Corporate:** execs, partners, biz-dev
+* **Development:** bugs, feature requests, feedback
+* **I.T.:** logs, alerts, abuse
+* **Marketing:** surveys, newsletters
+* **Sales:** leads
+* **Support:** technical, account issues
+
+Or if you had product-related groups you might do the following:
+
+* **Product X:** Orders, Refunds, Support
+* **Product Y:** Orders, Refunds, Support
+* **Product Z:** Orders, Refunds, Support
+
+Since buckets are often only concerned with a single shared characteristic, they aren't always the best way to organize work; but they're a useful building block for more complex workflows.
+
+Let's add a few new buckets to the _Sales_ group:
+
+* Manage the _Sales_ group from the _groups_ link in the top right.
+* Click the _Workflow_ tab.
+* In the _Add Buckets_ box, enter the names of the buckets you'd like to create.  For example:
+	* Leads
+	* Invoices
+	* Orders
+	
+	![Creating new buckets for the Sales group.](images/03-groups_buckets.png)
+	
+* Click the _Save Changes_ button.
+
+You should now see your new buckets in the _Workflow_ list.  It's a good idea to move the default _Spam_ bucket to the bottom of the list so it's out of the way.  You can do this quickly by setting its order to `99` (or anything higher than the number in the last row).
+
+For workflow purposes, buckets can be designated as _assignable_ or _non-assignable_.
+
+**Assignable buckets** contain work that is actionable -- that is, the work should be assigned and handled in a relatively quick timeframe in an effort to keep the bucket empty and the recipients happy.  Some examples of assignable work include:
+
+* New orders
+* Payment receipts
+* Sales inquiries
+* Requests for help
+* Partnership requests
+
+**Non-assignable buckets** contain work that doesn't need immediate attention and would otherwise detract from the goal of having empty buckets and quick handling of actionable work.  Non-assignable work is usually queued up until a future point and then handled in bulk.  Some examples of non-assignable work include:
+
+* Automatically quarantined spam
+* Bounces (return to sender)
+* Logged events sent to email
+* Long-running promotions that will be processed at a future date
+* Vendor newsletters
+
+Given these definitions, you can also unmark the checkbox in the _Assignable_ column next to the _Spam_ bucket.  This will hide your spam buckets from the _Workflow_ view, making it easier to focus on actionable work.
+
+![Customizing group workflow.](images/03-groups_workflow.png)
 
 ## Friendly URLs ##
 
