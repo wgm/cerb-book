@@ -94,6 +94,10 @@ A plugin can take advantage of the platform's built-in request **routing** by re
 
 (Records/Kinds)
 
+## Storage ##
+
+## Full-text Search Indexing ##
+
 ## Custom Fields ##
 
 ## Tabs ##

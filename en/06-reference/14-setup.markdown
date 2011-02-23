@@ -61,11 +61,46 @@ To update your product license:
 
 ### Storage ###
 
-#### Disk ####
+![The storage tab in Setup.](images/06-storage_tab.png)
 
-#### Database ####
+#### The downside of database-backed storage ####
 
-#### Amazon S3 ####
+One major benefit of working on Cerb5 for over 9 years is that we've been able to observe the long-term outcome of our technology decisions.  It's not uncommon for a popular helpdesk to have millions of tickets in the database after a few years.  Most tickets have a conversation with several email messages, and occasionally those messages have file attachments.
+
+Relational databases just aren't designed for efficient document storage.  If your email conversations average 10,000 characters in length (10KB) then you will require 1GB of storage for every 100,000 tickets in your database.  Your email contents will take up around 10GB after you hit 1 million tickets.  While it's important to have fast access to historical ticket _meta_ information for building worklists and running reports -- such as sender, subject, status, group, bucket, owner, and last activity date -- you rarely need fast access to message contents or attachments for tickets that have been closed for a considerable amount of time.
+
+Even though the technology curve has storage capacity increasing while prices are decreasing, this type of usage would have a negative impact on the performance of your helpdesk:
+
+* The database engine still has to read/write a massive file to add, update, and remove records in a bloated table.
+* If corruption occurs on the table then it may take several hours to rebuild it.
+* When running backups, you'll be copying the same _immutable_ data over and over again.  The meta information on tickets changes frequently (the status and bucket may change multiple times per day), but the content of an email message never changes.  The same is true for attachments; their content is written once, and it's far more efficient to do _incremental_ backups of only changed content -- especially when you're talking about 100,000s or millions of objects.
+
+There are several reasons why poorly-designed applications continue to bloat the database with heavy, immutable content:
+
+* It's easier to back-up a single database than multiple components (database + filesystem, etc).
+	* Our response: It might be easier to back-up a single database, but it's far quicker and more efficient to incrementally backup immutable database content.  While you're copying the same 500,000 file attachments in a large database table every couple hours, I'm adding incrementally adding the newest 100 file attachments to the existing 499,900 attachments that have already been backed up.
+* Full-text searching is easier to implement when it's enabled directly on a database table with lots of content.
+	* Our response: We pre-digest content to remove stop words (common phrases like: the, when, and) and strip punctuation and whitespace before inserting it into a database table specifically designed for our full-text indexes.  This heavily reduces the amount of space needed to store the originals for full-text indexed content, since only the interesting words are being indexed.  MySQL ignores the stop words and punctuation anyway.
+* When a cluster of webservers are serving the same content, it's usually easier (but not desirable) to share content through the database than network-based filesystems.
+	* Our response: Writing large BLOBs to multiple database slaves is also inefficient, which could block other queries in the meantime, and pollutes the binary logs.  It's worth investing some time in learning how a distributed filesystem or API-based network storage work.
+* With enough memory, a database (or at least its indexes) can be stored entirely in RAM without suffering from filesystem I/O bottlenecks.
+	* Our response: There's no benefit to loading up 100,000s of infrequently accessed rows in memory, no matter how fast it is. Distributed filesystems have similar, if not superior, caching and concurrency compared to a relational database.  Especially when you're talking about using simple keys for lookups.
+
+In previous generations of Cerberus Helpdesk we also stored file attachments in the database.  Based on our experience with scaling the project throughout the years, we now store attachments in the local `storage/` filesystem where they can be handled more efficiently (note: message content is still stored in the database).  Despite the advantages of this approach, there are still valid situations (like clustering) where the local filesystem is a source of constant inconveniences.  System administrators have to `rsync` the `storage/` filesystem around a cluster, or _symlink_ the `storage/` filesystem to a shared filesystem.  In effect, we trade the inefficiencies of the database with new inefficiencies in scaling beyond a single webserver.
+
+To provide a truly scalable and flexible solution, we designed the _Devblocks Storage Service_.
+
+The Devblocks Storage Service automatically _archives_ heavy content to long-term storage when it is deemed _inactive_, and it quickly _unarchives_ inactive content if it becomes active again.  The Storage Service can manage content from any functionality in the helpdesk, including third-party plugins.  For example, while it's great for efficiently managing a large number of file attachments or messages contents, it could also be used to manage driver downloads, a PDF document collection, or an image gallery.
+
+Inactive content can be archived to one of three _storage engines_ by default.  A _storage profile_ brings objects (e.g.  attachments, message content) under Storage Engine management.  Each storage object is given a unique _storage key_ based on the storage engine.  Additional storage engines and storage profiles can be added through plugins.
+
+* **Disk:** Content is stored in the local `storage/` filesystem.  Each storage profile receives its own subdirectory.  Stored objects are hashed and distributed between 1,024 buckets -- 32 directories with 32 subdirectories each.  The 32 options represent the letters A through V, and the numbers 0 through 9.  Each directory is a single character.  Hash buckets look like `storage/attachments/5/f` and `storage/messages/b/d`.  The storage key is the hash bucket and file record ID (e.g. `5/f/1000`).  There are no file extensions.  This layout makes it easy to correlate filesystem files with database records irrespective of the hash buckets involved, simplifying maintenance and integrity checks.
+
+* **Database:** Content is stored in the database for situations where it makes sense.  Each storage profile has its own database table.  The storage key is the file record ID.
+
+* **Amazon S3:** Content is stored in Amazon's Simple Storage Service (S3) through Amazon Web Services (AWS), which is distributed, redundant, scalable, secure, and durable.  Each storage profile has its own virtual directory inside the designated _S3 bucket_.  We chose to use a single S3 bucket per helpdesk so multiple storage objects for multiple helpdesks under the same management could share a single AWS account.  Storage objects in S3 are stored with the same hash bucket approach as the _Disk_ storage engine (1,024 hash buckets, 32 directories with 32 subdirectories each).  The storage key is the hash bucket and file record ID.
+
+The Storage System is also designed to be fast and fault-tolerant.  All fresh content is written to either the disk or the database, since if the application is working they will always be available.  This is more efficient than blocking the email parser while waiting for attachments to upload to a storage engine like Amazon S3.  Once content is saved, it may then enter the queue to be moved to a remote storage engine.  You are free to configure the Storage System to save all attachments to Amazon S3 immediately, while saving all message content directly to the filesystem.
 
 ### Mail Setup ###
 
