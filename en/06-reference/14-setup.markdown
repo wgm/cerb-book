@@ -18,7 +18,7 @@ Two settings allow you to personalize your helpdesk branding.
 
 There are two special helpdesk pages that do not require a login but should still be protected from abuse.
 
-* `/cron` is _pinged_ from an automated script to execute time-based functionality.  These scheduled tasks are defined in the [Setup -> Scheduler](##scheduler) tab.  This page can be accessed by an automated process that doesn't need to log in, but it shouldn't be freely accessible to anyone because it could be abused to create an unnecessary strain on your webserver and database; for example, by invoking hundreds of concurrent instances of the nightly maintenance task.
+* `/cron` is _pinged_ from an automated script to execute time-based functionality.  These scheduled tasks are defined in the [Setup->Scheduler](#scheduler) tab.  This page can be accessed by an automated process that doesn't need to log in, but it shouldn't be freely accessible to anyone because it could be abused to create an unnecessary strain on your webserver and database; for example, by invoking hundreds of concurrent instances of the nightly maintenance task.
 * `/update` is invoked automatically when the application detects a new version has been installed.  It is responsible for logging out users to ensure consistency, clearing caches, rebuilding templates, running database patches, and migrating data.  Since this process is meant to occur when everyone is logged out, an authentication method other than a helpdesk account is required.
 
 Cerb5 uses IP-based security to protect both of these pages.  You can authorize specific IP addresses for I.T. department machines, your corporate network subnet, intranet IPs, or webserver loopback IPs.
@@ -28,7 +28,7 @@ You can enter partial IPs to approve an entire subnet, such as:
 * 127.0.
 * 192.168.1.
 
-If you authorize a _loopback_ IP address (e.g. 127.0.0.1), you should use a command-line tool like `wget` or `curl` on the webserver to make requests for these pages.  This is usually the preferred option, since `/cron` will usually be requested from a cronjob on the webserver, and `/update` is used in conjunction with upgrades to the helpdesk software (which are best handled with the `git` or `svn` command-line tools).
+If you authorize a _loopback_ IP address (e.g. `127.0.0.1`), you should use a command-line tool like `wget` or `curl` on the webserver to make requests for these pages.  This is usually the preferred option, since `/cron` will usually be requested from a cronjob on the webserver, and `/update` is used in conjunction with upgrades to the helpdesk software (which are best handled with the `git` or `svn` command-line tools).
 
 #### Updating your product license ####
 
@@ -59,7 +59,7 @@ To update your product license:
 
 ### Features/Plugins ###
 
-![The Features & Plugins tab in Setup.](images/reference/features_plugins_tab.png)
+<!--![The Features & Plugins tab in Setup.](images/reference/features_plugins_tab.png)-->
 
 This tab provides access to enable and disable functionality provided in plugins.  New plugins can be installed by dropping the folder containing the plugin you wish to install in `storage/plugins` directory, and then enabling them on this tab. Deleting a plugin is as simple as disabling it and removing the folder from the directory.
 

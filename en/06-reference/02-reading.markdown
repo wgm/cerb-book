@@ -31,7 +31,8 @@ At the top of the conversation display page, a toolbar provides shortcuts for co
 
 The _Conversation_ tab displays a timeline of messages and comments.  This timeline uses Coordinated Universal Time (UTC  [^wikipedia-utc]).  If a conversation is taking place between people in Los Angeles, London, and Tokyo, all that matters is the _relative_ time.  In other words, something that happened _5 minutes ago_ in Tokyo also happened _5 minutes ago_ from the perspective of London.
 
-[^wikipedia-utc]: Wikipedia: _Coordinated Universal Time_ <<http://en.wikipedia.org/wiki/Coordinated_Universal_Time>>
+[^wikipedia-utc]: Wikipedia: _Coordinated Universal Time_  
+	<http://en.wikipedia.org/wiki/Coordinated_Universal_Time>
 
 There is a toolbar at the top of the timeline:
 

@@ -10,8 +10,12 @@ body {
 	/*text-align: justify;*/
 }
 pre {
-    border: 1px dotted gray;
-    background-color: #ececec;
+    /*border: 1px dotted gray;*/
+	border-top: 1px solid rgb(200,200,200);
+	border-right: 1px solid rgb(200,200,200);
+	border-left: 3px solid rgb(150,150,150);
+	border-bottom: 3px solid rgb(150,150,150);
+    background-color: rgb(240,240,240);
     color: #1111111;
     padding: 0.5em;
 }
@@ -101,7 +105,9 @@ h3 .header-section-number, h4 .header-section-number, h5 .header-section-number,
 }
 
 em {
-	color:rgb(74,110,158);
+	/*color:rgb(74,110,158);*/
+	color:rgb(80,80,80);
+	letter-spacing:0.8px;
 }
 
 div.figure {

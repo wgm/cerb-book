@@ -6,12 +6,14 @@
 To fully protect your Cerb5 helpdesk data you need to backup both the MySQL database and the `/cerb5/storage/` filesystem.  While there are countless good approaches for performing backups, this document will focus on the best practices we've discovered over the past several years of hosting hundreds of helpdesk instances on our On-Demand network.  The examples will be Unix-based, since the command line is the land of milk and honey (and flexible automation).
 
 ### Requirements ###
+
 * A Unix-based server with shell access
 * A Cerberus Helpdesk 5.0 installation
 
 ### Setting up the environment ###
 
 #### Creating a backups user ####
+
 For convenience and permissions, it's a good idea to make a `backups` user on the local system.  If at all possible, you should put the `backups` user home directory on a different hard disk than your live databases to provide for fault tolerance and better write performance.  The examples below will refer to this location as `~backups`.  A separate location is important -- while a [RAID](http://en.wikipedia.org/wiki/RAID) configuration will protect you from the failure of individual storage hardware devices, it won't protect you from filesystem corruption or non-hardware-related data loss (e.g. bugs, errant queries, maliciousness).
 
 * You can usually accomplish this with something like:
@@ -19,17 +21,18 @@ For convenience and permissions, it's a good idea to make a `backups` user on th
 		adduser --home /backups --disabled-password --disabled-login backups
 
 #### Creating a backups database user with a shadow password ####
+
 It's a really smart idea to make a separate backup user that is read-only, especially when you start automating backups.  
 
 * In MySQL you can do this with the following query (_make up your own password!_):
 
-		GRANT SELECT, RELOAD, LOCK TABLES ON *.* TO backups@localhost IDENTIFIED BY 's3cretp4ssw0rd';
+		GRANT SELECT, RELOAD, LOCK TABLES ON *.* TO backups@localhost IDENTIFIED BY 's3cret';
 
 * You should then create a [Shadow file](http://en.wikipedia.org/wiki/Shadow_password) which will "securely" store your password for automation:
 
 	* Put the password text inside a hidden file:
 	
-			echo -n "s3cretp4ssw0rd" > ~backups/.db.shadow;
+			echo -n "s3cret" > ~backups/.db.shadow;
 	
 	* Make the backups user the owner:
 	
@@ -42,10 +45,15 @@ It's a really smart idea to make a separate backup user that is read-only, espec
 In the examples below we'll use this shadow file in place of literally typing the password on the command line.  In addition to enabling automation, this also helps prevent sensitive information from being visible to other users in the global process list.
 
 ### Backing up the database ###
+
 The database stores the majority of your helpdesk information. In the majority of cases, it stores anything that isn't an attachment.
 
 #### Using mysqlhotcopy (recommended) ####
-One of the quickest ways to backup (and restore) a MyISAM-based MySQL database is to use the [mysqlhotcopy](http://dev.mysql.com/doc/refman/5.0/en/mysqlhotcopy.html) tool, which copies the raw .frm, .MYD, and .MYI files to a new location.  This utility will flush any pending row changes from memory to the disk and then lock the tables while copying them to a new location.  Unless your database is huge (relative to your hardware), or your disk or network I/O is very slow, you should be able to hotcopy a live database with minimal interruption.  If you're using replication you can make hotcopies of a slave without any service interruption.
+
+One of the quickest ways to backup (and restore) a MyISAM-based MySQL database is to use the `mysqlhotcopy` [^mysqlhotcopy] tool, which copies the raw .frm, .MYD, and .MYI files to a new location.  This utility will flush any pending row changes from memory to the disk and then lock the tables while copying them to a new location.  Unless your database is huge (relative to your hardware), or your disk or network I/O is very slow, you should be able to hotcopy a live database with minimal interruption.  If you're using replication you can make hotcopies of a slave without any service interruption.
+
+[^mysqlhotcopy]: MySQL Documentation: _mysqlhotcopy_  
+	<http://dev.mysql.com/doc/refman/5.0/en/mysqlhotcopy.html>
 
 **Pros:**
 
@@ -61,17 +69,19 @@ One of the quickest ways to backup (and restore) a MyISAM-based MySQL database i
 
 **Usage: (to local filesystem)**
 
-	mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices c4_database ~backups/dbs/
+	mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices c5_database ~backups/dbs/
 
 **Usage: (to SCP)**
 
 	mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices \
- 	--method='scp -c arcfour -C -2' c4_database backups@remotehost:~backups/dbs/
+ 	--method='scp -c arcfour -C -2' c5_database backups@remotehost:~backups/dbs/
 
 ### Backing up the storage filesystem ###
+
 The `/cerb5/storage` filesystem stores the pending mail parser queue, import queue, and all the file attachments from mail.  It's the only filesystem hierarchy you need to backup for a full recovery (the rest of the files are temporary caches, or can be downloaded from the project website). Since the bulk of the `storage` directory is comprised of tons of small file attachments that will never be modified (only deleted), it's the ideal candidate for incremental backups.
 
 #### Using rsync (recommended) ####
+
 [rsync](http://en.wikipedia.org/wiki/Rsync) is one of the simplest ways to copy only changed files to a new location.  In a nutshell, its purpose is to keep two copies of the same directory in-sync.
 
 **Pros:**
@@ -86,11 +96,11 @@ The `/cerb5/storage` filesystem stores the pending mail parser queue, import que
 
 **Usage: (to local filesystem)**
 
-	rsync -a --verbose --delete /path/to/cerb4/storage ~backups/storage
+	rsync -a --verbose --delete /path/to/cerb5/storage ~backups/storage
 	
 **Usage: (to SSH)**
 
-	rsync -aze ssh --verbose --delete /path/to/cerb4/storage backups@remotehost:~backups/storage
+	rsync -aze ssh --verbose --delete /path/to/cerb5/storage backups@remotehost:~backups/storage
 
 **Tips:**
 
@@ -98,6 +108,7 @@ The `/cerb5/storage` filesystem stores the pending mail parser queue, import que
 * The `--delete` option will remove files from the destination directory that are no longer in the source directory.  Since this can be dangerous if you mistype a directory, you may omit this option until you're confident things work.
 
 ### Keeping off-site backups ###
+
 It's crucial to assume that [anything that *can* go wrong *will* go wrong](http://en.wikipedia.org/wiki/Murphy%27s_law) (at some point).  You can't trust your local RAID, your server, or your datacenter, to store the only copy of data that your business is doomed without.
 
 At the simplest, off-site backups may involve downloading a copy of your backups to your office and burning an extra copy to DVD.  Keep in mind, it does you no good to have 250GB of backups on your office network with a 256Kbps upstream to your datacenter.  However, there's something to be said for the secure feeling of having tangible, offline copy of your critical data.
@@ -107,6 +118,7 @@ If you have the resources, you may also choose to have a standby server in a dif
 Our favorite choice, cloud and utility computing, also provides a great opportunity for off-site backups, since you can store massive amounts of data, highly-redundantly, for a few bucks a month; and you'll likely be able to move data to and from a cloud computing network MUCH faster than using your office DSL.
 
 #### Using Amazon EC2/S3 (recommended) ####
+
 Amazon S3 is a storage service.  At the time of this writing, Amazon S3 costs 10 cents (USD $) per month per gigabyte stored.  For that price, your data is protected by being replicated to multiple locations.  You also get reasonably fast network access to it (generally 10-20 MB/sec for us at WGM in Southern California).  That's $1/mo per redundant 10GB!  Be sure to read the terms on their site, as there are also similar rates for bandwidth (though most of the time you'll just be uploading).
 
 **Pros:**
@@ -135,6 +147,7 @@ Amazon S3 is a storage service.  At the time of this writing, Amazon S3 costs 10
 ![](images/maintenance/backups_aws_access_secret.png)
 
 ##### Using Jets3t at the server command line #####
+
 The [Jets3t](http://jets3t.s3.amazonaws.com/downloads.html) project provides a Synchronize tool that works much like rsync, replicating changes from a local directory structure to a remote S3 bucket.  It requires a Java Runtime Environment (JRE) of version 1.5 or later to be available.
 
 **Usage:**

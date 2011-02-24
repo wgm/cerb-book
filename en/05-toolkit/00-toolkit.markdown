@@ -28,7 +28,10 @@ Below is a list of the capabilities of Devblocks plugins.
 
 ### Manifests ###
 
-Plugins provide an [XML](http://en.wikipedia.org/wiki/XML) _"manifest"_ that tells the platform what contributions it is making to the application.  Devblocks is designed to load and execute code to respond to requests in as few steps as possible.  Manifests are cached in memory, so a quick lookup can tell the platform which plugins are needed to respond to a particular request without having to load a single plugin in advance.
+Plugins provide an XML[^wikipedia-xml] _"manifest"_ that tells the platform what contributions it is making to the application.  Devblocks is designed to load and execute code to respond to requests in as few steps as possible.  Manifests are cached in memory, so a quick lookup can tell the platform which plugins are needed to respond to a particular request without having to load a single plugin in advance.
+
+[^wikipedia-xml]: Wikipedia: _Extensible Markup Language (XML)_  
+	<http://en.wikipedia.org/wiki/XML>
 
 This strategy makes the platform incredibly efficient, because it reduces the number of files accessed, the peak amount of memory utilized, and the amount of time spent compiling and executing unnecessary code.
 
@@ -64,7 +67,8 @@ A plugin can declare new events that may be observed by other plugins.
 
 A plugin can contribute its own _access control lists_ (**ACL** [^wikipedia-acl]) to the global list of worker permissions.  This allows seamless administration of the rights workers have when using plugins. 
 
-[^wikipedia-acl]: Wikipedia: _Access Control List_ <<http://en.wikipedia.org/wiki/Access_control_list>>
+[^wikipedia-acl]: Wikipedia: _Access Control List (ACL)_  
+	<http://en.wikipedia.org/wiki/Access_control_list>
 
 ### Translations ###
 
@@ -86,7 +90,8 @@ A plugin can register any of its classes in the global classloader.  Plugins are
 
 A plugin can take advantage of the platform's built-in request **routing** by registering a unique _uniform resource identifier_ (**URI** [^wikipedia-uri]) and associating it with one of its **controllers**.  For example, the `files` URI routes a request to a built-in controller that authenticates requesters before serving file attachments from storage.
 
-[^wikipedia-uri]: Wikipedia: _Uniform Resource Identifier_ <<http://en.wikipedia.org/wiki/Uniform_Resource_Identifier>>
+[^wikipedia-uri]: Wikipedia: _Uniform Resource Identifier (URI)_  
+	<http://en.wikipedia.org/wiki/Uniform_Resource_Identifier>
 
 ## Objects ##
 

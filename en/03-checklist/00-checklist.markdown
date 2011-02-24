@@ -193,10 +193,16 @@ This assumes that Cerb5 is installed in the root of the webserver.  Otherwise, j
 
 Traditionally, when you access a URL like `http://www.example.com/help.html` from your browser there is corresponding file on the webserver with the name `help.html`.  This is true for HTML, images, Javascript, CSS, and other files available for download.
 
-Cerb5 uses a different approach for serving content, which is known to web application developers as the [Model-View-Controller](http://en.wikipedia.org/wiki/Model-View-Controller) (MVC) architectural pattern.  As a consequence of this, all the public interaction with your helpdesk occurs with two main files in the root directory of your Cerb5 installation. The pages that your helpdesk users interact with are _virtual_.  This means that there isn't a file on your webserver that corresponds with each URL.
+Cerb5 uses a different approach for serving content, which is known to web application developers as the **Model-View-Controller (MVC)** [^wikipedia-mvc] architectural pattern.  As a consequence of this, all the public interaction with your helpdesk occurs with two main files in the root directory of your Cerb5 installation. The pages that your helpdesk users interact with are _virtual_.  This means that there isn't a file on your webserver that corresponds with each URL.
+
+[^wikipedia-mvc]: Wikipedia: _Model-View-Controller (MVC)_  
+	<http://en.wikipedia.org/wiki/Model-View-Controller>
 
 *	**index.php** returns _responses_ for "full-cycle" HTTP _requests_.  These requests occur when you type a URL into your browser, click a link, or request a resource (e.g. image, script, stylesheet, file download).  The typical response is to render a new page of output, often including a header, top-level menu, body content, and footer.
-*	**ajax.php** returns _responses_ for [Asynchronous Javascript And XML](http://en.wikipedia.org/wiki/Ajax_(programming)) (**Ajax**) _requests_.  _"Asynchronous"_ refers to the fact that these requests happen silently in the background, and your browser won't clear the existing page contents as it would during a full-cycle request.  Ajax requests are used to provide functionality aimed at making web applications feel more responsive and interactive (in a way that only desktop applications used to be).  These requests generally only affect one part of the greater whole.
+*	**ajax.php** returns _responses_ for **Asynchronous Javascript And XML (Ajax)** [^wikipedia-ajax] _requests_.  _"Asynchronous"_ refers to the fact that these requests happen silently in the background, and your browser won't clear the existing page contents as it would during a full-cycle request.  Ajax requests are used to provide functionality aimed at making web applications feel more responsive and interactive (in a way that only desktop applications used to be).  These requests generally only affect one part of the greater whole.
+
+[^wikipedia-ajax]: _Wikipedia: Asynchronous Javascript and XML (Ajax)_  
+	<http://en.wikipedia.org/wiki/Ajax_(programming)>
 
 Here are some common examples of Ajax functionality: 
 
@@ -257,22 +263,27 @@ All scheduled tasks that are configured in the helpdesk are triggered by automat
 
 #### Web-API ####
 
-If you have applications that use the [Web-API](http://wiki.cerb5.com/wiki/Web-API) to integrate with your helpdesk then you'll need to make sure they can make requests to the `/cerb5/rest/*` path.  You'll need to provide some extra code to handle HTTP authentication.
+If you have applications that use the **Web-API** (<http://wiki.cerb5.com/wiki/Web-API>) to integrate with your helpdesk then you'll need to make sure they can make requests to the `/cerb5/rest/*` path.  You'll need to provide some extra code to handle HTTP authentication.
 
 #### Community portals ####
 
 Community portals also make requests to your helpdesk.  If you install the Support Center, or another community portal, on an external webserver then you need to make sure that machine can make requests to the `/cerb5/portal/*` path.  The default community portal script doesn't provide a mechanism for HTTP authentication, but you could provide an override by IP address.  This feature is on the project wishlist [^chd679].
 
-[^chd679]: Feature request: _Community Tools should support HTTP authentication if the parent helpdesk is password protected._  <<http://wgmdev.com/jira/browse/CHD-679>>
+[^chd679]: Feature request: _Community Tools should support HTTP authentication if the parent helpdesk is password protected._  
+	<http://wgmdev.com/jira/browse/CHD-679>
 
 ## Performance ##
 
 ### PHP opcode caching with XCache ###
 
-When a webserver receives an HTTP request for a PHP script, the human-readable source code is compiled into a machine-friendly format called ["opcodes"](http://en.wikipedia.org/wiki/Opcode). By default, opcodes are only kept around long enough to serve an individual request and then they're disposed of to free up resources.
+When a webserver receives an HTTP request for a PHP script, the human-readable source code is compiled into a machine-friendly format called _opcodes_ [^wikipedia-opcode]. By default, opcodes are only kept around long enough to serve an individual request and then they're disposed of to free up resources.
+
+[^wikipedia-opcode]: Wikipedia: _Opcode_  
+	<http://en.wikipedia.org/wiki/Opcode>
+
 The default behavior makes sense in a shared hosting environment where dozens of scripts and applications may be sharing the same system resources. However, as you can imagine, when a single PHP web-app receives a disproportionately large amount of the traffic then the process of constantly recompiling its source code can become a performance bottleneck.
 
-[XCache](http://xcache.lighttpd.net/) is an extension for PHP which caches the most frequently-accessed scripts in the machine-friendly opcode format. Typically, XCache is a moderate, turnkey performance-boost that doesn't require any application-level changes to benefit from the cache.
+**XCache** (<http://xcache.lighttpd.net/>) is an extension for PHP which caches the most frequently-accessed scripts in the machine-friendly opcode format. Typically, XCache is a moderate, turnkey performance-boost that doesn't require any application-level changes to benefit from the cache.
 
 ![XCache flowchart](images/checklist/xcache_flowchart.png)
 
@@ -280,7 +291,7 @@ The default behavior makes sense in a shared hosting environment where dozens of
 
 Installing XCache is an advanced topic. If you don't have administrator-level control of your server then it's likely not something you're going to be able to do.
 
-XCache is not found in the [PHP Extension and Application Repository](http://pear.php.net/) (PEAR), so you'll need to install it through a package manager or compile it manually.
+XCache is not found in the **PHP Extension and Application Repository (PEAR)** (<http://pear.php.net/>), so you'll need to install it through a package manager or compile it manually.
 
 On Debian and Ubuntu systems you can install XCache with `apt-get`:
 
@@ -298,16 +309,20 @@ Then you can add the following option in your helpdesk's vhost configuration or 
 	
 #### Don't use Alternative PHP Cache (APC) ####
 
-The [Alternative PHP Cache](http://php.net/manual/en/book.apc.php) (**APC**) is a popular choice for opcode caching because it's part of PEAR, which makes installing it really simple.  However, APC suffers from some major drawbacks.  It has limited support for recent versions of PHP, and there are many situations where it will produce segmentation faults [^apc-segfaults], cryptic `FATAL` errors on _"Line 0"_ [^apc-problems], or blank white pages in the web browser.
+The **Alternative PHP Cache (APC)** [^php-apc] is a popular choice for opcode caching because it's part of PEAR, which makes installing it really simple.  However, APC suffers from some major drawbacks.  It has limited support for recent versions of PHP, and there are many situations where it will produce segmentation faults [^apc-segfaults], cryptic `FATAL` errors on _"Line 0"_ [^apc-problems], or blank white pages in the web browser.
 
-[^apc-segfaults]: Google: _Segfaults caused by APC._ <<http://www.google.com/search?q=apc+segfault>>
-[^apc-problems]: Cerb5 forums: _Cryptic errors on "Line 0" found to be caused by APC._  <<http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache>>
+[^php-apc]: PHP Manual: _Alternative PHP Cache (APC)_  
+	<http://php.net/manual/en/book.apc.php>
+[^apc-segfaults]: Google: _Segfaults caused by APC._  
+	<http://www.google.com/search?q=apc+segfault>
+[^apc-problems]: Cerb5 forums: _Cryptic errors on "Line 0" found to be caused by APC._  
+	<http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache>
 
 ### Memcached ###
 
 In web applications the majority of the latency in serving a request is caused by interactions with a database. Databases are often necessary for managing persistence and to providing a way to sort and filter large collections of information. However, databases are also overused to frequently read and write infrequently-changed information -- or worse, information that never changes.
 
-[Memcached](http://en.wikipedia.org/wiki/Memcached) provides a shared memory cache where arbitrary information can be read frequently without incurring the overhead of a database.
+**Memcached** (<http://memcached.org/>) provides a shared memory cache where arbitrary information can be read frequently without incurring the overhead of a database.
 
 Memcached advantages:
 
@@ -317,7 +332,7 @@ Memcached advantages:
 
 Memcached disadvantages:
 
-* Applications need to be designed with memcached support in mind.
+* Applications need to be designed with Memcached support in mind.
 * It's yet another process running on your server.
 * It provides no means of authentication. That's up to you.
 
@@ -327,7 +342,7 @@ Memcached disadvantages:
 
 It's often best to install Memcached from your platform's package manager; however, some distributions (such as Debian Etch) will install rather old versions. You want version 1.2.2 or later.
 
-You'll use PECL to install [PHP's Memcached extension](http://us3.php.net/memcached). The similarly named [Memcache extension](http://us3.php.net/memcache) will also work, although it is an older library with fewer features.
+You'll use PECL to install **PHP's Memcached extension** (<http://us3.php.net/memcached>). The similarly named **Memcache extension** (<http://us3.php.net/memcache>) will also work, although it is an older library with fewer features.
 
 Once Memcached is installed you need to edit your Cerb5 `framework.config.php` file and change the following lines:
 

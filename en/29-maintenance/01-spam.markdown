@@ -4,6 +4,7 @@
 **Important Note:** Until you've handled a few hundred messages the anti-spam system will probably come to some seemingly bizarre conclusions.  This is part of the training process, and why it's important to spend a few minutes a day to review the spam filtering decisions that were made for you.  By making corrections Cerb5 will learn your preferences.
 
 ### Executive Summary ###
+
 Cerb5 employs a [Bayesian filtering algorithm](http://en.wikipedia.org/wiki/Bayesian_spam_filtering) to combat spam.
 
 This filtering tactic is useful because it's highly adaptable and learns based on the type of mail you receive.  For example: a pharmacy's helpdesk may receive mail that mentions "pills" and "prescription", and it won't be considered spam-related since those words come up often in the health care industry.  To the rest of us they're very suspicious words in our inbox.  Messages that mention "outsourcing" and "programming" likely have a much higher probability of being junk mail to a pharmacy than, say, a software company.
@@ -11,6 +12,7 @@ This filtering tactic is useful because it's highly adaptable and learns based o
 The above example is simplistic, but it should give you a good idea of how it works.
 
 ### Technical Notes ###
+
 (These notes only affect how Cerb5 makes spam decisions, and not how e-mail is handled in the system otherwise.)
 
 * Anti-spam is only triggered for the first message on a new ticket.
@@ -34,16 +36,19 @@ Once Cerb5 has reduced an e-mail to a list of unique, less-than-common words it 
 * Tickets that match explicit group filtering rules are automatically trained as 'Not Spam'.  This helps catch newsletters, receipts, and other read-only tickets your workers may never need to reply to.
 
 #### A note on whitelisting ####
+
 We're often asked why Cerb5 doesn't just whitelist contacts from the address book and never consider their messages as spam.  The problem with that approach is how easy it is for spammers to forge ("spoof") the sender on e-mail they're sending you. It's not uncommon to receive spam *from* your own e-mail addresses.
 
 By not automatically whitelisting address book senders, Cerb5 has a chance to filter out spoofed mail as well -- mail that would create thousands of junk messages otherwise.
 
 ### Tips for efficiently managing spam in Cerb5 ###
+
 The main goal of Cerb5's anti-spam functionality is to quarantine suspicious messages so they don't show up as active tickets in your work lists.  Companies vary in their anti-spam processes -- from deleting suspicious mail immediately, to quarantining and reviewing -- and we don't want to force people to adopt an arbitrary official process.  The downside of this philosophy is that it's not obvious how to best configure the anti-spam system.
 
 While the ideal process will depend on your environment, here are the tips that we recommend to all new community members:
 
 ### Groups ###
+
 The first step in filtering spam is configuring the behavior of your groups:
 
 ![Configuring a group to quarantine probable spam.](images/maintenance/maintenance_spam_group.png)
@@ -56,6 +61,7 @@ The first step in filtering spam is configuring the behavior of your groups:
 
 
 ### Mail Workflow ###
+
 Because the goal of spam filtering is to prevent workers from wasting their valuable time looking at junk mail, it's not enough to just flag mail as spam.  You also need to hide spam from work lists.
 
 On the 'group setup', 'Workflow' tab, workers should uncheck the 'Assignable' option for all 'Spam' buckets. This will hide them from the totals in Mail Workflow.
@@ -63,6 +69,7 @@ On the 'group setup', 'Workflow' tab, workers should uncheck the 'Assignable' op
 Hiding the spam buckets is important because it allows workers to actually accomplish zero active tickets.  Otherwise, a 'Spam' bucket in the 'Sales' group with 20 messages will always show a 'Sales' group total of more than 20.  The spam buckets should only be cleared once a day.  It's really inefficient for workers to have to deal with spam buckets every time they quarantine something.
 
 ### Purging quarantined spam ###
+
 Once a day, a group should elect a member to review and empty the spam bucket.  This helps make sure that a legitimate message that has been mistakenly flagged as spam (rare as that may be) isn't ignored for too long -- such messages may relate to a valuable and time-sensitive opportunity.
 
 ![There are usually way too many spam messages in a list to check them all individually.](images/maintenance/maintenance_spam_list.png)
