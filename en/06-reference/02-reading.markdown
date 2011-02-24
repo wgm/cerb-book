@@ -3,7 +3,7 @@
 
 At the top of the conversation display page, a toolbar provides shortcuts for common actions:
 
-![The conversation toolbar.](images/06-display_toolbar.png)
+![The conversation toolbar.](images/reference/display_toolbar.png)
 
 * **Edit** displays a popup to edit the conversation properties.
 
@@ -27,7 +27,7 @@ At the top of the conversation display page, a toolbar provides shortcuts for co
 
 ### Conversation ###
 
-![The Conversation tab.](images/06-conversation_tab.png)
+![The Conversation tab.](images/reference/conversation_tab.png)
 
 The _Conversation_ tab displays a timeline of messages and comments.  This timeline uses Coordinated Universal Time (UTC  [^wikipedia-utc]).  If a conversation is taking place between people in Los Angeles, London, and Tokyo, all that matters is the _relative_ time.  In other words, something that happened _5 minutes ago_ in Tokyo also happened _5 minutes ago_ from the perspective of London.
 
@@ -46,7 +46,7 @@ There are three types of messages in the timeline:
 	
 Messages can be **minimized** or **maximized**.  A minimized message condenses the sender information and hides the message content.  Conversely, a maximized message displays everything.  Older messages are minimized to reduce _information overload_.  The latest message is usually the most important one.
 
-![A message.](images/06-conversation_message.png)
+![A message.](images/reference/conversation_message.png)
 
 When you send a physical letter through the mail you have to write an address on the outside center of the envelope for it to be deliverable (i.e. a _destination address_).  You also write the name of a person or organization at that destination whom you authorize to open the letter (i.e. _recipients_).  If the destination address is invalid, or your authorized recipients can't be found there, then it is useful to include your own address on the outside top-left of the envelope so the letter can be sent back (i.e. a _return address_).
 

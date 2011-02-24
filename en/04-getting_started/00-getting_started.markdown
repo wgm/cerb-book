@@ -4,7 +4,7 @@
 
 ## Logging in for the first time ##
 
-![Logging in.](images/02_logging_in.png)
+![Logging in.](images/getting_started/logging_in.png)
 
 Let's log in and take a look.  Enter your email address and password, then click the _"Sign On"_ button (or press `ENTER` after typing your password).
 

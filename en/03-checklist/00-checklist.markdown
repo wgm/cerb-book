@@ -17,7 +17,7 @@ Let's liven the place up by adding worker accounts for a few more people:
 
 First, let's update your own account information.  Click the link on the first or last name of _Super User_ in the _Workers_ list.
 
-![Configuring a worker account.](images/03-adding_workers.png)
+![Configuring a worker account.](images/checklist/adding_workers.png)
 
 * In **Contact Information** you can update a worker's name, title, and email address.  Keep in mind that if you change a worker's primary email address it will become their new helpdesk login.
 
@@ -29,7 +29,7 @@ When you've finished with your changes, click the _Save Changes_ button.
 
 You can use this knowledge to create several new workers in your helpdesk with the _Add Worker_ button.  Then we'll organize them into groups.
 
-![A list of helpdesk workers.](images/03-workers_list.png)
+![A list of helpdesk workers.](images/checklist/workers_list.png)
 
 ## Creating groups ##
 
@@ -51,7 +51,7 @@ Let's add a couple new groups.  At this point you're also welcome to change the 
 * Click the _Groups_ tab.
 * Click the name of a group on the left, or click _add a new group_ to create one.
 
-![Configuring a group.](images/03-groups_add.png)
+![Configuring a group.](images/checklist/groups_add.png)
 
 * **Name** is what the group will be referred to as throughout the interface.
 * **Members** is the list of workers that you would like to designate as members or managers.
@@ -60,13 +60,13 @@ If the configuration of a group seems too simple, that's because it is -- from _
 
 * Click _groups_ in the top right.
 
-	![Navigating to the groups page.](images/03-menu_groups.png)
+	![Navigating to the groups page.](images/checklist/menu_groups.png)
 
 * Click the name of any group to manage it.
 
 This page shows any worker the groups they are a member of, but only managers can make changes to a group.  Normally, if a worker isn't a member of a group then it won't show up in this list.  However, as an administrator you have access to every group as if you were a manager, even if you aren't on the roster.
 
-![Managing a group.](images/03-groups_manage.png)
+![Managing a group.](images/checklist/groups_manage.png)
 
 There are several tabs on group management:
 
@@ -107,7 +107,7 @@ Let's add a few new buckets to the _Sales_ group:
 	* Invoices
 	* Orders
 	
-	![Creating new buckets for the Sales group.](images/03-groups_buckets.png)
+	![Creating new buckets for the Sales group.](images/checklist/groups_buckets.png)
 	
 * Click the _Save Changes_ button.
 
@@ -133,15 +133,15 @@ For workflow purposes, buckets can be designated as _assignable_ or _non-assigna
 
 Given these definitions, you can also unmark the checkbox in the _Assignable_ column next to the _Spam_ bucket.  This will hide your spam buckets from the _Workflow_ view, making it easier to focus on actionable work.
 
-![Customizing group workflow.](images/03-groups_workflow.png)
+![Customizing group workflow.](images/checklist/groups_workflow.png)
 
 ## Friendly URLs ##
 
-![This URL isn't very pretty.](images/02_friendly_urls.png)
+![This URL isn't very pretty.](images/checklist/friendly_urls.png)
 
 You may notice that your URLs look a bit ugly with the omnipresent `/index.php/` in the path.  Cerb5 can use _URL rewriting_ to make URLs shorter and more user-friendly, but this requires webserver support. 
 
-![This looks much nicer with friendly URLs enabled!](images/02_friendly_urls_done.png)
+![This looks much nicer with friendly URLs enabled!](images/checklist/friendly_urls_done.png)
 
 ### Enabling friendly URLs with Apache ###
 
@@ -274,7 +274,7 @@ The default behavior makes sense in a shared hosting environment where dozens of
 
 [XCache](http://xcache.lighttpd.net/) is an extension for PHP which caches the most frequently-accessed scripts in the machine-friendly opcode format. Typically, XCache is a moderate, turnkey performance-boost that doesn't require any application-level changes to benefit from the cache.
 
-![XCache flowchart](images/03_xcache_flowchart.png)
+![XCache flowchart](images/checklist/xcache_flowchart.png)
 
 #### Installing XCache ####
 
@@ -321,7 +321,7 @@ Memcached disadvantages:
 * It's yet another process running on your server.
 * It provides no means of authentication. That's up to you.
 
-![Memcached flowchart](images/03_memcached_flowchart.png)
+![Memcached flowchart](images/checklist/memcached_flowchart.png)
 
 #### Installing Memcached ####
 

@@ -1,7 +1,7 @@
 
 ## Setup ##
 
-![Navigating to the setup page.](images/06-menu_setup.png)
+![Navigating to the setup page.](images/reference/menu_setup.png)
 
 ### System ###
 
@@ -55,16 +55,17 @@ To update your product license:
 * Enter your email address _exactly_ as it appears on your order.  This is the text after _"Order e-mail:"_ from the email with your license.
 * Copy the text between `### BEGIN` and `### END` and paste it into the third text box.
 
-![Updating a Cerb5 license.](images/06-update_license.png)
+![Updating a Cerb5 license.](images/reference/update_license.png)
 
 ### Features/Plugins ###
-![The Features & Plugins tab in Setup.](images/06-features_plugins_tab.png)
 
-This tab provides access to enable and disable functionality provided in plugins.  New plugins can be installed by dropping the folder containing the plugin you wish to install in the `features` or `storage/plugins` directory, and then enabling them on this tab. Deleting a plugin is as simple as disabling it and removing the folder from the directory. It is recommended that you install all 3rd-party plugins into `storage/plugins`.
+![The Features & Plugins tab in Setup.](images/reference/features_plugins_tab.png)
+
+This tab provides access to enable and disable functionality provided in plugins.  New plugins can be installed by dropping the folder containing the plugin you wish to install in `storage/plugins` directory, and then enabling them on this tab. Deleting a plugin is as simple as disabling it and removing the folder from the directory.
 
 ### Storage ###
 
-![The storage tab in Setup.](images/06-storage_tab.png)
+![The storage tab in Setup.](images/reference/storage_tab.png)
 
 #### The downside of database-backed storage ####
 

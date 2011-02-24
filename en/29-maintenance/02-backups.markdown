@@ -124,15 +124,15 @@ Amazon S3 is a storage service.  At the time of this writing, Amazon S3 costs 10
 
 * [Sign up](http://www.amazonaws.com/) for Amazon Web Services (click 'Sign Up' on the right).
  
-![](images/02-backups_aws_signup.png)
+![](images/maintenance/backups_aws_signup.png)
 
 * Once your registration is complete, click on 'AWS Access Identifiers' from the account menu.
  
-![](images/02-backups_aws_accessid.png)
+![](images/maintenance/backups_aws_accessid.png)
 
 * Make a note of your Access Key ID and Secret Access Key.  You'll need to plug these values into the various tools you use to interact with their services.
 
-![](images/02-backups_aws_access_secret.png)
+![](images/maintenance/backups_aws_access_secret.png)
 
 ##### Using Jets3t at the server command line #####
 The [Jets3t](http://jets3t.s3.amazonaws.com/downloads.html) project provides a Synchronize tool that works much like rsync, replicating changes from a local directory structure to a remote S3 bucket.  It requires a Java Runtime Environment (JRE) of version 1.5 or later to be available.
@@ -148,7 +148,7 @@ The [Jets3t](http://jets3t.s3.amazonaws.com/downloads.html) project provides a S
 * If you don't require SSL (i.e. your content is public) you can modify `jets3t/config/jets3t.properties` and set `s3service.https-only` to `false`.  This should give you a moderate speed boost on uploading.
 
 ##### Using S3Fox in Firefox3 #####
+
 Our favorite tool for browsing S3 buckets is the [S3Fox](https://addons.mozilla.org/en-US/firefox/addon/3247) extension for [Firefox](http://www.mozilla.com/en-US/firefox/).  Once installed, you can simply drag files back and forth between your S3 account and your local machine.  It will also allow you to modify the access level (ACL) of any file, which gives you the option of creating a publicly sharable URL.  This is great, since S3 is useful for far more than just off-site backups -- you can host downloads or high-resolution screencasts without bogging down your servers (and paying a bandwidth ransom at the datacenter) if your content becomes popular.
 
-
-![](images/backups_aws_s3fox.png)
+![The S3Fox extension for Firefox](images/maintenance/backups_aws_s3fox.png)

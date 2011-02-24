@@ -92,7 +92,7 @@ _You will need to replace `www.example.com` with your actual domain name_.
 
 ### Running the server environment checker ###
 
-![The requirements checker in the guided installer.](images/02_installer_step1_checker.png)
+![The requirements checker in the guided installer.](images/installation/installer_step1_checker.png)
 
 The installer will determine if your server meets the requirements for installing Cerb5.  Correct any problems before proceeding, and then click the _"Next Step"_ button.
 
@@ -102,7 +102,7 @@ Click the _"I Accept"_ button if you agree to the licensing terms.
 
 ### Configuring the database connection ###
 
-![Adding database connection details.](images/02_installer_step3_database.png)
+![Adding database connection details.](images/installation/installer_step3_database.png)
 
 Add your database connection details:
 
@@ -118,7 +118,7 @@ If successful, the installer will create your initial database structure from in
 
 ### Configuring general settings ###
 
-![Personalizing your helpdesk.](images/02_installer_step6_settings.png)
+![Personalizing your helpdesk.](images/installation/installer_step6_settings.png)
 
 In this step you'll configure the general settings of the helpdesk.
 
@@ -132,7 +132,7 @@ From: "WebGroup Media LLC" <support@webgroupmedia.com>
 
 ### Configuring outgoing mail (SMTP) ###
 
-![Configuring outgoing mail.](images/02_installer_step7_smtp.png)
+![Configuring outgoing mail.](images/installation/installer_step7_smtp.png)
 
 Your helpdesk won't be very useful if it can't send mail to your contacts.
 
@@ -153,7 +153,7 @@ Click the _"Test Outgoing Mail"_ button to verify your settings.
 
 ### Creating your account ###
 
-![Creating your account.](images/02_installer_step8_account.png)
+![Creating your account.](images/installation/installer_step8_account.png)
 
 Now the installer will prompt you to create an administrator account that you will use to log in to the helpdesk.  Use an email address that you check, but not something that routes back to the helpdesk.  Your helpdesk will use this email address to contact you in the event you lose your password, or if you configure notifications.
 
@@ -169,7 +169,7 @@ Complete the short survey in exchange for your free license and then click the _
 
 ### Finishing up! ###
 
-![The installation process is complete.](images/02_installer_step11_finished.png)
+![The installation process is complete.](images/installation/installer_step11_finished.png)
 
 You're almost ready to start using your new helpdesk.
 

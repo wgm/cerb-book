@@ -25,7 +25,7 @@ Once Cerb5 has reduced an e-mail to a list of unique, less-than-common words it 
 
 ### Training ###
 
-![Workers should always use the 'Report Spam' button](images/01-maintenance_spam.png)
+![Workers should always use the 'Report Spam' button](images/maintenance/maintenance_spam.png)
 
 * We've designed training to happen naturally based on a worker's actions in the helpdesk.
 * It's important for workers to use the 'Report Spam' button rather than just deleting junk mail.  Deleting mail doesn't teach the system to be suspicious of similar mail in the future.
@@ -46,7 +46,7 @@ While the ideal process will depend on your environment, here are the tips that 
 ### Groups ###
 The first step in filtering spam is configuring the behavior of your groups:
 
-![Configuring a group to quarantine probable spam.](images/01-maintenance_spam_group.png)
+![Configuring a group to quarantine probable spam.](images/maintenance/maintenance_spam_group.png)
 
 * Configure each group to filter probable spam (>=85%) into a bucket called 'Spam'.
 * While it may seem efficient to have a single 'Spam' bucket shared between all groups, you should create a bucket for each group.  The advantages:
@@ -65,7 +65,7 @@ Hiding the spam buckets is important because it allows workers to actually accom
 ### Purging quarantined spam ###
 Once a day, a group should elect a member to review and empty the spam bucket.  This helps make sure that a legitimate message that has been mistakenly flagged as spam (rare as that may be) isn't ignored for too long -- such messages may relate to a valuable and time-sensitive opportunity.
 
-![There are usually way too many spam messages in a list to check them all individually.](images/01-maintenance_spam_list.png)
+![There are usually way too many spam messages in a list to check them all individually.](images/maintenance/maintenance_spam_list.png)
 	
 We don't expect your workers to read every single quarantined message in the spam bucket, since most of the time everything is going to be junk.  Here's our process for rescuing legitimate mail from an overflowing spam bucket and purging the rest:
 
@@ -83,10 +83,10 @@ We don't expect your workers to read every single quarantined message in the spa
 	* Spam: 'Report Spam'
 	* Save Changes (this may take a while)
 	
-![Use piles to automate a big chunk of the work in a few clicks.](images/01-maintenance_spam_piles.png)
+![Use piles to automate a big chunk of the work in a few clicks.](images/maintenance/maintenance_spam_piles.png)
 
-![Sorting the '# Nonspam' column in descending order.](images/01-maintenance_spam_sort.png)	
+![Sorting the '# Nonspam' column in descending order.](images/maintenance/maintenance_spam_sort.png)	
 
-![Using Bulk Update to rescue false positives.](images/01-maintenance_spam_bulk_update.png)
+![Using Bulk Update to rescue false positives.](images/maintenance/maintenance_spam_bulk_update.png)
 
-![Using Bulk Update to purge the rest of the quarantined spam.](images/01-maintenance_spam_bulk_update_purge.png)
+![Using Bulk Update to purge the rest of the quarantined spam.](images/maintenance/maintenance_spam_bulk_update_purge.png)
