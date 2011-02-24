@@ -67,8 +67,7 @@ _skip to bottom_
 
 * **Reply**
 * **Forward**
-* **Sticky Note**
-	**Sticky notes** are used to keep a message maximized regardless of how far back it is in the timeline.  This is useful when you want to call attention to a specific message.  Compared to comments, sticky notes are short-lived; it is expected that notes will be deleted after they are read by their recipient, and the desired action has been taken.
+* **Sticky notes* are used to keep a message maximized regardless of how far back it is in the timeline.  This is useful when you want to call attention to a specific message.  Compared to comments, sticky notes are short-lived; it is expected that notes will be deleted after they are read by their recipient, and the desired action has been taken.
 * **Print**
 * **Delete**
 

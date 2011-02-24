@@ -16,9 +16,7 @@ You only need to understand a few concepts to get started:
 
 * A **database** provides long-term storage for arbitrary information (_data_).  Databases help applications maintain relationships between data (e.g. _"Which products were shipped for order #1234?"_), and they assist with performing complex analysis (e.g. "_How many orders over the past 12 months were from someone who has a surname that begins with F (AND) resides in Germany (AND) spent more than $100 USD?_").
 
-* The **helpdesk** is web-based software application 
-
-hub for centrally managing and archiving tickets, and routing messages between workers and recipients. This allows several workers to receive and share email without **recipients** writing to any of them individually.
+* The **helpdesk** is web-based hub for centrally managing and archiving tickets, and routing messages between workers and recipients. This allows several workers to receive and share email without **recipients** writing to any of them individually.
 
 * A **ticket** is a specific email conversation, including all of its messages, comments, and settings. Each ticket has a unique identifier (_ID_) for future reference by anyone involved.
 	There are two kinds of IDs:

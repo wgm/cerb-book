@@ -23,6 +23,10 @@ If a conversation is junk mail, and you want to avoid wasting time with mail lik
 
 How it works...
 
+## Cerb5 Software License ##
+
+Dual license?
+
 ## Version numbers ##
 
 Cerb5's version numbers are in the format: `<generation>.<release>.<update>`
