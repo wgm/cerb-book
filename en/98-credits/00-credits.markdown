@@ -16,7 +16,7 @@
 	* We use jQuery UI for the majority of the interface components: tabs, dialogs, autocomplete, drag & drop sorting, effects, etc.
 * [Smarty](http://www.smarty.net/) is a template engine for PHP, facilitating the separation of presentation (HTML/CSS) from application logic. This implies that PHP code is application logic, and is separated from the presentation.
 	* We use Smarty to render the majority of the interface HTML and Javascript.
-* [Swift Mailer](http://swiftmailer.org/) is a component-based library for sending e-mails from PHP 5 applications.
+* [Swift Mailer](http://swiftmailer.org/) is a component-based library for sending email from PHP 5 applications.
 	* We use Swift Mailer to compose MIME messages and send all outgoing mail.
 * [Twig](http://www.twig-project.org/) is an open source template engine for the PHP programming language by Fabien Potencier.  It focuses on being fast, secure, and flexible.
 	* We use Twig for Broadcast and Snippets functionality.

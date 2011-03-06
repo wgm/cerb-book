@@ -37,7 +37,7 @@ Workers are organized into _groups_. Groups are a flexible concept that can be b
 
 If you stick with the defaults, this is the proposed workflow:
 
-* **Dispatch** catches all mail that isn't explicitly routed somewhere. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on skillsets -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always map to a group, the Dispatch group is also the best way to spot incoming e-mail addresses (like `billing@example.com`) that you may want to route directly to a particular group.
+* **Dispatch** catches all mail that isn't explicitly routed somewhere. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on skillsets -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always map to a group, the Dispatch group is also the best way to spot incoming email addresses (like `billing@example.com`) that you may want to route directly to a particular group.
 * **Support** collects issues related to support: product support, customer service, FAQs, billing, etc.
 * **Sales** collects issues related to sales: leads, new orders, refunds, resellers, etc.
 
@@ -71,7 +71,7 @@ This page shows any worker the groups they are a member of, but only managers ca
 There are several tabs on group management:
 
 * **Workflow:** This is where new buckets are created and optionally flagged as assignable. The contents of assignable buckets will be shown as _Available_ when workers are looking for things to do in the _Workflow_ tab of the _mail_ page.
-* **Mail Preferences:** Each group can define their own `From:` address, personal sender name, shared e-mail signature, and auto-responses for new tickets or closed tickets. Each group can also define a different spam filtering policy, as different workflows are more sensitive or forgiving of junk mail.
+* **Mail Preferences:** Each group can define their own `From:` address, personal sender name, shared email signature, and auto-responses for new tickets or closed tickets. Each group can also define a different spam filtering policy, as different workflows are more sensitive or forgiving of junk mail.
 * **Inbox Routing:** Group managers can define a number of inbox filters that will be applied to any new mail received by the group. This automates most of the work of putting things in their proper place.
 * **Members:** This is the group's roster.
 * **Ticket Fields:** Each group can track their own custom fields on new tickets. For example, the Sales department may want to track the source (Google, website, ad) of leads while Support is interested in tracking the category of requests (FAQ, feature request, etc). These custom fields can be used to generate reports.

@@ -38,7 +38,7 @@ After ordering, you'll receive a product license by email.  It will look somethi
 
 ~~~
 Licensed to: Example, Inc.
-Order e-mail: a.smart.shopper@example.com
+Order email: a.smart.shopper@example.com
 
 ### BEGIN CERB5 LICENSE
 Key: ABC1-DEF2-FED3-CBA4-ABC5
@@ -52,7 +52,7 @@ Seats: 15
 To update your product license:
 
 * Enter your company name _exactly_ as it appears on your order.  This is text after _"Licensed to:"_ from the email with your license.
-* Enter your email address _exactly_ as it appears on your order.  This is the text after _"Order e-mail:"_ from the email with your license.
+* Enter your email address _exactly_ as it appears on your order.  This is the text after _"Order email:"_ from the email with your license.
 * Copy the text between `### BEGIN` and `### END` and paste it into the third text box.
 
 ![Updating a Cerb5 license.](images/reference/update_license.png)
