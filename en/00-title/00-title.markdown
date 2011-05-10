@@ -1,3 +1,3 @@
 % Cerb5 User's Guide (Rough Draft)
 % WebGroup Media, LLC.
-% February 24, 2011
+% May 8, 2011

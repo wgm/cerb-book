@@ -46,3 +46,22 @@ The next maintenance update is: `5.4.3`
 The next major release is: `5.5.0`
 
 The next generation is: `6.0.0`
+
+## Clustering ##
+
+Two web server nodes; one database node
+
+* Install Cerb5 completely on one web node first (or outside of the cluster and move the database in)
+
+* Grant DB access to the other nodes
+* Run the installer requirements checker on the other nodes
+* Copy the framework.config.php to the other nodes
+* Load balancer share sessions (cookies)
+
+* Memcached (share cache) -- edit /etc/memcached.conf and make sure bind to internal IP -- enable + copy MEMCACHED node list to all framework.config.php -- make sure php5-memcache package (ext) is installed
+
+### Replicate /storage filesystem ###
+* NFS:
+* Firewall ports (`rpcinfo -p`: portmapper, nfs, nlockmgr, lockd)
+* Move `storage` on slaves
+* `mount -o"rw,hard,intr,async,nosuid,nodev" host:/path/to/master/storage storage`

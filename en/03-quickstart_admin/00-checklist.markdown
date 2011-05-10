@@ -1,19 +1,49 @@
 \newpage
 
-# Preparing Your Helpdesk For Business #
+# Quick Start Guide for Administrators #
 
-## Creating accounts for your workers ##
+## Handling email replies ##
 
-The people who answer helpdesk issues are called _workers_. We chose this term because it's much less ambiguous than referring to your staff as _users_.  You can consider anybody that interacts with your helpdesk as a _user_, including your customers and partners.  When we mention _workers_, we're referring to the staff members that log in to the helpdesk to respond to your customers as representatives of your organization.  These workers might be in customer service, billing, sales, I.T., or marketing; or they may be executives, developers, or system administrators.
+Cerb5 will determine the appropriate `From:` address to use on outgoing email based on the group or bucket.  These are collectively referred to as _reply-to addresses_.
 
-While Cerb5 can be used effectively by a single worker, taking advantage of its powerful collaboration features requires you to invite your co-workers to use it.
+For example:
 
-If this is a brand new helpdesk, the only worker that you should see listed is yourself.  This is the account that was created for you at the end of the installation process.
+* The Billing group may send mail as `billing@example.com`
+* The Billing group's _Receipts_ bucket may send mail as `receipts@example.com`
+* The Sales group may send mail as `sales@example.com`
 
-Let's liven the place up by adding worker accounts for a few more people:
+To ensure that you receive customer replies, it is very important that your mail servers route these reply-to addresses to a mailbox that is checked by Cerb5.
+
+You can add new reply-to addresses from Setup:
 
 1. Click _setup_ in the top right.
-1. Click the _Workers_ tab.
+1. Click the _Mail_ menu.
+1. Select the _Reply-To Addresses_ menu item.
+
+![Navigating to the helpdesk addresses setup page.](images/checklist/menu_setup_mail_replyto.png)
+
+Click the _Add_ button to add a new reply-to address, and enter the following information:
+
+* **Send replies as email:** This specifies an email address to use as the sender in `From:`.
+* **Send replies as name:** This allows you to provide a personal name that will display next to the sender address when your recipient reads their email.  For example, `billing@example.com` may use the personal name _"Widget Factory - Billing Dept."_.  This gives the recipient an idea of who you are; especially if they don't recognize your email address.
+* **Default signature template:** This defines the default worker signature that will be used when mail is sent from this email address.  You can use placeholders like the current worker's name or title, which will automatically fill in the appropriate values depending on who is sending the email.  You can also use conditional logic and modifiers in this template.  Refer to the section about Snippets for more information.
+* **Make default:** If you check this box the current address will become the default reply-to address.  That means it will be used in situations where there is no group or bucket; for example, sending out reminders for forgotten passwords.
+
+![Configuring a new reply-to address.](images/checklist/setup_mail_replyto_add.png)
+
+You can repeat this process for any additional reply-to addresses you want to add.
+
+There is nothing wrong with using a single reply-to address for all outgoing mail -- in fact, that may simplify your mail server configuration considerably, and you can still personalize the sender name for each group or bucket.  If you have multiple products, brands, or initiatives, you may want to configure a reply-to address for each of them so your audience can instantly recognize who you are and why you're contacting them.  Otherwise, a busy or inattentive recipient may unintentionally delete your message as spam because they don't recognize the sender.
+
+## Creating accounts for your co-workers ##
+
+The people who log in to Cerb5 to accomplish work and represent your organization to your audience are called _workers_.  These workers might work in customer service, billing, sales, I.T., or marketing; or they may be executives, developers, or system administrators.
+
+If this is a brand new helpdesk, the only worker that exists at the moment is yourself.  This is the account that was created for you during the installation process.
+
+1. Click _setup_ in the top right.
+1. Click the _Workers & Groups_ menu.
+1. Select the _Workers_ menu item.
 
 First, let's update your own account information.  Click the link on the first or last name of _Super User_ in the _Workers_ list.
 
@@ -27,28 +57,29 @@ First, let's update your own account information.  Click the link on the first o
 
 When you've finished with your changes, click the _Save Changes_ button.
 
-You can use this knowledge to create several new workers in your helpdesk with the _Add Worker_ button.  Then we'll organize them into groups.
+Start collaborating by inviting your co-workers with the _Add Worker_ button.  In the next step we'll organize your workers into groups.
 
 ![A list of helpdesk workers.](images/checklist/workers_list.png)
 
-## Creating groups ##
+## Creating and configuring groups ##
 
-Workers are organized into _groups_. Groups are a flexible concept that can be based on anything: brand, product, department, timezone, language, etc. By default your helpdesk will contain three groups based on common departments: Dispatch, Support, and Sales. The defaults were chosen because they're common departments across most industries, not because they're all-encompassing. You are free to modify these groups to suit your needs.
+Workers are organized into _groups_. Groups are a flexible concept that can be based on anything: brand, product, department, timezone, language, etc. By default you will have three groups based on common departments: Dispatch, Support, and Sales. The defaults were chosen because they're common departments across most industries, not because they're all-encompassing. You are free to modify these groups to suit your needs.
 
 If you stick with the defaults, this is the proposed workflow:
 
-* **Dispatch** catches all mail that isn't explicitly routed somewhere. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on skillsets -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always map to a group, the Dispatch group is also the best way to spot incoming email addresses (like `billing@example.com`) that you may want to route directly to a particular group.
+* **Dispatch** catches all mail that isn't explicitly routed somewhere. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on worker skills -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always match a specific group, the Dispatch group is also the best way to spot incoming email addresses (like `billing@example.com`) that you may want to route directly to a particular group.
 * **Support** collects issues related to support: product support, customer service, FAQs, billing, etc.
 * **Sales** collects issues related to sales: leads, new orders, refunds, resellers, etc.
 
-The workers inside groups can be either _managers_ or _members_. Groups are designed to be autonomous; a group manager has the power to make most configuration changes related to the group without requiring help from an administrator. Managers can add new members to the group, and they can configure the group's workflow by creating buckets and inbox filters.
+The workers inside groups can either be _managers_ or _members_. Groups are designed to be autonomous; a group manager has the power to make most configuration changes related to the group without requiring help from an administrator. Managers can add new members to the group, manage buckets, and configure workflow using the group's Virtual Attendant.
 
-The common practice is to use groups for building a roster of fairly interchangeable workers; work can be given to the group from the outside with the confidence that any member knows what to do with it. Groups share an organization system based on _buckets_, but workers outside the group aren't expected to know how other groups organize their work (and it shouldn't matter to them). Instead, new work is given to groups through their _inbox_, and the group's own filters will decide how work is routed or assigned from there.
+The common practice is to use groups for building a roster of fairly interchangeable workers.  Work can be given to the group from the outside with the confidence that any member knows what to do with it. Groups share an organization system based on _buckets_, but workers outside the group aren't expected to know how other groups organize their work (and it shouldn't matter to them). Instead, new work is given to groups through their _inbox_, and the group's own filters will decide how work is routed or assigned from there.
 
 Let's add a couple new groups.  At this point you're also welcome to change the default groups.
 
 * Click _setup_ in the top right.
-* Click the _Groups_ tab.
+* Click the _Workers & Groups_ menu.
+* Click the _Groups_ menu item.
 * Click the name of a group on the left, or click _add a new group_ to create one.
 
 ![Configuring a group.](images/checklist/groups_add.png)
@@ -56,84 +87,7 @@ Let's add a couple new groups.  At this point you're also welcome to change the 
 * **Name** is what the group will be referred to as throughout the interface.
 * **Members** is the list of workers that you would like to designate as members or managers.
 
-If the configuration of a group seems too simple, that's because it is -- from _Setup_.  The rest of group configuration is handled by managers:
-
-* Click _groups_ in the top right.
-
-	![Navigating to the groups page.](images/checklist/menu_groups.png)
-
-* Click the name of any group to manage it.
-
-This page shows any worker the groups they are a member of, but only managers can make changes to a group.  Normally, if a worker isn't a member of a group then it won't show up in this list.  However, as an administrator you have access to every group as if you were a manager, even if you aren't on the roster.
-
-![Managing a group.](images/checklist/groups_manage.png)
-
-There are several tabs on group management:
-
-* **Workflow:** This is where new buckets are created and optionally flagged as assignable. The contents of assignable buckets will be shown as _Available_ when workers are looking for things to do in the _Workflow_ tab of the _mail_ page.
-* **Mail Preferences:** Each group can define their own `From:` address, personal sender name, shared email signature, and auto-responses for new tickets or closed tickets. Each group can also define a different spam filtering policy, as different workflows are more sensitive or forgiving of junk mail.
-* **Inbox Routing:** Group managers can define a number of inbox filters that will be applied to any new mail received by the group. This automates most of the work of putting things in their proper place.
-* **Members:** This is the group's roster.
-* **Ticket Fields:** Each group can track their own custom fields on new tickets. For example, the Sales department may want to track the source (Google, website, ad) of leads while Support is interested in tracking the category of requests (FAQ, feature request, etc). These custom fields can be used to generate reports.
-
-### Creating buckets to organize work ###
-
-_Buckets_ are flexible containers used by groups to organize their workload. Work can queue up in buckets, making it more efficient to handle similar issues at the same time (e.g. processing orders, issuing refunds, sending out beta information). Buckets are also useful to move piles of work out of the way if they shouldn't be handled immediately (e.g. newsletters, survey responses, feature requests). 
-
-With department-themed groups your buckets might look like:
-
-* **Billing:** receipts, refunds
-* **Corporate:** execs, partners, biz-dev
-* **Development:** bugs, feature requests, feedback
-* **I.T.:** logs, alerts, abuse
-* **Marketing:** surveys, newsletters
-* **Sales:** leads
-* **Support:** technical, account issues
-
-Or if you had product-related groups you might do the following:
-
-* **Product X:** Orders, Refunds, Support
-* **Product Y:** Orders, Refunds, Support
-* **Product Z:** Orders, Refunds, Support
-
-Since buckets are often only concerned with a single shared characteristic, they aren't always the best way to organize work; but they're a useful building block for more complex workflows.
-
-Let's add a few new buckets to the _Sales_ group:
-
-* Manage the _Sales_ group from the _groups_ link in the top right.
-* Click the _Workflow_ tab.
-* In the _Add Buckets_ box, enter the names of the buckets you'd like to create.  For example:
-	* Leads
-	* Invoices
-	* Orders
-	
-	![Creating new buckets for the Sales group.](images/checklist/groups_buckets.png)
-	
-* Click the _Save Changes_ button.
-
-You should now see your new buckets in the _Workflow_ list.  It's a good idea to move the default _Spam_ bucket to the bottom of the list so it's out of the way.  You can do this quickly by setting its order to `99` (or anything higher than the number in the last row).
-
-For workflow purposes, buckets can be designated as _assignable_ or _non-assignable_.
-
-**Assignable buckets** contain work that is actionable -- that is, the work should be assigned and handled in a relatively quick timeframe in an effort to keep the bucket empty and the recipients happy.  Some examples of assignable work include:
-
-* New orders
-* Payment receipts
-* Sales inquiries
-* Requests for help
-* Partnership requests
-
-**Non-assignable buckets** contain work that doesn't need immediate attention and would otherwise detract from the goal of having empty buckets and quick handling of actionable work.  Non-assignable work is usually queued up until a future point and then handled in bulk.  Some examples of non-assignable work include:
-
-* Automatically quarantined spam
-* Bounces (return to sender)
-* Logged events sent to email
-* Long-running promotions that will be processed at a future date
-* Vendor newsletters
-
-Given these definitions, you can also unmark the checkbox in the _Assignable_ column next to the _Spam_ bucket.  This will hide your spam buckets from the _Workflow_ view, making it easier to focus on actionable work.
-
-![Customizing group workflow.](images/checklist/groups_workflow.png)
+From this point, the managers of your new group can take over.  They should refer to the [Quick Start Guide for Group Managers](#quick-start-guide-for-group-managers).
 
 ## Friendly URLs ##
 
@@ -150,11 +104,12 @@ If you're using the Apache web server you can enable _"friendly URLs"_ with the 
 	$ cd /path/to/cerb5
 	$ cp .htaccess-dist .htaccess
 	
-For this to work you will need `mod_rewrite` to be enabled in your Apache configuration.  This is usually the case, unless you have just installed it.
+For this to work you will need `mod_rewrite` to be enabled in your Apache configuration.  This is usually the case, unless you have just compiling or installed it.
 
 If `mod_rewrite` isn't enabled, you can enable it with the following command on many Linux-based servers:
 
-	# a2enmod rewrite
+	$ sudo a2enmod rewrite
+	$ /etc/init.d/apache2 reload
 	
 ### Enabling friendly URLs with nginx ###
 
@@ -191,9 +146,9 @@ This assumes that Cerb5 is installed in the root of the webserver.  Otherwise, j
 
 ## Security ##
 
-Traditionally, when you access a URL like `http://www.example.com/help.html` from your browser there is corresponding file on the webserver with the name `help.html`.  This is true for HTML, images, Javascript, CSS, and other files available for download.
+Traditionally, when you access a URL like `http://www.example.com/pages/help.html` from your browser there is corresponding file on the webserver with the name `help.html` in the `pages` directory.  This same process is used for HTML, images, Javascript, CSS, and other files available for download.
 
-Cerb5 uses a different approach for serving content, which is known to web application developers as the **Model-View-Controller (MVC)** [^wikipedia-mvc] architectural pattern.  As a consequence of this, all the public interaction with your helpdesk occurs with two main files in the root directory of your Cerb5 installation. The pages that your helpdesk users interact with are _virtual_.  This means that there isn't a file on your webserver that corresponds with each URL.
+Cerb5 uses a different approach for serving content, which is known to web application developers as the **Model-View-Controller (MVC)** [^wikipedia-mvc] architectural pattern.  As a consequence of this, all the public interaction with your helpdesk occurs with two main files in the root directory of your Cerb5 installation. The pages that your workers interact with are _virtual_.  This means that there isn't a file on your webserver that corresponds with each URL.
 
 [^wikipedia-mvc]: Wikipedia: _Model-View-Controller (MVC)_  
 	<http://en.wikipedia.org/wiki/Model-View-Controller>
@@ -253,13 +208,13 @@ With nginx, you can use the following directive in your server configuration:
 
 ### Considerations for HTTP authentication and IP-based security ###
 
-#### Helpdesk users ####
+#### Workers ####
 
-Your organization may have a requirement that all helpdesk access should be password protected or restricted to requests coming from inside your corporate network.  That's a fine policy, but there are a few things you need to consider when implementing a firewall, HTTP authentication, or IP-based security restrictions.
+Your organization may have a requirement that all worker access should be password protected or restricted to requests coming from inside your corporate network.  That's a fine policy, but there are a few things you need to consider when implementing a firewall, HTTP authentication, or IP-based security restrictions.
 
 #### Scheduled tasks ####
 
-All scheduled tasks that are configured in the helpdesk are triggered by automated requests to the `/cerb5/cron` URL.  If these requests are coming from a cronjob on the same webserver then this usually doesn't present a problem.  However, once you've established IP-based restrictions you should test the scheduled automated access to that URL to make sure it can get through.  These scripts will also need to provide HTTP authentication details if you're enforcing them.
+All scheduled tasks are triggered by automated requests to the `/cerb5/cron` URL.  If these requests are coming from a cronjob on the same webserver then this usually doesn't present a problem.  However, once you've established IP-based restrictions you should test the scheduled automated access to that URL to make sure it can get through.  These scripts will also need to provide HTTP authentication details if you're enforcing them.
 
 #### Web-API ####
 
@@ -267,7 +222,7 @@ If you have applications that use the **Web-API** (<http://wiki.cerb5.com/wiki/W
 
 #### Community portals ####
 
-Community portals also make requests to your helpdesk.  If you install the Support Center, or another community portal, on an external webserver then you need to make sure that machine can make requests to the `/cerb5/portal/*` path.  The default community portal script doesn't provide a mechanism for HTTP authentication, but you could provide an override by IP address.  This feature is on the project wishlist [^chd679].
+Community portals also make requests to Cerb5.  If you install the Support Center, or another community portal, on an external webserver then you need to make sure that machine can make requests to the `/cerb5/portal/*` path.  The default community portal script doesn't provide a mechanism for HTTP authentication, but you could provide an override by IP address.  This feature is on the project wishlist [^chd679].
 
 [^chd679]: Feature request: _Community Tools should support HTTP authentication if the parent helpdesk is password protected._  
 	<http://wgmdev.com/jira/browse/CHD-679>
@@ -295,7 +250,7 @@ XCache is not found in the **PHP Extension and Application Repository (PEAR)** (
 
 On Debian and Ubuntu systems you can install XCache with `apt-get`:
 
-	apt-get install php5-xcache
+	$ sudo apt-get install php5-xcache
 
 Depending on your installation method the XCache configuration will be at the end of your `php.ini` file, or in a `conf.d/xcache.ini` file.  
 
@@ -303,7 +258,7 @@ If you have other applications on your webserver that you don't want to be manag
 
 	xcache.cacher = Off
 	
-Then you can add the following option in your helpdesk's vhost configuration or an `.htaccess` file:
+Then you can add the following option in your virtual host configuration or an `.htaccess` file:
 
 	php_flag xcache.cacher On
 	
@@ -320,19 +275,27 @@ The **Alternative PHP Cache (APC)** [^php-apc] is a popular choice for opcode ca
 
 ### Memcached ###
 
-In web applications the majority of the latency in serving a request is caused by interactions with a database. Databases are often necessary for managing persistence and to providing a way to sort and filter large collections of information. However, databases are also overused to frequently read and write infrequently-changed information -- or worse, information that never changes.
+One of the major sources of latency in web applications is often database interaction.  Databases are used to save information between sessions (_persistence_), and they provide functionality for sorting, joining, and filtering large collections of information.  Databases are a natural fit for _dynamic_ content -- that which changes frequently as people use the application (e.g. profiles, voting, comments).
 
-**Memcached** (<http://memcached.org/>) provides a shared memory cache where arbitrary information can be read frequently without incurring the overhead of a database.
+The use of a database may feel so convenient for novice developers that they begin to serve all content that way, including _static_ content -- that which doesn't change while the application is in use (e.g. HTML templates, CSS stylesheets, files for download).
+
+In our experience, the worst kind of content to frequently read from a database is _immutable_ -- that which is written once and then *never* changes (e.g. email messages, file attachments, log entries).
+
+There is nothing inherently wrong with storing this information in a database.  Issues arise when infrequently changed information is *frequently* read from the database, due to the overhead of aggregating, joining, filtering, sorting, and returning results.  At best, the database itself caches the results of these extraneous read queries.  At worst, the database expends considerable resources every request to retrieve data that hasn't changed in the past 1,000 read queries.
+
+**Memcached** (<http://memcached.org/>) provides a shared memory cache for arbitrary information.  This allows static or immutable content to be retrieved from the database once and then requested many times without incurring database overhead.  Even better, content in a single Memcached instance can be cached from multiple databases, and read by multiple servers.
 
 Memcached advantages:
 
 * Shared memory allows multiple processes to share a single cache.
+* Memcached instances can be shared by multiple readers.
 * Cache requests can be distributed over multiple instances.
-* It's volatile memory and shouldn't be used to store anything that you can't repopulate from a persistent source (like the filesystem or a database).
+* Reading from Memcached is often faster than reading from a database; especially when content has been pre-sorted and pre-filtered, and is cached in a serialized object format (e.g. JSON) that can be quickly reconstituted by the application.  Information read from databases is usually based on rows and columns, and these need to be reassembled into objects which have a considerable overhead cost if performed frequently.
 
 Memcached disadvantages:
 
 * Applications need to be designed with Memcached support in mind.
+* It's volatile memory and shouldn't be used to store anything that you can't repopulate from a persistent source (like the filesystem or a database).
 * It's yet another process running on your server.
 * It provides no means of authentication. That's up to you.
 

@@ -1,6 +1,6 @@
 \newpage
 
-# Getting Started as a New User #
+# Quick Start Guide for Workers #
 
 ## Logging in for the first time ##
 
