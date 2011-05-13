@@ -8,7 +8,7 @@ To fully protect your Cerb5 helpdesk data you need to backup both the MySQL data
 ### Requirements ###
 
 * A Unix-based server with shell access
-* A Cerberus Helpdesk 5.0 installation
+* A Cerb5 installation
 
 ### Setting up the environment ###
 

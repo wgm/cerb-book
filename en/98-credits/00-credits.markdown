@@ -36,19 +36,21 @@
 * [IconExperience](http://www.iconexperience.com/) is one of the leading sources for high-quality professional icons.
 	* We licensed many of the interface icons from IconExperience.
 
+<!-- icons from Japan -->
+
 ## Official development team ##
 
 * [Jeff Standen](http://www.linkedin.com/in/jeffstanden) is the founder of WebGroup Media LLC, contributing over 17 years of professional software development and online collaboration experience.  He has been the lead developer of Cerberus Helpdesk (Cerb5) since the first line of code was written in January 2002.
 * [Darren Sugita](http://www.linkedin.com/pub/darren-sugita/24/234/978)
 * [Dan Hildebrandt](http://www.linkedin.com/in/danielhildebrandt)
 * [Scott Luther](http://www.linkedin.com/pub/scott-luther/7/3b3/98)
-* [Jerry Kanoholani](http://www.linkedin.com/pub/jerry-kanoholani/19/74/977)
 
-## Retired developers ##
+## Inactive developers ##
 
 * [Ben Halsted](http://www.linkedin.com/in/bhalsted)
 * [Brenan Cavish](http://www.linkedin.com/pub/brenan-cavish/21/a89/57b)
 * [Mike Fogg](http://www.linkedin.com/in/mikefogg)
+* [Jerry Kanoholani](http://www.linkedin.com/pub/jerry-kanoholani/19/74/977)
 * **Joe Geck**
 * [Jeremy Johnstone](http://www.linkedin.com/in/jsjohnst)
 * [Trent Ramseyer](http://www.linkedin.com/in/trentramseyer)

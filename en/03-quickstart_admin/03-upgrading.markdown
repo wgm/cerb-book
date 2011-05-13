@@ -1,5 +1,5 @@
 
-## Upgrading to Newer Versions of Cerb5 ##
+## Upgrades ##
 
 ### Introduction ###
 

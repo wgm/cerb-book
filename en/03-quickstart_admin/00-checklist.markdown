@@ -1,10 +1,10 @@
 \newpage
 
-# Quick Start Guide for Administrators #
+# Guide for Administrators #
 
 ## Handling email replies ##
 
-Cerb5 will determine the appropriate `From:` address to use on outgoing email based on the group or bucket.  These are collectively referred to as _reply-to addresses_.
+Cerb5 will determine the appropriate `From:` address to use on outgoing email based on the group or bucket.  These are collectively referred to as _Receipts_ addresses_.
 
 For example:
 
@@ -61,7 +61,7 @@ Start collaborating by inviting your co-workers with the _Add Worker_ button.  I
 
 ![A list of helpdesk workers.](images/checklist/workers_list.png)
 
-## Creating and configuring groups ##
+## Creating groups ##
 
 Workers are organized into _groups_. Groups are a flexible concept that can be based on anything: brand, product, department, timezone, language, etc. By default you will have three groups based on common departments: Dispatch, Support, and Sales. The defaults were chosen because they're common departments across most industries, not because they're all-encompassing. You are free to modify these groups to suit your needs.
 

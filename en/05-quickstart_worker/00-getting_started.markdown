@@ -1,6 +1,6 @@
 \newpage
 
-# Quick Start Guide for Workers #
+# Guide for Workers #
 
 ## Logging in for the first time ##
 
@@ -43,6 +43,10 @@ You only need to understand a few concepts to get started:
 * A worker in a group is called a **member**. A member with the authority to modify the group is called a **manager**. Managers can create buckets, add new group members, and establish routing rules for new work.  Groups can have any number of managers.
 
 * Each group has an **inbox** where new tickets are delivered by default. These tickets are then dispatched automatically by workflow rules or manually by workers.
+
+## Tour mode ##
+
+
 
 ## Time zones ##
 
