@@ -3,7 +3,7 @@
 
 ### Introduction ###
 
-To fully protect your Cerb5 helpdesk data you need to backup both the MySQL database and the `/cerb5/storage/` filesystem.  While there are countless good approaches for performing backups, this document will focus on the best practices we've discovered over the past several years of hosting hundreds of helpdesk instances on our On-Demand network.  The examples will be Unix-based, since the command line is the land of milk and honey (and flexible automation).
+To fully protect your Cerb5 helpdesk data you need to backup both the MySQL database and the `/cerb5/storage/` filesystem.  While there are countless good approaches for performing backups, this document will focus on the best practices we've discovered over the past several years of hosting hundreds of helpdesk instances on our On-Demand network.  The examples will be Unix-based since that's what we're most comfortable with.
 
 ### Requirements ###
 
@@ -18,7 +18,7 @@ For convenience and permissions, it's a good idea to make a `backups` user on th
 
 * You can usually accomplish this with something like:
 
-		adduser --home /backups --disabled-password --disabled-login backups
+		# adduser --home /backups --disabled-password --disabled-login backups
 
 #### Creating a backups database user with a shadow password ####
 
@@ -26,21 +26,24 @@ It's a really smart idea to make a separate backup user that is read-only, espec
 
 * In MySQL you can do this with the following query (_make up your own password!_):
 
-		GRANT SELECT, RELOAD, LOCK TABLES ON *.* TO backups@localhost IDENTIFIED BY 's3cret';
+		mysql> GRANT SELECT, RELOAD, LOCK TABLES 
+		ON *.* 
+		TO backups@localhost 
+		IDENTIFIED BY 's3cret';
 
 * You should then create a [Shadow file](http://en.wikipedia.org/wiki/Shadow_password) which will "securely" store your password for automation:
 
-	* Put the password text inside a hidden file:
+	* Put the password text inside a hidden file.  It's better to use something like `vi` instead of `echo`, since you don't want to leave your password in your command history.  We'll use `echo` here for simplicity:
 	
-			echo -n "s3cret" > ~backups/.db.shadow;
+			# echo -n "s3cret" > ~backups/.db.shadow;
 	
 	* Make the backups user the owner:
 	
-			chown backups:backups ~backups/.db.shadow;
+			# chown backups:backups ~backups/.db.shadow;
 	
 	* Make the file read-only by the owner and invisible to world:
 	
-			chmod 400 ~backups/.db.shadow;
+			# chmod 400 ~backups/.db.shadow;
 
 In the examples below we'll use this shadow file in place of literally typing the password on the command line.  In addition to enabling automation, this also helps prevent sensitive information from being visible to other users in the global process list.
 
@@ -48,7 +51,7 @@ In the examples below we'll use this shadow file in place of literally typing th
 
 The database stores the majority of your helpdesk information. In the majority of cases, it stores anything that isn't an attachment.
 
-#### Using mysqlhotcopy (recommended) ####
+#### Using mysqlhotcopy (recommended for MyISAM) ####
 
 One of the quickest ways to backup (and restore) a MyISAM-based MySQL database is to use the `mysqlhotcopy` [^mysqlhotcopy] tool, which copies the raw .frm, .MYD, and .MYI files to a new location.  This utility will flush any pending row changes from memory to the disk and then lock the tables while copying them to a new location.  Unless your database is huge (relative to your hardware), or your disk or network I/O is very slow, you should be able to hotcopy a live database with minimal interruption.  If you're using replication you can make hotcopies of a slave without any service interruption.
 
@@ -58,23 +61,49 @@ One of the quickest ways to backup (and restore) a MyISAM-based MySQL database i
 **Pros:**
 
 * It's as fast as your disk or network I/O.
-* Restoring a hotcopy on similar hardware is nearly instantaneous.
+* Restoring a hotcopy on similar hardware is nearly instantaneous.  It won't need to rebuild the indexes.
 * It's very flexible, allowing for table inclusion/exclusion by regexp patterns, truncating indexes, redirecting output over [SCP](http://en.wikipedia.org/wiki/Secure_copy), etc.
 
 **Cons:**
 
 * It's Unix only.
 * It's only compatible with MyISAM tables (not InnoDB).
+* Binary files are less corruption-tolerant than SQL dump text files.
 * You may have issues restoring a hotcopy on a new machine with a significantly different architecture (e.g. 32-bit to 64-bit and [http://en.wikipedia.org/wiki/Endianness endianness]).
+
+It's **important** to reiterate that `mysqlhotcopy` will not properly back up InnoDB tables, but it won't give you an error if you try.  If you're using InnoDB tables you must use `mysqldump` or an Inno-DB specific hotcopy solution.
 
 **Usage: (to local filesystem)**
 
-	mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices c5_database ~backups/dbs/
+	$ mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices \
+	c5_database ~backups/dbs/
 
 **Usage: (to SCP)**
 
-	mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices \
+	$ mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices \
  	--method='scp -c arcfour -C -2' c5_database backups@remotehost:~backups/dbs/
+
+#### Using mysqldump (recommended for InnoDB) ####
+
+If you're using InnoDB tables, or you don't have access to the `mysqlhotcopy` tool or you aren't comfortable using it, then `mysqldump` is the standard tool for performing database backups.
+
+**Pros:**
+
+* It works for most database storage engine types (e.g. MyISAM, InnoDB).
+* It's very corruption-tolerant since it writes text files that you can edit with any text editor.  In the event of file corruption it's easier to salvage your data.
+* It's available in almost every environment.
+* SQL dumps are widely compatible with different versions of MySQL on different architectures.
+
+**Cons:**
+
+* When you reimport a SQL dump file the database will have to recreate your key indexes which may take a significant amount of time.  You can use the `--disable-keys` flag to improve this.
+* Writing a dump file is usually slower than using a tool like `mysqlhotcopy` to copy the binary data files.
+* To ensure a consistent snapshot you may need to lock your tables with `--lock-tables`.  This prevents data from being written in a file you've already backed up while you're still backing up other files.  Without locking, some tables will have references to data in other tables that doesn't exist.  However, if you're using InnoDB you can use the `--single-transaction` flag to make a consistent snapshot without locks (but you should ensure the database schema itself doesn't change during the process; which usually only happens during a software update).
+
+**Usage: (MyISAM)**
+
+	$ mysqldump -Q --disable-keys --e -u backups -p`cat ~backups/.db.shadow` \
+	--lock-tables c5_database > c5_database.sql
 
 ### Backing up the storage filesystem ###
 
@@ -100,7 +129,8 @@ The `/cerb5/storage` filesystem stores the pending mail parser queue, import que
 	
 **Usage: (to SSH)**
 
-	rsync -aze ssh --verbose --delete /path/to/cerb5/storage backups@remotehost:~backups/storage
+	rsync -aze ssh --verbose --delete /path/to/cerb5/storage \
+	backups@remotehost:~backups/storage
 
 **Tips:**
 
@@ -109,13 +139,13 @@ The `/cerb5/storage` filesystem stores the pending mail parser queue, import que
 
 ### Keeping off-site backups ###
 
-It's crucial to assume that [anything that *can* go wrong *will* go wrong](http://en.wikipedia.org/wiki/Murphy%27s_law) (at some point).  You can't trust your local RAID, your server, or your datacenter, to store the only copy of data that your business is doomed without.
+It's crucial to assume that [anything that can go wrong will go wrong](http://en.wikipedia.org/wiki/Murphy%27s_law) (at some point).  You can't trust your local RAID, your server, or your datacenter, to store the only copy of data that your business is doomed without.
 
-At the simplest, off-site backups may involve downloading a copy of your backups to your office and burning an extra copy to DVD.  Keep in mind, it does you no good to have 250GB of backups on your office network with a 256Kbps upstream to your datacenter.  However, there's something to be said for the secure feeling of having tangible, offline copy of your critical data.
+At the simplest, off-site backups may involve downloading a copy of your backups to your office and burning an extra copy to DVD.  Keep in mind, it does you no good to have 250GB of backups on your office network with a 256Kbps upstream to your datacenter.  If you could drive across the country to hand deliver the backups faster than you could upload them then you'll want to place your backups somewhere where you can retrieve them quickly.  However, there's something to be said for the secure feeling of having tangible, offline copy of your critical data; and even WebGroup Media's 9 years old Cerb5 database could fit on a DVD and be re-uploaded from a residential Internet connection.
 
 If you have the resources, you may also choose to have a standby server in a different location than your production server.  This would allow you to make server-to-server backups, which would require two hardware configurations, or two datacenters, to fail at the same time before you follow them into the blackness of failure.
 
-Our favorite choice, cloud and utility computing, also provides a great opportunity for off-site backups, since you can store massive amounts of data, highly-redundantly, for a few bucks a month; and you'll likely be able to move data to and from a cloud computing network MUCH faster than using your office DSL.
+Our favorite choice, cloud and utility computing, also provides a great opportunity for off-site backups, since you can store massive amounts of data, highly redundantly, for a few dollars per month; and you'll likely be able to move data to and from a cloud computing network MUCH faster than using your office DSL.
 
 #### Using Amazon EC2/S3 (recommended) ####
 
@@ -152,7 +182,7 @@ The [Jets3t](http://jets3t.s3.amazonaws.com/downloads.html) project provides a S
 
 **Usage:**
 
-	~backups/jets3t/bin/synchronize.sh -k UP yourbucket/backups/server1/dbs/20080912 *.gz
+	~backups/jets3t/bin/synchronize.sh -k UP yourbucket/backups/server1/dbs/20110531 *.gz
 
 
 **Tips:**
