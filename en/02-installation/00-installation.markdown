@@ -36,7 +36,7 @@ When deploying Cerb5 on a production server you should use Subversion.  This all
 
 **On Unix-based servers:**
 
-	$ svn checkout http://svn.webgroupmedia.com/cerb5/branches/stable cerb5
+	$ svn checkout http://svn.github.com/wgm/cerb5.git cerb5
 	
 **On Windows-based servers:**
 
@@ -68,6 +68,8 @@ There are only two locations that need write access by the webserver during your
 	$ cd cerb5
 	$ chown -R www-data:www-data .
 	$ chmod -R framework.config.php storage
+	
+Note: You will need to use your own user and group information instead of `www-data`.
 
 **On Windows-based servers:**
 
@@ -82,13 +84,26 @@ Create a new MySQL database using the console or your favorite GUI.
 			TO cerb5@localhost \
 			IDENTIFIED BY 'secret_password';
 
+Note: Substitute your own database login for `cerb5`, and replace `secret_password` with something more secure.
+
+If you don't want to use `ALL PRIVILEGES`, the minimum required privileges for the database user are:
+
+* `SELECT`
+* `INSERT`
+* `UPDATE`
+* `DELETE`
+* `CREATE`
+* `ALTER`
+* `DROP`
+* `CREATE TEMPORARY TABLES`
+
 ## Running the guided installer ##
 
 Cerb5 comes with a guided installer that helps you initially configure the system.
 
 To start the installer, point your browser to: `http://www.example.com/cerb5/install`
 
-_You will need to replace `www.example.com` with your actual domain name_.
+Note: You will need to replace `www.example.com` with your actual domain name.
 
 ### Running the server environment checker ###
 
@@ -106,15 +121,16 @@ Click the _"I Accept"_ button if you agree to the licensing terms.
 
 Add your database connection details:
 
-*	**Database driver:** You can leave this at the default for MySQL 5.x+
-*	**Host:** This is the hostname of your database server.  If it's on the same machine as your webserver you can enter _"localhost"_ to use sockets rather than TCP/IP connections (which are faster).  Otherwise, enter a hostname or IP address.
+*	**Driver:** If you have the ability to use the `MySQLi` driver then you should select it.  It's newer than the standard `MySQL` driver.  Otherwise, use the default.
+*	**Engine:** `MyISAM` and `InnoDB` both have advantages and disadvantages.  Your choice will impact performance and various processes like backups.  If you are unsure about the tradeoffs, use `MyISAM`.  If you are familiar with `InnoDB` then you may experience better performance under high loads with that engine.  This decision isn't permanent; you can switch database engines later.
+*	**Host:** This is the hostname of your database server.  If it's on the same machine as your webserver you can enter `localhost` to use sockets rather than TCP/IP connections (which are faster).  Otherwise, enter a hostname or IP address.
 *	**Database Name:** Enter the name of the new database you created.
-*	**Username:** Enter the username from your MySQL `GRANT PRIVILEGES` command.  This user should have full privileges to the database (`SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE/ALTER/DROP TABLE`, etc).
+*	**Username:** Enter the username from your MySQL `GRANT PRIVILEGES` command.
 *	**Password:** Enter the password from your MySQL `GRANT PRIVILEGES` command.
 
 Once you have entered your database details, click the _"Test Settings"_ button to verify the software can connect to your database.
 
-If successful, the installer will create your initial database structure from incremental patches for each plugin.  This may take a few moments, so don't worry if it doesn't look like anything is happening.
+If successful, the installer will create your initial database structure from incremental patches for each plugin.  This may take a few moments because the database is created by incrementally running the updates from each previous version; so don't worry if it doesn't look like anything is happening right away.
 
 ### Configuring general settings ###
 
@@ -129,6 +145,8 @@ In this step you'll configure the general settings of the helpdesk.
 ~~~
 From: "WebGroup Media LLC" <support@webgroupmedia.com>
 ~~~
+
+Click the _Continue_ button when you've entered your preferences.
 
 ### Configuring outgoing mail (SMTP) ###
 
