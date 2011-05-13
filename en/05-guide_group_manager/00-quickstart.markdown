@@ -105,8 +105,23 @@ A group's inbox is always the top bucket in the list.  You can drag custom bucke
 
 ## Configuring the group Virtual Attendant ##
 
-### Example Behavior ###
+Each group has a Virtual Attendant that provides a way for you to automate workflow and business logic.  If necessary, you can review the topic of [Virtual Attendants](#virtual-attendants) in the [Concepts](#concepts) chapter.
 
+### Group Events ###
+
+* **Conversation closed in group** - This event occurs when a ticket set to the closed status.  You can use this for behavior like sending an email to the customer asking if their issues were solved to their satisfaction (using satisfaction surveys, etc).
+* **Conversation moved in group** - This event occurs when a ticket is moved into the group from another group, or when it's moved to a new bucket within the group.  For example, this can be used to automatically sort mail that lands in the inbox into buckets.
+* **New message on a group conversation** - This event occurs when a new email message is sent or received by a group conversation.  This can be used to send notifications to workers or confirmations to customers.  This event can also be used to automatically assign workers as watchers to specific kinds of messages: new orders, receipts, mail from V.I.P. senders, etc.
+
+### Example: Sending an automated message to new group conversations ###
+
+It's fairly common for a group to want to send an automated acknowledgement when new conversations are started.
+
+1. Manage your group.
+1. Click the _Virtual Attendant_ tab.
+1. Under _Create New Behavior_ choose "New message on a group conversation"
+
+<!--
 #### Sending an automated message to new conversations ####
 
 #### Sending an automated message to closed conversations ####
@@ -114,6 +129,7 @@ A group's inbox is always the top bucket in the list.  You can drag custom bucke
 #### Assigning watchers to new conversations ####
 
 #### Quarantining incoming spam ####
+-->
 
 ## Changing the group roster ##
 
