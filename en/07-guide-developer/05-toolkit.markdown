@@ -129,6 +129,4 @@ A plugin can take advantage of the platform's built-in request **routing** by re
 
 ### Bulk Update ###
 
-### Decision Trees ###
-(Chapter on this)
-
+### Virtual Attendants ###
