@@ -128,20 +128,173 @@ The **Snippets** tab manages fragments of text that can be reused in various con
 
 ![The activity section.](images/getting_started/section_activity.png)
 
+#### Feedback ####
+
+#### Opportunities ####
+
+#### Tasks ####
+
+#### Time Tracking ####
+
 ### Address Book ###
+
+#### Organizations ####
+
+#### Registered Contacts ####
+
+#### Addresses ####
 
 ### Knowledgebase ###
 
+#### Browse ####
+
+#### Search ####
+
 ### Reports ###
+
+#### Worker History over Date Range ####
+
+<!--
+
+#### Custom Field Usage ####
+
+#### Group Rosters ####
+
+#### Group Replies over Date Range ####
+
+#### Top 100 Shared Sender Domains ####
+
+#### Top 100 Spam/Nonspam Words ####
+
+#### Top 100 Spam/Nonspam Senders ####
+
+#### Top 100 Spam/Nonspam Domains ####
+
+#### Created Tickets by Group over Date Range ####
+
+#### Currently Open Tickets By Group ####
+
+#### Closed Tickets by Group over Date Range ####
+
+#### Tickets Created by Top Contacts over Date Range ####
+
+#### Currently Waiting Tickets By Group ####
+
+#### Oldest Open Tickets by Group ####
+
+#### Current Ticket Assignments ####
+
+#### Average Response Time over Date Range ####
+
+#### Worker History over Date Range ####
+
+#### Time Spent by Worker over Date Range ####
+
+#### Time Spent by Organization over Date Range ####
+
+#### Time Spent by Activity over Date Range ####
+
+-->
 
 ### Profiles ###
 
-### Groups ###
+#### Activity Log ####
+
+#### Watchlist ####
+
+### Your Profile ###
+
+#### Notifications ####
+
+#### Virtual Attendant ####
 
 ## Watching ##
 
-## Your worker profile ##
+## Configuring your Virtual Attendant ##
 
-## Reading notifications ##
+1. Click on your name at the top right of any page to reveal a menu.
+1. Select _Virtual Attendant_ from the menu.
+
+If necessary, you can review the topic of [Virtual Attendants](#virtual-attendants) in the [Concepts](#concepts) chapter.
+
+![The shortcut to your Virtual Attendant.](images/getting_started/topmenu_virtual_attendant.png)
+
+### Sending notifications to email ###
+
+<!-- More efficient to use the wgm.notifications_emailer plugin -->
+
+You can instruct your Virtual Attendant to send a copy of new notifications to your email address.
+
+![Our desired Virtual Attendant behavior.](images/getting_started/va_email_notifications_weekend.png)
+
+It's quite simple to send a copy of all notifications to your email address.  First let's create a new behavior and give it a name:
+
+1. Under _Create New Behavior_, choose _New notification for me_.
+1. Click on the gray bubble with the words _New notification for me_.
+1. Select _Edit Behavior_ from the menu.
+
+	![The menu.](images/getting_started/va_email_notifications_menu.png)
+
+1. Set the text of _Title_ to "Send notifications to email".
+1. Click the _Save Changes_ button.
+
+Now that we've created a new behavior you could simply add a new action to it and receive a copy of all your notifications by email.  However, to make this more interesting, let's imagine that you only want a copy of your new notifications to be sent during the weekend.  First, we want to a new decision to the behavior:
+
+1. In the _Send notifications to email_ behavior, click on the gray bubble with the words _New notification for me_.
+1. Select _Add Decision_ from the menu.
+1. Set the text of _Title_ to "Is it a weekend?"
+1. Click the _Save Changes_ button.
+
+Now we want to add a positive outcome to the new decision:
+
+1. Click the gray decision bubble with the blue text _Is it a weekend?_.
+1. Select _Add Outcome_ from the menu.
+1. Set the text for _Title_ to "Yes"
+1. Click the _Add Condition_ button.
+1. Type "day" and delete _Day of week_ from the list.
+1. Check the boxes for _Sun_ and _Sat_.
+1. Click the _Save Changes_ button.
+
+	![The outcome.](images/getting_started/va_email_notifications_outcome.png)
+
+Finally, we want to add an action to send our mail during the weekend:
+
+1. Click on the gray outcome bubble with the green text _Yes_.
+1. Select _Add Actions_ from the menu.
+1. Set the text of _Title_ to "Send email".
+1. Under _Add Action_ select _Send email to me_ from the list.
+1. Set the text of _Subject:_ to "[Notification] {{message}}"
+1. Set the text of _Content:_ to:
+
+    {{message}}  
+	{{url}}
+	
+1. Click the _Save Changes_ button.
+
+	![The action.](images/getting_started/va_email_notifications_action.png)
+
+Now any time you receive a new notification during the weekend a copy will be sent to your email address.
+
+	Date: Sun, 15 May 2011 09:01:48 +0000
+	Subject: [Notification] Manager Mark commented on task Evaluate Cerb5: I
+	 think it will do everything we want, and more! 
+	From: "Example, Inc." <support@example.com>
+	To: you@example.com
+
+	Manager Mark commented on task Evaluate Cerb5: I think it will 
+	  do everything we want, and more!
+	http://localhost/cerb5/tasks/display/1/comments
+	
+If you click on the link provided in the email then your browser will open directly to the subject of the notification.  In the example above you would end up on a specific task that your manager left a comment for you on.
+
+Now that you understand how to forward your notifications to your email address you can customize the behavior to do exactly what you want.  For example, if you want to send a copy of all notifications to your email address, you can simply add an action directly to the new behavior (the top gray bubble) and skip the steps for making a decision and an outcome.
+
+You could also change the decision to allow for different outcomes.  If you renamed the decision to "It is:", you could add outcomes for "Weekend" and "Weekday After hours", each with their own action.
+	
+<!--
+### Sending notifications to SMS ###
+-->
+
+### Relaying customer replies to your mobile phone ###
 
 ## Creating custom workspaces ##
