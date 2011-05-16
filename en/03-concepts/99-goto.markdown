@@ -8,6 +8,7 @@ The rest of this book is organized into a series of guides depending on your rol
 
 Jump to the [Guide for Administrators](#guide-for-administrators) if you would like to learn how to:
 
+* Install the software
 * Manage workers and groups
 * Configure incoming and outgoing mail
 * Define custom fields for tracking new information
@@ -33,7 +34,7 @@ Jump to the [Guide for Workers](#guide-for-workers) if you're new to the helpdes
 * Read and respond to email conversations
 * Build a watch-list for monitoring activity on content of interest
 * Set up custom workspaces to track information you care about
-* Configure your own personal Virtual Attendant
+* Configure your own personal Virtual Attendant to notify you by email, SMS, IM, and more
 * Find and capture answers with the knowledgebase
 
 ## Developers ##
