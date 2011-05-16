@@ -52,3 +52,12 @@ There are several important reasons for this:
 (* is changelog-worthy)
 (reference bug tracker issue numbers when they are available)
 
+## Time zones ##
+
+In our increasingly interconnected world, you have probably realized that the clock on your wall is not useful for keeping track of an international timeline.  For example, when it's 9am on a Tuesday in Los Angeles, it's 5pm that evening in London because there is an 8 hour time difference.  At the same moment, it's 2am Wednesday morning in Tokyo because there is a 17 hour time difference between it and Los Angeles.
+
+To make comparisons in different time zones useful, we need a fixed point to compare everything to.  Cerb5 uses _universal time_ (UTC/GMT) when storing and comparing dates.  Each time zone has an established _offset_ from UTC which can be represented as 4 digits (2 for hours and 2 for minutes) prefixed with a `-` (before UTC) or `+` (after UTC).  Los Angeles in Pacific Daylight Savings Time (PDT) is behind UTC by 7 hours, which you may see represented at the end of an email `Date:` as `-0700`.  During British Summer Time (BST), London is 1 hour ahead of UTC, or `+0100`.  Tokyo is in Japan Standard Time (JST), which doesn't observe daylight savings time, so it is always 9 hours ahead of UTC, or `+0900`.
+
+To simplify this, Cerb5 displays dates in _relative_ time.  In other words, something that happened _5 minutes ago_ in Tokyo also happened _5 minutes ago_ from the perspective of London.  There is no offset for these relative times.
+
+We could just as easily store all dates in your local time zone rather than universal time and you could still make comparisons between dates, but if your company headquarters moved to a new time zone then your entire historical timeline would be inaccurate by the offset between those time zones.  When dates are stored in GMT/UTC, it doesn't matter where you are currently located; historical dates can always be displayed for your current time zone with perfect accuracy.
