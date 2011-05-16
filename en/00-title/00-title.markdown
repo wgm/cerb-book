@@ -1,3 +1,3 @@
-% Cerb5 Manual (Rough Draft)
+% Cerb5 Manual (Work in Progress)
 % WebGroup Media, LLC.
-% May 13, 2011
+% May 15, 2011

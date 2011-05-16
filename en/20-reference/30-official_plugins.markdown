@@ -1,8 +1,6 @@
 
 ## Optional built-in features ##
 
-### Audit Log ###
-
 ### Call Logging ###
 
 ### CRM: Opportunity Tracking ###
@@ -29,13 +27,9 @@
 
 ### Spam Analysis ###
 
-### Community Portals ###
-
 ### Support Center ###
 
 ### Time Tracking ###
 
 ### Translation Editor ###
-
-### Watchers ###
 

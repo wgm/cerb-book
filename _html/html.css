@@ -63,16 +63,18 @@ h1, h2, h3, h4, h5 {
 	font-weight: bold;
 	color: rgb(0,120,0);
 }
-h1, h3 {
+h1, h2, h3 {
 	border-bottom: 1px solid rgb(180,180,180);
 }
 h1 {
 	font-size: 190%;
+	margin-top:150px;
 }
 
 h2 {
 	font-size: 170%;
 	line-height:110%;
+	margin-top:25px;
 }
 
 h3 {
@@ -81,6 +83,7 @@ h3 {
 
 h4 {
 	font-size: 130%;
+	font-style: italic;
 }
 
 h5 {
@@ -93,6 +96,7 @@ h1.title {
 	font-weight: bold;
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
+	margin-top:1em;
 	text-align: left;
 	border: none;
 }
