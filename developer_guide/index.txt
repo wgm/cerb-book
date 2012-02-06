@@ -1,0 +1,146 @@
+.. _guide_for_developers:
+
+Guide for Developers
+====================
+
+The toolchain used by the official development team
+---------------------------------------------------
+
+Cerb5 is written in `PHP <http://www.php.net/>`_ and stores data in a
+`MySQL <http://www.mysql.com/>`_ database.
+
+We use the following tools at WebGroup Media when developing Cerb5:
+
+-  `XAMPP <http://www.apachefriends.org/en/xampp.html>`_ is an easy to
+   install Apache distribution containing the latest versions of MySQL,
+   PHP and Perl. XAMPP is really very easy to install and to use -- just
+   download, extract and start. It contains distributions for Mac OS X,
+   Linux, and Windows.
+-  `Aptana Studio <http://www.aptana.com/products/studio2>`_ is a web
+   development environment based on Eclipse that combines powerful
+   authoring tools for PHP, HTML, CSS, and JavaScript, along with
+   thousands of additional plugins created by the community. It is
+   cross-platform and freely available.
+-  `GitHub <https://github.com/>`_ is a web-based hosting service for
+   software development projects that use the Git revision control
+   system. The site provides social networking functionality such as
+   feeds, followers and the network graph to display how developers work
+   on their versions of a repository.
+-  `GitX <https://github.com/brotherbard/gitx>`_ (Brotherbard's fork) is
+   a graphical Git client for Mac OS X that provides an interface for
+   comparing diffs, staging changes, browsing history, and
+   pushing/pulling changes.
+-  `FakeSMTP <https://github.com/jstanden/fakesmtp-app>`_ is a tool
+   written for Mac OS X by WebGroup Media LLC that allows developers to
+   monitor and discard mail that is being sent via SMTP by applications
+   in testing environments.
+
+Forking and checking out the project files from GitHub
+------------------------------------------------------
+
+Setting up a development environment
+------------------------------------
+
+Mac OS X
+~~~~~~~~
+
+Linux
+~~~~~
+
+Windows
+~~~~~~~
+
+Developer guidelines
+--------------------
+
+Features vs. Plugins
+~~~~~~~~~~~~~~~~~~~~
+
+You should instruct end-users to install custom plugins in the
+``/storage/plugins`` directory rather than the ``/features`` directory.
+While the design of plugins in either location is identical, the
+official plugins in the ``features/`` directory have a special
+significance.
+
+There are several important reasons for this:
+
+-  In high-availability scaling and clustering, a shared filesystem
+   (e.g. GlusterFS, NFS) should be used for serving ``storage/``
+   content, but there's no need to serve all content from a share since
+   there's more overhead and latency than the local disk. In some cloud
+   environments, virtual volumes accumulate I/O costs. The files in
+   ``features/`` (and the rest of the application) can be considered
+   static and loosely replicated across webserver nodes.
+
+-  In On-Demand environments, a single copy of the core Cerb5 files
+   should be *symlinked* between multiple instances. This allows opcode
+   caching (e.g. XCache) to operate far more efficiently. Hundreds of
+   Cerb5 instances can be served from a single XCache of around 32MB.
+   Each of these sites only has a unique ``framework.config.php`` file
+   and ``storage/`` directory.
+
+-  Filesystem backups should only need to account for a single directory
+   of filesystem changes in ``storage/``. They can exclude our project
+   files, which may be easily recovered from our repositories. This is
+   especially important in On-Demand environments with hundreds or
+   thousands of copies of Cerb5.
+
+-  The instructions for moving or upgrading Cerb5 take into account the
+   ``storage/`` directory, but changes to the core files are considered
+   expendable. The files outside of ``storage/`` can be easily replaced
+   from our GitHub or Subversion repositories.
+
+-  During upgrades or troubleshooting, we may need to disable all
+   third-party plugins. It's easy to exclude the ``features/`` directory
+   from this behavior, since it has been heavily quality-assurance
+   tested prior to release.
+
+Code formatting
+~~~~~~~~~~~~~~~
+
+Commit messages
+~~~~~~~~~~~~~~~
+
+(\* is changelog-worthy) (reference bug tracker issue numbers when they
+are available)
+
+Time zones
+----------
+
+In our increasingly interconnected world, you have probably realized
+that the clock on your wall is not useful for keeping track of an
+international timeline. For example, when it's 9am on a Tuesday in Los
+Angeles, it's 5pm that evening in London because there is an 8 hour time
+difference. At the same moment, it's 2am Wednesday morning in Tokyo
+because there is a 17 hour time difference between it and Los Angeles.
+
+To make comparisons in different time zones useful, we need a fixed
+point to compare everything to. Cerb5 uses *universal time* (UTC/GMT)
+when storing and comparing dates. Each time zone has an established
+*offset* from UTC which can be represented as 4 digits (2 for hours and
+2 for minutes) prefixed with a ``-`` (before UTC) or ``+`` (after UTC).
+Los Angeles in Pacific Daylight Savings Time (PDT) is behind UTC by 7
+hours, which you may see represented at the end of an email ``Date:`` as
+``-0700``. During British Summer Time (BST), London is 1 hour ahead of
+UTC, or ``+0100``. Tokyo is in Japan Standard Time (JST), which doesn't
+observe daylight savings time, so it is always 9 hours ahead of UTC, or
+``+0900``.
+
+To simplify this, Cerb5 displays dates in *relative* time. In other
+words, something that happened *5 minutes ago* in Tokyo also happened *5
+minutes ago* from the perspective of London. There is no offset for
+these relative times.
+
+We could just as easily store all dates in your local time zone rather
+than universal time and you could still make comparisons between dates,
+but if your company headquarters moved to a new time zone then your
+entire historical timeline would be inaccurate by the offset between
+those time zones. When dates are stored in GMT/UTC, it doesn't matter
+where you are currently located; historical dates can always be
+displayed for your current time zone with perfect accuracy.
+
+.. toctree::
+    :maxdepth: 1
+    
+    toolkit
+    plugins

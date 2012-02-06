@@ -1,0 +1,7 @@
+Tips and Tricks
+===============
+
+.. toctree::
+    :maxdepth: 2
+    
+    date_entry

@@ -1,0 +1,39 @@
+.. _guide_for_group_managers:
+
+Guide for Group Managers
+========================
+
+If you've been given manager status in a group then you have autonomous
+control over its roster, configuration, and workflow.
+
+To manage a group:
+
+1. Click *groups* in the top right.
+2. Click the name of the group you would like to manage from the list on
+   the left.
+
+.. figure:: /images/group_manager/groups_manage.png
+   :align: center
+   :alt: Managing a group.
+
+   Managing a group.
+
+Group management is organized between several tabs:
+
+-  **Mail:** Configures the group's mail preferences.
+-  **Buckets:** Manages the group's organizational buckets.
+-  **Virtual Attendant:** Configures the group's automated Virtual
+   Attendant for various behavior; for example, routing new mail into
+   buckets, or assigning workers to relevant conversations.
+-  **Members:** Manages the group's roster.
+-  **Custom Fields:** Each group can track their own custom fields on
+   new tickets. For example, the Sales department may want to track the
+   source (Google, website, ad) of leads while Support is interested in
+   tracking the category of requests (FAQ, feature request, etc). These
+   custom fields can be used to generate reports.
+
+.. toctree::
+   :maxdepth: 2
+
+   setup
+   antispam

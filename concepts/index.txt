@@ -1,0 +1,70 @@
+.. _concepts:
+
+Concepts
+========
+
+Virtual Attendants
+------------------
+
+Records
+-------
+
+Connections
+-----------
+
+Comments
+--------
+
+Notifications
+-------------
+
+Custom Fields
+-------------
+
+Activity Log
+------------
+
+Watchers
+--------
+
+Worklists
+---------
+
+Customize
+~~~~~~~~~
+
+Peek
+~~~~
+
+Bulk Update
+~~~~~~~~~~~
+
+Subtotals
+~~~~~~~~~
+
+Filters
+~~~~~~~
+
+Presets
+~~~~~~~
+
+Explore
+~~~~~~~
+
+Workspaces
+----------
+
+Snippets
+--------
+
+Knowledgebase
+-------------
+
+Community Portals
+-----------------
+
+.. toctree::
+    :maxdepth: 2
+    
+    records
+    virtual_attendants

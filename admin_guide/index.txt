@@ -1,0 +1,13 @@
+.. _guide_for_admins:
+
+Guide for Administrators
+========================
+
+.. toctree::
+    :maxdepth: 2
+    
+    installation/index
+    getting_started/index
+    backups/index
+    upgrading/index
+

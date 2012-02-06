@@ -1,6 +1,6 @@
 # Cerb5 User's Guide #
 
-Copyright (C) 2011, WebGroup Media LLC.
+Copyright (C) 2012, WebGroup Media LLC.
 
 <http://www.cerberusweb.com/>
 
@@ -12,32 +12,29 @@ These are the raw materials required to build the _Cerb5 User's Guide_ in a vari
 Requirements
 ------------
 
-The book is in Markdown format.  To modify and extend the documentation you only need a text editor.
+The book utilizes the Sphinx documentation engine, and the files are in reStructuredText format.  To modify and extend the documentation you only need a text editor.
 
-As defined by Wikipedia:
+You need to install [Sphinx](http://sphinx.pocoo.org/) to convert the source files into production documentation.
 
-> Markdown is a lightweight markup language, originally created by John Gruber and Aaron Swartz to help maximum readability and "publishability" of both its input and output forms. The language takes many cues from existing conventions for marking up plain text in email.
-
-You need to install [Pandoc](http://johnmacfarlane.net/pandoc/) to convert the source files into production documentation.
-
-You can reference Pandoc's Markdown syntax here:
-<http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown>
+You can reference reStructuredText syntax here:
+<http://sphinx.pocoo.org/rest.html>
 
 
 Creating an HTML manual
 -----------------------
 
-	$ pandoc -c _html/html.css -s -S --toc -o index.html en/*/*.markdown
-
+    $ cd /path/to/cerb5-book
+	$ sphinx-build -b html -d _build/doctrees . _build/html
 
 Credits
 -------
 
 This project makes use of the following technology:
 
-* [Pandoc](http://johnmacfarlane.net/pandoc/) by John MacFarlane
-* [Markdown](http://daringfireball.net/projects/markdown/) by John Gruber
-* [OpenOffice](http://www.openoffice.org/) by Oracle and its open source contibutors
+* [Python](http://python.org/) by Python Software Foundation and its contributions
+* [Sphinx](http://sphinx.pocoo.org/) by The Pocoo Team
+* [reStructuredText](http://docutils.sourceforge.net/rst.html) by Python Software Foundation and its contributors
+* [OpenOffice](http://www.openoffice.org/) by Oracle and its contibutors
 * [ImageMagick](http://www.imagemagick.org/) by ImageMagick Studio LLC
 * [TextMate](http://macromates.com/) by Macromates Ltd
 
