@@ -1,0 +1,21 @@
+End-user Requirements
+---------------------
+
+End-users only require a modern web browser and a network connection to use :program:`Cerb5`.
+
+Required
+========
+
+- An Internet or intranet connection to the server (e.g. Ethernet, wifi, mobile data)
+- Any of these modern web browsers, with Javascript enabled:
+    - :program:`Google Chrome`
+    - :program:`Firefox`
+    - :program:`Safari`
+    - :program:`Opera`
+    - :program:`Internet Explorer`
+
+Recommended
+===========
+
+- :program:`Google Chrome` and :program:`Firefox` receive the most attention during development and :abbr:`QA (Quality assurance)` testing
+- Anything **except for** :program:`Internet Explorer`

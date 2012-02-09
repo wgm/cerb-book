@@ -1,3 +1,5 @@
+.. _concept_virtual_attendants:
+
 Virtual Attendants
 ------------------
 

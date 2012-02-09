@@ -1,9 +1,9 @@
 The Toolkit Mentality
 ---------------------
 
-The philosophy behind Cerb5 is its distinguishing characteristic compared to other projects.  The developers have cultivated a **toolkit mentality**, rather than delivering a list of features.
+We feel that the philosophy behind Cerb5 is its distinguishing characteristic compared to other projects.  Rather than focusing on a list of features, we've cultivated a **toolkit mentality**.
 
-Let's dissect what we mean by a toolkit mentality by considering a very common real-world example.
+Let's dissect the difference between tools and features by considering a very common real-world example.
 
 You require the capability to send automatic replies when a new message is received.  This will be used to send vacation messages for personal mailboxes (e.g. *"I'm out of the office until January 2nd"*), and in the corporate environment it will send a confirmation receipt along the lines of *"Ticket #ABC-12345 has been opened in response to your recent email message.  As defined by the terms of our service level agreement, you will receive a response within 2 business hours".*
 
