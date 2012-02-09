@@ -1,0 +1,34 @@
+Conversations
+-------------
+
+A specific email conversation, including all of its messages, comments, and settings. Each ticket has a unique identifier (*ID*) for future reference by anyone involved. There are two kinds of IDs:
+
+-  A *private ticket ID* is assigned by the database. Your first
+   ticket is ID ``1``, and a year later the most recent ticket ID may
+   be ``123500``. These IDs are *sequential*; in other words, they
+   add 1 for each new ticket, starting from 1. There are many reasons
+   you should not share these IDs:
+
+   -  They are predictable. If someone knows that one particular
+      ticket ID is ``1025`` then they are now aware of 1,024 other
+      valid IDs.
+   -  They give away the volume of your helpdesk. They can probe for
+      the highest valid ID to determine how many tickets are in your
+      database.
+   -  They give away the velocity of your helpdesk. Your customers or
+      competitors could create new tickets at regular intervals to
+      gauge the traffic of your helpdesk. Many other software
+      applications overlook this -- invoices are given sequential
+      IDs, etc.
+
+-  A *public ticket ID* is also referred to as a *mask*, because it
+   doesn't betray any information about the volume or velocity of
+   your helpdesk. Instead, ticket masks look like ``XER-83472-879``.
+   Masks are designed to be short and verbally readable, while still
+   providing a very large number of combinations. There are more
+   combinations available in three letters (17,576) than there are
+   for 3 numbers (1,000), so you can often enter the first three
+   letters of a ticket mask to find a match without having to type in
+   the whole thing. Masks are also very useful for verification
+   outside of email (*"I need your email address and the first three
+   letters of the ticket from the subject line"*).

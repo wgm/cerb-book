@@ -6,7 +6,7 @@ We believe in commercial open source
 
 -  We've never felt entirely comfortable with tools that hide their
    source code; so we share *100%* of ours. Our
-   `GitHub <http://github.com/wgm/cerb5>` repositories are world-readable.
+   `GitHub <http://github.com/wgm/cerb5>`_ repositories are world-readable.
 -  There will always be people who bypass the license, steal code, or
    copycat concepts. We're not going to be paranoid about it and
    mistrust everyone.

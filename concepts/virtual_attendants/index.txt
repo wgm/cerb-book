@@ -1,6 +1,9 @@
 Virtual Attendants
 ------------------
 
+.. toctree::
+    :maxdepth: 2
+
 The goal in the design of Virtual Attendants was to provide a way for
 workers and group managers to automate various workflows without having
 to create custom plugins. Workers can now automate sophisticated

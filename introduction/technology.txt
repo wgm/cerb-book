@@ -9,7 +9,3 @@ Technology
 Cerb5 is written in PHP5 (MySQL).  
 Linux, Mac, Windows
 Browsers
-
-standalone + ondemand vs saas
-
-noteworthy clients

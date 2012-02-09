@@ -1,8 +1,12 @@
 History
 -------
 
-Formerly known at Cerberus Helpdesk, the project 
+((Formerly known as Cerberus Helpdesk, the project))
 
-started in January 2002
+((started in January 2002))
 
-the original focus was web-based shared email
+((the original focus was web-based shared email))
+
+((timeline -- Cerb2 introduced, 3.x released on, ...))
+
+(("commutiny"))

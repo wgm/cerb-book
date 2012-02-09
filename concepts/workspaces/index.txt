@@ -1,0 +1,7 @@
+Workspaces
+----------
+
+.. toctree::
+    :maxdepth: 2
+
+    worklists/index

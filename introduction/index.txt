@@ -6,7 +6,7 @@ Introduction
 
     what_is_cerb5
     history
-    toolkit_mentality
     philosophy
+    toolkit_mentality
     technology
-    who_uses_it
+    clients

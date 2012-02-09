@@ -11,6 +11,7 @@ Cerb5 Manual
 
     introduction/index
     concepts/index
+    installation/index
     getting_started/index
     admin_guide/index
     manager_guide/index
@@ -18,4 +19,5 @@ Cerb5 Manual
     developer_guide/index
     tips/index
     credits/index
+    glossary/index
     

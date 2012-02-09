@@ -3,68 +3,20 @@
 Concepts
 ========
 
-Virtual Attendants
-------------------
-
-Records
--------
-
-Connections
------------
-
-Comments
---------
-
-Notifications
--------------
-
-Custom Fields
--------------
-
-Activity Log
-------------
-
-Watchers
---------
-
-Worklists
----------
-
-Customize
-~~~~~~~~~
-
-Peek
-~~~~
-
-Bulk Update
-~~~~~~~~~~~
-
-Subtotals
-~~~~~~~~~
-
-Filters
-~~~~~~~
-
-Presets
-~~~~~~~
-
-Explore
-~~~~~~~
-
-Workspaces
-----------
-
-Snippets
---------
-
-Knowledgebase
--------------
-
-Community Portals
------------------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
     
-    records
-    virtual_attendants
+    workers
+    groups
+    records/index
+    mail/index
+    tasks
+    watchers/index
+    workspaces/index
+    snippets/index
+    notifications
+    knowledgebase
+    community_portals
+    virtual_attendants/index
+    plugins

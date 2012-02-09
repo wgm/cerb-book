@@ -9,7 +9,6 @@ Administrators
 
 Skip to the :ref:`guide_for_admins` if you would like to learn how to:
 
--  Install the software
 -  Manage workers and groups
 -  Configure incoming and outgoing mail
 -  Define custom fields for tracking new information

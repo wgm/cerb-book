@@ -1,0 +1,7 @@
+Mail
+----
+
+.. toctree::
+    :maxdepth: 2
+
+    conversations

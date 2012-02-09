@@ -1,0 +1,14 @@
+Worklists
+---------
+
+.. toctree::
+    :maxdepth: 2
+
+    peek
+    customize
+    subtotals
+    filters
+    presets
+    bulk_update
+    explore
+    
