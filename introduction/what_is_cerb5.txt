@@ -16,4 +16,5 @@ Cerb5 augments teams so they can:
 * Reliably complete assigned tasks
 * Share expert knowledge
 
-.. image:: /images/introduction/cerb5_overview.png
+.. figure:: /images/introduction/cerb5_overview.png
+
