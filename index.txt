@@ -1,11 +1,15 @@
 Cerb5 Manual
 ============
 
+:Release: |version|
+:Last Updated: |today|
+:Website: http://www.cerb5.com/
+:Source Code: https://github.com/wgm/cerb5
+
 .. toctree::
     :maxdepth: 2
 
     introduction/index
-    quick_start/index
     concepts/index
     getting_started/index
     admin_guide/index

@@ -1,0 +1,15 @@
+Technology
+----------
+
+* PHP 5.2+ (w/ extensions...)
+* MySQL 5.0+ (MyISAM/InnoDB)
+* Smarty templates
+* Devblocks
+
+Cerb5 is written in PHP5 (MySQL).  
+Linux, Mac, Windows
+Browsers
+
+standalone + ondemand vs saas
+
+noteworthy clients

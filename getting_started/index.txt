@@ -7,8 +7,7 @@ your role.
 Administrators
 --------------
 
-Jump to the :ref:`guide_for_admins` if
-you would like to learn how to:
+Skip to the :ref:`guide_for_admins` if you would like to learn how to:
 
 -  Install the software
 -  Manage workers and groups
@@ -24,9 +23,8 @@ you would like to learn how to:
 Group Managers
 --------------
 
-Jump to the :ref:`guide_for_group_managers` if
-you've been made the manager of a group and you would like to learn how
-to:
+Skip to the :ref:`guide_for_group_managers` if you've been made the manager 
+of a group and you would like to learn how to:
 
 -  Manage the group roster
 -  Create buckets for group organization
@@ -35,7 +33,7 @@ to:
 Workers
 -------
 
-Jump to the :ref:`guide_for_workers` if you're new to
+Skip to the :ref:`guide_for_workers` if you're new to
 the helpdesk and you would like to learn how to:
 
 -  Read and respond to email conversations
@@ -48,7 +46,7 @@ the helpdesk and you would like to learn how to:
 Developers
 ----------
 
-Jump to the :ref:`guide_for_developers` if you are a
+Skip to the :ref:`guide_for_developers` if you are a
 software developer and you would like to learn how to:
 
 -  Create new plugins to extend the functionality of Cerb5

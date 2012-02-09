@@ -1,0 +1,19 @@
+What is Cerb5?
+--------------
+
+**Cerb5** is a web-based communications platform built for efficient collaboration with a large audience. The current |version| release is the culmination of more than 10 years of research and development by WebGroup Media LLC; starting from the project's inception in January 2002, and evolving based on feedback from a community that has included more than 18,979 organizations.
+
+Cerb5 augments teams so they can:
+
+* Deftly respond to an email flood from a larger audience
+* Remember anything about anyone
+* Collaborate from anywhere
+* Automate routine duties
+* Stay informed without "information overload"
+* Capture feedback at the source
+* Track time seamlessly
+* Flag opportunities for action
+* Reliably complete assigned tasks
+* Share expert knowledge
+
+.. image:: /images/introduction/cerb5_overview.png

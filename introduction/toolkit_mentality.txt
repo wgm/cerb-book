@@ -1,0 +1,26 @@
+The Toolkit Mentality
+---------------------
+
+The philosophy behind Cerb5 is its distinguishing characteristic compared to other projects.  The developers have cultivated a **toolkit mentality**, rather than delivering a list of features.
+
+Let's dissect what we mean by a toolkit mentality by considering a very common real-world example.
+
+You require the capability to send automatic replies when a new message is received.  This will be used to send vacation messages for personal mailboxes (e.g. *"I'm out of the office until January 2nd"*), and in the corporate environment it will send a confirmation receipt along the lines of *"Ticket #ABC-12345 has been opened in response to your recent email message.  As defined by the terms of our service level agreement, you will receive a response within 2 business hours".*
+
+Most email readers and helpdesk applications implement this capability as a **feature**.  As such, you'll probably find a checkbox to enable it, and there will be a couple of options to control the content and delivery of the message.  If you're using a sophisticated system, you'll be able to use placeholders in the response template in order to include dynamic text.  But what happens if you want to stray outside these options to do something specific to your organization?  What if you want to send automatic replies that change depending on characteristics like the language of the sender, the time of day, or service level agreements?  Generally, you will have to submit a feature request to the application's developers.  If your request lacks widespread appeal then you're probably on your own.  In an even worse outcome, the developers might pander and implement every piece of feedback they receive -- resulting in a cluttered patchwork of possible options.
+
+Cerb5 enables this capability to be built with elegant flexibility through the use of **tools**.
+
+    *"A feature is limited by the foresight of its creators. A tool is limited only by the creativity of its users.  Tools allow users to build their own features."* - Cerb5 mantra
+
+In Cerb5, you won't find a *"send automatic reply"* checkbox, or a *"one-size-fails-all"* list of options.  Instead, you'll be introduced to Virtual Attendants, which are capable of automating most of the actions a worker can perform.  Virtual Attendants are one of Cerb5's most valuable tools.  Among their countless uses, they provide a way to send automated replies based on arbitrary information and personalized business logic.  For example, you could instruct your Virtual Attendant to only send automatic replies on Wednesdays, between 2pm and 8pm, if the sender has sent you more than 5 previous messages, and the content of their message includes the phrase *"feature creep"*.  You also aren't limited to a single automated reply as you might be with a feature; you can base the desired actions of a Virtual Attendant on decisions within decisions.
+
+This is the big difference between building tools and features.  With Cerb5's tools, these options aren't specific to a feature like sending automated messages; and consequently, the same conditions and actions can be remixed as custom behavior in response to many kinds of events.
+
+As an astute reader, you may already be concerned that a limited set of tools would suffer from the same limitations that are present with features.  Fortunately, another manifestation of the toolkit mentality is that you can easily add or modify tools in Cerb5 through a comprehensive plugin system.  While many other applications approach the concept of plugins as yet another feature -- an afterthought -- all the core functionality of Cerb5 itself is composed entirely of plugins.  That means anything novel and interesting that we've done along the way while building Cerb5 has become a set of tools that you can reuse to build your own functionality.  Plugins in Cerb5 are first-class citizens -- their contributions will be indistinguishable from the project itself.
+
+Our tools also have tools.  The software development framework we've been building while working on Cerb5 is called Devblocks, and you will learn more about it in the :ref:`guide_for_developers` section.
+
+The freedom of toolkits can be intimidating at first, especially when compared with the familiar pattern of *"click this, click that"* found in feature-driven software.  We're confident that if you read through the application of these principles covered by this book, you will discover a far more collaborative way to interact with software.
+
+    *"UNIX was not designed to stop its users from doing stupid things, as that would also stop them from doing clever things."* –Doug Gwyn

@@ -1,0 +1,8 @@
+History
+-------
+
+Formerly known at Cerberus Helpdesk, the project 
+
+started in January 2002
+
+the original focus was web-based shared email
