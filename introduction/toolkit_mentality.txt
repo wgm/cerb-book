@@ -11,7 +11,11 @@ Most email readers and helpdesk applications implement this capability as a **fe
 
 Cerb5 enables this capability to be built with elegant flexibility through the use of **tools**.
 
-    *"A feature is limited by the foresight of its creators. A tool is limited only by the creativity of its users.  Tools allow users to build their own features."* - Cerb5 mantra
+.. epigraph::
+
+    A feature is limited by the foresight of its creators. A tool is limited only by the creativity of its users.  Tools allow users to build their own features.
+    
+    -- Cerb5 mantra
 
 In Cerb5, you won't find a *"send automatic reply"* checkbox, or a *"one-size-fails-all"* list of options.  Instead, you'll be introduced to Virtual Attendants, which are capable of automating most of the actions a worker can perform.  Virtual Attendants are one of Cerb5's most valuable tools.  Among their countless uses, they provide a way to send automated replies based on arbitrary information and personalized business logic.  For example, you could instruct your Virtual Attendant to only send automatic replies on Wednesdays, between 2pm and 8pm, if the sender has sent you more than 5 previous messages, and the content of their message includes the phrase *"feature creep"*.  You also aren't limited to a single automated reply as you might be with a feature; you can base the desired actions of a Virtual Attendant on decisions within decisions.
 
@@ -23,4 +27,8 @@ Our tools also have tools.  The software development framework we've been buildi
 
 The freedom of toolkits can be intimidating at first, especially when compared with the familiar pattern of *"click this, click that"* found in feature-driven software.  We're confident that if you read through the application of these principles covered by this book, you will discover a far more collaborative way to interact with software.
 
-    *"UNIX was not designed to stop its users from doing stupid things, as that would also stop them from doing clever things."* –Doug Gwyn
+.. epigraph::
+
+    UNIX was not designed to stop its users from doing stupid things, as that would also stop them from doing clever things.
+    
+    -- Doug Gwyn
