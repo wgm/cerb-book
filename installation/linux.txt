@@ -1,0 +1,97 @@
+.. _installation_linux:
+
+Installing on a Linux server
+----------------------------
+
+These instructions assume you have console access to your Linux-based server.
+
+Download the files from GitHub using Subversion
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, change directory to your website's document directory. The directory will usually be named something like :file:`htdocs`, :file:`httpdocs`, file:`public_html`, or :file:`www`, under the appropriate website.
+
+::
+
+    $ cd /path/to/example.com/httpdocs
+
+When deploying Cerb5 on a production server you should use :program:`Subversion` to manage the project files. Subversion provides many useful capabilities:
+
+* You can quickly upgrade by just fetching files that have changed since your last update.
+* You can see the local changes that you have made to any project files.
+* You can easily reset files back to their default condition.
+* You can see what changes *would* occur before performing an upgrade.
+* You can continuously merge your local changes with our future updates.
+
+You won't need to download the entire project again after your initial installation. You also won't have to hassle with copying your :file:`framework.config.php` configuration file or storage directory when upgrading, or repeating any of your custom modifications to the source code.
+
+You can download the project files using Subversion with a single command::
+
+    $ svn checkout http://svn.github.com/wgm/cerb5.git cerb5
+
+.. note::
+
+    If you're comfortable with using :program:`Git` for version control (or willing to learn), we recommend that you use it instead of Subversion.  You'll receive the same files either way, but the project is officially developed using Git and you'll be able to participate that way.
+    
+    You can *clone* the repository with this command::
+    
+    $ git clone git@github.com:wgm/cerb5.git
+
+    You can also fork the project at `GitHub <http://github.com/wgm/cerb5>`_.  See the :ref:`guide_for_developers` for more information.
+
+Set permissions
+~~~~~~~~~~~~~~~
+
+Next, we want to make sure the Cerb5 files are owned by the proper user and group on the webserver.  The default user and group are both ``www-data`` when using Debian or Ubuntu.  If you're using something else, you should consult your configuration for the proper values.
+
+You only need to enable write access in two locations:
+
+-  :file:`framework.config.php` 
+    This is your configuration file.
+-  :file:`storage/`
+    This is where any data unique to your installation is stored: third-party plugins, attachments, temporary files, caches, etc.
+
+Give ownership of all the files to the webserver daemon using :program:`chown`, and make the two locations above writable using :program:`chmod`::
+
+    $ cd cerb5
+    $ chown -R www-data:www-data .
+    $ chmod -R u+w framework.config.php storage
+
+.. note::
+
+    You will need to use your own user and group information instead of ``www-data``.  If you're not sure what this should be, and you're using Apache, you can check your configuration with the following command::
+    
+    $ grep -e "^User" -e "^Group" /path/to/httpd.conf
+
+    There are also special situations, such as when running :term:`PHP` in FastCGI mode, or installing security extensions like :program:`Suhosin`, where the ownership and permissions of the files might need to be something else.  Consult a system administrator if you need assistance.  The Cerb5 installer will let you know if the permissions are set incorrectly.
+
+Create the database
+~~~~~~~~~~~~~~~~~~~
+
+Create a new :program:`MySQL` database using the console or your favorite GUI.
+
+From the MySQL console, you can issue the following SQL statements::
+
+    mysql> CREATE DATABASE cerb5 CHARACTER SET utf8;
+    mysql> GRANT ALL PRIVILEGES ON cerb5.*  \
+            TO cerb5@localhost \
+            IDENTIFIED BY 'secret_password';
+
+.. note:: 
+
+    Substitute your own database name and login in place of ``cerb5``, and replace ``secret_password`` with something that's actually a secret.
+
+If you're concerned about granting ``ALL PRIVILEGES``, the minimum required privileges for the database user are:
+
+-  ``SELECT``
+-  ``INSERT``
+-  ``UPDATE``
+-  ``DELETE``
+-  ``CREATE``
+-  ``ALTER``
+-  ``DROP``
+-  ``CREATE TEMPORARY TABLES``
+
+Run the guided installer
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can skip ahead to :doc:`/installation/guided_installer`.

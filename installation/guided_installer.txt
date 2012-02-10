@@ -1,0 +1,154 @@
+Running the guided installer
+----------------------------
+
+Cerb5 comes with a guided installer that helps you configure the system.
+
+To start the installer, point your browser to: ``http://www.example.com/cerb5/install``
+
+.. note:: 
+
+    You will need to replace :file:`www.example.com` in the URL with your actual domain name.  If you installed Cerb5 in a path other than :file:`/cerb` then you will need to change that too.
+
+The server environment checker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /images/installation/installer_step1_checker.png
+   :alt: The requirements checker in the guided installer.
+
+The installer will determine if your server meets the requirements for installing Cerb5. Correct any problems before proceeding, and then click the :guilabel:`Next Step` button.
+
+Accept the software license
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Click the :guilabel:`I Accept` button if you agree to the licensing terms.
+
+Configure the database connection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /images/installation/installer_step3_database.png
+   :alt: Adding database connection details.
+
+Add your database connection details:
+
+-  **Driver:** If you have the ability to use the ``MySQLi`` driver then
+   you should select it. It's newer than the standard ``MySQL`` driver.
+   Otherwise, use the default.
+-  **Engine:** ``MyISAM`` and ``InnoDB`` both have advantages and
+   disadvantages. Your choice will impact performance and various
+   processes like backups. If you are unsure about the tradeoffs, use
+   ``MyISAM``. If you are familiar with ``InnoDB`` then you may
+   experience better performance under high loads with that engine. This
+   decision isn't permanent; you can switch database engines later.
+-  **Host:** This is the hostname of your database server. If it's on
+   the same machine as your webserver you can enter ``localhost`` to use
+   sockets rather than TCP/IP connections (which are faster). Otherwise,
+   enter a hostname or IP address.
+-  **Database Name:** Enter the name of the new database you created.
+-  **Username:** Enter the username from your MySQL ``GRANT PRIVILEGES``
+   command.
+-  **Password:** Enter the password from your MySQL ``GRANT PRIVILEGES``
+   command.
+
+Once you have entered your database details, click the :guilabel:`Test Settings` button to verify the software can connect to your database.
+
+If successful, the installer will create your initial database structure. This may take a few moments because the database is created by incrementally running the updates from each previous version; so don't worry if it doesn't look like anything is happening right away.
+
+Configure general settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /images/installation/installer_step6_settings.png
+   :alt: Personalizing your helpdesk.
+
+In this step you'll configure the general settings of the helpdesk.
+
+-  **Helpdesk Title:** This is the text shown at the top of the browser,
+   or on each browser tab, that makes it easy to distinguish your
+   helpdesk from other web pages.
+-  **Default Sender:** This is the email address that your helpdesk will
+   use as the :mailheader:`From:` address on outgoing mail that can't be
+   attributed to a particular group. It is very important that this
+   email address delivers mail to your helpdesk. In many cases you will
+   want to use an email address like ``support@example.com``.
+-  **Default Sender Name:** This is the personalized name that will
+   display next to the :mailheader:`From:` address in your customers' inboxes.
+   
+   For example::
+
+    From: "WebGroup Media LLC" <support@webgroupmedia.com>
+
+Click the :guilabel:`Continue` button when you've finished entering your preferences.
+
+Configure outgoing mail (SMTP)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /images/installation/installer_step7_smtp.png
+   :alt: Configuring outgoing mail.
+
+Your helpdesk won't be very useful if it can't send mail to your contacts.
+
+-  **SMTP Server:** This is your SMTP mail server. If your mail server
+   is located on the same machine as your webserver then you can enter
+   ``localhost``. Otherwise this should be a hostname or IP address that
+   your webserver is authorized to relay through. This is most often a
+   corporate mail server or `Google Apps <https://www.google.com/a/>`_.
+-  **SMTP Port:** This is the port where your SMTP server is listening
+   for mail. If you aren't sure what port to use, check with your server
+   administrator. Here are some defaults:
+
+   -  SMTP: ``25``
+   -  SMTP-TLS: ``587``
+   -  SMTP-SSL: ``465``
+   -  If you're using Google Apps, instructions can be found at: 
+      http://mail.google.com/support/bin/answer.py?hl=en&answer=13287.
+
+-  **SMTP Auth User:** If your SMTP server requires authorization then
+   enter your username here.
+-  **SMTP Auth Password:** This is only required if your SMTP server is
+   using authentication.
+-  **SMTP Encryption:**
+
+   -  TLS: Mail will be sent over a transport layer security
+      (`TLS <http://en.wikipedia.org/wiki/Transport_Layer_Security>`_)
+      connection.
+   -  SSL: Mail will be sent over an secure socket layer
+      (`SSL <http://en.wikipedia.org/wiki/SSL>`_) connection.
+   -  None: Encryption is disabled.
+
+Click the :guilabel:`Test Outgoing Mail` button to verify your settings.
+
+Create your account
+~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /images/installation/installer_step8_account.png
+   :alt: Creating your account.
+
+Now the installer will prompt you to create an administrator account that you will use to log in to the helpdesk. Use a personal email address that you check, but not something that will route back to the helpdesk. Your helpdesk will use this email address to contact you in the future; for example, if you forget your password.
+
+Choose a password and then click the :guilabel:`Continue` button.
+
+Register your helpdesk
+~~~~~~~~~~~~~~~~~~~~~~
+
+In the final step of the installer you are given the opportunity to introduce yourself to the Cerb5 development team in exchange for a *free* 3 seat (simultaneous workers) license to help you get started. There are no strings attached. This license provides full functionality with no expiration and it is valid for the version of the helpdesk you are installing, but it does not provide access to product updates. We hope that you find the software useful, and we're looking forward to growing along with you.
+
+If you choose not to register your copy of Cerb5 then the software will default to *Free Mode* which is limited to a single seat but has no other restrictions.
+
+Complete the short survey in exchange for your free license and then click the :guilabel:`Register` button.
+
+Finish up!
+~~~~~~~~~~
+
+.. figure:: /images/installation/installer_step11_finished.png
+   :alt: The installation process is complete.
+
+You're almost ready to start using your new helpdesk.
+
+.. warning::
+
+    If this is a production installation, you should delete the :file:`install` directory since it is no longer necessary and it provides access to some sensitive information (specifically, the ``phpinfo()`` output that describes your webserver environment). If you're planning to use language packs for localization of your helpdesk, be sure to copy the :file:`install/extras/translations/*` files to another location.
+
+.. note::
+
+    If this is a development installation, then you should leave the :file:`install` directory intact since it contains many useful scripts, as well as examples for plugin development.
+
+Once you're ready to log in, click the :guilabel:`Take me there!` link.

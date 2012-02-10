@@ -1,0 +1,6 @@
+**On Windows-based servers:**
+
+Use Windows Explorer to open the website's document directory.
+
+---
+
