@@ -1,4 +1,29 @@
 Groups
 ------
 
-((managers vs members))
+A **group** is a collection of :doc:`workers </concepts/workers>` who are considered to be interchangeable when a specific kind of task needs to be performed.  Groups are most effective when they are defined at a coarse level of granularity -- for example, one group per discipline:
+
+- Billing
+- Corporate
+- Development
+- Marketing
+- Sales
+- Support
+
+.. note::
+    
+    You aren't required to structure your groups by discipline.  You may create groups based on any combination of attributes: geography, language, product line, service level, etc.  This is easy to change and you can experiment to find an approach that works well for your environment.
+
+A worker can be a :term:`member` of multiple groups. Any number of members may also be designated as :term:`managers <manager>`, which provides them with administrative control of the group.
+
+Each group has an **inbox** that collects new work.  This makes it easy to distinguish fresh assignments from things that have already been seen.  As promoted by productivity workflows like *Getting Things Done* [#gtd]_, groups should strive to maintain an empty :term:`inbox` by continuously *doing*, *deferring*, or *delegating* work.
+
+Groups encourage tasks to be delegated to a *type* of worker by assigning work to the group itself.  This is efficient, because a worker doesn't need to concern themselves with finding the most appropriate person to assign something to, or the right place to put it.  Once work arrives in the group's inbox, the better-informed members of that group can determine what to do with it.
+
+**Buckets** are the primary method that groups use to organize their work.  A :term:`bucket` is a container for storing similar things together -- much like the purpose of sorting files into folders on your hard drive.  The advantage of buckets is that they're very simple for workers to understand and use.  The drawback is that buckets tend to describe a single characteristic (e.g. color) and they aren't very good at handling multi-dimensional work (e.g. color and size).  Groups that need to organize multi-dimensional data can use :doc:`workspaces </concepts/workspaces/index>`.
+
+.. figure:: /images/concepts/cerb5_group_workflow.png
+
+.. rubric:: Footnotes
+
+..  [#gtd] Getting Things Done. Wikipedia: http://en.wikipedia.org/wiki/Getting_Things_Done

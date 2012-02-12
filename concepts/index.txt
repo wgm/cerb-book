@@ -3,13 +3,14 @@
 Concepts
 ========
 
-
 .. toctree::
     :maxdepth: 3
     
     workers
     groups
+    virtual_attendants/index
     records/index
+    address_book
     mail/index
     tasks
     watchers/index
@@ -18,5 +19,4 @@ Concepts
     notifications
     knowledgebase
     community_portals
-    virtual_attendants/index
     plugins

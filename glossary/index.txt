@@ -6,6 +6,9 @@ Glossary
     address book
         A directory of all known :term:`contacts <contact>`. It provides the ability to group contacts by various attributes (e.g. location, language, industry) to build customer lists and mailing lists.
 
+    administrator
+        ...
+
     bucket
         A container for storing similar mail :term:`conversations <conversation>` together. Common buckets are: Leads, Receipts, Newsletters, Refunds, and Spam. Buckets aren't the only means for organizing mail, but they're the simplest to understand and use.
 
