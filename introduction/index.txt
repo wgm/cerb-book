@@ -5,7 +5,6 @@ Introduction
     :maxdepth: 2
 
     what_is_cerb5
-    history
     philosophy
     toolkit_mentality
     technology
