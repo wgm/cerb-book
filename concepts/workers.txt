@@ -1,19 +1,11 @@
 Workers
 -------
 
-The people who represent your organization while performing their duties are called **workers**.  A worker with unrestricted privileges is called an **administrator**.
+**Workers** are the people who represent your organization while performing their duties.  A worker with unrestricted privileges is called an **administrator**.
 
-Workers can be anyone:
+For example:
 
 - Full-time staff members
-    - Executives
-    - Assistants
-    - Billing reps
-    - Customer service reps
-    - Account reps
-    - Developers
-    - Salespeople
-    - Marketers
 - Part-time employees
 - Contractors
 - Volunteers
