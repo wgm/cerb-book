@@ -24,6 +24,12 @@ Code block::
 
 	$ rm -Rf /
 
+.. epigraph::
+
+    A feature is limited by the foresight of its creators. A tool is limited only by the creativity of its users.  Tools allow users to build their own features.
+
+    -- Cerb5 mantra
+
 :abbr:`GTD (Getting Things Done)`
 
 Edit your :file:`framework.config.php` file in :file:`{/path/to/}cerb5`
@@ -34,7 +40,7 @@ Press :kbd:`Shift-Command-I`
 
 The :mailheader:`Content-Type` header
 
-Navigate to :menuselection:`Setup --> Mail --> POP3 Accounts`
+Navigate to :menuselection:`Setup->Mail->POP3 Accounts`
 
 Run the scheduler with :program:`wget` or :program:`curl`
 

@@ -32,3 +32,8 @@ A specific email conversation, including all of its messages, comments, and sett
    the whole thing. Masks are also very useful for verification
    outside of email (*"I need your email address and the first three
    letters of the ticket from the subject line"*).
+
+
+-  Contacts that are associated with a particular ticket are called
+  **recipients**. Recipients receive a copy of every new message on a
+  ticket.

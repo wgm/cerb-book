@@ -7,5 +7,17 @@ Technology
 * Devblocks
 
 Cerb5 is written in PHP5 (MySQL).  
+
 Linux, Mac, Windows
+
 Browsers
+
+.. ::
+
+    -  A **database** provides long-term storage for arbitrary information
+       (*data*). Databases help applications maintain relationships between
+       data (e.g. *"Which products were shipped for order #1234?"*), and
+       they assist with performing complex analysis (e.g. "*How many orders
+       over the past 12 months were from someone who has a surname that
+       begins with F (AND) resides in Germany (AND) spent more than $100
+       USD?*").

@@ -144,3 +144,20 @@ displayed for your current time zone with perfect accuracy.
     
     toolkit
     plugins
+
+
+Developers should download the project from GitHub using Git
+------------------------------------------------------------
+
+If you are planning on contributing patches back to the project then you
+should `fork <http://help.github.com/forking/>`_ the project on
+`GitHub <http://github.com/wgm/cerb5>`_ first. This will give you your
+own copy of the source code. Once that is done you should use your own
+repository information in the command below. If you want to checkout the
+project from our official repository use the following command:
+
+**On Unix-based servers:**
+
+::
+
+    $ git clone git@github.com:wgm/cerb5.git
