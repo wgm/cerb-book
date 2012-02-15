@@ -3,6 +3,8 @@
 Concepts
 ========
 
+This section is an introduction to the main concepts found throughout Cerb5.
+
 .. toctree::
     :maxdepth: 3
     
@@ -13,10 +15,11 @@ Concepts
     address_book
     mail/index
     tasks
-    watchers/index
-    workspaces/index
     snippets/index
+    broadcast
+    watchers/index
     notifications
+    workspaces/index
     knowledgebase
     community_portals
     plugins
