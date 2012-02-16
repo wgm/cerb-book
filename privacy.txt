@@ -1,0 +1,212 @@
+Privacy Statement and Disclosure
+================================
+
+**WebGroup Media LLC** ("WGM") is a commercial open source company that
+has been leading and supporting the community development of Cerberus
+Helpdesk (Cerb5) since January 2002. In connection with this business,
+we operate the `cerberusweb.com <http://cerberusweb.com>`_ project
+website, as well as an On-Demand ("software as a service") network of
+applications hosted by subscription as subdomains of cerb5.com.
+
+It is WGM's policy to respect your privacy regarding any information we
+may collect while operating our websites and services. We do not sell
+any personally-identifiable information or data stored by On-Demand
+services to third-parties. We do not directly share your information
+with third-parties without explicit permission except to comply with the
+law or to provide necessary infrastructure in connection with the
+services you request; however, there is some passive risk of exposure to
+third-party access inherent in web-based services that is outlined in
+detail below. We do our best to mitigate and minimize these risks on
+your behalf.
+
+Website Visitors
+----------------
+
+Like most website operators, WGM collects non-personally-identifying
+information of the sort that web browsers and servers typically make
+available, such as the browser type, language preference, referring
+site, and the date and time of each visitor request. WGM's purpose in
+collecting non-personally identifying information is to better
+understand how WGM's visitors use its website. From time to time, WGM
+may release non-personally-identifying information in the aggregate;
+e.g., by publishing a report on trends in the usage of its website.
+
+WGM also collects potentially personally-identifying information like
+Internet Protocol (IP) addresses for visitors and logged in workers. WGM
+only discloses IP addresses under the same circumstances that it uses
+and discloses personally-identifying information as described below.
+
+Gathering of Personally-Identifying Information
+-----------------------------------------------
+
+Certain visitors to WGM's websites choose to interact with WGM in ways
+that require us to gather personally-identifying information. The amount
+and type of information that WGM gathers depends on the nature of the
+interaction. For example, we ask workers who sign up for On-Demand
+services to provide an email address. Those who engage in transactions
+with WGM -- by purchasing products and services for Cerb5, for example
+-- are asked to provide additional information, including as necessary
+the personal and financial information required to process those
+transactions. In each case, WGM collects such information only insofar
+as is necessary or appropriate to fulfill the purpose of the visitor's
+interaction with WGM. WGM does not disclose personally-identifying
+information other than as described below. And visitors can always
+refuse to supply personally-identifying information, with the caveat
+that it may prevent them from purchasing or engaging in certain
+services.
+
+Aggregated Statistics
+---------------------
+
+WGM may collect statistics about the behavior of visitors to its
+websites or workers of its On-Demand software. For instance, WGM may
+gather metrics about individual Cerb5 instances like the number of
+workers, addresses, conversations, messages, and attachments; the
+composition of file attachments such as distributions of sizes or file
+types; or the amount of activity over a given time period. This
+information is used to improve the usability and performance of products
+and services provided by WGM.
+
+WGM may display this aggregate, anonymous information publicly or
+provide it to others. However, WGM does not disclose
+personally-identifying information other than as described below.
+
+Protection of Certain Personally-Identifying Information
+--------------------------------------------------------
+
+WGM discloses potentially personally-identifying and
+personally-identifying information only to those of its employees,
+contractors and affiliated organizations that (i) need to know that
+information in order to process it on WGM's behalf or to provide
+products and services available at WGM's websites, and (ii) that have
+agreed not to disclose it to others. Some of those employees,
+contractors and affiliated organizations may be located outside of your
+home country; by using WGM's websites, you consent to the transfer of
+such information to them. WGM will not rent or sell potentially
+personally-identifying and personally-identifying information to anyone.
+Other than to its employees, contractors and affiliated organizations,
+as described above, WGM discloses potentially personally-identifying and
+personally-identifying information only in response to a subpoena, court
+order or other governmental request, or when WGM believes in good faith
+that disclosure is reasonably necessary to protect the property or
+rights of WGM, third parties or the public at large.
+
+If you are a registered user of a WGM product or service like Cerb5 and
+have supplied your email address, WGM may occasionally send you an email
+to tell you about new features, solicit your feedback, or just keep you
+up to date with what's going on with WGM and our products. We primarily
+use our social network profiles to communicate this type of information,
+so we expect to keep this type of email to a minimum. If you send us a
+request (for example via a support email or via one of our feedback
+mechanisms), we reserve the right to publish it in order to help us
+clarify or respond to your request or to help us support other users.
+WGM takes all measures reasonably necessary to protect against the
+unauthorized access, use, alteration or destruction of potentially
+personally-identifying and personally-identifying information.
+
+Third-Party Data Centers, Cloud Computing, and Virtualization
+-------------------------------------------------------------
+
+WGM provisions, administers, and maintains servers remotely in various
+data centers throughout the world and WGM does not maintain a physical
+presence in any of them. Most On-Demand services are currently provided
+from machines exclusively leased and operated by WGM from SoftLayer in
+their Seattle and Dallas facilities. However, other services, like our
+project portal, are provided from virtual servers in cloud computing and
+storage environments at Amazon Web Services, Linode, and Slicehost
+(Rackspace Cloud). In virtual environments, many users from various
+organizations share a pool of resources like computational power and
+storage capacity, although provisioned resources are isolated from one
+another to a similar degree as leased machines in a datacenter.
+
+Due to the remote nature of leased servers, colocation, cloud computing,
+and virtualization, authorized technicians from our vendors and service
+providers may have temporary access to our servers in order to perform
+physical maintenance and upgrades, or to provide hands-on assistance
+with troubleshooting issues like RAID degradation and hardware failures.
+
+In such events we defer to upstream privacy policies:
+
+-  `http://www.softlayer.com/legal/privacy <http://www.softlayer.com/legal/privacy>`_
+-  `http://aws.amazon.com/privacy/ <http://aws.amazon.com/privacy/>`_
+-  `http://www.slicehost.com/privacy <http://www.slicehost.com/privacy>`_
+-  `http://www.linode.com/privacy.cfm <http://www.linode.com/privacy.cfm>`_
+-  `http://www.rackspace.com/information/legal/privacystatement.php <http://www.rackspace.com/information/legal/privacystatement.php>`_
+
+Backups
+-------
+
+If you communicate with WGM, or use On-Demand services provided by WGM,
+your information will be copied regularly for the express purpose of
+maintaining backups for continuity and disaster recovery. Nightly
+backups and redundant storage are kept on machines controlled remotely
+by WGM. Backups may be transferred to Amazon's Simple Storage Service
+(S3) for long-term, off-site archival. Upon cancellation, we will comply
+with authorized client requests for all backups to be immediately
+destroyed. Otherwise, these backups may be retained for a period of
+months or years to provide the capability for a customer to resume
+service at a future date.
+
+Testimonials
+------------
+
+WGM displays a list of clients and testimonials on our websites. We do
+not disclose the names of licensed organizations, or their
+representatives, without explicit permission, except in the event that a
+client freely discloses their identity through postings on public forums
+or social networks.
+
+Cookies
+-------
+
+A cookie is a string of information that a website stores on a visitor's
+computer, and that the visitor's browser provides to the website each
+time the visitor returns. WGM uses cookies to help WGM identify and
+track visitors, their usage of WGM website, and their website access
+preferences. Visitors who do not wish to have cookies placed on their
+computers should set their browsers to refuse cookies before using WGM's
+websites, with the drawback that certain features of WGM's websites may
+not function properly without the aid of cookies. Web-based products
+like Cerb5 require cookies to be enabled, although their use is limited
+to maintaining a logged-in session within the software.
+
+Business Transfers
+------------------
+
+If WGM, or substantially all of its assets were acquired, or in the
+unlikely event that WGM goes out of business or enters bankruptcy, user
+information would be one of the assets that is transferred or acquired
+by a third party. You acknowledge that such transfers may occur, and
+that any acquirer of WGM may continue to use your personal information
+as set forth in this policy.
+
+Ads
+---
+
+In the rare event that ads appear in any of our applications or on any
+of our websites, they may be delivered to users by advertising partners,
+who may set cookies. These cookies allow the ad server to recognize your
+computer each time they send you an online advertisement to compile
+information about you or others who use your computer. This information
+allows ad networks to, among other things, deliver targeted
+advertisements that they believe will be of most interest to you. This
+Privacy Policy covers the use of cookies by WGM and does not cover the
+use of cookies by any advertisers.
+
+Privacy Policy Changes
+----------------------
+
+Although most changes are likely to be minor, WGM may change its Privacy
+Policy from time to time, and in WGM's sole discretion. WGM encourages
+visitors to frequently check this page for any changes to its Privacy
+Policy. Your continued use of this site after any change in this Privacy
+Policy will constitute your acceptance of such change.
+
+License
+-------
+
+This privacy policy is available under a `Creative Commons
+Sharealike <http://creativecommons.org/licenses/by-sa/2.5/>`_ license
+derived from original groundwork by
+`Automattic <http://automattic.com/privacy/>`_. WGM has no professional
+affiliation with Automattic.

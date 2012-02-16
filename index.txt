@@ -20,5 +20,6 @@ Cerb5 Manual
     tips/index
     credits/index
     License <license>
+    Privacy Policy <privacy>
     glossary/index
     
