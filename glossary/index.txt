@@ -33,6 +33,9 @@ Glossary
     contact
         A person who corresponds with the :term:`helpdesk`. These are your customers, partners, and prospects. If you're part of the I.T. department for a large corporation, then contacts are likely your co-workers who ask questions and report problems.
 
+    context
+        A specific kind of object.
+
     conversation
         A series of email messages pertaining to a specific topic and involving the same :term:`recipients <recipient>`.
 
@@ -61,7 +64,7 @@ Glossary
          A :term:`member` with :term:`group` administration authority. Managers can create :term:`buckets <bucket>`, add new group members, and establish routing rules for new work. Groups can have any number of managers.
 
     mask
-        A unique identifier (e.g. ABC-12345-987) that doesn't disclose sensitive statistics like the total number of :term:`conversations <conversation>` or the volume of activity over arbitrary time periods.  Sequential IDs (e.g. 1, 2, ...) expose these statistics with every new record.
+        A unique identifier (e.g. ABC-12345-987) that doesn't disclose sensitive statistics like the total number of :term:`conversations <conversation>` or the volume of activity over arbitrary time periods.  Sequential IDs (e.g. 1, 2, ...) expose these statistics with every new object.
 
     member
         A :term:`worker` in a :term:`group`, under the supervision of one or more :term:`managers <manager>`.
@@ -78,6 +81,9 @@ Glossary
     notification
         ...
 
+    object
+        A specific instance of a :term:`context`.  For example, an individual :term:`ticket` or :term:`task`.
+
     outcome
         ...
 
@@ -87,13 +93,22 @@ Glossary
     plugin
         ...
 
+    privilege
+        Explicit permission to perform a specific action.
+
     recipient
         A :term:`contacts <contact>` that is associated with a particular :term:`conversation`. Recipients receive a copy of every new message.
 
+    role
+        A set of :term:`privileges <privilege>` granted to a :term:`worker`.
+    
     seat
         ...
     
     snippet
+        ...
+
+    task
         ...
 
     ticket
@@ -106,7 +121,7 @@ Glossary
         ...
 
     watcher
-        A worker who subscribes to notifications about new activity on specific records. For example, a manager may assign a task to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion. Being a watcher on something *does not* imply that you are taking responsibility for it. If you aren't sure how to answer a particular question, it can be useful to watch it so you can leave from the answer a more experienced worker gives. Watching facilitates collaboration, observation, and training.
+        A worker who subscribes to notifications about new activity on specific objects. For example, a manager may assign a task to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion. Being a watcher on something *does not* imply that you are taking responsibility for it. If you aren't sure how to answer a particular question, it can be useful to watch it so you can leave from the answer a more experienced worker gives. Watching facilitates collaboration, observation, and training.
     
     WebGroup Media LLC
         A commercial open source company that was founded in April 2002 to build web-based enterprise collaboration software.  The developers of Cerb5.  WGM is lean, profitable, and organically-bootstrapped.  The company shares 100% of its source code due to a fundamental belief that bits and bytes have less value than experience and long-term, mutually advantageous relationships. WGM's client list is international and spans most industries, including governments, advocacy groups, political campaigns, educational institutions, charities, and businesses of all sizes. 
