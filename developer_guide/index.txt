@@ -3,6 +3,13 @@
 Guide for Developers
 ====================
 
+.. toctree::
+    :maxdepth: 1
+
+    toolkit
+    plugins
+    rest_api/index
+
 The toolchain used by the official development team
 ---------------------------------------------------
 
@@ -138,13 +145,6 @@ entire historical timeline would be inaccurate by the offset between
 those time zones. When dates are stored in GMT/UTC, it doesn't matter
 where you are currently located; historical dates can always be
 displayed for your current time zone with perfect accuracy.
-
-.. toctree::
-    :maxdepth: 1
-    
-    toolkit
-    plugins
-
 
 Developers should download the project from GitHub using Git
 ------------------------------------------------------------

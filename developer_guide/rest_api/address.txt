@@ -1,0 +1,48 @@
+Address
+-------
+The address API allows you to modify the address book.
+
+Create
+======
+**POST /addresses/create.xml**
+
+Create a new email address.
+
+==============      =======
+Field               Type
+==============      =======
+``email``           string
+``first_name``      string
+``is_banned``       bit
+``last_name``       string
+``org_id``          integer
+``custom_*``        mixed
+==============      =======
+
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+    	array('email','gaius.baltar@localhost'),
+    	array('first_name','Gaius'),
+    	array('last_name','Baltar'),
+    	array('custom_16','http://www.cerberusweb.com/'),
+    );
+    $out = $cerb5->post($base_url . 'addresses/create.xml', $postfields);
+
+Retrieve
+========
+**GET /addresses/1.xml**
+
+Retrieves information about an address record.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb5->get($base_url . 'addresses/1.xml');
+
+Update
+======
+
+Search
+======
