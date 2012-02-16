@@ -1,0 +1,99 @@
+Tasks
+-------
+The tasks API allows you to create, update, retrieve, and search Task entries.
+
+Create
+======
+**POST /tasks/create.xml**
+
+Creates a new task.
+
+================      =======
+Field                 Type
+================      =======
+``assignee_id``       integer
+``completed``         timestamp
+``due``               timestamp
+``is_completed``      bit
+``title``             string
+``updated``           timestamp
+``custom_*``          mixed
+================      =======
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('title','Finish documentation'),
+	);
+	$out = $cerb5->post($base_url . 'tasks/create.xml', $postfields);
+
+Retrieve
+========
+**GET /tasks/<id>.xml**
+
+Retrieves information about a task.
+
+.. code-block:: php
+
+	<php
+	$out = $cerb5->get($base_url . 'tasks/1.xml');
+	
+Update
+======
+**POST /tasks/<id>.xml**
+
+Updates a task.
+
+================      =======
+Field                 Type
+================      =======
+``assignee_id``       integer
+``completed``         timestamp
+``due``               timestamp
+``is_completed``      bit
+``title``             string
+``updated``           timestamp
+``custom_*``          mixed
+================      =======
+
+.. code-block:: php
+	
+	<?php
+	$postfields = array(
+		array('title','Complete documentation'),
+		array('assignee_id', '1'),
+	);
+	$out = $cerb5->put($base_url . 'tasks/1.xml', $postfields);
+	
+Search
+======
+**POST /tasks/search.xml**
+
+================      =======
+Field                 Type
+================      =======
+``assignee_id``       integer
+``completed``         timestamp
+``due``               timestamp
+``is_completed``      bit
+``title``             string
+``updated``           timestamp
+``custom_*``          mixed
+================      =======
+
+.. code-block:: php
+	
+	<?php
+	$postfields = array(
+		array('criteria[]','assignee_id'),
+		array('oper[]','!='),
+		array('value[]','8'),
+		array('criteria[]','title'),
+		array('oper[]','like'),
+		array('value[]','t*'),
+		array('sortBy','id'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'tasks/search.xml', $postfields);
