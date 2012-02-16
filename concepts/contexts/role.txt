@@ -1,0 +1,4 @@
+Role
+----
+
+A **role** is a set of :term:`privileges <privilege>` granted to a :doc:`worker </concepts/contexts/worker>`.

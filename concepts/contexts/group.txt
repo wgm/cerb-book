@@ -1,13 +1,14 @@
-Groups
-------
+Group
+-----
 
-A **group** is a collection of :doc:`workers </concepts/workers>` who are considered to be interchangeable when a specific kind of task needs to be performed.  Groups are most effective when they are defined broadly.
+A **group** is a collection of :doc:`workers </concepts/contexts/worker>` who are considered to be interchangeable when a specific kind of task needs to be performed.  Groups are most effective when they are defined broadly.
 
 For example, these groups reflect departments:
 
 - Billing
 - Corporate
 - Development
+- Legal
 - Marketing
 - Sales
 - Support

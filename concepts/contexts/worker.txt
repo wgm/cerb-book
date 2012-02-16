@@ -1,0 +1,20 @@
+Worker
+------
+
+A **worker** is a person who represents your organization while performing their duties.  A worker with unrestricted privileges is called an **administrator**.
+
+- Accountants
+- Contractors
+- Customer service reps
+- Developers
+- Executives
+- Financiers
+- Investors
+- Lawyers
+- Marketers
+- Partners
+- Public officials
+- Researchers
+- Salespeople
+- System administrators
+- Volunteers

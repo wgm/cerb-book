@@ -1,13 +1,8 @@
-Address Book
-------------
+Contact
+-------
 
 -  A person who corresponds with the helpdesk is referred to as a
    **contact**. These are your customers, partners, and prospects. If
    you're part of the I.T. department for a large corporation, then
    contacts are likely your co-workers who ask questions and report
    problems.
-
--  The **address book** is a list of all the contacts in your helpdesk.
-   It provides the ability to group contacts by various attributes (e.g.
-   location, language, industry) to build customer lists and mailing
-   lists.

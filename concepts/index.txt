@@ -8,18 +8,17 @@ This section is an introduction to the main concepts found throughout Cerb5.
 .. toctree::
     :maxdepth: 3
     
-    workers
-    groups
+    contexts/index
+    objects/index
     virtual_attendants/index
-    records/index
-    address_book
-    mail/index
-    tasks
+    workspaces/index
     snippets/index
     broadcast
     watchers/index
     notifications
-    workspaces/index
     knowledgebase
     community_portals
     plugins
+    
+    mail/index
+    

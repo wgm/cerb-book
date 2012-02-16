@@ -12,12 +12,12 @@ Virtual Attendants can perform almost any action that a worker can.  For example
 
 - Read and write email
 - Create tasks
-- Modify record properties and custom fields
+- Modify object properties and custom fields
 - Add comments
 - Generate arbitrary notifications
 - Make assignments
 - Send time-sensitive reminders
-- Establish links between records
+- Establish links between objects
 
 Virtual Attendants endow *any* worker with the ability to automate repetitive tasks and enforce desirable behavior.  Unlike the creation of :term:`plugins <plugin>`, VAs can be mastered without any computer programming experience.
 
