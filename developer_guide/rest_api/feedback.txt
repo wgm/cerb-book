@@ -1,6 +1,6 @@
 Feedback
--------
-The feedback API allows you to create, update, retrieve, and search Feedack objects.
+--------
+The feedback API allows you to create, update, retrieve, and search Feedback objects.
 
 Create
 ======

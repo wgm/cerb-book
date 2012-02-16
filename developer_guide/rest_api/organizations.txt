@@ -1,5 +1,5 @@
 Organizations
--------
+-------------
 The organizations API allows you to create, update, retrieve, and search Organization objects.
 
 Create
