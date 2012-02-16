@@ -5,4 +5,12 @@ REST-based Web API
     :maxdepth: 1
 
     introduction
-    address
+    addresses
+    contacts
+    feedback
+    messages
+    notifications
+    opportunities
+    organizations
+    tasks
+    tickets
