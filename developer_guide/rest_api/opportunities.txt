@@ -1,0 +1,111 @@
+Opportunities
+-------
+The opportunities API allows you to create, update, retrieve, and search opportunity records.
+
+Create
+======
+**POST /opps/create.xml**
+
+Creates a new opportunity.
+
+=================================      =============
+Field                                  Type
+=================================      =============
+``amount``                             float
+``assignee_id``                        int
+``created``                            timestamp
+``email_address`` or ``email_id``      string or int
+``is_closed``                          bit
+``is_won``                             bit
+``title``                              string
+``updated``                            timestamp
+``custom_*``                           mixed
+=================================      =============
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('title','Sell Cerb5 to Salesforce'),
+		array('email_address','unlikely@example.com'),
+	);
+	$out = $cerb5->post($base_url . 'opps/create.xml', $postfields);
+	
+	
+Update
+======
+**POST /opps/<id>.xml**
+
+Updates an opportunity.
+
+=================================      =============
+Field                                  Type
+=================================      =============
+``amount``                             float
+``assignee_id``                        int
+``created``                            timestamp
+``email_address`` or ``email_id``      string or int
+``is_closed``                          bit
+``is_won``                             bit
+``title``                              string
+``updated``                            timestamp
+``custom_*``                           mixed
+=================================      =============
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('title','Sell Cerb5 to Atlassian'),
+		array('email_address','nothappening@example.com'),
+	);
+	$out = $cerb5->post($base_url . 'opps/1.xml', $postfields);
+
+Retrieve
+========
+**GET opps/<id>.xml**
+
+Retrieves information about an opportunity.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'opps/1.xml');
+	
+Search
+======
+**POST opps/search.xml**
+
+Performs a search for opportunities.
+
+=================================      =============
+Field                                  Type
+=================================      =============
+``amount``                             float
+``assignee_id``                        int
+``created``                            timestamp
+``email_address`` or ``email_id``      string or int
+``is_closed``                          bit
+``is_won``                             bit
+``title``                              string
+``updated``                            timestamp
+=================================      =============
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','is_closed'),
+		array('oper[]','='),
+	 	array('value[]','0'),
+	 	array('criteria[]','title'),
+	 	array('oper[]','like'),
+	 	array('value[]','hu*'),
+	 	array('criteria[]','email_address'),
+	 	array('oper[]','like'),
+	 	array('value[]','*.de'),
+	 	array('sortBy','id'),
+	 	array('sortAsc','1'),
+	 	array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'opps/search.xml', $postfields);
