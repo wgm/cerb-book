@@ -19,5 +19,6 @@ Cerb5 Manual
     developer_guide/index
     tips/index
     credits/index
+    License <license>
     glossary/index
     
