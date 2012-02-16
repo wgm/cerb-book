@@ -1,0 +1,108 @@
+Addresses
+-------
+The addresses API allows you to create, update, retrieve, and search Address Book entries.
+
+Create
+======
+**POST /addresses/create.xml**
+
+Creates a new email address.
+
+==============      =======
+Field               Type
+==============      =======
+``email``           string
+``first_name``      string
+``is_banned``       bit
+``last_name``       string
+``org_id``          integer
+``custom_*``        mixed
+==============      =======
+
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+    	array('email','gaius.baltar@localhost'),
+    	array('first_name','Gaius'),
+    	array('last_name','Baltar'),
+    	array('custom_16','http://www.cerberusweb.com/'),
+    );
+    $out = $cerb5->post($base_url . 'addresses/create.xml', $postfields);
+
+Retrieve
+========
+**GET /addresses/<id>.xml**
+
+Retrieves information about an address record.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb5->get($base_url . 'addresses/1.xml');
+
+Update
+======
+**POST /addresses/<id>.xml**
+
+Updates an existing email address.
+
+==============      =======
+Field               Type
+==============      =======
+``email``           string
+``first_name``      string
+``is_banned``       bit
+``last_name``       string
+``org_id``          integer
+``custom_*``        mixed
+==============      =======
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('email','gaius.baltar@cerberusdemo.com'),
+		array('first_name','Gaius'),
+		array('last_name','Baltar'),
+		array('custom_16','http://www.cerberusdemo.com/'),
+	);
+	$out = $cerb5->post($base_url . 'addresses/1.xml', $postfields);
+
+Search
+======
+** POST /addresses/search.xml**
+
+Performs a search for addresses.
+
+===============      =======
+Field                Type
+===============      =======
+``email``            string
+``first_name``       string
+``is_banned``        bit
+``last_name``        string
+``num_nonspam``      integer
+``num_spam``         integer
+``org_id``           integer
+``org_name``         string
+===============      =======
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','org_id'),
+		array('oper[]','='),
+		array('value[]','1'),
+		array('criteria[]','is_banned'),
+		array('oper[]','='),
+		array('value[]','0'),
+		array('criteria[]','email'),
+		array('oper[]','like'),
+		array('value[]','jeff@*'),
+		array('sortBy','email'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'addresses/search.xml', $postfields);

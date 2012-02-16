@@ -1,0 +1,104 @@
+Organizations
+-------
+The organizations API allows you to create, update, retrieve, and search Organization records.
+
+Create
+======
+**POST /orgs/create.xml**
+
+Creates a new organization.
+
+=================================      =============
+Field                                  Type
+=================================      =============
+``name``                               string
+``street``                             string
+``city``                               string
+``province``                           string
+``postal``                             string
+``country``                            string
+``phone``                              string
+``website``                            string
+``created``                            timestamp
+``custom_*``                           mixed
+=================================      =============
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('name','deCODE Genetics'),
+	);
+	$out = $cerb5->post($base_url . 'orgs/create.xml', $postfields);
+	
+Retrieve
+========
+**GET /orgs/<id>.xml**
+
+Retrieves information about an organization.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'orgs/1.xml');
+	
+Update
+======
+**POST /orgs/<id>.xml**
+
+Updates an existing organization.
+
+=================================      =============
+Field                                  Type
+=================================      =============
+``name``                               string
+``street``                             string
+``city``                               string
+``province``                           string
+``postal``                             string
+``country``                            string
+``phone``                              string
+``website``                            string
+``created``                            timestamp
+``custom_*``                           mixed
+=================================      =============
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('name','deCODE Genetics'),
+	);
+	$out = $cerb5->post($base_url . 'orgs/create.xml', $postfields);
+	
+Search
+======
+
+Performs a search for organizations.
+
+=================================      =============
+Field                                  Type
+=================================      =============
+``name``                               string
+``street``                             string
+``city``                               string
+``province``                           string
+``postal``                             string
+``country``                            string
+``phone``                              string
+``website``                            string
+``created``                            timestamp
+=================================      =============
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','name'),
+		array('oper[]','like'),
+		array('value[]','t*'),
+		array('sortBy','name'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'orgs/search.xml', $postfields);
