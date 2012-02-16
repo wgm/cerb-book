@@ -21,7 +21,7 @@ Virtual Attendants can perform almost any action that a worker can.  For example
 
 Virtual Attendants endow *any* worker with the ability to automate repetitive tasks and enforce desirable behavior.  Unlike the creation of :term:`plugins <plugin>`, VAs can be mastered without any computer programming experience.
 
-Understanding how Virtual Attendants work will give you an incredibly powerful tool that can be applied to countless situations. For example, VAs can:
+Understanding how Virtual Attendants work will give you an incredibly powerful tool that can be applied to countless situations. For example, VAs can be used to:
 
 - Send automated replies that utilize personal information about the contact, their organization, and history
 - Generate notifications in response to specific kinds of email (e.g. orders)
@@ -81,8 +81,7 @@ Decisions
 ~~~~~~~~~
 
 A **decision** chooses the best :term:`outcome` from several possible choices. The
-result of a :term:`decision` can be a series of :term:`actions <action>`, or another decision; or
-both.
+result of a :term:`decision` can be a series of :term:`actions <action>` and/or another decision.
 
 Examples:
 
@@ -95,7 +94,7 @@ Examples:
 Conditions
 ~~~~~~~~~~
 
-A **condition** is the comparison of a single property to one or more values using an operator. There are many possible operators depending on the type of field: equals, doesn't equal, contains phrase, is greater than, is any of, etc. The result of a condition will always be either or.
+A **condition** is the comparison of a single property to one or more values using an operator. There are many possible operators depending on the type of field: equals, doesn't equal, contains phrase, is greater than, is any of, etc. The result of a condition will always be either `true` or `false`.
 
 Examples:
 
