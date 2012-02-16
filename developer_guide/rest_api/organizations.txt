@@ -1,6 +1,6 @@
 Organizations
 -------
-The organizations API allows you to create, update, retrieve, and search organization records.
+The organizations API allows you to create, update, retrieve, and search Organization records.
 
 Create
 ======
@@ -97,9 +97,6 @@ Field                                  Type
 		array('criteria[]','name'),
 		array('oper[]','like'),
 		array('value[]','t*'),
-		// array('criteria[]','id'),
-		// array('oper[]','='),
-		// array('value[]','1'),
 		array('sortBy','name'),
 		array('sortAsc','1'),
 		array('page','1'),
