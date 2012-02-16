@@ -1,0 +1,95 @@
+Feedback
+-------
+The feedback API allows you to create, update, retrieve, and search Feedack entries.
+
+Create
+======
+**POST /feedback/create.xml**
+
+Creates a new feedback entry.
+
+==================      =======
+Field                   Type
+==================      =======
+``author_address``      string
+``created``             timestamp
+``quote_mood``          string: ``praise``/``neutral``/``criticism``
+``quote_text``          string
+``url``                 string
+``custom_*``            mixed
+==================      =======
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('quote_text','This is the best app ever!'),
+		array('author_address','happy-user@example.com'),	
+	);
+	$out = $cerb5->post($base_url . 'feedback/create.xml', $postfields);
+
+Retrieve
+========
+**GET /feedback/<id>.xml**
+
+Retrieves information about a feedback entry.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'feedback/1.xml');
+	
+Update
+======
+**POST /feedback/<id>/xml**
+
+Updates a feedback entry.
+
+==================      =======
+Field                   Type
+==================      =======
+``author_address``      string
+``created``             timestamp
+``quote_mood``          string: ``praise``/``neutral``/``criticism``
+``quote_text``          string
+``url``                 string
+``custom_*``            mixed
+==================      =======
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('url','http://www.google.com/'),
+		array('quote_mood','praise'),
+	);
+	$out = $cerb5->put($base_url . 'feedback/1.xml', $postfields);
+	
+Search
+======
+**POST /feedback/search.xml**
+
+Performs a search for feedback entries.
+
+==================      =======
+Field                   Type
+==================      =======
+``author_address``      string
+``created``             timestamp
+``quote_mood``          string: ``praise``/``neutral``/``criticism``
+``quote_text``          string
+``url``                 string
+==================      =======
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','author_address'),
+		array('oper[]','like'),
+		array('value[]','a*'),
+		array('sortBy','id'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'feedback/search.xml', $postfields);
