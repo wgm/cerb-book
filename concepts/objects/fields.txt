@@ -1,0 +1,14 @@
+Fields
+------
+
+**Fields** describe the built-in properties of an :doc:`object </concepts/objects/index>`.
+
+For example:
+
+- Due date
+- Name
+- Owner
+- Status
+- Title
+- Updated date
+- Views

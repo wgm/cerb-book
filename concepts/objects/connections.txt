@@ -1,0 +1,6 @@
+Connections
+-----------
+
+A **connection** is an ad-hoc relationship that links two :doc:`objects </concepts/objects/index>` together.  This makes it easy to explore references and supporting materials in both directions.
+
+For example, if several :doc:`tasks </concepts/contexts/task>` are required in order to close a :doc:`ticket </concepts/contexts/ticket>` then each task should be linked to the ticket.  The common ticket would be visible from each task, and the entire list of tasks would be visible from the ticket.  These tasks could also be linked to each other.

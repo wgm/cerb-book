@@ -1,0 +1,21 @@
+Activity Log
+------------
+
+The **activity log** keeps track of the changes that have happened to a particular :doc:`object </concepts/object/index>`.
+
+An activity has three primary fields:
+
+- **Activity**
+    The event being recorded:
+        - A task was assigned to a worker
+        - A conversation was deleted.
+
+- **Actor**
+    Who initiated the event:
+        - A contact
+        - A worker
+        - A :doc:`Virtual Attendant </concepts/virtual_attendants/index>`
+        - Any other :doc:`context </concepts/contexts/index>`
+
+- **When**
+    The date and time that this activity occurred.

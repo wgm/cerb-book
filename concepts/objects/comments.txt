@@ -1,0 +1,4 @@
+Comments
+--------
+
+**Comments** describe an internal discussion among workers on a particular :doc:`object </concepts/objects/index>`.  Comments are never publicly visible to :term:`contacts <contact>` or other external parties.
