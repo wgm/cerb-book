@@ -1,0 +1,137 @@
+Useful custom field ideas
+-------------------------
+
+Here are some example :doc:`custom field </concepts/objects/custom_fields>` ideas that solve common business requirements:
+
+Addresses
+~~~~~~~~~
+
+-  **Defunct** (checkbox)
+    Tracks if an email address is undeliverable or no longer in service. This makes it easier to filter broadcasts and exported mailing lists.
+-  **Do Not Contact** (checkbox)
+    Keeps track of opt-out requests. This makes it easier to filter broadcasts and exported mailing lists to comply with user preferences and the CAN-SPAM Act.
+-  **Mailing Lists** (multi-checkbox)
+    Associates an email address with topical mailing lists. For example:
+       -  Beta Testers
+       -  Sponsors
+       -  Translators
+
+Feedback
+~~~~~~~~
+
+-  **List** (picklist)
+    Categorizes feedback with various lists. This makes it easy to find appropriate customer quotes for marketing, team boosting, improving the customer experience:
+       - Competition - *"I switched from Competitor Inc. and now I can't live without Feature X!"*
+       - Testimonials - *"Since using your service we've improved our average response time from 3 hours to 12 minutes"*
+       - Cancels/Debrief - *"The product was too expensive to maintain"*
+-  **Project** (picklist)
+    Associates feedback with a specific project.
+-  **Product** (picklist)
+    Associates feedback with a specific product.
+
+Opportunities
+~~~~~~~~~~~~~
+
+-  **Broadcasts** (multi-checkbox)
+    Tracks which announcements or offers have already been sent to this opportunity. This allows you to search for opportunities that have or haven't been contacted and stagger (or A/B test) your announcements.
+-  **Campaign** (picklist)
+    Groups opportunities into marketing campaigns -- a particular offer, promotion, or sales objective. You can filter by campaign to broadcast a similar message to the entire list. For example:
+       -  2.0 release announcement
+       -  Seattle grand opening
+       -  Summer sale
+-  **Last Contacted** (date)
+    Records the timestamp of the last marketing communication. This helps control the frequency of your sales efforts directed at individual opportunities. For example, you could filter lists to people you haven't contacted within 30 days.
+-  **Primary Objection** (picklist)
+    Categorizes the current primary objection of an opportunity. For example:
+       -  Complexity
+       -  Price
+       -  Using a competitor
+-  **Owner/Associate** (picklist/worker)
+    The person responsible for converting this opportunity into a sale. If only a small subset of your workers are part of your sales force, you can use a picklist custom field with only their names.
+-  **Qualified** (checkbox)
+    Tracks if an opportunity has been qualified as a prospect as opposed to a lead.
+-  **Sales Manager** (picklist/worker)
+    The sales manager can be assigned accounts that they distribute among team members. This custom field allows monitoring and statistics (won/lost) to be tracked over an entire sales team.
+
+Organizations
+~~~~~~~~~~~~~
+
+-  **Account Manager** (worker)
+    The worker responsible for maintaining a mutually beneficial relationship with this account.
+-  **Employees** (number/picklist) 
+    The size of this organization. For precision this can be a number custom field, otherwise you can use ranges with a picklist field:
+       -  0-50
+       -  51-100
+       -  101-500
+       -  501-1000
+       -  1000+
+-  **Industry** (picklist/multi-checkbox)
+    This can be used to filter marketing offers to specific industries in conjunction with other criteria (e.g. country, size):
+       -  Education
+       -  Entertainment
+       -  Government
+       -  Health
+       -  Technology
+-  **Noteworthy** (checkbox)
+    Distinguishes this organization as noteworthy for marketing purposes: testimonials, portfolios, and building client lists. This makes it easier to flag recognizable brands at the point of contact instead of filtering through tens or hundreds of thousands of organizations in the address book. You could also filter open tickets by noteworthy status to make sure your top customers are receiving exceptional service.
+-  **Products** (multi-checkbox)
+    Assuming you have a small set of products, product lines, or membership options, this custom field associates these segments to particular customers. This makes it easy to combine existing customers with additional criteria; for example, purchasers of Product X in Germany, or subscribers of Service Y in the Health industry.
+-  **Service Level** (picklist)
+    If you provide tiered service levels, setting this at the organization level will automatically apply it to all associated contacts in ticket conversations, opportunities, and the address book. Virtual Attendants can check this field when dispatching, assigning, or making notifications. As a result, the Attendant can move these tickets to special groups or buckets, send a notification to the organization's account manager, set a due date custom field on the ticket, or set the ticket's priority custom field. For example:
+       -  VIPs
+       -  Priority Support
+       -  Gold members
+
+Servers
+~~~~~~~
+
+-  **Datacenter** (picklist)
+    Tracks servers by their physical location:
+       -  Amazon EC2 (US/East)
+       -  Slicehost (Chicago, USA)
+       -  SoftLayer (Seattle, USA)
+-  **OS** (picklist)
+    Tracks the operating system for each server. This assists with server maintenance and provisioning:
+       -  Debian Squeeze
+       -  FreeBSD 8.2
+       -  Ubuntu Lucid 10.04
+       -  Windows Server 2008
+
+Snippets
+~~~~~~~~
+
+-  **Category** (picklist)
+    This field groups snippets by topic. This can be combined with search filter presets to organize a large body of canned responses. For example:
+       -  FAQ
+       -  Sales Followup
+       -  Welcome Letter
+
+Tasks
+~~~~~
+
+-  **Priority** (picklist)
+    The priority of the task for workflow planning purposes:
+       -  High
+       -  Normal
+       -  Low
+
+-  **Project** (picklist)
+    The project the task belongs to. This can be combined with subtotals to display tasks similar to how mail is displayed by group and bucket.
+
+Tickets
+~~~~~~~
+
+-  **Due Date** (date)
+    This field can be set by Virtual Attendants depending on a Service Level custom field on the sender's organization.
+-  **Priority** (picklist)
+    The priority of the ticket. This can also be set by a Virtual Attendant depending on the sender's organization Service Level, or it can be set manually for specific types of issues (e.g. downtime). For example:
+       -  Emergency
+       -  Low
+
+-  **Type** (picklist)
+    Categorizes ticket by the primary activity for reporting metrics:
+       -  Feedback
+       -  Sales Inquiry
+       -  Technical Support
+       -  Troubleshooting
+

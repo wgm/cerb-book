@@ -18,6 +18,7 @@ Cerb5 Manual
     worker_guide/index
     developer_guide/index
     tips/index
+    cookbook/index
     credits/index
     License <license>
     Privacy Policy <privacy>
