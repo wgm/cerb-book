@@ -20,6 +20,12 @@ You can reference reStructuredText syntax here:
 <http://sphinx.pocoo.org/rest.html>
 
 
+Installing Sphinx
+-----------------
+
+    $ sudo easy_install sphinx
+    $ sudo easy_install sphinxcontrib-phpdomain
+
 Creating an HTML manual
 -----------------------
 
