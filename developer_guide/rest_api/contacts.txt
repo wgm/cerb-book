@@ -1,0 +1,87 @@
+Contacts
+-------
+The address API allows you to create, update, retrieve, and search registered Support Center contacts.
+
+Create
+======
+**POST /contacts/create.xml**
+
+Creates a new support center contact.
+
+=========================      =============
+Field                          Type
+=========================      =============
+``email`` or ``email_id``      string or int
+``password``                   string
+=========================      =============
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('email','gaius.baltar@localhost'),
+		array('password','s3cr3t'),
+	);
+	$out = $cerb5->post($base_url . 'contacts/create.xml', $postfields);
+
+Retrieve
+========
+**GET contacts/<id>.xml**
+
+Retrieves information about a support center contact.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'contacts/1.xml');
+	
+	
+Update
+======
+**POST /contacts/<id>.xml**
+
+Updates a support center contact.
+
+============      =======
+Field             Type
+============      =======
+``password``      string
+============      =======
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('password','new'),
+	);
+	$out = $cerb5->put($base_url . 'contacts/1.xml', $postfields);
+		
+Search
+======
+**POST /contacts/search.xml**
+
+Performs a search for support center contacts.
+
+====================      =======
+Field                     Type
+====================      =======
+``created``               int
+``email_id``              int
+``email_address``         string
+``email_first_name``      string
+``email_last_name``       string
+``last_login``            int
+====================      =======
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','email_address'),
+		array('oper[]','like'),
+		array('value[]','jeff@*'),
+		array('sortBy','email'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'contacts/search.xml', $postfields);
