@@ -1,6 +1,6 @@
 Tasks
 -------
-The tasks API allows you to create, update, retrieve, and search Task entries.
+The tasks API allows you to create, update, retrieve, and search Task objects.
 
 Create
 ======

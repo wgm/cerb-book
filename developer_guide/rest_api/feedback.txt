@@ -1,6 +1,6 @@
 Feedback
 -------
-The feedback API allows you to create, update, retrieve, and search Feedack entries.
+The feedback API allows you to create, update, retrieve, and search Feedack objects.
 
 Create
 ======
@@ -69,7 +69,7 @@ Search
 ======
 **POST /feedback/search.xml**
 
-Performs a search for feedback entries.
+Performs a search for feedback objects.
 
 ==================      =======
 Field                   Type

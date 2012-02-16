@@ -1,6 +1,6 @@
 Addresses
 -------
-The addresses API allows you to create, update, retrieve, and search Address Book entries.
+The addresses API allows you to create, update, retrieve, and search Address Book objects.
 
 Create
 ======
