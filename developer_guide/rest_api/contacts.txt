@@ -1,5 +1,5 @@
 Contacts
--------
+--------
 The address API allows you to create, update, retrieve, and search registered Support Center contacts.
 
 Create

@@ -1,5 +1,5 @@
 Opportunities
--------
+-------------
 The opportunities API allows you to create, update, retrieve, and search Opportunity objects.
 
 Create
