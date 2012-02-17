@@ -70,6 +70,8 @@ Search
 ======
 **POST /tasks/search.xml**
 
+Performs a search across Task objects.
+
 ================      =======
 Field                 Type
 ================      =======

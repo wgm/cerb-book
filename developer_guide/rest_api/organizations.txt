@@ -73,8 +73,9 @@ Field                                  Type
 	
 Search
 ======
+**POST /orgs/search.xml**
 
-Performs a search for organizations.
+Performs a search across organization objects.
 
 =================================      =============
 Field                                  Type

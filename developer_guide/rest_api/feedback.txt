@@ -69,7 +69,7 @@ Search
 ======
 **POST /feedback/search.xml**
 
-Performs a search for feedback objects.
+Performs a search across feedback objects.
 
 ==================      =======
 Field                   Type

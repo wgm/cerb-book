@@ -26,7 +26,7 @@ Field                          Type
 
 Retrieve
 ========
-**GET contacts/<id>.xml**
+**GET /contacts/<id>.xml**
 
 Retrieves information about a support center contact.
 
@@ -60,7 +60,7 @@ Search
 ======
 **POST /contacts/search.xml**
 
-Performs a search for support center contacts.
+Performs a search across support center contacts.
 
 ====================      =======
 Field                     Type
