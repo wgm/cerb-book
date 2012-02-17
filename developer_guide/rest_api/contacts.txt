@@ -38,7 +38,7 @@ Retrieves information about a support center contact.
 	
 Update
 ======
-**POST /contacts/<id>.xml**
+**PUT /contacts/<id>.xml**
 
 Updates a support center contact.
 

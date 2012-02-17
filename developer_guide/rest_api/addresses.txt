@@ -43,7 +43,7 @@ Retrieves information about an address record.
 
 Update
 ======
-**POST /addresses/<id>.xml**
+**PUT /addresses/<id>.xml**
 
 Updates an existing email address.
 

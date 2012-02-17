@@ -45,7 +45,7 @@ Retrieves information about a Worker.
 	
 Update
 ======
-**POST /workers/<id>.xml**
+**PUT /workers/<id>.xml**
 
 Updates a worker.
 
