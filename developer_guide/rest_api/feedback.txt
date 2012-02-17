@@ -41,7 +41,7 @@ Retrieves information about a feedback entry.
 	
 Update
 ======
-**POST /feedback/<id>/xml**
+**PUT /feedback/<id>/xml**
 
 Updates a feedback entry.
 

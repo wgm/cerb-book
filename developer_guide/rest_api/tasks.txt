@@ -41,7 +41,7 @@ Retrieves information about a task.
 	
 Update
 ======
-**POST /tasks/<id>.xml**
+**PUT /tasks/<id>.xml**
 
 Updates a task.
 

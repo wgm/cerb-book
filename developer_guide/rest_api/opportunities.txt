@@ -34,7 +34,7 @@ Field                                  Type
 	
 Update
 ======
-**POST /opps/<id>.xml**
+**PUT /opps/<id>.xml**
 
 Updates an opportunity.
 

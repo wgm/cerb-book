@@ -44,7 +44,7 @@ Retrieves information about an organization.
 	
 Update
 ======
-**POST /orgs/<id>.xml**
+**PUT /orgs/<id>.xml**
 
 Updates an existing organization.
 

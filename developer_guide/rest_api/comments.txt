@@ -1,6 +1,6 @@
 Comments
 --------
-The comments API allows you to create, update, retrieve, and search Comment objects.
+The comments API allows you to create, retrieve, and search Comment objects.
 
 Create
 ======
