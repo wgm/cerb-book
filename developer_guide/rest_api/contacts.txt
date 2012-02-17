@@ -85,3 +85,14 @@ Field                     Type
 		array('page','1'),
 	);
 	$out = $cerb5->post($base_url . 'contacts/search.xml', $postfields);
+
+Delete
+======
+**DELETE /contacts/<id>.xml**
+
+Deletes a support center contact.
+
+.. code-block:: php
+	
+	<?php
+	$out = $cerb5->delete($base_url . 'contacts/1.xml');
