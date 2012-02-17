@@ -1,8 +1,9 @@
 Contact
 -------
 
--  A person who corresponds with the helpdesk is referred to as a
-   **contact**. These are your customers, partners, and prospects. If
-   you're part of the I.T. department for a large corporation, then
-   contacts are likely your co-workers who ask questions and report
-   problems.
+An individual person who corresponds with the helpdesk is referred to as a **contact**. These are your customers, partners, and prospects. If you're part of the I.T. department for a corporation, contacts are often your co-workers who ask technical questions and report problems.
+
+Multiple email addresses can be associated with the same contact -- reflecting the fact that an individual can have more than one email address.
+
+You usually don't need to create contact objects manually.  Contact objects are automatically created when people register through any of your :doc:`community portals </concepts/community_portals>`.  This will also permit contacts to associate all their alternate email addresses with their account.
+
