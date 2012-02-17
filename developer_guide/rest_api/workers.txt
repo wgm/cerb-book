@@ -1,0 +1,107 @@
+Workers
+-------
+The workers API allows you to create, update, retrieve, and search Worker objects.
+
+Create
+======
+**POST /workers/create.xml**
+
+Creates a new worker.
+
+================      =======
+Field                 Type
+================      =======
+``email``             string
+``first_name``        string
+``last_name``         string
+``password``          string
+``title``             string
+``is_disabled``       bit
+``is_superuser``      bit
+``custom_*``          mixed
+================      =======
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('email','tony.stark@example.com'),
+		array('first_name','Tony'),
+		array('last_name','Stark'),
+		array('password','test'),
+	);
+	$out = $cerb5->post($base_url . 'workers/create.xml', $postfields);
+	
+Retrieve
+========
+**GET /workers/<id>.xml**
+
+Retrieves information about a Worker.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'workers/1.xml');
+	
+Update
+======
+**POST /workers/<id>.xml**
+
+Updates a worker.
+
+================      =======
+Field                 Type
+================      =======
+``email``             string
+``first_name``        string
+``last_name``         string
+``password``          string
+``title``             string
+``is_disabled``       bit
+``is_superuser``      bit
+``custom_*``          mixed
+================      =======
+
+.. code-block:: php
+	
+	<?php
+	$postfields = array(
+		array('title','Superhero'),
+		array('password','new'),
+	);
+	$out = $cerb5->put($base_url . 'workers/1.xml', $postfields);
+	
+Search
+======
+**POST /workers/search.xml**
+
+Performs a search for worker objects.
+
+================      =======
+Field                 Type
+================      =======
+``email``             string
+``first_name``        string
+``last_name``         string
+``password``          string
+``title``             string
+``is_disabled``       bit
+``is_superuser``      bit
+================      =======
+	
+.. code-block:: php
+	
+	<?php
+	$postfields = array(
+	 	array('criteria[]','is_superuser'),
+	 	array('oper[]','='),
+	 	array('value[]','0'),
+	 	array('criteria[]','first_name'),
+	 	array('oper[]','like'),
+	 	array('value[]','*'),
+	 	array('sortBy','first_name'),
+	 	array('sortAsc','1'),
+	 	array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'workers/search.xml', $postfields);
+	
