@@ -1,2 +1,32 @@
-Address
--------
+Email Address
+-------------
+
+An **email address** provides contact information for reaching a particular destination through electronic mail.  This is often the first thing, and sometimes the only thing, that you know about a contact.
+
+These are the primary fields of an email address object:
+
+- **Email**
+    The email address itself.
+    
+- **First name**
+    The given name of this contact.  This is used to send personalized messages with snippets.
+    
+- **Last name**
+    The surname of this contact.  This is used to send personalized messages with snippets.
+
+- **Contact Person**
+    The :doc:`contact </concepts/contexts/contact>` object that this address is associated with.
+    
+- **Organization**
+    The :doc:`organization </concepts/contexts/organization>` object that this address is associated with.
+    
+- **# Spam**
+    The number messages received from this email address that were reported as spam by workers.
+    
+- **# Nonspam**
+    The number of legitimate messages received from this email address.
+    
+- **Is Banned**
+    Whether or not this email address is banned.  True or false.  New messages from banned addresses will be ignored.
+    
+See the cookbook for :ref:`useful custom field ideas for email addresses <custom_fields_address>`.
