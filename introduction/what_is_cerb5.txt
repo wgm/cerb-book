@@ -12,13 +12,13 @@ Cerb5 provides:
 * Notifications for keeping up to date about new activity
 * Task management for delegating responsibilities
 * Knowledge management for sharing accumulated experience
-* :ref:`Devblocks <devblocks>`, a plugin-driven web development framework, for rapidly implementing new functionality
+* :doc:`Devblocks </developer_guide/devblocks/index>`, a plugin-driven web development framework, for rapidly implementing new functionality
 * A library of third-party plugins for integrating with other applications and services (e.g. Facebook, Twitter, Twilio, Freshbooks, Amazon S3, Campfire, etc)
 * ... Time tracking, call logging, opportunity management, and much more
 
 Cerb5 is the result of over 10 years of continuous research and development by :term:`WebGroup Media <WebGroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on feedback from a community that has included more than 18,979 organizations.
 
-Licenses are sold based on the number of simultaneous workers (i.e. :term:`seats <seat>`).  Community licenses provide up to three seats at no cost.  The software can be deployed on your own servers, or it can be subscribed to as an ":ref:`on-demand`" service that requires only a web browser.
+Licenses are sold based on the number of simultaneous workers (i.e. :term:`seats <seat>`).  Community licenses provide up to three seats at no cost.  The software can be deployed on your own servers, or it can be subscribed to as an "on-demand" service that requires only a web browser.
 
 Cerb5 is written in the :term:`PHP5 <PHP>` programming language.  Data is stored in a :term:`MySQL` database.  The source code is publicly available on `GitHub <https://github.com/wgm/cerb5>`_.
 

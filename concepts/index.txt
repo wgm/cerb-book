@@ -20,5 +20,3 @@ This section is an introduction to the main concepts found throughout Cerb5.
     community_portals
     plugins
     
-    mail/index
-    

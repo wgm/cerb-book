@@ -7,7 +7,7 @@ Cerb5 Manual
 :Source Code: https://github.com/wgm/cerb5
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     introduction/index
     concepts/index

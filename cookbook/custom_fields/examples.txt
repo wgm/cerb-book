@@ -3,6 +3,8 @@ Useful custom field ideas
 
 Here are some example :doc:`custom field </concepts/objects/custom_fields>` ideas that solve common business requirements:
 
+.. _custom_fields_address:
+
 Addresses
 ~~~~~~~~~
 
@@ -52,6 +54,8 @@ Opportunities
     Tracks if an opportunity has been qualified as a prospect as opposed to a lead.
 -  **Sales Manager** (picklist/worker)
     The sales manager can be assigned accounts that they distribute among team members. This custom field allows monitoring and statistics (won/lost) to be tracked over an entire sales team.
+
+.. _custom_fields_org:
 
 Organizations
 ~~~~~~~~~~~~~
@@ -106,6 +110,8 @@ Snippets
        -  Sales Followup
        -  Welcome Letter
 
+.. _custom_fields_task:
+
 Tasks
 ~~~~~
 
@@ -117,6 +123,8 @@ Tasks
 
 -  **Project** (picklist)
     The project the task belongs to. This can be combined with subtotals to display tasks similar to how mail is displayed by group and bucket.
+
+.. _custom_fields_ticket:
 
 Tickets
 ~~~~~~~

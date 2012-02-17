@@ -1,7 +1,7 @@
 Activity Log
 ------------
 
-The **activity log** keeps track of the changes that have happened to a particular :doc:`object </concepts/object/index>`.
+The **activity log** keeps track of the changes that have happened to a particular :doc:`object </concepts/objects/index>`.
 
 An activity has three primary fields:
 

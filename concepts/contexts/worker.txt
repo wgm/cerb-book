@@ -3,6 +3,8 @@ Worker
 
 A **worker** is a person who represents your organization while performing their duties.  A worker with unrestricted privileges is called an **administrator**.
 
+For example, workers may include:
+
 - Accountants
 - Contractors
 - Customer service reps
