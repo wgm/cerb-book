@@ -1,2 +1,37 @@
 Organization
 ------------
+
+An **organization** is a collection of :doc:`contacts </concepts/contexts/address>`.  Each email address can be associated with a single organization.
+
+Organizations have the following fields:
+
+- **Name**
+    The name of this organization.
+    
+- **Street**
+    The mailing address street.
+    
+- **City**
+    The mailing address city.
+
+- **State/Province**
+    The mailing address state or province.
+
+- **Postal/ZIP**
+    The mailing address postal code.
+
+- **Country**
+    The mailing address country.
+    
+- **Phone**
+    The primary phone number with a country code in International Direct Dialing format. [#idd]_
+    
+- **Website**
+    The URL of the organizations' primary website.
+
+See the cookbook for :ref:`useful custom field ideas for organizations <custom_fields_org>`.
+
+.. rubric:: Footnotes
+
+.. [#idd]
+    Wikipedia: List of country calling codes http://en.wikipedia.org/wiki/List_of_country_calling_codes

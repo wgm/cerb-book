@@ -1,7 +1,7 @@
 Contexts
 --------
 
-A **context** is a specific kind of object within Cerb5.
+A **context** describes a particular type of object.
 
 .. toctree::
     :maxdepth: 1
@@ -9,8 +9,8 @@ A **context** is a specific kind of object within Cerb5.
     worker
     group
     role
+    organization
     address
     contact
-    organization
     task
     ticket
