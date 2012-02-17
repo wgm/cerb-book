@@ -71,9 +71,9 @@ Field               Type
 
 Search
 ======
-** POST /addresses/search.xml**
+**POST /addresses/search.xml**
 
-Performs a search for addresses.
+Performs a search for address objects.
 
 ===============      =======
 Field                Type

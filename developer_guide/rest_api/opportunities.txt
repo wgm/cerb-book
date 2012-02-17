@@ -63,7 +63,7 @@ Field                                  Type
 
 Retrieve
 ========
-**GET opps/<id>.xml**
+**GET /opps/<id>.xml**
 
 Retrieves information about an opportunity.
 
@@ -74,9 +74,9 @@ Retrieves information about an opportunity.
 	
 Search
 ======
-**POST opps/search.xml**
+**POST /opps/search.xml**
 
-Performs a search for opportunities.
+Performs a search for opportunity objects.
 
 =================================      =============
 Field                                  Type
