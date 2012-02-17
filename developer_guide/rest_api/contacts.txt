@@ -60,7 +60,7 @@ Search
 ======
 **POST /contacts/search.xml**
 
-Performs a search for support center contacts.
+Performs a search across support center contacts.
 
 ====================      =======
 Field                     Type

@@ -75,7 +75,7 @@ Search
 ======
 **POST /workers/search.xml**
 
-Performs a search for worker objects.
+Performs a search across worker objects.
 
 ================      =======
 Field                 Type

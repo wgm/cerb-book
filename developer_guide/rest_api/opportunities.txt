@@ -76,7 +76,7 @@ Search
 ======
 **POST /opps/search.xml**
 
-Performs a search for opportunity objects.
+Performs a search across opportunity objects.
 
 =================================      =============
 Field                                  Type

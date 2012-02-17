@@ -73,7 +73,7 @@ Search
 ======
 **POST /addresses/search.xml**
 
-Performs a search for address objects.
+Performs a search across address objects.
 
 ===============      =======
 Field                Type
