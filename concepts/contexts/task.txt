@@ -1,2 +1,36 @@
 Task
 ----
+
+A **task** describes a single unit of work.
+
+For example, the process that a software company follows when receiving a new order may involve these tasks:
+
+#. Generate the software license.
+#. Send the license to the client.
+#. Send the purchase information to accounting.
+#. Mark the client's invoice as paid.
+
+A different :doc:`group </concepts/contexts/group>` or :doc:`worker </concepts/contexts/worker>` may be responsible for each task.  Some tasks will be *synchronous*, where the ability to start working on one task depends on the completion of one or all preceding tasks.  Tasks that are *asynchronous* can be worked on simultaneously.
+
+Tasks are :doc:`linked </concepts/objects/connections>` to the :doc:`objects </concepts/objects/index>` that they relate to.
+
+Fields
+======
+Tasks have the following fields:
+
+- **Title**
+    A summary of the task in a sentence.
+    
+- **Due Date**
+    The latest date and time when this task should be completed by.
+    
+- **Is Completed**
+    *TRUE* if the task has been completed, *FALSE* otherwise.
+    
+- **Completed Date**
+    The date and time when the task was completed, if applicable.
+    
+- **Updated Date**
+    The date and time of the last activity on this task.
+
+See the cookbook for :ref:`useful custom field ideas for tasks <custom_fields_task>`.
