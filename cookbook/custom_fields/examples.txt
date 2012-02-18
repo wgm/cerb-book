@@ -18,6 +18,14 @@ Addresses
        -  Sponsors
        -  Translators
 
+.. _custom_fields_group:
+
+Groups
+~~~~~~
+
+- **Products** (multi-checkbox)
+    The products that this group is responsible for.
+
 Feedback
 ~~~~~~~~
 
