@@ -20,3 +20,45 @@ For example, workers may include:
 - Salespeople
 - System administrators
 - Volunteers
+
+Fields
+======
+
+Workers have the following fields:
+
+- **First Name**
+    A given name.  This is used for snippets like signatures, as well as everywhere the worker is displayed in the user interface.
+
+- **Last Name**
+    A surname.  This is also used for snippets like signatures, and every time the worker is displayed in the user interface.
+
+- **Title**
+    A job title.  This is used in snippets like signatures.  For example:
+        - Account representative
+        - CTO
+        - Customer Service
+        - Designer
+        - IT Supervisor
+
+- **Email**
+    An *personal* email address.  This will be used to identify the worker when logging in.  This address will also be the default method of contacting the worker or validating their identity -- for example, when resetting a lost password.  This **must not** be an email address that delivers to the helpdesk.
+
+- **Password**
+    The password used by the worker to log in.  This is not strictly required if you choose to enable an alternate authentication mechanism like LDAP or OpenID.
+
+- **Is Administrator**
+    *TRUE* if the worker is an administrator with all privileges, *FALSE* otherwise.
+
+- **Is Disabled**
+    *TRUE* if the worker's account is deactivated and their login is disabled, *FALSE* otherwise.  This is used to revoke all privileges while still preserving the history of a worker that is no longer a part of your team or organization.  Disabling a worker's account is generally preferable to deleting it.
+
+- **Last Activity**
+    The last activity performed by this worker.  This is displayed as part of the *Who's Online* functionality.
+
+- **Last Activity Date**
+    The last date and time that this worker interacted with the user interface.  This is used to determine idleness.
+
+* **Last Activity IP**
+    The most recent IP address used by this worker.  This is displayed as part of the *Who's Online* functionality.  It is also used for session security.
+
+See the cookbook for :ref:`useful custom field ideas for workers <custom_fields_worker>`.
