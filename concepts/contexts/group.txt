@@ -17,7 +17,13 @@ For example, these groups reflect departments:
     
     You aren't required to associate your groups with departments.  You may create groups based on any combination of attributes: geography, language, product line, service level, etc.  This is easy to change and you can experiment to find an approach that works well for your particular environment.
 
+Members and Managers
+====================
+
 A worker can be a **member** of multiple groups. Any number of members may also be designated as **managers**, which provides them with administrative control of the group.
+
+Inbox and Buckets
+=================
 
 Each group has an **inbox** that collects new work.  This makes it easy to distinguish fresh assignments from things that have already been seen.  Groups should strive to maintain an empty :term:`inbox` by continuously *doing*, *deferring*, or *delegating* work.  This is the same basic process that is encouraged by productivity workflows like *Getting Things Done* [#gtd]_.
 
@@ -26,6 +32,26 @@ Groups provide a way for tasks to be delegated to a *type* of worker, rather tha
 **Buckets** are the primary method that groups use to organize their work.  A :term:`bucket` is a container for storing similar things together -- much like the purpose of sorting files into folders on your hard drive.  The advantage of buckets is that they're very simple for workers to understand and use.  The drawback is that buckets tend to describe a single characteristic (e.g. color) and they aren't very good at handling multi-dimensional work (e.g. color and size).  Groups that need to organize multi-dimensional data can use :doc:`workspaces </concepts/workspaces/index>`.
 
 .. figure:: /images/concepts/cerb5_group_workflow.png
+
+Fields
+======
+
+- **Name**
+    The name of this group.  For example: Billing, Development, Sales, Support, etc.
+
+- **Reply Signature**
+    The :doc:`snippet </concepts/snippets/index>` template that will be used when workers reply to mail from this group.
+
+- **Reply Address**
+    The email address that will be used when workers reply to mail from this group.  For example: :mailheader:`From: <support@example.com>`.  If not set, the default address will be used.
+
+- **Reply Personal**
+    The sender name that will be used when workers reply to mail from this group.  For example: :mailheader:`From: Acme Inc, Support <support@example.com>`. This can also include :doc:`snippet </concepts/snippets/index>` placeholders like the worker's first name.  If not set, the default sender name will be used.
+
+- **Is Default**
+    *TRUE* if new work should be delivered to this group's inbox when no other groups claim it, *FALSE* otherwise.  There can only be a one default group.
+
+See the cookbook for :ref:`useful custom field ideas for groups <custom_fields_group>`.
 
 .. rubric:: Footnotes
 
