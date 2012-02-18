@@ -143,3 +143,31 @@ Tickets
        -  Technical Support
        -  Troubleshooting
 
+.. _custom_fields_worker:
+
+Workers
+~~~~~~~
+
+- **Shift** (picklist)
+    The shift this worker is responsible for:
+        - Morning
+        - Afternoon
+        - Evening
+        - Graveyard
+    
+- **Skills** (multi checkbox)
+    The set of skills possessed by this worker.  These skills can be cross-indexed with a similar list of required skills for various tasks and tickets.  For example:
+        - Apps (Cerb5)
+        - Apps (Wordpress)
+        - Database (Couchbase/Membase)
+        - Database (MySQL)
+        - Database (PostgreSQL)
+        - Documentation (Sphinx)
+        - Programming (C#)
+        - Programming (Javascript)
+        - Programming (PHP)
+        - Programming (Python)
+        - Search (Lucene/Solr)
+        - System Admin (Linux)
+        - System Admin (Mac OS X)
+        - System Admin (Windows)
