@@ -1,0 +1,27 @@
+Workspaces
+----------
+
+A **workspace** is a collection of related :doc:`worklists </concepts/worklists/index>`.  Workspaces allow groups and workers to focus on a specific subset of all the available data.
+
+For example, a workspace may be created for a marketing campaign.  It might contain an :doc:`opportunity </concepts/contexts/opportunity>` worklist for unassigned leads, a worklist of :doc:`email addresses </concepts/contexts/address>` that form a custom mailing list, and a worklist of :doc:`tasks </concepts/contexts/task>` that are related to the leads.
+
+Administrators can use and modify any workspace.  They may also create workspaces for any role, group, or worker.
+
+There is no limit to the number of workspaces that may be created. 
+
+.. index::
+    pair: workspaces; sharing
+
+Sharing
+=======
+
+Workspaces can be owned by:
+
+- **Roles**
+    A workspace owned by a :doc:`role </concepts/contexts/role>` is usable by all of its :doc:`workers </concepts/contexts/worker>`.  Workers cannot modify these workspaces.
+
+- **Groups**
+    A workspaces owned by a :doc:`group </concepts/contexts/group>` is usable by all of its :doc:`members </concepts/contexts/worker>`.  Only group managers can modify it.
+
+- **Workers**
+    A workspace owned by a :doc:`worker </concepts/contexts/worker>` is considered private.  Only that worker can view or modify it.

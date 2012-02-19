@@ -1,0 +1,7 @@
+.. index::
+    pair: worklists; peek
+
+Peek
+----
+
+**Peek** functionality allows you to view and modify any object in a :doc:`worklist </concepts/worklists/index>` without leaving the current page.

@@ -1,0 +1,6 @@
+Paging
+------
+
+:doc:`Worklists </concepts/worklists/index>` that have many rows are divided into **pages**.
+
+You can quickly navigate to the first, last, next, or previous page.  The number of rows to display per page can be :doc:`customized </concepts/worklists/customize>` for each worklist.

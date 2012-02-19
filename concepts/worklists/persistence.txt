@@ -1,0 +1,4 @@
+Persistence
+-----------
+
+The preferences of each :doc:`worker </concepts/contexts/worker>` are automatically saved for each :doc:`worklist </concepts/worklists/index>`.  These changes are also **persisted** between logins.

@@ -1,0 +1,20 @@
+Worklists
+---------
+
+A **worklist** is a fully customizable list of :doc:`objects </concepts/objects/index>` of a particular :doc:`type </concepts/contexts/index>`.  Worklists display objects in vertical rows with any number of :doc:`fields </concepts/objects/fields>` in horizontal columns.
+
+.. toctree::
+    :maxdepth: 1
+
+    sorting
+    paging
+    peek
+    customize
+    filters
+    presets
+    persistence
+    subtotals
+    bulk_update
+    export
+    explore
+    

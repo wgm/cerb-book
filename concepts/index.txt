@@ -11,7 +11,8 @@ This section is an introduction to the main concepts found throughout Cerb5.
     contexts/index
     objects/index
     virtual_attendants/index
-    workspaces/index
+    worklists/index
+    workspaces
     watchers/index
     notifications
     snippets/index

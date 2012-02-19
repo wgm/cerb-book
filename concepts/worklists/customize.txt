@@ -1,0 +1,18 @@
+Customize
+---------
+
+Each :doc:`worker </concepts/contexts/worker>` can customize a :doc:`worklist </concepts/worklists/index>` to according to their own preferences.
+
+The following properties of worklists can be customized:
+
+- **Title**
+    A descriptive name for the worklist that is shown at the top of it.  This can be modified on custom worklists, but not on built-in worklists.  If you're adding required filters, it is a good idea to describe them clearly in the title as well.  For example: **Conversations waiting for reply more than 30 days**
+
+- **Columns**
+    The object :doc:`fields </concepts/objects/fields>` to be displayed as horizontal columns.  These can be added, removed, and reordered.  :doc:`Custom fields </concepts/objects/custom_fields>` can also be added as worklist columns.
+
+- **Rows Per Page**
+    The number of rows to display per :doc:`page </concepts/worklists/paging>`.  You might want to display a lot of rows if you have a large monitor, or you could display a small number of rows to fit more worklists on the screen at the same time. 
+
+- **Required Filters**
+    The :doc:`filters </concepts/worklists/filters>` that will always be applied to this worklist.  These results can be further reduced with additional filtering, but never circumvented.  For example, a :doc:`ticket </concepts/contexts/ticket>` worklist could have required filters that restrict it to only displaying tickets that are *closed*.  Regardless of the additional filters that a worker uses on the list, it will only show results that are closed.

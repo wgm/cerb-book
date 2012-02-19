@@ -1,0 +1,14 @@
+Sorting
+-------
+
+:doc:`Worklists </concepts/worklists/index>` can be **sorted** by any column in *ascending* or *descending* order.
+
+- **Ascending order**
+    - A to Z (alphabetical)
+    - January 2000 to December 2013 (chronological)
+    - 30 days ago to now (oldest activity first)
+    
+- **Descending order**
+    - Z to A (reverse alphabetical)
+    - December 2013 to January 2000 (reverse chronological)
+    - now to 30 days ago (newest activity first)

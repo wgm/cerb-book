@@ -1,0 +1,8 @@
+.. index::
+    pair: worklists; filters
+
+Filters
+-------
+
+:doc:`Worklists </concepts/worklists/index>` can be filtered by any combination of :doc:`object </concepts/objects/index>` :doc:`fields </concepts/objects/fields>`.
+
