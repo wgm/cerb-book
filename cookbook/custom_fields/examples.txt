@@ -18,6 +18,17 @@ Addresses
        -  Sponsors
        -  Translators
 
+.. _custom_fields_contact:
+
+Contact
+~~~~~~~
+
+- **Language** (picklist)
+    The preferred language of a contact.  This could be used when personalizing :doc:`broadcasts </concepts/broadcast>`.
+
+- **Timezone** (picklist)
+    The timezone of a contact.  This could be used to schedule sales and marketing.
+
 .. _custom_fields_group:
 
 Groups
