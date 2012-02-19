@@ -12,10 +12,10 @@ This section is an introduction to the main concepts found throughout Cerb5.
     objects/index
     virtual_attendants/index
     workspaces/index
-    snippets/index
-    broadcast
     watchers/index
     notifications
+    snippets/index
+    broadcast
     knowledgebase
     community_portals
     plugins

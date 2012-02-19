@@ -61,10 +61,11 @@ Tickets have the following primary fields:
 
 - **Status**
     One of four states:
-        - Open (worker action needed)
-        - Waiting (recipient action needed)
-        - Closed (resolved satisfactorily)
-        - Deleted (trash)
+    
+    - Open (worker action needed)
+    - Waiting (recipient action needed)
+    - Closed (resolved satisfactorily)
+    - Deleted (trash)
 
 - **Group**
     The :doc:`group </concepts/contexts/group>` that the ticket is assigned to.
@@ -86,9 +87,10 @@ Tickets have the following primary fields:
 
 - **Last Action**
     The most recent conversational activity:
-        - New conversation (first message)
-        - Recipient replied (followup)
-        - Worker replied
+    
+    - New conversation (first message)
+    - Recipient replied (followup)
+    - Worker replied
 
 - **First Wrote**
     The :doc:`contact </concepts/contexts/address>` who wrote the opening message.
@@ -104,11 +106,12 @@ Tickets have the following primary fields:
     
 - **Spam Training**
     The spam training feedback resulting from worker activity.  This can be one of three values:
-        - None
-            No training data has been provided.
-        - Not spam
-            This conversation has been verified as legitimate.  This training option is usually not set directly, since any worker reply to a conversation will automatically flag it as not being spam.  Training a conversation as not spam will give its interesting words more weight in determining legitimate messages.
-        - Spam
-            This conversation has been confirmed as spam.  This will give its interesting words more weight in identifying future junk mail.
     
-See the cookbook for :ref:`useful custom field ideas for ticket <custom_fields_ticket>`.
+    - None
+        No training data has been provided.
+    - Not spam
+        This conversation has been verified as legitimate.  This training option is usually not set directly, since any worker reply to a conversation will automatically flag it as not being spam.  Training a conversation as not spam will give its interesting words more weight in determining legitimate messages.
+    - Spam
+        This conversation has been confirmed as spam.  This will give its interesting words more weight in identifying future junk mail.
+    
+See the cookbook for :ref:`useful custom field ideas for tickets <custom_fields_ticket>`.
