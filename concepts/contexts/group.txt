@@ -29,7 +29,7 @@ Each group has an **inbox** that collects new work.  This makes it easy to disti
 
 Groups provide a way for tasks to be delegated to a *type* of worker, rather than an individual.  This is efficient, because a worker doesn't need to concern themselves with finding the most appropriate person to assign something to.  They also don't need to worry about the proper place to move it to.  Once work arrives in an inbox, the members of that group can determine exactly what to do with it.
 
-**Buckets** are the primary method that groups use to organize their work.  A :term:`bucket` is a container for storing similar things together -- much like the purpose of sorting files into folders on your hard drive.  The advantage of buckets is that they're very simple for workers to understand and use.  The drawback is that buckets tend to describe a single characteristic (e.g. color) and they aren't very good at handling multi-dimensional work (e.g. color and size).  Groups that need to organize multi-dimensional data can use :doc:`workspaces </concepts/workspaces/index>`.
+**Buckets** are the primary method that groups use to organize their work.  A :term:`bucket` is a container for storing similar things together -- much like the purpose of sorting files into folders on your hard drive.  The advantage of buckets is that they're very simple for workers to understand and use.  The drawback is that buckets tend to describe a single characteristic (e.g. color) and they aren't very good at handling multi-dimensional work (e.g. color and size).  Groups that need to organize multi-dimensional data can use :doc:`workspaces </concepts/workspaces>`.
 
 .. figure:: /images/concepts/cerb5_group_workflow.png
 

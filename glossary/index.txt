@@ -34,7 +34,7 @@ Glossary
         A person who corresponds with the :term:`helpdesk`. These are your customers, partners, and prospects. If you're part of the I.T. department for a large corporation, then contacts are likely your co-workers who ask questions and report problems.
 
     context
-        A specific kind of object.
+        A specific kind of :term:`object`.
 
     conversation
         A series of email messages pertaining to a specific topic and involving the same :term:`recipients <recipient>`.
@@ -132,4 +132,8 @@ Glossary
     worker
         The people who log in to the helpdesk to represent your organization. Other software applications frequently use the term *users*, but we find that term ambiguous; users can refer to either customers or staff members.
     
-        
+    worklist
+        A fully customizable list of :term:`objects <object>` of a particular :term:`type <context>`.
+    
+    workspace
+        A collection of related :term:`worklists <worklist>`.

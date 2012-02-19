@@ -1,4 +1,21 @@
 Comments
 --------
 
-**Comments** describe an internal discussion among workers on a particular :doc:`object </concepts/objects/index>`.  Comments are never publicly visible to :term:`contacts <contact>` or other external parties.
+**Comments** describe an internal discussion among :doc:`workers </concepts/contexts/worker>` on a particular :doc:`object </concepts/objects/index>`.  Comments are never publicly visible to :term:`contacts <contact>` or other external parties.  When leaving a comment, a worker can choose to :doc:`notify </concepts/notifications>` other workers in order to draw their attention to it.
+
+A typical conversation in comments might occur as follows:
+
+::
+
+    From: Sally Support
+    Date: Wednesday, January 9 2013 2:00PM PDT
+    
+    @Bob I need you to invoice this customer for 10 hours of consulting.
+
+::
+
+    From: Bob Billings
+    Date: Wednesday, January 9 2012 2:15PM PDT
+    
+    @Sally Done!
+    

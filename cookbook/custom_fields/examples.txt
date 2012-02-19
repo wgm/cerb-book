@@ -37,6 +37,8 @@ Groups
 - **Products** (multi-checkbox)
     The products that this group is responsible for.
 
+.. _custom_fields_feedback:
+
 Feedback
 ~~~~~~~~
 
@@ -49,6 +51,8 @@ Feedback
     Associates feedback with a specific project.
 -  **Product** (picklist)
     Associates feedback with a specific product.
+
+.. _custom_fields_opportunity:
 
 Opportunities
 ~~~~~~~~~~~~~
@@ -105,6 +109,8 @@ Organizations
        -  Priority Support
        -  Gold members
 
+.. _custom_fields_server:
+
 Servers
 ~~~~~~~
 
@@ -119,6 +125,8 @@ Servers
        -  FreeBSD 8.2
        -  Ubuntu Lucid 10.04
        -  Windows Server 2008
+
+.. _custom_fields_snippet:
 
 Snippets
 ~~~~~~~~

@@ -30,7 +30,7 @@ Roles can grant privileges in the following ways:
     A role provides every privilege to the worker associated with it.  This is generally only useful if you want to bypass permissions and give workers unrestricted access.
 
 - **None**
-    A role provides no privileges at all.  You would use this when you want to associate workers by role for purposes other than granting privileges.  For example, a role can own :doc:`workspaces </concepts/workspaces/index>` and :doc:`snippets </concepts/snippets/index>`, and share that content with its workers.
+    A role provides no privileges at all.  You would use this when you want to associate workers by role for purposes other than granting privileges.  For example, a role can own :doc:`workspaces </concepts/workspaces>` and :doc:`snippets </concepts/snippets/index>`, and share that content with its workers.
 
 - **Itemized**
     A role provides an explicit subset from the full list of privileges.  This is the most common option.
