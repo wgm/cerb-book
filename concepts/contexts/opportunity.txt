@@ -1,0 +1,10 @@
+Opportunity
+-----------
+
+An **opportunity** is...
+
+Fields
+======
+
+See the cookbook for :ref:`useful custom field ideas for opportunities <custom_fields_opportunity>`.
+
