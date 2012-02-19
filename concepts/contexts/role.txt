@@ -1,4 +1,37 @@
 Role
 ----
 
-A **role** is a set of :term:`privileges <privilege>` granted to a :doc:`worker </concepts/contexts/worker>`.
+A **role** is a set of :term:`privileges <privilege>` granted to a :doc:`worker </concepts/contexts/worker>`.  When a worker has several roles, they are given the cumulative set of privileges from those contributed by each role.
+
+Roles also determine the :doc:`plugins </concepts/plugins>` that workers are permitted to use.  This can be used to restrict individual plugins to specific groups.
+
+Administrators are granted all privileges regardless of the roles you assign to them.
+
+Who
+===
+
+A role can be applied to:
+
+- **Everyone**
+    This applies the role to every worker.  This is useful for establishing a baseline of global privileges.
+
+- **Specific groups**
+    This applies the role to every worker who is a member of at least one of these groups.  This is often the most useful option since you can establish baseline permissions for each group without having to explicitly grant privileges to new workers.
+
+- **Specific workers**
+    This applies the role to an explicit list of workers.  This should be used when you want to grant special privileges to workers in a way that can't be generalized.
+   
+What
+====
+    
+Roles can grant privileges in the following ways:
+
+- **All**
+    A role provides every privilege to the worker associated with it.  This is generally only useful if you want to bypass permissions and give workers unrestricted access.
+
+- **None**
+    A role provides no privileges at all.  You would use this when you want to associate workers by role for purposes other than granting privileges.  For example, a role can own :doc:`workspaces </concepts/workspaces/index>` and :doc:`snippets </concepts/snippets/index>`, and share that content with its workers.
+
+- **Itemized**
+    A role provides an explicit subset from the full list of privileges.  This is the most common option.
+    
