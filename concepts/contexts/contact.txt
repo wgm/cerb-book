@@ -1,9 +1,27 @@
 Contact
 -------
 
-An individual person who corresponds with the helpdesk is referred to as a **contact**. These are your customers, partners, and prospects. If you're part of the I.T. department for a corporation, contacts are often your co-workers who ask technical questions and report problems.
+An individual who corresponds with your team is referred to as a **contact**. These are your customers, partners, and prospects. If you're part of the helpdesk for a corporation, contacts are often your co-workers who ask technical questions and report problems.
 
 Multiple email addresses can be associated with the same contact -- reflecting the fact that an individual can have more than one email address.
 
-You usually don't need to create contact objects manually.  Contact objects are automatically created when people register through any of your :doc:`community portals </concepts/community_portals>`.  This will also permit contacts to associate all their alternate email addresses with their account.
+You usually don't need to create contact objects manually.  Contact objects are automatically created when people register through any of your :doc:`community portals </concepts/community_portals>`.  This will also permit contacts to associate their alternate email addresses with their own account.
 
+Fields
+======
+
+Contacts have the following fields:
+
+- **Email Address**
+    The primary :doc:`email address </concepts/contexts/address>` for this contact.  This is used when :doc:`broadcasting </concepts/broadcast>` to contacts to prevent sending duplicate messages to alternate email addresses.
+
+- **Password**
+    The password used by this contact to log in to :doc:`community portals </concepts/community_portals>`.
+
+- **Created Date**
+    The date and time when this contact was added to the system.
+
+- **Last Login Date**
+    The date and time when this contact last logged into a :doc:`community portal </concepts/community_portals>`.  This is useful for building a list of contacts based on activity (or inactivity).
+    
+See the cookbook for :ref:`useful custom field ideas for contacts <custom_fields_contact>`.
