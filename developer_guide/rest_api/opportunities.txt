@@ -1,6 +1,6 @@
 Opportunities
 -------------
-The opportunities API allows you to create, update, retrieve, and search Opportunity objects.
+The opportunities API allows you to create, retrieve, update, and search Opportunity objects.
 
 Create
 ======
@@ -8,19 +8,19 @@ Create
 
 Creates a new opportunity.
 
-=================================      =============
+=================================      =================
 Field                                  Type
-=================================      =============
+=================================      =================
 ``amount``                             float
 ``assignee_id``                        int
 ``created``                            timestamp
-``email_address`` or ``email_id``      string or int
+``email_address`` or ``email_id``      string or integer
 ``is_closed``                          bit
 ``is_won``                             bit
 ``title``                              string
 ``updated``                            timestamp
 ``custom_*``                           mixed
-=================================      =============
+=================================      =================
 
 .. code-block:: php
 
@@ -38,19 +38,19 @@ Update
 
 Updates an opportunity.
 
-=================================      =============
+=================================      =================
 Field                                  Type
-=================================      =============
+=================================      =================
 ``amount``                             float
 ``assignee_id``                        int
 ``created``                            timestamp
-``email_address`` or ``email_id``      string or int
+``email_address`` or ``email_id``      string or integer
 ``is_closed``                          bit
 ``is_won``                             bit
 ``title``                              string
 ``updated``                            timestamp
 ``custom_*``                           mixed
-=================================      =============
+=================================      =================
 
 .. code-block:: php
 
@@ -78,18 +78,19 @@ Search
 
 Performs a search across opportunity objects.
 
-=================================      =============
+=================================      =================
 Field                                  Type
-=================================      =============
+=================================      =================
+``id``                                 integer
 ``amount``                             float
-``assignee_id``                        int
+``assignee_id``                        integer
 ``created``                            timestamp
-``email_address`` or ``email_id``      string or int
+``email_address`` or ``email_id``      string or integer
 ``is_closed``                          bit
 ``is_won``                             bit
 ``title``                              string
 ``updated``                            timestamp
-=================================      =============
+=================================      =================
 
 .. code-block:: php
 

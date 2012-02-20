@@ -8,15 +8,15 @@ Create
 
 Creates a new comment.
 
-=============================      =============
+=============================      =================
 Field                              Type
-=============================      =============
+=============================      =================
 ``context``                        string
-``context_id``                     int
-``address`` or ``address_id``      string or int
+``context_id``                     integer
+``address`` or ``address_id``      string or integer
 ``comment``                        string
 ``created``                        timestamp
-=============================      =============
+=============================      =================
 
 .. code-block:: php
 
@@ -46,15 +46,16 @@ Search
 
 Performs a search across Comment objects.
 
-=============================      =============
+=============================      =================
 Field                              Type
-=============================      =============
+=============================      =================
+``id``                             integer
 ``context``                        string
-``context_id``                     int
-``address`` or ``address_id``      string or int
+``context_id``                     integer
+``address`` or ``address_id``      string or integer
 ``comment``                        string
 ``created``                        timestamp
-=============================      =============
+=============================      =================
 
 .. code-block:: php
 

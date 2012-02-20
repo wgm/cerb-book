@@ -1,0 +1,83 @@
+Tickets
+-----
+The tickets API allows you to retrieve, update, and search Ticket objects.
+
+Retrieve
+========
+**GET /tickets/<id>.xml**
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'tickets/1.xml');
+
+
+
+
+Update
+======
+**PUT /tickets/<id>.xml**
+
+==============      ======
+Field               Type
+==============      ======
+``is_closed``       bit
+``is_deleted``      bit
+``is_waiting``      bit
+``subject``         string
+``custom_*``        mixed
+==============      ======
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('subject','I replaced this sübject through the Web-API'),
+		array('custom_5','+1 hour'), // date custom field
+		array('custom_6',"Line 1\nLine 2\nLine 3"), // multi-line
+		array('custom_4','Option 3'), // picklist
+	);
+	$out = $cerb5->put($base_url . 'tickets/1.xml', $postfields);
+	
+Search
+======
+**POST /tickets/search.xml**
+
+===============      =========
+Field                Type     
+===============      =========
+``id``               integer
+``content``          string   
+``created``          timestamp
+``first_wrote``      string   
+``group``            integer  
+``is_closed``        bit      
+``is_deleted``       bit      
+``is_waiting``       bit      
+``subject``          string   
+``mask``             string   
+``requester``        string   
+``updated``          timestamp
+===============      =========
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','is_deleted'),
+		array('oper[]','='),
+		array('value[]','0'),
+		array('criteria[]','group'),
+		array('oper[]','='),
+		array('value[]','1'),
+		array('criteria[]','mask'),
+		array('oper[]','like'),
+		array('value[]','e*'),
+	//	array('criteria[]','subject'),
+	//	array('oper[]','like'),
+	//	array('value[]','how long*'),
+		array('sortBy','mask'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'tickets/search.xml', $postfields);

@@ -1,6 +1,6 @@
 Feedback
 --------
-The feedback API allows you to create, update, retrieve, and search Feedback objects.
+The feedback API allows you to create, retrieve, update, and search Feedback objects.
 
 Create
 ======
@@ -8,16 +8,16 @@ Create
 
 Creates a new feedback entry.
 
-==================      =======
+==================      ============================================
 Field                   Type
-==================      =======
+==================      ============================================
 ``author_address``      string
 ``created``             timestamp
 ``quote_mood``          string: ``praise``/``neutral``/``criticism``
 ``quote_text``          string
 ``url``                 string
 ``custom_*``            mixed
-==================      =======
+==================      ============================================
 
 .. code-block:: php
 
@@ -45,16 +45,16 @@ Update
 
 Updates a feedback entry.
 
-==================      =======
+==================      ============================================
 Field                   Type
-==================      =======
+==================      ============================================
 ``author_address``      string
 ``created``             timestamp
 ``quote_mood``          string: ``praise``/``neutral``/``criticism``
 ``quote_text``          string
 ``url``                 string
 ``custom_*``            mixed
-==================      =======
+==================      ============================================
 
 .. code-block:: php
 
@@ -71,15 +71,16 @@ Search
 
 Performs a search across feedback objects.
 
-==================      =======
+==================      ============================================
 Field                   Type
-==================      =======
+==================      ============================================
+``id``                  integer
 ``author_address``      string
 ``created``             timestamp
 ``quote_mood``          string: ``praise``/``neutral``/``criticism``
 ``quote_text``          string
 ``url``                 string
-==================      =======
+==================      ============================================
 
 .. code-block:: php
 

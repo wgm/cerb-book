@@ -1,6 +1,6 @@
 Addresses
 ---------
-The addresses API allows you to create, update, retrieve, and search Address Book objects.
+The addresses API allows you to create, retrieve, update, and search Address Book objects.
 
 Create
 ======
@@ -78,6 +78,7 @@ Performs a search across address objects.
 ===============      =======
 Field                Type
 ===============      =======
+``id``               integer
 ``email``            string
 ``first_name``       string
 ``is_banned``        bit

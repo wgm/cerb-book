@@ -1,6 +1,6 @@
 Contacts
 --------
-The address API allows you to create, update, retrieve, and search registered Support Center contacts.
+The address API allows you to create, retrieve, update, and search registered Support Center contacts.
 
 Create
 ======
@@ -42,11 +42,11 @@ Update
 
 Updates a support center contact.
 
-============      =======
+============      ======
 Field             Type
-============      =======
+============      ======
 ``password``      string
-============      =======
+============      ======
 
 .. code-block:: php
 
@@ -65,12 +65,12 @@ Performs a search across support center contacts.
 ====================      =======
 Field                     Type
 ====================      =======
-``created``               int
-``email_id``              int
+``created``               integer
+``email_id``              integer
 ``email_address``         string
 ``email_first_name``      string
 ``email_last_name``       string
-``last_login``            int
+``last_login``            integer
 ====================      =======
 
 .. code-block:: php
