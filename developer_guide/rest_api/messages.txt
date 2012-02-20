@@ -1,0 +1,47 @@
+Messages
+--------
+
+The messages API allows you to retrieve and search Message objects.
+
+Retrieve
+========
+**GET /messages/<id>.xml**
+
+Retrieves information about message object.
+
+.. code-block:: php
+	
+	<?php
+	$out = $cerb5->get($base_url . 'messages/1.xml');
+	
+Search
+======
+**POST /messages/search.xml**
+
+Performs a search across message objects.
+
+==============      =========
+Field               Type
+==============      =========
+``id``              integer
+``created``         timestamp
+``content``         string
+``sender_id``       integer
+``ticket_id``       integer
+==============      =========
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','ticket_id'),
+		array('oper[]','='),
+		array('value[]','61'),
+		array('criteria[]','content'),
+		array('oper[]','fulltext'),
+		array('value[]','toys'),
+		array('sortBy','created'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'messages/search.xml', $postfields);
