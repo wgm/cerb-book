@@ -138,6 +138,16 @@ a:hover {
     color: #E32E00;
 }
 
+a.reference.internal em {
+	color: #026789;
+	font-style:normal;
+	text-decoration:underline;
+}
+
+a.reference.internal em:hover {
+	color: #E32E00;
+}
+
 pre {
     padding: 10px;
     background-color: #fafafa;
