@@ -1,2 +1,4 @@
 Presets
 -------
+
+A **preset** is a reusable shortcut for applying a particular set of :doc:`filters </concepts/worklists/filters>` to a :doc:`worklist </concepts/worklists/index>`.  Presets are private for each :doc:`worker </concepts/contexts/worker>` and they are automatically shared between worklists of the same :doc:`type </concepts/contexts/index>`.

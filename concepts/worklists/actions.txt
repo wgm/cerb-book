@@ -1,0 +1,4 @@
+Actions
+-------
+
+Beneath each :doc:`worklist </concepts/worklists/index>` is a toolbar of possible **actions** that can be performed on the selected objects of the current :doc:`page </concepts/worklists/paging>`.

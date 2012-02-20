@@ -9,6 +9,7 @@ A **worklist** is a fully customizable list of :doc:`objects </concepts/objects/
     sorting
     paging
     peek
+    actions
     customize
     filters
     presets

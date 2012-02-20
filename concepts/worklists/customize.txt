@@ -1,12 +1,12 @@
 Customize
 ---------
 
-Each :doc:`worker </concepts/contexts/worker>` can customize a :doc:`worklist </concepts/worklists/index>` to according to their own preferences.
+:doc:`Workers </concepts/contexts/worker>` can **customize** :doc:`worklists </concepts/worklists/index>` according to their own personal preferences.
 
 The following properties of worklists can be customized:
 
 - **Title**
-    A descriptive name for the worklist that is shown at the top of it.  This can be modified on custom worklists, but not on built-in worklists.  If you're adding required filters, it is a good idea to describe them clearly in the title as well.  For example: **Conversations waiting for reply more than 30 days**
+    A descriptive name for the worklist that is shown at the top of it.  This can be modified on custom worklists, but not on built-in worklists.  If you're adding required filters, it is a good idea to describe them clearly in the title as well.  For example: *Conversations waiting for reply more than 30 days*
 
 - **Columns**
     The object :doc:`fields </concepts/objects/fields>` to be displayed as horizontal columns.  These can be added, removed, and reordered.  :doc:`Custom fields </concepts/objects/custom_fields>` can also be added as worklist columns.

@@ -1,4 +1,11 @@
 Persistence
 -----------
 
-The preferences of each :doc:`worker </concepts/contexts/worker>` are automatically saved for each :doc:`worklist </concepts/worklists/index>`.  These changes are also **persisted** between logins.
+The changes that each :doc:`worker </concepts/contexts/worker>` makes to a :doc:`worklist </concepts/worklists/index>` are automatically **persisted**.  Once a worker tweaks their worklists the way they want them, their environment will look the same way every time they log in.
+
+The persisted properties of worklists include:
+
+- :doc:`Visible columns </concepts/worklists/customize>`
+- :doc:`Current page </concepts/worklists/paging>`
+- :doc:`Editable filters </concepts/worklists/filters>`
+- :doc:`Subtotals </concepts/worklists/subtotals>`

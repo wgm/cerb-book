@@ -1,2 +1,6 @@
 Subtotals
 ---------
+
+:doc:`Worklists </concepts/worklists/index>` provide a visual distribution of their :doc:`objects </concepts/objects/index>` using **subtotals**.  Subtotals create categories to count the number of objects with the same value for a given :doc:`field </concepts/objects/fields>`.  Categories are displayed in descending order, with the most frequently used values shown first.
+
+Subtotal categories can be used to automatically add new :doc:`filters </concepts/worklists/filters>` to a worklist.

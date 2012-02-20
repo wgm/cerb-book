@@ -175,7 +175,7 @@ Worklist filters are combined using boolean logic:
 Required Filters
 ================
 
-Required filters create a worklist that restricts results will only display certain objects.  This subset of data becomes the new maximum number of results that may be returned for any future filtering.  Required filters are hidden, and they can only be changed by the owner when :doc:`customizing </concepts/worklists/customize>` the worklist.
+Required filters establish the scope of a worklist.  This subset of data becomes the new maximum number of results that may be returned in response to any future filtering.  Required filters are hidden, and they can only be changed by the owner when :doc:`customizing </concepts/worklists/customize>` the worklist.
 
 This approach is useful because it allows workers to filter a worklist without the possibility of obliterating its defaults.
 
@@ -233,4 +233,4 @@ waiting for reply   **true**        false
 
 The required filter on the left (*open OR waiting*) is ``true`` for all three rows, but the editable filter on the right (*AND closed*) is always ``false``.  This excludes every row.
 
-This demonstrates how required filters create a subset of data, along with a new maximum number of possible results from that point forward.
+This demonstrates how required filters can be used to create a worklist for a specific subset of your data.  These worklists are resilient; workers can filter them without changing the underlying scope established by the required filters.
