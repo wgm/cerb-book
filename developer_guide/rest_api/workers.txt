@@ -1,6 +1,6 @@
 Workers
 -------
-The workers API allows you to create, update, retrieve, and search Worker objects.
+The workers API allows you to create, retrieve, update, and search Worker objects.
 
 Create
 ======
@@ -80,6 +80,7 @@ Performs a search across worker objects.
 ================      =======
 Field                 Type
 ================      =======
+``id``                integer
 ``email``             string
 ``first_name``        string
 ``last_name``         string

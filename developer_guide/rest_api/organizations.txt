@@ -1,6 +1,6 @@
 Organizations
 -------------
-The organizations API allows you to create, update, retrieve, and search Organization objects.
+The organizations API allows you to create, retrieve, update, and search Organization objects.
 
 Create
 ======
@@ -8,20 +8,20 @@ Create
 
 Creates a new organization.
 
-=================================      =============
-Field                                  Type
-=================================      =============
-``name``                               string
-``street``                             string
-``city``                               string
-``province``                           string
-``postal``                             string
-``country``                            string
-``phone``                              string
-``website``                            string
-``created``                            timestamp
-``custom_*``                           mixed
-=================================      =============
+============     =========
+Field            Type     
+============     =========
+``name``         string   
+``street``       string   
+``city``         string   
+``province``     string   
+``postal``       string   
+``country``      string   
+``phone``        string   
+``website``      string   
+``created``      timestamp
+``custom_*``     mixed    
+============    ==========
 
 .. code-block:: php
 
@@ -48,20 +48,20 @@ Update
 
 Updates an existing organization.
 
-=================================      =============
-Field                                  Type
-=================================      =============
-``name``                               string
-``street``                             string
-``city``                               string
-``province``                           string
-``postal``                             string
-``country``                            string
-``phone``                              string
-``website``                            string
-``created``                            timestamp
-``custom_*``                           mixed
-=================================      =============
+============     =========
+Field            Type     
+============     =========
+``name``         string   
+``street``       string   
+``city``         string   
+``province``     string   
+``postal``       string   
+``country``      string   
+``phone``        string   
+``website``      string   
+``created``      timestamp
+``custom_*``     mixed    
+============     =========
 
 .. code-block:: php
 
@@ -77,19 +77,21 @@ Search
 
 Performs a search across organization objects.
 
-=================================      =============
-Field                                  Type
-=================================      =============
-``name``                               string
-``street``                             string
-``city``                               string
-``province``                           string
-``postal``                             string
-``country``                            string
-``phone``                              string
-``website``                            string
-``created``                            timestamp
-=================================      =============
+============    =========
+Field           Type     
+============    =========
+``id``          integer  
+``name``        string   
+``street``      string   
+``city``        string   
+``province``    string   
+``postal``      string   
+``country``     string   
+``phone``       string   
+``website``     string   
+``created``     timestamp
+``custom_*``    mixed    
+============    =========
 
 .. code-block:: php
 

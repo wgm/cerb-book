@@ -19,15 +19,16 @@ Search
 
 Performs a search across all time tracking objects.
 
-================      =========
-Field                 Type
-================      =========
-``created``           timestamp
-``org_id``            int
-``org_name``          string
-``worker_id``         int
-``mins``              int
-================      =========
+=============      =========
+Field              Type
+=============      =========
+``id``             integer
+``created``        timestamp
+``org_id``         integer
+``org_name``       string
+``worker_id``      integer
+``mins``           integer
+=============      =========
 
 .. code-block:: php
 

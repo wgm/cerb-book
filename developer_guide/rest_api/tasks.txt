@@ -1,6 +1,6 @@
 Tasks
 -----
-The tasks API allows you to create, update, retrieve, and search Task objects.
+The tasks API allows you to create, retrieve, update, and search Task objects.
 
 Create
 ======
@@ -8,9 +8,9 @@ Create
 
 Creates a new task.
 
-================      =======
+================      =========
 Field                 Type
-================      =======
+================      =========
 ``assignee_id``       integer
 ``completed``         timestamp
 ``due``               timestamp
@@ -18,7 +18,7 @@ Field                 Type
 ``title``             string
 ``updated``           timestamp
 ``custom_*``          mixed
-================      =======
+================      =========
 
 .. code-block:: php
 
@@ -45,9 +45,9 @@ Update
 
 Updates a task.
 
-================      =======
+================      =========
 Field                 Type
-================      =======
+================      =========
 ``assignee_id``       integer
 ``completed``         timestamp
 ``due``               timestamp
@@ -55,7 +55,7 @@ Field                 Type
 ``title``             string
 ``updated``           timestamp
 ``custom_*``          mixed
-================      =======
+================      =========
 
 .. code-block:: php
 	
