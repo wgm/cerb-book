@@ -8,12 +8,12 @@ Create
 
 Creates a new support center contact.
 
-=========================      =============
+=========================      =================
 Field                          Type
-=========================      =============
-``email`` or ``email_id``      string or int
+=========================      =================
+``email`` or ``email_id``      string or integer
 ``password``                   string
-=========================      =============
+=========================      =================
 
 .. code-block:: php
 
