@@ -9,6 +9,7 @@ REST-based Web API
     attachments
     comments
     contacts
+    customfields
     feedback
     messages
     notifications

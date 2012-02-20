@@ -1,0 +1,46 @@
+Custom Fields
+-------------
+
+The custom field API allows you to retrieve the Custom Field objects for a given context or object.
+
+Retrieve
+========
+**GET /customfields/<context>.xml** OR **GET /customfields/<object>.xml**
+
+Retrieves the custom fields for a context or an object. You can use either the context or the object shortcuts from the below table
+
+==========================================      ============================
+Context                                         Object
+==========================================      ============================
+``cerberusweb.contexts.address``                ``address`` OR ``addresses``
+``cerberusweb.contexts.call``
+``cerberusweb.contexts.comment``
+``cerberusweb.contexts.contact_person``
+``cerberusweb.contexts.datacenter.domain``
+``cerberusweb.contexts.datacenter.server``
+``cerberusweb.contexts.feedback``               ``feedback``
+``cerberusweb.contexts.group``                  
+``cerberusweb.contexts.kb_article``             
+``cerberusweb.contexts.kb_category``            
+``cerberusweb.contexts.message``                
+``cerberusweb.contexts.notification``           
+``cerberusweb.contexts.opportunity``            
+``cerberusweb.contexts.org``                    ``org`` OR ``orgs``
+``cerberusweb.contexts.portal``                 
+``cerberusweb.contexts.role``                   
+``cerberusweb.contexts.snippet``                
+``cerberusweb.contexts.task``                   ``task`` OR ``tasks``
+``cerberusweb.contexts.ticket``                 ``ticket`` OR ``tickets``
+``cerberusweb.contexts.timetracking``           
+``cerberusweb.contexts.worker``                 ``worker``
+==========================================      ============================
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'customfields/ticket.json');
+	
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'customfields/cerberusweb.contexts.ticket.json');
