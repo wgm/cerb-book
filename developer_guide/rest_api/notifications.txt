@@ -1,0 +1,83 @@
+Notifications
+-------------
+
+The notifications API allows you to create, retrieve, update and list all notification objects for a worker.
+
+Create
+======
+**POST /notifications/create.xml**
+
+Creates a new notification.
+
+===============      =========
+Field                Type
+===============      =========
+``assignee_id``      integer
+``content``          string
+``created``          timestamp
+``is_read``          bit
+``title``            string
+``url``              string
+===============      =========
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('title','This is a new notification!'),
+		array('content',"One line of text.\nAnd a second line."),
+		array('url','http://www.cerberusweb.com'),
+		array('assignee_id', 1),
+	);
+	$out = $cerb5->post($base_url . 'notifications/create.xml', $postfields);
+	
+Retrieve
+========
+**GET /notifications/<id>.xml**
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'notifications/1.xml');
+	
+Update
+======
+**PUT /notifications/<id>.xml**
+
+===============      =========
+Field                Type
+===============      =========
+``assignee_id``      integer
+``content``          string
+``created``          timestamp
+``is_read``          bit
+``title``            string
+``url``              string
+===============      =========
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('assignee_id','1'),
+		array('title','You have a *new* notification!'),
+	);
+	$out = $cerb5->put($base_url . 'notifications/1.xml', $postfields);
+	
+List
+====
+**GET /notifications/list.xml**
+
+Lists the notifications for the authenticated worker.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'notifications/list.xml');
+	
+You an also list all unread notifications like so:
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'notifications/list.xml?unread=1');
