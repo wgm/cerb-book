@@ -1,0 +1,54 @@
+Attachments
+-----------
+
+The attachments API allows you to retrieve, download, and search Attachment objects.
+
+Retrieve
+========
+**GET /attachments/<id>.xml**
+
+Retrieves information about an Attachment object.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'attachments/1.xml');
+	
+Download
+========
+**GET /attachments/<id>/download.xml**
+
+Downloads an Attachment object.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'attachments/1/download.xml');
+	
+Search
+======
+**POST /attachments/search.xml**
+
+Performs a search across attachment objects.
+
+==============      =======
+Field               Type
+==============      =======
+``id``              integer
+``context_id``      integer
+``context``         string
+==============      =======
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','id'),
+		array('oper[]','='),
+		array('value[]','116'),
+		array('sortBy','id'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'attachments/search.xml', $postfields);
+

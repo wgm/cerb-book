@@ -6,6 +6,7 @@ REST-based Web API
 
     introduction
     addresses
+    attachments
     comments
     contacts
     feedback
