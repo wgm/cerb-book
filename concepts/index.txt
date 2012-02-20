@@ -15,6 +15,7 @@ This section is an introduction to the main concepts found throughout Cerb5.
     workspaces
     watchers/index
     notifications
+    choosers
     snippets/index
     broadcast
     knowledgebase
