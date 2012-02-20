@@ -8,20 +8,20 @@ Create
 
 Creates a new organization.
 
-============     =========
-Field            Type     
-============     =========
-``name``         string   
-``street``       string   
-``city``         string   
-``province``     string   
-``postal``       string   
-``country``      string   
-``phone``        string   
-``website``      string   
-``created``      timestamp
-``custom_*``     mixed    
-============    ==========
+============      =========
+Field             Type     
+============      =========
+``name``          string   
+``street``        string   
+``city``          string   
+``province``      string   
+``postal``        string   
+``country``       string   
+``phone``         string   
+``website``       string   
+``created``       timestamp
+``custom_*``      mixed    
+============      =========
 
 .. code-block:: php
 
