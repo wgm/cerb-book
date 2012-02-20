@@ -1,0 +1,102 @@
+Knowledgebase Articles
+----------------------
+
+The knowledgebase article API allows you to create, retrieve, update, and search Knowledgebase Article objects.
+
+Create
+======
+**POST /kbarticles/create.xml**
+
+============      ======================================================
+Field             Type     
+============      ======================================================
+``title``         string
+``content``       string   
+``format``        integer: ``0``/``1``/``2``; Plaintext/HTML/Markdown
+``views``         integer
+``updated``       timestamp
+``custom_*``      mixed    
+============      ======================================================
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('title','New KB Article'),
+		array('content',"#Header#\n\n**BOLD**\n\n_Italics_\n\nSome list\n\n1. One\n1. Two\n1. Three\n"),
+		array('format',"2"),
+		array('category_id[]','+661'),
+		array('category_id[]','662'),
+	);
+	$out = $cerb5->post($base_url . 'kbarticles/create.xml', $postfields);
+	
+	
+Retrieve
+========
+**GET /kbarticles/<id>.xml**
+
+Retrieves information about a knowledgebase article object.
+
+.. code-block:: php
+
+	<?php
+	$out = $cerb5->get($base_url . 'kbarticles/4.xml');
+	
+Update
+======
+**PUT /kbarticles/<id>.xml**
+
+Updates a knowledgebase article object.
+
+============      ======================================================
+Field             Type     
+============      ======================================================
+``title``         string
+``content``       string   
+``format``        integer: ``0``/``1``/``2``; Plaintext/HTML/Markdown
+``views``         integer
+``updated``       timestamp
+``custom_*``      mixed    
+============      ======================================================
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('title','New KB Article Title via API'),
+		array('views','100'),
+		array('content',"<h1>Header</h1><br><b>BOLD</b><br><i>Italics</i><br>Some list<br><ol><li>One</li><li>Two</li><li>Three</li></ol>"),
+		array('format',"1"),
+		array('category_id[]','-661'),
+		array('category_id[]','-662'),
+	);
+	$out = $cerb5->put($base_url . 'kbarticles/1.xml', $postfields);
+	
+Search
+======
+
+Performs a search across knowledgebase article objects.
+
+============      ======================================================
+Field             Type     
+============      ======================================================
+``id``            integer
+``title``         string
+``content``       string   
+``format``        integer: ``0``/``1``/``2``; Plaintext/HTML/Markdown
+``views``         integer
+``updated``       timestamp
+============      ======================================================
+
+.. code-block:: php
+
+	<?php
+	$postfields = array(
+		array('criteria[]','content'),
+		array('oper[]','fulltext'),
+		array('value[]','+html +header1'),
+		array('sortBy','id'),
+		array('sortAsc','1'),
+		array('page','1'),
+	);
+	$out = $cerb5->post($base_url . 'kbarticles/search.xml', $postfields);
