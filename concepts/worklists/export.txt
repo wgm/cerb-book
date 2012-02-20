@@ -1,3 +1,18 @@
 Export
 ------
 
+:doc:`Worklists </concepts/worklists/index>` can **export** data about their :doc:`objects </concepts/objects/index>` in multiple formats.  This is used to synchronize data from Cerb5 to other applications and services.
+
+For example, you can create targeted mailing lists from :doc:`filtered </concepts/worklists/filters>` address worklists.  These mailing lists could then be imported into almost any email marketing program.
+
+You can also use export functionality to copy contacts and organizations between two copies of Cerb5, or to quickly create many :doc:`opportunities </concepts/contexts/opportunity>` for a new sales campaign.
+
+Formats
+=======
+
+- **CSV**
+    This generates a file of comma-separated values which can be imported into applications like Excel.  You can also export CSV files from your :doc:`address book </concepts/contexts/address>` and import them in services like Gmail, Twitter, or LinkedIn.
+
+- **XML**
+    This generates a file in the eXtensible Markup Language (XML).  The XML format can be read and written by most programming languages.
+

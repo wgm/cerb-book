@@ -1,2 +1,26 @@
-Explore
--------
+Explore Mode
+------------
+
+**Explore mode** displays global navigation controls so you can quickly iterate through every :doc:`object </concepts/objects/index>` in a :doc:`worklist </concepts/worklists/index>`.  This also allows you to visit any section of the application without losing your place in a particular list.
+
+Consistent Snapshots
+====================
+
+The result set that you navigate through in explore mode is saved as a consistent snapshot at the same point in time.  This means that changes to the objects in the underlying worklist will not modify your results.  This is often desirable, as it allows you to revisit the exact same objects in the same order, and objects will not unintentionally disappear from your list based on the activity of other :doc:`workers </concepts/contexts/worker>`.  This also makes cycling through these objects faster because the results are cached.
+
+Unique URLs
+===========
+
+A unique URL is created every time you use explore mode.  This allows you to perform complex :doc:`filtering </concepts/worklists/filters>`, sort the results by a desired field, and then share the output with other workers by simply sending them the URL.
+
+Examples
+========
+
+A manager can create an explore set and send the results to a worker with the URL and a note like *"Please take care of these"*.  This is more efficient than giving the worker tedious instructions to perform the search for themselves.  The URL also allows the manager to review worker's activity on the same objects at a later date.
+
+The combination of unique URLs and consistent snapshots also allows several workers to efficiently split up a large worklist.  A list of 500 objects could be distributed to five workers, with each person handling a range of 100 objects (e.g. 1-100, 101-200, etc).  When attempting to use worklists for the same purpose, the lists will constantly change size as objects are added and removed.
+
+Maintenance
+===========
+
+To maintain optimal performance and recover resources, abandoned explore sets are automatically deleted after 24 hours of inactivity.

@@ -1,3 +1,19 @@
 Bulk Update
 -----------
 
+**Bulk update** performs several actions at once to :doc:`objects </concepts/objects/index>` in a :doc:`worklist </concepts/worklists/index>`.
+
+A bulk update can be applied to:
+
+- **The whole list**
+    Actions will be performed to every object on every :doc:`page </concepts/worklists/paging>` of the worklist.
+
+- **Only checked objects**
+    Actions will be performed on the selected objects on the current :doc:`page </concepts/worklists/paging>` of the worklist.
+
+- **Random objects**
+    Actions will be performed on a specific number of random objects drawn from all :doc:`pages </concepts/worklists/paging>`.  This is useful for A/B testing [#ab_testing]_, or for making randomly distributed assignments from large lists of available work.
+    
+.. rubric:: Footnotes
+    
+.. [#ab_testing] Wikipedia: A/B Testing <http://en.wikipedia.org/wiki/A/B_testing>
