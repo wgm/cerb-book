@@ -6,7 +6,7 @@ Concepts
 This section is an introduction to the main concepts found throughout Cerb5.
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
     
     contexts/index
     objects/index

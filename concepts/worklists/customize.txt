@@ -15,4 +15,6 @@ The following properties of worklists can be customized:
     The number of rows to display per :doc:`page </concepts/worklists/paging>`.  You might want to display a lot of rows if you have a large monitor, or you could display a small number of rows to fit more worklists on the screen at the same time. 
 
 - **Required Filters**
-    The :doc:`filters </concepts/worklists/filters>` that will always be applied to this worklist.  These results can be further reduced with additional filtering, but never circumvented.  For example, a :doc:`ticket </concepts/contexts/ticket>` worklist could have required filters that restrict it to only displaying tickets that are *closed*.  Regardless of the additional filters that a worker uses on the list, it will only show results that are closed.
+    The hidden :doc:`filters </concepts/worklists/filters>` that will always be enforced on this worklist.  Additional filtering can only return a number of results less than or equal to the number of results that satisfy the required filters.  For example, a :doc:`ticket </concepts/contexts/ticket>` worklist might require that its results have a status of *open* or *waiting for reply*.  A worker could further reduce these results by filtering for only the *waiting* tickets in that list.  Filtering for *closed* tickets, instead, would return zero results.  This is because a ticket can't be (*open* **OR** *waiting*) **AND** *closed*.  The use of boolean logic is explained in more detail in the section about :doc:`worklist filters </concepts/worklists/filters>`.
+
+    

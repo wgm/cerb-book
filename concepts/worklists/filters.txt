@@ -4,5 +4,233 @@
 Filters
 -------
 
-:doc:`Worklists </concepts/worklists/index>` can be filtered by any combination of :doc:`object </concepts/objects/index>` :doc:`fields </concepts/objects/fields>`.
+A **filter** reduces the number of :doc:`objects </concepts/objects/index>` in a :doc:`worklist </concepts/worklists/index>` to those that match a desired characteristic.  Several filters can be combined on a single worklist.
 
+Filters form a short sentence with the pattern *<field> <operator> <values>*:
+
+- A **field**
+    One of the available :doc:`fields </concepts/objects/fields>` for the :doc:`type </concepts/contexts/index>` of :doc:`object </concepts/objects/index>` in the worklist.  For example: 
+    
+    - **status** of a :doc:`ticket </concepts/contexts/ticket>`
+    - **first name** of an :doc:`email address </concepts/contexts/address>`
+    - **due date** of a :doc:`task </concepts/contexts/task>`
+
+- An **operator**
+    How a field should be compared to the given values.  For example:
+    
+    - status **is** *open*
+    - first name **doesn't start with** *J*
+    - sender email **matches** *\*@gmail.com*
+    - country **is not** *United States* OR *United Kingdom*
+    - created date **is between** *30 days ago* and *today*
+    
+- One or more **values**
+    The field content that includes or excludes an object from the results depending on the chosen operator.  For example:
+    
+    - status *is* **open or waiting**
+    - last name *matches* **S\***
+    - subject *contains* **receipt**
+    - created date *is not between* **-2 weeks and now**
+    - completed *is* **true**
+
+Worklist filters can be **required** or **editable**.  Required filters are hidden and constant, and they can only be modified by the owner of the worklist.  Editable filters are visible and temporary, and they can be modified by anyone.
+
+Filters can be **reset** to return a worklist to its *default* state.  The reset action removes all editable filters but leaves required filters intact.
+
+Operators
+=========
+
+An operator describes how a field should be compared to a value.  The available operators are determined by the type of field being filtered.
+
+Most operators can be **negated**.  This means that the opposite statement can be written in negative form (e.g. *is* -> *is not*; *matches* -> *doesn't match*).  Some operators don't require an explicit opposite because they can be negated with an existing operator or by changing their value (e.g. *greater than* -> *less than*; *true* -> *false*; *between -7 days and now* -> *between big bang and -7 days*).  For brevity, only the affirmative operators will be described below.
+
+Checkbox
+~~~~~~~~
+
+A checkbox field has a value that is either ``true`` or ``false``.
+
+- **Is**
+    The field equals the value.
+
+Chooser
+~~~~~~~
+
+A :doc:`chooser </concepts/chooser>` field can be compared to a list of values that are selected from a popup.
+
+- **Is**
+    The field matches any of the given values.
+
+- **Is Blank Or**
+    The field has no value, or it matches any of the given values.  For example, this can find objects that are either unassigned or owned by specific workers, while excluding assignments to anyone else.
+
+- **Is Blank Or Not**
+    The field has no value, or it is not any of the given values.  For example, this can find objects that are either unassigned or assigned to anyone *other than* specific workers.
+
+Date
+~~~~
+
+A date field is compared to a continuum defined by a start value and an end value.
+
+- **Between**
+    The field's date is on or after the start date, and on or before the end date.
+
+List
+~~~~
+
+A list field can be compared to multiple values.  This includes picklist and multi-checkbox :doc:`custom fields </concepts/objects/custom_fields>`.
+
+- **In**
+    The field is one of the given values.
+
+- **Blank Or In**
+    The field has no value, or it is one of the given values.
+
+- **Blank Or Not In**
+    The field has no value, or it is *not* one of the given values.
+
+Number
+~~~~~~
+
+A number field is compared to a value by equality or inequality.
+
+- **Equals**
+    The field is exactly equal to the value.
+
+- **Less than**
+    The field is less than the given value.
+
+- **Greater than**
+    The field is greater than the given value.
+
+Text
+~~~~
+
+A simple text field is compared to a given text value.
+
+- **Equals**
+    The field is exactly the same as the given text value.
+
+- **Matches**
+    The field matches the given text value.  The comparison value may contain wildcards in the form of asterisks (\*).  For example, *bl\** would match *black* and *blue*.
+
+- **Is Null**
+    The field has no value.
+
+Text (Searchable)
+~~~~~~~~~~~~~~~~~
+
+A searchable text field has an *index* that provides flexible filtering based on natural language.  The value takes the form of a search query with one of the following modes:
+
+- **All of these words**
+    The field's content contains all the words from the given query.  These words do not need to appear next to each other.  For the content *"the quick red fox"*, the query *"quick fox"* will match, but *"lazy dog"* will not.
+    
+- **Any of these words**
+    The field's content contains any of the words from the given query.  These words do not need to appear next to each other.  For the content *"the quick red fox"*, the query *"red bird"* will match, but *"purple cow"* will not.
+
+- **Exact phrase**
+    The field's content contains the same words from the given query, in the same order.  For the content *"the quick red fox"*, the query *"red fox"* will match, but *"quick fox"* will not.
+
+- **Expert mode**
+    The field's content matches a query that contains any combination of the following options:
+
+    - **Any words**
+        By default, words in the query will be matched in any order.  Content that matches a higher percentage of these words, or any individual word multiple times, will be given a higher relevance.
+    
+        Example: ``payment receipt order sale``
+
+    - **Booleans**
+        Any terms that begin with a plus symbol (`+`) *must* occur.  Any terms that begin with a minus symbol (`-`) *must not* occur.
+    
+        Example: ``+payment -receipt``
+
+    - **Wildcards**
+        An asterisk (``*``) denotes a wildcard pattern.
+    
+        Example: ``web*``
+
+    - **Exact phrases**
+        A term surrounded by quotation marks (``"..."``) will be treated as a phrase.  Any matching results must have these same words in the same continuous order.
+    
+        Example: ``"credit card"``
+
+    - **Boosting**
+        Terms can be boosted by prefixing a *greater than* symbol (``>``).  Content that matches a boosted term is given a higher relevance.
+    
+        Example: ``cerberus >helpdesk``
+
+Boolean Logic
+=============
+
+Worklist filters are combined using boolean logic:
+
+- ``a`` **OR** ``b``
+    Either ``a`` or ``b`` must be ``true``.
+
+- ``a`` **AND** ``b``
+    Both ``a`` and ``b`` must be ``true``.
+
+- **NOT** ``b``
+    ``b`` must be ``false`` (i.e. not ``true``).
+
+Required Filters
+================
+
+Required filters create a worklist that restricts results will only display certain objects.  This subset of data becomes the new maximum number of results that may be returned for any future filtering.  Required filters are hidden, and they can only be changed by the owner when :doc:`customizing </concepts/worklists/customize>` the worklist.
+
+This approach is useful because it allows workers to filter a worklist without the possibility of obliterating its defaults.
+
+To illustrate this, let's imagine we have five :doc:`tickets </concepts/contexts/ticket>` with the following statuses:
+
++------------------+---------+-----------+----------+
+|status            |open     |waiting    |closed    |
++==================+=========+===========+==========+
+|open              |**true** |false      |false     |
++------------------+---------+-----------+----------+
+|open              |**true** |false      |false     |
++------------------+---------+-----------+----------+
+|waiting for reply |false    |**true**   |false     |
++------------------+---------+-----------+----------+
+|closed            |false    |false      |**true**  |
++------------------+---------+-----------+----------+
+|closed            |false    |false      |**true**  |
++------------------+---------+-----------+----------+
+
+Our default list is showing tickets that are *open OR waiting OR closed*, and all five results will be displayed because *at least one* of the columns is ``true`` for each result (``a`` **OR** ``b`` **OR** ``c``).
+
+If we add a required filter for *open OR waiting*, then our worklist will display only three of those results:
+
+==================  ===============
+status              open OR waiting
+==================  ===============
+open                **true**
+open                **true**
+waiting for reply   **true**
+==================  ===============
+
+The *closed* rows have been filtered out because they are not *open OR waiting*.  The required filters have established that these three rows are now the maximum number of possible results.
+
+If a worker then chooses to further reduce the list by adding an editable filter for *waiting* tickets, an **AND** operation will be performed:
+
+==================  =============== ===========
+status              open OR waiting AND waiting
+==================  =============== ===========
+waiting for reply   **true**        **true**
+==================  =============== ===========
+
+An **AND** requires that both terms are ``true``.  The required filter on the left (*open OR waiting*) is ``true`` for all three rows.  The editable filter on the right (*AND waiting*) is only ``true`` for a single row.  Therefore, only one result is returned.
+
+If, instead, a worker adds an editable filter for *closed* tickets, the results of the **AND** operation will be an empty list.
+
+This is why:
+
+==================  =============== ==========
+status              open OR waiting AND closed
+==================  =============== ==========
+open                **true**        false
+open                **true**        false
+waiting for reply   **true**        false
+==================  =============== ==========
+
+The required filter on the left (*open OR waiting*) is ``true`` for all three rows, but the editable filter on the right (*AND closed*) is always ``false``.  This excludes every row.
+
+This demonstrates how required filters create a subset of data, along with a new maximum number of possible results from that point forward.
