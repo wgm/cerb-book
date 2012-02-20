@@ -2,7 +2,7 @@ Getting Started
 ===============
 
 The rest of this book is organized into a series of guides depending on
-your role.
+your role.  You should be familiar with the :doc:`concepts </concepts/index>` before proceeding.
 
 Administrators
 --------------

@@ -3,12 +3,12 @@
 Installing on a Linux server
 ----------------------------
 
-These instructions assume you have console access to your Linux-based server.
+These instructions assume that you have console access to your Linux-based server and that it meets the :doc:`server requirements </installation/requirements/server>`.
 
 Download the files from GitHub using Subversion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First, change directory to your website's document directory. The directory will usually be named something like :file:`htdocs`, :file:`httpdocs`, file:`public_html`, or :file:`www`, under the appropriate website.
+First, change directory to your website's document directory. The directory will usually be named something like :file:`htdocs`, :file:`httpdocs`, :file:`public_html`, or :file:`www`, and it will be located in the directory of the appropriate website.
 
 ::
 
@@ -36,7 +36,7 @@ You can download the project files using Subversion with a single command::
     
     $ git clone git@github.com:wgm/cerb5.git
 
-    You can also fork the project at `GitHub <http://github.com/wgm/cerb5>`_.  See the :ref:`guide_for_developers` for more information.
+    You can also fork the project at `GitHub <http://github.com/wgm/cerb5>`_.  See the :doc:`Guide for Developers </developer_guide/index>` for more information.
 
 Set permissions
 ~~~~~~~~~~~~~~~
