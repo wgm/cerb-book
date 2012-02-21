@@ -50,4 +50,4 @@ timestamp
 string
 	Any value wrapped in single- or double-quotes.
 mixed
-	A mixed data type can be any of the above, depending on the custom field in question. See the documentation on Custom Fields for more information.
+	A mixed data type can be any of the above, depending on the custom field in question. See the :doc:`documentation on Custom Fields</concepts/objects/custom_fields>` for more information.
