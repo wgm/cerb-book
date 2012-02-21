@@ -1,6 +1,11 @@
 Plugins
 -------
 
+.. toctree::
+    :maxdepth: 1
+
+    plugin.xml
+
 ## Writing plugins ##
 
 (SDK in `/cerb5/install/extras/sdk`)

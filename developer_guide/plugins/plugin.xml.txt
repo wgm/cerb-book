@@ -1,0 +1,110 @@
+Plugin.xml
+----------
+
+The plugin.xml file tells Devblocks about your plugin. Every plugin requires a plugin.xml file. An example plugin.xml file has been provided below. See the documentation on extensions for information on how to access the data stored in your Plugin.xml file within your plugin.
+
+.. code-block:: xml
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.devblocks.com/schema/plugin.xsd">
+		<plugin>
+			<id>xyzcompany.myplugin</id>
+			<name>[Plugin] Plugin Name</name>
+			<description>A description of your plugin</description>
+			<author>XYZ Company, LLC</author>
+			<revision>0</revision>
+			<link>http://wiki.abc.com/wiki/Cerb5/Plugin_Name</link>
+	
+			<!-- Plugin Dependencies -->
+	
+			<dependencies>
+				<require plugin_id="cerberusweb.core" version="5.1.0" />
+			</dependencies>
+
+			<!-- Patches -->
+	
+			<patches>
+				<patch version="1.0.0-alpha" revision="1" file="patches/1.x/1.0.0_alpha.php" />
+			</patches>
+
+			<!-- Controller Routing -->
+
+			<uri_routing>
+				<uri name="dostuff" controller="xyzcompany.myplugin.controller" />
+			</uri_routing>
+	
+			<!-- Exported Classes -->
+	
+			<class_loader>
+				<file path="api/plugin.classes.php">
+					<class name="XyzPluginClass" />
+				</file>		
+			</class_loader>
+	
+			<!-- Event Points -->
+
+			<event_points>
+				<event id="address.peek.saved">
+					<name>Address Peek Saved</name>
+					<param key="address_id" />
+					<param key="changed_fields" />
+				</event>
+			</event_points>
+
+			<!-- Permissions -->
+	
+			<acl>
+				<priv id="xyzcompany.do.stuff" label="xyzcompany.do.stuff" />		
+			</acl>
+
+			<!-- Extensions -->
+	
+			<extensions>
+				<extension point="core.extension.point">
+					<id>xyzcompany.myplugin.do.stuff</id>
+					<name>Do Stuff</name>
+					<class>
+						<file>api/App.php</file>
+						<name>XyzDoStuff</name>
+					</class>
+					<params>
+						<param key="dostuff" value="xyzcompany.do.stuff">
+					</params>
+				</extension>		
+			</extensions>
+		</plugin>
+	</xml>
+	
+<id>
+	A dot-delimited namespace string. It must be unique across all Cerb5 plugins. The namespace should follow the format "zyxcompany.myplugin"
+<name>
+	A human-readable name for your plugin. This is displayed in the 'Manage Plugins' area of 'setup'. 
+<author>
+	The author of the plugin. You should put your name, or perhaps your company name here. 
+<revision>
+	This node is currently unused. Instead, see the ``<patches>`` section below.
+<link>
+	A link to a page containing information about your plugin. 
+<dependencies>
+	A list of the dependencies required by your plugin. Each ``<require>`` node has a ``plugin_id`` and a ``version`` attribute. The ``plugin_id`` attribute is the ID of the plugin your plugin depends on ``(not an extension point!)``. The ``version`` attribute tells the platform the minimum version required for your plugin to operate. 
+<patches>
+	A list of all of the patches associated with your plugin. Each ``<patch>`` node has a ``version``, ``revision``, and ``file`` attribute. The ``version`` attribute specifies the human-readable version information. The ``revision`` attribute is used by the platform to determine if the patch needs to run. The ``file`` attribute contains the path of the file relative to your plugin.xml containing the patch code. Patches are typically a combination of PHP logic and SQL, but you could theoretically do anything inside a patch. If you want a patch to run again, increase the value for the ``revision`` attribute. 
+<uri_routing>
+	Provides a list of the top-level routes your plugin supplies to the platform. Each ``<uri>`` node has a ``name`` attribute and a ``controller`` attribute. ``Name`` defines the top-level URI and ``controller`` defines the extension point that should handle processing all requests made to that URI. 
+<class_loader> allows your plugin to provide classes to the rest of the platform. Each ``<file>`` node has a ``path`` attribute which specifies the path relative to your plugin.xml that contains the defined classes. You can define multiple ``<file>`` nodes in your plugin.xml. Each ``<file>`` also contains one or more ``<class>`` nodes which have a single ``name`` attribute. The ``name`` attribute is the exact name of the class to load. 
+
+<event_points> 
+	<acl>
+		Contains a list of permissions your plugin should register with the permissions plugin. You can then use these permissions in your code. Each ``<priv>`` node has an ``id`` attribute and a ``label`` attribute. The value for the``id`` attribute should be used in your code to test permissions, while the value for the ``label`` attribute should point to a namespaced ID from the translation system; you can also use literal text, but it is preferred to use the translation system instead. 
+
+<extensions>
+	A list of all the your plugin provides. Each ``<extension>`` has a ``point`` attribute which specifies the ID your extension point binds to. 
+	<extension>
+		<id>
+			Must be unique across all Cerb4 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension. 
+		<name>
+			A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code. 
+		<class>
+			Contains the definition for the file and class that hooks in to the extension point. Each ``<class>`` node contains one ``<file>`` node and one ``<name>`` node. The ``<file>`` node contains the path relative to your plugin.xml file. The ``<name> node contains the name of the class to load. 
+		<params>
+			Params allow the manifest to pass information to each implementation of an extension. Each ``<param>`` node has a ``key`` attribute, and a ``value`` attribute ``or`` a ``<value>`` node. Each ``<value>`` node contains a ``<data>`` node with a ``key`` and ``value`` attribute. These are static values that are not expected to change.
