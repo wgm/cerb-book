@@ -1,3 +1,96 @@
 cerberusweb.page
 ----------------
 
+The **cerberusweb.page** extension point allows you to create a new page in Cerb5's top-level menu. Pages are really just higher-level controllers that take care of the heavy lifting for you. Like controllers, they are associated with a URL. The key difference between pages and controllers is that pages are displayed inside of the Cerb5 layout, whereas controllers are not. If you need your URL to respond via AJAX you'll need to use a controller instead of a page.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    :linenos:
+    
+    <!-- Pages -->
+    <extension point="cerberusweb.page">
+      <id>core.page.research</id>
+      <name>Research Page</name>
+      <class>
+        <file>api/uri/research.php</file>
+        <name>ChResearchPage</name>
+      </class>
+      <params>
+        <param key="uri" value="research" />
+        <param key="menutitle" value="core.menu.research" />
+        <param key="acl" value="core.research" />
+      </params>
+    </extension>
+
+
+**<extension point="...">**
+    Binds a new extension on the specified ``point``.
+
+**<id>**
+    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+
+**<name>**
+    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+
+**<class>**
+    Tells Devblocks where to find the extension's implementation in the source code.
+
+    **<file>**
+        The relative path to the class file from your plugin's directory.
+
+    **<name>**
+        The class name.
+
+**<params>**
+    Allow the manifest to pass information to each implementation of an extension. Each <param> has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user.
+    **<param key="uri" value="research">**
+        Binds the page to the ``research`` url.
+    **<param key="menutitle" value="core.menu.research">**
+        Sets the text of the link in the menu. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
+    **<param key="acl" value="core.research">**
+        Specifies the permissions required for this page to be displayed. If this param is omitted, the page will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
+
+    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class CerberusPageExtension extends DevblocksExtension {
+		function __construct($manifest) {
+			$this->DevblocksExtension($manifest,1);
+		}
+
+		function isVisible() { return true; }
+		function render() { }
+
+		/**
+		 * @return Model_Activity
+		 */
+		public function getActivity() {
+			return new Model_Activity('activity.default');
+		}
+    };
+
+**isVisible()**
+    Runs any real-time logic required to determine if the page should be visible and enabled. The most common condition to check here is whether a worker is logged in during the page request. You can omit this method in your subclass if you want a page to always be visible, but keep in mind this is *usually* not what you want. Most pages should be secured behind a valid worker session. See the Examples section below. 
+**render()**
+    Draws the HTML content (usually from a template) into the appropriate section of the interface.
+**getActivity()**
+    Can be used to update a worker's activity, which is shown in the Who's Online section of the interface on some pages. Because a default implementation is provided you don't need to implement this method unless you want to define a new activity. The value of activity.default provided as the first argument to Model_Activity in the example above is a string from the translation system. Your getActivity() implementation may pass a variable number of additional arguments to be displayed inside the string. For example, the activity on /display pages shows the specific ticket a worker is viewing; while the activity on /mail pages shows the specific workspace or group being displayed. 
+
+Examples
+========
+
+Tasks tab
+~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.core/plugin.xml#L1723
+Implementation:
+    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.core/api/uri/welcome.php
