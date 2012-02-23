@@ -9,3 +9,5 @@ Extension Points
     cerberusweb.activity.tab
     cerberusweb.org.tab
     cerberusweb.page
+    cerberusweb.ticket.tab
+
