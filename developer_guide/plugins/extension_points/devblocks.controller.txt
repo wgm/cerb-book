@@ -11,7 +11,8 @@ Plugin Manifest
 In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
-
+    :linenos:
+    
     <!-- Controller -->
     <extension point="devblocks.controller">
     	<id>example.controller</id>
@@ -44,7 +45,9 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         The class name.
 
 **<params>**
-    Allow the manifest to pass information to each implementation of an extension. Each <param> has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
+    Allow the manifest to pass information to each implementation of an extension. Each <param> has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user.
+    **<param key="uri" value="example">**
+        Binds the controller to the uri ``example``
     
     See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
 
@@ -72,7 +75,7 @@ Examples
 Files controller
 ~~~~~~~~~~~~~~~~
 
-The `files` controller authenticates and serve requests to download attachments.
+The `files` controller authenticates and serves requests to download attachments.
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.core/plugin.xml#L1145
