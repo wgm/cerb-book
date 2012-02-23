@@ -18,11 +18,11 @@ Field                          Type
 .. code-block:: php
 
     <?php
-	$postfields = array(
-		array('email','gaius.baltar@localhost'),
-		array('password','s3cr3t'),
-	);
-	$out = $cerb5->post($base_url . 'contacts/create.xml', $postfields);
+    $postfields = array(
+        array('email','gaius.baltar@localhost'),
+        array('password','s3cr3t'),
+    );
+    $out = $cerb5->post($base_url . 'contacts/create.xml', $postfields);
 
 Retrieve
 ========
@@ -32,8 +32,8 @@ Retrieves information about a support center contact.
 
 .. code-block:: php
 
-	<?php
-	$out = $cerb5->get($base_url . 'contacts/1.xml');
+    <?php
+    $out = $cerb5->get($base_url . 'contacts/1.xml');
 	
 	
 Update
@@ -50,12 +50,12 @@ Field             Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-		array('password','new'),
-	);
-	$out = $cerb5->put($base_url . 'contacts/1.xml', $postfields);
-		
+    <?php
+    $postfields = array(
+        array('password','new'),
+    );
+    $out = $cerb5->put($base_url . 'contacts/1.xml', $postfields);
+        
 Search
 ======
 **POST /contacts/search.xml**
@@ -75,16 +75,16 @@ Field                     Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-		array('criteria[]','email_address'),
-		array('oper[]','like'),
-		array('value[]','jeff@*'),
-		array('sortBy','email'),
-		array('sortAsc','1'),
-		array('page','1'),
-	);
-	$out = $cerb5->post($base_url . 'contacts/search.xml', $postfields);
+    <?php
+    $postfields = array(
+        array('criteria[]','email_address'),
+        array('oper[]','like'),
+        array('value[]','jeff@*'),
+        array('sortBy','email'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb5->post($base_url . 'contacts/search.xml', $postfields);
 
 Delete
 ======
@@ -94,5 +94,5 @@ Deletes a support center contact.
 
 .. code-block:: php
 	
-	<?php
-	$out = $cerb5->delete($base_url . 'contacts/1.xml');
+    <?php
+    $out = $cerb5->delete($base_url . 'contacts/1.xml');

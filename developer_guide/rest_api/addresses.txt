@@ -23,10 +23,10 @@ Field               Type
 
     <?php
     $postfields = array(
-    	array('email','gaius.baltar@localhost'),
-    	array('first_name','Gaius'),
-    	array('last_name','Baltar'),
-    	array('custom_16','http://www.cerberusweb.com/'),
+        array('email','gaius.baltar@localhost'),
+        array('first_name','Gaius'),
+        array('last_name','Baltar'),
+        array('custom_16','http://www.cerberusweb.com/'),
     );
     $out = $cerb5->post($base_url . 'addresses/create.xml', $postfields);
 
@@ -60,14 +60,14 @@ Field               Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-		array('email','gaius.baltar@cerberusdemo.com'),
-		array('first_name','Gaius'),
-		array('last_name','Baltar'),
-		array('custom_16','http://www.cerberusdemo.com/'),
-	);
-	$out = $cerb5->post($base_url . 'addresses/1.xml', $postfields);
+    <?php
+    $postfields = array(
+        array('email','gaius.baltar@cerberusdemo.com'),
+        array('first_name','Gaius'),
+        array('last_name','Baltar'),
+        array('custom_16','http://www.cerberusdemo.com/'),
+    );
+    $out = $cerb5->post($base_url . 'addresses/1.xml', $postfields);
 
 Search
 ======
@@ -91,19 +91,19 @@ Field                Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-		array('criteria[]','org_id'),
-		array('oper[]','='),
-		array('value[]','1'),
-		array('criteria[]','is_banned'),
-		array('oper[]','='),
-		array('value[]','0'),
-		array('criteria[]','email'),
-		array('oper[]','like'),
-		array('value[]','jeff@*'),
-		array('sortBy','email'),
-		array('sortAsc','1'),
-		array('page','1'),
-	);
-	$out = $cerb5->post($base_url . 'addresses/search.xml', $postfields);
+    <?php
+    $postfields = array(
+        array('criteria[]','org_id'),
+        array('oper[]','='),
+        array('value[]','1'),
+        array('criteria[]','is_banned'),
+        array('oper[]','='),
+        array('value[]','0'),
+        array('criteria[]','email'),
+        array('oper[]','like'),
+        array('value[]','jeff@*'),
+        array('sortBy','email'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb5->post($base_url . 'addresses/search.xml', $postfields);

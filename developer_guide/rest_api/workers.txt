@@ -23,14 +23,14 @@ Field                 Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-		array('email','tony.stark@example.com'),
-		array('first_name','Tony'),
-		array('last_name','Stark'),
-		array('password','test'),
-	);
-	$out = $cerb5->post($base_url . 'workers/create.xml', $postfields);
+    <?php
+    $postfields = array(
+        array('email','tony.stark@example.com'),
+        array('first_name','Tony'),
+        array('last_name','Stark'),
+        array('password','test'),
+    );
+    $out = $cerb5->post($base_url . 'workers/create.xml', $postfields);
 	
 Retrieve
 ========
@@ -40,8 +40,8 @@ Retrieves information about a Worker.
 
 .. code-block:: php
 
-	<?php
-	$out = $cerb5->get($base_url . 'workers/1.xml');
+    <?php
+    $out = $cerb5->get($base_url . 'workers/1.xml');
 	
 Update
 ======
@@ -64,12 +64,12 @@ Field                 Type
 
 .. code-block:: php
 	
-	<?php
-	$postfields = array(
-		array('title','Superhero'),
-		array('password','new'),
-	);
-	$out = $cerb5->put($base_url . 'workers/1.xml', $postfields);
+    <?php
+    $postfields = array(
+        array('title','Superhero'),
+        array('password','new'),
+    );
+    $out = $cerb5->put($base_url . 'workers/1.xml', $postfields);
 	
 Search
 ======
@@ -92,17 +92,17 @@ Field                 Type
 	
 .. code-block:: php
 	
-	<?php
-	$postfields = array(
-	 	array('criteria[]','is_superuser'),
-	 	array('oper[]','='),
-	 	array('value[]','0'),
-	 	array('criteria[]','first_name'),
-	 	array('oper[]','like'),
-	 	array('value[]','*'),
-	 	array('sortBy','first_name'),
-	 	array('sortAsc','1'),
-	 	array('page','1'),
-	);
-	$out = $cerb5->post($base_url . 'workers/search.xml', $postfields);
+    <?php
+    $postfields = array(
+         array('criteria[]','is_superuser'),
+         array('oper[]','='),
+         array('value[]','0'),
+         array('criteria[]','first_name'),
+         array('oper[]','like'),
+         array('value[]','*'),
+         array('sortBy','first_name'),
+         array('sortAsc','1'),
+         array('page','1'),
+    );
+    $out = $cerb5->post($base_url . 'workers/search.xml', $postfields);
 	

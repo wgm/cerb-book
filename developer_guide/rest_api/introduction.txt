@@ -20,7 +20,7 @@ Comprehensive examples are provided for each object in the following sections of
 
 .. code-block:: php
 
-	<?php
+    <?php
 	require_once("Cerb5Api.php");
 
 	$base_url = 'http://localhost/cerb5/rest/'; // URL to your Cerb5 install
@@ -33,9 +33,9 @@ Comprehensive examples are provided for each object in the following sections of
 	// Your object calls will go here
 
 	if(null != ($content_type = $cerb5->getContentType())) {
-		header("Content-Type: " . $content_type);
-		echo $out;
-		
+        header("Content-Type: " . $content_type);
+        echo $out;
+        
 Data Types
 ==========
 

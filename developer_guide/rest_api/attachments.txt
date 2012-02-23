@@ -11,8 +11,8 @@ Retrieves information about an Attachment object.
 
 .. code-block:: php
 
-	<?php
-	$out = $cerb5->get($base_url . 'attachments/1.xml');
+    <?php
+    $out = $cerb5->get($base_url . 'attachments/1.xml');
 	
 Download
 ========
@@ -22,8 +22,8 @@ Downloads an Attachment object.
 
 .. code-block:: php
 
-	<?php
-	$out = $cerb5->get($base_url . 'attachments/1/download.xml');
+    <?php
+    $out = $cerb5->get($base_url . 'attachments/1/download.xml');
 	
 Search
 ======
@@ -41,14 +41,14 @@ Field               Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-		array('criteria[]','id'),
-		array('oper[]','='),
-		array('value[]','116'),
-		array('sortBy','id'),
-		array('sortAsc','1'),
-		array('page','1'),
-	);
-	$out = $cerb5->post($base_url . 'attachments/search.xml', $postfields);
+    <?php
+    $postfields = array(
+        array('criteria[]','id'),
+        array('oper[]','='),
+        array('value[]','116'),
+        array('sortBy','id'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb5->post($base_url . 'attachments/search.xml', $postfields);
 

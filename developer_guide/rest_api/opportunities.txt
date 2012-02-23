@@ -25,11 +25,11 @@ Field                                  Type
 .. code-block:: php
 
     <?php
-	$postfields = array(
-		array('title','Sell Cerb5 to Salesforce'),
-		array('email_address','unlikely@example.com'),
-	);
-	$out = $cerb5->post($base_url . 'opps/create.xml', $postfields);
+    $postfields = array(
+        array('title','Sell Cerb5 to Salesforce'),
+        array('email_address','unlikely@example.com'),
+    );
+    $out = $cerb5->post($base_url . 'opps/create.xml', $postfields);
 	
 	
 Update
@@ -55,11 +55,11 @@ Field                                  Type
 .. code-block:: php
 
     <?php
-	$postfields = array(
-		array('title','Sell Cerb5 to Atlassian'),
-		array('email_address','nothappening@example.com'),
-	);
-	$out = $cerb5->post($base_url . 'opps/1.xml', $postfields);
+    $postfields = array(
+        array('title','Sell Cerb5 to Atlassian'),
+        array('email_address','nothappening@example.com'),
+    );
+    $out = $cerb5->post($base_url . 'opps/1.xml', $postfields);
 
 Retrieve
 ========
@@ -69,8 +69,8 @@ Retrieves information about an opportunity.
 
 .. code-block:: php
 
-	<?php
-	$out = $cerb5->get($base_url . 'opps/1.xml');
+    <?php
+    $out = $cerb5->get($base_url . 'opps/1.xml');
 	
 Search
 ======
@@ -94,19 +94,19 @@ Field                                  Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-		array('criteria[]','is_closed'),
-		array('oper[]','='),
-	 	array('value[]','0'),
-	 	array('criteria[]','title'),
-	 	array('oper[]','like'),
-	 	array('value[]','hu*'),
-	 	array('criteria[]','email_address'),
-	 	array('oper[]','like'),
-	 	array('value[]','*.de'),
-	 	array('sortBy','id'),
-	 	array('sortAsc','1'),
-	 	array('page','1'),
-	);
-	$out = $cerb5->post($base_url . 'opps/search.xml', $postfields);
+    <?php
+    $postfields = array(
+        array('criteria[]','is_closed'),
+        array('oper[]','='),
+        array('value[]','0'),
+        array('criteria[]','title'),
+        array('oper[]','like'),
+        array('value[]','hu*'),
+        array('criteria[]','email_address'),
+        array('oper[]','like'),
+        array('value[]','*.de'),
+        array('sortBy','id'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb5->post($base_url . 'opps/search.xml', $postfields);

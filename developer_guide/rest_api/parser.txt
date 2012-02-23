@@ -11,21 +11,21 @@ You can parse a new message like so:
 
 .. code-block:: php
 
-	<?php
-	$mime = <<< EOF
-	From: jeff@localhost
-	To: support@localhost
-	Subject: This is a test through the Web-API.
-	Message-Id: <abc2@local1234>
-	X-Mailer: cURL+PHP5
-
-	This is some message content.
-	EOF;
-
-	$postfields = array(
-		array('message', $mime),
-	);
-	$out = $cerb5->post($base_url . 'parser/parse.xml', $postfields);
+    <?php
+    $mime = <<< EOF
+    From: jeff@localhost
+    To: support@localhost
+    Subject: This is a test through the Web-API.
+    Message-Id: <abc2@local1234>
+    X-Mailer: cURL+PHP5
+    
+    This is some message content.
+    EOF;
+    
+    $postfields = array(
+        array('message', $mime),
+    );
+    $out = $cerb5->post($base_url . 'parser/parse.xml', $postfields);
 	
 	
 Parse a reply
@@ -36,18 +36,18 @@ Parsing a reply to an existing message is fairly simple. You should use the Mess
 
 .. code-block:: php
 
-	<?php
-	$mime = <<< EOF
-	From: ben@localhost
-	To: support@localhost
-	Subject: [Parser #TKD-88128-525] This is a test through the Web-API.
-	Message-Id: <abc1@local1234>
-	X-Mailer: cURL+PHP5
-
-	This is another reply using the subject masks.
-	EOF;
-
-	$postfields = array(
-		array('message', $mime),
-	);
-	$out = $cerb5->post($base_url . 'parser/parse.xml', $postfields);
+    <?php
+    $mime = <<< EOF
+    From: ben@localhost
+    To: support@localhost
+    Subject: [Parser #TKD-88128-525] This is a test through the Web-API.
+    Message-Id: <abc1@local1234>
+    X-Mailer: cURL+PHP5
+    
+    This is another reply using the subject masks.
+    EOF;
+    
+    $postfields = array(
+        array('message', $mime),
+    );
+    $out = $cerb5->post($base_url . 'parser/parse.xml', $postfields);

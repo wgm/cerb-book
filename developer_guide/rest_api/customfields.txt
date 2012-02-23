@@ -37,10 +37,10 @@ Context                                         Object
 
 .. code-block:: php
 
-	<?php
-	$out = $cerb5->get($base_url . 'customfields/ticket.json');
+    <?php
+    $out = $cerb5->get($base_url . 'customfields/ticket.json');
 	
 .. code-block:: php
 
-	<?php
-	$out = $cerb5->get($base_url . 'customfields/cerberusweb.contexts.ticket.json');
+    <?php
+    $out = $cerb5->get($base_url . 'customfields/cerberusweb.contexts.ticket.json');

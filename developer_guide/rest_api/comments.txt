@@ -20,14 +20,14 @@ Field                              Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-		array('context', 'cerberusweb.contexts.ticket'),
-		array('context_id', 1),
-		array('address', 'comment@cerberusdemo.com'),
-		array('comment', 'This is a comment'),
-	);
-	$out = $cerb5->post($base_url . 'comments/create.xml', $postfields);
+    <?php
+    $postfields = array(
+        array('context', 'cerberusweb.contexts.ticket'),
+        array('context_id', 1),
+        array('address', 'comment@cerberusdemo.com'),
+        array('comment', 'This is a comment'),
+    );
+    $out = $cerb5->post($base_url . 'comments/create.xml', $postfields);
 	
 Retrieve
 ========
@@ -37,8 +37,8 @@ Retrieves information about a Comment.
 
 .. code-block:: php
 
-	<?php
-	$out = $cerb5->get($base_url . 'comments/1.xml');
+    <?php
+    $out = $cerb5->get($base_url . 'comments/1.xml');
 	
 Search
 ======
@@ -59,13 +59,13 @@ Field                              Type
 
 .. code-block:: php
 
-	<?php
-	$postfields = array(
-	 	array('criteria[]','context'),
-	 	array('oper[]','='),
-	 	array('value[]','cerberusweb.contexts.ticket'),
-	 	array('criteria[]','context_id'),
-	 	array('oper[]','='),
-	 	array('value[]','1'),
-	);
-	$out = $cerb5->post($base_url . 'comments/search.xml', $postfields);
+    <?php
+    $postfields = array(
+         array('criteria[]','context'),
+         array('oper[]','='),
+         array('value[]','cerberusweb.contexts.ticket'),
+         array('criteria[]','context_id'),
+         array('oper[]','='),
+         array('value[]','1'),
+    );
+    $out = $cerb5->post($base_url . 'comments/search.xml', $postfields);
