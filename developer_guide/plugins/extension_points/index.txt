@@ -1,0 +1,11 @@
+Extension Points
+----------------
+
+.. toctree::
+    :maxdepth: 1
+    
+    devblocks.controller
+    
+    cerberusweb.activity.tab
+    cerberusweb.config.tab
+    cerberusweb.page

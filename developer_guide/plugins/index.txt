@@ -1,5 +1,5 @@
-Plugins
--------
+Plugin Development
+------------------
 
 .. toctree::
     :maxdepth: 1
@@ -33,3 +33,8 @@ Plugins
 ### CerberusApplication class ###
 
 ### Scope (jQuery/Smarty/etc) ###
+
+.. toctree::
+    :maxdepth: 1
+    
+    extension_points/index
