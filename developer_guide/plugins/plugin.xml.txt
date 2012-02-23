@@ -91,14 +91,16 @@ The plugin.xml file tells Devblocks about your plugin. Every plugin requires a p
 	A list of all of the patches associated with your plugin. Each ``<patch>`` node has a ``version``, ``revision``, and ``file`` attribute. The ``version`` attribute specifies the human-readable version information. The ``revision`` attribute is used by the platform to determine if the patch needs to run. The ``file`` attribute contains the path of the file relative to your plugin.xml containing the patch code. Patches are typically a combination of PHP logic and SQL, but you could theoretically do anything inside a patch. If you want a patch to run again, increase the value for the ``revision`` attribute. 
 <uri_routing>
 	Provides a list of the top-level routes your plugin supplies to the platform. Each ``<uri>`` node has a ``name`` attribute and a ``controller`` attribute. ``Name`` defines the top-level URI and ``controller`` defines the extension point that should handle processing all requests made to that URI. 
-<class_loader> allows your plugin to provide classes to the rest of the platform. Each ``<file>`` node has a ``path`` attribute which specifies the path relative to your plugin.xml that contains the defined classes. You can define multiple ``<file>`` nodes in your plugin.xml. Each ``<file>`` also contains one or more ``<class>`` nodes which have a single ``name`` attribute. The ``name`` attribute is the exact name of the class to load. 
+<class_loader>
+    Allows your plugin to provide classes to the rest of the platform. Each ``<file>`` node has a ``path`` attribute which specifies the path relative to your plugin.xml that contains the defined classes. You can define multiple ``<file>`` nodes in your plugin.xml. Each ``<file>`` also contains one or more ``<class>`` nodes which have a single ``name`` attribute. The ``name`` attribute is the exact name of the class to load. 
 
 <event_points> 
 	<acl>
 		Contains a list of permissions your plugin should register with the permissions plugin. You can then use these permissions in your code. Each ``<priv>`` node has an ``id`` attribute and a ``label`` attribute. The value for the``id`` attribute should be used in your code to test permissions, while the value for the ``label`` attribute should point to a namespaced ID from the translation system; you can also use literal text, but it is preferred to use the translation system instead. 
 
 <extensions>
-	A list of all the your plugin provides. Each ``<extension>`` has a ``point`` attribute which specifies the ID your extension point binds to. 
+	A list of all the your plugin provides. Each ``<extension>`` has a ``point`` attribute which specifies the ID your extension point binds to.
+	
 	<extension>
 		<id>
 			Must be unique across all Cerb4 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension. 

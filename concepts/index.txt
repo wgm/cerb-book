@@ -13,8 +13,8 @@ This section is an introduction to the main concepts found throughout Cerb5.
     virtual_attendants/index
     worklists/index
     workspaces
-    watchers/index
     notifications
+    watchers/index
     choosers
     snippets/index
     broadcast

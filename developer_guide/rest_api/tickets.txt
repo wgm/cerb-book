@@ -1,6 +1,6 @@
 Tickets
------
-The tickets API allows you to retrieve, update, and search Ticket objects.
+-------
+The tickets API allows you to retrieve, update, and search ticket objects.
 
 Retrieve
 ========
@@ -10,9 +10,6 @@ Retrieve
 
 	<?php
 	$out = $cerb5->get($base_url . 'tickets/1.xml');
-
-
-
 
 Update
 ======
