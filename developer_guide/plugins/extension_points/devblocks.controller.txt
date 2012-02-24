@@ -11,18 +11,17 @@ Plugin Manifest
 In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
-    :linenos:
     
     <!-- Controller -->
     <extension point="devblocks.controller">
     	<id>example.controller</id>
     	<name>Example Controller</name>
     	<class>
-            <file>api/App.php</file>
-            <name>ExampleController</name>
+    		<file>api/App.php</file>
+    		<name>ExampleController</name>
     	</class>
     	<params>
-            <param key="uri" value="example" />
+    		<param key="uri" value="example" />
     	</params>
     </extension>
 
@@ -78,6 +77,6 @@ Files controller
 The `files` controller authenticates and serves requests to download attachments.
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
-    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.core/plugin.xml#L1145
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L1145
 Implementation:
-    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.core/api/uri/files.php
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/uri/files.php

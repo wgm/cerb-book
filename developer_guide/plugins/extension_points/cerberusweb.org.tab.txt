@@ -9,7 +9,6 @@ Plugin Manifest
 In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
-    :linenos:
     
     <!-- Org Tab -->
     <extension point="cerberusweb.org.tab">
@@ -73,10 +72,10 @@ Implementation
 Examples
 ========
 
-Org tab
-~~~~~~~
+Opps tab
+~~~~~~~~
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
-    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.crm/plugin.xml#L175
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.crm/plugin.xml#L175
 Implementation:
-    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.crm/api/App.php#L1011
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.crm/api/App.php#L1011

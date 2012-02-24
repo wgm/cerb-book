@@ -9,21 +9,20 @@ Plugin Manifest
 In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
-    :linenos:
     
     <!-- Pages -->
     <extension point="cerberusweb.page">
-      <id>core.page.research</id>
-      <name>Research Page</name>
-      <class>
-        <file>api/uri/research.php</file>
-        <name>ChResearchPage</name>
-      </class>
-      <params>
-        <param key="uri" value="research" />
-        <param key="menutitle" value="core.menu.research" />
-        <param key="acl" value="core.research" />
-      </params>
+    	<id>core.page.research</id>
+    	<name>Research Page</name>
+    	<class>
+    		<file>api/uri/research.php</file>
+    		<name>ChResearchPage</name>
+    	</class>
+    	<params>
+    		<param key="uri" value="research" />
+    		<param key="menutitle" value="core.menu.research" />
+    		<param key="acl" value="core.research" />
+    	</params>
     </extension>
 
 
@@ -91,6 +90,6 @@ Welcome page
 ~~~~~~~~~~~~
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
-    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.core/plugin.xml#L1723
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L1723
 Implementation:
-    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.core/api/uri/welcome.php
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/uri/welcome.php

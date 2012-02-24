@@ -9,7 +9,6 @@ Plugin Manifest
 In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
-    :linenos:
     
     <!-- Ticket Tab -->
     <extension point="cerberusweb.ticket.tab">
@@ -77,6 +76,6 @@ Ticket tab
 ~~~~~~~~~~
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
-    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.crm/plugin.xml#L190
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.crm/plugin.xml#L190
 Implementation:
-    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.crm/api/App.php#L1049
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.crm/api/App.php#L1049
