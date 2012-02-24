@@ -1,7 +1,7 @@
 cerberusweb.cron
 ------------------------
 
-The **cerberusweb.activity.tab** extension point allows you to create new tabs on the ``Activity`` page.
+The **cerberusweb.cron** extension point allows you to create new :doc:`Scheduled Tasks`.
 
 Plugin Manifest
 ===============
