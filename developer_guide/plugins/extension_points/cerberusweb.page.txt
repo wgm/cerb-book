@@ -45,11 +45,14 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         The class name.
 
 **<params>**
-    Allow the manifest to pass information to each implementation of an extension. Each <param> has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user.
+    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user.
+
     **<param key="uri" value="research">**
         Binds the page to the ``research`` url.
+
     **<param key="menutitle" value="core.menu.research">**
         Sets the text of the link in the menu. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
+
     **<param key="acl" value="core.research">**
         Specifies the permissions required for this page to be displayed. If this param is omitted, the page will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
 

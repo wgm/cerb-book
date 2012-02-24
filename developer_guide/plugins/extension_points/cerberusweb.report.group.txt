@@ -43,13 +43,14 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         The class name.
 
 **<params>**
-    Allow the manifest to pass information to each implementation of an extension. Each <param> has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
+    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
     
     **<param key="group_name" value="reports.ui.group.example.report1">**
         Sets the name of the report group. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
 
     **<param key="acl" value="report.group.example">**
 	        Specifies the permissions required for this report group to be displayed. If this param is omitted, the report group will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
+
     See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
 
 Implementation
