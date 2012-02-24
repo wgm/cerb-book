@@ -11,5 +11,6 @@ Extension Points
     cerberusweb.org.tab
     cerberusweb.page
     cerberusweb.report
+    cerberusweb.report.group
     cerberusweb.ticket.tab
 
