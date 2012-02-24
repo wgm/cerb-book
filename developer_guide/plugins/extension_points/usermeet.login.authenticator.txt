@@ -1,0 +1,98 @@
+usermeet.login.authenticator
+------------------------
+
+The **usermeet.login.authenticator** extension point allows you to authenticate customer logins to the Support Center using any credentials (forum login, LDAP, customer ID, billing login, etc). The only requirement for a custom login authenticator is that you can convert your credentials into an appropriate e-mail address using your desired data source. This allows your customers to use an existing login for the convenience of single sign on (SSO) functionality. 
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Usermeet Login Authenticator -->
+    <extension point="usermeet.login.authenticator">
+    	<id>example.sc.login.auth.ldap</id>
+    	<name>LDAP Login Handler</name>
+    	<class>
+    		<file>plugin.php</file>
+    		<name>ExampleScLDAPLoginAuthenticator</name>
+    	</class>
+    	<params/>
+    </extension>
+
+**<extension point="...">**
+    Binds a new extension on the specified ``point``.
+
+**<id>**
+    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+
+**<name>**
+    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+
+**<class>**
+    Tells Devblocks where to find the extension's implementation in the source code.
+
+    **<file>**
+        The relative path to the class file from your plugin's directory.
+
+    **<name>**
+        The class name.
+
+**<params>**
+    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
+
+    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class Extension_ScLoginAuthenticator extends DevblocksExtension {
+		function __construct($manifest) {
+			$this->DevblocksExtension($manifest, 1);
+		}
+
+		/**
+		 * draws HTML form of controls needed for login information
+		 */
+		function renderLoginForm() {
+		}
+
+		/**
+		 * pull auth info out of $_POST, check it, return user_id or false
+		 * 
+		 * @return boolean whether login succeeded
+		 */
+		function authenticate() {
+			return false;
+		}
+
+		/**
+		 * release any resources tied up by the authenticate process, if necessary
+		 */
+		function signoff() {
+			$umsession = UmPortalHelper::getSession();
+			$umsession->setProperty('sc_login',null);
+		}
+
+	};
+
+**renderLoginForm()**
+    Displays the login form and collects the credentials for authentication.
+**authenticate()**
+    Processes the login, calls ``$umsession->setProperty('sc_login', $addy)`` - where $addy is the non-null returned value from ``DAO_Address::lookupAddress(<email address of user>, true)`` - and then returns true or false, depending on whether the login was successful or not.
+**signoff()**
+    Releases any resources that were opened by the authentication process (optional). 
+
+Examples
+========
+
+Support Center Login
+~~~~~~~~~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.support_center/plugin.xml#L135
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.support_center/api/UmScApp.php#L376
