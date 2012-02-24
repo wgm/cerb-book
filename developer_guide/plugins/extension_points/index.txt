@@ -7,6 +7,7 @@ Extension Points
     devblocks.controller
     
     cerberusweb.activity.tab
+    cerberusweb.cron
     cerberusweb.org.tab
     cerberusweb.page
     cerberusweb.ticket.tab
