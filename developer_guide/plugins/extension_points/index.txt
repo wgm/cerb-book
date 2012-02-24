@@ -10,5 +10,6 @@ Extension Points
     cerberusweb.cron
     cerberusweb.org.tab
     cerberusweb.page
+    cerberusweb.report
     cerberusweb.ticket.tab
 
