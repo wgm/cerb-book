@@ -1,0 +1,73 @@
+cerberusweb.mail.send.toolbaritem
+------------------------
+
+The **cerberusweb.mail.send.toolbaritem** extension point allows you to add content to the Send Mail toolbar. This allows plugins to contribute functionality that assist with sending outgoing mail and opening new tickets.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Send Mail Toolbar -->
+    <extension point="cerberusweb.mail.send.toolbaritem">
+        <id>example.mail.send.toolbaritem</id>
+        <name>Example Send Mail Toolbar Item</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleSendMailToolbarItem</name>
+        </class>
+        <params/>
+    </extension>
+
+**<extension point="...">**
+    Binds a new extension on the specified ``point``.
+
+**<id>**
+    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+
+**<name>**
+    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+
+**<class>**
+    Tells Devblocks where to find the extension's implementation in the source code.
+
+    **<file>**
+        The relative path to the class file from your plugin's directory.
+
+    **<name>**
+        The class name.
+
+**<params>**
+    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
+
+    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class Extension_SendMailToolbarItem
+        extends DevblocksExtension {
+            function __construct($manifest) {
+                $this->DevblocksExtension($manifest,1);
+            }
+
+            function render() { }
+    };
+
+**render()**
+    Renders the content for the toolbar.
+
+Examples
+========
+
+Feedback
+~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.kb/plugin.xml#L245
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.kb/api/App.php#L380
