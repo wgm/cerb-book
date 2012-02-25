@@ -4,8 +4,6 @@ Extension Points
 .. toctree::
     :maxdepth: 1
     
-    devblocks.controller
-    
     cerberusweb.activity.tab
     cerberusweb.cron
     cerberusweb.org.tab
@@ -13,5 +11,6 @@ Extension Points
     cerberusweb.report
     cerberusweb.report.group
     cerberusweb.ticket.tab
+    devblocks.controller
     usermeet.login.authenticator
 
