@@ -12,6 +12,7 @@ Extension Points
     cerberusweb.message.toolbaritem
     cerberusweb.org.tab
     cerberusweb.page
+    cerberusweb.reply.toolbaritem
     cerberusweb.report
     cerberusweb.report.group
     cerberusweb.ticket.tab
