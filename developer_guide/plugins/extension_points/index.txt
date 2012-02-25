@@ -6,6 +6,7 @@ Extension Points
     
     cerberusweb.activity.tab
     cerberusweb.cron
+    cerberusweb.mail_filter.action
     cerberusweb.org.tab
     cerberusweb.page
     cerberusweb.report
