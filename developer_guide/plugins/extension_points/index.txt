@@ -14,6 +14,7 @@ Extension Points
     cerberusweb.report
     cerberusweb.report.group
     cerberusweb.ticket.tab
+    cerberusweb.ticket.toolbaritem
     devblocks.controller
     usermeet.login.authenticator
     usermeet.tool
