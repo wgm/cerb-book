@@ -9,6 +9,7 @@ Extension Points
     cerberusweb.mail.send.toolbaritem
     cerberusweb.mail_filter.action
     cerberusweb.mail_filter.criteria
+    cerberusweb.message.toolbaritem
     cerberusweb.org.tab
     cerberusweb.page
     cerberusweb.report
