@@ -47,18 +47,19 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class CerberusCronPageExtension extends DevblocksExtension {    
-    /**
-    	 * runs scheduled task
-    	 *
-    	 */
-    	function run() {
-    	    // Overloaded by child
-    	}
-    
-    	public function configure($instance) {}
-    
-    	public function saveConfigurationAction() {}
+    abstract class CerberusCronPageExtension
+        extends DevblocksExtension {    
+            /**
+             * runs scheduled task
+             *
+             */
+            function run() {
+                // Overloaded by child
+            }
+
+            public function configure($instance) {}
+
+            public function saveConfigurationAction() {}
     };
 
 **run()**

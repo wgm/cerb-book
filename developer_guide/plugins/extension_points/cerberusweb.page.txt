@@ -63,20 +63,21 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class CerberusPageExtension extends DevblocksExtension {
-		function __construct($manifest) {
-			$this->DevblocksExtension($manifest,1);
-		}
+    abstract class CerberusPageExtension
+        extends DevblocksExtension {
+            function __construct($manifest) {
+            	$this->DevblocksExtension($manifest,1);
+            }
 
-		function isVisible() { return true; }
-		function render() { }
+            function isVisible() { return true; }
+            function render() { }
 
-		/**
-		 * @return Model_Activity
-		 */
-		public function getActivity() {
-			return new Model_Activity('activity.default');
-		}
+            /**
+             * @return Model_Activity
+             */
+            public function getActivity() {
+            	return new Model_Activity('activity.default');
+            }
     };
 
 **isVisible()**
