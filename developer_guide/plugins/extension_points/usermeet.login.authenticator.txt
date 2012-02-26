@@ -12,11 +12,11 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Usermeet Login Authenticator -->
     <extension point="usermeet.login.authenticator">
-    	<id>example.sc.login.auth.ldap</id>
-    	<name>LDAP Login Handler</name>
+    	<id>example.sc.login.auth</id>
+    	<name>Example Login Handler</name>
     	<class>
-    		<file>plugin.php</file>
-    		<name>ExampleScLDAPLoginAuthenticator</name>
+    		<file>api/App.php</file>
+    		<name>ExampleLoginAuthenticator</name>
     	</class>
     	<params/>
     </extension>
@@ -82,9 +82,9 @@ Implementation
 **renderLoginForm()**
     Displays the login form and collects the credentials for authentication.
 **authenticate()**
-    Processes the login, calls ``$umsession->setProperty('sc_login', $addy)`` - where $addy is the non-null returned value from ``DAO_Address::lookupAddress(<email address of user>, true)`` - and then returns true or false, depending on whether the login was successful or not.
+    Authenticates a user. You need to call ``$umsession->setProperty('sc_login', $addy)`` in your authentication method if the login was successful - where $addy is the non-null returned value from ``DAO_Address::lookupAddress(<email address of user>, true)`` - and then returns true or false, depending on whether the login was successful or not.
 **signoff()**
-    Releases any resources that were opened by the authentication process (optional). 
+    Signs the user out (optional).
 
 Examples
 ========
