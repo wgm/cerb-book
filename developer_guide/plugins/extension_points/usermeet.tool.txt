@@ -115,9 +115,9 @@ Implementation
     };
 
 **handleRequest()**
-    Handles the request when the platform receives one for this controller.
+    Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :doc:`DevblocksHttpRequest` for more information on the data and methods available for each request.
 **writeResponse()**
-    Handles sending the response to the browser at the end of the request/response cycle.
+    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse` for more information on the data and methods available for each response.
 **configure()**
     Renders the configuration for this controller in the Community Portal area.
 **saveConfiguration()**
