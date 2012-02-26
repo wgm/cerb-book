@@ -59,7 +59,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The toolbar item has access to the task being displayed via the ``$task`` variable. See the documentation on :doc:`Model_Task` for more information on what data you have access to for each task.
+    Renders the content for the toolbar. The toolbar item has access to the task being displayed via the ``$task`` variable. See the documentation on :doc:`Model_Task` for more information on the data you have access to for each task.
 
 Examples
 ========

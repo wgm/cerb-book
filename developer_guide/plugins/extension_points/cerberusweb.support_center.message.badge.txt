@@ -1,7 +1,7 @@
-cerberusweb.support_center.message.bage
+cerberusweb.support_center.message.badge
 ------------------------
 
-The **cerberuswebsupport_center.message.bage** extension point allows you to display an image next to messages in the :doc:`Support Center`.
+The **cerberuswebsupport_center.message.badge** extension point allows you to display an image next to messages in the :doc:`Support Center`.
 
 Plugin Manifest
 ===============
@@ -10,7 +10,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
     
-    <!-- Message badge -->
+    <!-- Support Center Message Badge -->
     <extension point="cerberusweb.support_center.message.badge">
     	<id>example.support_center.message.badge</id>
     	<name>Example Support Center Message Badge</name>
@@ -60,7 +60,7 @@ Implementation
     };
 
 **render()**
-    Renders the HTML next to the worker messages. The message being rendered is available in the ``$message`` variable so you can determine information about the message. See the documentation on :doc:`Model_Message` for more information on what data you have access to for each message.
+    Renders the HTML next to the worker messages. The message being rendered is available in the ``$message`` variable so you can determine information about the message. See the documentation on :doc:`Model_Message` for more information on the data you have access to for each message.
 
 Examples
 ========

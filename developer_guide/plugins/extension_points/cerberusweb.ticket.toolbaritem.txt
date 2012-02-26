@@ -59,7 +59,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The toolbar item has access to the ticket being displayed via the ``$ticket`` variable. See the documentation on :doc:`CerberusTicket` for more information on what data you have access to for each ticket.
+    Renders the content for the toolbar. The toolbar item has access to the ticket being displayed via the ``$ticket`` variable. See the documentation on :doc:`CerberusTicket` for more information on the data you have access to for each ticket.
 
 Examples
 ========

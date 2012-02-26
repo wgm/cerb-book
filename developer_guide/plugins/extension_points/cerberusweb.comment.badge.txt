@@ -1,7 +1,7 @@
-cerberusweb.comment.bage
+cerberusweb.comment.badge
 ------------------------
 
-The **cerberusweb.comment.bage** extension point allows you to display an image next to comments left by a worker.
+The **cerberusweb.comment.badge** extension point allows you to display an image next to comments left by a worker.
 
 Plugin Manifest
 ===============
@@ -10,7 +10,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
     
-    <!-- Comment badge -->
+    <!-- Comment Badge -->
     <extension point="cerberusweb.comment.badge">
     	<id>example.comment.badge</id>
     	<name>Example Comment Badge</name>
@@ -60,7 +60,7 @@ Implementation
     };
 
 **render()**
-    Renders the HTML next to the worker comments. The comment being rendered is available in the ``$comment`` variable so you can determine information about the comment. See the documentation on :doc:`Model_Comment` for more information on what data you have access to for each comment.
+    Renders the HTML next to the worker comments. The comment being rendered is available in the ``$comment`` variable so you can determine information about the comment. See the documentation on :doc:`Model_Comment` for more information on the data you have access to for each comment.
 
 Examples
 ========

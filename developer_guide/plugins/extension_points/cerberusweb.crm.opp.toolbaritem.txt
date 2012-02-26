@@ -59,7 +59,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The toolbar item has access to the Opportunity being displayed via the ``$opp`` variable. See the documentation on :doc:`Model_Opportunity` for more information on what data you have access to for each Opportunity.
+    Renders the content for the toolbar. The toolbar item has access to the Opportunity being displayed via the ``$opp`` variable. See the documentation on :doc:`Model_Opportunity` for more information on the data you have access to for each Opportunity.
 
 Examples
 ========
