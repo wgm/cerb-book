@@ -30,5 +30,6 @@ Extension Points
     devblocks.controller
     usermeet.login.authenticator
     usermeet.sc.controller
+    usermeet.sc.rss.controller
     usermeet.tool
 
