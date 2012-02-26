@@ -12,7 +12,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Activity Tab -->
     <extension point="cerberusweb.activity.tab">
-    	<id>example.activitytab.tab</id>
+    	<id>example.activity.tab</id>
     	<name>Example Activity Tab</name>
     	<class>
     		<file>api/App.php</file>
