@@ -29,5 +29,6 @@ Extension Points
     cerberusweb.ticket.toolbaritem
     devblocks.controller
     usermeet.login.authenticator
+    usermeet.sc.controller
     usermeet.tool
 
