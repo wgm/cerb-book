@@ -5,6 +5,7 @@ Extension Points
     :maxdepth: 1
     
     cerberusweb.activity.tab
+    cerberusweb.comment.badge
     cerberusweb.crm.opp.toolbaritem
     cerberusweb.cron
     cerberusweb.mail.send.toolbaritem
