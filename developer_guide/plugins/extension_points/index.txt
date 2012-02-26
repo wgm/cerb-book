@@ -18,6 +18,7 @@ Extension Points
     cerberusweb.page
     cerberusweb.preferences.tab
     cerberusweb.renderer.postbody
+    cerberusweb.renderer.prebody
     cerberusweb.reply.toolbaritem
     cerberusweb.report
     cerberusweb.report.group
