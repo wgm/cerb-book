@@ -59,7 +59,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The toolbar item has access to the message being replied to via the ``$message`` variable.
+    Renders the content for the toolbar. The toolbar item has access to the message being replied to via the ``$message`` variable. See the documentation on :doc:`CerberusMessage` for more information on what data you have access to for each message.
 
 Examples
 ========
