@@ -1,0 +1,99 @@
+devblocks.listener.event
+------------------------
+
+The **devblocks.listener.event** extension point allows you to watch for events generated in other parts of the system and insert changes during the specified event. See the documentation on :doc:`plugins/event_points` for more information on the event points you can watch for.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Devblocks HTTP Listener -->
+    <extension point="devblocks.listener.event">
+        <id>example.listener.core</id>
+        <name>Example Listener</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleEventListener</name>
+        </class>
+        <params>
+        <!-- Event Listener -->
+        <param key="events">
+            <value>
+                <data key="ticket.property.pre_change" />
+                <data key="ticket.merge" />
+                <data key="cron.maint" />
+            </value>
+        </param>
+        </params>
+    </extension>
+
+**<extension point="...">**
+    Binds a new extension on the specified ``point``.
+
+**<id>**
+    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+
+**<name>**
+    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+
+**<class>**
+    Tells Devblocks where to find the extension's implementation in the source code.
+
+    **<file>**
+        The relative path to the class file from your plugin's directory.
+
+    **<name>**
+        The class name.
+
+**<params>**
+    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
+
+    **<value>**
+        This node allows you to specify multiple values for the same key.
+            
+            **<data key="ticket.property.pre_change" />**
+                Specifies `ticket.property.pre_change` as an event to watch for.
+            
+            **<data key="ticket.merge" />**
+                Specifies `ticket.merge` as an event to watch for.
+            
+            **<data key="cron.maint" />**
+                Specifies `cron.maint` as an event to watch for.
+
+    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class DevblocksEventListenerExtension
+        extends DevblocksExtension {
+            function __construct($manifest) {
+                self::DevblocksExtension($manifest);
+            }
+
+            /**
+             * @param Model_DevblocksEvent $event
+             */
+            function handleEvent(Model_DevblocksEvent $event) {}
+    };
+
+    [edit]
+
+**handleEvent()**
+    This method is called automatically whenever one of the captured events is triggered.
+
+Examples
+========
+
+Trigger Listener
+~~~~~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L1077
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/listeners.classes.php#L535
