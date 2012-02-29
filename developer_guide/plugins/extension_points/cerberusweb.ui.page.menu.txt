@@ -1,0 +1,93 @@
+cerberusweb.ui.page.menu
+------------------------
+
+The **cerberusweb.ui.page.menu** extension point allows you to create new menus which can be rendered on the config page, or a page you have created.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Activity Tab -->
+    <extension point="cerberusweb.ui.page.menu">
+        <id>example.page.menu.custom</id>
+        <name>Example Page Menu Custom Menu</name>
+        <class>
+        	<file>api/App.php</file>
+        	<name>ExamplePageMenu_CustomMenu</name>
+        </class>
+        <params>
+        	<param key="page_id" value="core.page.configuration" />
+        </params>
+    </extension>
+
+**<extension point="...">**
+    Binds a new extension on the specified ``point``.
+
+**<id>**
+    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+
+**<name>**
+    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+
+**<class>**
+    Tells Devblocks where to find the extension's implementation in the source code.
+
+    **<file>**
+        The relative path to the class file from your plugin's directory.
+
+    **<name>**
+        The class name.
+
+**<params>**
+    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
+
+    **<param key="page_id" value="core.page.configuration">**
+        Binds the menu to the page_id ``core.page.configuration``. You can specify your own page_id, but you'll need to implement rendering the menus on that page yourself. You'll likely want to call the ``render()`` method for each of the page menus returned by ``getExtensions()``.
+
+
+    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class Extension_PageMenu
+        extends DevblocksExtension {
+        	const POINT = 'cerberusweb.ui.page.menu';
+
+        	/**
+        	 * @return DevblocksExtensionManifest[]|Extension_PageMenu[]
+        	 */
+        	static function getExtensions($as_instances=true, $page_id=null) {
+        		if(empty($page_id))
+        			return DevblocksPlatform::getExtensions(self::POINT, $as_instances);
+
+        		$results = array();
+
+        		$exts = DevblocksPlatform::getExtensions(self::POINT, false);
+        		foreach($exts as $ext_id => $ext) {
+        			if(0 == strcasecmp($page_id, $ext->params['page_id']))
+        				$results[$ext_id] = $as_instances ? $ext->createInstance() : $ext;
+        		}
+
+        		// Sorting
+        		if($as_instances)
+        			uasort($results, create_function('$a, $b', "return strcasecmp(\$a->manifest->name,\$b->manifest->name);\n"));
+        		else
+        			uasort($results, create_function('$a, $b', "return strcasecmp(\$a->name,\$b->name);\n"));
+
+        		return $results;
+        	}
+
+        	abstract function render();
+    };
+
+**getExtensions($as_instances=true, $page_id=null)**
+    Returns all of the page menus for the specified ``$page_id``. If no ``$page_id`` is set, this method returns all of the page menus currently registered with the platform. ``$as_instances`` allows you to specify whether or not to return instantiated objects for each of the page menus or just the extension (which you will need to instantiate yourself).\
+
+**render()**
+    This method will be called when the menu is rendered on the page. You'll most likely want to return HTML or render a template inside of this method.

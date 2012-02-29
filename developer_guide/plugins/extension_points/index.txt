@@ -30,6 +30,7 @@ Extension Points
     cerberusweb.task.toolbaritem
     cerberusweb.ticket.tab
     cerberusweb.ticket.toolbaritem
+    cerberusweb.ui.page.menu
     devblocks.controller
     devblocks.listener.event
     devblocks.listener.http
