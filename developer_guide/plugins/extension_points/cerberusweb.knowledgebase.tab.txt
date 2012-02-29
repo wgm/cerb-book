@@ -1,0 +1,83 @@
+cerberusweb.knowledgebase.tab
+-----------------------------
+
+The **cerberusweb.knowledgebase.tab** extension point allows you to create new tabs on the ``Knowledgebase`` page.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Activity Tab -->
+    <extension point="cerberusweb.knowledgebase.tab">
+    	<id>example.knowledgebase.tab</id>
+    	<name>Example Activity Tab</name>
+    	<class>
+    		<file>api/App.php</file>
+    		<name>ExActivityTab</name>
+    	</class>
+    	<params>
+    		<param key="uri" value="example" />
+    		<param key="title" value="example.knowledgebase.tab" />
+    	</params>
+    </extension>
+
+**<extension point="...">**
+    Binds a new extension on the specified ``point``.
+
+**<id>**
+    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+
+**<name>**
+    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+
+**<class>**
+    Tells Devblocks where to find the extension's implementation in the source code.
+
+    **<file>**
+        The relative path to the class file from your plugin's directory.
+
+    **<name>**
+        The class name.
+
+**<params>**
+    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
+
+    **<param key="uri" value="example">**
+        Binds the tab to the ``example`` url.
+
+    **<param key="title" value="example.title">**
+        Sets the text of the tab. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
+
+    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class Extension_KnowledgebaseTab
+        extends DevblocksExtension {
+        	const POINT = 'cerberusweb.knowledgebase.tab';
+
+        	function showTab() {}
+        	function saveTab() {}
+    };
+
+**showTab()**
+    Renders content via Ajax when a tab is selected.
+**saveTab()**
+    Allows a default implementation for saving tab content.  This convenience removes the need for a controller to handle the actions of every tab; however, you may decide to implement more complex functionality and you can simply ignore this method.  Tabs don't have to be limited to a single page of content with a submit form; they can contain lists, sub-tabs, and other dynamic functionality that make use of several actions on your own controller.
+
+Examples
+========
+
+Browse tab
+~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.kb/plugin.xml#L191
+Implementation:
+    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.kb/api/App.php#L254
