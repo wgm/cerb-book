@@ -8,6 +8,7 @@ Extension Points
     cerberusweb.comment.badge
     cerberusweb.crm.opp.toolbaritem
     cerberusweb.cron
+    cerberusweb.datacenter.server.tab
     cerberusweb.login
     cerberusweb.mail.send.toolbaritem
     cerberusweb.mail_filter.action
