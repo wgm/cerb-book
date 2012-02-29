@@ -9,6 +9,7 @@ Extension Points
     cerberusweb.crm.opp.toolbaritem
     cerberusweb.cron
     cerberusweb.datacenter.server.tab
+    cerberusweb.datacenter.tab
     cerberusweb.login
     cerberusweb.mail.send.toolbaritem
     cerberusweb.mail_filter.action
