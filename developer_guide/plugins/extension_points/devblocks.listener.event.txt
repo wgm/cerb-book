@@ -1,7 +1,7 @@
 devblocks.listener.event
 ------------------------
 
-The **devblocks.listener.event** extension point allows you to watch for events generated in other parts of the system and insert changes during the specified event. See the documentation on :doc:`plugins/event_points` for more information on the event points you can watch for.
+The **devblocks.listener.event** extension point allows you to watch for events generated in other parts of the system and insert changes during the specified event. See the documentation on :doc:`Event Points </developer_guide/plugins/event_points>` for more information on the event points you can watch for.
 
 Plugin Manifest
 ===============
