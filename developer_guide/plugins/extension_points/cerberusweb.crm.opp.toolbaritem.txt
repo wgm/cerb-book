@@ -33,7 +33,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The toolbar item has access to the Opportunity being displayed via the ``$opp`` variable. See the documentation on :doc:`Model_Opportunity` for more information on the data you have access to for each Opportunity.
+    Renders the content for the toolbar. The method is passed the opp being displayed as the ``$opp`` parameter. See the documentation on :doc:`Model_CrmOpportunity </developer_guide/devblocks/models/model_crmopportunity>` for more information on the data you have access to for each task.
 
 Examples
 ========
