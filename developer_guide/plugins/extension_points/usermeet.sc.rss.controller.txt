@@ -56,9 +56,8 @@ Implementation
     <?php
     abstract class Extension_UmScRssController
         extends DevblocksExtension {
-        	function handleRequest(DevblocksHttpRequest $request) {
-        		//$path = $request->path;
-        	}
+            
+            function handleRequest(DevblocksHttpRequest $request) {}
     };
     
 **handleRequest()**

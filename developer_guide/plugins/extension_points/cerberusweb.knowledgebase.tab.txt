@@ -12,16 +12,16 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Activity Tab -->
     <extension point="cerberusweb.knowledgebase.tab">
-    	<id>example.knowledgebase.tab</id>
-    	<name>Example Activity Tab</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExActivityTab</name>
-    	</class>
-    	<params>
-    		<param key="uri" value="example" />
-    		<param key="title" value="example.knowledgebase.tab" />
-    	</params>
+        <id>example.knowledgebase.tab</id>
+        <name>Example Activity Tab</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExActivityTab</name>
+        </class>
+        <params>
+            <param key="uri" value="example" />
+            <param key="title" value="example.knowledgebase.tab" />
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -60,10 +60,11 @@ Implementation
     <?php
     abstract class Extension_KnowledgebaseTab
         extends DevblocksExtension {
-        	const POINT = 'cerberusweb.knowledgebase.tab';
-
-        	function showTab() {}
-        	function saveTab() {}
+            const POINT = 'cerberusweb.knowledgebase.tab';
+            
+            function showTab() {}
+            
+            function saveTab() {}
     };
 
 **showTab()**

@@ -12,13 +12,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Cron -->
     <extension point="cerberusweb.cron">
-    	<id>example.cron</id>
-    	<name>Example Maintenance</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExampleCron</name>
-    	</class>
-    	<params/>
+        <id>example.cron</id>
+        <name>Example Maintenance</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleCron</name>
+        </class>
+        <params/>
     </extension>
 
 **<extension point="...">**
@@ -53,12 +53,10 @@ Implementation
              * runs scheduled task
              *
              */
-            function run() {
-                // Overloaded by child
-            }
-
+            function run() {}
+            
             public function configure($instance) {}
-
+            
             public function saveConfigurationAction() {}
     };
 

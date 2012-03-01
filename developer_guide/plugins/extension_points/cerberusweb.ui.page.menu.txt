@@ -15,11 +15,11 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         <id>example.page.menu.custom</id>
         <name>Example Page Menu Custom Menu</name>
         <class>
-        	<file>api/App.php</file>
-        	<name>ExamplePageMenu_CustomMenu</name>
+            <file>api/App.php</file>
+            <name>ExamplePageMenu_CustomMenu</name>
         </class>
         <params>
-        	<param key="page_id" value="core.page.configuration" />
+            <param key="page_id" value="core.page.configuration" />
         </params>
     </extension>
 
@@ -57,37 +57,48 @@ Implementation
     <?php
     abstract class Extension_PageMenu
         extends DevblocksExtension {
-        	const POINT = 'cerberusweb.ui.page.menu';
-
-        	/**
-        	 * @return DevblocksExtensionManifest[]|Extension_PageMenu[]
-        	 */
-        	static function getExtensions($as_instances=true, $page_id=null) {
-        		if(empty($page_id))
-        			return DevblocksPlatform::getExtensions(self::POINT, $as_instances);
-
-        		$results = array();
-
-        		$exts = DevblocksPlatform::getExtensions(self::POINT, false);
-        		foreach($exts as $ext_id => $ext) {
-        			if(0 == strcasecmp($page_id, $ext->params['page_id']))
-        				$results[$ext_id] = $as_instances ? $ext->createInstance() : $ext;
-        		}
-
-        		// Sorting
-        		if($as_instances)
-        			uasort($results, create_function('$a, $b', "return strcasecmp(\$a->manifest->name,\$b->manifest->name);\n"));
-        		else
-        			uasort($results, create_function('$a, $b', "return strcasecmp(\$a->name,\$b->name);\n"));
-
-        		return $results;
-        	}
-
-        	abstract function render();
+            const POINT = 'cerberusweb.ui.page.menu';
+            
+            /**
+             * @return DevblocksExtensionManifest[]|Extension_PageMenu[]
+             */
+            static function getExtensions($as_instances=true, $page_id=null) {
+                if(empty($page_id))
+                    return DevblocksPlatform::getExtensions(self::POINT, $as_instances);
+                
+                $results = array();
+                
+                $exts = DevblocksPlatform::getExtensions(self::POINT, false);
+                foreach($exts as $ext_id => $ext) {
+                    if(0 == strcasecmp($page_id, $ext->params['page_id']))
+                        $results[$ext_id] = $as_instances ? $ext->createInstance() : $ext;
+                }
+                
+                // Sorting
+                if($as_instances)
+                    uasort($results, create_function('$a, $b', "return strcasecmp(\$a->manifest->name,\$b->manifest->name);\n"));
+                else
+                    uasort($results, create_function('$a, $b', "return strcasecmp(\$a->name,\$b->name);\n"));
+                
+                return $results;
+            }
+            
+            abstract function render();
     };
 
 **getExtensions($as_instances=true, $page_id=null)**
-    Returns all of the page menus for the specified ``$page_id``. If no ``$page_id`` is set, this method returns all of the page menus currently registered with the platform. ``$as_instances`` allows you to specify whether or not to return instantiated objects for each of the page menus or just the extension (which you will need to instantiate yourself).\
+    Returns all of the page menus for the specified ``$page_id``. If no ``$page_id`` is set, this method returns all of the page menus currently registered with the platform. The ``$as_instances`` parameter allows you to specify whether or not to return instantiated objects for each of the page menus or just the extension (which you will need to instantiate yourself).\
 
 **render()**
     This method will be called when the menu is rendered on the page. You'll most likely want to return HTML or render a template inside of this method.
+    
+Examples
+========
+
+Tasks tab
+~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L1723
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/uri/tasks.php

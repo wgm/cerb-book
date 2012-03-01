@@ -12,17 +12,17 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Pages -->
     <extension point="cerberusweb.page">
-    	<id>core.page.research</id>
-    	<name>Research Page</name>
-    	<class>
-    		<file>api/uri/research.php</file>
-    		<name>ChResearchPage</name>
-    	</class>
-    	<params>
-    		<param key="uri" value="research" />
-    		<param key="menutitle" value="core.menu.research" />
-    		<param key="acl" value="core.research" />
-    	</params>
+        <id>core.page.research</id>
+        <name>Research Page</name>
+        <class>
+            <file>api/uri/research.php</file>
+            <name>ChResearchPage</name>
+        </class>
+        <params>
+            <param key="uri" value="research" />
+            <param key="menutitle" value="core.menu.research" />
+            <param key="acl" value="core.research" />
+        </params>
     </extension>
 
 
@@ -65,18 +65,16 @@ Implementation
     <?php
     abstract class CerberusPageExtension
         extends DevblocksExtension {
-            function __construct($manifest) {
-            	$this->DevblocksExtension($manifest,1);
-            }
-
+            
             function isVisible() { return true; }
+            
             function render() { }
-
+            
             /**
              * @return Model_Activity
              */
             public function getActivity() {
-            	return new Model_Activity('activity.default');
+                return new Model_Activity('activity.default');
             }
     };
 

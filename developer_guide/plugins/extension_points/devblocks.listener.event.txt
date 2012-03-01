@@ -72,17 +72,12 @@ Implementation
     <?php
     abstract class DevblocksEventListenerExtension
         extends DevblocksExtension {
-            function __construct($manifest) {
-                self::DevblocksExtension($manifest);
-            }
-
+                        
             /**
              * @param Model_DevblocksEvent $event
              */
             function handleEvent(Model_DevblocksEvent $event) {}
     };
-
-    [edit]
 
 **handleEvent()**
     This method is called automatically whenever one of the captured events is triggered.

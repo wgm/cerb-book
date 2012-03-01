@@ -12,16 +12,16 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Preferences Tab -->
     <extension point="cerberusweb.preferences.tab">
-    	<id>example.preferences.tab</id>
-    	<name>Example Preferences Tab</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExPreferencesTab</name>
-    	</class>
-    	<params>
-    		<param key="uri" value="example" />
-    		<param key="title" value="example.preferences.tab" />
-    	</params>
+        <id>example.preferences.tab</id>
+        <name>Example Preferences Tab</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExPreferencesTab</name>
+        </class>
+        <params>
+            <param key="uri" value="example" />
+            <param key="title" value="example.preferences.tab" />
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -60,12 +60,10 @@ Implementation
     <?php
     abstract class Extension_PreferencesTab
         extends DevblocksExtension {
-        	function __construct($manifest) {
-        		$this->DevblocksExtension($manifest,1);
-        	}
-    	
-        	function showTab() {}
-        	function saveTab() {}
+            
+            function showTab() {}
+            
+            function saveTab() {}
     };
 
 **showTab()**

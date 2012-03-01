@@ -12,13 +12,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Activity Tab -->
     <extension point="cerberusweb.mail_filter.criteria">
-    	<id>example.mail_filter.criteria.magic_words</id>
-    	<name>Criteria: Messages containing magic words</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExampleFilterMagicWordsCriteria</name>
-    	</class>
-    	<params/>
+        <id>example.mail_filter.criteria.magic_words</id>
+        <name>Criteria: Messages containing magic words</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleFilterMagicWordsCriteria</name>
+        </class>
+        <params/>
     </extension>
 
 **<extension point="...">**
@@ -51,14 +51,12 @@ Implementation
     <?php
     abstract class Extension_MailFilterAction
         extends DevblocksExtension {
-        	function __construct($manifest) {
-        		$this->DevblocksExtension($manifest,1);
-        	}
-    
-        	function matches(Model_PreParseRule $filter, CerberusParserMessage $message) {}
-    
-        	function renderConfig(Model_PreParseRule $filter) {}
-        	function saveConfig() { return array(); }
+            
+            function matches(Model_PreParseRule $filter, CerberusParserMessage $message) {}
+            
+            function renderConfig(Model_PreParseRule $filter) {}
+            
+            function saveConfig() { return array(); }
     };
 
 **matches()**

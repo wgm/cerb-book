@@ -51,10 +51,7 @@ Implementation
     <?php
     abstract class Extension_CrmOpportunityToolbarItem
         extends DevblocksExtension {
-            function __construct($manifest) {
-                $this->DevblocksExtension($manifest,1);
-            }
-
+            
             function render(Model_CrmOpportunity $opp) { }
     };
 

@@ -12,16 +12,16 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Activity Tab -->
     <extension point="cerberusweb.datacenter.server.tab">
-    	<id>example.datacenter.server.tab</id>
-    	<name>Example Datacenter Server Tab</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExDatacenterServerTab</name>
-    	</class>
-    	<params>
-    		<param key="uri" value="example" />
-    		<param key="title" value="example.datacenter.server.tab" />
-    	</params>
+        <id>example.datacenter.server.tab</id>
+        <name>Example Datacenter Server Tab</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExDatacenterServerTab</name>
+        </class>
+        <params>
+            <param key="uri" value="example" />
+            <param key="title" value="example.datacenter.server.tab" />
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -60,10 +60,11 @@ Implementation
     <?php
     abstract class Extension_ServerTab
         extends DevblocksExtension {
-        	const POINT = 'cerberusweb.datacenter.server.tab';
-
-        	function showTab(Model_Server $server) {}
-        	function saveTab() {}
+            const POINT = 'cerberusweb.datacenter.server.tab';
+            
+            function showTab(Model_Server $server) {}
+            
+            function saveTab() {}
     };
 
 **showTab()**

@@ -12,14 +12,14 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Comment Badge -->
     <extension point="cerberusweb.comment.badge">
-    	<id>example.comment.badge</id>
-    	<name>Example Comment Badge</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExCommentBadge</name>
-    	</class>
-    	<params>
-    	</params>
+        <id>example.comment.badge</id>
+        <name>Example Comment Badge</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExCommentBadge</name>
+        </class>
+        <params>
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -52,11 +52,8 @@ Implementation
     <?php
     abstract class Extension_CommentBadge
         extends DevblocksExtension {
-        	function __construct($manifest) {
-        		$this->DevblocksExtension($manifest);
-        	}
-
-        	function render(Model_Comment $comment) {}
+            
+            function render(Model_Comment $comment) {}
     };
 
 **render()**

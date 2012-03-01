@@ -52,8 +52,8 @@ Implementation
     <?php
     abstract class DevblocksHttpResponseListenerExtension
         extends DevblocksExtension {
-        	function run(DevblocksHttpResponse $request, Smarty $tpl) {
-        	}
+            
+            function run(DevblocksHttpResponse $request, Smarty $tpl) {}
     };
 
 **run()**

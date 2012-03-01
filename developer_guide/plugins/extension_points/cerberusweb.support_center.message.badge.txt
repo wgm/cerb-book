@@ -12,14 +12,14 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Support Center Message Badge -->
     <extension point="cerberusweb.support_center.message.badge">
-    	<id>example.support_center.message.badge</id>
-    	<name>Example Support Center Message Badge</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExMessageBadge</name>
-    	</class>
-    	<params>
-    	</params>
+        <id>example.support_center.message.badge</id>
+        <name>Example Support Center Message Badge</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExMessageBadge</name>
+        </class>
+        <params>
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -52,11 +52,8 @@ Implementation
     <?php
     abstract class Extension_SupportCenterMessageBadge
         extends DevblocksExtension {
-        	function __construct($manifest) {
-        		$this->DevblocksExtension($manifest);
-        	}
-
-        	function render(Model_Message $message) {}
+            
+            function render(Model_Message $message) {}
     };
 
 **render()**

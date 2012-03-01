@@ -52,9 +52,9 @@ Implementation
     <?php
     abstract class Extension_RssSource
         extends DevblocksExtension {
-        	const EXTENSION_POINT = 'cerberusweb.rss.source';
-
-        	function getFeedAsRss($feed) {}
+            const EXTENSION_POINT = 'cerberusweb.rss.source';
+            
+            function getFeedAsRss($feed) {}
     };
 
     [edit]

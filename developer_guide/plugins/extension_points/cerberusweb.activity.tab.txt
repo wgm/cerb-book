@@ -12,16 +12,16 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Activity Tab -->
     <extension point="cerberusweb.activity.tab">
-    	<id>example.activity.tab</id>
-    	<name>Example Activity Tab</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExActivityTab</name>
-    	</class>
-    	<params>
-    		<param key="uri" value="example" />
-    		<param key="title" value="example.activity.tab" />
-    	</params>
+        <id>example.activity.tab</id>
+        <name>Example Activity Tab</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExActivityTab</name>
+        </class>
+        <params>
+            <param key="uri" value="example" />
+            <param key="title" value="example.activity.tab" />
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -60,12 +60,10 @@ Implementation
     <?php
     abstract class Extension_ActivityTab
         extends DevblocksExtension {
-        	function __construct($manifest) {
-        		$this->DevblocksExtension($manifest,1);
-        	}
-    	
-        	function showTab() {}
-        	function saveTab() {}
+            
+            function showTab() {}
+            
+            function saveTab() {}
     };
 
 **showTab()**

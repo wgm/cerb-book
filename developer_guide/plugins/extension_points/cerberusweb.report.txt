@@ -12,16 +12,16 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Reports Tab -->
     <extension point="cerberusweb.report">
-    	<id>report.group.example.report1</id>
-    	<name>Example Reports Tab</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExampleReport</name>
-    	</class>
-    	<params>
-    		<param key="report_name" value="reports.ui.group.example.report1" />
-    		<param key="report_group" value="report.group.example" />
-    	</params>
+        <id>report.group.example.report1</id>
+        <name>Example Reports Tab</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleReport</name>
+        </class>
+        <params>
+            <param key="report_name" value="reports.ui.group.example.report1" />
+            <param key="report_group" value="report.group.example" />
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -60,13 +60,8 @@ Implementation
     <?php
     abstract class Extension_Report
         extends DevblocksExtension {
-            function __construct($manifest) {
-            	parent::DevblocksExtension($manifest);
-            }
-
-            function render() {
-            	// Overload
-            }
+            
+            function render() {}
     };
 
 **render()**

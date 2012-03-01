@@ -12,13 +12,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Cerberus Login Authenticator -->
     <extension point="cerberusweb.login">
-    	<id>example.login.auth</id>
-    	<name>Example Login Adapter</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExampleLoginAuthenticator</name>
-    	</class>
-    	<params/>
+        <id>example.login.auth</id>
+        <name>Example Login Adapter</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleLoginAuthenticator</name>
+        </class>
+        <params/>
     </extension>
 
 **<extension point="...">**
@@ -51,14 +51,14 @@ Implementation
     <?php
     abstract class Extension_LoginAuthenticator
         extends DevblocksExtension {
-
-        	function renderLoginForm() {}
-
-        	function authenticate() {
-        		return false;
-        	}
-
-        	function signoff() {}
+            
+            function renderLoginForm() {}
+            
+            function authenticate() {
+                return false;
+            }
+            
+            function signoff() {}
     };
 
 **renderLoginForm()**

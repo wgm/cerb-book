@@ -12,13 +12,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Activity Tab -->
     <extension point="cerberusweb.mail_filter.action">
-    	<id>example.mail_filter.action.voicemail</id>
-    	<name>Action: Voicemail Sender Rewrite</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExampleFilterVoicemailRewriteAction</name>
-    	</class>
-    	<params/>
+        <id>example.mail_filter.action.voicemail</id>
+        <name>Action: Voicemail Sender Rewrite</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleFilterVoicemailRewriteAction</name>
+        </class>
+        <params/>
     </extension>
 
 **<extension point="...">**
@@ -51,13 +51,11 @@ Implementation
     <?php
     abstract class Extension_MailFilterAction
         extends DevblocksExtension {
-            function __construct($manifest) {
-            	$this->DevblocksExtension($manifest,1);
-            }
-
+            
             function run(Model_PreParseRule $filter, CerberusParserMessage $message) {}
-
+            
             function renderConfig(Model_PreParseRule $filter) {}
+            
             function saveConfig() { return array(); }
     };
 

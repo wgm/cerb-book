@@ -12,16 +12,16 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Report Groups -->
     <extension point="cerberusweb.report">
-    	<id>report.group.example.report1</id>
-    	<name>Example Reports Tab</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExampleReport</name>
-    	</class>
-    	<params>
-    		<param key="report_name" value="reports.ui.group.example.report1" />
-    		<param key="report_group" value="report.group.example" />
-    	</params>
+        <id>report.group.example.report1</id>
+        <name>Example Reports Tab</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleReport</name>
+        </class>
+        <params>
+            <param key="report_name" value="reports.ui.group.example.report1" />
+            <param key="report_group" value="report.group.example" />
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -49,7 +49,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         Sets the name of the report group. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
 
     **<param key="acl" value="report.group.example">**
-	        Specifies the permissions required for this report group to be displayed. If this param is omitted, the report group will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
+            Specifies the permissions required for this report group to be displayed. If this param is omitted, the report group will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
 
     See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
 
@@ -60,12 +60,9 @@ Implementation
     <?php
     abstract class Extension_Report
         extends DevblocksExtension {
-            function __construct($manifest) {
-            	parent::DevblocksExtension($manifest);
-            }
-
+           
             function render() {
-            	// Overload
+                // Overload
             }
     };
 

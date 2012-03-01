@@ -12,21 +12,21 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Templates -->
     <templates set="cerberusweb.support_center">
-    	<template path="example/index.tpl" />
-    	<template path="example/header.tpl" />
-    	<template path="example/footer.tpl" />
+        <template path="example/index.tpl" />
+        <template path="example/header.tpl" />
+        <template path="example/footer.tpl" />
     </templates>
     <!-- Usermeet Tool -->
     <extension point="usermeet.tool">
-    	<id>example.tool</id>
-    	<name>Example Tool</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>UmExampleApp</name>
-    	</class>
-    	<params>
-    		<param key="template_set" value="example.tool" />
-    	</params>
+        <id>example.tool</id>
+        <name>Example Tool</name>
+        <class>
+            <file>api/App.php</file>
+            <name>UmExampleApp</name>
+        </class>
+        <params>
+            <param key="template_set" value="example.tool" />
+        </params>
     </extension>
 
 
@@ -65,53 +65,50 @@ Implementation
         extends DevblocksExtension
         implements DevblocksHttpRequestHandler {
             private $portal = '';
-
+            
             /*
              * Site Key
              * Site Name
              * Site URL
              */
-
+             
             /**
              * @param DevblocksHttpRequest
              * @return DevblocksHttpResponse
              */
             public function handleRequest(DevblocksHttpRequest $request) {
-            	$path = $request->path;
-
-            	@$a = DevblocksPlatform::importGPC($_REQUEST['a'],'string');
-
-            	if(empty($a)) {
-            		@$action = array_shift($path) . 'Action';
-            	} else {
-            		@$action = $a . 'Action';
-            	}
-
-            	switch($action) {
-            		case NULL:
-            			// [TODO] Index/page render
-            			break;
-            			//            
-            		default:
-            			// Default action, call arg as a method suffixed with Action
-            			if(method_exists($this,$action)) {
-            				call_user_func(array(&$this, $action)); // [TODO] Pass HttpRequest as arg?
-            			}
-            			break;
-            	}
+                $path = $request->path;
+                
+                @$a = DevblocksPlatform::importGPC($_REQUEST['a'],'string');
+                
+                if(empty($a)) {
+                    @$action = array_shift($path) . 'Action';
+                } else {
+                    @$action = $a . 'Action';
+                }
+                
+                switch($action) {
+                    case NULL:
+                        // [TODO] Index/page render
+                        break;
+                        //            
+                    default:
+                        // Default action, call arg as a method suffixed with Action
+                        if(method_exists($this,$action)) {
+                            call_user_func(array(&$this, $action)); // [TODO] Pass HttpRequest as arg?
+                        }
+                        break;
+                }
             }
 
-            public function writeResponse(DevblocksHttpResponse $response) {
-            }
+            public function writeResponse(DevblocksHttpResponse $response) {}
 
             /**
              * @param Model_CommunityTool $instance
              */
-            public function configure(Model_CommunityTool $instance) {
-            }
+            public function configure(Model_CommunityTool $instance) {}
 
-            public function saveConfiguration(Model_CommunityTool $instance) {
-            }
+            public function saveConfiguration(Model_CommunityTool $instance) {}
     };
 
 **handleRequest()**

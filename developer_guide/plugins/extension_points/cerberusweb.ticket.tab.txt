@@ -12,16 +12,16 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Ticket Tab -->
     <extension point="cerberusweb.ticket.tab">
-    	<id>example.tickettab.tab</id>
-    	<name>Example Ticket Tab</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExTicketTab</name>
-    	</class>
-    	<params>
-    		<param key="uri" value="example" />
-    		<param key="title" value="example.ticket.tab" />
-    	</params>
+        <id>example.tickettab.tab</id>
+        <name>Example Ticket Tab</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExTicketTab</name>
+        </class>
+        <params>
+            <param key="uri" value="example" />
+            <param key="title" value="example.ticket.tab" />
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -60,11 +60,9 @@ Implementation
     <?php
     abstract class Extension_TicketTab
         extends DevblocksExtension {
-            function __construct($manifest) {
-            	$this->DevblocksExtension($manifest,1);
-            }
-
+            
             function showTab() {}
+            
             function saveTab() {}
     };
 

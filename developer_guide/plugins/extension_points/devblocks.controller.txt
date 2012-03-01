@@ -14,15 +14,15 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Controller -->
     <extension point="devblocks.controller">
-    	<id>example.controller</id>
-    	<name>Example Controller</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExampleController</name>
-    	</class>
-    	<params>
-    		<param key="uri" value="example" />
-    	</params>
+        <id>example.controller</id>
+        <name>Example Controller</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleController</name>
+        </class>
+        <params>
+            <param key="uri" value="example" />
+        </params>
     </extension>
 
 **<extension point="...">**
@@ -60,8 +60,10 @@ Implementation
     abstract class DevblocksControllerExtension 
         extends DevblocksExtension 
         implements DevblocksHttpRequestHandler {
-    	    public function handleRequest(DevblocksHttpRequest $request) {}
-    	    public function writeResponse(DevblocksHttpResponse $response) {}
+            
+            public function handleRequest(DevblocksHttpRequest $request) {}
+            
+            public function writeResponse(DevblocksHttpResponse $response) {}
     };
     
 **handleRequest()**
