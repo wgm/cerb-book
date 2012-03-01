@@ -1,20 +1,18 @@
 Plugin Development
 ------------------
 
-.. toctree::
-    :maxdepth: 1
-
-    plugin.xml
-
 ## Writing plugins ##
 
 (SDK in `/cerb5/install/extras/sdk`)
 
 ### plugin.xml manifests ###
 
-### Extension points ###
-
-### Event points ###
+.. toctree::
+    :maxdepth: 1
+    
+    plugin.xml
+    extension_points/index
+    event_points/index
 
 ### Namespaces ###
 
@@ -34,7 +32,5 @@ Plugin Development
 
 ### Scope (jQuery/Smarty/etc) ###
 
-.. toctree::
-    :maxdepth: 1
+
     
-    extension_points/index
