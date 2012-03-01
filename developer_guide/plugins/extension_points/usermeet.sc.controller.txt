@@ -25,38 +25,15 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         </params>
     </extension>
 
-**<extension point="...">**
-    Binds a new extension on the specified ``point``.
+**<param key="uri" value="example">**
+    Binds the tab to the ``example`` url.
 
-**<id>**
-    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+**<param key="menu_title" value="example.sc.title">**
+    Sets the text of the tab. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
 
-**<name>**
-    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
-
-**<class>**
-    Tells Devblocks where to find the extension's implementation in the source code.
-
-    **<file>**
-        The relative path to the class file from your plugin's directory.
-
-    **<name>**
-        The class name.
-
-**<params>**
-    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
-
-    **<param key="uri" value="example">**
-        Binds the tab to the ``example`` url.
-
-    **<param key="menu_title" value="example.sc.title">**
-        Sets the text of the tab. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
-
-    **<param key="icon" value="images/crystal/example.gif">**
-        Defines the URI to an icon which will be displayed in the Support Center menu. The specified URI is relative to the resources directory of your plugin.
+**<param key="icon" value="images/crystal/example.gif">**
+    Defines the URI to an icon which will be displayed in the Support Center menu. The specified URI is relative to the resources directory of your plugin.
         
-    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
-
 Implementation
 ==============
 .. code-block:: php
@@ -127,14 +104,19 @@ Implementation
     
 **handleRequest()**
     Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :doc:`DevblocksHttpRequest` for more information on the data and methods available for each request.
+    
 **writeResponse()**
     Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse` for more information on the data and methods available for each response.
+    
 **renderSidebar()**
     Renders the sidebar for this controller when this controller has processed a request. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse` for more information on the data and methods available for each response.
+    
 **isVisible()**
     Controls whether or not the controller is visible in the menu.
+    
 **configure()**
     Renders the configuration for this controller in the Community Portal area.
+    
 **saveConfiguration()**
     Saves the configuration data specified in the Community Portal area.
 
