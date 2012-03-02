@@ -5,8 +5,6 @@ Plugin Development
 
 (SDK in `/cerb5/install/extras/sdk`)
 
-### plugin.xml manifests ###
-
 .. toctree::
     :maxdepth: 1
     
