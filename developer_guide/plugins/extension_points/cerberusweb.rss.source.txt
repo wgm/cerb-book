@@ -37,7 +37,7 @@ Implementation
     [edit]
 
 **getFeedAsRss()**
-    This method takes the ``$feed`` variable and returns XML in the RSS format. See the documentation on :doc:`Model_ViewRSS` for more information on the data you have access to in the ``$feed`` variable.
+    This should take the ``$feed`` parameter and return XML in the RSS format. See the documentation on :doc:`Model_ViewRSS </developer/devblocks/models/model_viewrss>` for more information on the data and methods you have access to for each feed.
 
 Examples
 ========

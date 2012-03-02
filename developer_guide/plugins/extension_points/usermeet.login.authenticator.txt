@@ -32,8 +32,7 @@ Implementation
             /**
              * draws HTML form of controls needed for login information
              */
-            function renderLoginForm() {
-            }
+            function renderLoginForm() {}
 
             /**
              * pull auth info out of $_POST, check it, return user_id or false

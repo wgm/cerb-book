@@ -87,17 +87,17 @@ Implementation
             public function saveConfiguration(Model_CommunityTool $instance) {}
     };
 
-**handleRequest()**
-    Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :doc:`DevblocksHttpRequest` for more information on the data and methods available for each request.
+**handleRequest(DevblocksHttpRequest $request)**
+    Handles the request when the platform receives a request for this tool. Access to the current request is provided via the ``$request`` variable. See the documentation on :doc:`DevblocksHttpRequest </developer_guide/devblocks/devblockshttprequest>` for more information on the data and methods available for each request.
+
+**writeResponse(DevblocksHttpResponse $response)**
+    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse </developer_guide/devblocks/devblockshttpresponse>` for more information on the data and methods available for each response.
     
-**writeResponse()**
-    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse` for more information on the data and methods available for each response.
+**configure(Model_CommunityTool $instance)**
+    Renders the configuration for this tool in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :doc:`Model_CommunityTool </developer_guide/devblocks/models/model_communitytool>` for more information on the data and methods available for each instance.
     
-**configure()**
-    Renders the configuration for this controller in the Community Portal area.
-    
-**saveConfiguration()**
-    Saves the configuration data specified in the Community Portal area.
+**saveConfiguration(Model_CommunityTool $instance)**
+    Saves the configuration data specified in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :doc:`Model_CommunityTool </developer_guide/devblocks/models/model_communitytool>` for more information on the data and methods available for each instance.
 
 Examples
 ========

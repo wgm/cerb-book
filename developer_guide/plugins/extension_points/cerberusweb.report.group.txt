@@ -38,13 +38,11 @@ Implementation
     abstract class Extension_Report
         extends DevblocksExtension {
            
-            function render() {
-                // Overload
-            }
+            function render() {}
     };
 
 **render()**
-    This function is called when the report is displayed in the browser.
+    This function is called when the report group is displayed in the browser.
 
 Examples
 ========

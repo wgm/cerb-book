@@ -56,8 +56,8 @@ Implementation
             function handleEvent(Model_DevblocksEvent $event) {}
     };
 
-**handleEvent()**
-    This method is called automatically whenever one of the captured events is triggered.
+**handleEvent(Model_DevblocksEvent $event)**
+    This method is called automatically whenever one of the captured events is triggered. The event that triggered the call is passed in the ``$event`` parameter. See the documentation on :doc:`Model_DevblocksEvent </developer_guide/devblocks/models/model_devblocksevent>` for more information on the data and methods you have access to for each event.
 
 Examples
 ========

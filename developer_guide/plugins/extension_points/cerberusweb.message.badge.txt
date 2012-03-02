@@ -34,7 +34,7 @@ Implementation
     };
 
 **render()**
-    Renders the HTML next to the worker messages. The method is passed the message being displayed as the ``$message`` parameter. See the documentation on :doc:`Model_Message </developer_guide/devblocks/models/model_message>` for more information on the data you have access to for each message.
+    Renders the HTML next to the worker messages. The method is passed the message being displayed as the ``$message`` parameter. See the documentation on :doc:`Model_Message </developer_guide/devblocks/models/model_message>` for more information on the data and methods you have access to for each message.
 
 Examples
 ========

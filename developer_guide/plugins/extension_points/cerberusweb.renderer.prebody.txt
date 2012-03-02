@@ -38,8 +38,8 @@ Implementation
 Examples
 ========
 
-Gravatar
-~~~~~~~~
+Time Tracking
+~~~~~~~~~~~~~
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     https://github.com/wgm/cerb5/features/cerberusweb.timetracking/blob/5.7/plugin.xml#120

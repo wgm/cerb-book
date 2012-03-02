@@ -45,7 +45,7 @@ Implementation
     };
 
 **showTab()**
-    Renders content via Ajax when a tab is selected. The server currently being displayed can be accessed via the ``$server`` variable. See the documentation on :doc:`Model_Server` for more information on the data and methods available for each server.
+    Renders content via Ajax when a tab is selected. The server currently being displayed can be accessed via the ``$server`` variable. See the documentation on :doc:`Model_Server </developer_guide/devblocks/models/model_server>` for more information on the data and methods available for each server.
 
 Examples
 ========

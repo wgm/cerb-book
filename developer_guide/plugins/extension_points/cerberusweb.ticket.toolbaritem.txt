@@ -33,7 +33,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The method is passed the ticket being displayed as the ``$ticket`` parameter. See the documentation on :doc:`CerberusTicket </developer_guide/devblocks/cerberusticket>` for more information on the data you have access to for each task.
+    Renders the content for the toolbar. The method is passed the ticket being displayed as the ``$ticket`` parameter. See the documentation on :doc:`CerberusTicket </developer_guide/devblocks/cerberusticket>` for more information on the data and methods you have access to for each task.
 
 Examples
 ========
