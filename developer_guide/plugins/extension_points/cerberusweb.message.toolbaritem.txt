@@ -1,5 +1,5 @@
 cerberusweb.message.toolbaritem
-------------------------
+-------------------------------
 
 The **cerberusweb.message.toolbaritem** extension point allows you to add content to the message toolbar, located at the bottom of each message. This allows plugins to contribute functionality that deal with the content of messages.
 

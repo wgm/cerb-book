@@ -1,5 +1,5 @@
 cerberusweb.ui.page.section
-------------------------
+---------------------------
 
 The **cerberusweb.ui.page.section** extension point allows you to create new page sections. A page section is a sub-page, within another page, that can be accessed via URL.
 

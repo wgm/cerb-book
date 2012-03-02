@@ -1,5 +1,5 @@
 cerberusweb.renderer.postbody
-------------------------
+-----------------------------
 
 The **cerberusweb.renderer.postbody** extension point allows you to inject content at the bottom of each page right before the ``</body>`` tag.
 

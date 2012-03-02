@@ -1,5 +1,5 @@
 devblocks.listener.http
-------------------------
+-----------------------
 
 The **devblocks.listener.http** extension point allows you to setup a new assistant to help your users learn how to use your plugin.
 

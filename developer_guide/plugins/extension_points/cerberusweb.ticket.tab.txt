@@ -1,5 +1,5 @@
 cerberusweb.ticket.tab
-------------------------
+----------------------
 
 The **cerberusweb.ticket.tab** extension point allows you to create new tabs on the ``Ticket`` page.
 

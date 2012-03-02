@@ -1,5 +1,5 @@
 cerberusweb.comment.badge
-------------------------
+-------------------------
 
 The **cerberusweb.comment.badge** extension point allows you to display an image next to comments left by a worker.
 

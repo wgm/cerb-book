@@ -1,5 +1,5 @@
 cerberusweb.renderer.prebody
-------------------------
+----------------------------
 
 The **cerberusweb.renderer.prebody** extension point allows you to inject content at the top of each page right after the ``<body>`` tag.
 

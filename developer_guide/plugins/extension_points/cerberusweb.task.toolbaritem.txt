@@ -1,5 +1,5 @@
 cerberusweb.task.toolbaritem
-------------------------
+----------------------------
 
 The **cerberusweb.task.toolbaritem** extension point allows you to add content to the task toolbar. This allows plugins to contribute functionality that assists with handling tasks.
 

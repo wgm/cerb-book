@@ -1,5 +1,5 @@
 cerberusweb.mail.send.toolbaritem
-------------------------
+---------------------------------
 
 The **cerberusweb.mail.send.toolbaritem** extension point allows you to add content to the Send Mail toolbar. This allows plugins to contribute functionality that assist with sending outgoing mail and opening new tickets.
 

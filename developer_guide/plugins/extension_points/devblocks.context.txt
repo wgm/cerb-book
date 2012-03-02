@@ -1,5 +1,5 @@
 devblocks.context
-------------------------
+-----------------
 
 The **devblocks.context** extension point allows you to create new tabs on the ``Activity`` page.
 

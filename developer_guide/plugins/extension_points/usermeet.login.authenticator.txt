@@ -1,5 +1,5 @@
 usermeet.login.authenticator
-------------------------
+----------------------------
 
 The **usermeet.login.authenticator** extension point allows you to authenticate customer logins to the Support Center using any credentials (forum login, LDAP, customer ID, billing login, etc). The only requirement for a custom login authenticator is that you can convert your credentials into an appropriate e-mail address using your desired data source. This allows your customers to use an existing login for the convenience of single sign on (SSO) functionality. 
 

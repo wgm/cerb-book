@@ -1,5 +1,5 @@
 cerberusweb.crm.opp.toolbaritem
-------------------------
+-------------------------------
 
 The **cerberusweb.crm.opp.toolbaritem** extension point allows you to add content to the Opportunity toolbar. This allows plugins to contribute functionality that deals with the content of an Opportunity.
 

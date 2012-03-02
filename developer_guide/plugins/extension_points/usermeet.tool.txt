@@ -1,5 +1,5 @@
 usermeet.tool
-------------------------
+-------------
 
 The **usermeet.tool** extension point allows you to define a new Community Portal type from which you can create multiple instances.
 

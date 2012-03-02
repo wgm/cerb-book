@@ -1,5 +1,5 @@
 cerberusweb.preferences.tab
-------------------------
+---------------------------
 
 The **cerberusweb.preferences.tab** extension point allows you to create new tabs on the ``Preferences`` page.
 

@@ -1,5 +1,5 @@
 cerberusweb.reply.toolbaritem
-------------------------
+-----------------------------
 
 The **cerberusweb.reply.toolbaritem** extension point allows you to add content to the reply toolbar. This allows plugins to contribute functionality that assists with responding to tickets.
 

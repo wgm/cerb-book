@@ -1,5 +1,5 @@
 cerberusweb.message.badge
-------------------------
+-------------------------
 
 The **cerberusweb.message.badge** extension point allows you to display an image next to messages in the helpdesk.
 

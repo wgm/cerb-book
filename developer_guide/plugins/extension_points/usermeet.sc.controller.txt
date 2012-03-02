@@ -1,5 +1,5 @@
 usermeet.sc.controller
-------------------------
+----------------------
 
 The **usermeet.sc.controller** extension point allows you to create new modules for your Support Center. Each module will need to be enabled in each individual Support Center instance once your plugin has been enabled. See the :doc:`Community Portal` documentation for more information.
 

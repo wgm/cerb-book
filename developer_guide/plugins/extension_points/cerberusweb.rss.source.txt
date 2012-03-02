@@ -1,5 +1,5 @@
 cerberusweb.rss.source
-------------------------
+----------------------
 
 The **cerberusweb.rss.source** extension point allows you to display an image next to comments left by a worker.
 

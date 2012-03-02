@@ -1,5 +1,5 @@
 cerberusweb.report
-------------------------
+------------------
 
 The **cerberusweb.report** extension point allows you to create new tabs on the ``Reports`` page.
 

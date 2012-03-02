@@ -1,5 +1,5 @@
 cerberusweb.login
-------------------------
+-----------------
 
 The **cerberusweb.login** extension point allows you to authenticate worker logins using any credentials. The only requirement for a custom login authenticator is that you can convert your credentials into an appropriate e-mail address using your desired data source. 
 

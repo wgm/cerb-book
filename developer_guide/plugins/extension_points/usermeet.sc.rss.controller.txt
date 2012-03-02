@@ -1,5 +1,5 @@
 usermeet.sc.rss.controller
-------------------------
+--------------------------
 
 The **usermeet.sc.rss.controller** extension point allows you to define a new RSS controller to provide access to your data via an RSS feed in the Support Center.
 

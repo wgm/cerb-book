@@ -1,5 +1,5 @@
 cerberusweb.mail_filter.action
-------------------------
+------------------------------
 
 The **cerberusweb.mail_filter.action** extension point provides an easy way to run custom business logic on messages that have matched all the required criteria on a Mail Filter. For example, in certain situations you may wish to modify certain messages (headers, contents, attachments) before they're delivered to the helpdesk.
 
