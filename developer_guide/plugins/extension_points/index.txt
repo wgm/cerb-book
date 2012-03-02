@@ -34,6 +34,7 @@ Extension Points
     cerberusweb.ui.page.menu.item
     cerberusweb.ui.page.section
     devblocks.controller
+    devblocks.context
     devblocks.listener.event
     devblocks.listener.http
     usermeet.login.authenticator
