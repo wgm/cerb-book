@@ -1,2 +1,12 @@
 Notifications
 -------------
+
+A **notification** is an alert that is designed to draw the attention of a :doc:`worker </concepts/contexts/worker>` to a specific :doc:`object </concepts/objects/index>`.
+
+((unread and read))
+
+((global notification badge))
+
+((linked notifications))
+
+((automated and manually sent))

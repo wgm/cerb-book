@@ -1,0 +1,31 @@
+DevblocksPlatform
+-----------------
+
+.. php:class:: DevblocksPlatform
+
+    DevblocksPlatform static facade
+    
+    .. php:staticmethod:: clearCache($one_cache=null)
+    
+        Clears the internal object caches.
+        
+        :param string $one_cache: If given, a single cache to clear.  If ``null``, every cache is cleared.
+        :returns: ``true`` or ``false``.
+    
+    .. php:staticmethod:: getAclRegistry()
+    
+        ACL
+        
+        :returns: :php:class:`DevblocksAclPrivilege`\[\]
+        
+    .. php:staticmethod:: getActivityPointRegistry()
+    
+        ...
+        
+        :returns: array
+        
+    .. php:staticmethod:: getCacheService()
+    
+        ...
+        
+        :returns: A :php:class:`_DevblocksCacheManager` instance.

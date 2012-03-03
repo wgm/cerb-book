@@ -1,2 +1,10 @@
 Community Portals
 -----------------
+
+A **community portal**...
+
+((public-facing interface))
+
+((one implementation: Support Center))
+
+((new portals can be created as plugins, with access to all Cerb5 data))
