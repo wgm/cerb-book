@@ -1,0 +1,136 @@
+devblocks.context
+------------------------
+
+The **devblocks.context** extension point allows you to create new tabs on the ``Activity`` page.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Contexts -->
+    <extension point="devblocks.context">
+        <id>example.context.object</id>
+        <name>Example Context Object</name>
+        <class>
+            <file>api/App.php</file>
+            <name>Context_Object</name>
+        </class>
+        <params>
+            <param key="view_class" value="View_Object" />
+            <param key="options">
+                <value>
+                    <data key="workspace" />
+                </value>
+            </param>
+        </params>
+    </extension>
+
+**<param key="view_class" value="View_Object" />**
+    Sets the View class for this context.
+
+**<param key="options">**
+    
+    **<value>**
+        
+        **<data key="workspace" />**
+            
+            
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class Extension_DevblocksContext
+        extends DevblocksExtension {
+            
+            public static function getAll($as_instances=false) {
+                $contexts = DevblocksPlatform::getExtensions('devblocks.context', $as_instances);
+                if($as_instances)
+                    uasort($contexts, create_function('$a, $b', "return strcasecmp(\$a->manifest->name,\$b->manifest->name);\n"));
+                else
+                    uasort($contexts, create_function('$a, $b', "return strcasecmp(\$a->name,\$b->name);\n"));
+                return $contexts;
+            }
+            
+            /*
+             * Lazy loader + cache
+             */
+            public static function get($context) {
+                static $contexts = null;
+                
+                /*
+                 * Lazy load
+                 */
+
+                if(isset($contexts[$context]))
+                    return $contexts[$context];
+
+                if(!isset($contexts[$context])) {
+                    if(null == ($ext = DevblocksPlatform::getExtension($context, true)))
+                        return;
+                    
+                    $contexts[$context] = $ext;
+                    return $ext;
+                }
+            }
+            
+            function authorize($context_id, Model_Worker $worker) {
+                return true;
+            }
+            
+            abstract function getRandom();
+            
+            abstract function getMeta($context_id);
+            
+            abstract function getContext($object, &$token_labels, &$token_values, $prefix=null);
+            
+            abstract function getChooserView();
+            
+            function getViewClass() {
+                return @$this->manifest->params['view_class'];
+            }
+            
+            abstract function getView($context=null, $context_id=null, $options=array());
+    };
+    
+
+**getAll($as_instances=false)**
+    Gets all of the Contexts currently registered with the platform. The ``$as_instances`` parameter allows you to specify whether or not to return instantiated objects for each of the Contexts or just the extension (which you will need to instantiate yourself).
+
+**get($context)**
+    Gets the context specified in the ``$context`` parameter. The ``$context`` parameter should contain a namespaced ID referencing the extension declaring the context.
+    
+**authorize($context_id, Model_Worker $worker)**
+    Not currently implemented.
+    
+**getRandom()**
+    This method will be called when the test button is used on a VA. It should return a random object with its context.
+    
+**getMeta()**
+    This method is used when notifications are generated for your context. It should return an array with ``id``, ``name`` and ``permalink`` indices; the ``id`` should be the numerical ID of the object, the ``name`` should be the name or title of the object, and the ``permalink`` should be the full URL to the record.
+    
+**getContext($object, &$token_labels, &$token_values, $prefix=null)**
+    This method is called when the context is retrieved for an object. It is passed the instance of the current object in the ``$object`` parameter. The ``$token_labels`` and ``$token_values`` parameters are passed by reference, and you should add your own labels and values to these variables in your implementation.
+    
+**getChooserView()**
+    This method should return the view that should be used for chooser dialogs. This will be displayed when a worker tries to link your object to another object.
+    
+**getViewClass()**
+    This method returns the ``view_class`` param from the extension defined in your Plugin.xml file.
+    
+**getView($context=null, $context_id=null, $options=array())**
+    This method returns the view for the context object. If the ``$context`` and ``$context_id`` parameters are specified, the view will only display records that are linked to the specified ``$context`` and ``$context_id``.
+
+Examples
+========
+
+Address Context
+~~~~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L629
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/dao/address.php

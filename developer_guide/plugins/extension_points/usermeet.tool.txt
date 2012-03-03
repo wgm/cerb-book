@@ -12,50 +12,26 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Templates -->
     <templates set="cerberusweb.support_center">
-    	<template path="example/index.tpl" />
-    	<template path="example/header.tpl" />
-    	<template path="example/footer.tpl" />
+        <template path="example/index.tpl" />
+        <template path="example/header.tpl" />
+        <template path="example/footer.tpl" />
     </templates>
     <!-- Usermeet Tool -->
     <extension point="usermeet.tool">
-    	<id>example.tool</id>
-    	<name>Example Tool</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>UmExampleApp</name>
-    	</class>
-    	<params>
-    		<param key="template_set" value="example.tool" />
-    	</params>
+        <id>example.tool</id>
+        <name>Example Tool</name>
+        <class>
+            <file>api/App.php</file>
+            <name>UmExampleApp</name>
+        </class>
+        <params>
+            <param key="template_set" value="example.tool" />
+        </params>
     </extension>
 
-
-**<extension point="...">**
-    Binds a new extension on the specified ``point``.
-
-**<id>**
-    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
-
-**<name>**
-    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
-
-**<class>**
-    Tells Devblocks where to find the extension's implementation in the source code.
-
-    **<file>**
-        The relative path to the class file from your plugin's directory.
-
-    **<name>**
-        The class name.
-
-**<params>**
-    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
-
-    **<param key="template_set">**
-        Defines which plugin the editable templates are sourced from. These templates are editable per-instance, and each editable template must be defined in the ``<templates set="">`` node of the Plugin.xml file specified.
+**<param key="template_set">**
+    Defines which plugin the editable templates are sourced from. These templates are editable per-instance, and each editable template must be defined in the ``<templates set="">`` node of the Plugin.xml file specified.
  
-    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
-
 Implementation
 ==============
 .. code-block:: php
@@ -65,63 +41,63 @@ Implementation
         extends DevblocksExtension
         implements DevblocksHttpRequestHandler {
             private $portal = '';
-
+            
             /*
              * Site Key
              * Site Name
              * Site URL
              */
-
+             
             /**
              * @param DevblocksHttpRequest
              * @return DevblocksHttpResponse
              */
             public function handleRequest(DevblocksHttpRequest $request) {
-            	$path = $request->path;
-
-            	@$a = DevblocksPlatform::importGPC($_REQUEST['a'],'string');
-
-            	if(empty($a)) {
-            		@$action = array_shift($path) . 'Action';
-            	} else {
-            		@$action = $a . 'Action';
-            	}
-
-            	switch($action) {
-            		case NULL:
-            			// [TODO] Index/page render
-            			break;
-            			//            
-            		default:
-            			// Default action, call arg as a method suffixed with Action
-            			if(method_exists($this,$action)) {
-            				call_user_func(array(&$this, $action)); // [TODO] Pass HttpRequest as arg?
-            			}
-            			break;
-            	}
+                $path = $request->path;
+                
+                @$a = DevblocksPlatform::importGPC($_REQUEST['a'],'string');
+                
+                if(empty($a)) {
+                    @$action = array_shift($path) . 'Action';
+                } else {
+                    @$action = $a . 'Action';
+                }
+                
+                switch($action) {
+                    case NULL:
+                        // [TODO] Index/page render
+                        break;
+                        //            
+                    default:
+                        // Default action, call arg as a method suffixed with Action
+                        if(method_exists($this,$action)) {
+                            call_user_func(array(&$this, $action)); // [TODO] Pass HttpRequest as arg?
+                        }
+                        break;
+                }
             }
 
-            public function writeResponse(DevblocksHttpResponse $response) {
-            }
+            public function writeResponse(DevblocksHttpResponse $response) {}
 
             /**
              * @param Model_CommunityTool $instance
              */
-            public function configure(Model_CommunityTool $instance) {
-            }
+            public function configure(Model_CommunityTool $instance) {}
 
-            public function saveConfiguration(Model_CommunityTool $instance) {
-            }
+            public function saveConfiguration(Model_CommunityTool $instance) {}
     };
 
-**handleRequest()**
-    Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :doc:`DevblocksHttpRequest` for more information on the data and methods available for each request.
-**writeResponse()**
-    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse` for more information on the data and methods available for each response.
-**configure()**
-    Renders the configuration for this controller in the Community Portal area.
-**saveConfiguration()**
-    Saves the configuration data specified in the Community Portal area.
+**handleRequest(DevblocksHttpRequest $request)**
+    Handles the request when the platform receives a request for this tool. Access to the current request is provided via the ``$request`` variable. See the documentation on :doc:`DevblocksHttpRequest </developer_guide/devblocks/devblockshttprequest>` for more information on the data and methods available for each request.
+
+**writeResponse(DevblocksHttpResponse $response)**
+    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse </developer_guide/devblocks/devblockshttpresponse>` for more information on the data and methods available for each response.
+    
+**configure(Model_CommunityTool $instance)**
+    Renders the configuration for this tool in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :doc:`Model_CommunityTool </developer_guide/devblocks/models/model_communitytool>` for more information on the data and methods available for each instance.
+    
+**saveConfiguration(Model_CommunityTool $instance)**
+    Saves the configuration data specified in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :doc:`Model_CommunityTool </developer_guide/devblocks/models/model_communitytool>` for more information on the data and methods available for each instance.
 
 Examples
 ========

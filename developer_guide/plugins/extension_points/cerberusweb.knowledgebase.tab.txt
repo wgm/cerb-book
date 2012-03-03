@@ -1,7 +1,7 @@
-cerberusweb.ticket.tab
-------------------------
+cerberusweb.knowledgebase.tab
+-----------------------------
 
-The **cerberusweb.ticket.tab** extension point allows you to create new tabs on the ``Ticket`` page.
+The **cerberusweb.knowledgebase.tab** extension point allows you to create new tabs on the ``Knowledgebase`` page.
 
 Plugin Manifest
 ===============
@@ -10,17 +10,17 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
     
-    <!-- Ticket Tab -->
-    <extension point="cerberusweb.ticket.tab">
-        <id>example.tickettab.tab</id>
-        <name>Example Ticket Tab</name>
+    <!-- Activity Tab -->
+    <extension point="cerberusweb.knowledgebase.tab">
+        <id>example.knowledgebase.tab</id>
+        <name>Example Activity Tab</name>
         <class>
             <file>api/App.php</file>
-            <name>ExTicketTab</name>
+            <name>ExActivityTab</name>
         </class>
         <params>
             <param key="uri" value="example" />
-            <param key="title" value="example.ticket.tab" />
+            <param key="title" value="example.knowledgebase.tab" />
         </params>
     </extension>
 
@@ -35,8 +35,9 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_TicketTab
+    abstract class Extension_KnowledgebaseTab
         extends DevblocksExtension {
+            const POINT = 'cerberusweb.knowledgebase.tab';
             
             function showTab() {}
             
@@ -52,10 +53,10 @@ Implementation
 Examples
 ========
 
-Ticket tab
+Browse tab
 ~~~~~~~~~~
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
-    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.crm/plugin.xml#L190
+    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.kb/plugin.xml#L191
 Implementation:
-    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.crm/api/App.php#L1049
+    https://github.com/wgm/cerb5/blob/stable/features/cerberusweb.kb/api/App.php#L254

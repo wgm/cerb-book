@@ -1,0 +1,73 @@
+cerberusweb.ui.page.menu.item
+-----------------------------
+
+The **cerberusweb.ui.page.menu.item** extension point allows you to create new menu items for any of the available menus.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Page Menu Items -->
+    <extension point="cerberusweb.ui.page.menu.item">
+        <id>example.page.menu.item.custom</id>
+        <name>Example Page Menu Custom Menu Item</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExamplePageMenu_CustomMenuItem</name>
+        </class>
+        <params>
+            <param key="page_id" value="core.page.configuration" />
+            <param key="menu_id" value="core.setup.menu.plugins" />
+        </params>
+    </extension>
+
+**<param key="page_id" value="core.page.configuration">**
+    Binds the menu item to the page_id ``core.page.configuration``. You can specify your own page_id, but you'll need to implement rendering the menus on that page yourself. You'll likely want to call the ``render()`` method for each of the page menus returned by ``getExtensions()``.
+
+**<param key="menu_id" value="core.setup.menu.plugins">**
+    Binds the menu item to the menu_id ``core.setup.menu.plugins``. This should match the ``<id>>`` node of the menu you're adding the menu item to.
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class Extension_PageMenuItem extends DevblocksExtension {
+        const POINT = 'cerberusweb.ui.page.menu.item';
+
+        /**
+         * @return DevblocksExtensionManifest[]|Extension_PageMenuItem[]
+         */
+        static function getExtensions($as_instances=true, $page_id=null, $menu_id=null) {
+            if(empty($page_id) && empty($menu_id))
+                return DevblocksPlatform::getExtensions(self::POINT, $as_instances);
+
+            $results = array();
+
+            $exts = DevblocksPlatform::getExtensions(self::POINT, false);
+            foreach($exts as $ext_id => $ext) {
+                if(empty($page_id) || 0 == strcasecmp($page_id, $ext->params['page_id']))
+                    if(empty($menu_id) || 0 == strcasecmp($menu_id, $ext->params['menu_id']))
+                        $results[$ext_id] = $as_instances ? $ext->createInstance() : $ext;
+            }
+
+            // Sorting
+            if($as_instances)
+                uasort($results, create_function('$a, $b', "return strcasecmp(\$a->manifest->name,\$b->manifest->name);\n"));
+            else
+                uasort($results, create_function('$a, $b', "return strcasecmp(\$a->name,\$b->name);\n"));
+
+            return $results;
+        }
+
+        abstract function render();
+    };
+
+**getExtensions($as_instances=true, $page_id=null, $menu_id=null)**
+    Returns all of the page menu items for the specified ``$page_id`` and ``$menu_id``. If no ``$page_id`` or ``$menu_id`` are set, this method returns all of the page menu items currently registered with the platform. The ``$as_instances`` parameter allows you to specify whether or not to return instantiated objects for each of the page menus or just the extension (which you will need to instantiate yourself).
+
+**render()**
+    This method will be called when the menu is rendered on the page. You'll most likely want to return HTML or render a template inside of this method.

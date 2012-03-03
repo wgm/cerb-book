@@ -8,10 +8,13 @@ Extension Points
     cerberusweb.comment.badge
     cerberusweb.crm.opp.toolbaritem
     cerberusweb.cron
+    cerberusweb.datacenter.server.tab
+    cerberusweb.datacenter.tab
+    cerberusweb.knowledgebase.tab
     cerberusweb.login
     cerberusweb.mail.send.toolbaritem
-    cerberusweb.mail_filter.action
-    cerberusweb.mail_filter.criteria
+    # cerberusweb.mail_filter.action
+    # cerberusweb.mail_filter.criteria
     cerberusweb.message.badge
     cerberusweb.message.toolbaritem
     cerberusweb.org.tab
@@ -27,7 +30,11 @@ Extension Points
     cerberusweb.task.toolbaritem
     cerberusweb.ticket.tab
     cerberusweb.ticket.toolbaritem
+    cerberusweb.ui.page.menu
+    cerberusweb.ui.page.menu.item
+    cerberusweb.ui.page.section
     devblocks.controller
+    devblocks.context
     devblocks.listener.event
     devblocks.listener.http
     usermeet.login.authenticator

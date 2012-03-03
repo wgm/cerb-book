@@ -12,38 +12,15 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Support Center Message Badge -->
     <extension point="cerberusweb.support_center.message.badge">
-    	<id>example.support_center.message.badge</id>
-    	<name>Example Support Center Message Badge</name>
-    	<class>
-    		<file>api/App.php</file>
-    		<name>ExMessageBadge</name>
-    	</class>
-    	<params>
-    	</params>
+        <id>example.support_center.message.badge</id>
+        <name>Example Support Center Message Badge</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExMessageBadge</name>
+        </class>
+        <params>
+        </params>
     </extension>
-
-**<extension point="...">**
-    Binds a new extension on the specified ``point``.
-
-**<id>**
-    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
-
-**<name>**
-    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
-
-**<class>**
-    Tells Devblocks where to find the extension's implementation in the source code.
-
-    **<file>**
-        The relative path to the class file from your plugin's directory.
-
-    **<name>**
-        The class name.
-
-**<params>**
-    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user. 
-
-    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
 
 Implementation
 ==============
@@ -52,15 +29,12 @@ Implementation
     <?php
     abstract class Extension_SupportCenterMessageBadge
         extends DevblocksExtension {
-        	function __construct($manifest) {
-        		$this->DevblocksExtension($manifest);
-        	}
-
-        	function render(Model_Message $message) {}
+            
+            function render(Model_Message $message) {}
     };
 
 **render()**
-    Renders the HTML next to the worker messages. The message being rendered is available in the ``$message`` variable so you can determine information about the message. See the documentation on :doc:`Model_Message` for more information on the data you have access to for each message.
+    Renders the HTML next to the worker messages. The method is passed the message being displayed as the ``$message`` parameter. See the documentation on :doc:`Model_Message </developer_guide/devblocks/models/model_message>` for more information on the data and methods you have access to for each message.
 
 Examples
 ========
