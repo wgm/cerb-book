@@ -26,6 +26,7 @@ Extension Points
     cerberusweb.reply.toolbaritem
     cerberusweb.report
     cerberusweb.report.group
+    cerberusweb.rest.controller
     cerberusweb.rss.source
     cerberusweb.support_center.message.badge
     cerberusweb.task.toolbaritem

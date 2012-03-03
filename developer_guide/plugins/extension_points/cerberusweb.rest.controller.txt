@@ -1,0 +1,160 @@
+cerberusweb.rest.controller
+---------------------------
+
+The **cerberusweb.rest.controller** extension point allows you to add new objects to the :doc:`Rest API</developer_guide/rest_api/index>`. Your class needs to extend ``Extension_RestController``, and it also needs to implement ``IExtensionRestController``.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Support Center Controller -->
+    <extension point="cerberusweb.rest.controller">
+        <id>example.sc.controller</id>
+        <name>Example</name>
+        <class>
+            <file>api/sc/example.php</file>
+            <name>UmScExampleController</name>
+        </class>
+        <params>
+            <param key="uri" value="example" />
+            <param key="menu_title" value="example.sc.title" />
+            <param key="icon" value="images/crystal/example.gif" />
+        </params>
+    </extension>
+
+**<param key="uri" value="example">**
+    Binds the tab to the ``example`` url.
+
+**<param key="menu_title" value="example.sc.title">**
+    Sets the text of the tab. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
+
+**<param key="icon" value="images/crystal/example.gif">**
+    Defines the URI to an icon which will be displayed in the Support Center menu. The specified URI is relative to the resources directory of your plugin.
+        
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class Extension_RestController extends DevblocksExtension {
+        const ERRNO_CUSTOM = 0;
+        const ERRNO_ACL = 1;
+        const ERRNO_NOT_IMPLEMENTED = 2;
+        const ERRNO_SEARCH_FILTERS_INVALID = 20;
+
+        private $_activeWorker = null; /* @var $_activeWorker Model_Worker */ 
+        private $_format = 'json';
+        private $_payload = '';
+
+        /**
+         * 
+         * @param string $message
+         */
+        protected function error($code, $message='') {}
+
+        /**
+         * 
+         * @param array $array
+         */
+        protected function success($array) {} 
+
+        /**
+         * @return Model_Worker
+         */
+        public function getActiveWorker() {
+            return($this->_activeWorker);
+        }
+
+        public function getPayload() {
+            return $this->_payload;
+        }
+
+        public function setPayload($payload) {
+            $this->_payload = $payload;
+        }
+
+        /**
+         * 
+         * @param Model_Worker $worker
+         */
+        public function setActiveWorker($worker) {
+            $this->_activeWorker = $worker;
+        }
+
+        function handleRequest(DevblocksHttpRequest $request) {}
+
+        function getAction($stack) {
+            /* Override */
+            $this->error('GET not implemented.');
+        }
+
+        function putAction($stack) {
+            /* Override */
+            $this->error('PUT not implemented.');
+        }
+
+        function postAction($stack) {
+            /* Override */
+            $this->error('POST not implemented.');
+        }
+
+        function deleteAction($stack) {
+            /* Override */
+            $this->error('DELETE not implemented.');
+        }
+
+        protected function _handleSearchBuildParamsCustomFields(&$filters, $context) {}
+
+        protected function _handleSearchBuildParams($filters) {}
+
+        protected function _handlePostSearch() {}
+
+        protected function _handleRequiredFields($required, $fields) {}
+
+        protected function _handleCustomFields($scope_array) {}
+    };
+    
+**error($code, $message)**
+    Handles processing an error. Valid codes are `self::ERRNO_ACL`, `self::ERRNO_NOT_IMPLEMENTED``, `self::ERRNO_SEARCH_FILTERS_INVALID``, and ``ERRNO_CUSTOM``.
+    
+**success($array)**
+    
+**getActiveWorker()**
+    
+**getPayload()**
+  
+**setPayload($payload)**
+    
+**setActiveWorker($worker)**
+    
+**handleRequest(DevblocksHttpRequest $request)**
+
+**getAction($stack)**
+
+**putAction($stack)**
+
+**postAction($stack)**
+
+**deleteAction($stack)**
+
+**_handleSearchBuildParams($filters)**
+
+**_handlePostSearch()**
+
+**_handleRequiredFields($required, $fields)**
+
+**_handleCustomFields($scope_array)**
+
+Examples
+========
+
+Tasks tab
+~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.crm/plugin.xml#L205
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.crm/api/rest/opps.php#L18
