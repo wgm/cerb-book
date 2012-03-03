@@ -1,0 +1,25 @@
+_DevblocksCacheManager
+----------------------
+
+.. php:class:: _DevblocksCacheManager
+
+    Cache manager
+    
+    .. php:method:: clean()
+    
+        Deletes all cached objects.
+        
+    .. php:staticmethod::getInstance()
+    
+        Retrieves the singleton for the current caching engine.
+    
+        :returns: An instance of :php:class:`_DevblocksCacheManagerMemcached` or :php:class:`_DevblocksCacheManagerDisk`.
+        
+    .. php:method:: load($key, $nocache=false)
+    
+        Loads data from the cache, indexed by ``$key``.
+    
+        :param string $key: The key of the cached object.
+        :param boolean $nocache: If ``true`` the cache will be ignored and live data will be returned.  If ``false``, or by default, the cache will be checked prior to returning a live object.
+        :returns: Any arbitrary data associated with ``$key``.
+    
