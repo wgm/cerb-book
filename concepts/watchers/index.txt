@@ -1,4 +1,10 @@
 Watchers
 --------
 
-A **watcher** is a worker who subscribes to notifications about new activity on specific objects. For example, a manager may assign a task to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion. Being a watcher on something *does not* imply that you are taking responsibility for it. If you aren't sure how to answer a particular question, it can be useful to watch it so you can leave from the answer a more experienced worker gives. Watching facilitates collaboration, observation, and training.
+A **watcher** is a :doc:`worker </concepts/contexts/worker>` who subscribes to :doc:`notifications </concepts/notifications>` about new :doc:`activity </concepts/objects/activity_log>` on a specific :doc:`object </concepts/objects/index>`. 
+
+For example, a manager may assign a :doc:`task </concepts/contexts/task>` to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion.
+
+Being a watcher on something *does not* imply that you are taking responsibility for it. If you aren't sure how to answer a particular question, it can be useful to watch it so you can learn from the answer that another worker gives. 
+
+Watching facilitates collaboration, observation, and training.

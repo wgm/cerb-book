@@ -1,2 +1,8 @@
 Plugins
 -------
+
+A **plugin**...
+
+((extension point, event point))
+
+((list of services available to plugins: translations, DB patches, etc))

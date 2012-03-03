@@ -1,2 +1,10 @@
 Knowledgebase
 -------------
+
+The **knowledgebase**...
+
+((terms: articles, categories))
+
+((where KB fits in relative to wiki, docs, blog, etc))
+
+((formats: Markdown, HTML, Plaintext))

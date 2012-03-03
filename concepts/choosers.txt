@@ -1,3 +1,10 @@
 Choosers
 --------
 
+A **chooser** is a popup that assists a :doc:`worker </concepts/contexts/worker>` in making selections from long lists of :doc:`objects </concepts/objects/index>`.
+
+When :doc:`commenting </concepts/objects/comments>` on an :doc:`object </concepts/objects/index>`, it is often desirable to send a :doc:`notification </concepts/notifications>` to get the attention of specific workers.  If you know exactly who to notify, you can just type a few letters from their name.  Otherwise, a chooser helps you make selections from a :doc:`worklist </concepts/worklists/index>` with :doc:`filters </concepts/worklists/filters>`.  For example, you could select workers from a specific group, who work during particular hours, and have specialized product knowledge.
+
+((filters + presets))
+
+((single vs multi))

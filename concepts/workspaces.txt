@@ -17,11 +17,11 @@ Sharing
 
 Workspaces can be owned by:
 
-- **Roles**
+**Roles**
     A workspace owned by a :doc:`role </concepts/contexts/role>` is usable by all of its :doc:`workers </concepts/contexts/worker>`.  Workers cannot modify these workspaces.
 
-- **Groups**
+**Groups**
     A workspaces owned by a :doc:`group </concepts/contexts/group>` is usable by all of its :doc:`members </concepts/contexts/worker>`.  Only group managers can modify it.
 
-- **Workers**
+**Workers**
     A workspace owned by a :doc:`worker </concepts/contexts/worker>` is considered private.  Only that worker can view or modify it.

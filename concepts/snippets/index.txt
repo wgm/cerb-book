@@ -1,2 +1,12 @@
 Snippets
 --------
+
+A **snippet** is a reusable piece of text 
+
+...that can automatically incorporate contextual information through the use of **placeholders**.
+
+((example placeholders))
+
+((canned responses / auto-replies))
+
+((personalization))
