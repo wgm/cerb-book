@@ -77,7 +77,7 @@ The plugin.xml file tells Devblocks about your plugin. Every plugin requires a p
     </xml>
 
 **<id>**
-   A dot-delimited namespace string. It must be unique across all Cerb5 plugins. The namespace should follow the format "zyxcompany.myplugin"
+   A dot-delimited namespace string. It must be unique across all Cerb5 plugins. The namespace should follow the format "zyxcompany.myplugin".
    
 **<name>**
    A human-readable name for your plugin. This is displayed in the 'Manage Plugins' area of 'setup'.
@@ -103,7 +103,8 @@ The plugin.xml file tells Devblocks about your plugin. Every plugin requires a p
 **<class_loader>**
    Allows your plugin to provide classes to the rest of the platform. Each ``<file>`` node has a ``path`` attribute which specifies the path relative to your plugin.xml that contains the defined classes. You can define multiple ``<file>`` nodes in your plugin.xml. Each ``<file>`` also contains one or more ``<class>`` nodes which have a single ``name`` attribute. The ``name`` attribute is the exact name of the class to load.
 
-**<event_points>** 
+**<event_points>**
+
     **<acl>**
        Contains a list of permissions your plugin should register with the permissions plugin. You can then use these permissions in your code. Each ``<priv>`` node has an ``id`` attribute and a ``label`` attribute. The value for the``id`` attribute should be used in your code to test permissions, while the value for the ``label`` attribute should point to a namespaced ID from the translation system; you can also use literal text, but it is preferred to use the translation system instead. 
 
@@ -111,11 +112,15 @@ The plugin.xml file tells Devblocks about your plugin. Every plugin requires a p
    A list of all the your plugin provides. Each ``<extension>`` has a ``point`` attribute which specifies the ID your extension point binds to.
    
     **<extension>**
+    
         **<id>**
-           Must be unique across all Cerb4 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension. 
+           Must be unique across all Cerb4 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+           
         **<name>**
-           A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code. 
+           A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+           
         **<class>**
-           Contains the definition for the file and class that hooks in to the extension point. Each ``<class>`` node contains one ``<file>`` node and one ``<name>`` node. The ``<file>`` node contains the path relative to your plugin.xml file. The ``<name>** node contains the name of the class to load. 
+           Contains the definition for the file and class that hooks in to the extension point. Each ``<class>`` node contains one ``<file>`` node and one ``<name>`` node. The ``<file>`` node contains the path relative to your plugin.xml file. The ``<name>** node contains the name of the class to load.
+           
         **<params>**
            Params allow the manifest to pass information to each implementation of an extension. Each ``<param>`` node has a ``key`` attribute, and a ``value`` attribute ``or`` a ``<value>`` node. Each ``<value>`` node contains a ``<data>`` node with a ``key`` and ``value`` attribute. These are static values that are not expected to change.
