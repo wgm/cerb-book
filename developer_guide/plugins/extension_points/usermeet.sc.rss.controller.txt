@@ -38,7 +38,7 @@ Implementation
     };
     
 **handleRequest()**
-    Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :doc:`DevblocksHttpRequest </developer_guide/devblocks/devblockshttprequest>` for more information on the data and methods available for each request.
+    Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
 
 Examples
 ========

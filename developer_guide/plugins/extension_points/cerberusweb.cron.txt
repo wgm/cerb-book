@@ -43,7 +43,7 @@ Implementation
     This method is called when the platform determines it is time for the scheduled task to run.
     
 **configure($instance)**
-    Displays the configuration area for this scheduled task on the setup -> Scheduler page. The method is passed an ``$instance`` parameter with all the information about the scheduled task. See the documentation on :doc:`CerberusCronPageExtension </developer_guide/devblocks/cerberuscronpageextension>` for more information on the data and methods available to each scheduled task.
+    Displays the configuration area for this scheduled task on the setup -> Scheduler page. The method is passed an ``$instance`` parameter with all the information about the scheduled task. See the documentation on :php:class:`CerberusCronPageExtension` for more information on the data and methods available to each scheduled task.
     
 **saveConfigurationAction()**
     Saves the config when an admin clicks ``save`` in the configuration area for this scheduled task.

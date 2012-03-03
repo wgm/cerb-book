@@ -1,7 +1,7 @@
 devblocks.listener.event
 ------------------------
 
-The **devblocks.listener.event** extension point allows you to watch for events generated in other parts of the system and insert changes during the specified event. See the documentation on :doc:`Event Points </developer_guide/plugins/event_points>` for more information on the event points you can watch for.
+The **devblocks.listener.event** extension point allows you to watch for events generated in other parts of the system and insert changes during the specified event. See the documentation on :php:class:`Event Points` for more information on the event points you can watch for.
 
 Plugin Manifest
 ===============
@@ -57,7 +57,7 @@ Implementation
     };
 
 **handleEvent(Model_DevblocksEvent $event)**
-    This method is called automatically whenever one of the captured events is triggered. The event that triggered the call is passed in the ``$event`` parameter. See the documentation on :doc:`Model_DevblocksEvent </developer_guide/devblocks/models/model_devblocksevent>` for more information on the data and methods you have access to for each event.
+    This method is called automatically whenever one of the captured events is triggered. The event that triggered the call is passed in the ``$event`` parameter. See the documentation on :php:class:`Model_DevblocksEvent` for more information on the data and methods you have access to for each event.
 
 Examples
 ========

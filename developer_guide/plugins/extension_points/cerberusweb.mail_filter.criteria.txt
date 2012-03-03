@@ -37,7 +37,7 @@ Implementation
     };
 
 **matches()**
-    Executes when a Mail Filter is comparing it's criteria against a new message. This should return true if the message matches your criteria, and false if it does not. The method is passed the matching filter and message via the ``$filter`` and ``$message`` parameters, so your implementation will need to be setup to accept them. See the documentation on :doc:`Model_PreParseRule </developer_guide/devblocks/models/model_preparserule>` and :doc:`CerberusParserMessage </developer_guide/devblocks/cerberusparsermessage>` for more information on the data and methods available to you.
+    Executes when a Mail Filter is comparing it's criteria against a new message. This should return true if the message matches your criteria, and false if it does not. The method is passed the matching filter and message via the ``$filter`` and ``$message`` parameters, so your implementation will need to be setup to accept them. See the documentation on :php:class:`Model_PreParseRule </developer_guide/devblocks/models/model_preparserule>` and :doc:`CerberusParserMessage` for more information on the data and methods available to you.
     
 **renderConfig**
     Draws an optional configuration form when the criteria is selected on a mail filter. This provides you with a way to prompt the worker with custom settings that are specific to one filter; allowing the reuse of criteria with subtle differences between multiple filters.

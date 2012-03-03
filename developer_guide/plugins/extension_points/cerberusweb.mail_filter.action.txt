@@ -37,10 +37,10 @@ Implementation
     };
 
 **run(Model_PreParseRule $filter, CerberusParserMessage $message)**
-    Executes on your action when a Mail Filter has found messages that satisfied the given criteria. The method is passed the matching filter and message via the ``$filter`` and ``$message`` parameters, so your implementation will need to be setup to accept them. See the documentation on :doc:`Model_PreParseRule </developer_guide/devblocks/models/model_preparserule>` and :doc:`CerberusParserMessage </developer_guide/devblocks/cerberusparsermessage>` for more information on the data and methods available to you.
+    Executes on your action when a Mail Filter has found messages that satisfied the given criteria. The method is passed the matching filter and message via the ``$filter`` and ``$message`` parameters, so your implementation will need to be setup to accept them. See the documentation on :php:class:`Model_PreParseRule </developer_guide/devblocks/models/model_preparserule>` and :doc:`CerberusParserMessage` for more information on the data and methods available to you.
     
 **renderConfig(Model_PreParseRule $filter)**
-    Draws an optional configuration form when the action is selected on a mail filter. This provides you with a way to prompt the worker with custom settings that are specific to one filter; allowing the reuse of actions with subtle differences between multiple filters. The method is passed the current instance of the filter as a parameter, so your implementation will need to be setup to accept it. See the documentation on :doc:`Model_PreParseRule </developer_guide/devblocks/models/model_preparserule>` for more information on the data and methods available to you.
+    Draws an optional configuration form when the action is selected on a mail filter. This provides you with a way to prompt the worker with custom settings that are specific to one filter; allowing the reuse of actions with subtle differences between multiple filters. The method is passed the current instance of the filter as a parameter, so your implementation will need to be setup to accept it. See the documentation on :php:class:`Model_PreParseRule` for more information on the data and methods available to you.
     
 **saveConfig()**
     Saves the settings provided in the ``renderConfig()`` form. This is handled very simply; just return an associative array of key/value and they'll be retrieved for you automatically in ``run()``.

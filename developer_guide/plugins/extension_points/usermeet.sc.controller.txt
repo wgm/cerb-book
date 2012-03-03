@@ -103,22 +103,22 @@ Implementation
     };
     
 **handleRequest()**
-    Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :doc:`DevblocksHttpRequest </developer_guide/devblocks/devblockshttprequest>` for more information on the data and methods available for each request.
+    Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
     
 **writeResponse()**
-    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse </developer_guide/devblocks/devblockshttpresponse>` for more information on the data and methods available for each response.
+    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
     
 **renderSidebar()**
-    Renders the sidebar for this controller when this controller has processed a request. Access to the current response is provided via the ``$response`` variable. See the documentation on :doc:`DevblocksHttpResponse </developer_guide/devblocks/devblockshttpresponse>` for more information on the data and methods available for each response.
+    Renders the sidebar for this controller when this controller has processed a request. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
     
 **isVisible()**
     Controls whether or not the controller is visible in the menu.
     
 **configure(Model_CommunityTool $instance)**
-    Renders the configuration for this controller in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :doc:`Model_CommunityTool </developer_guide/devblocks/models/model_communitytool>` for more information on the data and methods available for each instance.
+    Renders the configuration for this controller in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
 
 **saveConfiguration(Model_CommunityTool $instance)**
-    Saves the configuration data specified in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :doc:`Model_CommunityTool </developer_guide/devblocks/models/model_communitytool>` for more information on the data and methods available for each instance.
+    Saves the configuration data specified in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
 
 Examples
 ========

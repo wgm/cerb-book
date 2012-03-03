@@ -33,7 +33,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The method is passed the task being displayed as the ``$task`` parameter. See the documentation on :doc:`Model_Task </developer_guide/devblocks/models/model_task>` for more information on the data and methods you have access to for each task.
+    Renders the content for the toolbar. The method is passed the task being displayed as the ``$task`` parameter. See the documentation on :php:class:`Model_Task` for more information on the data and methods you have access to for each task.
 
 Examples
 ========

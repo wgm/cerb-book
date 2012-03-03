@@ -33,7 +33,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The method is passed the opp being displayed as the ``$opp`` parameter. See the documentation on :doc:`Model_CrmOpportunity </developer_guide/devblocks/models/model_crmopportunity>` for more information on the data and methods you have access to for each opportunity.
+    Renders the content for the toolbar. The method is passed the opp being displayed as the ``$opp`` parameter. See the documentation on :php:class:`Model_CrmOpportunity` for more information on the data and methods you have access to for each opportunity.
 
 Examples
 ========
