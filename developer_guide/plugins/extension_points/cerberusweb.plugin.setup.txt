@@ -1,0 +1,69 @@
+cerberusweb.plugin.setup
+------------------------
+
+The **cerberusweb.plugin.setup** extension point allows you to display a configuration form when your plugin is installed or configured.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Plugin Setup -->
+    <extension point="cerberusweb.plugin.setup">
+        <id>example.plugin.setup</id>
+        <name>Example Setup</name>
+        <class>
+            <file>api/App.php</file>
+            <name>Example_Setup</name>
+        </class>
+        <params>
+            <param key="tab_label" value="example.plugin.setup" />
+        </params>
+    </extension>
+    
+**<param key="tab_label" value="example.plugin.setup">**
+    Sets the title of the tab containing your configuration form.
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    abstract class Extension_PluginSetup extends DevblocksExtension {
+        const POINT = 'cerberusweb.plugin.setup';
+
+        static function getByPlugin($plugin_id, $as_instances=true) {
+            $results = array();
+
+            // Include disabled extensions
+            $all_extensions = DevblocksPlatform::getExtensionRegistry(true, true, true);
+            foreach($all_extensions as $k => $ext) { /* @var $ext DevblocksExtensionManifest */
+                if($ext->plugin_id == $plugin_id && $ext->point == Extension_PluginSetup::POINT)
+                    $results[$k] = ($as_instances) ? $ext->createInstance() : $ext;
+            }
+
+            return $results;
+        }
+
+        abstract function render();
+        abstract function save(&$errors);
+    }
+
+**render()**
+    This function is called when a worker clicks the ``Download and install`` or ``Configure`` button in the ``Manage Plugins`` area and then enables your plugin.
+    
+**save(&$errors)**
+    This method is called when the user hits the save button to save your plugins settings. It is passed an array by reference as the ``$errors`` parameter. Your implementation should check the configuration details, and should return true if there are no errors. Otherwise, it should add items to the array for each error and return false.
+
+Examples
+========
+
+Campfire Plugin
+~~~~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/cerb5-plugins/wgm.campfire/blob/5.7/plugin.xml#L37
+Implementation:
+    https://github.com/cerb5-plugins/wgm.campfire/blob/5.7/api/App.php#L2

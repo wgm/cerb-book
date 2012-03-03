@@ -19,6 +19,7 @@ Extension Points
     cerberusweb.message.toolbaritem
     cerberusweb.org.tab
     cerberusweb.page
+    cerberusweb.plugin.setup
     cerberusweb.preferences.tab
     cerberusweb.renderer.postbody
     cerberusweb.renderer.prebody
