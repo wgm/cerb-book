@@ -1,0 +1,50 @@
+devblocks.search.schema
+-----------------------
+
+The **devblocks.search.schema** extension point allows you to create new :doc:`Scheduled Tasks`.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Search Schemas -->
+    <extension point="devblocks.search.schema">
+        <id>example.search.schema</id>
+        <name>Example Content</name>
+        <class>
+            <file>api/App.php</file>
+            <name>Search_ExampleContent</name>
+        </class>
+        <params/>
+    </extension>
+
+Implementation
+==============
+.. code-block:: php
+
+    <?php
+    class Search_ExampleContent {
+        public function index($stop_time=null) {}
+        
+        public function delete($ids) {}
+    };
+
+**index($stop_time=null)**
+    This method should handle indexing the data. The ``$stop_time`` parameter is a timestamp of when to stop indexing.
+    
+**delete($ids)**
+    This method handles deleting the indexes.
+    
+Examples
+========
+
+Comment Search
+~~~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L1254
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/dao/comment.php.php#L397
