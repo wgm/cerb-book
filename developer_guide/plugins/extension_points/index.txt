@@ -41,6 +41,7 @@ Extension Points
     devblocks.listener.event
     devblocks.listener.http
     devblocks.search.schema
+    devblocks.storage.engine
     usermeet.login.authenticator
     usermeet.sc.controller
     usermeet.sc.rss.controller
