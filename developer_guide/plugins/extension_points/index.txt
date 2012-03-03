@@ -37,6 +37,7 @@ Extension Points
     cerberusweb.ui.page.section
     devblocks.controller
     devblocks.context
+    devblocks.event
     devblocks.listener.event
     devblocks.listener.http
     devblocks.search.schema
