@@ -16,7 +16,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 		<name>Example Event</name>
 		<class>
 			<file>api/App.php</file>
-			<name>Event_Example</name>
+			<name>ExampleEvent</name>
 		</class>
 		<params>
 			<param key="contexts">
@@ -40,8 +40,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_DevblocksEvent
-        extends DevblocksExtension {
+    class ExampleEvent
+        extends Extension_DevblocksEvent {
     	    const POINT = 'devblocks.event'; 
 
         	private $_labels = array();

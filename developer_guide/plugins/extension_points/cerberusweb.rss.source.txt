@@ -16,7 +16,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         <name>Example</name>
         <class>
             <file>api/App.php</file>
-            <name>ChExampleRssSource</name>
+            <name>ExampleRssSource</name>
         </class>
         <params>
         </params>
@@ -27,9 +27,9 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_RssSource
-        extends DevblocksExtension {
             const EXTENSION_POINT = 'cerberusweb.rss.source';
+    class ExampleRssSource
+        extends Extension_RssSource {
             
             function getFeedAsRss($feed) {}
     };

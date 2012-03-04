@@ -10,10 +10,10 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
     
-    <!-- Devblocks HTTP Listener -->
+    <!-- Devblocks Event Listener -->
     <extension point="devblocks.listener.event">
-        <id>example.listener.core</id>
-        <name>Example Listener</name>
+        <id>example.listener.event</id>
+        <name>Example Event Listener</name>
         <class>
             <file>api/App.php</file>
             <name>ExampleEventListener</name>
@@ -47,12 +47,9 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class DevblocksEventListenerExtension
-        extends DevblocksExtension {
-                        
-            /**
-             * @param Model_DevblocksEvent $event
-             */
+    class ExampleEventListener
+        extends DevblocksEventListenerExtension {
+            
             function handleEvent(Model_DevblocksEvent $event) {}
     };
 

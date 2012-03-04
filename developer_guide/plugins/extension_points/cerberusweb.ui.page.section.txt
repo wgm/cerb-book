@@ -35,8 +35,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_PageMenu
-        extends DevblocksExtension {
+    class PageSection_Example
+        extends Extension_PageMenu {
             const POINT = 'cerberusweb.ui.page.section';
             
             /**

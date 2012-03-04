@@ -12,34 +12,27 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Support Center Controller -->
     <extension point="cerberusweb.rest.controller">
-        <id>example.sc.controller</id>
-        <name>Example</name>
-        <class>
-            <file>api/sc/example.php</file>
-            <name>UmScExampleController</name>
-        </class>
-        <params>
-            <param key="uri" value="example" />
-            <param key="menu_title" value="example.sc.title" />
-            <param key="icon" value="images/crystal/example.gif" />
-        </params>
-    </extension>
+		<id>example.rest.controller</id>
+		<name>Example Rest Controller</name>
+		<class>
+			<file>api/App.php</file>
+			<name>ExampleRestController</name>
+		</class>
+		<params>
+			<param key="uri" value="example" />
+		</params>
+	</extension>
 
 **<param key="uri" value="example">**
-    Binds the tab to the ``example`` url.
-
-**<param key="menu_title" value="example.sc.title">**
-    Sets the text of the tab. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
-
-**<param key="icon" value="images/crystal/example.gif">**
-    Defines the URI to an icon which will be displayed in the Support Center menu. The specified URI is relative to the resources directory of your plugin.
+    Binds the rest controller to the ``example`` url.
         
 Implementation
 ==============
 .. code-block:: php
 
     <?php
-    abstract class Extension_RestController extends DevblocksExtension {
+    class ExampleRestController
+        extends Extension_RestController {
         const ERRNO_CUSTOM = 0;
         const ERRNO_ACL = 1;
         const ERRNO_NOT_IMPLEMENTED = 2;

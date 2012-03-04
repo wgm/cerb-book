@@ -16,7 +16,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         <name>Example Pre-Body Renderer</name>
         <class>
             <file>api/App.php</file>
-            <name>ExamplePostBodyRenderer</name>
+            <name>ExamplePreBodyRenderer</name>
         </class>
         <params/>
     </extension>
@@ -26,8 +26,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_AppPreBodyRenderer
-        extends DevblocksExtension {
+    class ExamplePreBodyRenderer
+        extends Extension_AppPreBodyRenderer {
             
             function render() { }
     };

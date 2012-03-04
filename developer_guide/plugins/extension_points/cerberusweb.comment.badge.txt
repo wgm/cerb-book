@@ -16,7 +16,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         <name>Example Comment Badge</name>
         <class>
             <file>api/App.php</file>
-            <name>ExCommentBadge</name>
+            <name>ExampleCommentBadge</name>
         </class>
         <params/>
     </extension>
@@ -26,8 +26,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_CommentBadge
-        extends DevblocksExtension {
+    class ExampleCommentBadge
+        extends Extension_CommentBadge {
             
             function render(Model_Comment $comment) {}
     };

@@ -26,8 +26,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_SendMailToolbarItem
-        extends DevblocksExtension {
+    class ExampleSendMailToolbarItem
+        extends Extension_SendMailToolbarItem {
             
             function render() { }
     };

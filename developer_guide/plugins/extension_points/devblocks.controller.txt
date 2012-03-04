@@ -34,9 +34,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class DevblocksControllerExtension 
-        extends DevblocksExtension 
-        implements DevblocksHttpRequestHandler {
+    class ExampleController
+        extends DevblocksControllerExtension {
             
             public function handleRequest(DevblocksHttpRequest $request) {}
             

@@ -16,7 +16,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         <name>Example Datacenter Tab</name>
         <class>
             <file>api/App.php</file>
-            <name>ExDatacenterTab</name>
+            <name>ExampleDatacenterTab</name>
         </class>
         <params>
             <param key="uri" value="example" />
@@ -35,9 +35,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_DatacenterTab
-        extends DevblocksExtension {
-            const POINT = 'cerberusweb.datacenter.tab';
+    class ExampleDatacenterTab
+        extends Extension_DatacenterTab {
             
             function showTab() {}
             

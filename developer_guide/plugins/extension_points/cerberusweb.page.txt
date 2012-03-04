@@ -12,65 +12,41 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Pages -->
     <extension point="cerberusweb.page">
-        <id>core.page.research</id>
-        <name>Research Page</name>
+        <id>example.page</id>
+        <name>Example Page</name>
         <class>
-            <file>api/uri/research.php</file>
-            <name>ChResearchPage</name>
+            <file>api/App.php</file>
+            <name>ExamplePage</name>
         </class>
         <params>
-            <param key="uri" value="research" />
-            <param key="menutitle" value="core.menu.research" />
-            <param key="acl" value="core.research" />
+            <param key="uri" value="example" />
+            <param key="menutitle" value="example.page.title" />
+            <param key="acl" value="example.page.acl" />
         </params>
     </extension>
 
 
-**<extension point="...">**
-    Binds a new extension on the specified ``point``.
+**<param key="uri" value="example">**
+    Binds the page to the ``example`` url.
 
-**<id>**
-    Must be unique across all Cerb5 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+**<param key="menutitle" value="example.page.title">**
+    Sets the text of the link in the menu. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
 
-**<name>**
-    A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
-
-**<class>**
-    Tells Devblocks where to find the extension's implementation in the source code.
-
-    **<file>**
-        The relative path to the class file from your plugin's directory.
-
-    **<name>**
-        The class name.
-
-**<params>**
-    Allow the manifest to pass information to each implementation of an extension. Each ``<param>`` has a key and value attribute. These are static values that are not expected to change. You'll need to implement properties that are configured by the user.
-
-    **<param key="uri" value="research">**
-        Binds the page to the ``research`` url.
-
-    **<param key="menutitle" value="core.menu.research">**
-        Sets the text of the link in the menu. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
-
-    **<param key="acl" value="core.research">**
-        Specifies the permissions required for this page to be displayed. If this param is omitted, the page will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
+**<param key="acl" value="example.page.acl">**
+    Specifies the permissions required for this page to be displayed. If this param is omitted, the page will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
 
 Implementation
 ==============
 .. code-block:: php
 
     <?php
-    abstract class CerberusPageExtension
-        extends DevblocksExtension {
+    class ExamplePage
+        extends CerberusPageExtension {
             
             function isVisible() { return true; }
             
             function render() { }
-            
-            /**
-             * @return Model_Activity
-             */
+
             public function getActivity() {
                 return new Model_Activity('activity.default');
             }

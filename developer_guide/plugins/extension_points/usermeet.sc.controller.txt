@@ -13,10 +13,10 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     <!-- Support Center Controller -->
     <extension point="usermeet.sc.controller">
         <id>example.sc.controller</id>
-        <name>Example</name>
+        <name>Example SC Controller</name>
         <class>
             <file>api/sc/example.php</file>
-            <name>UmScExampleController</name>
+            <name>ExampleScController</name>
         </class>
         <params>
             <param key="uri" value="example" />
@@ -39,9 +39,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_UmScController
-        extends DevblocksExtension
-        implements DevblocksHttpRequestHandler {
+    class ExampleScController
+        extends Extension_UmScController {
             private $portal = '';
             
             /*

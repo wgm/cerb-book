@@ -10,13 +10,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 .. code-block:: xml
     
-    <!-- Activity Tab -->
+    <!-- Knowledgebase Tab -->
     <extension point="cerberusweb.knowledgebase.tab">
         <id>example.knowledgebase.tab</id>
-        <name>Example Activity Tab</name>
+        <name>Example Knowledgebase Tab</name>
         <class>
             <file>api/App.php</file>
-            <name>ExActivityTab</name>
+            <name>ExampleKnowledgebaseTab</name>
         </class>
         <params>
             <param key="uri" value="example" />
@@ -35,8 +35,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_KnowledgebaseTab
-        extends DevblocksExtension {
+    class ExampleKnowledgebaseTab
+        extends Extension_KnowledgebaseTab {
             const POINT = 'cerberusweb.knowledgebase.tab';
             
             function showTab() {}

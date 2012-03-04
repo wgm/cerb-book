@@ -12,11 +12,11 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
     <!-- Devblocks HTTP Listener -->
     <extension point="devblocks.listener.http">
-        <id>example.tour</id>
-        <name>Example Tour</name>
+        <id>example.listener.http</id>
+        <name>Example HTTP Listener</name>
         <class>
             <file>api/App.php</file>
-            <name>ExampleTour</name>
+            <name>ExampleHttpListener</name>
         </class>
         <params>
         </params>
@@ -27,8 +27,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class DevblocksHttpResponseListenerExtension
-        extends DevblocksExtension {
+    abstract class ExampleHttpListener
+        extends DevblocksHttpResponseListenerExtension {
             
             function run(DevblocksHttpResponse $request, Smarty $tpl) {}
     };

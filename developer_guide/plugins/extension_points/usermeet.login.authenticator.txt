@@ -26,8 +26,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_ScLoginAuthenticator
-        extends DevblocksExtension {
+    class ExampleLoginAuthenticator
+        extends Extension_ScLoginAuthenticator {
             
             /**
              * draws HTML form of controls needed for login information

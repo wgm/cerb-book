@@ -16,7 +16,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         <name>Example Preferences Tab</name>
         <class>
             <file>api/App.php</file>
-            <name>ExPreferencesTab</name>
+            <name>ExamplePreferencesTab</name>
         </class>
         <params>
             <param key="uri" value="example" />
@@ -35,8 +35,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_PreferencesTab
-        extends DevblocksExtension {
+    class ExamplePreferencesTab
+        extends Extension_PreferencesTab {
             
             function showTab() {}
             

@@ -35,8 +35,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_Report
-        extends DevblocksExtension {
+    class ExampleReportGroup
+        extends Extension_ReportGroup {
            
             function render() {}
     };

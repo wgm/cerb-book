@@ -13,10 +13,10 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     <!-- Support Center RSS Controller -->
     <extension point="usermeet.sc.rss.controller">
         <id>example.sc.rss.controller</id>
-        <name>Example RSS</name>
+        <name>Example SC RSS Controller</name>
         <class>
             <file>api/sc/rss/example.php</file>
-            <name>UmScRssExampleController</name>
+            <name>ExampleScRssController</name>
         </class>
         <params>
             <param key="uri" value="example" />
@@ -31,8 +31,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_UmScRssController
-        extends DevblocksExtension {
+    class ExampleScRssController
+        extends Extension_UmScRssController {
             
             function handleRequest(DevblocksHttpRequest $request) {}
     };

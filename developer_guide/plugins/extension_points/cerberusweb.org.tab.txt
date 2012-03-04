@@ -16,7 +16,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         <name>Example Org Tab</name>
         <class>
             <file>api/App.php</file>
-            <name>ExOrgTab</name>
+            <name>ExampleOrgTab</name>
         </class>
         <params>
             <param key="uri" value="example" />
@@ -35,8 +35,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_OrgTab
-        extends DevblocksExtension {
+    class ExampleOrgTab
+        extends Extension_OrgTab {
             
             function showTab() {}
             

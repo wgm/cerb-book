@@ -19,10 +19,10 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     <!-- Usermeet Tool -->
     <extension point="usermeet.tool">
         <id>example.tool</id>
-        <name>Example Tool</name>
+        <name>Example UM Tool</name>
         <class>
             <file>api/App.php</file>
-            <name>UmExampleApp</name>
+            <name>ExampleUmTool</name>
         </class>
         <params>
             <param key="template_set" value="example.tool" />
@@ -37,9 +37,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_UsermeetTool
-        extends DevblocksExtension
-        implements DevblocksHttpRequestHandler {
+    class ExampleUmTool
+        extends Extension_UsermeetTool {
             private $portal = '';
             
             /*

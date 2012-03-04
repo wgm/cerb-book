@@ -26,13 +26,13 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class CerberusCronPageExtension
-        extends DevblocksExtension {    
             /**
              * runs scheduled task
              *
              */
             function run() {}
+    class ExampleCron
+        extends CerberusCronPageExtension {
             
             public function configure($instance) {}
             

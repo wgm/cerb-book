@@ -26,8 +26,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_TicketToolbarItem
-        extends DevblocksExtension {
+    class ExampleTicketToolbarItem
+        extends Extension_TicketToolbarItem {
             
             function render(CerberusTicket $ticket) { }
     };

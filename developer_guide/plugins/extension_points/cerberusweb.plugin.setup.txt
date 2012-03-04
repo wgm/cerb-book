@@ -31,8 +31,8 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_PluginSetup extends DevblocksExtension {
-        const POINT = 'cerberusweb.plugin.setup';
+    class Example_Setup
+        extends Extension_PluginSetup {
 
         static function getByPlugin($plugin_id, $as_instances=true) {
             $results = array();
