@@ -1,9 +1,23 @@
 Knowledgebase
 -------------
 
-Browse
-======
+The **knowledgebase** page...
 
-Search
-======
+Tabs
+====
 
+The knowledgebase page is divided into a series of :doc:`tabs </concepts/ui/tabs>`:
+
+.. toctree::
+	:maxdepth: 1
+	
+	tabs/browse
+	tabs/search
+	
+Points of Interest
+==================
+
+.. toctree::
+	:maxdepth: 1
+	
+	
