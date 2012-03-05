@@ -10,12 +10,12 @@ This section is an introduction to the main concepts found throughout Cerb5.
     
     contexts/index
     objects/index
+    ui/index
     virtual_attendants/index
     worklists/index
     workspaces
     notifications
     watchers/index
-    choosers
     snippets/index
     broadcast
     knowledgebase
