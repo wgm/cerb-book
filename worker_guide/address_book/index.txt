@@ -1,12 +1,25 @@
 Address Book
 ------------
 
-Organizations
-=============
+The **address book** page...
 
-Registered Contacts
-===================
+Tabs
+====
 
-Addresses
-=========
+The address book page is divided into a series of :doc:`tabs </concepts/ui/tabs>`:
 
+.. toctree::
+	:maxdepth: 1
+	
+	tabs/organizations
+	tabs/contacts
+	tabs/addresses
+	tabs/import
+	
+Points of Interest
+==================
+
+.. toctree::
+	:maxdepth: 1
+	
+	
