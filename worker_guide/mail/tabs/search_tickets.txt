@@ -1,0 +1,6 @@
+Search Tickets
+--------------
+
+The **Search Tickets** tab searches through the mail archive and provides results as tickets. This means that even if multiple messages from a conversation match they will be represented by a single result.
+
+This is the best place to display all the conversations in the system, regardless of their status or other factors that prevent them from being displayed on the Workflow tab.

@@ -1,0 +1,4 @@
+Drafts
+------
+
+The **Drafts** tab displays a worklist of messages that you have saved but not yet sent. You can click on a draft to resume it.

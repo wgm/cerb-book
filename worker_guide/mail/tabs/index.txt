@@ -1,0 +1,10 @@
+Mail Tabs
+---------
+
+.. toctree::
+    :maxdepth: 1
+
+    workflow
+    search_tickets
+    search_messages
+    drafts

@@ -1,0 +1,6 @@
+Search Messages
+---------------
+
+The **Search Messages** tab searches through the mail archive and provides results as messages. This is useful when you want to be able to match individual messages on a conversation as distinct results.
+
+This is the best place to display a list of outgoing messages that behaves like a 'Sent' folder in a traditional email reader.

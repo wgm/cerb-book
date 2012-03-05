@@ -1,0 +1,18 @@
+Workflow
+--------
+
+The **Workflow** tab is where you will spend most of your time in the mail section. It is optimized for working with a large volume of mail by highlighting conversations that are immediately actionable.
+
+In many environments there are conversations that sit idle for long periods of time because they're waiting for something: a reply from a customer, a worker task to be completed, or a specific date and time. Additionally, there are several kinds of mail that may never need a response but can't be closed without being reviewed: vendor newsletters, receipts, or automated reports. This work should be moved to a bucket that has been flagged by a group manager as being hidden from Workflow.
+
+Workflow focuses on conversations that you can do something about by enforcing the following criteria:
+
+-  It must be open (not closed, or waiting for a contact to reply).
+-  It must be located in an inbox, or a bucket that is not hidden from
+   Workflow.
+
+The key to the efficient use of Workflow is to have groups and buckets that are organized by the process required to complete the work contained within them. For example, if you have buckets like *Receipts*, *New Orders*, and *Leads*, you can repeat the same process for each message in a bucket, while also reusing any resources you need in order to complete them.
+
+You can also use the subtotals feature to group conversations based on criterion other than bucket.
+
+The last thing you want to be doing is competing with a dozen workers who are randomly grabbing work. Cerb5 is not meant to be used in a social vacuum. Find a co-worker and tell them, *"I'll handle the new orders if you want to go through the leads"*. If your team is too large to organize with an informal process, you should nominate a group *dispatcher* to make assignments, or you should use a real-time, group-wide communication tool like `Campfire by 37signals <http://www.campfirenow.com/>`_.
