@@ -1,0 +1,13 @@
+Preferences
+-----------
+
+-  Click your name in the top right of any page to reveal a menu.
+-  Select :guilabel:`Settings` from the menu.
+
+Set :guilabel:`Timezone` to your current location. The software will use this timezone when displaying dates and timestamps, making it easier for you to do time-based comparisons.
+
+If you are in a multilingual environment, set :guilabel:`Language` to your preferred language. This will change all the text in the software. Any text that does not have an available translation will be displayed in English by default. This option won't translate individual email messages; they will still be displayed in the language they were written in.
+
+If you have additional email addresses that you would like to associate with your worker account you can add them in the :guilabel:`Email Addresses` section. This is useful if you want to be able to relay mail to a mobile email account. Keep in mind that these addresses will all represent your worker account, so you don't need to add all your personal email addresses unless you intend to use them for this purpose.
+
+Once you have established your preferences, click the :guilabel:`Save Changes` button at the bottom of the page.

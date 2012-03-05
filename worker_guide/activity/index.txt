@@ -1,0 +1,18 @@
+Activity
+--------
+
+.. figure:: /images/getting_started/section_activity.png
+   :align: center
+   :alt: The activity section.
+
+Feedback
+========
+
+Opportunities
+=============
+
+Tasks
+=====
+
+Time Tracking
+=============

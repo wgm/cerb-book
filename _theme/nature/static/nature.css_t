@@ -260,16 +260,10 @@ blockquote.epigraph div p.attribution {
 
 em.guilabel {
 	background-color:rgb(240,240,240);
-	padding:5px;
+	padding:3px;
 	font-weight:bold;
 	font-style:normal;
-}
-
-em.guibutton {
-	background-color:rgb(0,240,240);
-	padding:5px;
-	font-weight:bold;
-	font-style:normal;
+	border-radius:5px;
 }
 
 em.mailheader {

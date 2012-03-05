@@ -1,0 +1,114 @@
+Mail
+----
+
+.. figure:: /images/getting_started/section_mail.png
+   :align: center
+   :alt: The mail section.
+
+The **mail** section is where you read, respond to, and initiate email
+conversations. These conversations are shared with other workers in the
+groups you are a member of.
+
+There is a toolbar at the top left of the mail section with several
+buttons:
+
+-  *Send Mail* composes a new message to any number of contacts. Each
+   contact will receive a copy of all future worker messages. The
+   opening message will be outgoing and attributed to yourself. This
+   should be how you start new conversations most of the time.
+-  *Open Ticket* offers similar functionality to *Send Mail* with an
+   important distinction: the conversation will be started as an
+   incoming message attributed to the recipients. This is useful when
+   you are creating a new conversation as a convenience for one of your
+   contacts after discussing something on a phone call.
+-  *Auto-Refresh* will automatically reload the page at the given
+   interval. This is useful if you have multiple monitors and you want
+   to be able to see new messages at a glance without manually reloading
+   the page.
+
+At the top right of the section there is a quick search text box. This
+time-saving feature allows you to perform a search from most pages in
+the mail section without having to navigate to the search page first.
+
+The mail section is further divided by a series of tabs that provide
+specialized functionality.
+
+Workflow
+========
+
+The **Workflow** tab is where you will spend most of your time in the
+mail section. It is optimized for working with a large volume of mail by
+highlighting conversations that are immediately actionable.
+
+In many environments there are conversations that sit idle for long
+periods of time because they're waiting for something: a reply from a
+customer, a worker task to be completed, or a specific date and time.
+Additionally, there are several kinds of mail that may never need a
+response but can't be closed without being reviewed: vendor newsletters,
+receipts, or automated reports. This work should be moved to a bucket
+that has been flagged by a group manager as being hidden from Workflow.
+
+Workflow focuses on conversations that you can do something about by
+enforcing the following criteria:
+
+-  It must be open (not closed, or waiting for a contact to reply).
+-  It must be located in an inbox, or a bucket that is not hidden from
+   Workflow.
+
+The key to the efficient use of Workflow is to have groups and buckets
+that are organized by the process required to complete the work
+contained within them. For example, if you have buckets like *Receipts*,
+*New Orders*, and *Leads*, you can repeat the same process for each
+message in a bucket, while also reusing any resources you need in order
+to complete them.
+
+You can also use the subtotals feature to group conversations based on
+criterion other than bucket.
+
+The last thing you want to be doing is competing with a dozen workers
+who are randomly grabbing work. Cerb5 is not meant to be used in a
+social vacuum. Find a co-worker and tell them "I'll handle the new
+orders if you want to go through the leads". If your team is too large
+to organize with an informal process, you should nominate a group
+*dispatcher* to make assignments, or you should use a real-time,
+group-wide communication tool like Campfire by 37signals
+(http://www.campfirenow.com/).
+
+Search Tickets
+==============
+
+The **Search Tickets** tab searches through the mail archive and
+provides results as tickets. This means that even if multiple messages
+from a conversation match they will be represented by a single result.
+
+This is the best place to display all the conversations in the system,
+regardless of their status or other factors that prevent them from being
+displayed on the Workflow tab.
+
+Search Messages
+===============
+
+The **Search Messages** tab searches through the mail archive and
+provides results as messages. This is useful when you want to be able to
+match individual messages on a conversation as distinct results.
+
+This is the best place to display a list of outgoing messages that
+behaves like a 'Sent' folder in a traditional email reader.
+
+Drafts
+======
+
+The **Drafts** tab displays a worklist of messages that you have saved
+but not yet sent. You can click on a draft to resume it.
+
+Snippets
+========
+
+The **Snippets** tab manages fragments of text that can be reused in
+various conversations. For example, when a customer asks for your price
+list you can simply insert the 'Price Sheet' snippet rather than
+monotonously typing it by hand or copying and pasting it from your
+website. Snippets can also contain placeholder text that will change
+depending on where they are used; for example, a ``{{first_name}}``
+placeholder would be replaced by the first name of the contact you are
+talking to.

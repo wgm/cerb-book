@@ -1,0 +1,49 @@
+Reports
+-------
+
+Worker History over Date Range
+==============================
+
+.. raw:: html
+
+   <!--
+
+   #### Custom Field Usage ####
+
+   #### Group Rosters ####
+
+   #### Group Replies over Date Range ####
+
+   #### Top 100 Shared Sender Domains ####
+
+   #### Top 100 Spam/Nonspam Words ####
+
+   #### Top 100 Spam/Nonspam Senders ####
+
+   #### Top 100 Spam/Nonspam Domains ####
+
+   #### Created Tickets by Group over Date Range ####
+
+   #### Currently Open Tickets By Group ####
+
+   #### Closed Tickets by Group over Date Range ####
+
+   #### Tickets Created by Top Contacts over Date Range ####
+
+   #### Currently Waiting Tickets By Group ####
+
+   #### Oldest Open Tickets by Group ####
+
+   #### Current Ticket Assignments ####
+
+   #### Average Response Time over Date Range ####
+
+   #### Worker History over Date Range ####
+
+   #### Time Spent by Worker over Date Range ####
+
+   #### Time Spent by Organization over Date Range ####
+
+   #### Time Spent by Activity over Date Range ####
+
+   -->

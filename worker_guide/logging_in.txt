@@ -1,0 +1,8 @@
+Logging In
+----------
+
+.. figure:: /images/getting_started/logging_in.png
+   :align: center
+   :alt: Logging in
+
+Let's log in and take a look. Enter your email address and password, then click the :guilabel:`Sign On` button (or press :kbd:`ENTER` after typing your password).
