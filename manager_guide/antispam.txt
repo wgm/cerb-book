@@ -230,7 +230,7 @@ button at the bottom of the list:
 -  **With:** *Whole list*
 -  **Status:** *Deleted*
 -  **Spam:** *Report Spam*
--  Click the *Save Changes* button
+-  Click the :guilabel:`Save Changes` button
 -  You may have to wait a couple minutes depending on the size of your
    list.
 

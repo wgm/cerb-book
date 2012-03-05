@@ -10,3 +10,5 @@ A **snippet** is a reusable piece of text
 ((canned responses / auto-replies))
 
 ((personalization))
+
+The **Snippets** tab manages fragments of text that can be reused in various conversations. For example, when a customer asks for your price list you can simply insert the 'Price Sheet' snippet rather than monotonously typing it by hand or copying and pasting it from your website. Snippets can also contain placeholder text that will change depending on where they are used; for example, a ``{{first_name}}`` placeholder would be replaced by the first name of the contact you are talking to.

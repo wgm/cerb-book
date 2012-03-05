@@ -115,7 +115,7 @@ button. Enter the following information:
 -  **Workflow:** If you check this box then the bucket will be hidden
    from the *Workflow* tab on the Mail page.
 
-When you're finished, click the *Save Changes* button.
+When you're finished, click the :guilabel:`Save Changes` button.
 
 Configuring group buckets for workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

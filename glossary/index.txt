@@ -97,7 +97,7 @@ Glossary
         Explicit permission to perform a specific action.
 
     recipient
-        A :term:`contacts <contact>` that is associated with a particular :term:`conversation`. Recipients receive a copy of every new message.
+        A :term:`contact` that is associated with a particular :term:`conversation`. Recipients receive a copy of every new message.
 
     role
         A set of :term:`privileges <privilege>` granted to a :term:`worker`.

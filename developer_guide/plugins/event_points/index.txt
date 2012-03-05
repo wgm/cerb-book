@@ -1,18 +1,21 @@
 Event Points
 ------------
 
-address.peek.saved
-bucket.delete
-comment.create
-context.delete
-context.maint
-context_link.set
-cron.heartbeat
-cron.maint
-dao.ticket.update
-group.delete
-opportunity.create
-org.merge				
-task.create
-ticket.action.merge
-worker.delete
+.. toctree::
+    :maxdepth: 1
+
+    address.peek.saved
+    bucket.delete
+    comment.create
+    context.delete
+    context.maint
+    context_link.set
+    cron.heartbeat
+    cron.maint
+    dao.ticket.update
+    group.delete
+    opportunity.create
+    org.merge				
+    task.create
+    ticket.action.merge
+    worker.delete

@@ -112,7 +112,7 @@ first or last name of *Super User* in the *Workers* list.
    other workers as new group *members*, creating *buckets* for
    organizing the group's work, etc.
 
-When you've finished with your changes, click the *Save Changes* button.
+When you've finished with your changes, click the :guilabel:`Save Changes` button.
 
 Start collaborating by inviting your co-workers with the *Add Worker*
 button. In the next step we'll organize your workers into groups.
