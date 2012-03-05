@@ -1,0 +1,14 @@
+Settings
+--------
+
+The **settings** page...
+
+Tabs
+====
+
+.. toctree::
+	:maxdepth: 1
+	
+	tabs/settings
+	tabs/watcher_notifications
+	tabs/rss

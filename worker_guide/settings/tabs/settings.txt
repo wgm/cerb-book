@@ -1,0 +1,27 @@
+Settings
+--------
+
+Timezone and Language
+=====================
+
+The :guilabel:`Account Settings` box is where you will find the settings that control your timezone and language.
+
+.. figure:: /images/worker_guide/account_settings.png
+   :alt: Account settings.
+
+**Timezone**
+    Set this dropdown menu to your current location.  The software will use this timezone when displaying dates and timestamps.
+
+**Language**
+    If you are in a multilingual environment, set this dropdown menu to your preferred language. This will change all the text in the interface. Any text that does not have an available translation will be displayed in English by default. This option won't translate individual email messages; they will still be displayed in the language they were written in.
+
+**Assist Mode**
+    This checkbox enables or disables :doc:`tour mode </worker_guide/ui/tour_mode>`.
+    
+**Keyboard Shortcuts**
+    This checkbox enables or disables keyboard shortcuts.
+
+.. figure:: /images/worker_guide/account_settings_email.png
+   :alt: The email address options.
+
+If you have additional email addresses that you would like to associate with your worker account you can add them in the :guilabel:`Email Addresses` section. This is useful if you want to be able to relay mail to a mobile email account. Keep in mind that these addresses will all represent your worker account, so you don't need to add all your personal email addresses unless you intend to use them for this purpose.
