@@ -23,7 +23,7 @@ In the right side of the toolbar there is a :doc:`quick search </concepts/object
 Tabs
 ====
 
-The rest of the mail page is divided into a series of :doc:`tabs </concepts/ui/tabs>` that provide specialized functionality.
+The rest of the mail page is divided into a series of :doc:`tabs </concepts/ui/tabs>` that provide specialized functionality:
 
 .. figure:: /images/worker_guide/mail/tabs.png
    :alt: The mail tabs.

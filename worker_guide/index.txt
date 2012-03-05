@@ -6,23 +6,25 @@ Guide for Workers
 In this guide we will walk you through the Cerb5 interface and explain how to use the application.  For the best results, make sure you are familiar with the basic :doc:`concepts </concepts/index>` before continuing.
 
 .. toctree::
-    :maxdepth: 1
-
-    logging_in
-    ui/index
-    mail/index
-    activity/index
-    address_book/index
-    knowledgebase/index
-    reports/index
-    profiles/index
+	:maxdepth: 1
+	
+	logging_in
+	ui/index
+	mail/index
+	activity/index
+	address_book/index
+	knowledgebase/index
+	reports/index
+	profiles/index
+	settings/index
+	
 
 .. ::
 
-    keyboard shortcuts
-    watchers
-    virtual attendants
-    replying to mail
-    linking records
-    workspaces (and making worklists)
+	keyboard shortcuts
+	watchers
+	virtual attendants
+	replying to mail
+	linking records
+	workspaces (and making worklists)
     
