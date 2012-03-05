@@ -1,0 +1,3 @@
+Average Response Time over Date Range
+-------------------------------------
+

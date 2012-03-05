@@ -1,49 +1,61 @@
 Reports
 -------
 
-Worker History over Date Range
-==============================
+Custom Field Reports
+====================
 
-.. raw:: html
+.. toctree::
+	:maxdepth: 1
+	
+	custom_field/usage
 
-   <!--
+Group Reports
+=============
 
-   #### Custom Field Usage ####
+.. toctree::
+	:maxdepth: 1
 
-   #### Group Rosters ####
+	group/rosters
+	group/replies
+	
+Organization Reports
+====================
 
-   #### Group Replies over Date Range ####
+.. toctree::
+	:maxdepth: 1
 
-   #### Top 100 Shared Sender Domains ####
+	org/sender_domains
+	
+Spam Reports
+============
 
-   #### Top 100 Spam/Nonspam Words ####
+.. toctree::
+	:maxdepth: 1
 
-   #### Top 100 Spam/Nonspam Senders ####
+	spam/words
+	spam/senders
+	spam/domains
 
-   #### Top 100 Spam/Nonspam Domains ####
+Ticket Reports
+==============
 
-   #### Created Tickets by Group over Date Range ####
+.. toctree::
+	:maxdepth: 1
 
-   #### Currently Open Tickets By Group ####
+	ticket/created_by_group
+	ticket/open_by_group
+	ticket/closed_by_group
+	ticket/created_by_contacts
+	ticket/waiting_by_group
+	ticket/oldest_open_by_group
+	ticket/assignments
 
-   #### Closed Tickets by Group over Date Range ####
-
-   #### Tickets Created by Top Contacts over Date Range ####
-
-   #### Currently Waiting Tickets By Group ####
-
-   #### Oldest Open Tickets by Group ####
-
-   #### Current Ticket Assignments ####
-
-   #### Average Response Time over Date Range ####
-
-   #### Worker History over Date Range ####
-
-   #### Time Spent by Worker over Date Range ####
-
-   #### Time Spent by Organization over Date Range ####
-
-   #### Time Spent by Activity over Date Range ####
-
-   -->
+Worker Reports
+==============
+	
+.. toctree::
+	:maxdepth: 1
+	
+	worker/response_times
+	worker/history
+	
