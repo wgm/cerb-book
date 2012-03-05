@@ -1,0 +1,4 @@
+Quick Search
+------------
+
+**Quick Search** allows you to perform a search in one step, without having to manually add :doc:`filters </concepts/worklists/filters>` to a :doc:`worklist </concepts/worklists/index>`.

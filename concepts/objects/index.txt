@@ -11,4 +11,5 @@ An **object** contains all of the information associated with a single instance 
     comments
     connections
     activity_log
+    quick_search
     
