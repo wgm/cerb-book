@@ -13,3 +13,4 @@ While it is possible to successfully install Cerb5 on a shared hosting account, 
     requirements/index
     linux
     guided_installer
+    friendly_urls
