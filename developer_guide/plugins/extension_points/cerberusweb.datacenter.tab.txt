@@ -44,7 +44,7 @@ Implementation
     };
 
 **showTab()**
-    Renders content via Ajax when a tab is selected.
+    This method is called when a worker visits your tab on the Datacenter page.
 
 Examples
 ========

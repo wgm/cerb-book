@@ -33,7 +33,7 @@ Implementation
     };
 
 **render()**
-    Renders the HTML next to the worker comments. The comment being rendered is available in the ``$comment`` variable so you can determine information about the comment. See the documentation on :php:class:`Model_Comment` for more information on the data and methods you have access to for each comment.
+    This method is called when a comment is rendered. The comment being rendered is available in the ``$comment`` variable so you can determine information about the comment. See the documentation on :php:class:`Model_Comment` for more information on the data and methods you have access to for each comment.
 
 Examples
 ========

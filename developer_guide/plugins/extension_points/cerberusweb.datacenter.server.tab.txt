@@ -44,7 +44,7 @@ Implementation
     };
 
 **showTab()**
-    Renders content via Ajax when a tab is selected. The server currently being displayed can be accessed via the ``$server`` variable. See the documentation on :php:class:`Model_Server` for more information on the data and methods available for each server.
+    This method is called when a worker visits your tab on Server object's page. The server currently being displayed can be accessed via the ``$server`` variable. See the documentation on :php:class:`Model_Server` for more information on the data and methods available for each server.
 
 Examples
 ========

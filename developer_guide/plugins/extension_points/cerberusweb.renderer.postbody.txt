@@ -33,4 +33,4 @@ Implementation
     };
 
 **render()**
-    Renders the template you have specified at the bottom of each page.
+        This method is called on every page load. The contents will be injected just before the closing </body> tag.

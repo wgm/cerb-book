@@ -39,13 +39,13 @@ Implementation
     };
 
 **renderLoginForm()**
-    Displays the login form and collects the credentials for authentication.
+    This method is called when the login form is displayed and the worker has selected your login extension for authentication. Your method should display the login form, and the form should submit to the ``authenticate()`` method of your extension.
     
 **authenticate()**
-    Authenticates the user, returning a user_id or false
+    This method should be called when the worker clicks the 'Sign On' button. On submit, it should check the supplied credentials. If the login is valid, it should return a user_id, otherwise it should return false.
     
 **signoff()**
-    Logs the user out.
+    This method is called when a user clicks 'sign off'.
 
 Examples
 ========

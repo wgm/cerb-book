@@ -93,10 +93,10 @@ Implementation
     Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
     
 **configure(Model_CommunityTool $instance)**
-    Renders the configuration for this tool in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
+    Renders the configuration for this tool in the Community Portal area. Your implementation is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
     
 **saveConfiguration(Model_CommunityTool $instance)**
-    Saves the configuration data specified in the Community Portal area. The method is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
+    Saves the configuration data specified in the Community Portal area. Your implementation is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
 
 Examples
 ========

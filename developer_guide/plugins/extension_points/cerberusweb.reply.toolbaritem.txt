@@ -33,7 +33,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar. The method is passed the message being displayed as the ``$message`` parameter. See the documentation on :php:class:`CerberusMessage` for more information on the data and methods you have access to for each message.
+    This method is called when the reply form is rendered on the Conversation tab for a ticket. Your implementation is passed the message being displayed as the ``$message`` parameter. See the documentation on :php:class:`CerberusMessage` for more information on the data and methods you have access to for each message.
 
 Examples
 ========

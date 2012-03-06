@@ -43,10 +43,10 @@ Implementation
     };
     
 **handleRequest(DevblocksHttpRequest $request)**
-    Handles the request when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
+    This method is called when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
     
 **writeResponse(DevblocksHttpResponse $response)**
-    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
+    This method is called when the platform writes the response for the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
 
 SDK
 ===

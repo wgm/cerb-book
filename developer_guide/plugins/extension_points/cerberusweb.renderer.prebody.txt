@@ -33,7 +33,7 @@ Implementation
     };
 
 **render()**
-    Renders the template you have specified at the top of each page.
+    This method is called on every page load. The contents will be injected just after the opening <body> tag.
 
 Examples
 ========

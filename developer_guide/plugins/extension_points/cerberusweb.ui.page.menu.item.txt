@@ -64,11 +64,11 @@ Implementation
                 return $results;
             }
 
-        abstract function render();
+            public function render() {}
     };
 
 **getExtensions($as_instances=true, $page_id=null, $menu_id=null)**
     Returns all of the page menu items for the specified ``$page_id`` and ``$menu_id``. If no ``$page_id`` or ``$menu_id`` are set, this method returns all of the page menu items currently registered with the platform. The ``$as_instances`` parameter allows you to specify whether or not to return instantiated objects for each of the page menus or just the extension (which you will need to instantiate yourself).
 
 **render()**
-    This method will be called when the menu is rendered on the page. You'll most likely want to return HTML or render a template inside of this method.
+    This method is called when the menu is rendered on the page. You'll most likely want to return HTML or render a template inside of this method.

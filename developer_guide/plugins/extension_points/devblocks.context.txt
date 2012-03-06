@@ -57,19 +57,19 @@ Implementation
     };
     
 **getRandom()**
-    This method will be called when the test button is used on a VA. It should return a random object with its context.
+    This method is called when the test button is used on a VA. It should return a random object with its context.
     
 **getMeta($context_id)**
-    This method is used when notifications are generated for your context. The id of the object is passed via the ``$context_id`` parameter. It should return an array with ``id``, ``name`` and ``permalink`` indices; the ``id`` should be the numerical ID of the object, the ``name`` should be the name or title of the object, and the ``permalink`` should be the full URL to the record after 
+    This method is called when notifications are generated for your context. The id of the object is passed via the ``$context_id`` parameter. It should return an array with ``id``, ``name`` and ``permalink`` indices; the ``id`` should be the numerical ID of the object, the ``name`` should be the name or title of the object, and the ``permalink`` should be the full URL to the record after 
     
 **getContext($object, &$token_labels, &$token_values, $prefix=null)**
     This method is called when the context is retrieved for an object. It is passed the instance of the current object in the ``$object`` parameter. The ``$token_labels`` and ``$token_values`` parameters are passed by reference, and you should add your own labels and values to these variables in your implementation.
     
 **getChooserView()**
-    This method should return the view that should be used for chooser dialogs. This will be displayed when a worker tries to link your object to another object.
+    This method is called when a chooser dialog is shown for your context. This method should return the view that should be used for chooser dialogs. This will be displayed when a worker tries to link your object to another object.
     
 **getView($context=null, $context_id=null, $options=array())**
-    This method returns the view for the context object. If the ``$context`` and ``$context_id`` parameters are specified, the view will only display records that are linked to the specified ``$context`` and ``$context_id``.
+    This method is called This method returns the view for the context object. If the ``$context`` and ``$context_id`` parameters are specified, the view will only display records that are linked to the specified ``$context`` and ``$context_id``.
 
 Examples
 ========

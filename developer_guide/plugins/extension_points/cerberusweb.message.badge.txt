@@ -34,7 +34,7 @@ Implementation
     };
 
 **render()**
-    Renders the HTML next to the worker messages. The method is passed the message being displayed as the ``$message`` parameter. See the documentation on :php:class:`Model_Message` for more information on the data and methods you have access to for each message.
+    This method is called when a message is rendered. Your implementation is passed the message being displayed as the ``$message`` parameter. See the documentation on :php:class:`Model_Message` for more information on the data and methods you have access to for each message.
 
 Examples
 ========

@@ -33,7 +33,7 @@ Implementation
     };
 
 **render()**
-    Renders the content for the toolbar.
+    This method is called when a worker views the Send Mail page.
 
 Examples
 ========

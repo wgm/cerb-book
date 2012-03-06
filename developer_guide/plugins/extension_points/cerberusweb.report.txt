@@ -42,7 +42,7 @@ Implementation
     };
 
 **render()**
-    This function is called when the report is displayed in the browser.
+    This method is called when the report is displayed in the browser.
 
 Examples
 ========
