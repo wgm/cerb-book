@@ -25,7 +25,7 @@ This is the big difference between building tools and features.  With Cerb5's to
 
 As an astute reader, you may already be concerned that a limited set of tools would suffer from the same limitations that are present with features.  Fortunately, another manifestation of the toolkit mentality in Cerb5 is that you can easily add or modify tools through a comprehensive plugin system.  While many other applications approach the concept of plugins as yet another feature (i.e., an afterthought), all the core functionality of Cerb5 itself is composed entirely of plugins.  That means anything novel and interesting that we've done while building Cerb5 has become a set of tools that you can reuse to build your own functionality.  Plugins in Cerb5 are first-class citizens -- their contributions will be indistinguishable from the project itself.
 
-Our tools also have tools.  The software development framework we've been building while working on Cerb5 is called Devblocks, and you will learn more about it in the :ref:`guide_for_developers` section.
+Our tools also have tools.  The software development framework we've been building while working on Cerb5 is called Devblocks, and you will learn more about it in the :doc:`/developer_guide/index` section.
 
 The freedom of toolkits can be intimidating at first, especially when compared with the familiar pattern of *"click this, click that"* found in feature-driven software.  We're confident that if you read through the application of these principles covered by this book, you will discover a far more collaborative way to interact with software.
 

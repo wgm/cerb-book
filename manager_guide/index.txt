@@ -1,10 +1,9 @@
-.. _guide_for_group_managers:
-
 Guide for Group Managers
 ========================
 
-If you've been given manager status in a group then you have autonomous
-control over its roster, configuration, and workflow.
+In this guide we will walk you through the routine duties of a group manager.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
+
+If you've been given manager status in a group then you have autonomous control over its roster, configuration, and workflow.
 
 To manage a group:
 

@@ -7,7 +7,7 @@ your role.  You should be familiar with the :doc:`concepts </concepts/index>` be
 Administrators
 --------------
 
-Skip to the :ref:`guide_for_admins` if you would like to learn how to:
+Skip to the :doc:`/admin_guide/index` if you would like to learn how to:
 
 -  Manage workers and groups
 -  Configure incoming and outgoing mail
@@ -22,7 +22,7 @@ Skip to the :ref:`guide_for_admins` if you would like to learn how to:
 Group Managers
 --------------
 
-Skip to the :ref:`guide_for_group_managers` if you've been made the manager 
+Skip to the :doc:`/manager_guide/index` if you've been made the manager 
 of a group and you would like to learn how to:
 
 -  Manage the group roster
@@ -32,7 +32,7 @@ of a group and you would like to learn how to:
 Workers
 -------
 
-Skip to the :ref:`guide_for_workers` if you're new to
+Skip to the :doc:`/worker_guide/index` if you're new to
 the helpdesk and you would like to learn how to:
 
 -  Read and respond to email conversations
@@ -45,7 +45,7 @@ the helpdesk and you would like to learn how to:
 Developers
 ----------
 
-Skip to the :ref:`guide_for_developers` if you are a
+Skip to the :doc:`/developer_guide/index` if you are a
 software developer and you would like to learn how to:
 
 -  Create new plugins to extend the functionality of Cerb5
