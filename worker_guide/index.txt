@@ -1,12 +1,10 @@
-.. _guide_for_workers:
-
 Guide for Workers
 =================
 
-In this guide we will walk you through the Cerb5 interface and explain how to use the application.  For the best results, make sure you are familiar with the basic :doc:`concepts </concepts/index>` before continuing.
+In this guide we will walk you through the routine duties of a worker.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
 
 .. toctree::
-	:maxdepth: 1
+	:maxdepth: 2
 	
 	logging_in
 	ui/index

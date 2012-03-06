@@ -55,7 +55,7 @@ A checkbox field has a value that is either ``true`` or ``false``.
 Chooser
 ~~~~~~~
 
-A :doc:`chooser </concepts/choosers>` field can be compared to a list of values that are selected from a popup.
+A :doc:`chooser </concepts/ui/choosers>` field can be compared to a list of values that are selected from a popup.
 
 - **Is**
     The field matches any of the given values.

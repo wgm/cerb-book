@@ -1,7 +1,7 @@
-.. _guide_for_developers:
-
 Guide for Developers
 ====================
+
+In this guide we will walk you through a technical analysis of Cerb5 with the goal of making you proficient in developing plugins and integration.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
 
 .. toctree::
     :maxdepth: 1
