@@ -1,12 +1,18 @@
-.. _guide_for_admins:
-
 Guide for Administrators
-========================
+------------------------
+
+In this guide we will walk you through the routine duties of an administrator.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
 
 .. toctree::
-    :maxdepth: 2
-    
-    getting_started/index
-    backups/index
-    upgrading/index
+    :maxdepth: 3
 
+    setup/index
+    security/index
+    performance/index
+    upgrading/index
+    backups/index
+
+.. ::
+
+    Impersonation
+    Translations (installing)

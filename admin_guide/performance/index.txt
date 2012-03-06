@@ -1,0 +1,222 @@
+Performance
+-----------
+
+PHP opcode caching with XCache
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a webserver receives an HTTP request for a PHP script, the
+human-readable source code is compiled into a machine-friendly format
+called *opcodes*  [1]_. By default, opcodes are only kept around long
+enough to serve an individual request and then they're disposed of to
+free up resources.
+
+The default behavior makes sense in a shared hosting environment where
+dozens of scripts and applications may be sharing the same system
+resources. However, as you can imagine, when a single PHP web-app
+receives a disproportionately large amount of the traffic then the
+process of constantly recompiling its source code can become a
+performance bottleneck.
+
+**XCache** (http://xcache.lighttpd.net/) is an extension for PHP which
+caches the most frequently-accessed scripts in the machine-friendly
+opcode format. Typically, XCache is a moderate, turnkey
+performance-boost that doesn't require any application-level changes to
+benefit from the cache.
+
+.. figure:: /images/checklist/xcache_flowchart.png
+   :align: center
+   :alt: XCache flowchart
+
+   XCache flowchart
+
+Installing XCache
+^^^^^^^^^^^^^^^^^
+
+Installing XCache is an advanced topic. If you don't have
+administrator-level control of your server then it's likely not
+something you're going to be able to do.
+
+XCache is not found in the **PHP Extension and Application Repository
+(PEAR)** (http://pear.php.net/), so you'll need to install it through a
+package manager or compile it manually.
+
+On Debian and Ubuntu systems you can install XCache with ``apt-get``:
+
+::
+
+    $ sudo apt-get install php5-xcache
+
+Depending on your installation method the XCache configuration will be
+at the end of your ``php.ini`` file, or in a ``conf.d/xcache.ini`` file.
+
+If you have other applications on your webserver that you don't want to
+be managed by XCache, you can disable caching by default with the
+following settings in your ``php.ini`` or ``conf.d/xcache.ini`` file:
+
+::
+
+    xcache.cacher = Off
+
+Then you can add the following option in your virtual host configuration
+or an ``.htaccess`` file:
+
+::
+
+    php_flag xcache.cacher On
+
+Don't use Alternative PHP Cache (APC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The **Alternative PHP Cache (APC)**  [2]_ is a popular choice for opcode
+caching because it's part of PEAR, which makes installing it really
+simple. However, APC suffers from some major drawbacks. It has limited
+support for recent versions of PHP, and there are many situations where
+it will produce segmentation faults  [3]_, cryptic ``FATAL`` errors on
+*"Line 0"*  [4]_, or blank white pages in the web browser.
+
+Memcached
+~~~~~~~~~
+
+One of the major sources of latency in web applications is often
+database interaction. Databases are used to save information between
+sessions (*persistence*), and they provide functionality for sorting,
+joining, and filtering large collections of information. Databases are a
+natural fit for *dynamic* content -- that which changes frequently as
+people use the application (e.g. profiles, voting, comments).
+
+The use of a database may feel so convenient for novice developers that
+they begin to serve all content that way, including *static* content --
+that which doesn't change while the application is in use (e.g. HTML
+templates, CSS stylesheets, files for download).
+
+In our experience, the worst kind of content to frequently read from a
+database is *immutable* -- that which is written once and then *never*
+changes (e.g. email messages, file attachments, log entries).
+
+There is nothing inherently wrong with storing this information in a
+database. Issues arise when infrequently changed information is
+*frequently* read from the database, due to the overhead of aggregating,
+joining, filtering, sorting, and returning results. At best, the
+database itself caches the results of these extraneous read queries. At
+worst, the database expends considerable resources every request to
+retrieve data that hasn't changed in the past 1,000 read queries.
+
+**Memcached** (http://memcached.org/) provides a shared memory cache for
+arbitrary information. This allows static or immutable content to be
+retrieved from the database once and then requested many times without
+incurring database overhead. Even better, content in a single Memcached
+instance can be cached from multiple databases, and read by multiple
+servers.
+
+Memcached advantages:
+
+-  Shared memory allows multiple processes to share a single cache.
+-  Memcached instances can be shared by multiple readers.
+-  Cache requests can be distributed over multiple instances.
+-  Reading from Memcached is often faster than reading from a database;
+   especially when content has been pre-sorted and pre-filtered, and is
+   cached in a serialized object format (e.g. JSON) that can be quickly
+   reconstituted by the application. Information read from databases is
+   usually based on rows and columns, and these need to be reassembled
+   into objects which have a considerable overhead cost if performed
+   frequently.
+
+Memcached disadvantages:
+
+-  Applications need to be designed with Memcached support in mind.
+-  It's volatile memory and shouldn't be used to store anything that you
+   can't repopulate from a persistent source (like the filesystem or a
+   database).
+-  It's yet another process running on your server.
+-  It provides no means of authentication. That's up to you.
+
+.. figure:: /images/checklist/memcached_flowchart.png
+   :align: center
+   :alt: Memcached flowchart
+
+   Memcached flowchart
+
+Installing Memcached
+^^^^^^^^^^^^^^^^^^^^
+
+It's often best to install Memcached from your platform's package
+manager; however, some distributions (such as Debian Etch) will install
+rather old versions. You want version 1.2.2 or later.
+
+You'll use PECL to install **PHP's Memcached extension**
+(http://us3.php.net/memcached). The similarly named **Memcache
+extension** (http://us3.php.net/memcache) will also work, although it is
+an older library with fewer features.
+
+Once Memcached is installed you need to edit your Cerb5
+``framework.config.php`` file and change the following lines:
+
+::
+
+    //define('DEVBLOCKS_CACHE_PREFIX',''); // ONLY A-Z, a-z, 0-9 and underscore
+    //define('DEVBLOCKS_MEMCACHED_SERVERS','127.0.0.1:11211');
+
+To something like:
+
+::
+
+    define('DEVBLOCKS_CACHE_PREFIX','myhelpdesk'); // ONLY A-Z, a-z, 0-9 and underscore
+    define('DEVBLOCKS_MEMCACHED_SERVERS','127.0.0.1:11211');
+
+-  ``DEVBLOCKS_CACHE_PREFIX`` - This prefix allows multiple applications
+   to share a single Memcached. If no prefix is used, then only one
+   application can use a particular key (e.g. "worker\_list"). The
+   prefix can be anything as long as it's unique. We often suggest using
+   the database name as the prefix.
+
+-  ``DEVBLOCKS_MEMCACHED_SERVERS`` - This is a list of Memcached
+   instances to distribute requests between. Usually you won't need more
+   than a single Memcached instance, but if you want to distribute
+   requests then add more host:port pairs delimited by commas (e.g.
+   ``127.0.0.1:11211, 127.0.0.2:11211``).
+
+Security implications of Memcached
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, Memcached does not have any form of authentication. Make
+sure you don't bind Memcached to a publicly-accessible network interface
+without establishing firewall rules. It defaults to only serving local
+requests on the ``127.0.0.1`` address.
+
+You also need to consider if other local users and scripts can connect
+to Memcached's port (``11211`` by default). Choosing a unique prefix
+will help safeguard your cached data, but it shouldn't be all you rely
+on.
+
+In summary:
+
+-  Don't bind Memcached to a public network interface without firewall
+   rules.
+-  Consider that local users can connect to Memcached's port. Choosing a
+   non-standard port is a decent start, but local users with shell
+   access can easily discover running services with commands like:
+
+::
+
+    netstat --tcp -l
+
+-  If you don't set a prefix for Memcached keys then anyone connecting
+   to the port can read your cached information if they're familiar with
+   an application's source code (and Cerb5's source code is
+   world-readable).
+   
+.. [1]
+  Wikipedia: *Opcode*
+  http://en.wikipedia.org/wiki/Opcode
+
+.. [2]
+  PHP Manual: *Alternative PHP Cache (APC)*
+  http://php.net/manual/en/book.apc.php
+
+.. [3]
+  Google: *Segfaults caused by APC.*
+  http://www.google.com/search?q=apc+segfault
+
+.. [4]
+  Cerb5 forums: *Cryptic errors on "Line 0" found to be caused by APC.*
+  http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache

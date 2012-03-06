@@ -1,0 +1,65 @@
+Setup
+-----
+
+Settings
+========
+
+.. toctree::
+    :maxdepth: 1
+    
+    settings/logo_and_title
+    settings/security
+    settings/custom_fields
+    settings/license
+    settings/scheduler
+
+Workers & Groups
+================
+    
+.. toctree::
+    :maxdepth: 1
+
+    people/groups
+    people/roles
+    people/workers
+
+Mail
+====
+
+.. toctree::
+    :maxdepth: 1
+
+    mail/incoming/settings
+    mail/incoming/pop3
+    mail/incoming/routing
+    mail/incoming/filtering
+    
+    mail/outgoing/smtp
+    mail/outgoing/reply_to
+    mail/outgoing/queue
+
+Storage
+=======
+
+.. toctree::
+    :maxdepth: 1
+    
+    storage/content
+    storage/profiles
+    storage/attachments
+
+Community Portals
+=================
+
+.. toctree::
+    :maxdepth: 1
+    
+    portals/configure
+
+Plugins
+=======
+
+.. toctree::
+    :maxdepth: 1
+
+    plugins/manage
