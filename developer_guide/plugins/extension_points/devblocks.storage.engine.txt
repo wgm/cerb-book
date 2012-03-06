@@ -1,7 +1,7 @@
-devblocks.search.schema
------------------------
+devblocks.storage.engine
+------------------------
 
-The **devblocks.search.schema** extension point allows you to create new :doc:`Scheduled Tasks`.
+The **devblocks.storage.engine** extension point allows you to create new :doc:`Storage Engines` to store your data in.
 
 Plugin Manifest
 ===============
@@ -16,7 +16,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 		<name>Example Storage Engine</name>
 		<class>
 			<file>api/App.php</file>
-			<name>DevblocksStorageEngineExample</name>
+			<name>ExampleDevblocksStorageEngine</name>
 		</class>
 		<params/>
 	</extension>
@@ -26,26 +26,22 @@ Implementation
 .. code-block:: php
 
     <?php
-    abstract class Extension_DevblocksStorageEngine
-        extends DevblocksExtension {
+    class ExampleDevblocksStorageEngine
+        extends Extension_DevblocksStorageEngine {
         	protected $_options = array();
 
-        	abstract function renderConfig(Model_DevblocksStorageProfile $profile);
-        	abstract function saveConfig(Model_DevblocksStorageProfile $profile);
-        	abstract function testConfig();
-
-        	abstract function exists($namespace, $key);
-        	abstract function put($namespace, $id, $data);
-        	abstract function get($namespace, $key, &$fp=null);
-        	abstract function delete($namespace, $key);
+        	public function renderConfig(Model_DevblocksStorageProfile $profile) {}
+        	public function saveConfig(Model_DevblocksStorageProfile $profile) {}
+        	public function testConfig() {}
+            
+        	public function exists($namespace, $key) {}
+        	public function put($namespace, $id, $data) {}
+        	public function get($namespace, $key, &$fp=null) {}
+        	public function delete($namespace, $key) {}
 
         	public function setOptions($options=array()) {
         		if(is_array($options))
         			$this->_options = $options;
-        	}
-
-        	protected function escapeNamespace($namespace) {
-        		return strtolower(DevblocksPlatform::strAlphaNum($namespace, '\_'));
         	}
     };
 
@@ -62,9 +58,10 @@ Implementation
     This method is called when an object is the platform needs to determine if an object exists. Information about the object is passed to your method via the ``$namespace`` and ``$key`` parameters. Your implementation should check if the object exists, and return true if it does, and false if it does not.
 
 **put($namespace, $id, $data)**
-    This method is called when content is saved to your storage profile. Information about the object is passed to your method via the ``$namespace``, ``$id`` and ``$data`` parameters. Your implementation should take the ``$namespace`` and ``$id`` and create a unique key from them, then assign  ``$data`` to that key. If there is an error, your implementation should return false, otherwise it should return the unique $key you generated.
+    This method is called when content is saved to your storage profile. Your implementation is passed information about the object via the ``$namespace``, ``$id`` and ``$data`` parameters. Your implementation should take the ``$namespace`` and ``$id`` and create a unique key from them, then assign  ``$data`` to that key. If there is an error, your implementation should return false, otherwise it should return the unique $key you generated.
     
 **get($namespace, $key, $fp=null)**
+    This method is called when an object is retrieved from your storage engine. Your implementation is passed information about the object via the ``$namespace`` and ``$key`` parameters. Your implementation should use these parameters to retrieve the appropriate object.
 
 Examples
 ========

@@ -1,7 +1,7 @@
 devblocks.search.schema
 -----------------------
 
-The **devblocks.search.schema** extension point allows you to create new :doc:`Scheduled Tasks`.
+The **devblocks.search.schema** extension point allows you to index your data automatically.
 
 Plugin Manifest
 ===============

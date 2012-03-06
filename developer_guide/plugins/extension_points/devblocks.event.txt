@@ -47,12 +47,12 @@ Implementation
         	private $_labels = array();
         	private $_values = array();
 
-        	abstract function getConditionExtensions();
-        	abstract function renderConditionExtension($token, $trigger, $params=array(), $seq=null);
-        	abstract function runConditionExtension($token, $trigger, $params, $values);
-        	abstract function getActionExtensions();
-        	abstract function renderActionExtension($token, $trigger, $params=array(), $seq=null);
-        	abstract function runActionExtension($token, $trigger, $params, &$values);
+           function getConditionExtensions() {}
+           function renderConditionExtension($token, $trigger, $params=array(), $seq=null) {}
+           function runConditionExtension($token, $trigger, $params, $values) {}
+           function getActionExtensions() {}
+           function renderActionExtension($token, $trigger, $params=array(), $seq=null) {}
+           function runActionExtension($token, $trigger, $params, &$values) {}
 
 Examples
 ========
