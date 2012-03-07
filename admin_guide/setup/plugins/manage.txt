@@ -1,3 +1,4 @@
 Manage
 ------
 
+:menuselection:`Setup --> Mail --> Plugins --> Manage`

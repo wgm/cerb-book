@@ -1,2 +1,4 @@
 Profiles
 --------
+
+:menuselection:`Setup --> Mail --> Storage --> Profiles`

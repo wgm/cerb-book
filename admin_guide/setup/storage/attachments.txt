@@ -1,3 +1,4 @@
 Attachments
 -----------
 
+:menuselection:`Setup --> Mail --> Storage --> Attachments`

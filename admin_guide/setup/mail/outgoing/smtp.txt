@@ -1,3 +1,4 @@
 SMTP Server
 -----------
 
+:menuselection:`Setup --> Mail --> Outgoing Mail --> SMTP Server`

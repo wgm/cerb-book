@@ -1,6 +1,8 @@
 Routing
 -------
 
+:menuselection:`Setup --> Mail --> Incoming Mail --> Routing`
+
 Cerb5 will determine the appropriate ``From:`` address to use on
 outgoing email based on the group or bucket. These are collectively
 referred to as *Receipts* addresses\_.

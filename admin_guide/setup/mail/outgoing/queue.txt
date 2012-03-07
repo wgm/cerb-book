@@ -1,3 +1,4 @@
 Queue
 -----
 
+:menuselection:`Setup --> Mail --> Outgoing Mail --> Queue`

@@ -1,2 +1,5 @@
 Filtering
 ---------
+
+:menuselection:`Setup --> Mail --> Incoming Mail --> Filtering`
+
