@@ -5,6 +5,7 @@ Scheduler
 
 .. figure:: /images/admin_guide/setup/scheduler.png
     :alt: Configuring scheduler.
+    :figclass: bordered
 
 The **Scheduler** is responsible for planning and executing *jobs*.  A **job** is a specific type of activity -- for example, checking your mailboxes for new messages. There are several built-in jobs, and new jobs can be added using :doc:`plugins </concepts/plugins>`.
 

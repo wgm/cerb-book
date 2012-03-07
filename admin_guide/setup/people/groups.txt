@@ -5,6 +5,7 @@ Groups
 
 .. figure:: /images/admin_guide/setup/groups.png
    :alt: A list of groups.
+   :figclass: bordered
 
 :doc:`Workers </concepts/contexts/worker>` are organized into :doc:`groups </concepts/contexts/group>`. Groups are a flexible concept that can be based on anything: brand, product, department, timezone, language, etc. By default you will have three groups: Dispatch, Support, and Sales. The defaults were chosen because they're common departments across most industries, not because they're all-encompassing. You are free to modify these groups to suit your needs.
 

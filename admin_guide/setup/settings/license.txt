@@ -5,6 +5,7 @@ License
 
 .. figure:: /images/admin_guide/setup/license.png
     :alt: The license information.
+    :figclass: bordered
 
 This page displays your license information.  A license determines the number of :term:`seats <seat>` that are available for simultaneous :doc:`workers </concepts/contexts/worker>`.  A license never expires, but it will only activate versions of Cerb5 that were released before its right to software updates expired.
 

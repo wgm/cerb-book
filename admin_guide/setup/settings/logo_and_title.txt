@@ -5,6 +5,7 @@ Logo & Title
 
 .. figure:: /images/admin_guide/setup/logo_and_title.png
     :alt: Configuring logo and title.
+    :figclass: bordered
 
 On this page you will find the following configuration options:
 

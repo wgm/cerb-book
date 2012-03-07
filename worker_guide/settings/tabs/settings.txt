@@ -8,6 +8,7 @@ The :guilabel:`Account Settings` box is where you will find the settings that co
 
 .. figure:: /images/worker_guide/account_settings.png
    :alt: Account settings.
+   :figclass: bordered
 
 **Timezone**
     Set this dropdown menu to your current location.  The software will use this timezone when displaying dates and timestamps.
@@ -23,5 +24,6 @@ The :guilabel:`Account Settings` box is where you will find the settings that co
 
 .. figure:: /images/worker_guide/account_settings_email.png
    :alt: The email address options.
+   :figclass: bordered
 
 If you have additional email addresses that you would like to associate with your worker account you can add them in the :guilabel:`Email Addresses` section. This is useful if you want to be able to relay mail to a mobile email account. Keep in mind that these addresses will all represent your worker account, so you don't need to add all your personal email addresses unless you intend to use them for this purpose.

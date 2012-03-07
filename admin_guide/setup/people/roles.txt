@@ -5,6 +5,7 @@ Roles
 
 .. figure:: /images/admin_guide/setup/roles.png
     :alt: Configuring roles.
+    :figclass: bordered
 
 This page configures :doc:`roles </concepts/contexts/role>`.
 

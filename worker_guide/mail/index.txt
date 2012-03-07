@@ -3,6 +3,7 @@ Mail
 
 .. figure:: /images/worker_guide/mail/menu.png
    :alt: The mail section.
+   :figclass: bordered
 
 The **mail** page is where you read, reply to, and initiate :doc:`email conversations </concepts/contexts/ticket>`. These conversations are shared with other :doc:`workers </concepts/contexts/worker>` in the :doc:`groups </concepts/contexts/group>` you are a member of.
 
@@ -13,6 +14,7 @@ There is a toolbar at the top of the mail page:
 
 .. figure:: /images/worker_guide/mail/toolbar.png
    :alt: The mail toolbar.
+   :figclass: bordered
 
 In the left side of the toolbar are the following buttons:
 
@@ -27,6 +29,7 @@ The rest of the mail page is divided into a series of :doc:`tabs </concepts/ui/t
 
 .. figure:: /images/worker_guide/mail/tabs.png
    :alt: The mail tabs.
+   :figclass: bordered
 
 .. toctree::
     :maxdepth: 1

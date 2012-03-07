@@ -5,6 +5,7 @@ Workers
 
 .. figure:: /images/admin_guide/setup/workers.png
    :alt: A list of workers.
+   :figclass: bordered
 
 A :doc:`worker </concepts/contexts/worker>` is a person who represents your organization while performing their duties.  Workers might be in customer service, billing, sales, I.T., or marketing; or they may be executives, developers, or system administrators.
 
@@ -14,6 +15,7 @@ Start collaborating by inviting your co-workers with the :guilabel:`Add Worker` 
 
 .. figure:: /images/admin_guide/setup/worker_add.png
    :alt: Configuring a worker account.
+   :figclass: bordered
 
 - In :guilabel:`Contact Information` you can update a worker's name, title, and email address. Keep in mind that if you change a worker's primary email address it will become their new helpdesk login.
 

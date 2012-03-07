@@ -12,8 +12,8 @@ To manage a group:
    the left.
 
 .. figure:: /images/group_manager/groups_manage.png
-   :align: center
    :alt: Managing a group.
+   :figclass: bordered
 
    Managing a group.
 
