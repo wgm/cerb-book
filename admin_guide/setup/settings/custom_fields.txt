@@ -1,3 +1,12 @@
 Custom Fields
 -------------
 
+:menuselection:`Setup --> Settings --> Custom Fields`
+
+On this page you can configure the :doc:`custom fields </concepts/objects/custom_fields>` that are added to your :doc:`objects </concepts/objects/index>`.
+
+The :guilabel:`Record Type` section lists the :doc:`types </concepts/contexts/index>` of objects that are available.  Click on one to view or modify its custom fields.
+
+.. rubric:: See also:
+
+- :doc:`Useful custom field ideas </cookbook/custom_fields/examples>`

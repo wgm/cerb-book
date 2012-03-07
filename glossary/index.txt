@@ -114,6 +114,9 @@ Glossary
     ticket
         A specific email conversation, including all of its messages, comments, and settings. Each ticket has a unique identifier (:term:`mask`) for future reference by anyone involved.
 
+    URL
+        Uniform Resource Locator (URL).  The combination of protocol, domain, and path that you type into a web browser to visit a page on a specific site.  For example: ``http://www.example.com/about-us``
+		
     VA
         See: :term:`Virtual Attendant`
     

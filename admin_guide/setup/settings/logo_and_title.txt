@@ -1,3 +1,12 @@
 Logo & Title
 ------------
 
+:menuselection:`Setup --> Settings --> Logo & Title`
+
+On this page you will find the following configuration options:
+
+**Logo URL**
+	A :term:`URL` to your logo image.  This image will be displayed at the top of every page.  When this option is blank, Cerb5's logo will be displayed by default.  There isn't a limit to the size or dimensions of this image, but generally your logo should not be taller than 100 pixels.  When your logo is too tall, workers will have to scroll down on pages more often.
+	
+**Helpdesk Title**
+	This text will be displayed in the web browser in various locations: title bar, tabs, right-click menu from the dock, bookmarks, etc.  You will probably want to change this to your organization's name, along with a descriptive label like *"Support"* or *"Helpdesk"*.
