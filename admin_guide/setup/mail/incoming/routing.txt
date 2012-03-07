@@ -1,6 +1,8 @@
 Routing
 -------
 
+:menuselection:`Setup --> Mail --> Incoming Mail --> Routing`
+
 Cerb5 will determine the appropriate ``From:`` address to use on
 outgoing email based on the group or bucket. These are collectively
 referred to as *Receipts* addresses\_.
@@ -23,10 +25,8 @@ You can add new reply-to addresses from Setup:
 3. Select the *Reply-To Addresses* menu item.
 
 .. figure:: /images/checklist/menu_setup_mail_replyto.png
-   :align: center
    :alt: Navigating to the helpdesk addresses setup page.
-
-   Navigating to the helpdesk addresses setup page.
+   :figclass: bordered
 
 Click the *Add* button to add a new reply-to address, and enter the
 following information:
@@ -52,10 +52,8 @@ following information:
    out reminders for forgotten passwords.
 
 .. figure:: /images/checklist/setup_mail_replyto_add.png
-   :align: center
    :alt: Configuring a new reply-to address.
-
-   Configuring a new reply-to address.
+   :figclass: bordered
 
 You can repeat this process for any additional reply-to addresses you
 want to add.

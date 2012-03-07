@@ -1,3 +1,4 @@
 Reply-To Addresses
 ------------------
 
+:menuselection:`Setup --> Mail --> Outgoing Mail --> Reply-To Addresses`

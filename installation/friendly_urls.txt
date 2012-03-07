@@ -4,6 +4,7 @@ Friendly URLs
 .. figure:: /images/checklist/friendly_urls.png
    :align: center
    :alt: This URL isn't very pretty.
+   :figclass: bordered
 
    This URL isn't very pretty.
 
@@ -14,6 +15,7 @@ shorter and more user-friendly, but this requires webserver support.
 .. figure:: /images/checklist/friendly_urls_done.png
    :align: center
    :alt: This looks much nicer with friendly URLs enabled!
+   :figclass: bordered
 
    This looks much nicer with friendly URLs enabled!
 

@@ -1,3 +1,4 @@
 POP3 Accounts
 -------------
 
+:menuselection:`Setup --> Mail --> Incoming Mail --> POP3 Accounts`

@@ -24,8 +24,8 @@ performance-boost that doesn't require any application-level changes to
 benefit from the cache.
 
 .. figure:: /images/checklist/xcache_flowchart.png
-   :align: center
    :alt: XCache flowchart
+   :figclass: bordered
 
    XCache flowchart
 
@@ -131,8 +131,8 @@ Memcached disadvantages:
 -  It provides no means of authentication. That's up to you.
 
 .. figure:: /images/checklist/memcached_flowchart.png
-   :align: center
    :alt: Memcached flowchart
+   :figclass: bordered
 
    Memcached flowchart
 

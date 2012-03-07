@@ -1,64 +1,35 @@
 Groups
 ------
 
-Workers are organized into *groups*. Groups are a flexible concept that
-can be based on anything: brand, product, department, timezone,
-language, etc. By default you will have three groups based on common
-departments: Dispatch, Support, and Sales. The defaults were chosen
-because they're common departments across most industries, not because
-they're all-encompassing. You are free to modify these groups to suit
-your needs.
+:menuselection:`Setup --> Workers & Groups --> Groups`
+
+.. figure:: /images/admin_guide/setup/groups.png
+   :alt: A list of groups.
+   :figclass: bordered
+
+:doc:`Workers </concepts/contexts/worker>` are organized into :doc:`groups </concepts/contexts/group>`. Groups are a flexible concept that can be based on anything: brand, product, department, timezone, language, etc. By default you will have three groups: Dispatch, Support, and Sales. The defaults were chosen because they're common departments across most industries, not because they're all-encompassing. You are free to modify these groups to suit your needs.
 
 If you stick with the defaults, this is the proposed workflow:
 
--  **Dispatch** catches all mail that isn't explicitly routed somewhere.
-   Some companies prefer to have a human dispatcher assign work -- to
-   verify support eligibility and route issues based on worker skills --
-   and this group is an easy way to achieve that. Because Cerb5 doesn't
-   require incoming mail to always match a specific group, the Dispatch
-   group is also the best way to spot incoming email addresses (like
-   ``billing@example.com``) that you may want to route directly to a
-   particular group.
--  **Support** collects issues related to support: product support,
-   customer service, FAQs, billing, etc.
--  **Sales** collects issues related to sales: leads, new orders,
-   refunds, resellers, etc.
+**Dispatch**
+    Catches all mail that isn't explicitly routed somewhere else. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on worker skills -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always match a specific group, the Dispatch group is also the best way to spot incoming email addresses (like ``billing@example.com``) that you may want to route directly to a particular group.
 
-The workers inside groups can either be *managers* or *members*. Groups
-are designed to be autonomous; a group manager has the power to make
-most configuration changes related to the group without requiring help
-from an administrator. Managers can add new members to the group, manage
-buckets, and configure workflow using the group's Virtual Attendant.
+**Support**
+    Collects issues related to support: product support, customer service, FAQs, billing, etc.
 
-The common practice is to use groups for building a roster of fairly
-interchangeable workers. Work can be given to the group from the outside
-with the confidence that any member knows what to do with it. Groups
-share an organization system based on *buckets*, but workers outside the
-group aren't expected to know how other groups organize their work (and
-it shouldn't matter to them). Instead, new work is given to groups
-through their *inbox*, and the group's own filters will decide how work
-is routed or assigned from there.
+**Sales**
+    Collects issues related to sales: leads, new orders, refunds, resellers, etc.
 
-Let's add a couple new groups. At this point you're also welcome to
-change the default groups.
+The workers inside groups can either be :term:`members <member>` or :term:`managers <manager>`. Groups are designed to be autonomous; a group manager has the power to make most configuration changes related to the group without requiring help from an :term:`administrator`. Managers can add new members to the group, manage buckets, and configure :doc:`workflow </worker_guide/mail/tabs/workflow>` using the group's :doc:`Virtual Attendant </concepts/virtual_attendants/index>`.
 
--  Click *setup* in the top right.
--  Click the *Workers & Groups* menu.
--  Click the *Groups* menu item.
--  Click the name of a group on the left, or click *add a new group* to
-   create one.
+The common practice is to use groups for building a roster of fairly interchangeable workers. Work can be given to the group from the outside with the confidence that any member knows what to do with it. Groups share an organization system based on *buckets*, but workers outside the group aren't expected to know how other groups organize their work (and it shouldn't matter to them). Instead, new work is given to groups through their *inbox*, and the group's own filters will decide how work is routed or assigned from there.
 
-.. figure:: /images/checklist/groups_add.png
-   :align: center
-   :alt: Configuring a group.
+Let's add a couple new groups. At this point you're also welcome to change the default groups.  Click the name of a group on the left, or click the :guilabel:`Add Group` button to create one.
 
-   Configuring a group.
+**Name**
+    The descriptive name of the group that will be used throughout the interface.
+    
+**Members**
+    The roster of workers that you would like to designate as members or managers.
 
--  **Name** is what the group will be referred to as throughout the
-   interface.
--  **Members** is the list of workers that you would like to designate
-   as members or managers.
-
-From this point, the managers of your new group can take over. They
-should refer to the `Quick Start Guide for Group
-Managers <#quick-start-guide-for-group-managers>`_.
+From this point, the managers of your new group can take over. They should refer to the :doc:`Guide for Group Managers </manager_guide/index>`.

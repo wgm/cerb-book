@@ -1,3 +1,27 @@
 License
 -------
 
+:menuselection:`Setup --> Settings --> License`
+
+.. figure:: /images/admin_guide/setup/license.png
+    :alt: The license information.
+    :figclass: bordered
+
+This page displays your license information.  A license determines the number of :term:`seats <seat>` that are available for simultaneous :doc:`workers </concepts/contexts/worker>`.  A license never expires, but it will only activate versions of Cerb5 that were released before its right to software updates expired.
+
+When updating your license, be sure to type the company name and email address *exactly* as they appear on your order.  You can paste the entire license into the text box.
+
+A license looks like::
+
+    Licensed to: WebGroup Media, LLC.
+    Order e-mail: wgm@example.com
+
+    ## BEGIN CERB5 LICENSE
+    Key: XXXX-XXXX-XXXX-XXXX-XXXX
+    Created: 2012-01-09
+    Updated: 2012-03-15
+    Upgrades: 2015-03-15
+    Seats: 25
+    ## END
+
+Without a license, Cerb5 will operate in *Evaluation Mode*.  This permits a single worker to log in at a time.  This limit can be increased to three workers, at no cost, by completing the survey at the end of the :doc:`installation </installation/index>` process.

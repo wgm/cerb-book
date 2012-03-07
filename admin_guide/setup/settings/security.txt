@@ -1,3 +1,31 @@
 Security
 --------
 
+:menuselection:`Setup --> Settings --> Security`
+
+There are a few special pages in Cerb5 which need to be accessed without logging in:
+
+- ``/cron``
+    This page controls the :doc:`scheduler </admin_guide/setup/settings/scheduler>`.  It is usually accessed every minute from a scheduled task on your server.  You can generally whitelist ``127.0.0.1`` (the loopback address) to authorize requests for this page that originate from your server.
+    
+- ``/debug``
+    This page provides debug information about your installation and environment that may be useful during troubleshooting.
+    
+- ``/update``
+    This page is used to :doc:`upgrade </admin_guide/upgrading/index>` to a new version of Cerb5.
+
+To restrict access to trusted machines, these pages are protected by a whitelist of :abbr:`IP (Internet Protocol; e.g.: 192.168.1.1)` addresses.  You should enter one IP address per line in the text box.  You can also authorize a range of IPs by entering a partial address.  
+
+For example:
+
+``192.168.1.100``
+    This authorizes a single IP
+
+``192.168.1.1``
+    With fewer than three digits in the last number, this authorizes the literal IP (``192.168.1.1``) as well as any IPs that match the prefix, like ``192.168.1.15`` or ``192.168.1.125``
+
+``192.168.1.``
+    This authorizes the 256 addresses between ``192.168.1.0`` and ``192.168.1.255``
+    
+``192.168.``
+    This authorizes the 65,536 addresses that start with ``192.168.``

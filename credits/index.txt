@@ -118,13 +118,8 @@ Licenses
 Official development team
 -------------------------
 
--  `Jeff Standen <http://www.linkedin.com/in/jeffstanden>`_ is the
-   founder of WebGroup Media LLC, contributing over 17 years of
-   professional software development and online collaboration
-   experience. He has been the lead developer of Cerberus Helpdesk
-   (Cerb5) since the first line of code was written in January 2002.
--  `Darren
-   Sugita <http://www.linkedin.com/pub/darren-sugita/24/234/978>`_
+- `Jeff Standen <http://www.linkedin.com/in/jeffstanden>`_ is the founder of WebGroup Media LLC, contributing over 18 years of professional software development and online collaboration experience. He has been the lead developer of Cerberus Helpdesk (Cerb5) since the first line of code was written in January 2002.
+- `Darren Sugita <http://www.linkedin.com/pub/darren-sugita/24/234/978>`_
 -  `Dan Hildebrandt <http://www.linkedin.com/in/danielhildebrandt>`_
 -  `Scott Luther <http://www.linkedin.com/pub/scott-luther/7/3b3/98>`_
 
@@ -132,11 +127,9 @@ Inactive developers
 -------------------
 
 -  `Ben Halsted <http://www.linkedin.com/in/bhalsted>`_
--  `Brenan
-   Cavish <http://www.linkedin.com/pub/brenan-cavish/21/a89/57b>`_
+- `Brenan Cavish <http://www.linkedin.com/pub/brenan-cavish/21/a89/57b>`_
 -  `Mike Fogg <http://www.linkedin.com/in/mikefogg>`_
--  `Jerry
-   Kanoholani <http://www.linkedin.com/pub/jerry-kanoholani/19/74/977>`_
+- `Jerry Kanoholani <http://www.linkedin.com/pub/jerry-kanoholani/19/74/977>`_
 -  **Joe Geck**
 -  `Jeremy Johnstone <http://www.linkedin.com/in/jsjohnst>`_
 -  `Trent Ramseyer <http://www.linkedin.com/in/trentramseyer>`_
@@ -147,8 +140,7 @@ Code contributors
 Community support leaders
 -------------------------
 
--  `Robert
-   Middleswarth <http://www.linkedin.com/in/robertmiddleswarth>`_
+- `Robert Middleswarth <http://www.linkedin.com/in/robertmiddleswarth>`_
 
 Translators
 -----------

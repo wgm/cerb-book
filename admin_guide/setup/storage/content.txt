@@ -1,2 +1,4 @@
 Content
 -------
+
+:menuselection:`Setup --> Mail --> Storage --> Content`

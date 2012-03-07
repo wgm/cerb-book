@@ -1,52 +1,26 @@
 Workers
 -------
 
-The people who log in to Cerb5 to accomplish work and represent your
-organization to your audience are called *workers*. These workers might
-work in customer service, billing, sales, I.T., or marketing; or they
-may be executives, developers, or system administrators.
+:menuselection:`Setup --> Workers & Groups --> Workers`
 
-If this is a brand new helpdesk, the only worker that exists at the
-moment is yourself. This is the account that was created for you during
-the installation process.
+.. figure:: /images/admin_guide/setup/workers.png
+   :alt: A list of workers.
+   :figclass: bordered
 
-1. Click *setup* in the top right.
-2. Click the *Workers & Groups* menu.
-3. Select the *Workers* menu item.
+A :doc:`worker </concepts/contexts/worker>` is a person who represents your organization while performing their duties.  Workers might be in customer service, billing, sales, I.T., or marketing; or they may be executives, developers, or system administrators.
 
-First, let's update your own account information. Click the link on the
-first or last name of *Super User* in the *Workers* list.
+If this is a brand new helpdesk, then there is probably only worker at the moment -- you.
 
-.. figure:: /images/checklist/adding_workers.png
-   :align: center
+Start collaborating by inviting your co-workers with the :guilabel:`Add Worker` button.
+
+.. figure:: /images/admin_guide/setup/worker_add.png
    :alt: Configuring a worker account.
+   :figclass: bordered
 
-   Configuring a worker account.
+- In :guilabel:`Contact Information` you can update a worker's name, title, and email address. Keep in mind that if you change a worker's primary email address it will become their new helpdesk login.
 
--  In **Contact Information** you can update a worker's name, title, and
-   email address. Keep in mind that if you change a worker's primary
-   email address it will become their new helpdesk login.
+- :guilabel:`Authentication` is used to update a worker's password, and you can also promote them to :term:`Administrator`, which will give them the permission to do absolutely everything in the helpdesk; they are like the ``root`` account on Unix-based systems, or the ``Administrator`` account in Windows. Only workers who are administrators can enter :doc:`Setup </admin_guide/setup/index>`. Grant administrator access judiciously.
 
--  **Authentication** is used to update a worker's password, and you can
-   also promote them to *Administrator*, which will give them the
-   permission to do absolutely everything in the helpdesk; they are like
-   the ``root`` account on Unix-based systems, or the ``Administrator``
-   account in Windows. Only workers who are administrators can enter
-   *Setup*. Grant administrator access judiciously.
-
--  Lastly, the **Memberships** box defines the worker's *membership* to
-   each of your groups. You can also designate the worker as a *manager*
-   of a group. Managers can perform group-level administration: adding
-   other workers as new group *members*, creating *buckets* for
-   organizing the group's work, etc.
+- Lastly, the :guilabel:`Memberships` box defines the worker's membership to each of your :doc:`groups </concepts/contexts/group>`. You can also designate the worker as a :term:`manager` of a group. Managers can perform group-level administration: adding other workers as new group :term:`members <member>`, creating :term:`buckets <bucket>` for organizing the group's work, etc.
 
 When you've finished with your changes, click the :guilabel:`Save Changes` button.
-
-Start collaborating by inviting your co-workers with the *Add Worker*
-button. In the next step we'll organize your workers into groups.
-
-.. figure:: /images/checklist/workers_list.png
-   :align: center
-   :alt: A list of helpdesk workers.
-
-   A list of helpdesk workers.

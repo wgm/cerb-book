@@ -14,6 +14,7 @@ The server environment checker
 
 .. figure:: /images/installation/installer_step1_checker.png
    :alt: The requirements checker in the guided installer.
+   :figclass: bordered
 
 The installer will determine if your server meets the requirements for installing Cerb5. Correct any problems before proceeding, and then click the :guilabel:`Next Step` button.
 
@@ -27,6 +28,7 @@ Configure the database connection
 
 .. figure:: /images/installation/installer_step3_database.png
    :alt: Adding database connection details.
+   :figclass: bordered
 
 Add your database connection details:
 
@@ -52,6 +54,7 @@ Configure general settings
 
 .. figure:: /images/installation/installer_step6_settings.png
    :alt: Personalizing your helpdesk.
+   :figclass: bordered
 
 In this step you'll configure the general settings of the helpdesk:
 
@@ -73,6 +76,7 @@ Configure outgoing mail (SMTP)
 
 .. figure:: /images/installation/installer_step7_smtp.png
    :alt: Configuring outgoing mail.
+   :figclass: bordered
 
 Your helpdesk won't be very useful if it can't send mail to your contacts.  In this step, we'll configure your outgoing mail server.
 
@@ -110,6 +114,7 @@ Create your account
 
 .. figure:: /images/installation/installer_step8_account.png
    :alt: Creating your account.
+   :figclass: bordered
 
 Now the installer will prompt you to create an administrator account that you will use to log in to the helpdesk. Use a personal email address that you check, but not something that will route back to the helpdesk. Your helpdesk will use this email address to contact you in the future; for example, if you forget your password.
 
@@ -129,6 +134,7 @@ Finish up!
 
 .. figure:: /images/installation/installer_step11_finished.png
    :alt: The installation process is complete.
+   :figclass: bordered
 
 You're almost ready to start using your new helpdesk.
 

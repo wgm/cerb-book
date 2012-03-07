@@ -1,3 +1,105 @@
 Scheduler
 ---------
 
+:menuselection:`Setup --> Settings --> Scheduler`
+
+.. figure:: /images/admin_guide/setup/scheduler.png
+    :alt: Configuring scheduler.
+    :figclass: bordered
+
+The **Scheduler** is responsible for planning and executing *jobs*.  A **job** is a specific type of activity -- for example, checking your mailboxes for new messages. There are several built-in jobs, and new jobs can be added using :doc:`plugins </concepts/plugins>`.
+
+Each job is repeated at a specific *interval* -- a number of minutes, hours, or days.  A job can be *disabled* to temporarily prevent it from executing.
+
+The Scheduler can execute jobs asynchronously and in parallel.  In other words, several jobs can run at exactly the same time without preventing :doc:`workers </concepts/contexts/worker>` from continuing to use the system.  While running, a job is *locked* to prevent it from running twice.  This process prevents a single long-running job from blocking the Scheduler.
+
+Each job has a :guilabel:`run now` link which can be used to execute it immediately.  This can be useful for troubleshooting or during :doc:`development </developer_guide/index>`, but the Scheduler should be automated in production environments.
+
+Automating the Scheduler
+========================
+
+In most environments it is desirable for the Scheduler to be automated so it runs by itself.  For example, new mail should be downloaded, and notifications should be sent, even when there are no workers available to initiate these actions.
+
+The Scheduler runs when the ``/cron`` page is accessed.  Automating the Scheduler is a simple matter of accessing the page using a command-line web browser like :program:`curl` or :program:`wget` from a cronjob [#cron]_.
+
+Options
+~~~~~~~
+
+The following parameters can be added to the ``/cron`` :term:`URL` for any job:
+
+``reload``
+    Automatically reload the page after this number of seconds.  This is only useful if you're viewing the ``/cron`` page in a full web browser, since automated web clients will often ignore this directive.
+    
+``ignore_wait``
+    If set to any value other than blank (``null``) or ``0``, the job will execute immediately instead of waiting for the next scheduled interval.
+    
+``loglevel``
+    The verbosity of logging output on a scale of ``0`` (no output) to ``7`` (most verbose).  A value of ``0`` is used by default to disable logging output.  This is useful if you want to know exactly what a job is doing.
+
+For example: ``http://www.example.com/cerb5/cron?ignore_wait=1&reload=30&loglevel=7``
+    
+.. note:: 
+    These options shouldn't be used when automating the Scheduler in a production environment.  Instead, use them for troubleshooting.
+
+The Built-in Jobs
+=================
+
+The following jobs are included by default:
+
+POP3 / IMAP Email Importing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:Path: ``/cron/cron.pop3``
+
+Downloads new messages from the configured :doc:`mailboxes </admin_guide/setup/mail/incoming/pop3>` to :file:`/storage/mail/new/`.
+
+Inbound Email Processing
+~~~~~~~~~~~~~~~~~~~~~~~~
+:Path: ``/cron/cron.parser``
+
+Reads messages from :file:`/storage/mail/new/` and parses them into :doc:`tickets </concepts/contexts/ticket>`.
+
+Maintenance
+~~~~~~~~~~~
+:Path: ``/cron/cron.maint``
+
+Purges deleted :doc:`objects </concepts/objects/index>` and cleans up orphaned data.  By default this runs every 24 hours.  Plugins can also listen to the :doc:`cron.maint </developer_guide/plugins/event_points/cron.maint>` event point to perform maintenance.
+
+Heartbeat
+~~~~~~~~~
+:Path: ``/cron/cron.heartbeat``
+
+Allows plugins and arbitrary functionality to perform time-dependent actions by listening to the :doc:`cron.heartbeat </developer_guide/plugins/event_points/cron.heartbeat>` event point.
+
+Background Importing and Synchronization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:Path: ``/cron/cron.import``
+
+Asynchronously and incrementally imports content from :file:`/storage/import/new/`.  This is used by automated synchronization, as well as the ImpEx tool which imports data from other applications.
+
+Storage Manager
+~~~~~~~~~~~~~~~
+:Path: ``/cron/cron.storage``
+
+Migrates, archives, and unarchives stored objects according to the :doc:`storage configuration </admin_guide/setup/storage/content>`.
+
+Search Indexer
+~~~~~~~~~~~~~~
+:Path: ``/cron/cron.search``
+
+Asynchronously and incrementally indexes new text-based content for search functionality.  New mail is processed faster as a consequence of separately batching search indexing in this process.
+
+Mail Queue
+~~~~~~~~~~
+:Path: ``/cron/cron.mail_queue``
+
+Asynchronously delivers queued mail from :doc:`Broadcast </concepts/broadcast>` and drafts.
+
+Virtual Attendant Scheduled Behavior
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:Path: ``/cron/cron.virtual_attendant.scheduled_behavior``
+
+Schedules and runs behavior for Virtual Attendants.
+
+.. rubric:: Footnotes
+
+.. [#cron] Wikipedia: Cron <http://en.wikipedia.org/wiki/Cron>
