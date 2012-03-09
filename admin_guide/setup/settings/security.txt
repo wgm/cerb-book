@@ -3,6 +3,10 @@ Security
 
 :menuselection:`Setup --> Settings --> Security`
 
+.. figure:: /images/admin_guide/setup/security.png
+    :alt: Configuring security.
+    :figclass: bordered
+
 There are a few special pages in Cerb5 which need to be accessed without logging in:
 
 - ``/cron``

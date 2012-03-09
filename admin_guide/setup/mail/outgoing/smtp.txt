@@ -2,3 +2,48 @@ SMTP Server
 -----------
 
 :menuselection:`Setup --> Mail --> Outgoing Mail --> SMTP Server`
+
+.. figure:: /images/admin_guide/setup/mail_smtp.png
+    :alt: Configuring the SMTP server
+    :figclass: bordered
+
+This page configures the SMTP server for outgoing mail.
+
+Configuring the outgoing SMTP server
+====================================
+
+You can configure the SMTP server in the :guilabel:`Settings` section.  The following configuration options are available:
+
+**SMTP Server**
+    The hostname or IP of your mail server.  If your mail server is on the same machine as your web server, you can usually use ``localhost`` for this setting.
+
+**SMTP Port**
+    The network `port <http://en.wikipedia.org/wiki/Computer_port_(software)>`_ to connect to on your mail server.  By default this is ``25``, but your mail server may require a non-standard port.
+
+**SMTP Encryption**
+    - **None**
+        No encryption will be used.
+    - **TLS**
+        The SMTP connection will be encrypted with `Transport Layer Security <http://en.wikipedia.org/wiki/Transport_Layer_Security>`_ encryption, the successor to SSL.
+    - **SSL**
+        The SMTP connection will be encrypted with `Secure Socket Layer <http://en.wikipedia.org/wiki/Secure_Socket_Layer>`_ encryption, the predecessor to TLS.
+
+**SMTP Authentication**
+    **Enabled**
+        If this checkbox is enabled, then SMTP authentication credentials will be sent to the server.  This is necessary if your mail server requires authentication.
+    **Username**
+        The username to authenticate with.
+    **Password**
+        The password to authenticate with.
+
+**SMTP Timeout**
+    A number of seconds to wait for a response from the SMTP server.  After this timeout, the connection will be broken and the message will be saved as a draft.
+    
+**Maximum Deliveries per SMTP Connection**
+    The number of messages to send over the same SMTP connection.  After this number of message, the SMTP connection will be re-established before sending additional messages.  The default of ``20`` should work for most environments, but you may need to lower this value if your SMTP server is strict.
+
+.. note::
+    Your SMTP server settings will be tested automatically when you click the :guilabel:`Save Changes` button.
+    
+.. note::
+    If your SMTP settings are invalid, or your mail server is temporarily offline, all outgoing email will be saved as drafts.

@@ -2,3 +2,63 @@ POP3 Accounts
 -------------
 
 :menuselection:`Setup --> Mail --> Incoming Mail --> POP3 Accounts`
+
+.. figure:: /images/admin_guide/setup/mail_pop3.png
+    :alt: Configuring POP3 mailboxes.
+    :figclass: bordered
+
+This page configures the mailboxes that will be checked for new mail.
+
+Adding a mailbox
+================
+
+Click the :guilabel:`Add` button to register an existing mailbox.
+
+A mailbox has the following fields:
+
+**Enabled**
+    If this checkbox is enabled then new mail will be downloaded from this mailbox.  Otherwise, this mailbox will not be checked until it is re-enabled.
+    
+**Nickname**
+    A friendly name to use for this mailbox when it is displayed in the interface.
+    
+**Protocol**
+    The protocol to use when connecting to this mailbox:
+    
+    - **POP3**
+        `Post Office Protocol <http://en.wikipedia.org/wiki/Post_Office_Protocol>`_.  The POP3 protocol supports a simpler set of instructions than IMAP.
+    - **POP3-SSL**
+        This is the same as POP3, except the connection will be encrypted with SSL.
+    - **IMAP**
+        `Internet Message Access Protocol <http://en.wikipedia.org/wiki/Internet_Message_Access_Protocol>`_.  The IMAP protocol supports advanced features like server-side folders; however, this functionality overlaps with Cerb5 and is not used.
+    - **IMAP-SSL**
+        This is the same as IMAP, except the connection will be encrypted with SSL.
+        
+    .. note::
+        Most mail servers support any of these protocols.  As far as Cerb5 is concerned, there is no functional difference between POP3 or IMAP. 
+    
+**Username**
+    The username used to authenticate access to this mailbox.  Depending on your mail server, this may be a simple username (e.g. `support`) or an email address (e.g. `support@example.com`).  If you aren't sure, ask your system administrator.
+    
+**Password**
+    The password used to authenticate access to this mailbox.
+    
+**Port**
+    The network `port <http://en.wikipedia.org/wiki/Computer_port_(software)>`_ to connect to on the mail server.  If this field is left blank then the standard ports will be used by default.  If your mail server uses a non-standard port then you will need to enter that number here.
+    
+**Delete**
+    If this checkbox is selected then the mailbox will be deleted when you save.
+    
+    .. note::
+        Deleting a mailbox will **not** affect any previously downloaded mail.
+    
+.. warning::
+    Cerb5 will delete messages from your mailbox after downloading them.  If this is not desirable, create a new mailbox and have copies of your mail redirected there.  This process is not necessary when using a Gmail mailbox, because Google ignores delete requests by default and refers instead to a configurable option.
+    
+.. warning::
+    If you aren't using SSL then your password will be sent in cleartext.  This might be a security issue depending on the network between your web server and mail server.  Use SSL whenever possible.
+    
+Testing a mailbox
+=================
+
+You can verify your mailbox connection details by clicking the :guilabel:`Test Mailbox` button.

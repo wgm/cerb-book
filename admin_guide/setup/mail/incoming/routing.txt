@@ -3,67 +3,66 @@ Routing
 
 :menuselection:`Setup --> Mail --> Incoming Mail --> Routing`
 
-Cerb5 will determine the appropriate ``From:`` address to use on
-outgoing email based on the group or bucket. These are collectively
-referred to as *Receipts* addresses\_.
+This page instructs the system how to route incoming mail to :doc:`group </concepts/contexts/group>` :term:`inboxes <inbox>` based on message properties.
 
-For example:
+Setting the default group
+=========================
 
--  The Billing group may send mail as ``billing@example.com``
--  The Billing group's *Receipts* bucket may send mail as
-   ``receipts@example.com``
--  The Sales group may send mail as ``sales@example.com``
+.. figure:: /images/admin_guide/setup/mail_routing_default.png
+    :alt: Configuring the default group.
+    :figclass: bordered
 
-To ensure that you receive customer replies, it is very important that
-your mail servers route these reply-to addresses to a mailbox that is
-checked by Cerb5.
+The default group will receive any mail that isn't explicitly routed somewhere else.  By default this is set to the *Dispatch* group.
 
-You can add new reply-to addresses from Setup:
+For example, if you route mail by the :mailheader:`To:` field, the default group will be used when mail is sent to an email address that you haven't configured.  Mail will also be delivered here if someone includes your organization in the  :mailheader:`Bcc:` list.
 
-1. Click *setup* in the top right.
-2. Click the *Mail* menu.
-3. Select the *Reply-To Addresses* menu item.
+.. note::
+    You can route mail based on any property, not just the :mailheader:`To:` field.  The default group will only be used if none of your routing rules instruct the system to deliver mail to a specific group.
 
-.. figure:: /images/checklist/menu_setup_mail_replyto.png
-   :alt: Navigating to the helpdesk addresses setup page.
-   :figclass: bordered
+Creating a new routing rule
+===========================
 
-Click the *Add* button to add a new reply-to address, and enter the
-following information:
+You can add a new routing rule by clicking the :guilabel:`Add` button.
 
--  **Send replies as email:** This specifies an email address to use as
-   the sender in ``From:``.
--  **Send replies as name:** This allows you to provide a personal name
-   that will display next to the sender address when your recipient
-   reads their email. For example, ``billing@example.com`` may use the
-   personal name *"Widget Factory - Billing Dept."*. This gives the
-   recipient an idea of who you are; especially if they don't recognize
-   your email address.
--  **Default signature template:** This defines the default worker
-   signature that will be used when mail is sent from this email
-   address. You can use placeholders like the current worker's name or
-   title, which will automatically fill in the appropriate values
-   depending on who is sending the email. You can also use conditional
-   logic and modifiers in this template. Refer to the section about
-   Snippets for more information.
--  **Make default:** If you check this box the current address will
-   become the default reply-to address. That means it will be used in
-   situations where there is no group or bucket; for example, sending
-   out reminders for forgotten passwords.
+.. figure:: /images/admin_guide/setup/mail_routing_add.png
+    :alt: Configuring a mail routing rule.
+    :figclass: bordered
 
-.. figure:: /images/checklist/setup_mail_replyto_add.png
-   :alt: Configuring a new reply-to address.
-   :figclass: bordered
+In the :guilabel:`Rule name` field, provide a description of how this routing rule makes decisions.  For example:
 
-You can repeat this process for any additional reply-to addresses you
-want to add.
+- *Send receipts to Billing*
+- *Route support@\* to Support*
 
-There is nothing wrong with using a single reply-to address for all
-outgoing mail -- in fact, that may simplify your mail server
-configuration considerably, and you can still personalize the sender
-name for each group or bucket. If you have multiple products, brands, or
-initiatives, you may want to configure a reply-to address for each of
-them so your audience can instantly recognize who you are and why you're
-contacting them. Otherwise, a busy or inattentive recipient may
-unintentionally delete your message as spam because they don't recognize
-the sender.
+By default, routing rules are checked in an order determined by how often they are used (most popular first).  If the :guilabel:`Sticky` checkbox is selected then this routing rule can be manually ordered and it will execute before any automatically ordered rules.
+
+Any combination of the following criteria can be used to route mail:
+
+- **Current Date/Time**
+    - **Day of Week**
+        The days of the week where this routing rule is applicable.
+    - **Time of Day**
+        A time range where this routing rule should apply.
+- **Message**
+    - **To/Cc**
+        A comma-delimited list of email addresses, or partial address patterns, to check for a match in the :mailheader:`To:` or :mailheader:`Cc:` headers.  Only one of these addresses must match.  Wildcards are denoted by an asterisk (``*``); for example, ``support@*``
+    - **From**
+        A sender email address to match.  Wildcards are denoted by an asterisk (``*``); for example, ``*@vip.example.com``
+    - **Subject**
+        A subject to match.  Wildcards are denoted by an asterisk (``*``); for example, ``New Order: *``
+    - **Body Content**
+        A `regular expression <http://us2.php.net/manual/en/reference.pcre.pattern.syntax.php>`_ to match against the message contents.
+- **Message headers**
+    Arbitrary message headers to match.  The first column is the header name (e.g. :mailheader:`X-Mailer``, :mailheader:`Content-Type``) and the second column is the value to match against.  Wildcards are denoted by an asterisk (``*``); for example, ``Cerb*``
+- **Sender custom fields**
+    The custom fields to match against the :doc:`address </concepts/contexts/address>` in the :mailheader:`From:` header.
+- **Sender organization custom fields**
+    The custom fields to match against the :doc:`organization </concepts/contexts/organization>` of the address in the :mailheader:`From:` header.
+
+Click the :guilabel:`Save Changes` button to save your new routing rule.
+
+Examples
+~~~~~~~~
+
+- Routing by language
+- Routing by SLA
+- ...

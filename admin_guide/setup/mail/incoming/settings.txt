@@ -3,8 +3,8 @@ Settings
 
 :menuselection:`Setup --> Mail --> Incoming Mail --> Settings`
 
-Settings
-========
+Mail Settings
+=============
 
 .. figure:: /images/admin_guide/setup/mail_settings.png
     :alt: Incoming mail settings.

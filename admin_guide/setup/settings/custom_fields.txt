@@ -11,6 +11,49 @@ On this page you can configure the :doc:`custom fields </concepts/objects/custom
 
 The :guilabel:`Record Type` section lists the :doc:`types </concepts/contexts/index>` of objects that are available.  Click on one to view or modify its custom fields.
 
+Types
+=====
+
+A custom field is defined as storing a specific **type** of data.
+
+Text: Single Line
+~~~~~~~~~~~~~~~~~
+A single line of text with a maximum length of 255 characters.
+
+Text: Multi Line
+~~~~~~~~~~~~~~~~
+Multiple lines of text with a maximum length of 16,777,216 characters.
+
+Number
+~~~~~~
+Any positive whole number between 0 and 4,294,967,295 (an unsigned, 4 byte integer).
+
+Date
+~~~~
+A date (day, month, year) and time (hour, minute, second).
+
+See: :doc:`/tips/date_entry`
+
+Picklist
+~~~~~~~~
+A single selection from a pre-defined list of possible choices.  This is useful when only a single option should be selected.  If multiple options can be selected, use a multi checkbox field instead.
+
+Checkbox
+~~~~~~~~
+A single true/false or yes/no option.
+
+Multi Checkbox
+~~~~~~~~~~~~~~
+A grouped set of checkboxes.  This is useful when multiple options can be selected for a single field.  If only a single option should be selected, use a picklist instead.
+
+Worker
+~~~~~~
+A picklist that permits the selection of a single worker.
+
+URL
+~~~
+A line of text in the form of a URL pointing to a website or webpage.
+
 .. rubric:: See also:
 
 - :doc:`Useful custom field ideas </cookbook/custom_fields/examples>`
