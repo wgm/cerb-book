@@ -65,7 +65,7 @@ div.related a {
 }
 
 div.related .right {
-    font-size: 0.9em;
+    /*font-size: 0.9em;*/
 }
 
 div.sphinxsidebar {

@@ -1,0 +1,15 @@
+{% extends "!layout.html" %}
+
+{% block relbar1 %}
+<div class="related">
+    <ul>
+        <li class="right" style="margin-right:10px;"><a href="{{pathto('genindex')}}">index</a></li>
+        {% if next %}<li class="right"><a href="{{next.link}}">next |</a></li>{% endif %}
+        {% if prev %}<li class="right"><a href="{{prev.link}}">prev |</a></li>{% endif %}
+        <li><a href="{{pathto(master_doc)}}">Cerb5 ({{version}}) documentation</a></li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block relbar2 %}
+{% endblock %}

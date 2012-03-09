@@ -1,0 +1,40 @@
+{% extends "!page.html" %}
+
+{% block body %}
+{% for parent in parents %}
+<a href="{{parent.link|e}}">{{parent.title}}</a>
+{% if loop.last == false %} &raquo; {% endif %}
+{% endfor %}
+
+{{ super() }}
+
+<div style="margin-top:20px;">
+    {% if prev %}
+    <div style="float:left;font-size:1.2em;">
+        Previous topic:<br>
+        <a href="{{prev.link}}">&laquo; {{prev.title}}</a>
+    </div>
+    {% endif %}
+    
+    {% if next %}
+    <div style="float:right;text-align:right;font-size:1.2em;">
+        Next topic:<br>
+        <a href="{{next.link}}">{{next.title}} &raquo;</a>
+    </div>
+    {% endif %}
+</div>
+
+<div id="disqus_thread" style="clear:both;padding-top:20px;"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cerb5book';
+    var disqus_identifier = '{{pagename}}';
+    //var disqus_developer = 1;
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+{% endblock %}
