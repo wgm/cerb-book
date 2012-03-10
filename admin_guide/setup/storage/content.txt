@@ -2,3 +2,63 @@ Content
 -------
 
 :menuselection:`Setup --> Mail --> Storage --> Content`
+
+This page configures the storage system and summarizes the types of objects contained within it.  The storage system excels at storing large content that rarely changes.  Each type of object can be configured separately.
+
+Objects in storage are considered to be *active* or *archived*:
+
+- **Active**
+    These objects are frequently accessed and should be quickly retrievable.  For example, this would include message content for tickets that are currently open.  In most cases, the local database or filesystem should be used for active objects.
+- **Archived**
+    These objects are infrequently accessed.  For example, attachments on tickets that have been closed for more than a month.  Archived content can be sent to a long-term storage service like Amazon S3 in order to keep the local database and filesystem more efficient.  This will also improve the performance of processes like backups, because content that never changes doesn't need to be copied every time you do a snapshot.  A good storage service will automatically save several copies of your content in geographically diverse locations.
+
+Each of these states has a :doc:`storage profile </admin_guide/setup/storage/profiles>` associated with it.  When an archived object is accessed, it will be automatically migrated to its active storage profile until it becomes inactive again.
+
+Viewing database statistics
+===========================
+
+.. figure:: /images/admin_guide/setup/storage_content_db.png
+   :alt: The storage database summary.
+   :figclass: bordered
+
+The :guilabel:`Database` section displays statistics about the amount of disk space currently utilized by the database.
+
+**Data**
+    The amount of disk space utilized by database data.  This includes all the information stored in your database, but not indexes.
+**Indexes**
+    The amount of disk space utilized by database indexes.  Indexes speed up certain kinds of database operations, such as record retrieval or searching.  Indexes are important, but they can be regenerated from your data if they are lost or corrupt.
+**Total Disk Space**
+    The combined total of data and indexes.  This is the actual amount of disk space in use by your database.
+**OPTIMIZE**
+    The amount of disk space that would be freed by executing an ``OPTIMIZE TABLE`` query on the :term:`MySQL` database.  A database doesn't always recover disk space immediately after records are deleted.  If this number is high, then you would benefit from optimizing your database tables.  Smaller tables may be faster to query against, and easier to back up.
+
+Viewing storage statistics by content type
+==========================================
+
+.. figure:: /images/admin_guide/setup/storage_content_objects.png
+   :alt: The storage summary per content type.
+   :figclass: bordered
+
+A summary is displayed for each type of object in the storage system.  By default, there are two kinds of objects: attachments and email message content.  :doc:`Plugins </concepts/plugins>` can also contribute additional object types.
+
+Configuring storage preferences by content type
+===============================================
+
+To configure the storage preferences for an object type, click the :guilabel:`edit` link to the right of its name:
+
+.. figure:: /images/admin_guide/setup/storage_content_edit.png
+   :alt: The edit link for configuring storage per content type.
+   :figclass: bordered
+
+This will display the storage configuration popup:
+
+.. figure:: /images/admin_guide/setup/storage_content_config.png
+   :alt: The storage configuration popup.
+   :figclass: bordered
+
+   **Store active content in..**
+       The :doc:`storage profile </admin_guide/setup/storage/profiles>` where frequently accessed content will be stored.  This should be a profile with low-latency, such as the database or local filesystem.
+   **Archive inactive content to...**
+       The :doc:`storage profile </admin_guide/setup/storage/profiles>` where inactive content will be stored after not being accessed for a certain number of days.  This should be a profile with the ability to store a massive amount of content reliably.  It is more tolerable to have some latency in accessing inactive content.
+    **Archive after...**
+        The number of days that an object should be inactive before it is moved to the archive :doc:`storage profile </admin_guide/setup/storage/profiles>`.  This number will depend on many factors

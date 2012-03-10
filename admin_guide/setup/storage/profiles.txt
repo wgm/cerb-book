@@ -2,3 +2,12 @@ Profiles
 --------
 
 :menuselection:`Setup --> Mail --> Storage --> Profiles`
+
+This page configures storage profiles.  A profile...
+
+Adding a storage profile
+========================
+
+.. figure:: /images/admin_guide/setup/storage_profiles_add.png
+   :alt: Adding a new storage profile.
+   :figclass: bordered
