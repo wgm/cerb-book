@@ -2,3 +2,39 @@ Queue
 -----
 
 :menuselection:`Setup --> Mail --> Outgoing Mail --> Queue`
+
+.. figure:: /images/admin_guide/setup/mail_queue.png
+   :alt: The mail queue.
+   :figclass: bordered
+
+This page displays the current contents of the outgoing mail queue.  Mail is added to the queue when it is sent in bulk from a :doc:`broadcast </concepts/broadcast>`, or if the original delivery failed and it needs to be retried.  A message that fails delivery will retry a maximum of ten times before being automatically converted back to a draft.
+
+Previewing queued messages
+==========================
+
+You can preview a queued message by clicking on the :doc:`peek </concepts/worklists/peek>` button next to any object in the :doc:`worklist </concepts/worklists/index>`.
+
+.. figure:: /images/admin_guide/setup/mail_queue_peek.png
+   :alt: The peek icon in the mail queue worklist.
+   :figclass: bordered
+
+This will display a popup with the message contents:
+
+.. figure:: /images/admin_guide/setup/mail_queue_peek2.png
+  :alt: The peek popup for the mail queue worklist.
+  :figclass: bordered
+
+Modifying queued messages
+=========================
+
+You can select any number of queued messages and then click the :guilabel:`bulk update` button below the worklist to modify them.
+
+**Status**
+    This will modify the status of the selected messages in the queue:
+    
+    - **Send**
+        The messages will be sent from the queue.
+    - **Draft**
+        The messages will be removed from the queue and converted into drafts that are editable by their author or an :term:`administrator`.
+    - **Delete**
+        The messages will be deleted immediately.

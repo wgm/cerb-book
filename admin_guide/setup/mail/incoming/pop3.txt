@@ -9,6 +9,9 @@ POP3 Accounts
 
 This page configures the mailboxes that will be checked for new mail.
 
+.. note::
+    It is highly recommended that you configure a single mailbox as a "dropbox".  Even if you have dozens of email addresses, you can redirect their mail to a single mailbox.  For example, you can redirect ``sales@example.com`` and ``support@example.com`` to ``cerb5@example.com``.  Your :doc:`routing </admin_guide/setup/mail/incoming/routing>` and :doc:`mail filtering </admin_guide/setup/mail/incoming/filtering>` will still be able to identify the original destination.  This is much more efficient than monitoring several mailboxes.
+
 Adding a mailbox
 ================
 
@@ -51,7 +54,7 @@ A mailbox has the following fields:
     
     .. note::
         Deleting a mailbox will **not** affect any previously downloaded mail.
-    
+
 .. warning::
     Cerb5 will delete messages from your mailbox after downloading them.  If this is not desirable, create a new mailbox and have copies of your mail redirected there.  This process is not necessary when using a Gmail mailbox, because Google ignores delete requests by default and refers instead to a configurable option.
     

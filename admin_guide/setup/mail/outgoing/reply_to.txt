@@ -3,37 +3,45 @@ Reply-To Addresses
 
 :menuselection:`Setup --> Mail --> Outgoing Mail --> Reply-To Addresses`
 
-Cerb5 will determine the appropriate ``From:`` address to use on outgoing email based on the group or bucket. These are collectively referred to as *Receipts* addresses\_.
+.. figure:: /images/admin_guide/setup/mail_replyto.png
+   :alt: Reply-to addresses
+   :figclass: bordered
+
+This page configures the :doc:`email addresses </concepts/contexts/address>` that appear in the :mailheader:`From:` header when sending mail from :doc:`groups </concepts/contexts/group>` and :term:`buckets <bucket>`.  These are called **Reply-To Addresses** because they will become the :mailheader:`To:` address that sends mail back to you when a recipient replies.
+
+There is nothing wrong with using a single reply-to address for all outgoing mail -- in fact, that may simplify your mail server configuration considerably.  :doc:`Groups managers </manager_guide/index>` can still personalize the sender name and signature for each group and bucket, even if they share the same reply-to address.
+
+If you have multiple products, brands, or initiatives, you may want to configure a reply-to address for each of them so your audience can instantly recognize who you are and why you're contacting them. Otherwise, a busy or inattentive recipient may unintentionally delete your message as spam because they don't recognize the sender.
 
 For example:
 
-- The Billing group may send mail as ``billing@example.com``
-- The Billing group's *Receipts* bucket may send mail as ``receipts@example.com``
-- The Sales group may send mail as ``sales@example.com``
+- Replies from Billing are sent from: ``"Billing" <billing@example.com>``
+- Replies from Development are sent from: ``"Development Team" <development@example.com>``
+- Replies from Development's *Bugs* bucket are sent from: ``"Bug Reports" <bugs@example.com>``
+- Replies from Sales are sent from: ``"Sales" <sales@example.com>``
 
-To ensure that you receive customer replies, it is very important that your mail servers route these reply-to addresses to a mailbox that is checked by Cerb5.
+.. note::
+    To ensure that you receive replies from your audience, it is crucial that your mail server routes these reply-to addresses to a :doc:`mailbox </admin_guide/setup/mail/incoming/pop3>` that is checked by Cerb5.
 
-You can add new reply-to addresses from Setup:
+Adding a new reply-to address
+=============================
 
-1. Click :guilabel:`setup` in the top right.
-2. Click the :guilabel:`Mail` menu.
-3. Select the :guilabel:`Reply-To Addresses` menu item.
+Click the :guilabel:`Add` button to add a new reply-to address.
 
-.. figure:: /images/checklist/menu_setup_mail_replyto.png
-   :alt: Navigating to the helpdesk addresses setup page.
-   :figclass: bordered
-
-Click the :guilabel:`Add` button to add a new reply-to address, and enter the following information:
-
-- **Send replies as email:** This specifies an email address to use as the sender in ``From:``.
-- **Send replies as name:** This allows you to provide a personal name that will display next to the sender address when your recipient reads their email. For example, ``billing@example.com`` may use the personal name *"Widget Factory - Billing Dept."*. This gives the recipient an idea of who you are; especially if they don't recognize your email address.
-- **Default signature template:** This defines the default worker signature that will be used when mail is sent from this email address. You can use placeholders like the current worker's name or title, which will automatically fill in the appropriate values depending on who is sending the email. You can also use conditional logic and modifiers in this template. Refer to the section about Snippets for more information.
-- **Make default:** If you check this box the current address will become the default reply-to address. That means it will be used in situations where there is no group or bucket; for example, sending out reminders for forgotten passwords.
-
-.. figure:: /images/checklist/setup_mail_replyto_add.png
+.. figure:: /images/admin_guide/setup/mail_replyto_add.png
    :alt: Configuring a new reply-to address.
    :figclass: bordered
 
-You can repeat this process for any additional reply-to addresses you want to add.
+**Send replies as email**
+    This specifies the email address that will appear as the sender in the ``From:`` header.
 
-There is nothing wrong with using a single reply-to address for all outgoing mail -- in fact, that may simplify your mail server configuration considerably, and you can still personalize the sender name for each group or bucket. If you have multiple products, brands, or initiatives, you may want to configure a reply-to address for each of them so your audience can instantly recognize who you are and why you're contacting them. Otherwise, a busy or inattentive recipient may unintentionally delete your message as spam because they don't recognize the sender.
+**Send replies as name**
+    This allows you to provide a personal name that will display next to the sender address when your recipient reads their email. For example, ``billing@example.com`` may use the personal name *"Widget Factory - Billing Dept."*. This gives the recipient an idea of who you are; especially if they don't recognize your email address.
+
+**Default signature template**
+    This defines the default worker signature that will be used when mail is sent from this email address. You can use placeholders like the current worker's name or title, which will automatically fill in the appropriate values depending on who is sending the email. You can also use conditional logic and modifiers in this template. Refer to :doc:`Snippets </concepts/snippets/index>` for more information.
+
+**Make default**
+    If you check this box the current address will become the default reply-to address. That means it will be used in situations where there is no group or bucket; for example, sending out reminders for forgotten passwords.
+
+You can repeat this process for any additional reply-to addresses you want to add.
