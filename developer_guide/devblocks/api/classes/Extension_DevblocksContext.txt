@@ -1,0 +1,24 @@
+Extension_DevblocksContext
+--------------------------
+
+.. php:class:: Extension_DevblocksContext extends DevblocksExtension
+
+    .. php:staticmethod:: getAll($as_instances=false)
+        
+        Returns all contexts.
+        
+        :param boolean $as_instances: Specifies if the returned contexts should be returned as extension points or instances.
+
+	.. php:staticmethod:: get($context)
+	    
+	    Retrieves a context.
+	    
+	    :param string $context: The context to retrieve.
+	
+   	.. php:method:: authorize($context_id, Model_Worker $worker)
+   	    
+   	    Not implemented.
+    
+    .. php:method:: getViewClass()
+        
+        Returns the ``view_class`` param specified in the extension defined in your Plugin.xml file.

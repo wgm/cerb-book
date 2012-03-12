@@ -1,0 +1,104 @@
+Extension_DevblocksEvent
+------------------------
+
+.. php:class:: Extension_DevblocksEvent
+    
+    .. php:const:: POINT
+        
+        The extension extension point.
+        	
+    .. php:staticmethod:: getAll($as_instances=false)
+        
+        
+        
+        :param boolean $as_instances:
+        
+    .. php:staticmethod:: getByContext($context, $as_instances=false)
+        
+        
+        
+        :param string $context:
+        :param boolean $as_instances:
+        
+    .. php:method:: _importLabels($labels)
+        
+        
+        
+        :param array $labels:
+        
+	.. php:method:: _importLabelsTypesAsConditions($labels, $types)
+	    
+	    
+	    
+	    :param array $labels:
+	    :param array $types:
+        
+	.. php:method:: setLabels($labels)
+	    
+	    
+	    
+	    :param array $labels:
+        
+    .. php:method:: setValues($values)
+        
+        
+        
+        :param array $values:
+        
+	.. php:method:: getLabels($trigger = null)
+	    
+	    
+	    
+	    :param DAO_TriggerEvent $trigger:
+        
+	.. php:method:: getValues()
+	    
+	    
+        
+	.. php:method:: getConditions($trigger)
+	    
+	    
+	    
+	    :param DAO_TriggerEvent $trigger:
+        
+	.. php:method:: renderCondition($token, $trigger, $params=array(), $seq=null)
+        
+        
+        
+	    :param string $token: The context label for this condition.
+        :param array $trigger: The instance of the Virtual Attendant this condition is registered to
+        :param array $params:
+        :param integer $seq: An integer representing the position of this condition in the Virtual Attendant.
+        
+	.. php:method:: runCondition($token, $trigger, $params, $values)
+	    
+	    
+	    
+        :param string $token: The context label for this condition.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is registered to.
+        :param array $params: The parameters set for the condition.
+        :param array $values: The values set for the object being compared.
+	    
+	.. php:method:: getActions($trigger)
+	
+	    
+	    
+        :param DAO_TriggerEvent $trigger:
+        
+	.. php:method:: renderAction($token, $trigger, $params=array(), $seq=null)
+	    
+	    
+	    
+	    :param string $token: The label for this action.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
+        :param array $params: The parameters specified for the Virtual Attendant action.
+        :param integer $seq: An integer representing the position of this action in the Virtual Attendant.
+        
+	.. php:method:: runAction($token, $trigger, $params, &$values)
+	    
+	    
+	    
+        :param string $token: The label for this action.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
+        :param array $params: The parameters specified for the Virtual Attendant action.
+        :param array $values: The values of the object the Virtual Attendant is running on.

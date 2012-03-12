@@ -6,3 +6,5 @@ Classes
     
     DevblocksPlatform
     _DevblocksCacheManager
+    Extension_DevblocksContext
+    Extension_DevblocksEvent
