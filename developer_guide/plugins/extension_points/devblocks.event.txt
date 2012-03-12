@@ -38,64 +38,52 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 Implementation
 ==============
 .. php:class:: ExampleEvent extends Extension_DevblocksEvent
+        
+    .. php:method:: getConditionExtensions()
 
-	.. php:const:: POINT
-	
-        string
-
-	.. php:attr:: _labels
-	
-	    array
-	        
-    .. php:attr:: _values
-    
-        array
-
-    .. php:method:: function getConditionExtensions()
-    
         This method is called when conditions are added to an outcome for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>` for your event. Your implementation should grab the labels with :php:meth:`Extension_DevblocksEvent::getLabels()`, make an array of context label => field type pairs, with the context label as the index and the field type as the value, then pass the labels and your array through :php:meth:`Extension_DevblocksEvent::_importLabelsTypesAsConditions()`. If you don't set a field type for a specific context label you will need to implement rendering and running the condition yourself.
         
         :returns: An array of label => field type pairs.
-    
+        
     .. php:method:: renderConditionExtension($token, $trigger, $params=array(), $seq=null)
-            
+                
+        This method is called when a worker selects one of your conditions for an outcome on a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
+        
         :param string $token: The context label for this condition.
-        :param array $trigger: The instance of the Virtual Attendant this condition is registered to
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is registered to
         :param array $params:
         :param integer $seq: An integer representing the position of this condition in the Virtual Attendant.
         
-        This method is called when a worker selects one of your conditions for an outcome on a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
-        
     .. php:method:: runConditionExtension($token, $trigger, $params, $values)
         
+        This method is called when your condition is matched and it doesn't have a type defined in the ``getConditionExtensions()`` method. You'll need to implement your own logic to determine if the values for the object match the conditions for the token specified in the :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
+        
         :param string $token: The context label for this condition.
-        :param array $trigger: The instance of the Virtual Attendant this condition is registered to.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is registered to.
         :param array $params: The parameters set for the condition.
         :param array $values: The values set for the object being compared.
-        
-        This method is called when your condition is matched and it doesn't have a type defined in the ``getConditionExtensions()`` method. You'll need to implement your own logic to determine if the values for the object match the conditions for the token specified in the :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
         
     .. php:method:: getActionExtensions()
         
         This method is called when a worker adds an action for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. Your implementation needs to return a multi-dimensional array of tokens => array pairs. The second level array should contain a ``label`` index and a text string describing the action.
         
     .. php:method:: renderActionExtension($token, $trigger, $params=array(), $seq=null)
+
+        This method is called when a worker selects one of your actions for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
         
         :param string $token: The label for this action.
-        :param array $trigger: The instance of the Virtual Attendant this action is running in.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
         :param array $params: The parameters specified for the Virtual Attendant action.
         :param integer $seq: An integer representing the position of this action in the Virtual Attendant.
         
-        This method is called when a worker selects one of your actions for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
-        
     .. php:method:: runActionExtension($token, $trigger, $params, &$values)
-    
-        :param string $token: The label for this action.
-        :param array $trigger: The instance of the Virtual Attendant this action is running in.
-        :param array $params: The parameters specified for the Virtual Attendant action.
-        :param array $values: The values of the object the Virtual Attendant is running on.
         
         This method is called when the defined action is run. Your implementation should modify the values parameter, which is passed to your method by reference.
+        
+        :param string $token: The label for this action.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
+        :param array $params: The parameters specified for the Virtual Attendant action.
+        :param array $values: The values of the object the Virtual Attendant is running on.
 
 Examples
 ========
