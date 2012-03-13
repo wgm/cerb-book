@@ -1,0 +1,119 @@
+Extension_DevblocksEvent
+------------------------
+
+.. php:class:: Extension_DevblocksEvent
+    
+    .. php:const:: POINT
+        
+        This extension's extension point.
+    
+    .. php:attr:: _labels
+    
+        Private property with an array of the currently imported labels.
+        
+    .. php:attr:: _values
+        
+        Private property with an array of the currently imported values.
+        
+    .. php:staticmethod:: getAll($as_instances=false)
+        
+        Returns all of the event extensions registered with the platform.
+        
+        :param boolean $as_instances: Specifies if the returned event extensions should be returned as extension points or instances.
+        
+    .. php:staticmethod:: getByContext($context, $as_instances=false)
+        
+        Retrieves all of the event extensions registered with the platform and bound to the specified context.
+        
+        :param string $context: The context you want to filter against.
+        :param boolean $as_instances: Specifies if the returned event extensions should be returned as extension points or instances.
+        
+    .. php:method:: _importLabels($labels)
+        
+        Sorts the labels in alphabetical order.
+        
+        :param array $labels: An array of the labels to sort.
+        
+    .. php:method:: _importLabelsTypesAsConditions($labels, $types)
+        
+        Takes the provided labels and types and merges them into a single array keyed on the context token.
+        
+        :param array $labels: The labels that should be returned.
+        :param array $types: The types that should be returned.
+        :returns array: A multi-dimensional array of conditions keyed on the context token, with ``label`` and ``type`` indices for each 
+        
+    .. php:method:: setLabels($labels)
+        
+        Runs the provided labels through :php:meth:`Extension_DevblocksEvent::_importLabels()` then stores them in :php:attr:`Extension_DevblocksEvent::_labels`.
+        
+        :param array $labels: An array of labels to store.
+        
+    .. php:method:: setValues($values)
+        
+        Stores the provided values in :php:attr:`Extension_DevblocksEvent::_values`.
+        
+        :param array $values: An array of the values to store.
+        
+    .. php:method:: getLabels($trigger = null)
+        
+        Retrieves the labels from the specified trigger, stores them in :php:attr:`Extension_DevblocksEvent::_labels`, and then returns them.
+        
+        :param DAO_TriggerEvent $trigger:
+        :returns array: The contents of :php:attr:`Extension_DevblocksEvent::_labels`.
+        
+    .. php:method:: getValues()
+        
+        Returns the contents of :php:attr:`Extension_DevblocksEvent::_values`.
+        
+        :returns array: The contents of :php:attr:`Extension_DevblocksEvent::_values`.
+        
+    .. php:method:: getConditions($trigger)
+        
+        Returns the conditions set for the provided trigger instance.
+        
+        :param DAO_TriggerEvent $trigger: An instance of a trigger.
+        :returns array: An array containing all of the conditions set for the trigger, in alphabetical order.
+        
+    .. php:method:: renderCondition($token, $trigger, $params=array(), $seq=null)
+        
+        Renders a condition when it is selected for a VA.
+        
+        :param string $token: The context label for this condition.
+        :param array $trigger: The instance of the Virtual Attendant this condition is registered to
+        :param array $params: An array containing the parameters set for this condition.
+        :param integer $seq: An integer representing the position of this condition in the Virtual Attendant.
+        
+    .. php:method:: runCondition($token, $trigger, $params, $values)
+        
+        Determines if the condition set for the specified trigger and token has passed.
+        
+        :param string $token: The context label for this condition.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is registered to.
+        :param array $params: The parameters set for the condition.
+        :param array $values: The values set for the object being compared.
+        :returns boolean: Whether or not the condition has passed.
+        
+    .. php:method:: getActions($trigger)
+        
+        Returns the actions set for the provided trigger instance.
+        
+        :param DAO_TriggerEvent $trigger: An instance of a trigger.
+        :returns array: An array containing all of the actions set for the trigger, in alphabetical order.
+        
+    .. php:method:: renderAction($token, $trigger, $params=array(), $seq=null)
+        
+        Renders an action when it is selected for a VA.
+        
+        :param string $token: The label for this action.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
+        :param array $params: The parameters specified for the Virtual Attendant action.
+        :param integer $seq: An integer representing the position of this action in the Virtual Attendant.
+        
+    .. php:method:: runAction($token, $trigger, $params, &$values)
+        
+        Runs the action associated associated with the specified token and trigger.
+        
+        :param string $token: The label for this action.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
+        :param array $params: The parameters specified for the Virtual Attendant action.
+        :param array &$values: The values of the object the Virtual Attendant is running on.
