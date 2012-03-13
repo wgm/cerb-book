@@ -85,13 +85,13 @@ Extension_DevblocksEvent
         
     .. php:method:: runCondition($token, $trigger, $params, $values)
         
-        Determines if the condition set for the specified trigger and token have passed.
+        Determines if the condition set for the specified trigger and token has passed.
         
         :param string $token: The context label for this condition.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is registered to.
         :param array $params: The parameters set for the condition.
         :param array $values: The values set for the object being compared.
-        :returns boolean:
+        :returns boolean: Whether or not the condition has passed.
         
     .. php:method:: getActions($trigger)
         
