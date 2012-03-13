@@ -1,9 +1,17 @@
 Profiles
 --------
 
-:menuselection:`Setup --> Mail --> Storage --> Profiles`
+:menuselection:`Setup --> Storage --> Profiles`
 
-This page configures storage profiles.  A profile...
+This page configures custom storage profiles, which describe and configure the additional locations that the storage system can store :doc:`content </admin_guide/setup/storage/content>`.
+
+By default, content is stored in the local filesystem or database.  With a storage profile you can archive content to a long-term, scalable storage solution like Amazon S3.
+
+Storage engines use *namespaces* to partition different types of content.  For example, the ``attachments`` namespace is a repository for email attachments.  Inside each namespace, a unique *key* is assigned to each content object.  When this namespace and key are requested, the associated content is retrieved.
+
+Each storage engine is responsible for generating unique keys. In a file-based storage engine, keys usually consist of an evenly distributed hash path and the ID from the Cerb5 database of the content being stored.  This might look like ``attachments/f/5/123456``.  Using hash paths is a performance consideration that reduces the number of files in a single directory.  Other storage engines, like a database, will often just use the unique ID as the storage key since content is stored in a single table.
+
+:doc:`Plugins </concepts/plugins>` can implement new storage engines and content types.
 
 Adding a storage profile
 ========================
@@ -11,3 +19,42 @@ Adding a storage profile
 .. figure:: /images/admin_guide/setup/storage_profiles_add.png
    :alt: Adding a new storage profile.
    :figclass: bordered
+
+Click the :guilabel:`Add` button to create a new storage profile.
+
+**Name**
+    The name of the storage profile that will be used to identify it in the interface.
+
+**Engine**
+    - **Disk**
+        Content is stored in the filesystem.  Without a storage profile, content is stored in the :file:`storage/` directory where you installed Cerb5.  You can add additional disk-based profiles to store content on a file server, Network-Attached Storage (NAS), or Storage Area Network (SAN).  A top-level folder will be created in this filesystem for each storage namespace.
+        
+        **Path**
+            The filesystem path where content will be stored.
+        
+    - **Database**
+        Content is stored in a MySQL database.  Without a storage profile, content is stored in the local database along with the rest of Cerb5's data.  By adding additional database-based profiles, you can also store content in external databases.  This is often useful to reduce the size of the primary database.  A database table will be created for each storage namespace.
+    
+        **Host**
+            The hostname of the MySQL server.
+        **User**
+            The username used for authentication.  This account should should have read and write permissions to the database.
+        **Password**
+            The password used for authentication.
+        **Database**
+            The name of the database to use.
+        
+    - **Amazon S3**
+        Content is stored in Amazon's Simple Storage Service (S3), or any storage back-end that supports S3's API (Eucalyptus Walrus, Google Storage, etc).  A top-level folder will be created in the bucket for each storage namespace.
+    
+        **Access Key**
+            The public access key used for authentication.
+        **Secret Key**
+            The secret key used for authentication.
+        **Bucket**
+            The bucket where content will be stored.  We recommend using a separate bucket per Cerb5 installation.
+        **Host**
+            The S3 endpoint.  When using Amazon's S3 service, the default will usually suffice and you can leave this blank.  You can use an alternate host if you're using a different service that supports the S3 API.
+        
+After clicking the :guilabel:`Test` button to verify the configuration of your storage profile, click the :guilabel:`Save Changes` button to save it.
+    

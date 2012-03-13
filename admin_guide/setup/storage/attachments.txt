@@ -1,4 +1,57 @@
 Attachments
 -----------
 
-:menuselection:`Setup --> Mail --> Storage --> Attachments`
+:menuselection:`Setup --> Storage --> Attachments`
+
+.. figure:: /images/admin_guide/setup/storage_attachments.png
+    :alt: Managing stored attachments
+    :figclass: bordered
+
+This page provides an interface for managing :doc:`attachments </concepts/contexts/attachment>`.
+
+Using subtotals to generate statistics
+======================================
+
+1. If :doc:`subtotals </concepts/worklists/subtotals>` aren't currently displayed, click the :guilabel:`subtotals` link in the top right of the attachments :doc:`worklist </concepts/worklists/index>`.
+
+    .. figure:: /images/admin_guide/setup/storage_attachments_subtotals_link.png
+        :alt: The subtotals link
+        :figclass: bordered
+    
+2. Click the green link at the top of the subtotals sidebar to the left of the attachments worklist.  Pick a :doc:`field </concepts/objects/fields>` to subtotal by.
+
+    .. figure:: /images/admin_guide/setup/storage_attachments_subtotals.png
+        :alt: Attachment subtotals
+        :figclass: bordered
+
+    - **Context**
+        The number of attachments per :doc:`object type </concepts/contexts/index>` -- ticket, comment, knowledgebase article, etc.
+    - **File Name**
+        The most common file names.
+    - **Mime Type**
+        The most common file types -- images, PDFs, text, etc.
+    - **Storage Extension**
+        The number of attachments per :doc:`storage engine </admin_guide/setup/storage/content>`.
+
+3. The subtotals will be displayed in the sidebar.  You can click on an individual category to quickly add a :doc:`filter </concepts/worklists/filters>` to the worklist.
+
+    .. figure:: /images/admin_guide/setup/storage_attachments_subtotals_click.png
+        :alt: Clicking a subtotal.
+        :figclass: bordered
+
+
+Bulk deleting attachments
+=========================
+
+1. Filter the worklist to the attachments that you want to delete.  For example, let's assume you want to free up disk space by removing the HTML attachment from email messages that are more than a month old.  You can filter for attachments with the file name ``original_message.html`` and an updated date older than ``-1 month``.
+
+    .. figure:: /images/admin_guide/setup/storage_attachments_bulk_filters.png
+        :alt: Filtering attachments for a bulk update.
+        :figclass: bordered
+    
+2. Click the :guilabel:`bulk update` button below the worklist.  Set :guilabel:`Status:` to :guilabel:`Deleted`, and click the :guilabel:`Save Changes` button.
+
+    .. figure:: /images/admin_guide/setup/storage_attachments_bulk.png
+        :alt: Bulk deleting attachments.
+        :figclass: bordered
+
