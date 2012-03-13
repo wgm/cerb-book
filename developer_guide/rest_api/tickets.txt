@@ -55,6 +55,8 @@ Field                Type
 ``mask``             string   
 ``requester``        string   
 ``updated``          timestamp
+``org_id``           integer
+``org_name``         string
 ===============      =========
 
 .. code-block:: php
