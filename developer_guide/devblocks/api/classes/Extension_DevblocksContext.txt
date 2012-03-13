@@ -5,9 +5,9 @@ Extension_DevblocksContext
 
     .. php:staticmethod:: getAll($as_instances=false)
         
-        Returns all contexts.
+        Returns all context extensions registered with the platform.
         
-        :param boolean $as_instances: Specifies if the returned contexts should be returned as extension points or instances.
+        :param boolean $as_instances: Specifies if the returned context extensions should be returned as extension points or instances.
 
 	.. php:staticmethod:: get($context)
 	    
