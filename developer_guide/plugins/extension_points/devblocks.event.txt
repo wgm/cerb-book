@@ -78,7 +78,7 @@ Implementation
         
     .. php:method:: runActionExtension($token, $trigger, $params, &$values)
         
-        This method is called when the defined action is run. Your implementation should modify the values parameter, which is passed to your method by reference.
+        This method is called when the defined action is run. Your implementation can modify the values parameter, which is passed to your method by reference.
         
         :param string $token: The label for this action.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.

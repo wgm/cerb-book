@@ -42,7 +42,7 @@ Implementation
     This function is called when a worker clicks the ``Download and install`` or ``Configure`` button in the ``Manage Plugins`` area and then enables your plugin.
     
 **save(&$errors)**
-    This method is called when the user hits the save button to save your plugins settings. It is passed an array by reference as the ``$errors`` parameter. Your implementation should check the configuration details, and should return true if there are no errors. Otherwise, it should add items to the array for each error and return false.
+    This method is called when the user hits the save button to save your plugins settings. It is passed an array by reference as the ``$errors`` parameter. Your implementation should check the configuration details, and should return a boolean. If there is an error, it should add items to the array for each error.
 
 Examples
 ========
