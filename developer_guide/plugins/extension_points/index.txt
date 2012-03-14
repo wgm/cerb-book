@@ -13,8 +13,6 @@ Extension Points
     cerberusweb.knowledgebase.tab
     cerberusweb.login
     cerberusweb.mail.send.toolbaritem
-    # cerberusweb.mail_filter.action
-    # cerberusweb.mail_filter.criteria
     cerberusweb.message.badge
     cerberusweb.message.toolbaritem
     cerberusweb.org.tab
