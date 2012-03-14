@@ -1,0 +1,65 @@
+devblocks.event
+---------------
+
+The **devblocks.event** extension point allows you to create new behaviors which can trigger :doc:`Virtual Attendants </concepts/virtual_attendants/index>`.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Event Conditions -->
+    <extension point="devblocks.event.condition">
+		<id>example.event.condition</id>
+		<name>Example Event Condition</name>
+		<class>
+			<file>api/App.php</file>
+			<name>ExampleEventCondition</name>
+		</class>
+		<params>
+			<param key="label" value="Example event condition" />
+		</params>
+	</extension>
+
+**<param key="contexts">**
+    Registers the event contexts your event can be triggered by.
+    
+    **<value>**
+        
+        **<data key="cerberusweb.contexts.app">**
+            Sets this event to be triggered by app-level events.
+            
+Implementation
+==============
+.. php:class:: ExampleEventCondition extends Extension_DevblocksEventCondition
+                
+    .. php:method:: render(Extension_DevblocksEvent $event, Model_TriggerEvent $trigger, $params=array(), $seq=null)
+
+        This method is called when a worker selects your condition for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
+        
+        :param Extension_DevblocksEvent $event: The instance of the Virtual Attendant being displayed.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is running in.
+        :param array $params: The parameters specified for the Virtual Attendant condition.
+        :param integer $seq: An integer representing the position of this condition in the Virtual Attendant.
+        
+    .. php:method:: run($token, $trigger, $params, $values)
+        
+        This method is called when the defined condition is run. Your implementation should check if the condition has passed and return a boolean.
+        
+        :param string $token: The label for this condition.
+        :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is running in.
+        :param array $params: The parameters specified for the Virtual Attendant condition.
+        :param array $values: The values of the object the Virtual Attendant is running on.
+        
+Examples
+========
+
+SDK Example
+~~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/install/extras/sdk/examples/example.event.condition/plugin.xml#L53
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/install/extras/sdk/examples/example.event.condition/api/App.php#L2

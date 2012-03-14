@@ -39,6 +39,7 @@ Extension Points
     devblocks.context
     devblocks.event
     devblocks.event.action
+    devblocks.event.condition
     devblocks.listener.event
     devblocks.listener.http
     devblocks.search.schema
