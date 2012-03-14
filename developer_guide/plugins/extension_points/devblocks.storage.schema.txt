@@ -1,0 +1,93 @@
+devblocks.storage.schema
+------------------------
+
+The **devblocks.storage.schema** extension point allows you to store your objects on a Storage Engine and have them managed by the platform automatically based on how they are configured in the Storage area.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+    
+    <!-- Storage Engines -->
+    <extension point="devblocks.storage.schema">
+        <id>example.storage.schema</id>
+        <name>Example Storage Schema</name>
+        <class>
+            <file>api/App.php</file>
+            <name>ExampleStorageSchema</name>
+        </class>
+        <params/>
+    </extension>
+
+Implementation
+==============
+.. php:class:: class ExampleStorageSchema extends Extension_DevblocksStorageSchema
+    .. php:const:: ID
+        
+        The id of your extension.
+    
+    .. php:staticmethod:: getActiveStorageProfile()
+        
+        This method should return the result of :php:meth:`DAO_DevblocksExtensionPropertyStore::get()`.
+    
+    .. php:method:: render()
+        
+        This method is called when your storage schema is displayed on the storage page.
+        
+    .. php:method:: renderConfig()
+        
+        This method is called when your storage schema is configured.
+        
+    .. php:method:: saveConfig()
+        
+        This method is called when a worker saves the configuration details for your storage schema.
+        
+    .. php:staticmethod:: get($object, &$fp=null)
+        
+        :param mixed $object: The object being retrieved. Can be either an ID or an instance of a model.
+        :param resource &$fp: An optional resource handle. This should be passed to $storage->get().
+        
+        This method is called when one of your objects is retrieved by the system. Your implementation should query the storage service for the profile associated with the requested object, then query that profile for the object itself.
+        
+    .. php:staticmethod:: put($id, $contents, $profile=null)
+        
+        :param integer $id: The id of the row in the database.
+        :param string $contents: The contents to save to the storage profile.
+        :param mixed $profile: The profile the object is being stored in. This can be an id or an instance of the profile.
+        
+        This method is called when your object is saved to a storage profile. If no storage profile is provided, your implementation should save it to the storage profile that is active for your storage schema.
+   
+    .. php:staticmethod:: delete($ids)
+        
+        :param mixed $ids: The id or ids to delete. This can be an integer or an array of integers.
+        
+        Deletes an object.
+   
+    .. php:method:: getStats()
+        
+        This method is called when statistics are shown for your storage schema.
+
+    .. php:staticmethod:: archive($stop_time=null)
+        
+        :param integer $stop_time: The unix epoch at which to stop.
+        
+        This method is called when the platform determines it is time to archive content. Your implementation should determine which objects need to be archived, and then ensure they are actually archived.
+        
+    .. php:staticmethod:: unarchive($stop_time=null)
+        
+        :param integer $stop_time: The unix epoch at which to stop.
+        
+        This method is called when the platform determines it is time to unarchive content. Your implementation should determine which objects need to be unarchived, and then ensure they are actually unarchived.
+
+Examples
+========
+
+Attachments
+~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L1219
+Implementation:
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/dao/attachment.php#L330
