@@ -47,4 +47,4 @@ Comment Search
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L1254
 Implementation:
-    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/dao/comment.php.php#L397
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/dao/comment.php#L397
