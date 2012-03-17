@@ -4,7 +4,6 @@ Classes
 .. toctree::
     :maxdepth: 1
     
-    DevblocksPlatform
-    _DevblocksCacheManager
-    Extension_DevblocksContext
-    Extension_DevblocksEvent
+    core/index
+    objects/index
+    extensions/index
