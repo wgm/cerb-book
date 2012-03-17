@@ -52,10 +52,10 @@ Implementation
     This method is called when a worker saves the config form. The current profile is passed to this method as the ``$profile`` parameter. See the documentation on :php:class:`Model_DevblocksStorageProfile` for more information on the data and methods available for each profile.
     
 **testConfig()**
-    This method is called when a worker clicks the test button. Your implementation should check the provided information, and return false if there is an error. If there is no error, it should return true.
+    This method is called when a worker clicks the test button. Your implementation should check the provided information, and return a boolean.
 
 **exists($namespace, $key)**
-    This method is called when an object is the platform needs to determine if an object exists. Information about the object is passed to your method via the ``$namespace`` and ``$key`` parameters. Your implementation should check if the object exists, and return true if it does, and false if it does not.
+    This method is called when an object is the platform needs to determine if an object exists. Information about the object is passed to your method via the ``$namespace`` and ``$key`` parameters. Your implementation should check if the object exists, and return a boolean.
 
 **put($namespace, $id, $data)**
     This method is called when content is saved to your storage profile. Your implementation is passed information about the object via the ``$namespace``, ``$id`` and ``$data`` parameters. Your implementation should take the ``$namespace`` and ``$id`` and create a unique key from them, then assign  ``$data`` to that key. If there is an error, your implementation should return false, otherwise it should return the unique $key you generated.
@@ -72,4 +72,4 @@ Comment Search
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/plugin.xml#L1254
 Implementation:
-    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/dao/comment.php.php#L397
+    https://github.com/wgm/cerb5/blob/5.7.1/features/cerberusweb.core/api/dao/comment.php#L397

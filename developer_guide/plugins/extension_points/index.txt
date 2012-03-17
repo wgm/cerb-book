@@ -13,8 +13,6 @@ Extension Points
     cerberusweb.knowledgebase.tab
     cerberusweb.login
     cerberusweb.mail.send.toolbaritem
-    # cerberusweb.mail_filter.action
-    # cerberusweb.mail_filter.criteria
     cerberusweb.message.badge
     cerberusweb.message.toolbaritem
     cerberusweb.org.tab
@@ -38,10 +36,13 @@ Extension Points
     devblocks.controller
     devblocks.context
     devblocks.event
+    devblocks.event.action
+    devblocks.event.condition
     devblocks.listener.event
     devblocks.listener.http
     devblocks.search.schema
     devblocks.storage.engine
+    devblocks.storage.schema
     usermeet.login.authenticator
     usermeet.sc.controller
     usermeet.sc.rss.controller

@@ -6,9 +6,8 @@ The plugin.xml file tells Devblocks about your plugin. Every plugin requires a p
 .. code-block:: xml
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:noNamespaceSchemaLocation="http://www.devblocks.com/schema/plugin.xsd">
-        <plugin>
+        <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    		xsi:noNamespaceSchemaLocation="http://www.devblocks.com/schema/plugin.xsd">
             <id>xyzcompany.myplugin</id>
             <name>[Plugin] Plugin Name</name>
             <description>A description of your plugin</description>
