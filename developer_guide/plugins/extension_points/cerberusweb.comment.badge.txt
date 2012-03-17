@@ -23,17 +23,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleCommentBadge
-        extends Extension_CommentBadge {
+.. :php:class:: ExampleCommentBadge extends Extension_CommentBadge
             
-            function render(Model_Comment $comment) {}
-    };
-
-**render()**
-    This method is called when a comment is rendered. The comment being rendered is available in the ``$comment`` variable so you can determine information about the comment. See the documentation on :php:class:`Model_Comment` for more information on the data and methods you have access to for each comment.
+    .. :php:method:: render(Model_Comment $comment)
+        
+        :params Model_Comment $comment: The comment being rendered.
+        
+        This method is called when a comment is rendered. See the documentation on :php:class:`Model_Comment` for more information on the data and methods you have access to for each comment.
 
 Examples
 ========
