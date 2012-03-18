@@ -56,6 +56,7 @@ DAO_Comment
     .. php:staticmethod:: get($id)
 
         :param integer $id: The id of the comment to retrieve.
+        :returns Model_Comment:
 
         Retrieves a comment.
 
@@ -139,8 +140,12 @@ Model_Comment
         
     .. php:method:: getAddress()
         
+        :returns Model_Address:
+        
         Caches and returns the email address of the worker who left the comment.
         
     .. php:method:: getLinksAndAttachments()
         
-        Returns all attachments associated with the comment.
+        :returns array: An array of Model_AttachmentLinks.
+        
+        Returns all attachment links associated with the comment.
