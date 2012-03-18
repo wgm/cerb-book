@@ -4,5 +4,6 @@ Objects
 .. toctree::
     :maxdepth: 1
     
-    comment
     ticket
+    comment
+    message
