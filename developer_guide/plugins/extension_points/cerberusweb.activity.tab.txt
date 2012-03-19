@@ -32,22 +32,15 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleActivityTab
-        extends Extension_ActivityTab {
-            
-            function showTab() {}
-            
-            function saveTab() {}
-    };
-
-**showTab()**
-    This method is called when a worker visits your tab on the Activity page.
+.. php:class:: ExampleActivityTab extends Extension_ActivityTab
     
-**saveTab()**
-    Allows a default implementation for saving tab content.  This convenience removes the need for a controller to handle the actions of every tab; however, you may decide to implement more complex functionality and you can simply ignore this method.  Tabs don't have to be limited to a single page of content with a submit form; they can contain lists, sub-tabs, and other dynamic functionality that make use of several actions on your own controller.
+    .. php:method:: showTab()
+
+        This method is called when a worker visits your tab on the Activity page.
+            
+    .. php:method:: saveTab()
+
+        Allows a default implementation for saving tab content.  This convenience removes the need for a controller to handle the actions of every tab; however, you may decide to implement more complex functionality and you can simply ignore this method.  Tabs don't have to be limited to a single page of content with a submit form; they can contain lists, sub-tabs, and other dynamic functionality that make use of several actions on your own controller.
 
 Examples
 ========
