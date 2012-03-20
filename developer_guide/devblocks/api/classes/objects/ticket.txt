@@ -89,133 +89,134 @@ DAO_Ticket
     .. :php:const:: LAST_ACTION_CODE
         
         The last_action_code field.
-
+        
     .. php:staticmethod:: create($fields)
-
+        
         :param array $fields: An array of the fields to set for the new ticket. The array should be keyed on the DAO_Ticket class constants above.
-        :returns integer: The id of the new ticket.
-
+        :returns: An integer containing the id of the new ticket.
+        
         Creates a ticket.
         
     .. php:staticmethod:: createRequester($raw_email, $ticket_id)
         
         :param string $raw_email: The email address to add as a requester.
         :param integer $ticket_id: The id of the ticket to add the requester to.
-        :returns boolean: Whether or not the requester was successfully added to the provided ticket.
+        :returns: A boolean representing whether or not the requester was successfully added to the provided ticket.
         
         Adds a requester to a ticket.
         
     .. php:staticmethod:: delete($ids)
-
+        
         :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
-        :returns boolean: A boolean representing whether the call was successful or not.
-
+        :returns: A boolean representing whether the call was successful or not.
+        
         Deletes a ticket.
         
     .. php:staticmethod:: deleteByContext($context, $context_ids)
-
+        
         :param string $context: The context to filter against.
         :param mixed $context_ids: An integer or array of integers representing the IDs of the objects to filter against.
-        :returns boolean: A boolean representing whether the call was successful or not.
-
+        :returns: A boolean representing whether the call was successful or not.
+        
         Deletes the tickets for a specific object.
-
+        
     .. php:staticmethod:: deleteRequester($id, $address_id)
-
+        
         :param integer $id: The address to remove as a requester.
         :param integer $ticket_id: The id of the ticket to remove the requester from.
-        :returns boolean: Whether or not the requester was successfully added to the provided ticket.
+        :returns: A boolean representing whether or not the requester was successfully added to the provided ticket.
         
         Deletes the specified requester from the specified ticket.
         
     .. php:staticmethod:: get($id)
-
+        
         :param integer $id: The id of the ticket to retrieve.
-
+        
         Retrieves a ticket.
-
+        
     .. php:staticmethod:: getByContext($context, $context_ids)
-
+        
         :param string $context: The context to filter against.
         :param mixed $context_ids: An integer or array of integers representing the IDs of the objects to filter against.
-        :returns array: An array of Model_Tickets.
-
+        :returns: An array of Model_Tickets.
+        
         Retrieves the tickets for a specific object.
-
+        
     .. php:staticmethod:: getFields()
-
-        :returns array: An array of fields and their human-friendly translations.
+        
+        :returns: An array of fields and their human-friendly translations.
+        
         Returns an array of all ticket fields.
-
+        
     .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
-
+        
         :param string $where: Sets the WHERE clause of the query. If null, no WHERE clause will be used, and all objects will be returned.
         :param string $sortBy: The field to sort by. Defaults to 'created'.
-        :param boolean $sortAsc: Whether to sort by descending or ascending values. Defaults to false (descending) by default.
+        :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
         :param integer $limit: The amount of records to LIMIT the query result to.
-        :returns array: An array of Model_Ticket objects.
-
+        :returns: An array of Model_Ticket objects.
+        
         Retrieves the objects matching the criteria specified.
-     
+        
     .. php:staticmethod:: getTicketIdByMask($mask)
         
         :param string $mask: The ticket mask.
-        :returns integer: Returns the integer of the matching ticket.
+        :returns: An integer containing the id of the matching ticket.
         
         Retrieves the ticket id for the supplied mask.
         
     .. php:staticmethod:: getTicketByMask($mask)
 
         :param string $mask: The ticket mask.
-        :returns Model_Ticket: Returns the matching ticket.
+        :returns: An instace of Model_Ticket containing the matching ticket.
 
         Retrieves the ticket for the supplied mask.
         
     .. php:staticmethod:: getTicketByMessageId($message_id)
         
         :param integer $message_id: The message_id.
-        :returns array: An array containing the ticket_id and message_id.
+        :returns: An array containing the ticket_id and message_id.
         
         Retrieves the ticket which contains the supplied message_id.
         
     .. :php:staticmethod:: getTickets($ids)
         
         :param mixed $ids: An integer or array of integers.
-        :returns array: An array of Model_Tickets.
+        :returns: An array of Model_Tickets.
         
         Retrieves multiple tickets by id.
         
     .. php:staticmethod:: merge($ids)
         
         :param array $ids: The tickets to merge.
-        :returns integer: The id of the ticket that the supplied tickets were merged into.
+        :returns: An integer containing the id of the ticket that the supplied tickets were merged into.
         
         Merges any number of tickets.
-
+        
     .. php:staticmethod:: rebuild($id)
         
         :param integer $id: The id of the ticket to rebuild.
-        :returns boolean: Whether the ticket was successfully rebuilt or not.
+        :returns: A boolean representing whether the ticket was successfully rebuilt or not.
         
         Updates the first_message_id, first_wrote_id, last_message_id and last_wrote_id of a ticket, or deletes it if there are no messages. This is useful if you've deleted messages on the ticket.        
-
+        
     .. php:staticmethod:: random()
-
+        
         Returns a random ticket.
-
+        
     .. php:staticmethod:: search($columns, $params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
-
+        
         :param array $columns: An array of columns to include in the result.
         :param array $params: An array of DevblocksSearchCriteria to restrict the search to.
         :param integer $limit: The max amount of results to return.
         :param integer $page: If the results have been limited, this parameter will cause the results to return the next set.
         :param string $sortBy: Defaults to null.
         :param boolean $sortAsc: Defaults to null (false).
-        :param boolean $withCounts: Whether to include counts in the return array or not. Defaults to true.
-        :returns array: Returns an array with the results, and the total number of records if $withCounts is true.
-
+        :param boolean $withCounts: A boolean indicating whether to include counts in the return array or not. Defaults to true.
+        :returns: An array with the results, and the total number of records if $withCounts is true.
+        
         Returns objects matching the given criteria.
-
+        
     .. php:staticmethod:: update($ids, $fields)
         
         :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
@@ -236,7 +237,7 @@ Model_Ticket
 .. php:class:: Model_Ticket
         
     .. php:attr:: $id;
-    
+        
         The id of the ticket.
         
     .. php:attr:: $mask;
@@ -244,20 +245,20 @@ Model_Ticket
         The mask of the ticket.
         
     .. php:attr:: $subject;
-    
+        
         The subject of the ticket.
         
     .. php:attr:: $is_waiting
         
-        Whether the ticket is waiting for a customer reply or not.
+        A boolean indicating whether the ticket is waiting for a customer reply or not.
         
     .. php:attr:: $is_closed = 0;
-
-        Whether the ticket is closed or not.
+        
+        A boolean indicating whether the ticket is closed or not.
         
     .. php:attr:: $is_deleted = 0;
-    
-        Whether the ticket is deleted or not.
+        
+        A boolean indicating whether the ticket is deleted or not.
         
     .. php:attr:: $group_id;
         
@@ -288,7 +289,7 @@ Model_Ticket
         The id of the address of the first person who wrote a message on the ticket.
         
     .. php:attr:: $last_wrote_address_id;
-
+        
         The id of the address of the last person who wrote a message on the ticket.
         
     .. php:attr:: $created_date;
@@ -321,31 +322,30 @@ Model_Ticket
         
     .. php:method:: getFirstMessage()
         
-        :returns Model_Message:
+        :returns: An instance of Model_Message containing the message.
         
         Retrieves the first message on the ticket.
         
     .. php:method:: getLastMessage()
         
-        :returns Model_Message:
+        :returns: An instance of Model_Message containing the message.
         
         Retrieves the last message on the ticket.
-
+        
     .. php:method:: getMessage()
         
-        :returns array: An array of Model_Message objects.
+        :returns: An array of Model_Message objects.
         
         Retrieves all messages on the ticket.
-    
+        
     .. php:method:: getOrg()
-    
-        :returns Model_ContactOrg:
+        
+        :returns: An instance of Model_ContactOrg containing the organization.
         
         Retrieves the Organization set for the ticket.
         
     .. php:method:: getRequesters()
         
-        :returns array: An array of Model_Address objects.
+        :returns: An array of Model_Address objects.
         
         Retrieves all of the requesters set for a ticket.
-        

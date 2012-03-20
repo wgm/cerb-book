@@ -40,7 +40,7 @@ Extension_DevblocksEvent
         
         :param array $labels: The labels that should be returned.
         :param array $types: The types that should be returned.
-        :returns array: A multi-dimensional array of conditions keyed on the context token, with ``label`` and ``type`` indices for each 
+        :returns: A multi-dimensional array of conditions keyed on the context token, with ``label`` and ``type`` indices for each 
         
     .. php:method:: setLabels($labels)
         
@@ -59,20 +59,20 @@ Extension_DevblocksEvent
         Retrieves the labels from the specified trigger, stores them in :php:attr:`Extension_DevblocksEvent::_labels`, and then returns them.
         
         :param DAO_TriggerEvent $trigger:
-        :returns array: The contents of :php:attr:`Extension_DevblocksEvent::_labels`.
+        :returns: An array containing the contents of :php:attr:`Extension_DevblocksEvent::_labels`.
         
     .. php:method:: getValues()
         
         Returns the contents of :php:attr:`Extension_DevblocksEvent::_values`.
         
-        :returns array: The contents of :php:attr:`Extension_DevblocksEvent::_values`.
+        :returns: An array containing the contents of :php:attr:`Extension_DevblocksEvent::_values`.
         
     .. php:method:: getConditions($trigger)
         
         Returns the conditions set for the provided trigger instance.
         
         :param DAO_TriggerEvent $trigger: An instance of a trigger.
-        :returns array: An array containing all of the conditions set for the trigger, in alphabetical order.
+        :returns: An array containing all of the conditions set for the trigger, in alphabetical order.
         
     .. php:method:: renderCondition($token, $trigger, $params=array(), $seq=null)
         
@@ -91,14 +91,14 @@ Extension_DevblocksEvent
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is registered to.
         :param array $params: The parameters set for the condition.
         :param array $values: The values set for the object being compared.
-        :returns boolean: Whether or not the condition has passed.
+        :returns: A boolean representing whether or not the condition has passed.
         
     .. php:method:: getActions($trigger)
         
         Returns the actions set for the provided trigger instance.
         
         :param DAO_TriggerEvent $trigger: An instance of a trigger.
-        :returns array: An array containing all of the actions set for the trigger, in alphabetical order.
+        :returns: An array containing all of the actions set for the trigger, in alphabetical order.
         
     .. php:method:: renderAction($token, $trigger, $params=array(), $seq=null)
         

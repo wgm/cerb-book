@@ -34,65 +34,65 @@ DAO_Comment
         
         :param array $fields: An array of the fields to set for the new comment. The array should be keyed on the DAO_Comment class constants above.
         :param array $also_notify_worker_ids: An array of worker ids to notify about the comment.
-        :returns integer: The id of the new comment.
+        :returns: An integer containing the id of the new comment.
         
         Creates a comment.
-
+        
     .. php:staticmethod:: delete($ids)
-
+        
         :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
-        :returns boolean: A boolean representing whether the call was successful or not.
-
+        :returns: A boolean representing whether the call was successful or not.
+        
         Deletes a comment.
         
     .. php:staticmethod:: deleteByContext($context, $context_ids)
-
+        
         :param string $context: The context to filter against.
         :param mixed $context_ids: An integer or array of integers representing the IDs of the objects to filter against.
-        :returns boolean: A boolean representing whether the call was successful or not.
-
+        :returns: A boolean representing whether the call was successful or not.
+        
         Deletes the comments for a specific object.
-
+        
     .. php:staticmethod:: get($id)
-
+        
         :param integer $id: The id of the comment to retrieve.
-        :returns Model_Comment:
-
+        :returns: An instance of Model_Comment containing the comment
+        
         Retrieves a comment.
-
+        
     .. php:staticmethod:: getByContext($context, $context_ids)
-
+        
         :param string $context: The context to filter against.
         :param mixed $context_ids: An integer or array of integers representing the IDs of the objects to filter against.
-        :returns array: An array of Model_Comments.
-
+        :returns: An array of Model_Comments.
+        
         Retrieves the comments for a specific object.
-
+        
     .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
-
+        
         :param string $where: Sets the WHERE clause of the query. If null, no WHERE clause will be used, and all objects will be returned.
         :param string $sortBy: The field to sort by. Defaults to 'created'.
-        :param boolean $sortAsc: Whether to sort by descending or ascending values. Defaults to false (descending) by default.
+        :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
         :param integer $limit: The amount of records to LIMIT the query result to.
-        :returns array: An array of Model_Comment objects.
-
+        :returns: An array of Model_Comment objects.
+        
         Retrieves the objects matching the criteria specified.
-
+        
     .. php:staticmethod:: random()
-
+        
         Returns a random comment.
-
+        
     .. php:staticmethod:: search($columns, $params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
-
+        
         :param array $columns: An array of columns to include in the result.
         :param array $params: An array of DevblocksSearchCriteria to restrict the search to.
         :param integer $limit: The max amount of results to return.
         :param integer $page: If the results have been limited, this parameter will cause the results to return the next set.
         :param string $sortBy: Defaults to null.
         :param boolean $sortAsc: Defaults to null (false).
-        :param boolean $withCounts: Whether to include counts in the return array or not. Defaults to true.
-        :returns array: Returns an array with the results, and the total number of records if $withCounts is true.
-
+        :param boolean $withCounts: A boolean indicating whether to include counts in the return array or not. Defaults to true.
+        :returns: An array with the results, and the total number of records if $withCounts is true.
+        
         Returns objects matching the given criteria.
         
     .. php:staticmethod:: update($ids, $fields)
@@ -140,12 +140,12 @@ Model_Comment
         
     .. php:method:: getAddress()
         
-        :returns Model_Address:
+        :returns: An instance of Model_Address containing the address.
         
         Caches and returns the email address of the worker who left the comment.
         
     .. php:method:: getLinksAndAttachments()
         
-        :returns array: An array of Model_AttachmentLinks.
+        :returns: An array of Model_AttachmentLinks.
         
         Returns all attachment links associated with the comment.
