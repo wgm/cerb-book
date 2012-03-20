@@ -1,7 +1,7 @@
-devblocks.event
----------------
+devblocks.event.condition
+-------------------------
 
-The **devblocks.event** extension point allows you to create new behaviors which can trigger :doc:`Virtual Attendants </concepts/virtual_attendants/index>`.
+The **devblocks.event.condition** extension point allows you to create new conditions for :doc:`Virtual Attendants </concepts/virtual_attendants/index>`.
 
 Plugin Manifest
 ===============
