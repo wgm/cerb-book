@@ -56,7 +56,7 @@ DAO_Comment
     .. php:staticmethod:: get($id)
         
         :param integer $id: The id of the comment to retrieve.
-        :returns: An instance of Model_Comment containing the comment
+        :returns: An instance of Model_Comment containing the comment.
         
         Retrieves a comment.
         

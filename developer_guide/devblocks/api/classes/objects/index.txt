@@ -5,5 +5,5 @@ Objects
     :maxdepth: 1
     
     ticket
-    comment
     message
+    comment

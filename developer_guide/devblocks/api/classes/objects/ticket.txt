@@ -322,19 +322,19 @@ Model_Ticket
         
     .. php:method:: getFirstMessage()
         
-        :returns: An instance of Model_Message containing the message.
+        :returns: An instance of :php:class:`Model_Message` containing the message.
         
         Retrieves the first message on the ticket.
         
     .. php:method:: getLastMessage()
         
-        :returns: An instance of Model_Message containing the message.
+        :returns: An instance of :php:class:`Model_Message` containing the message.
         
         Retrieves the last message on the ticket.
         
     .. php:method:: getMessage()
         
-        :returns: An array of Model_Message objects.
+        :returns: An array of :php:class:`Model_Message` objects.
         
         Retrieves all messages on the ticket.
         
