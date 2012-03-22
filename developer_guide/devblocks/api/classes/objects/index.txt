@@ -10,4 +10,5 @@ Objects
     comment
     contactorg
     contactperson
+    notification
     task
