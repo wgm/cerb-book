@@ -236,15 +236,15 @@ Model_Ticket
 
 .. php:class:: Model_Ticket
         
-    .. php:attr:: $id;
+    .. php:attr:: $id
         
         The id of the ticket.
         
-    .. php:attr:: $mask;
+    .. php:attr:: $mask
         
         The mask of the ticket.
         
-    .. php:attr:: $subject;
+    .. php:attr:: $subject
         
         The subject of the ticket.
         
@@ -252,23 +252,23 @@ Model_Ticket
         
         A boolean indicating whether the ticket is waiting for a customer reply or not.
         
-    .. php:attr:: $is_closed = 0;
+    .. php:attr:: $is_closed
         
         A boolean indicating whether the ticket is closed or not.
         
-    .. php:attr:: $is_deleted = 0;
+    .. php:attr:: $is_deleted
         
         A boolean indicating whether the ticket is deleted or not.
         
-    .. php:attr:: $group_id;
+    .. php:attr:: $group_id
         
         The group the ticket is in.
         
-    .. php:attr:: $bucket_id;
+    .. php:attr:: $bucket_id
         
         The bucket the ticket is in.
         
-    .. php:attr:: $org_id;
+    .. php:attr:: $org_id
         
         The org the ticket belongs to.
         
@@ -276,47 +276,47 @@ Model_Ticket
         
         The worker who owns the ticket.
         
-    .. php:attr:: $first_message_id;
+    .. php:attr:: $first_message_id
         
         The id of the first message on the ticket.
         
-    .. php:attr:: $last_message_id;
+    .. php:attr:: $last_message_id
         
         The id of the last message on the ticket.
         
-    .. php:attr:: $first_wrote_address_id;
+    .. php:attr:: $first_wrote_address_id
         
         The id of the address of the first person who wrote a message on the ticket.
         
-    .. php:attr:: $last_wrote_address_id;
+    .. php:attr:: $last_wrote_address_id
         
         The id of the address of the last person who wrote a message on the ticket.
         
-    .. php:attr:: $created_date;
+    .. php:attr:: $created_date
         
         The date the ticket was created.
         
-    .. php:attr:: $updated_date;
+    .. php:attr:: $updated_date
         
         The date the ticket was updated.
         
-    .. php:attr:: $due_date;
+    .. php:attr:: $due_date
         
         The date the ticket is due.
         
-    .. php:attr:: $spam_score;
+    .. php:attr:: $spam_score
         
         The spam score of the ticket.
         
-    .. php:attr:: $spam_training;
+    .. php:attr:: $spam_training
         
         The spam training of the ticket.
         
-    .. php:attr:: $interesting_words;
+    .. php:attr:: $interesting_words
         
         Interesting words that are part of the ticket (for spam purposes).
         
-    .. php:attr:: $last_action_code;
+    .. php:attr:: $last_action_code
         
         The last action code of the ticket.
         

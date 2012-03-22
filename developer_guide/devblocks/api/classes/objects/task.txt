@@ -31,7 +31,7 @@ DAO_Task
     
     .. php:staticmethod:: create($fields, $also_notify_worker_ids)
 
-        :param array $fields: An array of the fields to set for the new task. The array should be keyed on the DAO_Message class constants above.
+        :param array $fields: An array of the fields to set for the new task. The array should be keyed on the DAO_Task class constants above.
         :param array $also_notify_worker_ids: An array of worker ids to notify about the task.
         :returns: An integer containing the id of the new task.
 
@@ -47,7 +47,7 @@ DAO_Task
     .. php:staticmethod:: get($id)
 
         :param integer $id: The id of the task to retrieve.
-        :returns: An instance of Model_Message containing the task.
+        :returns: An instance of Model_Task containing the task.
 
         Retrieves a task.     
 
@@ -57,7 +57,7 @@ DAO_Task
         :param string $sortBy: The field to sort by. Defaults to 'created'.
         :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
         :param integer $limit: The amount of records to LIMIT the query result to.
-        :returns: An array of Model_Message objects.
+        :returns: An array of Model_Task objects.
 
         Retrieves the objects matching the criteria specified.
 
@@ -80,7 +80,7 @@ DAO_Task
     .. php:staticmethod:: update($ids, $fields)
 
         :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
-        :param array $fields: An array of the fields to set. The array should be keyed on the DAO_Message class constants above.
+        :param array $fields: An array of the fields to set. The array should be keyed on the DAO_Task class constants above.
 
         Updates a task (or multiple tasks).
     
@@ -88,19 +88,19 @@ Model_Task
 ==========
 
 .. php:class:: Model_Task
-
+    
     .. php:attr:: $id
-    
+        
         The id of the task.
-    
+        
     .. php:attr:: $title
-    
+        
         The title of the task.
-    
+        
     .. php:attr:: $due_date
-    
+        
         The date the task is due.
-    
+        
     .. php:attr:: $is_completed
         
         Whether the task is completed or not.

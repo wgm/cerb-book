@@ -158,35 +158,35 @@ Model_Address
     
         The id of the address.
     
-	.. php:attr:: $email
+    .. php:attr:: $email
     
         The email set for the address.
     
-	.. php:attr:: $first_name
+    .. php:attr:: $first_name
     
         The first name set for the address.
     
-	.. php:attr:: $last_name
+    .. php:attr:: $last_name
     
         The last name set for the address.
     
-	.. php:attr:: $contact_person_id
+    .. php:attr:: $contact_person_id
     
         The :php:attr:`Model_ContactPerson::$id` associated with the address.
     
-	.. php:attr:: $contact_org_id
+    .. php:attr:: $contact_org_id
     
         The :php:attr:`Model_ContactOrg::$id` the address belongs to.
     
-	.. php:attr:: $num_spam
+    .. php:attr:: $num_spam
     
         The number of spam entries for the address.
     
-	.. php:attr:: $num_nonspam
+    .. php:attr:: $num_nonspam
     
         The num_nonspam of the address.
     
-	.. php:attr:: $is_banned
+    .. php:attr:: $is_banned
     
         The is_banned of the address.
     
