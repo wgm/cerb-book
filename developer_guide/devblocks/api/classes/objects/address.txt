@@ -56,7 +56,7 @@ DAO_Address
         
         :param integer $address_id: The id of the address
         
-        Increments the spam total to the provided provided address by one.        
+        Increments the spam total to the provided provided address by one.
         
     .. php:staticmethod:: create($fields, $also_notify_worker_ids)
         
@@ -147,7 +147,7 @@ DAO_Address
         :param array $fields: An array of the fields to set for the specified address(s). The array should be keyed on the DAO_Address class constants above.
         :param array $where: A string specifying the WHERE clause of the update query.
         
-        Updates a address (or multiple addresss) based on the provided $where parameter.
+        Updates an address (or multiple addresss) based on the provided $where parameter.
 
 Model_Address
 =============
@@ -184,11 +184,11 @@ Model_Address
     
     .. php:attr:: $num_nonspam
     
-        The num_nonspam of the address.
+        The number of non-spam entries for the address.
     
     .. php:attr:: $is_banned
     
-        The is_banned of the address.
+        Whether the address is banned or not.
     
     .. php:method:: getName()
         

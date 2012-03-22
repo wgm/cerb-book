@@ -12,7 +12,7 @@ DAO_Message
         
     .. php:const:: TICKET_ID
         
-        The ticket_id field.        
+        The ticket_id field.
         
     .. php:const:: CREATED_DATE
         
@@ -73,7 +73,7 @@ DAO_Message
         :param integer $ticket_id: The id of the ticket.
         :returns: An array of Model_Message objects.
         
-        Returns all of the messages associated with the specified ticket.        
+        Returns all of the messages associated with the specified ticket.
         
     .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
         
@@ -123,7 +123,7 @@ Model_Message
         
     .. php:attr:: $created_date
         
-        The timestamp representing when the message was created.
+        The timestamp when the message was created.
         
     .. php:attr:: $address_id
         

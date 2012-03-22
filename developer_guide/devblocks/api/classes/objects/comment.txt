@@ -120,15 +120,15 @@ Model_Comment
         
     .. php:attr: $context
         
-        The context the comment was saved to.
+        The context the comment is linked to.
         
     .. php:attr:: $context_id
         
-        The id of the context object the comment was saved to.
+        The id of the context object the comment is linked to.
         
     .. php:attr:: $created
         
-        The timestamp representing when the comment was created.
+        The timestamp when the comment was created.
         
     .. php:attr:: $address_id
         

@@ -48,25 +48,25 @@ DAO_ContactOrg
     
     .. php:staticmethod:: create($fields, $also_notify_worker_ids)
 
-        :param array $fields: An array of the fields to set for the new task. The array should be keyed on the DAO_ContactOrg class constants above.
-        :param array $also_notify_worker_ids: An array of worker ids to notify about the task.
-        :returns: An integer containing the id of the new task.
+        :param array $fields: An array of the fields to set for the new organization. The array should be keyed on the DAO_ContactOrg class constants above.
+        :param array $also_notify_worker_ids: An array of worker ids to notify about the organization.
+        :returns: An integer containing the id of the new organization.
 
-        Creates a task.
+        Creates an organization.
 
     .. php:staticmethod:: delete($ids)
 
         :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
         :returns: A boolean representing whether the call was successful or not.
 
-        Deletes a task.
+        Deletes an organization.
 
     .. php:staticmethod:: get($id)
 
-        :param integer $id: The id of the task to retrieve.
-        :returns: An instance of Model_ContactOrg containing the task.
+        :param integer $id: The id of the organization to retrieve.
+        :returns: An instance of Model_ContactOrg containing the organization.
 
-        Retrieves a task.     
+        Retrieves an organization.
 
     .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
 
@@ -88,7 +88,7 @@ DAO_ContactOrg
 
     .. php:staticmethod:: random()
 
-        Returns a random task.
+        Returns a random organization.
 
     .. php:staticmethod:: search($params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
 
@@ -107,7 +107,7 @@ DAO_ContactOrg
         :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
         :param array $fields: An array of the fields to set. The array should be keyed on the DAO_ContactOrg class constants above.
 
-        Updates a task (or multiple tasks).
+        Updates an organization (or multiple organizations).
     
 Model_ContactOrg
 ================
@@ -152,8 +152,8 @@ Model_ContactOrg
         
     .. php:attr:: $created
         
-        The date the organization was created.
+        The timestamp when the organization was created.
         
     .. php:attr:: $sync_id
         
-        The  of the organization.
+        The sync id of the organization.

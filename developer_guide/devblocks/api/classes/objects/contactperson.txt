@@ -50,7 +50,7 @@ DAO_ContactPerson
         :param integer $id: The id of the registered contact to retrieve.
         :returns: An instance of Model_ContactPerson containing the registered contact.
 
-        Retrieves a registered contact.     
+        Retrieves a registered contact.
 
     .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
 
@@ -61,14 +61,6 @@ DAO_ContactPerson
         :returns: An array of Model_ContactPerson objects.
 
         Retrieves the objects matching the criteria specified.
-
-    .. php:staticmethod:: mergeIds($from_ids, $to_id)
-
-        :param array $from_ids: The source organization(s).
-        :param integer $to_id: The destination organization.
-        :returns: A boolean indicating whether the merge was successful or not.
-
-        Merges any number of organizations into one organization.
 
     .. php:staticmethod:: random()
 

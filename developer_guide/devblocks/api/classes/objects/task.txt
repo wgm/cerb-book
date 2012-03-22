@@ -49,7 +49,7 @@ DAO_Task
         :param integer $id: The id of the task to retrieve.
         :returns: An instance of Model_Task containing the task.
 
-        Retrieves a task.     
+        Retrieves a task.
 
     .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
 
@@ -99,7 +99,7 @@ Model_Task
         
     .. php:attr:: $due_date
         
-        The date the task is due.
+        The timestamp when the task is due.
         
     .. php:attr:: $is_completed
         
@@ -107,8 +107,8 @@ Model_Task
         
     .. php:attr:: $completed_date
         
-        The date the task was marked as completed.
+        The timestamp when the task was marked as completed.
         
     .. php:attr:: $updated_date
         
-        The date the task was last updated.
+        The timestamp when the task was last updated.

@@ -105,21 +105,6 @@ DAO_Ticket
         
         Adds a requester to a ticket.
         
-    .. php:staticmethod:: delete($ids)
-        
-        :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
-        :returns: A boolean representing whether the call was successful or not.
-        
-        Deletes a ticket.
-        
-    .. php:staticmethod:: deleteByContext($context, $context_ids)
-        
-        :param string $context: The context to filter against.
-        :param mixed $context_ids: An integer or array of integers representing the IDs of the objects to filter against.
-        :returns: A boolean representing whether the call was successful or not.
-        
-        Deletes the tickets for a specific object.
-        
     .. php:staticmethod:: deleteRequester($id, $address_id)
         
         :param integer $id: The address to remove as a requester.
@@ -198,7 +183,7 @@ DAO_Ticket
         :param integer $id: The id of the ticket to rebuild.
         :returns: A boolean representing whether the ticket was successfully rebuilt or not.
         
-        Updates the first_message_id, first_wrote_id, last_message_id and last_wrote_id of a ticket, or deletes it if there are no messages. This is useful if you've deleted messages on the ticket.        
+        Updates the first_message_id, first_wrote_id, last_message_id and last_wrote_id of a ticket, or deletes it if there are no messages. This is useful if you've deleted messages on the ticket.
         
     .. php:staticmethod:: random()
         
