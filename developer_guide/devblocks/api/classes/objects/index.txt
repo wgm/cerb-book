@@ -8,4 +8,5 @@ Objects
     address
     message
     comment
+    contactorg
     task

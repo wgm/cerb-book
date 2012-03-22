@@ -1,0 +1,159 @@
+Organization
+------------
+
+DAO_ContactOrg
+==============
+
+.. php:class:: DAO_ContactOrg
+
+    .. php:const:: ID
+
+        The id field.
+        
+    .. php:const:: NAME
+
+        The name field.
+        
+    .. php:const:: STREET
+
+        The street field.
+        
+    .. php:const:: CITY
+
+        The city field.
+        
+    .. php:const:: PROVINCE
+
+        The province field.
+        
+    .. php:const:: POSTAL
+
+        The postal field.
+        
+    .. php:const:: COUNTRY
+
+        The country field.
+    
+    .. php:const:: PHONE
+
+        The phone field.
+        
+    .. php:const:: WEBSITE
+
+        The website field.
+        
+    .. php:const:: CREATED
+
+        The created field.
+    
+    .. php:staticmethod:: create($fields, $also_notify_worker_ids)
+
+        :param array $fields: An array of the fields to set for the new task. The array should be keyed on the DAO_ContactOrg class constants above.
+        :param array $also_notify_worker_ids: An array of worker ids to notify about the task.
+        :returns: An integer containing the id of the new task.
+
+        Creates a task.
+
+    .. php:staticmethod:: delete($ids)
+
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
+        :returns: A boolean representing whether the call was successful or not.
+
+        Deletes a task.
+
+    .. php:staticmethod:: get($id)
+
+        :param integer $id: The id of the task to retrieve.
+        :returns: An instance of Model_ContactOrg containing the task.
+
+        Retrieves a task.     
+
+    .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
+
+        :param string $where: Sets the WHERE clause of the query. If null, no WHERE clause will be used, and all objects will be returned.
+        :param string $sortBy: The field to sort by. Defaults to 'created'.
+        :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
+        :param integer $limit: The amount of records to LIMIT the query result to.
+        :returns: An array of Model_ContactOrg objects.
+
+        Retrieves the objects matching the criteria specified.
+
+    .. php:staticmethod:: mergeIds($from_ids, $to_id)
+
+        :param array $from_ids: The source organization(s).
+        :param integer $to_id: The destination organization.
+        :returns: A boolean indicating whether the merge was successful or not.
+
+        Merges any number of organizations into one organization.
+
+    .. php:staticmethod:: random()
+
+        Returns a random task.
+
+    .. php:staticmethod:: search($params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
+
+        :param array $params: An array of DevblocksSearchCriteria to restrict the search to.
+        :param integer $limit: The max amount of results to return.
+        :param integer $page: If the results have been limited, this parameter will cause the results to return the next set.
+        :param string $sortBy: Defaults to null.
+        :param boolean $sortAsc: Defaults to null (false).
+        :param boolean $withCounts: A boolean indicating whether to include counts in the return array or not. Defaults to true.
+        :returns: An array with the results, and the total number of records if $withCounts is true.
+
+        Returns objects matching the given criteria.
+
+    .. php:staticmethod:: update($ids, $fields)
+
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
+        :param array $fields: An array of the fields to set. The array should be keyed on the DAO_ContactOrg class constants above.
+
+        Updates a task (or multiple tasks).
+    
+Model_ContactOrg
+================
+
+.. php:class:: Model_ContactOrg
+    
+    .. php:attr:: $id
+        
+        The id of the organization.
+        
+    .. php:attr:: $name
+        
+        The name of the organization.
+        
+    .. php:attr:: $street
+        
+        The street of the organization.
+        
+    .. php:attr:: $city
+        
+        The city of the organization.
+        
+    .. php:attr:: $province
+        
+        The province of the organization.
+        
+    .. php:attr:: $postal
+        
+        The postal of the organization.
+        
+    .. php:attr:: $country
+        
+        The country of the organization.
+        
+    .. php:attr:: $phone
+        
+        The phone of the organization.
+        
+    .. php:attr:: $website
+        
+        The website of the organization.
+        
+    .. php:attr:: $created
+        
+        The date the organization was created.
+        
+    .. php:attr:: $sync_id
+        
+        The  of the organization.
