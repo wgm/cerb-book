@@ -1,0 +1,136 @@
+Registered Contact
+------------------
+
+DAO_ContactPerson
+=================
+
+.. php:class:: DAO_ContactPerson
+
+    .. php:const:: ID
+
+        The id field.
+
+    .. php:const:: EMAIL_ID
+
+        The email_id field.
+
+    .. php:const:: CREATED
+
+        The created field.
+
+    .. php:const:: LAST_LOGIN
+
+        The last_login field.
+
+    .. php:const:: AUTH_SALT
+
+        The auth_salt field.
+
+    .. php:const:: AUTH_PASSWORD
+
+        The auth_password field.
+    
+    .. php:staticmethod:: create($fields, $also_notify_worker_ids)
+
+        :param array $fields: An array of the fields to set for the new registered contact. The array should be keyed on the DAO_ContactPerson class constants above.
+        :param array $also_notify_worker_ids: An array of worker ids to notify about the registered contact.
+        :returns: An integer containing the id of the new registered contact.
+
+        Creates a registered contact.
+
+    .. php:staticmethod:: delete($ids)
+
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
+        :returns: A boolean representing whether the call was successful or not.
+
+        Deletes a registered contact.
+
+    .. php:staticmethod:: get($id)
+
+        :param integer $id: The id of the registered contact to retrieve.
+        :returns: An instance of Model_ContactPerson containing the registered contact.
+
+        Retrieves a registered contact.     
+
+    .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
+
+        :param string $where: Sets the WHERE clause of the query. If null, no WHERE clause will be used, and all objects will be returned.
+        :param string $sortBy: The field to sort by. Defaults to 'created'.
+        :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
+        :param integer $limit: The amount of records to LIMIT the query result to.
+        :returns: An array of Model_ContactPerson objects.
+
+        Retrieves the objects matching the criteria specified.
+
+    .. php:staticmethod:: mergeIds($from_ids, $to_id)
+
+        :param array $from_ids: The source organization(s).
+        :param integer $to_id: The destination organization.
+        :returns: A boolean indicating whether the merge was successful or not.
+
+        Merges any number of organizations into one organization.
+
+    .. php:staticmethod:: random()
+
+        Returns a random registered contact.
+
+    .. php:staticmethod:: search($params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
+
+        :param array $params: An array of DevblocksSearchCriteria to restrict the search to.
+        :param integer $limit: The max amount of results to return.
+        :param integer $page: If the results have been limited, this parameter will cause the results to return the next set.
+        :param string $sortBy: Defaults to null.
+        :param boolean $sortAsc: Defaults to null (false).
+        :param boolean $withCounts: A boolean indicating whether to include counts in the return array or not. Defaults to true.
+        :returns: An array with the results, and the total number of records if $withCounts is true.
+
+        Returns objects matching the given criteria.
+
+    .. php:staticmethod:: update($ids, $fields)
+
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
+        :param array $fields: An array of the fields to set. The array should be keyed on the DAO_ContactPerson class constants above.
+
+        Updates a registered contact (or multiple registered contacts).
+    
+Model_ContactPerson
+===================
+
+.. php:class:: Model_ContactPerson
+        
+        .. php:attr:: id
+            
+            The id of the registered contact.
+            
+        .. php:attr:: email_id
+            
+            The primary email of the registered contact.
+            
+        .. php:attr:: created
+            
+            The date the registered contact was created.
+            
+        .. php:attr:: last_login
+            
+            The last date the registered contact logged in.
+            
+        .. php:attr:: auth_salt
+            
+            The password salt for the registered contact.
+            
+        .. php:attr:: auth_password
+            
+            The password hash for the registered contact.
+        
+        .. php:method:: getAddresses()
+            
+            :returns: An array of :php:class:`Model_Address` objects.
+            
+            Returns all of the addresses registered to the registered contact.
+        
+        .. php:method:: getPrimaryAddress()
+            
+            :returns: An instance of :php:class:`Model_Address`.
+            
+            Returns the primary address of the registered contact.
+            

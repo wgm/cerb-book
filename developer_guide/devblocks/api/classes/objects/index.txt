@@ -9,4 +9,5 @@ Objects
     message
     comment
     contactorg
+    contactperson
     task
