@@ -8,3 +8,4 @@ Objects
     address
     message
     comment
+    task
