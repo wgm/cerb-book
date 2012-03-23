@@ -13,5 +13,6 @@ A **context** describes a particular type of object.
     address
     contact
     ticket
+    attachment
     task
     opportunity
