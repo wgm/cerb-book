@@ -1,0 +1,197 @@
+Address
+-------
+
+DAO_Address
+===========
+
+.. php:class:: DAO_Address
+    
+    .. php:const:: ID
+
+    The id field.
+
+    .. php:const:: EMAIL
+
+    The email field.
+
+    .. php:const:: FIRST_NAME
+
+    The first_name field.
+
+    .. php:const:: LAST_NAME
+
+    The last_name field.
+
+    .. php:const:: CONTACT_PERSON_ID
+
+    The contact_person_id field.
+
+    .. php:const:: CONTACT_ORG_ID
+
+    The contact_org_id field.
+
+    .. php:const:: NUM_SPAM
+
+    The num_spam field.
+
+    .. php:const:: NUM_NONSPAM
+
+    The num_nonspam field.
+
+    .. php:const:: IS_BANNED
+
+    The is_banned field.
+
+    .. php:const:: LAST_AUTOREPLY
+
+    The last_autoreply field.
+
+    .. php:staticmethod:: addOneToNonSpamTotal($address_id)
+        
+        :param integer $address_id: The id of the address
+        
+        Increments the non-spam total to the provided provided address by one.
+        
+    .. php:staticmethod:: addOneToSpamTotal($address_id)
+        
+        :param integer $address_id: The id of the address
+        
+        Increments the spam total to the provided provided address by one.
+        
+    .. php:staticmethod:: create($fields, $also_notify_worker_ids)
+        
+        :param array $fields: An array of the fields to set for the new address. The array should be keyed on the DAO_Address class constants above.
+        :param array $also_notify_worker_ids: An array of worker ids to notify about the address.
+        :returns: An integer containing the id of the new address.
+        
+        Creates a address.
+        
+    .. php:staticmethod:: delete($ids)
+        
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
+        :returns: A boolean representing whether the call was successful or not.
+        
+        Deletes an address.
+        
+    .. php:staticmethod:: get($id)
+        
+        :param integer $id: The id of the address to retrieve.
+        :returns: An instance of Model_Address containing the address.
+        
+        Retrieves an address.
+        
+    .. php:staticmethod:: getByEmail($email)
+        
+        :param string $email: The email address to search for.
+        :returns: An instance of Model_Address.
+        
+        Returns an address based on the email provided.
+
+    .. php:staticmethod:: getCountByOrgId($org_id)
+        
+        :param integer $org_id: The id of the organization to filter against.
+        :returns: An integer containing the number of addresses that belong to an organization.
+        
+        Returns the number of addresses that belong to an organization.
+    
+    .. php:staticmethod:: getFields()
+
+        :returns: An array of fields and their human-friendly translations.
+
+        Returns an array of all address fields.
+        
+    .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
+        
+        :param string $where: Sets the WHERE clause of the query. If null, no WHERE clause will be used, and all objects will be returned.
+        :param string $sortBy: The field to sort by. Defaults to 'created'.
+        :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
+        :param integer $limit: The amount of records to LIMIT the query result to.
+        :returns: An array of Model_Address objects.
+        
+        Retrieves the objects matching the criteria specified.
+    
+    .. php:staticmethod:: lookupAddress($email, $create_if_null)
+        
+        :param string $email: The email address to search for.
+        :param boolean $create_if_null: A boolean indicating whether or not an address should be created if one can't be found.
+        :returns: An instance of Model_Address.
+        
+        Searches for a specified email address.
+        
+    .. php:staticmethod:: random()
+        
+        Returns a random address.
+        
+    .. php:staticmethod:: search($columns, $params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
+        
+        :param array $columns: An array of columns to include in the result.
+        :param array $params: An array of DevblocksSearchCriteria to restrict the search to.
+        :param integer $limit: The max amount of results to return.
+        :param integer $page: If the results have been limited, this parameter will cause the results to return the next set.
+        :param string $sortBy: Defaults to null.
+        :param boolean $sortAsc: Defaults to null (false).
+        :param boolean $withCounts: A boolean indicating whether to include counts in the return array or not. Defaults to true.
+        :returns: An array with the results, and the total number of records if $withCounts is true.
+        
+        Returns objects matching the given criteria.
+        
+    .. php:staticmethod:: update($ids, $fields)
+        
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
+        :param array $fields: An array of the fields to set. The array should be keyed on the DAO_Address class constants above.
+        
+        Updates a address (or multiple addresss).
+        
+    .. php:staticmethod:: updateWhere($fields, $where)
+        
+        :param array $fields: An array of the fields to set for the specified address(s). The array should be keyed on the DAO_Address class constants above.
+        :param array $where: A string specifying the WHERE clause of the update query.
+        
+        Updates an address (or multiple addresss) based on the provided $where parameter.
+
+Model_Address
+=============
+
+.. php:class:: Model_Address
+    
+    .. php:attr:: $id
+    
+        The id of the address.
+    
+    .. php:attr:: $email
+    
+        The email set for the address.
+    
+    .. php:attr:: $first_name
+    
+        The first name set for the address.
+    
+    .. php:attr:: $last_name
+    
+        The last name set for the address.
+    
+    .. php:attr:: $contact_person_id
+    
+        The :php:attr:`Model_ContactPerson::$id` associated with the address.
+    
+    .. php:attr:: $contact_org_id
+    
+        The :php:attr:`Model_ContactOrg::$id` the address belongs to.
+    
+    .. php:attr:: $num_spam
+    
+        The number of spam entries for the address.
+    
+    .. php:attr:: $num_nonspam
+    
+        The number of non-spam entries for the address.
+    
+    .. php:attr:: $is_banned
+    
+        Whether the address is banned or not.
+    
+    .. php:method:: getName()
+        
+        :returns: A string containing the first and last name set for the address.
+        
+        Retrieves the first and last name set for the address.

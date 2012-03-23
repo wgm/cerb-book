@@ -1,0 +1,43 @@
+CerberusCronPageExtension
+-------------------------
+
+.. php:class:: CerberusCronPageExtension
+    
+    .. php:const:: PARAM_ENABLED
+        
+        The enabled class constant.
+        
+    .. php:const:: PARAM_LOCKED
+        
+        The locked class constant.
+        
+    .. php:const:: PARAM_DURATION
+        
+        The duration class constant.
+        
+    .. php:const:: PARAM_TERM
+        
+        The term class constant
+        
+    .. php:const:: PARAM_LASTRUN
+        
+        The lastrun class constant.
+        
+    .. php:method:: _run
+        
+        Runs a task and updates the lastrun instance parameter.
+        
+    .. php:method:: isReadyToRun($is_ignoring_wait)
+        
+        :param boolean $is_ignoring_wait: A boolean indicating whether the task should ignore the wait time or not.
+        :returns: A boolean representing whether the task is ready to run or not.
+        
+        Determines if it is time for a task to run.
+        
+    .. php:staticmethod:: getIntervalAsSeconds($duration, $term)
+        
+        :param integer $duration:
+        :param string $term:
+        :returns: An integer containing the number of seconds the task should wait before running again.
+        
+        Returns the amount of seconds the task should wait before running again.

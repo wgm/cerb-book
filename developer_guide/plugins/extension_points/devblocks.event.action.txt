@@ -1,7 +1,7 @@
-devblocks.event
----------------
+devblocks.event.action
+----------------------
 
-The **devblocks.event** extension point allows you to create new behaviors which can trigger :doc:`Virtual Attendants </concepts/virtual_attendants/index>`.
+The **devblocks.event.action** extension point allows you to create new actions which can be run via :doc:`Virtual Attendants </concepts/virtual_attendants/index>`.
 
 Plugin Manifest
 ===============

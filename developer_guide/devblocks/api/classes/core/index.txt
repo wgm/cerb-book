@@ -5,4 +5,5 @@ Core
     :maxdepth: 1
     
     DevblocksPlatform
+    CerberusCronPageExtension
     _DevblocksCacheManager

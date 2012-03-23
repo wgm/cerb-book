@@ -5,5 +5,10 @@ Objects
     :maxdepth: 1
     
     ticket
-    comment
+    address
     message
+    comment
+    contactorg
+    contactperson
+    notification
+    task

@@ -1,0 +1,179 @@
+Notification
+------------
+
+DAO_Notification
+================
+
+.. php:class:: DAO_Notification
+    
+    .. php:const:: CACHE_COUNT_PREFIX
+        
+        The cache prefix.
+        
+    .. php:const:: ID
+        
+        The id field.
+        
+    .. php:const:: CONTEXT
+        
+        The context field.
+        
+    .. php:const:: CONTEXT_ID
+        
+        The context_id field.
+        
+    .. php:const:: CREATED_DATE
+        
+        The created_date field.
+        
+    .. php:const:: WORKER_ID
+        
+        The worker_id field.
+        
+    .. php:const:: MESSAGE
+        
+        The message field.
+        
+    .. php:const:: IS_READ
+        
+        The is_read field.
+        
+    .. php:const:: URL
+        
+        The url field.
+    
+    .. php:staticmethod:: clearCountCache($worker_id)
+        
+        :param integer $worker_id: The worker id to clear the notification count cache for.
+        
+        Clears the notification count cache for the specified worker
+        
+    .. php:staticmethod:: create($fields, $also_notify_worker_ids)
+
+        :param array $fields: An array of the fields to set for the new notification. The array should be keyed on the DAO_Notification class constants above.
+        :param array $also_notify_worker_ids: An array of worker ids to notify about the notification.
+        :returns: An integer containing the id of the new notification.
+
+        Creates a notification.
+
+    .. php:staticmethod:: delete($ids)
+
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
+        :returns: A boolean representing whether the call was successful or not.
+
+        Deletes a notification.
+        
+    .. php:staticmethod:: deleteByContext($context, $context_ids)
+
+        :param string $context: The context to filter against.
+        :param mixed $context_ids: An integer or array of integers representing the IDs of the objects to filter against.
+        :returns: A boolean representing whether the call was successful or not.
+
+        Deletes the notifications for a specific object.
+        
+    .. php:staticmethod:: get($id)
+
+        :param integer $id: The id of the notification to retrieve.
+        :returns: An instance of Model_Notification containing the notification.
+
+        Retrieves a notification.
+    
+    .. php:staticmethod:: getUnreadByContextAndWorker($context, $context_id, $worker_id=0, $mark_read=false)
+        
+        :param string $context: The context to filter against.
+        :param integer $context_id: The object to filter against.
+        :param integer $worker_id: The worker id to retrieve notifications for. By default this method will return all unread notifications for the specified object for all workers.
+        :param boolean $mark_read: A boolean indicating whether or not the retrieved notifications should be marked as read.
+        :returns: An array of MOdel_Notification objects.
+        
+        Returns the unread notifications for a given context and object. You can optionally filter the results by worker, and optionally mark them as read.
+        
+    .. php:staticmethod:: getUnreadCountByWorker($worker_id)
+        
+        :param integer $worker_id: The worker to retrieve the unread count for.
+        :returns: An integer containing the total number of unread notifications for the specified worker.
+        
+        Caches and returns the count of unread notifications for the specified worker.
+
+    .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
+
+        :param string $where: Sets the WHERE clause of the query. If null, no WHERE clause will be used, and all objects will be returned.
+        :param string $sortBy: The field to sort by. Defaults to 'created'.
+        :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
+        :param integer $limit: The amount of records to LIMIT the query result to.
+        :returns: An array of Model_Notification objects.
+
+        Retrieves the objects matching the criteria specified.
+
+    .. php:staticmethod:: random()
+
+        Returns a random notification.
+
+    .. php:staticmethod:: search($params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
+
+        :param array $params: An array of DevblocksSearchCriteria to restrict the search to.
+        :param integer $limit: The max amount of results to return.
+        :param integer $page: If the results have been limited, this parameter will cause the results to return the next set.
+        :param string $sortBy: Defaults to null.
+        :param boolean $sortAsc: Defaults to null (false).
+        :param boolean $withCounts: A boolean indicating whether to include counts in the return array or not. Defaults to true.
+        :returns: An array with the results, and the total number of records if $withCounts is true.
+
+        Returns objects matching the given criteria.
+
+    .. php:staticmethod:: update($ids, $fields)
+
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
+        :param array $fields: An array of the fields to set. The array should be keyed on the DAO_Notification class constants above.
+
+        Updates a notification (or multiple notifications).
+
+    .. php:staticmethod:: updateWhere($fields, $where)
+
+        :param array $fields: An array of the fields to set for the specified address(s). The array should be keyed on the DAO_Address class constants above.
+        :param array $where: A string specifying the WHERE clause of the update query.
+
+        Updates a notification (or multiple notifications) based on the provided $where parameter.
+        
+Model_Notification
+==================
+
+.. php:class:: Model_Notification
+    
+    .. php:attr:: id
+        
+        The id of the notification.
+        
+    .. php:attr:: context
+        
+        The context the notification is attached to.
+        
+    .. php:attr:: context_id
+        
+        The object id of the notification.
+        
+    .. php:attr:: created_date
+        
+        The timestamp when the notification was created.
+        
+    .. php:attr:: worker_id
+        
+        The worker the notification belongs to.
+        
+    .. php:attr:: message
+        
+        The content of the notification.
+        
+    .. php:attr:: is_read
+        
+        Whether the notification has been read or not.
+        
+    .. php:attr:: url
+        
+        The url of the notification.
+        
+    .. php:method:: getURL()
+        
+        :returns: The full url to the notification.
+        
+        Returns the full url for the notification.

@@ -12,7 +12,7 @@ DAO_Message
         
     .. php:const:: TICKET_ID
         
-        The ticket_id field.        
+        The ticket_id field.
         
     .. php:const:: CREATED_DATE
         
@@ -47,65 +47,67 @@ DAO_Message
         The storage_size field.
         
     .. php:staticmethod:: create($fields, $also_notify_worker_ids)
-
+        
         :param array $fields: An array of the fields to set for the new message. The array should be keyed on the DAO_Message class constants above.
         :param array $also_notify_worker_ids: An array of worker ids to notify about the message.
-        :returns integer: The id of the new message.
-
+        :returns: An integer containing the id of the new message.
+        
         Creates a message.
-
+        
     .. php:staticmethod:: delete($ids)
-
+        
         :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
-        :returns boolean: A boolean representing whether the call was successful or not.
-
+        :returns: A boolean representing whether the call was successful or not.
+        
         Deletes a message.
-
+        
     .. php:staticmethod:: get($id)
-
+        
         :param integer $id: The id of the message to retrieve.
-        :returns Model_Message:
-
+        :returns: An instance of Model_Message containing the message.
+        
         Retrieves a message.
         
     .. php:staticmethod:: getMessageByTicket($ticket_id)
         
         :param integer $ticket_id: The id of the ticket.
-        :returns array: An array of Model_Message objects.
+        :returns: An array of Model_Message objects.
         
-        Returns all of the messages associated with the specified ticket.        
+        Returns all of the messages associated with the specified ticket.
         
     .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
-
+        
         :param string $where: Sets the WHERE clause of the query. If null, no WHERE clause will be used, and all objects will be returned.
         :param string $sortBy: The field to sort by. Defaults to 'created'.
-        :param boolean $sortAsc: Whether to sort by descending or ascending values. Defaults to false (descending) by default.
+        :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
         :param integer $limit: The amount of records to LIMIT the query result to.
-        :returns array: An array of Model_Message objects.    
-    
+        :returns: An array of Model_Message objects.
+        
+        Retrieves the objects matching the criteria specified.
+        
     .. php:staticmethod:: random()
-
+        
         Returns a random message.
-
+        
     .. php:staticmethod:: search($params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
-
+        
         :param array $params: An array of DevblocksSearchCriteria to restrict the search to.
         :param integer $limit: The max amount of results to return.
         :param integer $page: If the results have been limited, this parameter will cause the results to return the next set.
         :param string $sortBy: Defaults to null.
         :param boolean $sortAsc: Defaults to null (false).
-        :param boolean $withCounts: Whether to include counts in the return array or not. Defaults to true.
-        :returns array: Returns an array with the results, and the total number of records if $withCounts is true.
-
+        :param boolean $withCounts: A boolean indicating whether to include counts in the return array or not. Defaults to true.
+        :returns: An array with the results, and the total number of records if $withCounts is true.
+        
         Returns objects matching the given criteria.
-
+        
     .. php:staticmethod:: update($ids, $fields)
-
+        
         :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
         :param array $fields: An array of the fields to set. The array should be keyed on the DAO_Message class constants above.
-
+        
         Updates a message (or multiple messages).
-
+        
 Model_Message
 =============
 
@@ -121,7 +123,7 @@ Model_Message
         
     .. php:attr:: $created_date
         
-        The timestamp representing when the message was created.
+        The timestamp when the message was created.
         
     .. php:attr:: $address_id
         
@@ -153,31 +155,31 @@ Model_Message
         
     .. php:method:: getAttachments()
         
-        :returns array: An array of Model_Attachments.
+        :returns: An array of Model_Attachments.
         
         Gets all of the attachments linked to the message.
-    
+        
     .. php:method:: getContent($fp)
         
         :param resource $fp: An optional resource to use when retrieving the message.
-        :returns string:
+        :returns: A string containing the contents of the message.
         
         Retrieves the content of the message.
         
     .. php:method:: getHeaders()
         
-        :returns array: An array of Model_MessageHeader objects.
+        :returns: An array of Model_MessageHeader objects.
         
         Retrieves all of the headers associated with the message.
-    
+        
     .. php:method:: getLinksAndAttachments()
         
-        :returns array: An array of Model_AttachmentLinks.
-
+        :returns: An array of Model_AttachmentLinks.
+        
         Returns all attachment links associated with the message.
         
     .. php:method:: getSender()
         
-        :returns Model_Address:
+        :returns: An instance of Model_Address containing the address of the sender.
         
         Caches and returns the address object that sent the message.

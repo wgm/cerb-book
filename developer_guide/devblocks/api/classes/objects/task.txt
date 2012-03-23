@@ -1,0 +1,114 @@
+Task
+----
+
+DAO_Task
+========
+.. php:class:: DAO_Task
+
+    .. php:const:: ID
+    
+        The id field.
+    
+    .. php:const:: TITLE
+    
+        The title field.
+    
+    .. php:const:: UPDATED_DATE
+    
+        The updated_date field.
+    
+    .. php:const:: DUE_DATE
+    
+        The due_date field.
+    
+    .. php:const:: IS_COMPLETED
+    
+        The is_completed field.
+    
+    .. php:const:: COMPLETED_DATE
+
+        The completed_date field.
+    
+    .. php:staticmethod:: create($fields, $also_notify_worker_ids)
+
+        :param array $fields: An array of the fields to set for the new task. The array should be keyed on the DAO_Task class constants above.
+        :param array $also_notify_worker_ids: An array of worker ids to notify about the task.
+        :returns: An integer containing the id of the new task.
+
+        Creates a task.
+
+    .. php:staticmethod:: delete($ids)
+
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be deleted.
+        :returns: A boolean representing whether the call was successful or not.
+
+        Deletes a task.
+
+    .. php:staticmethod:: get($id)
+
+        :param integer $id: The id of the task to retrieve.
+        :returns: An instance of Model_Task containing the task.
+
+        Retrieves a task.
+
+    .. php:staticmethod:: getWhere($where=null, $sortBy='created', $sortAsc=false, $limit=null)
+
+        :param string $where: Sets the WHERE clause of the query. If null, no WHERE clause will be used, and all objects will be returned.
+        :param string $sortBy: The field to sort by. Defaults to 'created'.
+        :param boolean $sortAsc: A boolean indicating whether to sort by descending or ascending values. Defaults to false (descending) by default.
+        :param integer $limit: The amount of records to LIMIT the query result to.
+        :returns: An array of Model_Task objects.
+
+        Retrieves the objects matching the criteria specified.
+
+    .. php:staticmethod:: random()
+
+        Returns a random task.
+
+    .. php:staticmethod:: search($params, $limit=10, $page=0, $sortBy=null, $sortAsc=null, $withCounts=true)
+
+        :param array $params: An array of DevblocksSearchCriteria to restrict the search to.
+        :param integer $limit: The max amount of results to return.
+        :param integer $page: If the results have been limited, this parameter will cause the results to return the next set.
+        :param string $sortBy: Defaults to null.
+        :param boolean $sortAsc: Defaults to null (false).
+        :param boolean $withCounts: A boolean indicating whether to include counts in the return array or not. Defaults to true.
+        :returns: An array with the results, and the total number of records if $withCounts is true.
+
+        Returns objects matching the given criteria.
+
+    .. php:staticmethod:: update($ids, $fields)
+
+        :param mixed $ids: An integer or array of integers representing the ids of the objects to be updated.
+        :param array $fields: An array of the fields to set. The array should be keyed on the DAO_Task class constants above.
+
+        Updates a task (or multiple tasks).
+    
+Model_Task
+==========
+
+.. php:class:: Model_Task
+    
+    .. php:attr:: $id
+        
+        The id of the task.
+        
+    .. php:attr:: $title
+        
+        The title of the task.
+        
+    .. php:attr:: $due_date
+        
+        The timestamp when the task is due.
+        
+    .. php:attr:: $is_completed
+        
+        Whether the task is completed or not.
+        
+    .. php:attr:: $completed_date
+        
+        The timestamp when the task was marked as completed.
+        
+    .. php:attr:: $updated_date
+        
+        The timestamp when the task was last updated.
