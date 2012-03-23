@@ -1,0 +1,34 @@
+Login
+-----
+
+The login module of the :doc:`Support Center </admin_guide/setup/portals/support_center>` is responsible for registering and authenticating visitors.
+
+Configuration
+=============
+
+.. figure:: /images/admin_guide/setup/support_center/sc_login_config.png
+    :alt: Configuring the Support Center login module.
+    :figclass: bordered
+
+**Authenticate logins using these methods**
+    The method that this Support Center will use to authenticate visitors.  There are two built-in authentication methods:
+
+    - **Cerb5**
+        Visitors log in with their email, and authenticate using a password that is stored in the local database.  New visitors can register an account.
+    - **OpenID**
+        Visitors log in and authenticate with an existing OpenID. For example, a Google or Yahoo account.
+
+What visitors see
+=================
+
+Using Cerb5 authentication:
+
+.. figure:: /images/admin_guide/setup/support_center/sc_login_public.png
+    :alt: The Support Center login module.
+    :figclass: bordered
+
+Using OpenID authentication:
+
+.. figure:: /images/admin_guide/setup/support_center/sc_login_public_openid.png
+    :alt: The Support Center login module with OpenID authentication.
+    :figclass: bordered

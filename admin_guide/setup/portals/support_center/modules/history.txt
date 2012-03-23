@@ -1,0 +1,16 @@
+Ticket History
+--------------
+
+The history module of the :doc:`Support Center </admin_guide/setup/portals/support_center>` allows a :doc:`logged in </admin_guide/setup/portals/support_center/modules/login>` contact to view and search their support history.
+
+Configuration
+=============
+
+This module has no configuration options.
+
+What visitors see
+=================
+
+.. figure:: /images/admin_guide/setup/support_center/sc_history_public.png
+    :alt: The history module in the public Support Center
+    :figclass: bordered

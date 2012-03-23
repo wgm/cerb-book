@@ -1,0 +1,26 @@
+Announcements
+-------------
+
+The announcements module of the :doc:`Support Center </admin_guide/setup/portals/support_center>` displays content from arbitrary RSS feeds, such as: the latest blog entries, popular knowledgebase articles, recent forum posts/announcements, etc. This is the place to pull together all your interesting and helpful content, related to this portal, so the community can find it.
+
+Configuration
+=============
+
+.. figure:: /images/admin_guide/setup/support_center/sc_announcements_config.png
+    :alt: Configuring the Support Center announcements module.
+    :figclass: bordered
+
+**Feed Display Title**
+    The descriptive text that is printed above these items in the Support Center.
+**Feed URL**
+    The :term:`URL` to the RSS or Atom feed.
+
+Click the :guilabel:`+` button to add another RSS feed.  Click the :guilabel:`-` button to the right of an existing feed to remove it.
+
+What visitors see
+=================
+
+.. figure:: /images/admin_guide/setup/support_center/sc_announcements_public.png
+    :alt: The Support Center announcements module.
+    :figclass: bordered
+    

@@ -1,0 +1,6 @@
+Deleting a Community Portal
+---------------------------
+
+Navigate to :menuselection:`Setup --> Community Portals --> Configure` and click on your portal in the list.
+
+To delete your portal, click the red :guilabel:`Delete` button at the bottom of the page.

@@ -1,0 +1,112 @@
+My Account
+----------
+
+The account module of the :doc:`Support Center </admin_guide/setup/portals/support_center>` allows a :doc:`logged in </admin_guide/setup/portals/support_center/modules/login>` contact to manage their own account information.  
+
+Configuration
+=============
+
+Contacts can be granted access to the :doc:`fields </concepts/objects/fields>` on each of their email addresses.  You can configure each field to be read only, editable, or hidden.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_account_config_rwh.png
+    :alt: Account fields can be read only, editable, or hidden.
+    :figclass: bordered
+
+- **Hidden**
+    The value of this field is not shown to the contact.  This is the default.
+- **Read Only**
+    The contact can view the value of this field but not make any changes to it.
+- **Editable**
+    The contact can both view and edit the value of this field.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_account_config.png
+    :alt: Configuring the Support Center account module.
+    :figclass: bordered
+
+**Person**
+    The fields related to a specific :doc:`email address </concepts/contexts/address>`:
+
+    - **First Name**
+        Their given name.
+    - **Last Name**
+        Their surname.
+    - **Custom Fields**
+        All the :doc:`custom fields </concepts/objects/fields>` associated with this email address.
+
+**Organization**
+    The fields related to the :doc:`organization </concepts/contexts/organization>` linked to a specific email address (if any):
+
+    - **Name**
+        The name of the organization.
+    - **Street**
+        The physical mailing address.
+    - **City**
+    - **Province**
+    - **Postal**
+    - **Country**
+    - **Phone**
+    - **Website**
+    - **Custom Fields**
+        All the :doc:`custom fields </concepts/objects/fields>` associated with this organization.
+
+What visitors see
+=================
+
+The account module has a menu with five options:
+
+.. figure:: /images/admin_guide/setup/support_center/sc_account_public.png
+    :alt: The account module in the public Support Center
+    :figclass: bordered
+
+Email Addresses
+~~~~~~~~~~~~~~~
+
+A contact can configure their alternate email addresses.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_account_public_email.png
+    :alt: Modifying email addresses from the public Support Center
+    :figclass: bordered
+    
+In the above screenshot, there are two visible custom fields on this email address that allow the contact to control  their opt-in status to various mailing lists.
+
+OpenID Identities
+~~~~~~~~~~~~~~~~~
+
+A contact can configure their OpenID identities.  These credentials can then be used to log into the Support Center without needing a separate login and password.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_account_public_openid.png
+    :alt: Modifying OpenID identities from the public Support Center
+    :figclass: bordered
+
+Change Password
+~~~~~~~~~~~~~~~
+
+A contact can change their password.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_account_public_pw.png
+    :alt: Changing password from the public Support Center
+    :figclass: bordered
+
+Sharing/Collaboration
+~~~~~~~~~~~~~~~~~~~~~
+
+A contact can share their email history with another account, as well as view the accounts that are sharing with them.  This allows teams to have a mutual history.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_account_public_sharing.png
+    :alt: Sharing email histories from the public Support Center
+    :figclass: bordered
+
+**Shared by me**
+    The email addresses that a contact wants to share their history with.  These addresses must be registered in the Support Center.
+**Shared with me**
+    The other Support Center accounts that are sharing their history with this contact.
+
+Delete My Account
+~~~~~~~~~~~~~~~~~
+
+A contact can delete their own account.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_account_public_delete.png
+    :alt: Deleting an account from the public Support Center
+    :figclass: bordered
+

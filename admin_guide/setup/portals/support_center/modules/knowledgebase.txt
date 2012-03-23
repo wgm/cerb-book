@@ -1,0 +1,22 @@
+Knowledgebase
+-------------
+
+The knowledgebase module of the :doc:`Support Center </admin_guide/setup/portals/support_center>` provides the ability to read and search knowledgebase articles.
+
+Configuration
+=============
+
+You can choose which knowledgebase topics to display in this Support Center portal.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_kb_config.png
+    :alt: Configuring the knowledgebase module in the Support Center
+    :figclass: bordered
+
+What visitors see
+=================
+
+Visitors can search knowledgebase articles from the left sidebar, or browse articles by topic and category.  There are also three :term:`RSS` feeds that can be used to display this knowledgebase content in news readers or on other websites.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_kb_public.png
+    :alt: The knowledgebase module in the public Support Center
+    :figclass: bordered

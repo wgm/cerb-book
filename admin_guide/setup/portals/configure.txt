@@ -1,4 +1,0 @@
-Configure
----------
-
-:menuselection:`Setup --> Mail --> Portals --> Configure`

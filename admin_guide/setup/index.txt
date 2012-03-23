@@ -60,7 +60,7 @@ Community Portals
 .. toctree::
     :maxdepth: 1
     
-    portals/configure
+    Configure <portals/index>
 
 Plugins
 =======

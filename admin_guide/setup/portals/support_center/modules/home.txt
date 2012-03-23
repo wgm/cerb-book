@@ -1,0 +1,24 @@
+Home
+----
+
+The home module of the :doc:`Support Center </admin_guide/setup/portals/support_center>` displays a welcome page with your own content.
+
+Configuration
+=============
+
+It has no configuration options.  Instead, you can modify the :doc:`custom template </admin_guide/setup/portals/custom_templates>` named ``[cerberusweb.support_center] support_center/home/index.tpl``:
+
+.. code-block:: html
+
+    <div id="home">
+    	<h1>Welcome!</h1>
+    	This is a custom template.
+    </div>
+
+What visitors see
+=================
+    
+.. figure:: /images/admin_guide/setup/support_center/sc_welcome_public.png
+    :alt: The Support Center welcome module.
+    :figclass: bordered
+    

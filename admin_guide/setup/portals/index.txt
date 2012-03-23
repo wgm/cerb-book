@@ -1,0 +1,45 @@
+Community Portals
+-----------------
+
+Navigate to :menuselection:`Setup --> Community Portals --> Configure`
+
+This page configures :doc:`community portals </concepts/community_portals>`.
+
+A portal is a public, community-focused interface to Cerb5.  This allows you to share access to certain kinds of information.  For example, a :doc:`Support Center </admin_guide/setup/portals/support_center>` portal adds self-help functionality to your website by allowing visitors to :doc:`submit new support requests </admin_guide/setup/portals/support_center/modules/contact>`, :doc:`search their support history </admin_guide/setup/portals/support_center/modules/history>`, and :doc:`browse knowledgebase articles </admin_guide/setup/portals/support_center/modules/knowledgebase>`.
+
+You can create a portal for each brand or product.
+
+Adding a new community portal
+=============================
+
+Click the :guilabel:`Add` button to create a new community portal.
+
+.. figure:: /images/admin_guide/setup/portal_add.png
+    :alt: Adding a new community portal.
+    :figclass: bordered
+
+**Portal Name**
+    The display name of this community portal that will be used to distinguish it from other portals in the interface.
+**Type**
+    The type of portal to create.  By default you can create a Support Center.  :doc:`Plugins </concepts/plugins>` can add new portal types by using the :doc:`usermeet.tool </developer_guide/plugins/extension_points/usermeet.tool>` extension point.
+
+Click the :guilabel:`Save Changes` button.
+
+You will be redirected to the configuration page for the type of portal you are creating.
+
+.. rubric:: See also:
+
+* Developing a new Community Portal
+
+Configuring Community Portals
+=============================
+
+Navigate to :menuselection:`Setup --> Community Portals --> Configure` and click on your portal in the list.
+
+.. toctree::
+    :maxdepth: 1
+
+    Configuring a Support Center portal <support_center>
+    custom_templates
+    deploying
+    deleting

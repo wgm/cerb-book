@@ -1,0 +1,15 @@
+Deploying a Community Portal
+----------------------------
+
+Navigate to :menuselection:`Setup --> Community Portals --> Configure` and click on your portal in the list.
+
+.. figure:: /images/admin_guide/setup/portal_install.png
+    :alt: Deploying a Community Portal
+    :figclass: bordered
+
+On the :guilabel:`Installation` tab you will find two files that should be copied to your web server.
+
+* :file:`index.php`
+    This is the only file that is required to install your community portal on any PHP-enabled web server.
+* :file:`.htaccess`
+    Optional. If you're using the :program:`Apache` web server, this file will enable friendly URLs in your portal.

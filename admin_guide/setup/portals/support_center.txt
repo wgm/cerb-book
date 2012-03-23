@@ -1,0 +1,58 @@
+Support Center
+--------------
+
+The Support Center portal provides a public self-help web site for your community.
+
+Configuring a Support Center
+============================
+
+Navigate to :menuselection:`Setup --> Community Portals --> Configure` and click on your Support Center in the list.
+
+On the :guilabel:`Settings` tab you will find the following options:
+
+.. figure:: /images/admin_guide/setup/portal_sc_settings.png
+    :alt: Configuring a Support Center
+    :figclass: bordered
+
+**Portal Name**
+    The name of this portal that will be displayed in the worker interface.
+**Page Title**
+    The page title that will be displayed in a visitor's web browser.
+**Language**
+    If a translation is available, all the text in the Support Center will be translated into this language by default.
+
+In the :guilabel:`Modules` section you can decide what kind of functionality will be available in this Support Center.
+
+.. figure:: /images/admin_guide/setup/portal_sc_modules.png
+    :alt: The Support Center modules.
+    :figclass: bordered
+
+You can change the visibility of each module to one of these values:
+
+.. figure:: /images/admin_guide/setup/portal_sc_modules_visibility.png
+    :alt: The module visibility options.
+    :figclass: bordered
+
+- **Everyone**
+    The module will be visible to all visitors, whether they are logged in or not.
+- **Logged In**
+    The module will only be visible to a visitor once they've logged in.
+- **Disabled**
+    The module will never be displayed.
+
+You can also drag modules to change the order in which they appear. The first module will be the default page of your Support Center.
+
+There are seven built-in modules included with the Support Center:
+
+.. toctree::
+    :maxdepth: 1
+    
+    support_center/modules/login
+    support_center/modules/home
+    support_center/modules/announcements
+    support_center/modules/contact
+    support_center/modules/knowledgebase
+    support_center/modules/my_account
+    support_center/modules/history
+
+Additional modules can be added with :doc:`plugins </concepts/plugins>`.

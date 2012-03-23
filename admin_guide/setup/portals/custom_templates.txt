@@ -1,0 +1,6 @@
+Using Custom Templates
+----------------------
+
+Navigate to :menuselection:`Setup --> Community Portals --> Configure` and click on your portal in the list.
+
+On the :guilabel:`Custom Templates` tab...

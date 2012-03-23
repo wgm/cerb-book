@@ -1,0 +1,75 @@
+Contact Us
+----------
+
+The contact module of the :doc:`Support Center </admin_guide/setup/portals/support_center>` displays a contact form so visitors can send you email from their web browser.
+
+Configuration
+=============
+
+.. figure:: /images/admin_guide/setup/support_center/sc_contact_config.png
+    :alt: The Support Center contact module.
+    :figclass: bordered
+
+**Allow users to provide their own ticket subjects**
+    When this option is enabled, visitors will be able to provide their own subject for their messages to you.  When disabled, the contact situation will be used as the subject for any messages sent from this contact form.  Having consistent subjects can make it easier for you to route messages and automatically assign them.
+    
+**Allow attachments from**
+    This option determines who can include attachments with messages sent from this contact form:
+
+    - **Anybody**
+        Any visitor, whether logged in or not, can include attachments.
+    - **Logged in visitors**
+        Only visitors who have logged in can include attachments.  This usually means that you have verified their email address.
+    - **Nobody**
+        Nobody can include attachments.
+
+**CAPTCHA**
+    The acronym `CAPTCHA <http://en.wikipedia.org/wiki/CAPTCHA>`_ stands for *"Completely Automated Public Turing test to tell Computers and Humans Apart*".  When this option is enabled, a visitor must transcribe several characters from an image before their message is sent to you.  CAPTCHAs are designed to make it more difficult for automated programs to send spam; however, this is not foolproof and given enough attention, programs can be developed to transcribe these images.  You can enable this option if you start receiving automated spam from this form.  You can disable this option if you don't receive much spam through your contact form, or if you're concerned about reducing the usability of your website for legitimate visitors.
+
+Adding a new contact situation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Click the :guilabel:`Add New Situation` button.
+
+.. figure:: /images/admin_guide/setup/support_center/sc_contact_config_situation.png
+    :alt: Configuring a situation in the Support Center contact module.
+    :figclass: bordered
+
+**Status**
+    - **Visible**
+        This contact situation will be displayed on your contact form.
+    - **Hidden**
+        This contact situation will not be displayed on your contact form until you make it visible again.
+    - **Deleted**
+        This contact situation will be deleted when you save your changes.
+    
+**Reason for contacting**
+    Your visitor will pick the most appropriate reason for contacting you.  Having distinct options makes it easier for you to automatically route their message to the most appropriate :doc:`group </concepts/contexts/group>`.
+    
+**Deliver to**
+    The email address to deliver messages to.  This should be an email address that is associated with a group.
+    
+**Follow-up questions**
+    When a user picks this reason for contacting you, they will be asked these additional follow-up questions.  The answers to these questions can be appended to their message or saved in :doc:`custom fields </concepts/objects/custom_fields>`.  If you prepend a follow-up question with an asterisk (``*``) then it will require an answer from the visitor before they can send their message.
+
+What visitors see
+=================
+
+Visitors will be prompted to pick the most appropriate contact situation:
+
+.. figure:: /images/admin_guide/setup/support_center/sc_contact_public.png
+    :alt: The Support Center contact module.
+    :figclass: bordered
+
+The contact form is then displayed:
+
+.. figure:: /images/admin_guide/setup/support_center/sc_contact_public_situation.png
+    :alt: The Support Center contact module.
+    :figclass: bordered
+
+Visitors are given a reminder if they don't provide an answer to a required question:
+
+.. figure:: /images/admin_guide/setup/support_center/sc_contact_public_situation_required.png
+    :alt: A required follow-up question in the Support Center contact module.
+    :figclass: bordered
+    
