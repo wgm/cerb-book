@@ -99,6 +99,9 @@ Glossary
     recipient
         A :term:`contact` that is associated with a particular :term:`conversation`. Recipients receive a copy of every new message.
 
+    RSS
+        RDF Site Summary (aka Really Simple Syndication).  An :term:`XML` interchange format for syndicating news and other content from one web application to another.  See: <http://en.wikipedia.org/wiki/RSS>
+
     role
         A set of :term:`privileges <privilege>` granted to a :term:`worker`.
     
@@ -140,3 +143,6 @@ Glossary
     
     workspace
         A collection of related :term:`worklists <worklist>`.
+        
+    XML
+        eXtensible Markup Language.  A text-based, hierarchal markup language that is readable by both humans and machines.  It is used to exchange information between applications or services.  See: <http://en.wikipedia.org/wiki/XML>
