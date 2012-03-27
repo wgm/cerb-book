@@ -1,4 +1,14 @@
 Actions
 -------
 
-Beneath each :doc:`worklist </concepts/worklists/index>` is a toolbar of possible **actions** that can be performed on the selected objects of the current :doc:`page </concepts/worklists/paging>`.
+Beneath each :doc:`worklist </concepts/worklists/index>` is a toolbar of possible **actions** that can be performed on the selected objects of the current :doc:`page </concepts/worklists/paging>`. Two of the common actions that are available across most worklists are :doc:`explore </concepts/worklists/explore>` and :doc:`bulk update </concepts/worklists/bulk_update>`.
+
+.. figure:: /images/concepts/worklists/actions.png
+    :alt: The actions toolbar.
+    :figclass: bordered
+
+The :guilabel:`more »` button expands the actions toolbar to show additional actions.
+
+.. figure:: /images/concepts/worklists/actions_more.png
+    :alt: The expanded actions toolbar.
+    :figclass: bordered

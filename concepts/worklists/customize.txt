@@ -3,6 +3,10 @@ Customize
 
 :doc:`Workers </concepts/contexts/worker>` can **customize** :doc:`worklists </concepts/worklists/index>` according to their own personal preferences.
 
+.. figure:: /images/concepts/worklists/customize.png
+    :alt: The customize section.
+    :figclass: bordered
+
 The following properties of worklists can be customized:
 
 - **Title**

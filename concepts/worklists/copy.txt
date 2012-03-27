@@ -1,0 +1,8 @@
+Copy
+----
+
+Clicking :guilabel:`copy` at the top of any worklist allows you to add the worklist to a custom workspace.
+
+.. figure:: /images/concepts/worklists/copy.png
+    :alt: The copy worklist area.
+    :figclass: bordered

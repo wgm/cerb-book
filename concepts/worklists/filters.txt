@@ -6,6 +6,18 @@ Filters
 
 A **filter** reduces the number of :doc:`objects </concepts/objects/index>` in a :doc:`worklist </concepts/worklists/index>` to those that match a desired characteristic.  Several filters can be combined on a single worklist.
 
+Clicking the :guilabel:`Filters: v` button allows you to toggle the advanced filters and clear the filters for the worklist.
+
+.. figure:: /images/concepts/worklists/filters_button.png
+    :alt: The filters button.
+    :figclass: bordered
+
+The advanced filters section allows you to fine-tune the filters for the worklist.
+
+.. figure:: /images/concepts/worklists/filters_advanced.png
+    :alt: The advanced filters section.
+    :figclass: bordered.
+
 Filters form a short sentence with the pattern *<field> <operator> <values>*:
 
 - A **field**

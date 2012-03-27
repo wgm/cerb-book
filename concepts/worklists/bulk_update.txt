@@ -3,6 +3,10 @@ Bulk Update
 
 **Bulk update** performs several actions at once to :doc:`objects </concepts/objects/index>` in a :doc:`worklist </concepts/worklists/index>`.
 
+.. figure:: /images/concepts/worklists/bulk_update.png
+    :alt: The bulk update form.
+    :figclass: bordered
+
 A bulk update can be applied to:
 
 - **The whole list**

@@ -1,6 +1,14 @@
 Paging
 ------
 
-:doc:`Worklists </concepts/worklists/index>` that display many objects are divided into **pages**.
+:doc:`Worklists </concepts/worklists/index>` that display many objects are divided into **pages**. You can navigate to the first, last, next, or previous page.  The number of objects to display per page can be :doc:`customized </concepts/worklists/customize>` for each worklist.
 
-You can navigate to the first, last, next, or previous page.  The number of objects to display per page can be :doc:`customized </concepts/worklists/customize>` for each worklist.
+.. figure:: /images/concepts/worklists/paging.png
+    :alt: Paging.
+    :figclass: bordered
+
+The first and last page links appear as the :guilabel:`<<` and :guilabel:`>>` links respectively, and allow you to quickly jump to the first and lst pages.
+
+.. figure:: /images/concepts/worklists/paging_first_last.png
+    :alt: The first and last page navigation.
+    :figclass: bordered

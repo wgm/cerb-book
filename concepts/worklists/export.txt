@@ -7,6 +7,10 @@ For example, you can create targeted mailing lists from :doc:`filtered </concept
 
 You can also use export functionality to copy contacts and organizations between two copies of Cerb5, or to quickly create many :doc:`opportunities </concepts/contexts/opportunity>` for a new sales campaign.
 
+.. figure:: /images/concepts/worklists/export.png
+    :alt: The export area.
+    :figclass: bordered
+
 Formats
 =======
 

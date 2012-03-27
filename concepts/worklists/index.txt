@@ -3,19 +3,51 @@ Worklists
 
 A **worklist** is a fully customizable list of :doc:`objects </concepts/objects/index>` of a particular :doc:`type </concepts/contexts/index>`.  Worklists display objects in vertical rows with any number of :doc:`fields </concepts/objects/fields>` in horizontal columns.
 
+.. figure:: /images/concepts/worklists/worklist.png
+    :alt: A worklist, with a filter and subtotals active.
+    :figclass: bordered
+
+Actions
+=======
+
+Any worklist that displays the following actions in the header of the worklist has implemented the functionality indidcated.
+
 .. toctree::
     :maxdepth: 1
 
+    subtotals
+    customize
+    export
+    piles
+    search
+    copy
+
+Behaviors
+=========
+
+Most worklists implement the following behaviors.
+
+.. toctree::
+    :maxdepth: 1
+    
     sorting
     paging
+    refresh
     peek
-    actions
-    customize
     filters
     presets
     persistence
-    subtotals
-    bulk_update
-    export
-    explore
+
+Actions Toolbar
+===============
+
+Below the results is the :doc:`actions </concepts/worklists/actions>` toolbar.
+
+.. toctree::
+    :maxdepth: 1
     
+    explore
+    bulk_update
+
+
+
