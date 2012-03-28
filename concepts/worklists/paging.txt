@@ -7,7 +7,7 @@ Paging
     :alt: Paging.
     :figclass: bordered
 
-The first and last page links appear as the :guilabel:`<<` and :guilabel:`>>` links respectively, and allow you to quickly jump to the first and lst pages.
+The :guilabel:`Next>` and :guilabel:`<Prev` links allow you to navigate to the next and previous page in the list of results, and the :guilabel:`<<` and :guilabel:`>>` links allow you to quickly jump to the first and last page in the result set.
 
 .. figure:: /images/concepts/worklists/paging_first_last.png
     :alt: The first and last page navigation.
