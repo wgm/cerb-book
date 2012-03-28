@@ -4,4 +4,14 @@
 Peek
 ----
 
-**Peek** functionality allows you to view and modify any object in a :doc:`worklist </concepts/worklists/index>` without leaving the current page.
+**Peek** functionality allows you to view and modify any object in a :doc:`worklist </concepts/worklists/index>` without leaving the current page. Clicking on the peek button will open the peek dialog.
+
+.. figure:: /images/concepts/worklists/peek_button.png
+    :alt: The peek button.
+    :figclass: bordered
+    
+Peek dialogs may have tabs at the top which allow you to access different data for each object.
+
+.. figure:: /images/concepts/worklists/peek.png
+    :alt: The peek dialog.
+    :figclass: bordered
