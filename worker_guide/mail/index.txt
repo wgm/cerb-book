@@ -42,11 +42,119 @@ The rest of the mail page is divided into a series of :doc:`tabs </concepts/ui/t
 Worklist
 ========
 
-The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs. At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`. Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`customize </concepts/worklists/customize>`, :doc:`piles </concepts/worklists/piles>`, :doc:`search </concepts/worklists/search>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`. Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
+The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs. At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`. Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`customize </concepts/worklists/customize>`, :doc:`search </concepts/worklists/search>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`. Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
 
 .. figure:: /images/concepts/worklists/worklist.png
     :alt: The mail worklist.
     :figclass: bordered
+
+
+Piles
+~~~~~
+
+Clicking :guilabel:`piles` at the top of the mail worklist allows you to easily perform bulk actions on tickets with similar properties, without having to setup a filter first.
+
+.. figure:: /images/worker_guide/mail/piles.png
+    :alt: The piles area.
+    :figclass: bordered
+
+The sorting options displayed at the top of the piles section allow you to group by :guilabel:`Subject`, :guilabel:`Senders`, or :guilabel:`Headers`. Selecting :guilabel:`Headers` will display an input box allowing you to enter a custom header, and a few common filters have been provided as links below the input box for convenience.
+
+.. figure:: /images/worker_guide/mail/piles_headers.png
+    :alt: Grouping by headers.
+    :figclass: bordered
+
+Peek
+~~~~
+
+Clicking the peek button for any ticket will open the :doc:`peek </concepts/worklists/peek>` window. The peek window has several tabs with different functionality.
+
+.. figure:: /images/worker_guide/mail/peek.png
+   :alt: The mail peek.
+   :figclass: bordered
+
+Messages
+^^^^^^^^
+
+The messages tab allows you to view - and quickly page between - the messages on a conversation.
+
+.. figure:: /images/worker_guide/mail/peek_messages.png
+   :alt: The mail peek window.
+   :figclass: bordered
+
+
+Information about the message is displayed at the top of the tab. The sender and recipient of a message are displayed for all messages, and the date is displayed for all messages except the first message on a ticket.
+
+.. figure:: /images/worker_guide/mail/peek_messages_info.png
+   :alt: Paging between messages.
+   :figclass: bordered
+
+The link displayed in the bottom left corner of the peek window allows you to quickly view the whole ticket.
+
+.. figure:: /images/worker_guide/mail/peek_messages_url.png
+   :alt: Paging between messages.
+   :figclass: bordered
+
+In the bottom right corner, the :guilabel:`Next>` and :guilabel:`<Prev` links allow you to navigate to the next and previous message on the ticket.
+
+.. figure:: /images/worker_guide/mail/peek_messages_page.png
+   :alt: Paging between messages.
+   :figclass: bordered
+   
+The :guilabel:`<<` and :guilabel:`>>` links allow you to quickly jump to the first and last message.
+
+.. figure:: /images/worker_guide/mail/peek_messages_page_first_last.png
+  :alt: First and last message links.
+  :figclass: bordered
+
+Properties
+^^^^^^^^^^
+
+The properties tab allows you quick access to other information about the ticket.
+
+.. figure:: /images/worker_guide/mail/peek_properties.png
+   :alt: The mail peek.
+   :figclass: bordered
+
+.. ::
+    Should we link to other docs below?
+You can edit the Properties of the ticket - *Status*, *Subject*, *Organization*, *Watchers*, *Owner*, *Bucket* - on the :guilabel:`Properties` tab.
+
+.. figure:: /images/worker_guide/mail/peek_properties_properties.png
+   :alt: The mail peek.
+   :figclass: bordered
+   
+You can also edit the :doc:`Custom Fields </concepts/objects/custom_fields>`, if any have been set for ticket objects.
+
+.. figure:: /images/worker_guide/mail/peek_properties_custom_fields.png
+   :alt: The mail peek.
+   :figclass: bordered
+
+The Properties tab also displays the most recent comment and a handy form that allows you to leave another comment.
+
+.. figure:: /images/worker_guide/mail/peek_properties_comment.png
+   :alt: The mail peek.
+   :figclass: bordered
+
+
+Actions Toolbar
+~~~~~~~~~~~~~~~
+
+The actions toolbar allows you to quickly perform actions on the tickets that are currently selected. *The below screenshot shows the actions toolbar in its extended state.*
+
+.. figure:: /images/worker_guide/mail/actions_toolbar.png
+    :alt: The actions toolbar.
+    :figclass: bordered
+
+- Clicking the :guilabel:`close` button closes the selected tickets.
+- Clicking the :guilabel:`spam` button marks the selected tickets as spam.
+- Clicking the :guilabel:`delete` button deletes the selected tickets.
+- Clicking the :guilabel:`move ▾` button allows you to move the ticket to another group or bucket.
+- Clicking the :guilabel:`more »` button expands the toolbar to show additional actions.
+- Clicking the :guilabel:`not spam` button marks the selected tickets as not spam.
+- Clicking the :guilabel:`merge` button merges the selected tickets.
+- Clicking the :guilabel:`waiting` button sets the status of the selected tickets to **waiting**.
+- Clicking the :guilabel:`not waiting` button sets the status of the selected tickets to **not waiting**.
 
 Points of Interest
 ==================
