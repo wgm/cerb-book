@@ -7,10 +7,28 @@ A **worklist** is a fully customizable list of :doc:`objects </concepts/objects/
     :alt: A worklist, with a filter and subtotals active.
     :figclass: bordered
 
+Items in a worklist change color to a pale yellow when you hover over them.
+
+.. figure:: /images/concepts/worklists/worklist_hover.png
+    :alt: A worklist with an item just before it's been selected.
+    :figclass: bordered
+
+Items can be selected by clicking on them. Items that have been selected will turn to a golden color.
+
+.. figure:: /images/concepts/worklists/worklist_selected.png
+    :alt: A worklist, with a filter and subtotals active.
+    :figclass: bordered
+
+The checkbox in the upper right hand corner of any worklist allows you to select all of the items on the current page of the worklist.
+
+.. figure:: /images/concepts/worklists/worklist_selected_all.png
+    :alt: A worklist, with a filter and subtotals active.
+    :figclass: bordered
+
 Actions
 =======
 
-Any worklist that displays the following actions in the header of the worklist has implemented the functionality indidcated.
+Any worklist that displays the following actions in the header of the worklist has implemented the functionality indicated.
 
 .. toctree::
     :maxdepth: 1
