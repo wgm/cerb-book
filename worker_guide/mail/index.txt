@@ -64,6 +64,25 @@ The sorting options displayed at the top of the piles section allow you to group
     :alt: Grouping by headers.
     :figclass: bordered
 
+
+RSS
+~~~
+
+Clicking the RSS icon will allow you to create an RSS feed for the worklist currently being displayed. RSS feeds can be managed from the RSS tab in settings.
+
+.. ::
+    Create and link to worker settings doc, etc
+
+.. figure:: /images/worker_guide/mail/rss.png
+    :alt: The RSS icon on a worklist.
+    :figclass: bordered
+
+Saving the RSS feed will take you to the RSS tab in settings.
+
+.. figure:: /images/worker_guide/mail/rss_section.png
+    :alt: The RSS feed section on a worklist.
+    :figclass: bordered
+
 Peek
 ~~~~
 
