@@ -1,0 +1,7 @@
+Refresh
+-------
+All :doc:`worklists </concepts/worklists/index>` have a refresh icon which allows you refresh the results displayed in the worklist.
+
+.. figure:: /images/concepts/worklists/refresh.png
+    :alt: The refresh icon on a worklist.
+    :figclass: bordered
