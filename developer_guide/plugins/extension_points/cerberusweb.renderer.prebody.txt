@@ -42,6 +42,6 @@ Time Tracking
 ~~~~~~~~~~~~~
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
-    https://github.com/wgm/cerb5/features/cerberusweb.timetracking/blob/5.7/plugin.xml#120
+    https://github.com/wgm/cerb5/blob/5.7/features/cerberusweb.timetracking/plugin.xml#120
 Implementation:
-    https://github.com/wgm/cerb5/features/cerberusweb.timetracking/blob/5.7/api/App.php#L50
+    https://github.com/wgm/cerb5/blob/5.7/features/cerberusweb.timetracking/api/App.php#L50
