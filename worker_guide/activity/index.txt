@@ -4,7 +4,7 @@ Activity
 .. figure:: /images/worker_guide/activity/menu.png
    :alt: The activity section.
 
-The **activity** page...
+The **activity** page is where you access Feedback, Opportunities, Tasks, and Time Tracking. Other plugins can also add tabs to the activity page.
 
 Tabs
 ====

@@ -4,7 +4,7 @@ Guide for Workers
 In this guide we will walk you through the routine duties of a worker.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
 
 .. toctree::
-	:maxdepth: 2
+	:maxdepth: 3
 	
 	logging_in
 	ui/index
