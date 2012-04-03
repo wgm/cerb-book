@@ -48,6 +48,10 @@ The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs
     :alt: The mail worklist.
     :figclass: bordered
 
+Search
+~~~~~~
+
+Clicking :guilabel:`search` allows you to copy all of the filters on a worklist into a search. This is useful if you need to modify one of the default, hidden :doc:`filters </concepts/worklists/filters>` for that worklist.
 
 Piles
 ~~~~~
@@ -63,7 +67,6 @@ The sorting options displayed at the top of the piles section allow you to group
 .. figure:: /images/worker_guide/mail/piles_headers.png
     :alt: Grouping by headers.
     :figclass: bordered
-
 
 RSS
 ~~~

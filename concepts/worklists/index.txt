@@ -37,7 +37,6 @@ Any worklist that displays the following actions in the header of the worklist h
     customize
     export
     piles
-    search
     copy
 
 Behaviors

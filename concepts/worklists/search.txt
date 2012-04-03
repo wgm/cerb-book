@@ -1,4 +1,0 @@
-Search
-------
-
-Clicking :guilabel:`search` allows you to copy all of the filters on a worklist into a search. This is useful if you need to modify one of the default, hidden :doc:`filters </concepts/worklists/filters>` for that worklist.
