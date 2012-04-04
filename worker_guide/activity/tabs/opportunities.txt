@@ -18,7 +18,7 @@ The toolbar for the Opportunities tab contains two buttons and the quick search 
 Add Opportunity
 ~~~~~~~~~~~~~~~
 
-The :guilabel:`Add Opportunity` button at the top of the opportunities tab allows you to add and view opportunities.
+The :guilabel:`Add Opportunity` button at the top of the opportunities tab allows you to add opportunities.
 
 .. figure:: /images/worker_guide/activity/opportunities_toolbar_add.png
    :alt: The add opportunity button.
