@@ -3,13 +3,13 @@ Opportunities
 
 The **opportunities** tab is where you add and view opportunities.
 
-.. figure:: /images/worker_guide/activity/feedback_tab.png
+.. figure:: /images/worker_guide/activity/opportunities_tab.png
    :alt: The opportunities tab.
    :figclass: bordered
 
 Toolbar
 =======
-The toolbar for the Opportunities tab contains two buttons and the quick search box.
+The toolbar for the opportunities tab contains two buttons and the quick search box.
 
 .. figure:: /images/worker_guide/activity/opportunities_toolbar.png
   :alt: The opportunities toolbar.
@@ -26,13 +26,12 @@ The :guilabel:`Add Opportunity` button at the top of the opportunities tab allow
    
 Clicking the :guilabel:`Add Opportunity` button will open the **add opportunity** dialog.
 
-.. figure:: /images/worker_guide/activity/opportunities_add_dialog.png
+.. figure:: /images/worker_guide/activity/opportunities_dialog_add.png
    :alt: The add opportunity dialog.
    :figclass: bordered
 
 .. ::
     Link to comments doc.
-
 
 The **email**, **title**, **status**, **amount**, **created date**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for opportunities, they can be specified as well. There is also a comment box so you can quickly leave a comment for the opportunity when you create it.
 

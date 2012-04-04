@@ -1,15 +1,15 @@
 Tasks
--------------
+-----
 
 The **tasks** tab is where you add and view tasks.
 
-.. figure:: /images/worker_guide/activity/feedback_tab.png
+.. figure:: /images/worker_guide/activity/tasks_tab.png
    :alt: The tasks tab.
    :figclass: bordered
 
 Toolbar
 =======
-The toolbar for the Tasks tab contains one button and the quick search box.
+The toolbar for the tasks tab contains one button and the quick search box.
 
 .. figure:: /images/worker_guide/activity/tasks_toolbar.png
   :alt: The tasks toolbar.
@@ -24,9 +24,9 @@ The :guilabel:`Add Task` button at the top of the tasks tab allows you to add ta
    :alt: The add task button.
    :figclass: bordered
    
-Clicking the :guilabel:`Add Task` button will open the **add task** dialog.
+Clicking the :guilabel:`Add Task` button will open theadd task dialog.
 
-.. figure:: /images/worker_guide/activity/tasks_add_dialog.png
+.. figure:: /images/worker_guide/activity/tasks_dialog_add.png
    :alt: The add task dialog.
    :figclass: bordered
 

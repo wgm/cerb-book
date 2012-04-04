@@ -1,2 +1,64 @@
 Time Tracking
 -------------
+
+The **time tracking** tab is where you track and view time.
+
+.. figure:: /images/worker_guide/activity/time_tab.png 
+   :alt: The time tracking tab.
+   :figclass: bordered
+
+Toolbar
+=======
+
+The toolbar for the time tracking tab contains a single button.
+
+.. figure:: /images/worker_guide/activity/tasks_toolbar.png
+  :alt: The time tracking toolbar.
+  :figclass: bordered
+
+Track Time
+~~~~~~~~~~
+
+The :guilabel:`Track Time` button at the top of the tasks tab allows you to track time.
+
+.. figure:: /images/worker_guide/activity/time_toolbar_tracktime.png
+   :alt: The track time button.
+   :figclass: bordered
+   
+Clicking the :guilabel:`Track Time` button will display the time tracking overlay.
+
+.. figure:: /images/worker_guide/activity/time_overlay.png
+   :alt: The time tracking overlay.
+   :figclass: bordered
+
+The time tracking overlay displays the amount of time that has elapsed since the :guilabel:`Track Time` button was clicked, and contains two buttons - a :guilabel:`pause` button and a :guilabel:`stop` button. Clicking the pause button will pause the timer, and clicking the stop button will display the time tracking dialog.
+
+.. figure:: /images/worker_guide/activity/time_dialog_add.png
+   :alt: The time tracking add dialog.
+   :figclass: bordered
+
+.. ::
+   Link to comments doc, update image for custom fields
+
+The **activity**, **time spent**, **log date**, **status**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for time tracking entries, they can be specified as well. There is also a comment box so you can quickly leave a comment for the time tracking entry when you create it.  Clicking the :guilabel:`Resume` button will allow you to resume the timer where it left off, though any data entered into the dialog will be lost.
+
+
+
+
+Quick Search
+~~~~~~~~~~~~
+
+The quick search box allows you to quickly apply a filter to the worklist.
+
+.. figure:: /images/worker_guide/activity/tasks_toolbar_search.png
+   :alt: The quick search box.
+   :figclass: bordered
+
+Worklist
+========
+
+The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs.  At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`.  Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`.  Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
+
+.. figure:: /images/worker_guide/activity/tasks.png
+   :alt: The time tracking worklist with subtotals active.
+   :figclass: bordered
