@@ -56,9 +56,8 @@ The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs
 Actions Toolbar
 ~~~~~~~~~~~~~~~
 
-Clicking on the :guilabel:`completed` button in the actions toolbar will mark all selected tasks as completed.
-
-
 .. figure:: /images/worker_guide/activity/tasks_actions_completed.png
    :alt: The completed button.
    :figclass: bordered
+
+- Clicking on the :guilabel:`completed` button in the actions toolbar will mark all selected tasks as completed.

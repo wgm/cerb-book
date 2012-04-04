@@ -75,7 +75,7 @@ Worklist
 
 The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs.  At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`.  Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`.  Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
 
-.. figure:: /images/worker_guide/activity/feedback.png
-   :alt: The feedback worklist with subtotals active.
+.. figure:: /images/worker_guide/activity/opportunities.png
+   :alt: The opportunities worklist with subtotals active.
    :figclass: bordered
    
