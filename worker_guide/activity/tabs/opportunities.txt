@@ -46,7 +46,7 @@ The :guilabel:`Import` button allows you to import a CSV file.
    
 Clicking the :guilabel:`Import` button will open the **import** dialog.
 
-.. figure:: /images/worker_guide/activity/opportunities_import_dialog.png
+.. figure:: /images/worker_guide/activity/opportunities_dialog_import.png
    :alt: The import dialog.
    :figclass: bordered
 
