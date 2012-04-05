@@ -10,7 +10,7 @@ The **time tracking** tab is where you track and view time.
 Toolbar
 =======
 
-The toolbar for the time tracking tab contains a single button.
+The toolbar at the top of the time tracking tab contains a single button.
 
 .. figure:: /images/worker_guide/activity/tasks_toolbar.png
   :alt: The time tracking toolbar.
@@ -42,13 +42,10 @@ The time tracking overlay displays the amount of time that has elapsed since the
 
 The **activity**, **time spent**, **log date**, **status**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for time tracking entries, they can be specified as well. There is also a comment box so you can quickly leave a comment for the time tracking entry when you create it.  Clicking the :guilabel:`Resume` button will allow you to resume the timer where it left off, though any data entered into the dialog will be lost.
 
-
-
-
 Quick Search
 ~~~~~~~~~~~~
 
-The quick search box allows you to quickly apply a filter to the worklist.
+The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
 .. figure:: /images/worker_guide/activity/tasks_toolbar_search.png
    :alt: The quick search box.

@@ -10,17 +10,29 @@ The **mail** page is where you read, reply to, and initiate :doc:`email conversa
 Toolbar
 =======
 
-There is a toolbar at the top of the mail page:
+The toolbar at the top of the mail page contains one button and the quick search box.
 
 .. figure:: /images/worker_guide/mail/toolbar.png
    :alt: The mail toolbar.
    :figclass: bordered
 
-In the left side of the toolbar are the following buttons:
+Send Mail
+~~~~~~~~~
 
-- **Send Mail:** This button creates a new email conversation.  You can either send a message to several :term:`recipients <recipient>`, or log details about a conversation that already took place elsewhere (for example, a meeting or phone call).
+Clicking the :guilabel:`Send Mail` button allows you to create a new email conversation.  You can either send a message to several :term:`recipients <recipient>`, or log details about a conversation that already took place elsewhere (for example, a meeting or phone call).
 
-In the right side of the toolbar there is a :doc:`quick search </concepts/objects/quick_search>` text box. This time-saving feature allows you to perform a search from most pages in the mail section without having to navigate to the search page first.
+.. figure:: /images/worker_guide/mail/toolbar_sendmail.png
+   :alt: The mail toolbar.
+   :figclass: bordered
+
+Quick Search
+~~~~~~~~~~~~
+
+The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to perform a search from most pages in the mail section without having to navigate to the search page first.
+
+.. figure:: /images/worker_guide/mail/toolbar_quicksearch.png
+   :alt: The mail toolbar.
+   :figclass: bordered
 
 Tabs
 ====

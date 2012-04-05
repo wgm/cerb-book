@@ -9,7 +9,7 @@ The **opportunities** tab is where you add and view opportunities.
 
 Toolbar
 =======
-The toolbar for the opportunities tab contains two buttons and the quick search box.
+The toolbar at the top of the opportunities tab contains two buttons and the quick search box.
 
 .. figure:: /images/worker_guide/activity/opportunities_toolbar.png
   :alt: The opportunities toolbar.
@@ -64,7 +64,7 @@ The columns present in the CSV file can be imported as data for any of the field
 Quick Search
 ~~~~~~~~~~~~
 
-The quick search box allows you to quickly apply a filter to the worklist.
+The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
 .. figure:: /images/worker_guide/activity/opportunities_toolbar_search.png
    :alt: The quick search box.

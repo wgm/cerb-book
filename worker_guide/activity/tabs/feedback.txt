@@ -10,7 +10,7 @@ The **feedback** tab is where you capture and view feedback.
 Toolbar
 =======
 
-The toolbar for the feedback tab contains a single button.
+The toolbar at the top of the feedback tab contains a single button.
 
 .. figure:: /images/worker_guide/activity/feedback_toolbar.png
    :alt: The feedback toolbar.

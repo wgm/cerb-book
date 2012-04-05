@@ -9,7 +9,7 @@ The **tasks** tab is where you add and view tasks.
 
 Toolbar
 =======
-The toolbar for the tasks tab contains one button and the quick search box.
+The toolbar at the top of the tasks tab contains one button and the quick search box.
 
 .. figure:: /images/worker_guide/activity/tasks_toolbar.png
   :alt: The tasks toolbar.
