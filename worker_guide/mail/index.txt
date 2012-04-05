@@ -190,11 +190,76 @@ The actions toolbar allows you to quickly perform actions on the tickets that ar
 - Clicking the :guilabel:`waiting` button sets the status of the selected tickets to **waiting**.
 - Clicking the :guilabel:`not waiting` button sets the status of the selected tickets to **not waiting**.
 
-Points of Interest
-==================
+Reading and Replying
+====================
 
-.. toctree::
-    :maxdepth: 1
+Clicking on the subject of any ticket in the worklist will take you to the **display** page. The display page is divided into two sections.
 
-    reading
-    replying
+.. figure:: /images/worker_guide/mail/display.png
+    :alt: The display page.
+    :figclass: bordered
+
+Properties and Actions
+~~~~~~~~~~~~~~~~~~~~~~
+
+The top section of the display page provides you quick access to the properties of the ticket and a toolbar which allows you to quickly perform actions on the ticket.
+
+Properties
+^^^^^^^^^^
+
+The properties section displays the **status**, **owner**, **mask**, and the **group** and **bucket** of the ticket, along with other information. Any custom fields that are set for the ticket are also displayed in this section.
+
+.. figure:: /images/worker_guide/mail/display_properties.png
+    :alt: The properties section of the display page.
+    :figclass: bordered
+
+Actions
+^^^^^^^
+.. ::
+    Links need to be added for watch, virt. attendant, and time tracking.
+
+The actions toolbar has several buttons.
+
+.. figure:: /images/worker_guide/mail/display_actions.png
+    :alt: The toolbar section of the display page.
+    :figclass: bordered
+
+- The :guilabel:`Start watching` button allows you to watch the ticket and see how many workers are currently watching it. The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the ticket.
+
+.. figure:: /images/worker_guide/mail/display_watchers_dialog.png
+    :alt: The watchers dialog.
+    :figclass: bordered
+
+- The :guilabel:`Virtual Attendant` button displays a search box and a list of all the virtual attendant behaviors that can be run for a ticket.
+
+.. figure:: /images/worker_guide/mail/display_actions_va_select.png
+    :alt: The toolbar section .
+    :figclass: bordered
+
+Selecting a virtual attendant behavior will display the schedule behavior peek, which can be used to set when the behavior will run.
+
+.. figure:: /images/worker_guide/mail/display_va_dialog.png
+    :alt: The toolbar section of the display page.
+    :figclass: bordered
+
+- The :guilabel:`Edit` button displays the edit dialog, which can be used to edit the properties and custom fields on the ticket, and quickly leave a comment.
+
+.. figure:: /images/worker_guide/mail/display_edit_dialog.png
+    :alt: The toolbar section of the display page.
+    :figclass: bordered
+.. ::
+    Cover + button, add selected, etc.
+    
+- The :guilabel:`Merge` button displays the merge dialog which allows you to merge multiple tickets together.
+
+.. figure:: /images/worker_guide/mail/display_merge_dialog.png
+    :alt: The toolbar section of the display page.
+    :figclass: bordered
+    
+.. ::
+    Track Time, Close, Mark as Spam, Delete, Print, and Refresh
+
+
+Tabs
+~~~~
+
