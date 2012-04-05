@@ -38,7 +38,7 @@ The **title**, **due date**, **completed**, **watchers** can all be specified in
 Quick Search
 ~~~~~~~~~~~~
 
-The quick search box allows you to quickly apply a filter to the worklist.
+The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
 .. figure:: /images/worker_guide/activity/tasks_toolbar_search.png
    :alt: The quick search box.
