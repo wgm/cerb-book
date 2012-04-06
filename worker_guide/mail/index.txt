@@ -193,19 +193,15 @@ The actions toolbar allows you to quickly perform actions on the tickets that ar
 Reading and Replying
 ====================
 
-Clicking on the subject of any ticket in the worklist will take you to the **display** page. The display page is divided into two sections.
+Clicking on the subject of any ticket in the worklist will take you to the **display** page. The display page is divided into two sections. The top section of the display page provides you quick access to the properties of the ticket and a toolbar which allows you to quickly perform actions on the ticket. The bottom section of the page is a group of tabs which control what content is displayed.
 
 .. figure:: /images/worker_guide/mail/display.png
     :alt: The display page.
     :figclass: bordered
 
-Properties and Actions
-~~~~~~~~~~~~~~~~~~~~~~
-
-The top section of the display page provides you quick access to the properties of the ticket and a toolbar which allows you to quickly perform actions on the ticket.
 
 Properties
-^^^^^^^^^^
+~~~~~~~~~~
 
 The properties section displays the **status**, **owner**, **mask**, and the **group** and **bucket** of the ticket, along with other information. Any custom fields that are set for the ticket are also displayed in this section.
 
@@ -214,7 +210,7 @@ The properties section displays the **status**, **owner**, **mask**, and the **g
     :figclass: bordered
 
 Actions
-^^^^^^^
+~~~~~~~
 .. ::
     Links need to be added for watch, virt. attendant, and time tracking.
 
@@ -224,42 +220,116 @@ The actions toolbar has several buttons.
     :alt: The toolbar section of the display page.
     :figclass: bordered
 
-- The :guilabel:`Start watching` button allows you to watch the ticket and see how many workers are currently watching it. The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the ticket.
+Start Watching
+^^^^^^^^^^^^^^
+
+The :guilabel:`Start watching` button allows you to watch the ticket and see how many workers are currently watching it. The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the ticket.
 
 .. figure:: /images/worker_guide/mail/display_watchers_dialog.png
     :alt: The watchers dialog.
     :figclass: bordered
 
-- The :guilabel:`Virtual Attendant` button displays a search box and a list of all the virtual attendant behaviors that can be run for a ticket.
+Virtual Attendant
+^^^^^^^^^^^^^^^^^
+
+The :guilabel:`Virtual Attendant` button displays a search box and a list of all the virtual attendant behaviors that can be run for a ticket.
 
 .. figure:: /images/worker_guide/mail/display_actions_va_select.png
-    :alt: The toolbar section .
+    :alt: The virtual attendant select section.
     :figclass: bordered
 
 Selecting a virtual attendant behavior will display the schedule behavior peek, which can be used to set when the behavior will run.
 
 .. figure:: /images/worker_guide/mail/display_va_dialog.png
-    :alt: The toolbar section of the display page.
+    :alt: The virtual attendant dialog.
     :figclass: bordered
 
-- The :guilabel:`Edit` button displays the edit dialog, which can be used to edit the properties and custom fields on the ticket, and quickly leave a comment.
+Edit
+^^^^
+
+The :guilabel:`Edit` button displays the edit dialog, which can be used to edit the properties and custom fields on the ticket, and quickly leave a comment.
 
 .. figure:: /images/worker_guide/mail/display_edit_dialog.png
-    :alt: The toolbar section of the display page.
+    :alt: The edit dialog.
     :figclass: bordered
-.. ::
-    Cover + button, add selected, etc.
     
-- The :guilabel:`Merge` button displays the merge dialog which allows you to merge multiple tickets together.
+Merge
+^^^^^
+
+The :guilabel:`Merge` button displays the merge dialog which allows you to merge multiple tickets together.
 
 .. figure:: /images/worker_guide/mail/display_merge_dialog.png
-    :alt: The toolbar section of the display page.
+    :alt: The merge dialog.
+    :figclass: bordered
+
+Clicking the :guilabel:`+` button will open the ticket :doc:`chooser </concepts/ui/choosers>`.
+
+.. figure:: /images/worker_guide/mail/display_merge_ticket_chooser.png
+    :alt: The ticket chooser.
     :figclass: bordered
     
 .. ::
-    Track Time, Close, Mark as Spam, Delete, Print, and Refresh
+    Move this to the choosers section.
 
+The ticket chooser allows you to select which tickets should also be merged with the currently displayed ticket.
+
+Track Time
+^^^^^^^^^^
+
+The :guilabel:`Track Time` button displays the time tracking overlay. See the :doc:`Time Tracking </worker_guide/activity/tabs/time_tracking>` documentation for more information.
+
+Close
+^^^^^
+
+The :guilabel:`Close` button sets the status of the ticket to closed.
+
+.. figure:: /images/worker_guide/mail/display_actions_close.png
+    :alt: The close button in the toolbar.
+    :figclass: bordered
+
+Mark as Spam
+^^^^^^^^^^^^
+
+The :guilabel:`Mark as Spam` button marks the ticket as spam and flags the ticket for deletion.
+
+.. figure:: /images/worker_guide/mail/display_actions_spam.png
+    :alt: The mark as spam button in the toolbar.
+    :figclass: bordered
+
+Delete
+^^^^^^
+
+The :guilabel:`Delete` button flags the ticket for deletion.
+
+.. figure:: /images/worker_guide/mail/display_actions_delete.png
+    :alt: The delete button in the toolbar.
+    :figclass: bordered
+
+Print
+^^^^^
+
+The :guilabel:`Print` button opens a new window showing the full history of the ticket with minimal styling so your printer will conserve less ink.
+
+.. figure:: /images/worker_guide/mail/display_actions_print.png
+    :alt: The print button in the toolbar.
+    :figclass: bordered
+
+When the print page loads, your browser print dialog will open automatically.
+
+.. figure:: /images/worker_guide/mail/display_print.png
+    :alt: The print page.
+    :figclass: bordered
+
+Refresh
+^^^^^^^
+
+The :guilabel:`Refresh` button is a convenient way to refresh the ticket and view the most recent data. It performs the same function as your browsers' built-in refresh button.
+
+.. figure:: /images/worker_guide/mail/display_actions_refresh.png
+    :alt: The close button in the toolbar.
+    :figclass: bordered
 
 Tabs
 ~~~~
 
+The tabs in the bottom section can be used to view the Timeline, Activity Log, Links, and Recipient History. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
