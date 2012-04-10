@@ -326,10 +326,78 @@ Refresh
 The :guilabel:`Refresh` button is a convenient way to refresh the ticket and view the most recent data. It performs the same function as your browsers' built-in refresh button.
 
 .. figure:: /images/worker_guide/mail/display_actions_refresh.png
-    :alt: The close button in the toolbar.
+    :alt: The refresh button in the toolbar.
     :figclass: bordered
 
 Tabs
 ~~~~
 
 The tabs in the bottom section can be used to view the Timeline, Activity Log, Links, and Recipient History. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
+
+.. figure:: /images/worker_guide/mail/display_tabs.png
+    :alt: The tabs.
+    :figclass: bordered
+
+Timeline
+^^^^^^^^
+
+The timeline tab shows you all messages and comments on a ticket, starting with the most recent. At the top of the timeline tab are two buttons.
+
+.. figure:: /images/worker_guide/mail/display_tabs_timeline_buttons.png
+    :alt: The buttons on the timeline tab.
+    :figclass: bordered
+
+Comment
+"""""""
+
+The :guilabel:`Comment` button opens the comment dialog.
+
+.. figure:: /images/worker_guide/mail/display_tabs_timeline_buttons_comment.png
+    :alt: The comment button on the timeline tab.
+    :figclass: bordered
+
+The comment dialog allows you to write a new comment on the ticket, and perform some other actions as well.
+
+.. figure:: /images/worker_guide/mail/display_tabs_timeline_comment_dialog.png
+    :alt: The comment button on the timeline tab.
+    :figclass: bordered
+
+The :guilabel:`Snippets` button opens the :doc:`snippets </concepts/snippets/index>` :doc:`chooser </concepts/ui/choosers>`.
+
+.. figure:: /images/worker_guide/mail/display_tabs_timeline_comment_dialog_snippets_button.png
+    :alt: The snippets button on the comment dialog.
+    :figclass: bordered
+
+The snippets chooser allows you to insert snippets into the comment box.
+
+.. figure:: /images/worker_guide/mail/display_tabs_timeline_comment_dialog_snippets_chooser.png
+    :alt: The snippets chooser.
+    :figclass: bordered
+
+.. ::
+    Link to attachments chooser doc
+
+Clicking the magnifying glass icon opens the attachments chooser.
+
+.. figure:: /images/worker_guide/mail/display_tabs_timeline_comment_dialog_attachments_button.png
+    :alt: The attachments button.
+    :figclass: bordered
+
+The attachments chooser allows you to upload an attachment and link it to the comment.
+
+.. figure:: /images/worker_guide/mail/display_tabs_timeline_comment_dialog_attachments_chooser.png
+    :alt: The attachments chooser.
+    :figclass: bordered
+
+
+.. ::
+    Notify workers.
+
+
+
+Read All
+""""""""
+
+.. figure:: /images/worker_guide/mail/display_tabs_timeline_buttons_readall.png
+    :alt: The read all button on the timeline tab.
+    :figclass: bordered
