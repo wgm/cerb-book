@@ -1,0 +1,71 @@
+Timeline
+--------
+
+The timeline tab shows you all messages and comments on a ticket.  At the top of the timeline tab are two buttons.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/buttons.png
+    :alt: The buttons on the timeline tab.
+    :figclass: bordered
+
+Comment
+=======
+
+The :guilabel:`Comment` button opens the comment dialog.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/buttons/comment.png
+    :alt: The comment button on the timeline tab.
+    :figclass: bordered
+
+The comment dialog allows you to write a new comment on the ticket, and perform some other actions as well.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/comment/dialog.png
+    :alt: The comment button on the timeline tab.
+    :figclass: bordered
+
+The :guilabel:`Snippets` button opens the :doc:`snippets </concepts/snippets/index>` :doc:`chooser </concepts/ui/choosers>`.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/comment/dialog/snippets_button.png
+    :alt: The snippets button on the comment dialog.
+    :figclass: bordered
+
+The snippets chooser allows you to insert snippets into the comment box.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/comment/dialog/snippets_chooser.png
+    :alt: The snippets chooser.
+    :figclass: bordered
+
+.. ::
+    Link to attachments chooser doc
+
+Clicking the magnifying glass icon opens the attachments chooser.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/comment/dialog/attachments_button.png
+    :alt: The attachments button.
+    :figclass: bordered
+
+The attachments chooser allows you to upload an attachment and link it to the comment.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/comment/dialog/attachments_chooser.png
+    :alt: The attachments chooser.
+    :figclass: bordered
+
+.. ::
+    Notify workers.
+
+
+Read All
+========
+
+The :guilabel:`Read All` button allows you to view the messages and comments in chronological order. In addition, all of the messages on the ticket will be maximized.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/buttons/readall.png
+    :alt: The read all button on the timeline tab.
+    :figclass: bordered
+
+
+Messages and Comments
+=====================
+
+By default, the comments and messages are displayed in reverse chronological order - newer replies and comments appear at the top, and older ones appear at the bottom.  In addition, all messages except for the most recent are minimized by default, unless they have a sticky note attached to them.
+
+
