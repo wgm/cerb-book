@@ -68,4 +68,52 @@ Messages and Comments
 
 By default, the comments and messages are displayed in reverse chronological order - newer replies and comments appear at the top, and older ones appear at the bottom.  In addition, all messages except for the most recent are minimized by default, unless they have a sticky note attached to them.
 
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages_and_comments.png
+    :alt: The read all button on the timeline tab.
+    :figclass: bordered
+
+Each maximized message has a toolbar with several buttons at the bottom.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions.png
+    :alt: The actions toolbar below a message.
+    :figclass: bordered
+
+Reply
+~~~~~
+
+The :guilabel:`Reply` button allows you to reply to a message. By default, the message you reply to is quoted.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions/reply_button.png
+    :alt: The reply button in the actions toolbar.
+    :figclass: bordered
+
+The :guilabel:`▾` button expands the reply menu, providing you with the ability to **Quote and reply**, **Reply without quoting**, and **Forward**.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions/reply_menu.png
+    :alt: The reply menu in the actions toolbar.
+    :figclass: bordered
+
+Replying
+^^^^^^^^
+
+The reply form allows you to reply to a ticket.  It is similar to creating a new message in any modern email application.  A draft is saved automatically when you first open the reply form.  Drafts are also saved every 30 seconds.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions/reply.png
+    :alt: The reply form.
+    :figclass: bordered
+
+
+Forwarding
+^^^^^^^^^^
+
+Sticky Note
+~~~~~~~~~~~
+
+The :guilabel:`Sticky Note` button allows you to add a Sticky Note to a message. Sticky Notes are similar to comments, but they are attached to individual messages and also force the message to be maximized when loading a ticket.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions/stickynote_button.png
+    :alt: The sticky note button in the actions toolbar.
+    :figclass: bordered
+
+The :guilabel:`snippets` button opens the :doc:`snippets </concepts/snippets/index>` :doc:`chooser </concepts/ui/choosers>`.
 
