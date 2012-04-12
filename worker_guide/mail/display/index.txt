@@ -31,16 +31,28 @@ The actions toolbar has several buttons.
 Start Watching
 ~~~~~~~~~~~~~~
 
-The :guilabel:`Start watching` button allows you to watch the ticket and see how many workers are currently watching it. The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the ticket.
+The :guilabel:`Start watching` button allows you to watch the ticket and see how many workers are currently watching it.
 
-.. figure:: /images/worker_guide/mail/display/watchers_dialog.png
-    :alt: The watchers dialog.
+.. figure:: /images/worker_guide/mail/display/actions/startwatching.png
+    :alt: The start watching button.
     :figclass: bordered
+
+The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the ticket. The watchers peek also allows you 
+ 
+ .. figure:: /images/worker_guide/mail/display/watchers_peek.png
+     :alt: The watchers peek.
+     :figclass: bordered
 
 Virtual Attendant
 ~~~~~~~~~~~~~~~~~
 
-The :guilabel:`Virtual Attendant` button displays a search box and a list of all the virtual attendant behaviors that can be run for a ticket.
+The :guilabel:`Virtual Attendant` button allows you to schedule a :doc:`Virtual Attendant Behavior</concepts/virtual_attendants/index#behavior>` for the current ticket.
+
+.. figure:: /images/worker_guide/mail/display/actions/va.png
+    :alt: The virtual attendant button.
+    :figclass: bordered
+
+Clicking the button displays a search box and a list of all the virtual attendant behaviors that can be run for a ticket
 
 .. figure:: /images/worker_guide/mail/display/actions/va_select.png
     :alt: The virtual attendant select section.
@@ -55,7 +67,13 @@ Selecting a virtual attendant behavior will display the schedule behavior peek, 
 Edit
 ~~~~
 
-The :guilabel:`Edit` button displays the edit dialog, which can be used to edit the properties and custom fields on the ticket, and quickly leave a comment.
+The :guilabel:`Edit` button allows you to edit the ticket.
+
+.. figure:: /images/worker_guide/mail/display/actions/edit.png
+    :alt: The edit button.
+    :figclass: bordered
+
+Clicking the edit button displays the edit dialog, which can be used to edit the properties and custom fields on the ticket, and quickly leave a comment.
 
 .. figure:: /images/worker_guide/mail/display/edit_dialog.png
     :alt: The edit dialog.
@@ -64,7 +82,13 @@ The :guilabel:`Edit` button displays the edit dialog, which can be used to edit 
 Merge
 ~~~~~
 
-The :guilabel:`Merge` button displays the merge dialog which allows you to merge multiple tickets together.
+The :guilabel:`Merge` button allows you to merge tickets.
+
+.. figure:: /images/worker_guide/mail/display/actions/merge.png
+    :alt: The merge button.
+    :figclass: bordered
+
+Clicking the merge button displays the merge dialog, which allows you to select which tickets to merge.
 
 .. figure:: /images/worker_guide/mail/display/merge_dialog.png
     :alt: The merge dialog.
@@ -85,6 +109,10 @@ Track Time
 ~~~~~~~~~~
 
 The :guilabel:`Track Time` button displays the time tracking overlay. See the :doc:`Time Tracking </worker_guide/activity/tabs/time_tracking>` documentation for more information.
+
+.. figure:: /images/worker_guide/mail/display/actions/tracktime.png
+    :alt: The track time button.
+    :figclass: bordered
 
 Close
 ~~~~~
