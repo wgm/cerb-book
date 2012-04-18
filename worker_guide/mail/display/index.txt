@@ -168,7 +168,7 @@ The :guilabel:`Refresh` button is a convenient way to refresh the ticket and vie
 Tabs
 ====
 
-The tabs in the bottom section can be used to view the :doc:`timeline </worker_guide/mail/display/tabs/timeline>`, Activity Log, Links, and Recipient History. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
+The tabs in the bottom section can be used to view the :doc:`Timeline </worker_guide/mail/display/tabs/timeline>`, Activity Log, Links, and Recipient History. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
 
 .. figure:: /images/worker_guide/mail/display/tabs.png
     :alt: The tabs.

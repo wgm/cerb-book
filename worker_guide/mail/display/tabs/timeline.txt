@@ -93,20 +93,33 @@ The :guilabel:`▾` button expands the reply menu, providing you with the abilit
     :alt: The reply menu in the actions toolbar.
     :figclass: bordered
 
-Replying
-^^^^^^^^
+Replying and Forwarding
+^^^^^^^^^^^^^^^^^^^^^^^
 
-The reply form allows you to reply to a ticket.  It is similar to creating a new message in any modern email application.  A draft is saved automatically when you first open the reply form.  Drafts are also saved every 30 seconds.  If you leave the page before completing your message, you can resume the draft at a later date.
+The reply/forward form allows you to reply to or forward a ticket.  It is similar to creating a new message in any modern email application.  A draft is saved automatically when you first open the reply form.  Drafts are also saved every 30 seconds.  If you leave the page before completing your message, you can easily resume the draft at a later date.
 
 .. figure:: /images/worker_guide/mail/display/tabs/timeline/reply.png
     :alt: The reply form.
     :figclass: bordered
 
-.. ::
-    Add requesters/recipients, save draft, insert sig, kb, track time, snippets, attachments, next
+Recipients can be added by entering them into the :guilabel:`To` field.  Recipients should be separated by commas, and the field will auto-complete each recipient as you type it. Any recipients specified in the :guilabel:`To` field will automatically be added as a requester on the ticket.
 
-Forwarding
-^^^^^^^^^^
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_requesters_autocomplete.png
+    :alt: The add requesters auto-completion popup.
+    :figclass: bordered
+    
+A list of suggested requesters is also displayed just below the :guilabel:`To` field.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_requesters_suggested.png
+    :alt: The suggested requesters.
+    :figclass: bordered
+
+The :guilabel:`Cc` and :guilabel:`Bcc` fields behave the same way they do in a regular email client.  Addresses added to either of these fields are not added as a requester on the ticket.
+
+.. ::
+    Save draft, insert sig, kb, track time, snippets, attachments, next
+
+
 
 Sticky Note
 ~~~~~~~~~~~
