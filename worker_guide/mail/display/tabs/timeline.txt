@@ -104,20 +104,110 @@ The reply/forward form allows you to reply to or forward a ticket.  It is simila
 
 Recipients can be added by entering them into the :guilabel:`To` field.  Recipients should be separated by commas, and the field will auto-complete each recipient as you type it. Any recipients specified in the :guilabel:`To` field will automatically be added as a requester on the ticket.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_requesters_autocomplete.png
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_recipients_autocomplete.png
     :alt: The add requesters auto-completion popup.
     :figclass: bordered
-    
-A list of suggested requesters is also displayed just below the :guilabel:`To` field.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_requesters_suggested.png
+A list of suggested recipients is also displayed just below the :guilabel:`To` field. Clicking a suggested recipient will insert them into the :guilabel:`To` field.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_recipients_suggested.png
     :alt: The suggested requesters.
     :figclass: bordered
 
 The :guilabel:`Cc` and :guilabel:`Bcc` fields behave the same way they do in a regular email client.  Addresses added to either of these fields are not added as a requester on the ticket.
 
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_cc_bcc.png
+    :alt: The cc and bcc fields.
+    :figclass: bordered
+
+The :guilabel:`Subject` field allows you to change the subject of the ticket.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_subject.png
+    :alt: The subject field.
+    :figclass: bordered
+    
+The last time a draft was saved is also displayed on the reply form.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_draft.png
+    :alt: The last saved draft notice.
+    :figclass: bordered
+
+The actions toolbar allows you to quickly perform several actions.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_actions.png
+    :alt: The actions toolbar.
+    :figclass: bordered
+
+The :guilabel:`Save Draft` button allows you to immediately save a draft of the message.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_action_savedraft.png
+    :alt: The save draft button in the actions toolbar.
+    :figclass: bordered
+
+The :guilabel:`Insert Signature` button allows you to insert your signature into the message.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_action_insertsignature.png
+    :alt: The insert signature button in the actions toolbar.
+    :figclass: bordered
+
+The :guilabel:`Knowledgebase` button gives you quick access to knowledgebase articles.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_action_knowledgebase.png
+    :alt: The knowledgebase button in the actions toolbar.
+    :figclass: bordered
+
+Clicking the :guilabel:`Knowledgebase` button will display the Knowledgebase section, allowing you to search for an existing article and add a new one.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_action_knowledgebase_section.png
+    :alt: The knowledgebase section.
+    :figclass: bordered
+
+The knowledgebase section allows you to pick the topic to search, enter a search term, and select the kind of search you wish to perform.  Results are displayed directly below the form, and clicking
+
+Clicking the :guilabel:`Track Time` button allows you to track time.  See the documentation on :doc:`time tracking </worker_guide/activity/tabs/time_tracking>` for more information.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_action_tracktime.png
+    :alt: The track time button in the actions toolbar.
+    :figclass: bordered
+
+The snippets section allows you to quickly insert :doc:`snippets </concepts/snippets>` into the message.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_snippets.png
+    :alt: The snippets section.
+    :figclass: bordered
+
+Typing into the search box will cause an auto-complete menu to appear.  Clicking a snippet in the auto-complete menu will insert that snippet into the message.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_snippets_autocomplete.png
+    :alt: The auto-complete menu in the snippets section.
+    :figclass: bordered
+
+The :guilabel:`chooser` button also allows you to search for snippets to insert into the message.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_snippets_chooser_button.png
+    :alt: The snippets chooser button in the snippets section.
+    :figclass: bordered
+
+Clicking the :guilabel:`chooser` button opens the :doc:`snippets </concepts/snippets/index>` :doc:`chooser </concepts/ui/choosers>`.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_snippets_chooser_dialog.png
+    :alt: The snippets chooser.
+    :figclass: bordered
+
+The :guilabel:`+` button allows you to create a new snippet.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_snippets_create_button.png
+    :alt: The + button in the snippets section.
+    :figclass: bordered
+
+Clicking the :guilabel:`+` button opens the :guilabel:`Create Snippet` dialog.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply_snippets_create_dialog.png
+    :alt: The create snippet dialog.
+    :figclass: bordered
+
 .. ::
-    Save draft, insert sig, kb, track time, snippets, attachments, next
+     attachments, next
 
 
 
