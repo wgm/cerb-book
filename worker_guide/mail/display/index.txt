@@ -39,9 +39,9 @@ The :guilabel:`Start watching` button allows you to watch the ticket and see how
 
 The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the ticket. The watchers peek also allows you 
  
- .. figure:: /images/worker_guide/mail/display/watchers_peek.png
-     :alt: The watchers peek.
-     :figclass: bordered
+.. figure:: /images/worker_guide/mail/display/watchers_dialog.png
+    :alt: The watchers peek.
+    :figclass: bordered
 
 Virtual Attendant
 ~~~~~~~~~~~~~~~~~
