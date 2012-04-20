@@ -264,6 +264,18 @@ The ticket can be assigned to a worker by selecting a worker from the drop-down 
 
 Custom fields can be set in the custom fields section. See the documentation on :doc:`custom fields <concepts/objects/custom_fields>` for more information.
 
+Clicking the :guilabel:`Send Message` button will send the message to the recipients.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply/sendmessage.png
+    :alt: The send button in the reply section.
+    :figclass: bordered
+
+Clicking the :guilabel:`Discard` button will discard the message and delete the draft.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply/discard.png
+    :alt: The discard button in the reply section.
+    :figclass: bordered
+
 Sticky Note
 ~~~~~~~~~~~
 
