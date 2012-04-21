@@ -168,8 +168,52 @@ The :guilabel:`Refresh` button is a convenient way to refresh the ticket and vie
 Tabs
 ====
 
-The tabs in the bottom section can be used to view the :doc:`Timeline </worker_guide/mail/display/tabs/timeline>`, Activity Log, Links, and Recipient History. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
+The tabs in the bottom section can be used to view the Timeline, Activity Log, Links, and Recipient History. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
 
 .. figure:: /images/worker_guide/mail/display/tabs.png
     :alt: The tabs.
+    :figclass: bordered
+
+Timeline
+~~~~~~~~
+
+The Timeline tab displays main content of the ticket. For more information on the Timeline tab, see the :doc:`Timeline  documentation </worker_guide/mail/display/tabs/timeline>`.
+
+Activity Log
+~~~~~~~~~~~~
+
+The Activity Log tab displays a record of all the changes made to a ticket.
+
+.. figure:: /images/worker_guide/mail/display/tabs/activity_log.png
+    :alt: The activity log tab.
+    :figclass: bordered
+
+Links
+~~~~~
+
+The Links tab displays all of the objects currently linked to the ticket you are viewing. The drop-down fields at the top of the tab can be used to quickly link existing objects to the ticket, and create and link new ones.
+
+.. figure:: /images/worker_guide/mail/display/tabs/links.png
+    :alt: The links tab.
+    :figclass: bordered
+
+Recipient History
+~~~~~~~~~~~~~~~~~
+
+The Recipient History tab displays the ticket history of all recipients on the ticket.
+
+.. figure:: /images/worker_guide/mail/display/tabs/recipient_history.png
+    :alt: The recipient history tab.
+    :figclass: bordered
+
+You can select whether to display the :guilabel:`History for` recipients or the entire domain at the top-right of the Recipient History tab.
+
+.. figure:: /images/worker_guide/mail/display/tabs/recipient_history_select.png
+    :alt: The recipient history selector.
+    :figclass: bordered
+
+Selecting the domain will display all tickets that have a recipient belonging to the domain.
+
+.. figure:: /images/worker_guide/mail/display/tabs/recipient_history_domain.png
+    :alt: The recipient history selector.
     :figclass: bordered
