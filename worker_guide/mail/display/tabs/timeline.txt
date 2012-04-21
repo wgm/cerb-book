@@ -83,13 +83,13 @@ Reply
 
 The :guilabel:`Reply` button allows you to reply to a message. By default, the message you reply to is quoted.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions/reply/button.png
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/reply/button.png
     :alt: The reply button in the actions toolbar.
     :figclass: bordered
 
 The :guilabel:`▾` button expands the reply menu, providing you with the ability to **Quote and reply**, **Reply without quoting**, and **Forward**.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions/reply/menu.png
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/reply/menu.png
     :alt: The reply menu in the actions toolbar.
     :figclass: bordered
 
@@ -281,14 +281,53 @@ Sticky Note
 
 The :guilabel:`Sticky Note` button allows you to add a Sticky Note to a message. Sticky Notes are similar to comments, but they are attached to individual messages and also force the message to be maximized when loading a ticket.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions/stickynote_button.png
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/stickynote_button.png
     :alt: The sticky note button in the actions toolbar.
     :figclass: bordered
 
 The :guilabel:`snippets` button opens the :doc:`snippets </concepts/snippets/index>` :doc:`chooser </concepts/ui/choosers>`.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/actions/stickynote_snippets_button.png
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/stickynote_snippets_button.png
     :alt: The snippets button in the sticky note section.
     :figclass: bordered
 
 The notify workers box allows you to select workers to notify. Clicking the button next to the box opens the :doc:`worker </concepts/worker>` :doc:`chooser </concepts/ui/choosers>`.
+
+Print
+~~~~~
+
+The :guilabel:`Print` button allows you to print an individual message from a ticket.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/print_button.png
+    :alt: The print button in the actions toolbar.
+    :figclass: bordered
+
+Clicking the :guilabel:`Print` button opens a new window with the contents of the message, and your browser's print dialog will open automatically once the page has finished loading.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/print.png
+    :alt: The print message page.
+    :figclass: bordered
+
+Delete
+~~~~~~
+
+The :guilabel:`Delete` button allows you to delete an individual message from a ticket.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/delete_button.png
+    :alt: The delete button in the actions toolbar.
+    :figclass: bordered
+
+Capture Feedback
+~~~~~~~~~~~~~~~~
+
+The :guilabel:`Capture Feedback` button allows you to capture feedback from a message.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/capturefeedback_button.png
+    :alt: The capture feedback button in the actions toolbar.
+    :figclass: bordered
+
+Clicking the :guilabel:`Capture Feedback` will open the :guilabel:`Capture Feedback` dialog. The :guilabel:`Author E-mail` field will be automatically filled in with the sender of the message, the :guilabel:`Link` field will be automatically filled in with the URL of the ticket, and any text that has been selected will be automatically inserted into the :guilabel:`Quote` field.
+
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/capturefeedback_dialog.png
+    :alt: The capture feedback dialog.
+    :figclass: bordered

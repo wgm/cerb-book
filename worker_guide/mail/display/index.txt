@@ -144,13 +144,13 @@ The :guilabel:`Delete` button flags the ticket for deletion.
 Print
 ~~~~~
 
-The :guilabel:`Print` button opens a new window showing the full history of the ticket with minimal styling so your printer will conserve less ink.
+The :guilabel:`Print` button allows you to print the ticket with minimal styling so your printer will conserve less ink.
 
 .. figure:: /images/worker_guide/mail/display/actions/print.png
     :alt: The print button in the toolbar.
     :figclass: bordered
 
-When the print page loads, your browser print dialog will open automatically.
+Clicking the :guilabel:`Print` button opens a new window with the full history of the ticket, and your browser's print dialog will open automatically once the page has finished loading.
 
 .. figure:: /images/worker_guide/mail/display/print.png
     :alt: The print page.
