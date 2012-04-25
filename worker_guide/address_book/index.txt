@@ -1,7 +1,7 @@
 Address Book
 ------------
 
-The **address book** page...
+The **address book** page allows you to view Organizations, Registered Contacts, and Addresses. You can also import Organizations or Addresses from a CSV file.
 
 Tabs
 ====
