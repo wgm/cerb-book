@@ -125,7 +125,7 @@ The :guilabel:`Subject` field allows you to change the subject of the ticket.
 .. figure:: /images/worker_guide/mail/display/tabs/timeline/reply/subject.png
     :alt: The subject field.
     :figclass: bordered
-    
+
 The last time a draft was saved is also displayed on the reply form.
 
 .. figure:: /images/worker_guide/mail/display/tabs/timeline/reply/draft.png

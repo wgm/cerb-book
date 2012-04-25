@@ -21,4 +21,4 @@ What visitors see
 .. figure:: /images/admin_guide/setup/support_center/sc_welcome_public.png
     :alt: The Support Center welcome module.
     :figclass: bordered
-    
+

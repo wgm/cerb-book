@@ -2,8 +2,8 @@ Mail
 ----
 
 .. figure:: /images/worker_guide/mail/menu.png
-   :alt: The mail section.
-   :figclass: bordered
+    :alt: The mail section.
+    :figclass: bordered
 
 The **mail** page is where you read, reply to, and initiate :doc:`email conversations </concepts/contexts/ticket>`. These conversations are shared with other :doc:`workers </concepts/contexts/worker>` in the :doc:`groups </concepts/contexts/group>` you are a member of.
 
@@ -13,8 +13,8 @@ Toolbar
 The toolbar at the top of the mail page contains one button and the quick search box.
 
 .. figure:: /images/worker_guide/mail/toolbar.png
-   :alt: The mail toolbar.
-   :figclass: bordered
+    :alt: The mail toolbar.
+    :figclass: bordered
 
 Send Mail
 ~~~~~~~~~
@@ -22,8 +22,8 @@ Send Mail
 Clicking the :guilabel:`Send Mail` button allows you to create a new email conversation.  You can either send a message to several :term:`recipients <recipient>`, or log details about a conversation that already took place elsewhere (for example, a meeting or phone call).
 
 .. figure:: /images/worker_guide/mail/toolbar_sendmail.png
-   :alt: The mail toolbar.
-   :figclass: bordered
+    :alt: The mail toolbar.
+    :figclass: bordered
 
 Quick Search
 ~~~~~~~~~~~~
@@ -31,8 +31,8 @@ Quick Search
 The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to perform a search from most pages in the mail section without having to navigate to the search page first.
 
 .. figure:: /images/worker_guide/mail/toolbar_quicksearch.png
-   :alt: The mail toolbar.
-   :figclass: bordered
+    :alt: The mail toolbar.
+    :figclass: bordered
 
 Tabs
 ====
@@ -40,8 +40,8 @@ Tabs
 The rest of the mail page is divided into a series of :doc:`tabs </concepts/ui/tabs>` that provide specialized functionality:
 
 .. figure:: /images/worker_guide/mail/tabs.png
-   :alt: The mail tabs.
-   :figclass: bordered
+    :alt: The mail tabs.
+    :figclass: bordered
 
 .. toctree::
     :maxdepth: 1
@@ -104,8 +104,8 @@ Peek
 Clicking the peek button for any ticket will open the :doc:`peek </concepts/worklists/peek>` window. The peek window has several tabs with different functionality.
 
 .. figure:: /images/worker_guide/mail/peek.png
-   :alt: The mail peek.
-   :figclass: bordered
+    :alt: The mail peek.
+    :figclass: bordered
 
 Messages
 ^^^^^^^^
@@ -113,28 +113,28 @@ Messages
 The messages tab allows you to view - and quickly page between - the messages on a conversation.
 
 .. figure:: /images/worker_guide/mail/peek_messages.png
-   :alt: The mail peek window.
-   :figclass: bordered
+    :alt: The mail peek window.
+    :figclass: bordered
 
 
 Information about the message is displayed at the top of the tab. The sender and recipient of a message are displayed for all messages, and the date is displayed for all messages except the first message on a ticket.
 
 .. figure:: /images/worker_guide/mail/peek_messages_info.png
-   :alt: Paging between messages.
-   :figclass: bordered
+    :alt: Paging between messages.
+    :figclass: bordered
 
 The link displayed in the bottom left corner of the peek window allows you to quickly view the whole ticket.
 
 .. figure:: /images/worker_guide/mail/peek_messages_url.png
-   :alt: Paging between messages.
-   :figclass: bordered
+    :alt: Paging between messages.
+    :figclass: bordered
 
 In the bottom right corner, the :guilabel:`Next>` and :guilabel:`<Prev` links allow you to navigate to the next and previous message on the ticket.
 
 .. figure:: /images/worker_guide/mail/peek_messages_page.png
-   :alt: Paging between messages.
-   :figclass: bordered
-   
+    :alt: Paging between messages.
+    :figclass: bordered
+
 The :guilabel:`<<` and :guilabel:`>>` links allow you to quickly jump to the first and last message.
 
 .. figure:: /images/worker_guide/mail/peek_messages_page_first_last.png
@@ -147,28 +147,28 @@ Properties
 The properties tab allows you quick access to other information about the ticket.
 
 .. figure:: /images/worker_guide/mail/peek_properties.png
-   :alt: The mail peek.
-   :figclass: bordered
+    :alt: The mail peek.
+    :figclass: bordered
 
 .. ::
     Should we link to other docs below?
 You can edit the Properties of the ticket - *Status*, *Subject*, *Organization*, *Watchers*, *Owner*, *Bucket* - on the :guilabel:`Properties` tab.
 
 .. figure:: /images/worker_guide/mail/peek_properties_properties.png
-   :alt: The mail peek.
-   :figclass: bordered
-   
+    :alt: The mail peek.
+    :figclass: bordered
+
 You can also edit the :doc:`Custom Fields </concepts/objects/custom_fields>`, if any have been set for ticket objects.
 
 .. figure:: /images/worker_guide/mail/peek_properties_custom_fields.png
-   :alt: The mail peek.
-   :figclass: bordered
+    :alt: The mail peek.
+    :figclass: bordered
 
 The Properties tab also displays the most recent comment and a handy form that allows you to leave another comment.
 
 .. figure:: /images/worker_guide/mail/peek_properties_comment.png
-   :alt: The mail peek.
-   :figclass: bordered
+    :alt: The mail peek.
+    :figclass: bordered
 
 
 Actions Toolbar

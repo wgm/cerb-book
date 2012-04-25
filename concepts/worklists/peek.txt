@@ -9,7 +9,7 @@ Peek
 .. figure:: /images/concepts/worklists/peek_button.png
     :alt: The peek button.
     :figclass: bordered
-    
+
 Peek dialogs may have tabs at the top which allow you to access different data for each object.
 
 .. figure:: /images/concepts/worklists/peek.png

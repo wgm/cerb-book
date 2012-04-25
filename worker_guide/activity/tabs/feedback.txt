@@ -4,8 +4,8 @@ Feedback
 The **feedback** tab is where you capture and view feedback.
 
 .. figure:: /images/worker_guide/activity/feedback_tab.png
-   :alt: The feedback tab.
-   :figclass: bordered
+    :alt: The feedback tab.
+    :figclass: bordered
 
 Toolbar
 =======
@@ -13,8 +13,8 @@ Toolbar
 The toolbar at the top of the feedback tab contains a single button.
 
 .. figure:: /images/worker_guide/activity/feedback_toolbar.png
-   :alt: The feedback toolbar.
-   :figclass: bordered
+    :alt: The feedback toolbar.
+    :figclass: bordered
 
 Capture Feedback
 ~~~~~~~~~~~~~~~~
@@ -22,8 +22,8 @@ Capture Feedback
 The :guilabel:`Capture Feedback` button at the top of the feedback tab allows you to capture feedback.  Clicking the :guilabel:`Capture Feedback` button will open the **capture feedback** dialog.
 
 .. figure:: /images/worker_guide/activity/capture_feedback_dialog.png
-   :alt: The capture feedback dialog.
-   :figclass: bordered
+    :alt: The capture feedback dialog.
+    :figclass: bordered
 
 
 .. ::
@@ -37,5 +37,5 @@ Worklist
 The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs.  At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`.  Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`.  Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
 
 .. figure:: /images/worker_guide/activity/feedback.png
-   :alt: The feedback worklist with subtotals active.
-   :figclass: bordered
+    :alt: The feedback worklist with subtotals active.
+    :figclass: bordered

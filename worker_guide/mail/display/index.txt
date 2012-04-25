@@ -78,7 +78,7 @@ Clicking the edit button displays the edit dialog, which can be used to edit the
 .. figure:: /images/worker_guide/mail/display/edit_dialog.png
     :alt: The edit dialog.
     :figclass: bordered
-    
+
 Merge
 ~~~~~
 
@@ -99,7 +99,7 @@ Clicking the :guilabel:`+` button will open the ticket :doc:`chooser </concepts/
 .. figure:: /images/worker_guide/mail/display/merge_ticket_chooser.png
     :alt: The ticket chooser.
     :figclass: bordered
-    
+
 .. ::
     Move this to the choosers section.
 

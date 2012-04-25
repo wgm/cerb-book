@@ -66,7 +66,7 @@ A contact can configure their alternate email addresses.
 .. figure:: /images/admin_guide/setup/support_center/sc_account_public_email.png
     :alt: Modifying email addresses from the public Support Center
     :figclass: bordered
-    
+
 In the above screenshot, there are two visible custom fields on this email address that allow the contact to control  their opt-in status to various mailing lists.
 
 OpenID Identities

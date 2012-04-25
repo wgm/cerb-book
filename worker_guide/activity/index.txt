@@ -2,7 +2,7 @@ Activity
 --------
 
 .. figure:: /images/worker_guide/activity/menu.png
-   :alt: The activity section.
+    :alt: The activity section.
 
 The **activity** page is where you access Feedback, Opportunities, Tasks, and Time Tracking. Other plugins can also add tabs to the activity page.
 
@@ -12,7 +12,7 @@ Tabs
 The activity page is divided into a series of :doc:`tabs </concepts/ui/tabs>` for each :doc:`type </concepts/contexts/index>` of :doc:`object </concepts/objects/index>`.
 
 .. figure:: /images/worker_guide/activity/tabs.png
-   :alt: The activity tabs.
+    :alt: The activity tabs.
 
 .. toctree::
     :maxdepth: 1

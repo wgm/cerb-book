@@ -7,14 +7,14 @@ Before moving on, let's configure your timezone and language:
 -  Select :guilabel:`Settings` from the menu.
 
 .. figure:: /images/getting_started/settings.png
-   :alt: The settings menu.
-   :figclass: bordered
+    :alt: The settings menu.
+    :figclass: bordered
 
 The :guilabel:`Settings` tab should be selected by default.  The :guilabel:`Account Settings` box is where you will find the settings that control your current timezone and selected language.
 
 .. figure:: /images/worker_guide/account_settings.png
-   :alt: Account settings.
-   :figclass: bordered
+    :alt: Account settings.
+    :figclass: bordered
 
 **Timezone**
     Set this dropdown menu to your current location.  The software will use this timezone when displaying dates and timestamps.

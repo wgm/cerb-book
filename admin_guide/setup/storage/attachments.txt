@@ -17,7 +17,7 @@ Using subtotals to generate statistics
     .. figure:: /images/admin_guide/setup/storage_attachments_subtotals_link.png
         :alt: The subtotals link
         :figclass: bordered
-    
+
 2. Click the green link at the top of the subtotals sidebar to the left of the attachments worklist.  Pick a :doc:`field </concepts/objects/fields>` to subtotal by.
 
     .. figure:: /images/admin_guide/setup/storage_attachments_subtotals.png
@@ -48,7 +48,7 @@ Bulk deleting attachments
     .. figure:: /images/admin_guide/setup/storage_attachments_bulk_filters.png
         :alt: Filtering attachments for a bulk update.
         :figclass: bordered
-    
+
 2. Click the :guilabel:`bulk update` button below the worklist.  Set :guilabel:`Status:` to :guilabel:`Deleted`, and click the :guilabel:`Save Changes` button.
 
     .. figure:: /images/admin_guide/setup/storage_attachments_bulk.png

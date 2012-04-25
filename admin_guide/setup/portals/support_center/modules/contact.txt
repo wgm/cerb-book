@@ -72,4 +72,4 @@ Visitors are given a reminder if they don't provide an answer to a required ques
 .. figure:: /images/admin_guide/setup/support_center/sc_contact_public_situation_required.png
     :alt: A required follow-up question in the Support Center contact module.
     :figclass: bordered
-    
+

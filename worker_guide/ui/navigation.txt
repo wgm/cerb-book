@@ -2,8 +2,8 @@ Navigation
 ----------
 
 .. figure:: /images/getting_started/global_navigation.png
-   :alt: The navigation menu.
-   :figclass: bordered
+    :alt: The navigation menu.
+    :figclass: bordered
 
 The navigation menu at the top of each page divides the application into sections based on the type of information being presented.
 

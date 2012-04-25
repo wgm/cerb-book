@@ -2,7 +2,7 @@ Tour Mode
 ---------
 
 .. figure:: /images/getting_started/tour_mode.png
-   :alt: Tour mode
-   :figclass: bordered
+    :alt: Tour mode
+    :figclass: bordered
 
 **Tour mode** is automatically enabled to provide basic training when you log in for the first time. As you navigate through the software, the yellow box at the top of the page will highlight relevant *points of interest* based on where you are. Clicking on each item of interest will display a speech bubble that highlights the location of the feature and explains how to use it. Once you are familiar with the software you can click the :guilabel:`hide this` link at the top right of the yellow box to disable the tour. You can resume the tour from your :doc:`settings <preferences>`.

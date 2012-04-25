@@ -4,8 +4,8 @@ Tasks
 The **tasks** tab is where you add and view tasks.
 
 .. figure:: /images/worker_guide/activity/tasks_tab.png
-   :alt: The tasks tab.
-   :figclass: bordered
+    :alt: The tasks tab.
+    :figclass: bordered
 
 Toolbar
 =======
@@ -21,19 +21,19 @@ Add Task
 The :guilabel:`Add Task` button at the top of the tasks tab allows you to add tasks.
 
 .. figure:: /images/worker_guide/activity/tasks_toolbar_add.png
-   :alt: The add task button.
-   :figclass: bordered
-   
+    :alt: The add task button.
+    :figclass: bordered
+
 Clicking the :guilabel:`Add Task` button will open theadd task dialog.
 
 .. figure:: /images/worker_guide/activity/tasks_dialog_add.png
-   :alt: The add task dialog.
-   :figclass: bordered
+    :alt: The add task dialog.
+    :figclass: bordered
 
 .. ::
     Link to comments doc, update image for customf ields
 
-The **title**, **due date**, **completed**, **watchers** can all be specified in the dialog.  If any custom fields have been defined for tasks, they can be specified as well. There is also a comment box so you can quickly leave a comment for the task when you create it.
+The **title**, **due date**, **completed**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for tasks, they can be specified as well. There is also a comment box so you can quickly leave a comment for the task when you create it.
 
 Quick Search
 ~~~~~~~~~~~~
@@ -41,8 +41,8 @@ Quick Search
 The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
 .. figure:: /images/worker_guide/activity/tasks_toolbar_search.png
-   :alt: The quick search box.
-   :figclass: bordered
+    :alt: The quick search box.
+    :figclass: bordered
 
 Worklist
 ========
@@ -50,14 +50,14 @@ Worklist
 The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs.  At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`.  Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`.  Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
 
 .. figure:: /images/worker_guide/activity/tasks.png
-   :alt: The tasks worklist with subtotals active.
-   :figclass: bordered
-   
+    :alt: The tasks worklist with subtotals active.
+    :figclass: bordered
+
 Actions Toolbar
 ~~~~~~~~~~~~~~~
 
 .. figure:: /images/worker_guide/activity/tasks_actions_completed.png
-   :alt: The completed button.
-   :figclass: bordered
+    :alt: The completed button.
+    :figclass: bordered
 
 - Clicking on the :guilabel:`completed` button in the actions toolbar will mark all selected tasks as completed.

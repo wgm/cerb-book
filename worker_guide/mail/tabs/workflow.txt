@@ -9,7 +9,7 @@ Workflow focuses on conversations that you can do something about by enforcing t
 
 -  It must be open (not closed, or waiting for a contact to reply).
 -  It must be located in an inbox, or a bucket that is not hidden from
-   Workflow.
+    Workflow.
 
 The key to the efficient use of Workflow is to have groups and buckets that are organized by the process required to complete the work contained within them. For example, if you have buckets like *Receipts*, *New Orders*, and *Leads*, you can repeat the same process for each message in a bucket, while also reusing any resources you need in order to complete them.
 

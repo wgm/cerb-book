@@ -23,4 +23,4 @@ What visitors see
 .. figure:: /images/admin_guide/setup/support_center/sc_announcements_public.png
     :alt: The Support Center announcements module.
     :figclass: bordered
-    
+
