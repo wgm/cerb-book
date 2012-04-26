@@ -11,7 +11,7 @@ Toolbar
 =======
 The toolbar at the top of the organizations tab contains two buttons and the quick search box.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations_toolbar.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/toolbar.png
   :alt: The orgs toolbar.
   :figclass: bordered
 
@@ -20,13 +20,13 @@ Add Org
 
 The :guilabel:`Add Org` button at the top of the organizations tab allows you to add organizations.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations_add.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/add.png
     :alt: The add org button.
     :figclass: bordered
 
 Clicking the :guilabel:`Add Task` button will open the add organization dialog.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations_dialog_add.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/dialog_add.png
     :alt: The add organization dialog.
     :figclass: bordered
 
@@ -40,19 +40,19 @@ Merge
 
 The :guilabel:`Merge` button at the top of the organizations tab allows you to merge organizations.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations_merge.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/merge.png
     :alt: The merge button.
     :figclass: bordered
 
 Clicking the :guilabel:`Merge` button will open the merge organization dialog.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations_dialog_merge.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/dialog_merge.png
     :alt: The merge dialog.
     :figclass: bordered
 
 The organization entry field will auto-complete as you type, and clicking the magnifying glass icon will open the organizations :doc:`chooser </concepts/ui/choosers>`. Clicking the :guilabel:`continue` button will display another dialog which allows you to pick which values to use for each field.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations_dialog_merge_select.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/dialog_merge_select.png
     :alt: The merge dialog.
     :figclass: bordered
 
@@ -63,7 +63,7 @@ Quick Search
 
 The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations_quicksearch.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/quicksearch.png
     :alt: The quick search box.
     :figclass: bordered
 
@@ -75,3 +75,8 @@ The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs
 .. figure:: /images/worker_guide/address_book/tabs/organizations.png
     :alt: The tasks worklist with subtotals active.
     :figclass: bordered
+
+Display
+=======
+
+Clicking on the name of an organization in the worklist displays the :doc:`organization display page</worker_guide/address_book/organizations/index>` for that organization.

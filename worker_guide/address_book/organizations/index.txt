@@ -1,0 +1,80 @@
+Display
+-------
+
+The display page is divided into two sections. The top section of the display page provides you quick access to the properties of the organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/display.png
+    :alt: The organizations display page.
+    :figclass: bordered
+
+Properties
+==========
+
+The properties section displays the **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, and **website** of the organization, along with other information. Any custom fields that are set for the organization are also displayed in this section.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/properties.png
+    :alt: The properties section of the display page.
+    :figclass: bordered
+
+Actions
+=======
+
+The actions toolbar has two buttons.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/actions.png
+    :alt: The toolbar section of the display page.
+    :figclass: bordered
+
+Start Watching
+~~~~~~~~~~~~~~
+
+The :guilabel:`Start watching` button allows you to watch the organization and see how many workers are currently watching it.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/actions/startwatching.png
+    :alt: The start watching button.
+    :figclass: bordered
+
+The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the organization. The watchers peek also allows you to add and remove watchers from the organization.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/actions/watchers_dialog.png
+    :alt: The watchers peek.
+    :figclass: bordered
+    
+Edit
+~~~~
+
+The :guilabel:`Edit` button allows you to edit the organization.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/actions/edit.png
+    :alt: The edit button.
+    :figclass: bordered
+
+
+Clicking the :guilabel:`Edit` button displays the edit dialog. The edit dialog has 3 tabs.
+
+Properties
+~~~~~~~~~~
+
+The :guilabel:`Properties` tab can be used to edit the properties and custom fields on the organization, and quickly leave a comment.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/actions/edit_dialog_properties.png
+    :alt: The properties tab in the edit dialog.
+    :figclass: bordered
+
+People
+~~~~~~
+
+The :guilabel:`People` tab can be used to view and add contacts to the organization.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/actions/edit_dialog_people.png
+    :alt: The people tab in the edit dialog.
+    :figclass: bordered
+
+Comments
+~~~~~~~~
+
+The comments tab shows you all of the comments set on the organization, and allows you to write a new comment.
+
+.. figure:: /images/worker_guide/address_book/tabs/organizations/actions/edit_dialog_comments.png
+    :alt: The comments tab in the edit dialog.
+    :figclass: bordered
