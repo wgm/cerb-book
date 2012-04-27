@@ -1,9 +1,9 @@
 Organizations
 -------------
 
-The **organizations** tab is where you add and view organizations.
+The **Organizations** tab is where you add and view organizations.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations_tab.png
     :alt: The organizations tab.
     :figclass: bordered
 
