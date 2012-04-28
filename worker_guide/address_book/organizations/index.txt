@@ -10,7 +10,7 @@ The display page is divided into two sections. The top section of the display pa
 Properties
 ==========
 
-The properties section displays the **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, and **website** of the organization, along with other information. Any custom fields that are set for the organization are also displayed in this section.
+The properties section displays the **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, **website**, and **created** of the organization. Any custom fields that are set for the organization are also displayed in this section.
 
 .. figure:: /images/worker_guide/address_book/organizations/properties.png
     :alt: The properties section of the display page.
@@ -91,7 +91,7 @@ The tabs in the bottom section can be used to view the Activity Log, Comments, L
 Activity Log
 ~~~~~~~~~~~~
 
-The Activity Log tab displays a record of all the changes made to an organization
+The Activity Log tab displays a record of all the changes made to an organization.
 
 .. figure:: /images/worker_guide/address_book/organizations/tabs/activity_log.png
     :alt: The activity log tab.
@@ -110,7 +110,7 @@ The comments tab shows you all of the comments set on the organization, and allo
 Links
 ~~~~~
 
-The Links tab displays all of the objects currently linked to the ticket you are viewing. The drop-down fields at the top of the tab can be used to quickly link existing objects to the ticket, and create and link new ones.
+The Links tab displays all of the objects currently linked to the organization you are viewing. The drop-down fields at the top of the tab can be used to quickly link existing objects to the organization, and create and link new ones.
 
 .. figure:: /images/worker_guide/address_book/organizations/tabs/links.png
     :alt: The links tab.
@@ -121,13 +121,13 @@ Mail History
 
 The Mail History tab displays the ticket history for the organization.
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs/mailhistory.png
+.. figure:: /images/worker_guide/address_book/organizations/tabs/mail_history.png
     :alt: The mail history tab.
     :figclass: bordered
 
 The :guilabel:`Send Mail` button at the top of the Mail History tab allows you to easily send a new message.
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs/sendmail.png
+.. figure:: /images/worker_guide/address_book/organizations/tabs/send_mail.png
     :alt: The Send Mail button on the Mail History tab.
     :figclass: bordered
 
