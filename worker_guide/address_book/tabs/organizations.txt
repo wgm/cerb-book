@@ -16,7 +16,7 @@ The toolbar at the top of the organizations tab contains two buttons and the qui
   :figclass: bordered
 
 Add Org
-~~~~~~~~
+~~~~~~~
 
 The :guilabel:`Add Org` button at the top of the organizations tab allows you to add organizations.
 
@@ -24,14 +24,11 @@ The :guilabel:`Add Org` button at the top of the organizations tab allows you to
     :alt: The add org button.
     :figclass: bordered
 
-Clicking the :guilabel:`Add Task` button will open the add organization dialog.
+Clicking the :guilabel:`Add Org` button will open the add organization dialog.
 
 .. figure:: /images/worker_guide/address_book/tabs/organizations/dialog_add.png
     :alt: The add organization dialog.
     :figclass: bordered
-
-.. ::
-     Link to comments doc, update image for customf ields
 
 The **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, **website**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for organizations, they can be specified as well. There is also a comment box so you can quickly leave a comment for the organization when you create it.
 
@@ -63,7 +60,7 @@ Quick Search
 
 The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations/quicksearch.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/quick_search.png
     :alt: The quick search box.
     :figclass: bordered
 
@@ -72,7 +69,7 @@ Worklist
 
 The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs.  At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`.  Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`.  Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations.png
+.. figure:: /images/worker_guide/address_book/tabs/organizations/worklist.png
     :alt: The tasks worklist with subtotals active.
     :figclass: bordered
 
