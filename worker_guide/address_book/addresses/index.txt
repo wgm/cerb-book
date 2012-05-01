@@ -1,0 +1,135 @@
+Display
+-------
+
+The display page is divided into two sections. The top section of the display page provides you quick access to the properties of the address and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
+
+.. figure:: /images/worker_guide/address_book/addresses/display.png
+    :alt: The addresses display page.
+    :figclass: bordered
+
+Properties
+==========
+
+The properties section displays the **email**, **created**, and **last login** of the address. Any custom fields that are set for the address are also displayed in this section.
+
+.. figure:: /images/worker_guide/address_book/addresses/properties.png
+    :alt: The properties section of the display page.
+    :figclass: bordered
+
+Actions
+=======
+
+The actions toolbar has three buttons.
+
+.. figure:: /images/worker_guide/address_book/addresses/actions.png
+    :alt: The toolbar section of the display page.
+    :figclass: bordered
+
+Start Watching
+~~~~~~~~~~~~~~
+
+The :guilabel:`Start watching` button allows you to watch the address and see how many workers are currently watching it.
+
+.. figure:: /images/worker_guide/address_book/addresses/actions/start_watching.png
+    :alt: The start watching button.
+    :figclass: bordered
+
+The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the address. The watchers peek also allows you to add and remove watchers from the address.
+
+.. figure:: /images/worker_guide/address_book/addresses/actions/watchers_dialog.png
+    :alt: The watchers peek.
+    :figclass: bordered
+
+Virtual Attendant
+~~~~~~~~~~~~~~~~~
+
+The :guilabel:`Virtual Attendant` button allows you to schedule a :doc:`Virtual Attendant Behavior</concepts/virtual_attendants/index>` for the current ticket.
+
+.. figure:: /images/worker_guide/address_book/addresses/actions/va_button.png
+    :alt: The virtual attendant button.
+    :figclass: bordered
+
+Clicking the :guilabel:`Virtual Attendant` button displays a search box and a list of all the virtual attendant behaviors that can be run for a ticket
+
+.. figure:: /images/worker_guide/address_book/addresses/actions/va_select.png
+    :alt: The virtual attendant select section.
+    :figclass: bordered
+
+Selecting a virtual attendant behavior will display the schedule behavior peek, which can be used to set when the behavior will run.
+
+.. figure:: /images/worker_guide/address_book/addresses/actions/va_dialog.png
+    :alt: The virtual attendant dialog.
+    :figclass: bordered
+Edit
+~~~~
+
+The :guilabel:`Edit` button allows you to edit the address.
+
+.. figure:: /images/worker_guide/address_book/addresses/actions/edit.png
+    :alt: The edit button.
+    :figclass: bordered
+
+Clicking the :guilabel:`Edit` button displays the edit dialog.
+
+.. figure:: /images/worker_guide/address_book/addresses/actions/edit_dialog.png
+    :alt: The edit dialog.
+    :figclass: bordered
+
+The **first name**, **last name**, **organization**, **is banned**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for addresses, they can be specified as well. There is also a comment box so you can quickly leave a comment on the address when you create it.
+
+Tabs
+====
+
+The tabs in the bottom section can be used to view the Activity Log, Comments, Links, Mail History, and People. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
+
+.. figure:: /images/worker_guide/address_book/addresses/tabs.png
+    :alt: The tabs.
+    :figclass: bordered
+
+Activity Log
+~~~~~~~~~~~~
+
+The Activity Log tab displays a record of all the changes made to a address.
+
+.. figure:: /images/worker_guide/address_book/addresses/tabs/activity_log.png
+    :alt: The activity log tab.
+    :figclass: bordered
+
+Comments
+~~~~~~~~
+
+The comments tab shows you all of the comments set on the address, and allows you to write a new comment.
+
+.. figure:: /images/worker_guide/address_book/addresses/tabs/comments.png
+    :alt: The comments tab.
+    :figclass: bordered
+
+Links
+~~~~~
+
+The Links tab displays all of the objects currently linked to the address you are viewing. The drop-down fields at the top of the tab can be used to quickly link existing objects to the address, and create and link new ones.
+
+.. figure:: /images/worker_guide/address_book/addresses/tabs/links.png
+    :alt: The links tab.
+    :figclass: bordered
+
+Mail History
+~~~~~~~~~~~~
+
+The Mail History tab displays the ticket history for the address.
+
+.. figure:: /images/worker_guide/address_book/addresses/tabs/mail_history.png
+    :alt: The mail history tab.
+    :figclass: bordered
+
+The :guilabel:`Send Mail` button at the top of the Mail History tab allows you to easily send a new message.
+
+.. figure:: /images/worker_guide/address_book/addresses/tabs/send_mail.png
+    :alt: The Send Mail button on the Mail History tab.
+    :figclass: bordered
+
+Clicking the :guilabel:`Send Mail` button opens the :guilabel:`Compose` dialog, allowing you to compose a new message.
+
+.. figure:: /images/worker_guide/address_book/addresses/tabs/compose.png
+    :alt: The Compose dialog.
+    :figclass: bordered
