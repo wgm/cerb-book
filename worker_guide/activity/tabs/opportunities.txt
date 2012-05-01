@@ -33,7 +33,7 @@ Clicking the :guilabel:`Add Opportunity` button will open the **add opportunity*
 .. ::
     Link to comments doc.
 
-The **email**, **title**, **status**, **amount**, **created date**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for opportunities, they can be specified as well. There is also a comment box so you can quickly leave a comment for the opportunity when you create it.
+The **email**, **title**, **status**, **amount**, **created date**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for opportunities, they can be specified as well. There is also a comment box so you can quickly leave a comment on the opportunity when you create it.
 
 Import
 ~~~~~~

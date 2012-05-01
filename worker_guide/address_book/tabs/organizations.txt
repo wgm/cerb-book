@@ -30,7 +30,7 @@ Clicking the :guilabel:`Add Org` button will open the add organization dialog.
     :alt: The add organization dialog.
     :figclass: bordered
 
-The **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, **website**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for organizations, they can be specified as well. There is also a comment box so you can quickly leave a comment for the organization when you create it.
+The **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, **website**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for organizations, they can be specified as well. There is also a comment box so you can quickly leave a comment on the organization when you create it.
 
 Merge
 ~~~~~

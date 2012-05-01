@@ -40,7 +40,7 @@ The time tracking overlay displays the amount of time that has elapsed since the
 .. ::
     Link to comments doc, update image for custom fields
 
-The **activity**, **time spent**, **log date**, **status**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for time tracking entries, they can be specified as well. There is also a comment box so you can quickly leave a comment for the time tracking entry when you create it.  Clicking the :guilabel:`Resume` button will allow you to resume the timer where it left off, though any data entered into the dialog will be lost.
+The **activity**, **time spent**, **log date**, **status**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for time tracking entries, they can be specified as well. There is also a comment box so you can quickly leave a comment on the time tracking entry when you create it.  Clicking the :guilabel:`Resume` button will allow you to resume the timer where it left off, though any data entered into the dialog will be lost.
 
 Quick Search
 ~~~~~~~~~~~~

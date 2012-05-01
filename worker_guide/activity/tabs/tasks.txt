@@ -33,7 +33,7 @@ Clicking the :guilabel:`Add Task` button will open theadd task dialog.
 .. ::
     Link to comments doc, update image for customf ields
 
-The **title**, **due date**, **completed**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for tasks, they can be specified as well. There is also a comment box so you can quickly leave a comment for the task when you create it.
+The **title**, **due date**, **completed**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for tasks, they can be specified as well. There is also a comment box so you can quickly leave a comment on the task when you create it.
 
 Quick Search
 ~~~~~~~~~~~~

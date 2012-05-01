@@ -30,7 +30,7 @@ Start Watching
 
 The :guilabel:`Start watching` button allows you to watch the organization and see how many workers are currently watching it.
 
-.. figure:: /images/worker_guide/address_book/organizations/actions/startwatching.png
+.. figure:: /images/worker_guide/address_book/organizations/actions/start_watching.png
     :alt: The start watching button.
     :figclass: bordered
 
@@ -39,7 +39,7 @@ The :guilabel:`▾` button expands the watchers peek so you can see which worker
 .. figure:: /images/worker_guide/address_book/organizations/actions/watchers_dialog.png
     :alt: The watchers peek.
     :figclass: bordered
-    
+
 Edit
 ~~~~
 
@@ -105,7 +105,6 @@ The comments tab shows you all of the comments set on the organization, and allo
 .. figure:: /images/worker_guide/address_book/organizations/tabs/comments.png
     :alt: The comments tab.
     :figclass: bordered
-
 
 Links
 ~~~~~

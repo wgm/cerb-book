@@ -228,7 +228,7 @@ The :guilabel:`Next` section allows you to conveniently set properties and custo
 
 The :guilabel:`Start watching` button allows you to watch the ticket and see how many workers are currently watching it.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply/next_startwatching.png
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/reply/next_start_watching.png
     :alt: The start watching button in the next section.
     :figclass: bordered
 

@@ -33,7 +33,7 @@ Start Watching
 
 The :guilabel:`Start watching` button allows you to watch the ticket and see how many workers are currently watching it.
 
-.. figure:: /images/worker_guide/mail/display/actions/startwatching.png
+.. figure:: /images/worker_guide/mail/display/actions/start_watching.png
     :alt: The start watching button.
     :figclass: bordered
 
@@ -46,7 +46,7 @@ The :guilabel:`▾` button expands the watchers peek so you can see which worker
 Virtual Attendant
 ~~~~~~~~~~~~~~~~~
 
-The :guilabel:`Virtual Attendant` button allows you to schedule a :doc:`Virtual Attendant Behavior</concepts/virtual_attendants/index#behavior>` for the current ticket.
+The :guilabel:`Virtual Attendant` button allows you to schedule a :doc:`Virtual Attendant Behavior</concepts/virtual_attendants/index>` for the current ticket.
 
 .. figure:: /images/worker_guide/mail/display/actions/va.png
     :alt: The virtual attendant button.

@@ -30,7 +30,7 @@ Start Watching
 
 The :guilabel:`Start watching` button allows you to watch the registered contact and see how many workers are currently watching it.
 
-.. figure:: /images/worker_guide/address_book/contacts/actions/startwatching.png
+.. figure:: /images/worker_guide/address_book/contacts/actions/start_watching.png
     :alt: The start watching button.
     :figclass: bordered
 
@@ -39,7 +39,7 @@ The :guilabel:`▾` button expands the watchers peek so you can see which worker
 .. figure:: /images/worker_guide/address_book/contacts/actions/watchers_dialog.png
     :alt: The watchers peek.
     :figclass: bordered
-    
+
 Edit
 ~~~~
 
@@ -51,6 +51,12 @@ The :guilabel:`Edit` button allows you to edit the registered contact.
 
 
 Clicking the :guilabel:`Edit` button displays the edit dialog.
+
+.. figure:: /images/worker_guide/address_book/addresses/contacts/edit_dialog.png
+    :alt: The edit dialog.
+    :figclass: bordered
+
+The **password** and **watchers** can be specified in the dialog.  If any custom fields have been defined for registered contacts, they can be specified as well. There is also a comment box so you can quickly leave a comment on the registered contact when you create it.
 
 Tabs
 ====
@@ -78,7 +84,6 @@ The comments tab shows you all of the comments set on the organization, and allo
 .. figure:: /images/worker_guide/address_book/contacts/tabs/comments.png
     :alt: The comments tab.
     :figclass: bordered
-
 
 Links
 ~~~~~
