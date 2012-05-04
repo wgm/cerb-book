@@ -11,7 +11,7 @@ Toolbar
 =======
 The toolbar at the top of the opportunities tab contains two buttons and the quick search box.
 
-.. figure:: /images/worker_guide/activity/opportunities_toolbar.png
+.. figure:: /images/worker_guide/activity/tabs/opportunities/actions.png
   :alt: The opportunities toolbar.
   :figclass: bordered
 
@@ -20,13 +20,13 @@ Add Opportunity
 
 The :guilabel:`Add Opportunity` button at the top of the opportunities tab allows you to add opportunities.
 
-.. figure:: /images/worker_guide/activity/opportunities_toolbar_add.png
+.. figure:: /images/worker_guide/activity/tabs/opportunities/actions/add_opportunity_button.png
     :alt: The add opportunity button.
     :figclass: bordered
 
-Clicking the :guilabel:`Add Opportunity` button will open the **add opportunity** dialog.
+Clicking the :guilabel:`Add Opportunity` button will open the :guilabel:`Add Opportunity` dialog.
 
-.. figure:: /images/worker_guide/activity/opportunities_dialog_add.png
+.. figure:: /images/worker_guide/activity/tabs/opportunities/actions/add_opportunity_dialog.png
     :alt: The add opportunity dialog.
     :figclass: bordered
 
@@ -40,19 +40,19 @@ Import
 
 The :guilabel:`Import` button allows you to import a CSV file.
 
-.. figure:: /images/worker_guide/activity/opportunities_toolbar_import.png
+.. figure:: /images/worker_guide/activity/tabs/opportunities/actions/import_button.png
     :alt: The import button.
     :figclass: bordered
 
 Clicking the :guilabel:`Import` button will open the **import** dialog.
 
-.. figure:: /images/worker_guide/activity/opportunities_dialog_import.png
+.. figure:: /images/worker_guide/activity/tabs/opportunities/actions/import_dialog.png
     :alt: The import dialog.
     :figclass: bordered
 
 The dialog allows you to specify a CSV file to upload.
 
-.. figure:: /images/worker_guide/activity/opportunities_import.png
+.. figure:: /images/worker_guide/activity/tabs/opportunities/actions/import.png
     :alt: The add opportunity button.
     :figclass: bordered
 
@@ -66,7 +66,7 @@ Quick Search
 
 The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
-.. figure:: /images/worker_guide/activity/opportunities_toolbar_search.png
+.. figure:: /images/worker_guide/activity/tabs/opportunities/actions/quick_search.png
     :alt: The quick search box.
     :figclass: bordered
 
@@ -75,7 +75,7 @@ Worklist
 
 The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs.  At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`.  Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`.  Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
 
-.. figure:: /images/worker_guide/activity/opportunities.png
+.. figure:: /images/worker_guide/activity/tabs/opportunities/worklist.png
     :alt: The opportunities worklist with subtotals active.
     :figclass: bordered
 

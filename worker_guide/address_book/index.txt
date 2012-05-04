@@ -3,6 +3,10 @@ Address Book
 
 The **address book** page allows you to view Organizations, Registered Contacts, and Addresses. You can also import Organizations or Addresses from a CSV file.
 
+.. figure:: /images/worker_guide/address_book/menu.png
+    :alt: The address book section.
+    :figclass: bordered
+
 Tabs
 ====
 
