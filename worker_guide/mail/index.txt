@@ -1,11 +1,11 @@
 Mail
 ----
 
+The **mail** page is where you read, reply to, and initiate :doc:`email conversations </concepts/contexts/ticket>`. These conversations are shared with other :doc:`workers </concepts/contexts/worker>` in the :doc:`groups </concepts/contexts/group>` you are a member of.
+
 .. figure:: /images/worker_guide/mail/menu.png
     :alt: The mail section.
     :figclass: bordered
-
-The **mail** page is where you read, reply to, and initiate :doc:`email conversations </concepts/contexts/ticket>`. These conversations are shared with other :doc:`workers </concepts/contexts/worker>` in the :doc:`groups </concepts/contexts/group>` you are a member of.
 
 Toolbar
 =======
