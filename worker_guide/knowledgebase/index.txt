@@ -1,7 +1,11 @@
 Knowledgebase
 -------------
 
-The **knowledgebase** page...
+The **knowledgebase** page provided you with access to knowledgebase topics and articles.
+
+.. figure:: /images/worker_guide/knowledgebase/menu.png
+    :alt: The knowledgebase section.
+    :figclass: bordered
 
 Tabs
 ====

@@ -1,2 +1,110 @@
 Browse
 ------
+
+The browse tab allows you to view and edit knowledgebase topics and articles.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse.png
+    :alt: The browse tab.
+    :figclass: bordered
+
+Toolbar (Top/Root)
+==================
+
+The toolbar at the top of the feedback tab contains two buttons (if you aren't viewing a topic) and the quick search box.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions.png
+    :alt: The knowledgebase toolbar.
+    :figclass: bordered
+
+Add Topic
+~~~~~~~~~
+
+The :guilabel:`Add Topic` button allows you to add a new topic.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_topic_button.png
+    :alt: The add topic button.
+    :figclass: bordered
+
+Clicking the :guilabel:`Add Topic` button will open the :guilabel:`Knowledgebase Topic` dialog.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_topic_dialog.png
+    :alt: The add topic dialog.
+    :figclass: bordered
+
+Toolbar (viewing topic)
+=======================
+
+If you are viewing a topic, the toolbar contains 3 buttons and the quick search box.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions_topic.png
+    :alt: The knowledgebase toolbar when viewing a topic.
+    :figclass: bordered
+
+Edit Topic
+~~~~~~~~~~
+
+The :guilabel:`Edit Topic` button allows you to edit the topic you are currently viewing.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions_topic/edit_topic_button.png
+    :alt: The edit topic button.
+    :figclass: bordered
+
+Clicking the :guilabel:`Edit Topic` button will open the :guilabel:`Knowledgebase Topic` dialog.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions_topic/edit_topic_dialog.png
+    :alt: The edit topic dialog.
+    :figclass: bordered
+
+Add Subcategory
+~~~~~~~~~~~~~~~
+
+The :guilabel:`Add Subcategory` button allows you to add a new topic as a child of the topic you are currently viewing.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions_topic/add_subcategory_button.png
+    :alt: The add subcategory button.
+    :figclass: bordered
+
+Clicking the :guilabel:`Add Subcategory` button will open the :guilabel:`Knowledgebase Subcategory` dialog.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions_topic/add_subcategory_dialog.png
+    :alt: The add subcategory dialog.
+    :figclass: bordered
+
+Toolbar (common)
+================
+
+Add Article
+~~~~~~~~~~~
+
+The :guilabel:`Add Article` button allows you to add a new article.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article_button.png
+    :alt: The add article button.
+    :figclass: bordered
+
+Clicking the :guilabel:`Add Article` button will open the :guilabel:`Add Article` dialog.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article_dialog.png
+    :alt: The add topic dialog.
+    :figclass: bordered
+
+The :guilabel:`Add Article` dialog has three tabs.
+
+.. ::
+    Editor
+    """"""
+
+    Properties
+    """"""""""
+
+    Attachments
+    """""""""""
+
+Quick Search
+~~~~~~~~~~~~
+
+The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly search for articles which contain the specified content.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/quick_search.png
+    :alt: The quick search box.
+    :figclass: bordered
