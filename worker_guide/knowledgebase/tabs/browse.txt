@@ -88,17 +88,70 @@ Clicking the :guilabel:`Add Article` button will open the :guilabel:`Add Article
     :alt: The add topic dialog.
     :figclass: bordered
 
-The :guilabel:`Add Article` dialog has three tabs.
+The :guilabel:`Add Article` dialog has three tabs at the top and one button at the bottom. Clicking the :guilabel:`Save Changes` button will immediately save the KB article.
 
-.. ::
-    Editor
-    """"""
+Editor
+""""""
 
-    Properties
-    """"""""""
+The :guilabel:`Editor` tab is displayed by default when you click the :guilabel:`Add Article` button.  The :guilabel:`Editor` tab is where you'll add the content for the KB article.  You can set the **title** of the KB article, the **content**, and the **format** of the content.
 
-    Attachments
-    """""""""""
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/editor.png
+    :alt: The properties tab in the add article dialog.
+    :figclass: bordered
+
+The :guilabel:`Title` will be  will be used as the title of the page and as part of the URL.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/editor/title.png
+    :alt: The title field on the editor tab of the add article dialog.
+    :figclass: bordered
+
+The :guilabel:`toolbar` below the :guilabel:`Title` field allows you to format the selected text in the content area below it.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/editor/toolbar.png
+    :alt: The toolbar on the editor tab of the add article dialog.
+    :figclass: bordered
+
+The :guilabel:`Content` of the article can be formatted with *Markdown* or *HTML*. Markdown is easier to use and gives you less control of the final article, while HTML is more difficult to use and gives you full control.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/editor/content.png
+    :alt: The content area on the editor tab of the add article dialog.
+    :figclass: bordered
+
+The :guilabel:`Snippets` button opens the :doc:`snippets </concepts/snippets/index>` :doc:`chooser </concepts/ui/choosers>`.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/editor/snippets_button.png
+    :alt: The snippets button on the editor tab of the add article dialog.
+    :figclass: bordered
+
+The snippets chooser allows you to insert snippets into the comment box.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/editor/snippets_chooser.png
+    :alt: The snippets chooser.
+    :figclass: bordered
+
+The **format** can be changed by selecting :guilabel:`Markdown` or :guilabel:`HTML`.  The selected **format** will determine the buttons that appear in the :guilabel:`Toolbar` and the code that will be inserted into the content area when those buttons are clicked.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/editor/format.png
+    :alt: The format setting on the editor tab of the add article dialog.
+    :figclass: bordered
+
+Properties
+""""""""""
+
+The :guilabel:`Properties` tab allows you to assign the KB article to categories. You can select as many categories as you wish, and selecting none will cause the KB article to appear in the "root" category.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/properties.png
+    :alt: The properties tab in the add article dialog.
+    :figclass: bordered
+
+Attachments
+"""""""""""
+
+The :guilabel:`Attachments` tab allows you to upload and manage the attachments on a KB article.
+
+.. figure:: /images/worker_guide/knowledgebase/tabs/browse/actions/add_article/attachments.png
+    :alt: The attachments tab in the add article dialog.
+    :figclass: bordered
 
 Quick Search
 ~~~~~~~~~~~~
