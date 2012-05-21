@@ -3,38 +3,60 @@ Privacy Statement and Disclosure
 
 **WebGroup Media LLC** ("WGM") is a commercial open source company that has been leading and supporting the community development of Cerb6 (formerly Cerberus Helpdesk) since January 2002. In connection with this business, we operate the `cerberusweb.com <http://cerberusweb.com>`_ project website, as well as an On-Demand ("software as a service") network of applications hosted by subscription as subdomains of cerb4.com, cerb5.com, and cerb6.com.
 
-It is WGM's policy to respect your privacy regarding any information we may collect while operating our websites and services. We do not sell any personally-identifiable information or data stored by On-Demand services to third-parties. We do not directly share your information with third-parties without explicit permission except to comply with the law or to provide necessary infrastructure in connection with the services you request; however, there is some passive risk of exposure to third-party access inherent in web-based services that is outlined in detail below. We do our best to mitigate and minimize these risks on your behalf.
+It is WGM's policy to respect your privacy regarding any information we may collect while operating our websites and services. We do not sell any personally identifiable information or data stored by On-Demand services to third-parties. We do not directly share your information with third-parties without explicit permission except to comply with the law or to provide necessary infrastructure in connection with the services you request; however, there is some passive risk of exposure to third-party access inherent in web-based services that is outlined in detail below. We do our best to mitigate and minimize these risks on your behalf.
 
 Website Visitors
 ----------------
 
-Like most website operators, WGM collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. WGM's purpose in collecting non-personally identifying information is to better understand how WGM's visitors use its website. From time to time, WGM may release non-personally-identifying information in the aggregate; e.g., by publishing a report on trends in the usage of its website.
+Like most website operators, WGM collects non-personally identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. WGM's purpose in collecting non-personally identifying information is to better understand how WGM's visitors use its website. From time to time, WGM may release non-personally identifying information in the aggregate; e.g., by publishing a report on trends in the usage of its website.
 
-WGM also collects potentially personally-identifying information like Internet Protocol (IP) addresses for visitors and logged in workers. WGM only discloses IP addresses under the same circumstances that it uses and discloses personally-identifying information as described below.
+WGM also collects potentially personally identifying information like Internet Protocol (IP) addresses for website visitors and workers. WGM only discloses IP addresses under the same circumstances that it uses and discloses personally identifying information as described below.
 
-Gathering of Personally-Identifying Information
+Gathering of Personally Identifying Information
 -----------------------------------------------
 
-Certain visitors to WGM's websites choose to interact with WGM in ways that require us to gather personally-identifying information. The amount and type of information that WGM gathers depends on the nature of the interaction. For example, we ask workers who sign up for On-Demand services to provide an email address. Those who engage in transactions with WGM -- by purchasing products and services for Cerb, for example -- are asked to provide additional information, including as necessary the personal and financial information required to process those transactions. In each case, WGM collects such information only insofar as is necessary or appropriate to fulfill the purpose of the visitor's interaction with WGM. WGM does not disclose personally-identifying information other than as described below. And visitors can always refuse to supply personally-identifying information, with the caveat that it may prevent them from purchasing or engaging in certain services.
+Certain visitors to WGM's websites choose to interact in ways that require us to gather personally identifying information. The amount and type of information that WGM gathers depends on the nature of the interaction. For example, we ask workers who sign up for On-Demand services to provide an email address. Those who engage in financial transactions with WGM (e.g. by purchasing products and services) are asked to provide additional information, including as necessary the personal and financial information required to process those transactions. In each case, WGM collects such information only insofar as is necessary or appropriate to fulfill the purpose of the visitor's interaction with WGM. WGM does not disclose personally identifying information other than as described below. Visitors can always refuse to supply personally identifying information, with the caveat that it may prevent them from purchasing or engaging in certain services.
 
 Aggregated Statistics
 ---------------------
 
 WGM may collect statistics about the behavior of visitors to its websites or workers of its On-Demand software. For instance, WGM may gather metrics about individual Cerb instances like the number of workers, addresses, conversations, messages, and attachments; the composition of file attachments such as distributions of sizes or file types; or the amount of activity over a given time period. This information is used to improve the usability and performance of products and services provided by WGM.
 
-WGM may display this aggregate, anonymous information publicly or provide it to others. However, WGM does not disclose personally-identifying information other than as described below.
+WGM may display this aggregate, anonymous information publicly or provide it to others. However, WGM does not disclose personally identifying information other than as described below.
 
-Protection of Certain Personally-Identifying Information
+Protection of Certain Personally Identifying Information
 --------------------------------------------------------
 
-WGM discloses potentially personally-identifying and personally-identifying information only to those of its employees, contractors and affiliated organizations that (i) need to know that information in order to process it on WGM's behalf or to provide products and services available at WGM's websites, and (ii) that have agreed not to disclose it to others. Some of those employees, contractors and affiliated organizations may be located outside of your home country; by using WGM's websites, you consent to the transfer of such information to them. WGM will not rent or sell potentially personally-identifying and personally-identifying information to anyone. Other than to its employees, contractors and affiliated organizations, as described above, WGM discloses potentially personally-identifying and personally-identifying information only in response to a subpoena, court order or other governmental request, or when WGM believes in good faith that disclosure is reasonably necessary to protect the property or rights of WGM, third parties, or the public at large.
+WGM discloses personally identifying information only to those of its employees, contractors and affiliated organizations that (i) need to know that information in order to process it on WGM's behalf or to provide products and services available at WGM's websites, and (ii) that have agreed not to disclose it to others. Some of those employees, contractors, and affiliated organizations may be located outside of your home country; and by using WGM's websites, you consent to the transfer of such information to them. WGM will not rent or sell potentially personally identifying and personally identifying information to anyone. Other than to its employees, contractors and affiliated organizations, as described above, WGM discloses personally identifying information only in response to a subpoena, court order, or other governmental request, or when WGM believes in good faith that disclosure is reasonably necessary to protect the property or rights of WGM, third parties, or the public at large.
 
-If you are a registered user of a WGM product or service like Cerb and have supplied your email address, WGM may occasionally send you an email to tell you about new features, solicit your feedback, or just keep you up to date with what's going on with WGM and our products. We primarily use our social network profiles to communicate this type of information, so we expect to keep this type of email to a minimum. If you send us a request (for example via a support email or via one of our feedback mechanisms), we reserve the right to publish it in order to help us clarify or respond to your request or to help us support other users. WGM takes all measures reasonably necessary to protect against the unauthorized access, use, alteration or destruction of potentially personally-identifying and personally-identifying information.
+If you are a registered user of a WGM product or service like Cerb and have supplied your email address, WGM may occasionally send you an email to tell you about new features or to solicit your feedback. We primarily use our social network profiles to communicate this type of information, and we expect to keep email broadcasts to a minimum. If you send us a request (e.g. via a support email or one of our feedback mechanisms), we reserve the right to anonymously republish it in order to help us clarify or respond to your request, or to help us support other users. WGM takes all measures reasonably necessary to protect against the unauthorized access, use, alteration or destruction of potentially personally identifying information.
+
+Security and Safeguards
+-----------------------
+
+WGM takes reasonable precautions to protect your data and personally identifying information.
+
+We do not have physical access to any of our servers or online storage mediums.  See the section about "Third-Party Data Centers" for the upstream security policies of SoftLayer, Amazon Web Services, and Linode.  These servers are protected within state-of-the-art data centers.
+
+WGM performs 24/7/365 monitoring of our network and service infrastructure.  This includes metrics like server load, process information, account access, service utilization, and network activity.
+
+Web-based communication with our servers is protected through 256-bit encryption via Secure Socket Layer (SSL) technology. This feature is included with all On-Demand applications when URLs are prefixed with "https://".  It is the responsibility of clients and their representatives to ensure the use of SSL; and upon request we can configure your application to require the use of SSL.
+
+We do not store credit card information on our servers.  For one-time transactions we do not save credit card or bank account numbers anywhere, although we do store email-based receipts that include contact information, payment type, transaction IDs, and authorization codes.  For recurring transactions, payment information is stored with vendors who adhere to the Payment Card Industry Data Security Standards (PCI DSS).  We use `FreshBooks <http://www.freshbooks.com>`_ for sending invoices and collecting payments, and they protect financial information with AES encryption.  We process credit card transactions through our merchant account at Authorize.net.  Depending on a client's preferred payment method, these transactions may alternatively take place through other vendors like PayPal, or through wire transfers to Wells Fargo Bank.  We do not have access to client credit card numbers or bank account information through any of these vendors.
+
+WGM technicians securely access our servers using Secure Shell (SSH) encryption.  Logins are authenticated with `RSA keys <http://en.wikipedia.org/wiki/RSA_(algorithm)>`_ rather than simple passwords.  We do not provide general purpose client access (e.g. SSH, Telnet, FTP) to machines housing multi-tenant On-Demand data.
+
+We have disabled insecure features in our PHP environment (e.g. process control, shell command execution, remote file includes) to protect against arbitrary code execution.  To protect against cross-site scripting (XSS), we "`escape <http://en.wikipedia.org/wiki/HTML#Character_and_entity_references>`_" all user-provided data that is displayed in a web browser.
+
+Disclosure of Security Breaches
+-------------------------------
+
+WGM will notify you as soon as possible if a security breach results in the potential disclosure of any personally identifiable information or data related to your account. At the conclusion of a security investigation, WGM will provide you with a report about the nature of any compromised data (e.g. email addresses, worker account passwords) and the actions taken to prevent future intrusions.
 
 Third-Party Data Centers, Cloud Computing, and Virtualization
 -------------------------------------------------------------
 
-WGM provisions, administers, and maintains servers remotely in various data centers throughout the world and WGM does not maintain a physical presence in any of them. Most On-Demand services are currently provided from machines exclusively leased and operated by WGM from SoftLayer in their Seattle and Dallas facilities. However, other services, like our project portal, are provided from virtual servers in cloud computing and storage environments at Amazon Web Services, Linode, and Slicehost (Rackspace Cloud). In virtual environments, many users from various organizations share a pool of resources like computational power and storage capacity, although provisioned resources are isolated from one another to a similar degree as leased machines in a datacenter.
+WGM remotely provisions, administers, and maintains servers in various data centers throughout the world and WGM does not maintain a physical presence in any of them. Most On-Demand services are currently provided from machines exclusively leased and operated by WGM from SoftLayer in their Seattle and Dallas facilities. However, other services, like our project portal, are provided from virtual servers in cloud computing and storage environments at Amazon Web Services, Linode, and Slicehost (Rackspace Cloud). In virtual environments, many users from various organizations share a pool of resources like computational power and storage capacity, although provisioned resources are isolated from one another to a similar degree as leased machines in a datacenter.
 
 Due to the remote nature of leased servers, colocation, cloud computing, and virtualization, authorized technicians from our vendors and service providers may have temporary access to our servers in order to perform physical maintenance and upgrades, or to provide hands-on assistance with troubleshooting issues like RAID degradation and hardware failures.
 
@@ -49,7 +71,20 @@ In such events we defer to upstream privacy policies:
 Backups
 -------
 
-If you communicate with WGM, or use On-Demand services provided by WGM, your information will be copied regularly for the express purpose of maintaining backups for continuity and disaster recovery. Nightly backups and redundant storage are kept on machines controlled remotely by WGM. Backups may be transferred to Amazon's Simple Storage Service (S3) for long-term, off-site archival. Upon cancellation, we will comply with authorized client requests for all backups to be immediately destroyed. Otherwise, these backups may be retained for a period of months or years to provide the capability for a customer to resume service at a future date.
+Cerb has two main components for storing customer data: (1) the database, and (2) the /storage/ filesystem which contains large, immutable content like email attachments. Data may be stored on a single machine, or distributed among several machines, on our On-Demand network. Generally, that data will be housed on WGM's dedicated servers in SoftLayer's datacenters.
+
+If you communicate with WGM, or use On-Demand services provided by WGM, your information will be regularly copied for the express purpose of maintaining backups for continuity and disaster recovery. Nightly backups and redundant storage are kept on machines controlled remotely by WGM. Backups may be transferred to Amazon's Simple Storage Service (S3) for long-term, off-site archival.
+
+When WGM runs nightly backups, we make full backups of the database, and incremental backups of the /storage/ filesystem.  These are stored in the same datacenter, and are often attached to the same server, but on an alternate, redundant storage medium.
+
+Twice per week (usually Wednesday and Sunday) we off-site the latest backups to our private buckets on Amazon's S3 service.  We also rotate these to keep a weekly backup for a few months of history, and at least the most recent three backups.
+
+Disposal of Data and Backups
+----------------------------
+
+Upon cancellation, we remove all client data from the On-Demand network and send a final backup to Amazon S3.  We will attempt to make arrangements for this backup to be transferred to the client before permanently destroying our copies of the data.  Without an explicit request for their immediate removal, backups may be persisted for several months.
+
+We will comply with any written, and duly authenticated, client requests for the immediate destruction of all account data and backups.
 
 Testimonials
 ------------
