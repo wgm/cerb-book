@@ -11,7 +11,7 @@ Like many parts of Cerb5, the RestAPI functionality is provided through a plugin
 Library
 =======
 
-We've written a PHP (5.2+) library that makes it easier to interact with the Rest API. You can download the library :download:`here <Cerb5Api.php.txt>`. Make sure you rename it from ``Cerb5Api.php.txt`` to ``Cerb5Api.php`` before trying to use the below example code.
+We've written a PHP (5.2+) library that makes it easier to interact with the Rest API. You can download the library :download:`here <Cerb6Api.php.txt>`. Make sure you rename it from ``Cerb6Api.php.txt`` to ``Cerb6Api.php`` before trying to use the below example code.
 
 Example
 =======

@@ -4,7 +4,7 @@ Backups
 Introduction
 ~~~~~~~~~~~~
 
-To fully protect your Cerb5 helpdesk data you need to backup both the
+To fully protect your Cerb6 helpdesk data you need to backup both the
 MySQL database and the ``/cerb5/storage/`` filesystem. While there are
 countless good approaches for performing backups, this document will
 focus on the best practices we've discovered over the past several years
@@ -16,7 +16,7 @@ Requirements
 ~~~~~~~~~~~~
 
 -  A Unix-based server with shell access
--  A Cerb5 installation
+-  A Cerb6 installation
 
 Setting up the environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -254,7 +254,7 @@ country to hand deliver the backups faster than you could upload them
 then you'll want to place your backups somewhere where you can retrieve
 them quickly. However, there's something to be said for the secure
 feeling of having tangible, offline copy of your critical data; and even
-WebGroup Media's 9 years old Cerb5 database could fit on a DVD and be
+WebGroup Media's 10 year old Cerb6 database could fit on a DVD and be
 re-uploaded from a residential Internet connection.
 
 If you have the resources, you may also choose to have a standby server
