@@ -20,8 +20,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         </class>
         <params>
             <param key="view_class" value="View_ExampleObject" />
+            <param key="alias" value="example_object" />
             <param key="options">
                 <value>
+                    <data key="create" />
+                    <data key="find" />
+                    <data key="snippets" />
+                    <data key="va_variable" />
                     <data key="workspace" />
                 </value>
             </param>
@@ -31,13 +36,26 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 **<param key="view_class" value="View_ExampleObject" />**
     Sets the View class for this context.
 
+**<param key="alias" value="example_object" />**
+    A human-readable alias for the full context extension ``<id>``.  For example, ``ticket`` is the alias for ``cerberusweb.contexts.ticket``.
+
 **<param key="options">**
+    The options that this context supports.
     
     **<value>**
+        The following options are available:
         
-        **<data key="workspace" />**
-            
-            
+        - **<data key="create" />**
+            This context allows new objects to be created from a popup.
+        - **<data key="find" />**
+            This context can be searched from :doc:`choosers </concepts/ui/choosers>`.
+        - **<data key="snippets" />**
+            This context provides snippet placeholders.
+        - **<data key="va_variable" />**
+            This context can be used in Virtual Attendant behavior variables.
+        - **<data key="workspace" />**
+            This context has worklists.
+
 Implementation
 ==============
 .. php:class:: ExampleObjectContext extends Extension_DevblocksContext

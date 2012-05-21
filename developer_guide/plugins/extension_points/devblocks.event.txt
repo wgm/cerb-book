@@ -19,21 +19,30 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 			<name>ExampleEvent</name>
 		</class>
 		<params>
+		    <param key="macro_context" value="example.contexts.object">
 			<param key="contexts">
 				<value>
 					<data key="cerberusweb.contexts.app" />
+					<data key="cerberusweb.contexts.group" />
+					<data key="cerberusweb.contexts.worker" />
 				</value>
 			</param>
 		</params>
 	</extension>
 
 **<param key="contexts">**
-    Registers the event contexts your event can be triggered by.
+    The contexts that can create custom behavior for this event.
     
     **<value>**
-        
+
         **<data key="cerberusweb.contexts.app">**
-            Sets this event to be triggered by app-level events.
+            Admins can configure custom behavior for this event at the application level (i.e. globally).
+
+        **<data key="cerberusweb.contexts.group">**
+            Groups can configure custom behavior for this event.
+    
+        **<data key="cerberusweb.contexts.worker">**
+            Workers can configure custom behavior for this event.
             
 Implementation
 ==============
