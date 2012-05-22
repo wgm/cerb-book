@@ -14,7 +14,7 @@ Ticket statuses
 -  Closed
 -  Deleted
 
-Cerb5 Software License
+Cerb6 Software License
 ----------------------
 
 Dual license?
@@ -22,7 +22,7 @@ Dual license?
 Version numbers
 ---------------
 
-Cerb5's version numbers are in the format:
+Cerb6's version numbers are in the format:
 ``<generation>.<release>.<update>``
 
 -  **Application generations** represent software evolution and
@@ -55,7 +55,7 @@ Clustering
 
 Two web server nodes; one database node
 
--  Install Cerb5 completely on one web node first (or outside of the
+-  Install Cerb completely on one web node first (or outside of the
    cluster and move the database in)
 
 -  Grant DB access to the other nodes

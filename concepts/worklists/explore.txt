@@ -7,7 +7,7 @@ Explore Mode
     :alt: Explore mode.
     :figclass: bordered
 
-Navigation controls for explore mode are provided in the top frame.  Clicking the :guilabel:`powered by Cerb5` image allows you to navigate back to the worklist that the explore originated from.  The source worklist is displayed to the right of the :guilabel:`powered by Cerb5` image, in green text. The URL to the currently displayed record is displayed just under the source worklist.   Clicking the :guilabel:`»` or :guilabel:`«` buttons allow you to page forwards or backwards between results in the worklist.  Clicking the :guilabel:`x` button removes the explore mode frame and sends you to the URL displayed under the source worklist.
+Navigation controls for explore mode are provided in the top frame.  Clicking the :guilabel:`powered by Cerb6` image allows you to navigate back to the worklist that the explore originated from.  The source worklist is displayed to the right of the :guilabel:`powered by Cerb6` image, in green text. The URL to the currently displayed record is displayed just under the source worklist.   Clicking the :guilabel:`»` or :guilabel:`«` buttons allow you to page forwards or backwards between results in the worklist.  Clicking the :guilabel:`x` button removes the explore mode frame and sends you to the URL displayed under the source worklist.
 
 .. figure:: /images/concepts/worklists/explore_nav.png
     :alt: Explore mode.

@@ -21,8 +21,8 @@ phone call, it's probably easier to just ask a customer for their email
 address when retrieving their conversation history.
 
 From a technical standpoint, the reference number was used in earlier
-versions of Cerb5 to associate a reply with the message it was replying
-to. When someone replies to a message sent from Cerb5, the headers are
+versions of Cerb to associate a reply with the message it was replying
+to. When someone replies to a message sent from Cerb, the headers are
 checked first, and then the subject line is scanned for a reference
 number as a last resort. This is not necessary with most modern email
 applications. Incoming messages can be associated with the message they

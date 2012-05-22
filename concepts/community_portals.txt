@@ -7,4 +7,4 @@ A **community portal**...
 
 ((one implementation: Support Center))
 
-((new portals can be created as plugins, with access to all Cerb5 data))
+((new portals can be created as plugins, with access to all Cerb data))

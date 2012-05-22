@@ -1,9 +1,9 @@
 Introduction
 ============
 
-**Cerb5** is a fast and flexible toolkit for web-based collaboration and workflow automation.  In addition to equipping small teams with an arsenal of productivity-enhancing tools, the project also serves as an extensible web development platform.
+**Cerb** is a fast and flexible toolkit for web-based collaboration and workflow automation.  In addition to equipping small teams with an arsenal of productivity-enhancing tools, the project also serves as an extensible web development platform.
 
-Cerb5 provides:
+Cerb provides:
 
 * Distributed email management that can scale to millions of conversations per year
 * Virtual Attendants for the intelligent automation of repetitive behavior
@@ -16,11 +16,11 @@ Cerb5 provides:
 * A library of third-party plugins for integrating with other applications and services (e.g. Facebook, Twitter, Twilio, Freshbooks, Amazon S3, Campfire, etc)
 * ... Time tracking, call logging, opportunity management, and much more
 
-Cerb5 is the result of over 10 years of continuous research and development by :term:`WebGroup Media <WebGroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on feedback from a community that has included more than 18,979 organizations.
+Cerb is the result of over 10 years of continuous research and development by :term:`WebGroup Media <WebGroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on feedback from a community that has included more than 18,979 organizations.
 
 Licenses are sold based on the number of simultaneous workers (i.e. :term:`seats <seat>`).  Community licenses provide up to three seats at no cost.  The software can be deployed on your own servers, or it can be subscribed to as an "on-demand" service that requires only a web browser.
 
-Cerb5 is written in the :term:`PHP5 <PHP>` programming language.  Data is stored in a :term:`MySQL` database.  The source code is publicly available on `GitHub <https://github.com/wgm/cerb5>`_.
+Cerb is written in the :term:`PHP5 <PHP>` programming language.  Data is stored in a :term:`MySQL` database.  The source code is publicly available on `GitHub <https://github.com/wgm/cerb5>`_.
 
 .. ::
 
@@ -64,15 +64,15 @@ Cerb5 is written in the :term:`PHP5 <PHP>` programming language.  Data is stored
 
     It amplifies teams in their quest to communicate with a much larger audience.
 
-    Cerb5 helps online teams efficiently distribute and handle a large volume of work: customer support, technical troubleshooting, tasks, marketing, sales opportunities, business partnerships, and more.
+    Cerb helps online teams efficiently distribute and handle a large volume of work: customer support, technical troubleshooting, tasks, marketing, sales opportunities, business partnerships, and more.
 
-    **Cerb5** is a web-based collaboration platform that amplifies small teams on their quest to communicate efficiently with a much larger audience.
+    **Cerb** is a web-based collaboration platform that amplifies small teams on their quest to communicate efficiently with a much larger audience.
 
-    Cerb5 is a web-based platform for enterprise collaboration
+    Cerb is a web-based platform for enterprise collaboration
 
     It amplifies teams in their quest to communicate efficiently with a much larger online audience.
 
-    Cerb5 is a web-based platform for enterprise collaboration.  It helps online teams efficiently distribute and 
+    Cerb is a web-based platform for enterprise collaboration.  It helps online teams efficiently distribute and 
 
     economy of motion
     community-driven
@@ -94,13 +94,13 @@ Cerb5 is written in the :term:`PHP5 <PHP>` programming language.  Data is stored
 
     VAs
 
-    **Cerb5** is a web-based communications platform built for efficient collaboration with a large, audience.
+    **Cerb** is a web-based communications platform built for efficient collaboration with a large, audience.
 
-    **Cerb5** is a web-based communications platform that equips small teams with powerful tools to efficiently collaborate with a much larger audience.
+    **Cerb** is a web-based communications platform that equips small teams with powerful tools to efficiently collaborate with a much larger audience.
 
-    **Cerb5** is a group-based communications platform
+    **Cerb** is a group-based communications platform
 
-    Cerb5 is a web-based communications platform that 
+    Cerb is a web-based communications platform that 
 
     augments small teams with a toolkit
 
@@ -114,7 +114,7 @@ Cerb5 is written in the :term:`PHP5 <PHP>` programming language.  Data is stored
 
     evolving based on feedback from a community that has included more than 18,979 organizations.
 
-    Originally known as Cerberus Helpdesk, work on Cerb5 started in January 2002 with the goal of helping online teams efficiently distribute and handle large volumes of work: customer support questions, technical problems, tasks, sales opportunities, business partnerships, and more.
+    Originally known as Cerberus Helpdesk, work on Cerb started in January 2002 with the goal of helping online teams efficiently distribute and handle large volumes of work: customer support questions, technical problems, tasks, sales opportunities, business partnerships, and more.
 
 
 .. ::

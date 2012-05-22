@@ -28,7 +28,7 @@ Code block::
 
     A feature is limited by the foresight of its creators. A tool is limited only by the creativity of its users.  Tools allow users to build their own features.
 
-    -- Cerb5 mantra
+    -- Cerb mantra
 
 :abbr:`GTD (Getting Things Done)`
 

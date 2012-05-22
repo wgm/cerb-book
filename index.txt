@@ -1,4 +1,4 @@
-Cerb5 Manual
+Cerb6 Manual
 ============
 
 :Release: |version|

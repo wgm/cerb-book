@@ -13,7 +13,7 @@ Configuration
 **Authenticate logins using these methods**
     The method that this Support Center will use to authenticate visitors.  There are two built-in authentication methods:
 
-    - **Cerb5**
+    - **Cerb6**
         Visitors log in with their email, and authenticate using a password that is stored in the local database.  New visitors can register an account.
     - **OpenID**
         Visitors log in and authenticate with an existing OpenID. For example, a Google or Yahoo account.
@@ -21,7 +21,7 @@ Configuration
 What visitors see
 =================
 
-Using Cerb5 authentication:
+Using Cerb6 authentication:
 
 .. figure:: /images/admin_guide/setup/support_center/sc_login_public.png
     :alt: The Support Center login module.

@@ -148,7 +148,7 @@ You'll use PECL to install **PHP's Memcached extension**
 extension** (http://us3.php.net/memcache) will also work, although it is
 an older library with fewer features.
 
-Once Memcached is installed you need to edit your Cerb5
+Once Memcached is installed you need to edit your Cerb6
 ``framework.config.php`` file and change the following lines:
 
 ::
@@ -202,7 +202,7 @@ In summary:
 
 -  If you don't set a prefix for Memcached keys then anyone connecting
    to the port can read your cached information if they're familiar with
-   an application's source code (and Cerb5's source code is
+   an application's source code (and Cerb's source code is
    world-readable).
    
 .. [1]

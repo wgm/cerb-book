@@ -5,7 +5,7 @@ Setup
    :alt: The setup page.
    :figclass: bordered
 
-The **setup** page provides a central location for :term:`administrators <administrator>` to configure Cerb5 and any :doc:`plugins </concepts/plugins>` that have been installed.  The page is divided into sections, each with a blue menu  designated by a downward pointing arrow.  You can :abbr:`hover (leave the mouse cursor over a specific screen location without clicking)` over a menu with your mouse to display the configuration options for that section.
+The **setup** page provides a central location for :term:`administrators <administrator>` to configure Cerb6 and any :doc:`plugins </concepts/plugins>` that have been installed.  The page is divided into sections, each with a blue menu  designated by a downward pointing arrow.  You can :abbr:`hover (leave the mouse cursor over a specific screen location without clicking)` over a menu with your mouse to display the configuration options for that section.
 
 Settings
 ========

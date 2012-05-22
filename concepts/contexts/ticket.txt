@@ -6,7 +6,7 @@ A **ticket** is a specific email conversation, including all of its messages, co
 Recipients
 ==========
 
-:doc:`Contacts </concepts/contexts/address>` that are associated with a particular ticket are called **recipients**. Recipients receive a copy of every new message on a ticket.  Cerb5 routes messages between :doc:`workers </concepts/contexts/worker>` and recipients, allowing several workers to share a mailbox without disclosing their personal contact information.
+:doc:`Contacts </concepts/contexts/address>` that are associated with a particular ticket are called **recipients**. Recipients receive a copy of every new message on a ticket.  Cerb routes messages between :doc:`workers </concepts/contexts/worker>` and recipients, allowing several workers to share a mailbox without disclosing their personal contact information.
 
 IDs vs. Masks
 =============

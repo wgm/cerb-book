@@ -4,7 +4,7 @@ Toolkit
 The "Toolkit" mentality
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The Cerb5 development team has been ironically fortunate in choosing our
+The Cerb development team has been ironically fortunate in choosing our
 area of expertise. When we started the project in 2002, we possessed the
 naive belief that a web-based shared inbox *"couldn't take more than a
 couple of weeks to build"*. We also couldn't have imagined where that
@@ -23,7 +23,7 @@ library of reusable web-based tools that can be applied to an
 increasingly wide variety of business requirements. When you hear us
 talk about **Devblocks**, we're talking about these tools and the
 philosophy that guided their development. As we're designing
-improvements to Cerb5 from interesting feedback, we assemble these tools
+improvements to Cerb from interesting feedback, we assemble these tools
 like well-crafted *blocks* that can be combined in new and interesting
 ways. Every compelling idea that has come up so far can be reduced to a
 particular set of these blocks. Any time we sense there's a missing
@@ -52,7 +52,7 @@ application. This ties the hands of plugin developers and requires them
 to recreate solutions for problems that have already been solved in
 other places throughout the project.
 
-When architecting Devblocks as the web development platform for Cerb5
+When architecting Devblocks as the web development platform for Cerb
 (and all our future web projects), we made **plugins** the primary
 building block for the entire application. This means that every time we
 add new functionality and capabilities, we're creating new **extension
@@ -75,7 +75,7 @@ fast and efficient even with a large number of plugins installed.
 Plugins that are disabled become invisible to the application and have
 absolutely no impact on performance.
 
-Devblocks itself is a plugin, and the essence of Cerb5 is a *"core"*
+Devblocks itself is a plugin, and the essence of Cerb is a *"core"*
 plugin that provides all the common functionality for other plugins to
 share and build with. These are the only two plugins that are required
 and cannot be disabled.
@@ -182,7 +182,7 @@ Templates
 
 A plugin can provide all of its own templates for rendering interface
 elements. It can also utilize common templates (known as *"internal"*)
-provided by Cerb5's *core* plugin. For example, if a plugin needs to
+provided by Cerb's *core* plugin. For example, if a plugin needs to
 display a search filter for a text field or a date, it can simply use
 the existing template. There are many *internal* templates: search
 filters, comments, displaying relationships between objects, etc.

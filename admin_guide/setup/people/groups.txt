@@ -12,7 +12,7 @@ Groups
 If you stick with the defaults, this is the proposed workflow:
 
 **Dispatch**
-    Catches all mail that isn't explicitly routed somewhere else. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on worker skills -- and this group is an easy way to achieve that. Because Cerb5 doesn't require incoming mail to always match a specific group, the Dispatch group is also the best way to spot incoming email addresses (like ``billing@example.com``) that you may want to route directly to a particular group.
+    Catches all mail that isn't explicitly routed somewhere else. Some companies prefer to have a human dispatcher assign work -- to verify support eligibility and route issues based on worker skills -- and this group is an easy way to achieve that. Because Cerb doesn't require incoming mail to always match a specific group, the Dispatch group is also the best way to spot incoming email addresses (like ``billing@example.com``) that you may want to route directly to a particular group.
 
 **Support**
     Collects issues related to support: product support, customer service, FAQs, billing, etc.

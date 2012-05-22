@@ -3,7 +3,7 @@
 Concepts
 ========
 
-This section is an introduction to the main concepts found throughout Cerb5.
+This section is an introduction to the main concepts found throughout Cerb.
 
 .. toctree::
     :maxdepth: 3

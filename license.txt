@@ -1,4 +1,4 @@
-Cerb5™, Cerberus Helpdesk™, Devblocks™, Apptendant™ © 2002-2012, WebGroup Media LLC.
+Cerb6™, Cerberus Helpdesk™, Devblocks™, Apptendant™ © 2002-2012, WebGroup Media LLC.
 
 Devblocks Public License 1.0 (DPL)
 ==================================

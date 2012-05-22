@@ -33,12 +33,12 @@ A mailbox has the following fields:
     - **POP3-SSL**
         This is the same as POP3, except the connection will be encrypted with SSL.
     - **IMAP**
-        `Internet Message Access Protocol <http://en.wikipedia.org/wiki/Internet_Message_Access_Protocol>`_.  The IMAP protocol supports advanced features like server-side folders; however, this functionality overlaps with Cerb5 and is not used.
+        `Internet Message Access Protocol <http://en.wikipedia.org/wiki/Internet_Message_Access_Protocol>`_.  The IMAP protocol supports advanced features like server-side folders; however, this functionality overlaps with Cerb and is not used.
     - **IMAP-SSL**
         This is the same as IMAP, except the connection will be encrypted with SSL.
         
     .. note::
-        Most mail servers support any of these protocols.  As far as Cerb5 is concerned, there is no functional difference between POP3 or IMAP. 
+        Most mail servers support any of these protocols.  As far as Cerb is concerned, there is no functional difference between POP3 or IMAP. 
     
 **Username**
     The username used to authenticate access to this mailbox.  Depending on your mail server, this may be a simple username (e.g. `support`) or an email address (e.g. `support@example.com`).  If you aren't sure, ask your system administrator.
@@ -56,7 +56,7 @@ A mailbox has the following fields:
         Deleting a mailbox will **not** affect any previously downloaded mail.
 
 .. warning::
-    Cerb5 will delete messages from your mailbox after downloading them.  If this is not desirable, create a new mailbox and have copies of your mail redirected there.  This process is not necessary when using a Gmail mailbox, because Google ignores delete requests by default and refers instead to a configurable option.
+    Cerb will delete messages from your mailbox after downloading them.  If this is not desirable, create a new mailbox and have copies of your mail redirected there.  This process is not necessary when using a Gmail mailbox, because Google ignores delete requests by default and refers instead to a configurable option.
     
 .. warning::
     If you aren't using SSL then your password will be sent in cleartext.  This might be a security issue depending on the network between your web server and mail server.  Use SSL whenever possible.

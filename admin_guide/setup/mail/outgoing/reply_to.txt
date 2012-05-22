@@ -21,7 +21,7 @@ For example:
 - Replies from Sales are sent from: ``"Sales" <sales@example.com>``
 
 .. note::
-    To ensure that you receive replies from your audience, it is crucial that your mail server routes these reply-to addresses to a :doc:`mailbox </admin_guide/setup/mail/incoming/pop3>` that is checked by Cerb5.
+    To ensure that you receive replies from your audience, it is crucial that your mail server routes these reply-to addresses to a :doc:`mailbox </admin_guide/setup/mail/incoming/pop3>` that is checked by Cerb.
 
 Adding a new reply-to address
 =============================

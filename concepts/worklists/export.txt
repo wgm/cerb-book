@@ -1,11 +1,11 @@
 Export
 ------
 
-:doc:`Worklists </concepts/worklists/index>` can **export** data about their :doc:`objects </concepts/objects/index>` in multiple formats.  This is used to synchronize data from Cerb5 to other applications and services.
+:doc:`Worklists </concepts/worklists/index>` can **export** data about their :doc:`objects </concepts/objects/index>` in multiple formats.  This is used to synchronize data from Cerb to other applications and services.
 
 For example, you can create targeted mailing lists from :doc:`filtered </concepts/worklists/filters>` address worklists.  These mailing lists could then be imported into almost any email marketing program.
 
-You can also use export functionality to copy contacts and organizations between two copies of Cerb5, or to quickly create many :doc:`opportunities </concepts/contexts/opportunity>` for a new sales campaign.
+You can also use export functionality to copy contacts and organizations between two copies of Cerb6, or to quickly create many :doc:`opportunities </concepts/contexts/opportunity>` for a new sales campaign.
 
 .. figure:: /images/concepts/worklists/export.png
     :alt: The export area.

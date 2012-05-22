@@ -1,10 +1,10 @@
 Guide for Developers
 ====================
 
-In this guide we will walk you through a technical analysis of Cerb5 with the goal of making you proficient in developing plugins and integration.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
+In this guide we will walk you through a technical analysis of Cerb with the goal of making you proficient in developing plugins and integration.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     toolkit
     devblocks/index
@@ -14,10 +14,10 @@ In this guide we will walk you through a technical analysis of Cerb5 with the go
 The toolchain used by the official development team
 ---------------------------------------------------
 
-Cerb5 is written in `PHP <http://www.php.net/>`_ and stores data in a
+Cerb is written in `PHP <http://www.php.net/>`_ and stores data in a
 `MySQL <http://www.mysql.com/>`_ database.
 
-We use the following tools at WebGroup Media when developing Cerb5:
+We use the following tools at WebGroup Media when developing Cerb:
 
 -  `XAMPP <http://www.apachefriends.org/en/xampp.html>`_ is an easy to
    install Apache distribution containing the latest versions of MySQL,
@@ -80,10 +80,10 @@ There are several important reasons for this:
    ``features/`` (and the rest of the application) can be considered
    static and loosely replicated across webserver nodes.
 
--  In On-Demand environments, a single copy of the core Cerb5 files
+-  In On-Demand environments, a single copy of the core Cerb6 files
    should be *symlinked* between multiple instances. This allows opcode
    caching (e.g. XCache) to operate far more efficiently. Hundreds of
-   Cerb5 instances can be served from a single XCache of around 32MB.
+   Cerb6 instances can be served from a single XCache of around 32MB.
    Each of these sites only has a unique ``framework.config.php`` file
    and ``storage/`` directory.
 
@@ -91,9 +91,9 @@ There are several important reasons for this:
    of filesystem changes in ``storage/``. They can exclude our project
    files, which may be easily recovered from our repositories. This is
    especially important in On-Demand environments with hundreds or
-   thousands of copies of Cerb5.
+   thousands of copies of Cerb6.
 
--  The instructions for moving or upgrading Cerb5 take into account the
+-  The instructions for moving or upgrading Cerb take into account the
    ``storage/`` directory, but changes to the core files are considered
    expendable. The files outside of ``storage/`` can be easily replaced
    from our GitHub or Subversion repositories.
@@ -123,7 +123,7 @@ difference. At the same moment, it's 2am Wednesday morning in Tokyo
 because there is a 17 hour time difference between it and Los Angeles.
 
 To make comparisons in different time zones useful, we need a fixed
-point to compare everything to. Cerb5 uses *universal time* (UTC/GMT)
+point to compare everything to. Cerb uses *universal time* (UTC/GMT)
 when storing and comparing dates. Each time zone has an established
 *offset* from UTC which can be represented as 4 digits (2 for hours and
 2 for minutes) prefixed with a ``-`` (before UTC) or ``+`` (after UTC).
@@ -134,7 +134,7 @@ UTC, or ``+0100``. Tokyo is in Japan Standard Time (JST), which doesn't
 observe daylight savings time, so it is always 9 hours ahead of UTC, or
 ``+0900``.
 
-To simplify this, Cerb5 displays dates in *relative* time. In other
+To simplify this, Cerb displays dates in *relative* time. In other
 words, something that happened *5 minutes ago* in Tokyo also happened *5
 minutes ago* from the perspective of London. There is no offset for
 these relative times.

@@ -4,7 +4,7 @@ Upgrades
 Introduction
 ~~~~~~~~~~~~
 
-The officially supported way of upgrading Cerb5 is by using version
+The officially supported way of upgrading Cerb is by using version
 control software like Git [1]_ or Subversion [2]_. These tools will
 automatically update your helpdesk files to the latest version. The
 major advantage of version control is that it will attempt to
@@ -16,7 +16,7 @@ desirable.
 We recommend that you use Git whenever possible because the official
 project is hosted using Git on `GitHub <http://www.github.com>`_. This
 environment makes it much easier for people to collaborate and share
-improvements. You can even *fork* your own copy of Cerb5 so you can keep
+improvements. You can even *fork* your own copy of Cerb so you can keep
 track of your custom changes.
 
 If you aren't able to use Git directly, GitHub provides a Subversion
@@ -44,7 +44,7 @@ On Windows-based servers, a graphical tool like
 `TortoiseSVN <http://tortoisesvn.tigris.org/>`_ is your best option.
 
 If you can't use Git or Subversion, you really should consider having us
-host your helpdesk on Cerb5 On-Demand rather than managing it yourself.
+host your helpdesk on Cerb6 On-Demand rather than managing it yourself.
 
 Preparation
 ~~~~~~~~~~~
@@ -127,7 +127,7 @@ Updating with TortoiseSVN on Windows
 TortoiseSVN integrates with your Windows GUI. To update Cerberus
 Helpdesk:
 
--  Open the folder containing your Cerb5 files.
+-  Open the folder containing your Cerb6 files.
 -  Right-click in the empty whitespace of the folder (as if you were
    going to create a new file).
 -  Choose "SVN Update" from the pop-up menu.
@@ -189,12 +189,12 @@ Use Windows Explorer to set the appropriate write permissions on the
 Database schema updates
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Some Cerb5 updates contain database changes which require a helpdesk
+Some Cerb updates contain database changes which require a helpdesk
 administrator to finalize. This will prohibit all helpdesk activity
 (e.g., logins, scheduled tasks, mail parsing) to prevent any database
 corruption while you're between versions.
 
-After your files are updated, attempt to log into your Cerb5 helpdesk
+After your files are updated, attempt to log into your Cerb helpdesk
 instance as you normally would. If a database update is required the
 software will automatically prompt you. Upon finalizing you should be
 able to log in and continue working.
@@ -207,7 +207,7 @@ the Support Center may change during an upgrade.
 
 How to tell if you need to update your Community Tool file:
 
--  Log into your Cerb5 helpdesk.
+-  Log into your Cerb6 helpdesk.
 -  Click *setup* from the top right.
 -  Click the *Community Portals* menu.
 -  Click the *Configure* menu item.
@@ -245,13 +245,13 @@ it exists.
 
    When upgrading, Subversion can change file permissions. When this happens you may see several symptoms:
 
-   * Cerb5 fails to start and the browser displays an *Internal Server Error* page.
+   * Cerb fails to start and the browser displays an *Internal Server Error* page.
    * Cerberus displays in the browser, but nothing happens when you click some of the buttons or links.
    * If you have access to your server logs, look for errors similar to *SoftException in Application* or other errors indicating a specific PHP file failed.
 
-   If you are receiving the *Internal Server Error* page, check the permissions on `index.php` in your main Cerb5 directory.
+   If you are receiving the *Internal Server Error* page, check the permissions on `index.php` in your main Cerb directory.
 
-   If you are receiving the *Internal Server Error* page, or Cerb5 fails to run when links or buttons are clicked, check the file permissions on the PHP files.
+   If you are receiving the *Internal Server Error* page, or Cerb fails to run when links or buttons are clicked, check the file permissions on the PHP files.
    -->
 
    <!--

@@ -5,7 +5,7 @@ Navigate to :menuselection:`Setup --> Community Portals --> Configure`
 
 This page configures :doc:`community portals </concepts/community_portals>`.
 
-A portal is a public, community-focused interface to Cerb5.  This allows you to share access to certain kinds of information.  For example, a :doc:`Support Center </admin_guide/setup/portals/support_center>` portal adds self-help functionality to your website by allowing visitors to :doc:`submit new support requests </admin_guide/setup/portals/support_center/modules/contact>`, :doc:`search their support history </admin_guide/setup/portals/support_center/modules/history>`, and :doc:`browse knowledgebase articles </admin_guide/setup/portals/support_center/modules/knowledgebase>`.
+A portal is a public, community-focused interface to Cerb.  This allows you to share access to certain kinds of information.  For example, a :doc:`Support Center </admin_guide/setup/portals/support_center>` portal adds self-help functionality to your website by allowing visitors to :doc:`submit new support requests </admin_guide/setup/portals/support_center/modules/contact>`, :doc:`search their support history </admin_guide/setup/portals/support_center/modules/history>`, and :doc:`browse knowledgebase articles </admin_guide/setup/portals/support_center/modules/knowledgebase>`.
 
 You can create a portal for each brand or product.
 

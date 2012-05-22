@@ -26,7 +26,7 @@ Field                                  Type
 
     <?php
     $postfields = array(
-        array('title','Sell Cerb5 to Salesforce'),
+        array('title','Sell Cerb6 to Salesforce'),
         array('email_address','unlikely@example.com'),
     );
     $out = $cerb5->post($base_url . 'opps/create.xml', $postfields);
@@ -56,7 +56,7 @@ Field                                  Type
 
     <?php
     $postfields = array(
-        array('title','Sell Cerb5 to Atlassian'),
+        array('title','Sell Cerb6 to Atlassian'),
         array('email_address','nothappening@example.com'),
     );
     $out = $cerb5->post($base_url . 'opps/1.xml', $postfields);

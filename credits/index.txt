@@ -7,7 +7,7 @@ Technology
 -  `PHP <http://www.php.net/>`_ is a widely-used general-purpose
    scripting language that is especially suited for web development.
 
-   -  We use PHP for the majority of the application logic of Cerb5 and
+   -  We use PHP for the majority of the application logic of Cerb and
       Devblocks.
 
 -  `MySQL <http://www.mysql.com/>`_ is the world's most popular open
@@ -20,13 +20,13 @@ Technology
    Development which provides many reusable "nuts and bolts" services.
    This approach lets your team spend more time solving your project's
    target problem. It has been heavily influenced by over 9 years of
-   experience working on Cerberus Helpdesk (Cerb5), agile methodologies
+   experience working on Cerberus Helpdesk (Cerb), agile methodologies
    like extreme programming, and many innovative frameworks like
    Eclipse/RCP (cross-platform native desktop apps in Java), Tapestry
    (web development), and Hibernate (object relational mapping).
 
    -  Devblocks provides the application framework, development
-      platform, and software architecture philosophy for all Cerb5
+      platform, and software architecture philosophy for all Cerb
       functionality and plugins. Without Devblocks there is chaos.
 
 -  `jQuery <http://jquery.com/>`_ is a fast and concise JavaScript
@@ -118,7 +118,7 @@ Licenses
 Official development team
 -------------------------
 
-- `Jeff Standen <http://www.linkedin.com/in/jeffstanden>`_ is the founder of WebGroup Media LLC, contributing over 18 years of professional software development and online collaboration experience. He has been the lead developer of Cerberus Helpdesk (Cerb5) since the first line of code was written in January 2002.
+- `Jeff Standen <http://www.linkedin.com/in/jeffstanden>`_ is the founder of WebGroup Media LLC, contributing over 18 years of professional software development and online collaboration experience. He has been the lead developer of Cerberus Helpdesk (Cerb) since the first line of code was written in January 2002.
 - `Darren Sugita <http://www.linkedin.com/pub/darren-sugita/24/234/978>`_
 -  `Dan Hildebrandt <http://www.linkedin.com/in/danielhildebrandt>`_
 -  `Scott Luther <http://www.linkedin.com/pub/scott-luther/7/3b3/98>`_

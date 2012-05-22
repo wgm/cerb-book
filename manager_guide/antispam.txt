@@ -6,7 +6,7 @@ anti-spam system will probably come to some seemingly bizarre
 conclusions based on little evidence that messages are *"spammy"*. This
 is part of the training process. It's important to spend a few minutes
 each day reviewing the spam filtering decisions that were automatically
-made for you. Cerb5 will learn when you make corrections, and it will be
+made for you. Cerb will learn when you make corrections, and it will be
 far less likely to make the same mistakes in the future. Our helpdesk at
 WebGroup Media has been trained for several years, and it's rare to see
 a single *false positive* in 10,000 messages quarantined as spam.
@@ -14,13 +14,13 @@ a single *false positive* in 10,000 messages quarantined as spam.
 How it works: in plain English
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cerb5 employs a **Bayesian filtering algorithm**  [1]_ to combat spam.
+Cerb employs a **Bayesian filtering algorithm**  [1]_ to combat spam.
 
 This filtering tactic is useful because it's highly adaptable; it learns
 to recognize spam based on a studious analysis of the patterns of
 content found in your typical daily mail. For example, a pharmacy's
 helpdesk may receive mail that mentions words like *"pills"* and
-*"prescription"* on a daily basis, and Cerb5 won't considered these
+*"prescription"* on a daily basis, and Cerb won't considered these
 messages to be spam because those terms are familiar to the health care
 industry. However, to the rest of us they're very suspicious words to
 find in our inbox. Likewise, messages from unknown contacts that mention
@@ -34,7 +34,7 @@ How it works: a technical explanation
 -  Anti-spam is only triggered for the *first* message on a new ticket.
 -  All text is converted to lowercase.
 -  Accent marks are removed from characters (e.g. *ü* to *u*, *é* to
-   *e*). Even though Cerb5 supports European languages, accent marks are
+   *e*). Even though Cerb supports European languages, accent marks are
    found in many spam messages attempting to disguise English words.
    Accented letters also dramatically increase the number of possible
    word combinations, which slows down the process on busy helpdesks.
@@ -48,7 +48,7 @@ How it works: a technical explanation
    characters in length. This is a performance tweak that helps keep the
    database manageable.
 
-Once Cerb5 has reduced an email to a list of unique, *less-than-common*
+Once Cerb has reduced an email to a list of unique, *less-than-common*
 words it sorts the words by *interestingness*. Words are considered
 interesting by being either very innocent (*"Cerberus"*) or very
 suspicious (*"pills"*) on a scale of ``0.0001`` to ``0.9999``. The most
@@ -61,7 +61,7 @@ spam as in non-spam and cancels itself out).
 Configuring anti-spam functionality for groups
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The main goal of Cerb5's anti-spam functionality is to quarantine
+The main goal of Cerb's anti-spam functionality is to quarantine
 suspicious messages so they don't show up as active tickets in your
 worklists. Companies vary in their anti-spam processes -- from deleting
 suspicious mail immediately, to quarantining and reviewing -- and we
@@ -97,7 +97,7 @@ groups:
       mail accidentally marked as spam) to become readable by everyone
       simply because it lands in a global *Spam* bucket.
 
-Best practices for spam prevention in Cerb5
+Best practices for spam prevention in Cerb
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: /images/maintenance/maintenance_spam.png
@@ -135,19 +135,19 @@ accomplish the goal of having zero active tickets. Otherwise, a *Spam*
 bucket in the *Sales* group with 20 messages will always show a *Sales*
 group total of more than 20.
 
-Why doesn't Cerb5 just "whitelist" address book contacts?
+Why doesn't Cerb just "whitelist" address book contacts?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Whitelisting** is the process of ignoring a particular set of rules
 for trusted entities.
 
-We're often asked why Cerb5 doesn't whitelist contacts from the address
+We're often asked why Cerb doesn't whitelist contacts from the address
 book and never consider their messages as spam. The problem with that
 approach is how easy it is for spammers to forge (*"spoof"*) the sender
 on email they're sending you. It's not uncommon to receive a lot of spam
 *from* your own email addresses.
 
-By not automatically whitelisting address book senders, Cerb5 has a
+By not automatically whitelisting address book senders, Cerb has a
 chance to filter out spoofed mail as well -- and that's mail that would
 otherwise create thousands of junk messages that you would have to
 manually clean up.

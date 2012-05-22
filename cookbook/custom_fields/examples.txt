@@ -184,7 +184,7 @@ Workers
     
 - **Skills** (multi checkbox)
     The set of skills possessed by this worker.  These skills can be cross-indexed with a similar list of required skills for various tasks and tickets.  For example:
-        - Apps (Cerb5)
+        - Apps (Cerb)
         - Apps (Wordpress)
         - Database (Couchbase/Membase)
         - Database (MySQL)

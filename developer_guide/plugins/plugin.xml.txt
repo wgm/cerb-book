@@ -76,7 +76,7 @@ The plugin.xml file tells Devblocks about your plugin. Every plugin requires a p
     </xml>
 
 **<id>**
-	A dot-delimited namespace string. It must be unique across all Cerb5 plugins. The namespace should follow the format "zyxcompany.myplugin".
+	A dot-delimited namespace string. It must be unique across all Cerb6 plugins. The namespace should follow the format "zyxcompany.myplugin".
    
 **<name>**
 	A human-readable name for your plugin. This is displayed in the 'Manage Plugins' area of 'setup'.

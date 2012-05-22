@@ -1,7 +1,7 @@
 Installation
 ============
 
-While it is possible to successfully install Cerb5 on a shared hosting account, we highly recommend that you control the server where you’re installing the software.
+While it is possible to successfully install Cerb6 on a shared hosting account, we highly recommend that you control the server where you’re installing the software.
 
 ((GitHub: Git vs. Subversion))
 

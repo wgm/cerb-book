@@ -14,7 +14,7 @@ First, change directory to your website's document directory. The directory will
 
     $ cd /path/to/example.com/httpdocs
 
-When deploying Cerb5 on a production server you should use :program:`Subversion` to manage the project files. Subversion provides many useful capabilities:
+When deploying Cerb on a production server you should use :program:`Subversion` to manage the project files. Subversion provides many useful capabilities:
 
 * You can quickly upgrade by just fetching files that have changed since your last update.
 * You can see the local changes that you have made to any project files.
@@ -41,7 +41,7 @@ You can download the project files using Subversion with a single command::
 Set permissions
 ~~~~~~~~~~~~~~~
 
-Next, we want to make sure the Cerb5 files are owned by the proper user and group on the webserver.  The default user and group are both ``www-data`` when using Debian or Ubuntu.  If you're using something else, you should consult your configuration for the proper values.
+Next, we want to make sure the Cerb files are owned by the proper user and group on the webserver.  The default user and group are both ``www-data`` when using Debian or Ubuntu.  If you're using something else, you should consult your configuration for the proper values.
 
 You only need to enable write access in two locations:
 
@@ -62,7 +62,7 @@ Give ownership of all the files to the webserver daemon using :program:`chown`, 
     
     $ grep -e "^User" -e "^Group" /path/to/httpd.conf
 
-    There are also special situations, such as when running :term:`PHP` in FastCGI mode, or installing security extensions like :program:`Suhosin`, where the ownership and permissions of the files might need to be something else.  Consult a system administrator if you need assistance.  The Cerb5 installer will let you know if the permissions are set incorrectly.
+    There are also special situations, such as when running :term:`PHP` in FastCGI mode, or installing security extensions like :program:`Suhosin`, where the ownership and permissions of the files might need to be something else.  Consult a system administrator if you need assistance.  The Cerb installer will let you know if the permissions are set incorrectly.
 
 Create the database
 ~~~~~~~~~~~~~~~~~~~

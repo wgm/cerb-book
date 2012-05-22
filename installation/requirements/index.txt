@@ -1,7 +1,7 @@
 Requirements
 ------------
 
-With the On-Site edition of :program:`Cerb5`, you will need to install the software on a server that meets the following requirements.  End-users only need a modern web browser.
+With the On-Site edition of :program:`Cerb6`, you will need to install the software on a server that meets the following requirements.  End-users only need a modern web browser.
 
 .. toctree::
     :maxdepth: 1

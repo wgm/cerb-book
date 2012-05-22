@@ -7,11 +7,11 @@ corresponding file on the webserver with the name ``help.html`` in the
 ``pages`` directory. This same process is used for HTML, images,
 Javascript, CSS, and other files available for download.
 
-Cerb5 uses a different approach for serving content, which is known to
+Cerb6 uses a different approach for serving content, which is known to
 web application developers as the **Model-View-Controller (MVC)**  [1]_
 architectural pattern. As a consequence of this, all the public
 interaction with your helpdesk occurs with two main files in the root
-directory of your Cerb5 installation. The pages that your workers
+directory of your Cerb6 installation. The pages that your workers
 interact with are *virtual*. This means that there isn't a file on your
 webserver that corresponds with each URL.
 
@@ -128,7 +128,7 @@ HTTP authentication.
 Community portals
 ^^^^^^^^^^^^^^^^^
 
-Community portals also make requests to Cerb5. If you install the
+Community portals also make requests to Cerb6. If you install the
 Support Center, or another community portal, on an external webserver
 then you need to make sure that machine can make requests to the
 ``/cerb5/portal/*`` path. The default community portal script doesn't

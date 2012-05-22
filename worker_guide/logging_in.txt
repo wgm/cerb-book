@@ -5,4 +5,4 @@ Logging In
     :alt: Logging in
     :figclass: bordered
 
-The first step in using Cerb5 is to log in.  Enter your email address and password, then click the :guilabel:`Sign On` button (or press :kbd:`ENTER` after typing your password).
+The first step in using Cerb is to log in.  Enter your email address and password, then click the :guilabel:`Sign On` button (or press :kbd:`ENTER` after typing your password).

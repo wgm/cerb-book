@@ -1,13 +1,13 @@
 Running the guided installer
 ----------------------------
 
-Cerb5 comes with a guided installer that helps you configure the system.
+Cerb comes with a guided installer that helps you configure the system.
 
 To start the installer, point your browser to: ``http://www.example.com/cerb5/install``
 
 .. note:: 
 
-    You will need to replace :file:`www.example.com` in the URL with your actual domain name.  If you installed Cerb5 in a path other than :file:`/cerb` then you will need to change that too.
+    You will need to replace :file:`www.example.com` in the URL with your actual domain name.  If you installed Cerb in a path other than :file:`/cerb` then you will need to change that too.
 
 The server environment checker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,7 +16,7 @@ The server environment checker
    :alt: The requirements checker in the guided installer.
    :figclass: bordered
 
-The installer will determine if your server meets the requirements for installing Cerb5. Correct any problems before proceeding, and then click the :guilabel:`Next Step` button.
+The installer will determine if your server meets the requirements for installing Cerb. Correct any problems before proceeding, and then click the :guilabel:`Next Step` button.
 
 Accept the software license
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,9 +123,9 @@ Choose a password and then click the :guilabel:`Continue` button.
 Register your helpdesk
 ~~~~~~~~~~~~~~~~~~~~~~
 
-In the final step of the installer you are given the opportunity to introduce yourself to the Cerb5 development team in exchange for a *free* 3 seat (simultaneous workers) license to help you get started. There are no strings attached. This license provides full functionality with no expiration and it is valid for the version of the helpdesk you are installing, but it does not provide access to product updates. We hope that you find the software useful, and we're looking forward to growing along with you.
+In the final step of the installer you are given the opportunity to introduce yourself to the Cerb development team in exchange for a *free* 3 seat (simultaneous workers) license to help you get started. There are no strings attached. This license provides full functionality with no expiration and it is valid for the version of the helpdesk you are installing, but it does not provide access to product updates. We hope that you find the software useful, and we're looking forward to growing along with you.
 
-If you choose not to register your copy of Cerb5 then the software will default to *Free Mode* which is limited to a single seat but has no other restrictions.
+If you choose not to register your copy of Cerb then the software will default to *Free Mode* which is limited to a single seat but has no other restrictions.
 
 Complete the short survey in exchange for your free license and then click the :guilabel:`Register` button.
 

@@ -9,7 +9,7 @@ Friendly URLs
    This URL isn't very pretty.
 
 You may notice that your URLs look a bit ugly with the omnipresent
-``/index.php/`` in the path. Cerb5 can use *URL rewriting* to make URLs
+``/index.php/`` in the path. Cerb can use *URL rewriting* to make URLs
 shorter and more user-friendly, but this requires webserver support.
 
 .. figure:: /images/checklist/friendly_urls_done.png
@@ -79,7 +79,7 @@ your server configuration to get the same effect:
         fastcgi_temp_file_write_size 256k;
     }
 
-This assumes that Cerb5 is installed in the root of the webserver.
+This assumes that Cerb is installed in the root of the webserver.
 Otherwise, just prepend the path in your configuration. You also will
-want to create a blank ``.htaccess`` file so Cerb5 will automatically
+want to create a blank ``.htaccess`` file so Cerb will automatically
 generate friendly URLs for you.

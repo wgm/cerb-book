@@ -1,4 +1,4 @@
-Who is using Cerb5?
+Who is using Cerb?
 -------------------
 
 ((noteworthy clients))

@@ -7,7 +7,7 @@ Security
     :alt: Configuring security.
     :figclass: bordered
 
-There are a few special pages in Cerb5 which need to be accessed without logging in:
+There are a few special pages in Cerb which need to be accessed without logging in:
 
 - ``/cron``
     This page controls the :doc:`scheduler </admin_guide/setup/settings/scheduler>`.  It is usually accessed every minute from a scheduled task on your server.  You can generally whitelist ``127.0.0.1`` (the loopback address) to authorize requests for this page that originate from your server.
@@ -16,7 +16,7 @@ There are a few special pages in Cerb5 which need to be accessed without logging
     This page provides debug information about your installation and environment that may be useful during troubleshooting.
     
 - ``/update``
-    This page is used to :doc:`upgrade </admin_guide/upgrading/index>` to a new version of Cerb5.
+    This page is used to :doc:`upgrade </admin_guide/upgrading/index>` to a new version of Cerb.
 
 To restrict access to trusted machines, these pages are protected by a whitelist of :abbr:`IP (Internet Protocol; e.g.: 192.168.1.1)` addresses.  You should enter one IP address per line in the text box.  You can also authorize a range of IPs by entering a partial address.  
 

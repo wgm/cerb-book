@@ -6,7 +6,7 @@ Technology
 * Smarty templates
 * Devblocks
 
-Cerb5 is written in PHP5 (MySQL).  
+Cerb is written in PHP5 (MySQL).
 
 Linux, Mac, Windows
 

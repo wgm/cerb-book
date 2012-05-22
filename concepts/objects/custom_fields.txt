@@ -5,7 +5,7 @@ Custom Fields
 
 **Custom fields** allow you to add new :doc:`fields </concepts/objects/fields>` to the :doc:`objects </concepts/objects/index>` of a particular :doc:`context </concepts/contexts/index>`.
 
-The design philosophy of Cerb5 is to make as few assumptions about your business as possible. Custom fields transform the software from a flexible, capable, off-the-shelf starting point to a solution that feels like it was crafted with your specific needs in mind.
+The design philosophy of Cerb is to make as few assumptions about your business as possible. Custom fields transform the software from a flexible, capable, off-the-shelf starting point to a solution that feels like it was crafted with your specific needs in mind.
 
 Types
 =====

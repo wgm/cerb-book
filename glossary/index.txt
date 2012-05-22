@@ -21,11 +21,11 @@ Glossary
     bucket
         A container for storing similar mail :term:`conversations <conversation>` together. Common buckets are: Leads, Receipts, Newsletters, Refunds, and Spam. Buckets aren't the only means for organizing mail, but they're the simplest to understand and use.
 
-    Cerb5
+    Cerb
         A web-based communications platform for collaborating with a large audience.  Originally known as Cerberus Helpdesk, the project was started in January 2002 to help online teams efficiently distribute and handle large volumes of work: customer support questions, technical problems, tasks, sales opportunities, business partnerships, and more.
 
     Cerberus Helpdesk
-        See: :term:`Cerb5`
+        See: :term:`Cerb`
 
     condition
         ...
@@ -46,7 +46,7 @@ Glossary
         ...
 
     Devblocks
-        A commercial open source framework created by :term:`WebGroup Media <WGM>` for rapid :term:`PHP5 <PHP>` application development which provides many reusable "nuts and bolts" services. This approach enables a development team to spend more time solving their project's target problem.  Devblocks has been heavily influenced by over 10 years of experience working on :term:`Cerb5`, agile methodologies like extreme programming, and many innovative frameworks like Eclipse/RCP (cross-platform native desktop apps in Java), Tapestry (web development), and Hibernate (object relational mapping).
+        A commercial open source framework created by :term:`WebGroup Media <WGM>` for rapid :term:`PHP5 <PHP>` application development which provides many reusable "nuts and bolts" services. This approach enables a development team to spend more time solving their project's target problem.  Devblocks has been heavily influenced by over 10 years of experience working on :term:`Cerb`, agile methodologies like extreme programming, and many innovative frameworks like Eclipse/RCP (cross-platform native desktop apps in Java), Tapestry (web development), and Hibernate (object relational mapping).
 
     event
         ...
@@ -76,7 +76,7 @@ Glossary
         ...
 
     MySQL
-        A popular open source :term:`database` used by :term:`Cerb5`.  The letter M in the :term:`LAMP <LAMP stack>` acronym.
+        A popular open source :term:`database` used by :term:`Cerb`.  The letter M in the :term:`LAMP <LAMP stack>` acronym.
 
     notification
         ...
@@ -88,7 +88,7 @@ Glossary
         ...
 
     PHP
-        PHP Hypertext Preprocessor.  A widely-used general-purpose scripting language that is especially suited for web development.  The primary programming language used to build :term:`Cerb5`.  The letter P in the :term:`LAMP <LAMP stack>` acronym.
+        PHP Hypertext Preprocessor.  A widely-used general-purpose scripting language that is especially suited for web development.  The primary programming language used to build :term:`Cerb`.  The letter P in the :term:`LAMP <LAMP stack>` acronym.
 
     plugin
         ...
@@ -130,7 +130,7 @@ Glossary
         A worker who subscribes to notifications about new activity on specific objects. For example, a manager may assign a task to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion. Being a watcher on something *does not* imply that you are taking responsibility for it. If you aren't sure how to answer a particular question, it can be useful to watch it so you can leave from the answer a more experienced worker gives. Watching facilitates collaboration, observation, and training.
     
     WebGroup Media LLC
-        A commercial open source company that was founded in April 2002 to build web-based enterprise collaboration software.  The developers of Cerb5.  WGM is lean, profitable, and organically-bootstrapped.  The company shares 100% of its source code due to a fundamental belief that bits and bytes have less value than experience and long-term, mutually advantageous relationships. WGM's client list is international and spans most industries, including governments, advocacy groups, political campaigns, educational institutions, charities, and businesses of all sizes. 
+        A commercial open source company that was founded in April 2002 to build web-based enterprise collaboration software.  The developers of Cerb.  WGM is lean, profitable, and organically-bootstrapped.  The company shares 100% of its source code due to a fundamental belief that bits and bytes have less value than experience and long-term, mutually advantageous relationships. WGM's client list is international and spans most industries, including governments, advocacy groups, political campaigns, educational institutions, charities, and businesses of all sizes. 
 
     WGM
         See: :term:`WebGroup Media LLC`
