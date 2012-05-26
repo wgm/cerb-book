@@ -1,0 +1,9 @@
+Using the search menu
+---------------------
+
+The search menu provides quick access to a :doc:`worklist </concepts/worklists/index>` of any kind of :doc:`object </concepts/objects/index>` from anywhere in the application.  You can find the :guilabel:`search` menu at the top of the screen in the far right side of the navigation menu.
+
+.. figure:: /images/worker_guide/ui/search_menu.gif
+    :alt: The global search menu
+    :figclass: bordered
+    

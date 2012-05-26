@@ -1,5 +1,5 @@
-Timezone and Language
----------------------
+Setting your timezone and language preferences
+----------------------------------------------
 
 Before moving on, let's configure your timezone and language:
 

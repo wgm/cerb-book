@@ -6,4 +6,5 @@ The User Interface
 
     tour_mode
     preferences
-    navigation
+    pages
+    search

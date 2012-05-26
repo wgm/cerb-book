@@ -1,5 +1,5 @@
-Tour Mode
----------
+An on-screen guided tour
+------------------------
 
 .. figure:: /images/getting_started/tour_mode.png
     :alt: Tour mode

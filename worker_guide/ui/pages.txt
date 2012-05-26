@@ -1,0 +1,109 @@
+Adding pages to your navigation menu
+------------------------------------
+
+.. figure:: /images/worker_guide/ui/navigation_menu.gif
+    :alt: The navigation menu.
+    :figclass: bordered
+
+The navigation menu is located at the top of your browser window.  The menu displays a list of pages.
+
+Pages give you the freedom to build a completely personalized interface based on how you use the software.  You can add as many new pages as you want, and your favorites can be added to the navigation menu for quick access.
+
+When you first start using Cerb your menu will be empty:
+
+.. figure:: /images/worker_guide/ui/navigation_menu_blank.gif
+    :alt: A blank navigation menu.
+    :figclass: bordered
+
+You can add pages by clicking on the downward-pointing arrow in the menu:
+
+.. figure:: /images/worker_guide/ui/add_pages.gif
+    :alt: The pages menu
+    :figclass: bordered
+
+Pages can be owned by :doc:`workers </concepts/contexts/worker>`, :doc:`groups </concepts/contexts/group>`, or :doc:`roles </concepts/contexts/role>`.  Group or role owned pages can be shared between multiple workers.  If other workers have already started using the system then it's possible that several pages already exist in your list.  If so, you can display a page by clicking its name.
+
+Let's add your own page so you can get a feel for how the process works.  You could click the green :guilabel:`+` button in the pages list to create a new page from scratch, but we're going to use a shortcut for building your first page.
+
+Click the :guilabel:`Help me create a page!` link found in the helper bubble with the yellow background.
+
+This will display a popup:
+
+.. figure:: /images/worker_guide/ui/help_create_a_page.gif
+    :alt: Creating a new page with the helper
+    :figclass: bordered
+
+Click the :guilabel:`Save Changes` button to automatically create a new **Mail** page.
+
+You should now see a new Mail page in the list:
+
+.. figure:: /images/worker_guide/ui/pages_list_mail.gif
+    :alt: A new page in the menu
+    :figclass: bordered
+
+Click on the green :guilabel:`+` button to the left of the page to add it to your menu.  You can now click on the word :guilabel:`mail` in your menu to display the new page:
+
+.. figure:: /images/worker_guide/ui/new_page_with_tabs.gif
+    :alt: A new Mail page with tabs
+    :figclass: bordered
+
+At the top right of the page you'll notice a toolbar with three options:
+
+* The :guilabel:`Menu` button will quickly remove this page from your menu (or add it back).
+
+* The :guilabel:`Edit Page` button is used to change the name of the page, or to delete the page entirely.
+
+* The :guilabel:`Edit Tab` button is used to add or modify worklists on the current tab.
+
+Below the toolbar you'll find three :doc:`tabs </concepts/ui/tabs>` that have been automatically created for you.  Tabs are the main method of organizing content on a page.  By default these tabs can contain any number of :doc:`worklists </concepts/worklists/index>` based on the information you want to see, but a tab can also display any kind of content using :doc:`plugins </concepts/plugins>`.
+
+You can add a new tab to the page by clicking on the last tab with the :guilabel:`+` (plus sign) on it:
+
+.. figure:: /images/worker_guide/ui/new_page_add_tab.gif
+    :alt: Adding another tab to a page
+    :figclass: bordered
+
+Let's imagine that you also want a tab on the Mail page that displays all the email addresses you have communicated with.  Enter the following information in the form:
+
+* **Label:** Address Book
+* **Type:** Custom Worklists (default)
+
+Click the :guilabel:`+ Add` button to add the new tab.  You will see it appear to the right of the existing tabs.
+
+Let's also imagine that you're going to use this Address Book tab more often than the ones labeled Drafts and Sent.  You can click and hold down the left mouse button on the Address Book tab and drag it into the second position so it's directly to the right of Inbox.  When it's where you want it you can release the mouse button.  You can also drag pages in your menu to reorder them.
+
+Now click on the Address Book tab:
+
+.. figure:: /images/worker_guide/ui/new_page_edit_tab.gif
+    :alt: Editing a tab on a page
+    :figclass: bordered
+
+You'll notice that your new tab is currently blank.  Click the :guilabel:`Edit Tab` button found in the top right of the page.  This will open a popup where you can add a new worklist to the tab:
+
+.. figure:: /images/worker_guide/ui/new_page_edit_tab_add_worklist.gif
+    :alt: Adding a worklist to a tab
+    :figclass: bordered
+
+To the right of the :guilabel:`Add:` label, click on the :guilabel:`- choose -` dropdown and select **Email Address** from the list.  Change the name of the worklist to *Email Addresses* (plural) and then click the :guilabel:`Save Changes` button.
+
+You can modify this new worklist to meet your needs by clicking on the gear icon in the worklist toolbar:
+
+.. figure:: /images/worker_guide/ui/new_page_new_worklist.gif
+    :alt: Modifying a new worklist
+    :figclass: bordered
+
+For example, you can add the :guilabel:`# Nonspam` column to the worklist in order to display the number of legitimate conversations your team has had with each contact.
+
+In :guilabel:`Rows per page:` you can decide how many items should be displayed on each page of the list. If this is the only worklist you want to display on this tab then you can usually accommodate a larger number of rows (depending on your screen size and resolution).  If you want to display multiple worklists on the same tab then displaying fewer rows on each list will allow you to display more worklists on the screen at the same time.  This is useful to avoid having to scroll the page more often than necessary.
+
+If your environment has a lot of activity then this list of addresses may also be quite long.  Let's add a required filter so the worklist will only display contacts that have started at least one non-spam conversation.  In the :guilabel:`Add Filter` section, select **# Nonspam** from the :guilabel:`-- choose --` dropdown.  Set :guilabel:`Operator:` to **>** (greater than) and :guilabel:`Value:` to **0**.  Now click the :guilabel:`Add Filter` button:
+
+.. figure:: /images/worker_guide/ui/worklist_filter_nonspam.gif
+    :alt: Adding a required filter to a worklist
+    :figclass: bordered
+
+This will constrain the list so that it only shows contacts that have started at least one non-spam conversation.  This is a useful strategy for making a long list more manageable.  By using a required filter you are also now free to add temporary filters to the worklist -- for example, by using subtotals -- without changing the underlying requirement that the list only ever displays verified contacts.
+
+Click the :guilabel:`Save Changes` button to apply your changes to the worklist.
+
+You can use this new knowledge to create more pages, tabs, and worklists.  The information you need will always be exactly where you want it.
