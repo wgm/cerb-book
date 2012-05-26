@@ -1,14 +1,14 @@
 Setup
 -----
 
-.. figure:: /images/admin_guide/setup/menu.png
-   :alt: The setup page.
+.. figure:: /images/admin_guide/setup/menu.gif
+   :alt: The setup page
    :figclass: bordered
 
 The **setup** page provides a central location for :term:`administrators <administrator>` to configure Cerb6 and any :doc:`plugins </concepts/plugins>` that have been installed.  The page is divided into sections, each with a blue menu  designated by a downward pointing arrow.  You can :abbr:`hover (leave the mouse cursor over a specific screen location without clicking)` over a menu with your mouse to display the configuration options for that section.
 
-Settings
-========
+Configure
+=========
 
 .. toctree::
     :maxdepth: 1
@@ -18,6 +18,8 @@ Settings
     settings/custom_fields
     settings/license
     settings/scheduler
+    settings/snippets
+    portals/index
 
 Workers & Groups
 ================
@@ -35,7 +37,7 @@ Mail
 .. toctree::
     :maxdepth: 1
 
-    mail/incoming/settings
+    Mail Settings <mail/incoming/settings>
     mail/incoming/pop3
     mail/incoming/routing
     mail/incoming/filtering
@@ -54,18 +56,10 @@ Storage
     storage/profiles
     storage/attachments
 
-Community Portals
-=================
-
-.. toctree::
-    :maxdepth: 1
-    
-    Configure <portals/index>
-
 Plugins
 =======
 
 .. toctree::
     :maxdepth: 1
 
-    plugins/manage
+    Manage Plugins <plugins/manage>

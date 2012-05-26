@@ -1,0 +1,4 @@
+Virtual Attendants
+------------------
+
+:menuselection:`Setup --> Configure --> Virtual Attendants`

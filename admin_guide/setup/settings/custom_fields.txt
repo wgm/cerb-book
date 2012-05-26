@@ -1,7 +1,7 @@
 Custom Fields
 -------------
 
-:menuselection:`Setup --> Settings --> Custom Fields`
+:menuselection:`Setup --> Configure --> Custom Fields`
 
 .. figure:: /images/admin_guide/setup/custom_fields.png
     :alt: Configuring custom fields.

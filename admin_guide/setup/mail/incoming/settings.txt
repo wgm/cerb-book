@@ -1,10 +1,10 @@
-Settings
---------
+Mail Settings
+-------------
 
 :menuselection:`Setup --> Mail --> Incoming Mail --> Settings`
 
-Mail Settings
-=============
+Settings
+========
 
 .. figure:: /images/admin_guide/setup/mail_settings.png
     :alt: Incoming mail settings.

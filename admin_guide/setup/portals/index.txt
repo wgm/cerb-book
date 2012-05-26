@@ -1,7 +1,7 @@
 Community Portals
 -----------------
 
-Navigate to :menuselection:`Setup --> Community Portals --> Configure`
+Navigate to :menuselection:`Setup --> Configure --> Community Portals`
 
 This page configures :doc:`community portals </concepts/community_portals>`.
 

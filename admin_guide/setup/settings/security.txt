@@ -1,7 +1,7 @@
 Security
 --------
 
-:menuselection:`Setup --> Settings --> Security`
+:menuselection:`Setup --> Configure --> Security`
 
 .. figure:: /images/admin_guide/setup/security.png
     :alt: Configuring security.

@@ -1,0 +1,4 @@
+Snippets
+--------
+
+:menuselection:`Setup --> Configure --> Snippets`

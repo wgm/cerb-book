@@ -1,7 +1,7 @@
 Logo & Title
 ------------
 
-:menuselection:`Setup --> Settings --> Logo & Title`
+:menuselection:`Setup --> Configure --> Logo & Title`
 
 .. figure:: /images/admin_guide/setup/logo_and_title.png
     :alt: Configuring logo and title.

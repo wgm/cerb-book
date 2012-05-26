@@ -3,7 +3,7 @@ Workers
 
 :menuselection:`Setup --> Workers & Groups --> Workers`
 
-.. figure:: /images/admin_guide/setup/workers.png
+.. figure:: /images/admin_guide/setup/workers.gif
    :alt: A list of workers.
    :figclass: bordered
 
@@ -13,7 +13,7 @@ If this is a brand new helpdesk, then there is probably only worker at the momen
 
 Start collaborating by inviting your co-workers with the :guilabel:`Add Worker` button.
 
-.. figure:: /images/admin_guide/setup/worker_add.png
+.. figure:: /images/admin_guide/setup/worker_add.gif
    :alt: Configuring a worker account.
    :figclass: bordered
 

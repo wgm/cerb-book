@@ -1,4 +1,13 @@
-Manage
-------
+Manage Plugins
+--------------
 
-:menuselection:`Setup --> Plugins --> Manage`
+:menuselection:`Setup --> Plugins --> Manage Plugins`
+
+(( plugin menu with configuration ))
+
+Installed Plugins
+=================
+
+
+Plugin Library
+==============

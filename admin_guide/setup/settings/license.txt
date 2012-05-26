@@ -1,7 +1,7 @@
 License
 -------
 
-:menuselection:`Setup --> Settings --> License`
+:menuselection:`Setup --> Configure --> License`
 
 .. figure:: /images/admin_guide/setup/license.png
     :alt: The license information.
@@ -16,10 +16,10 @@ A license looks like::
     Licensed to: WebGroup Media, LLC.
     Order e-mail: wgm@example.com
 
-    ## BEGIN CERB5 LICENSE
+    ## BEGIN CERB6 LICENSE
     Key: XXXX-XXXX-XXXX-XXXX-XXXX
-    Created: 2012-01-09
-    Updated: 2012-03-15
+    Created: 2011-06-01
+    Updated: 2012-06-01
     Upgrades: 2015-03-15
     Seats: 25
     ## END

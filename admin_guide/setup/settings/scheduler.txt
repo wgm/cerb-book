@@ -1,7 +1,7 @@
 Scheduler
 ---------
 
-:menuselection:`Setup --> Settings --> Scheduler`
+:menuselection:`Setup --> Configure --> Scheduler`
 
 .. figure:: /images/admin_guide/setup/scheduler.png
     :alt: Configuring scheduler.
@@ -99,6 +99,12 @@ Virtual Attendant Scheduled Behavior
 :Path: ``/cron/cron.virtual_attendant.scheduled_behavior``
 
 Schedules and runs behavior for Virtual Attendants.
+
+Calendar Recurring Event Schedule
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:Path: ``/cron/cron.calendar_recurring``
+
+Schedules recurring calendar events through the end of the current year.
 
 .. rubric:: Footnotes
 
