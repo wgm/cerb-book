@@ -5,7 +5,7 @@ Introduction
 ~~~~~~~~~~~~
 
 To fully protect your Cerb6 helpdesk data you need to backup both the
-MySQL database and the ``/cerb5/storage/`` filesystem. While there are
+MySQL database and the ``/cerb6/storage/`` filesystem. While there are
 countless good approaches for performing backups, this document will
 focus on the best practices we've discovered over the past several years
 of hosting hundreds of helpdesk instances on our On-Demand network. The
@@ -188,7 +188,7 @@ If you're using InnoDB tables, or you don't have access to the
 Backing up the storage filesystem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``/cerb5/storage`` filesystem stores the pending mail parser queue,
+The ``/cerb6/storage`` filesystem stores the pending mail parser queue,
 import queue, and all the file attachments from mail. It's the only
 filesystem hierarchy you need to backup for a full recovery (the rest of
 the files are temporary caches, or can be downloaded from the project
@@ -218,13 +218,13 @@ purpose is to keep two copies of the same directory in-sync.
 
 ::
 
-    rsync -a --verbose --delete /path/to/cerb5/storage ~backups/storage
+    rsync -a --verbose --delete /path/to/cerb6/storage ~backups/storage
 
 **Usage: (to SSH)**
 
 ::
 
-    rsync -aze ssh --verbose --delete /path/to/cerb5/storage \
+    rsync -aze ssh --verbose --delete /path/to/cerb6/storage \
     backups@remotehost:~backups/storage
 
 **Tips:**

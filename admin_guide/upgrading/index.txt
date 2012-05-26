@@ -56,7 +56,7 @@ Preparation
 
 -  Copy your ``framework.config.php`` file to ``backup.config.php``
 
--  Change directory to your ``cerb5`` installation.
+-  Change directory to your ``cerb6`` installation.
 
 -  The choice of using Git or Subversion to update will depend on how
    you originally installed the software.
@@ -94,7 +94,7 @@ changes (e.g. ``framework.config.php``):
 
 ::
 
-    $ git checkout -m 5.4.1
+    $ git checkout -m 6.0
 
 Updating using Subversion on Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -170,7 +170,7 @@ files using Subversion.
 
 **Unix-based servers:**
 
-From your cerb5/ directory at the console (replace **www-data** with
+From your cerb6/ directory at the console (replace **www-data** with
 your appropriate Apache user and group):
 
 ::
@@ -184,7 +184,7 @@ Permissions, especially on php files are a common upgrade issue. See
 **Windows-based servers:**
 
 Use Windows Explorer to set the appropriate write permissions on the
-``/cerb5/storage`` directory for your IIS user.
+``/cerb6/storage`` directory for your IIS user.
 
 Database schema updates
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -226,7 +226,7 @@ We're working on a way to make this check happen automatically.
 Install directory
 ^^^^^^^^^^^^^^^^^
 
-Git will usually leave your ``cerb5/install`` directory deleted, but
+Git will usually leave your ``cerb6/install`` directory deleted, but
 Subversion will always restore it. Delete the ``install`` directory if
 it exists.
 

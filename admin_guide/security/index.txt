@@ -1,54 +1,23 @@
 Security
 --------
 
-Traditionally, when you access a URL like
-``http://www.example.com/pages/help.html`` from your browser there is
-corresponding file on the webserver with the name ``help.html`` in the
-``pages`` directory. This same process is used for HTML, images,
-Javascript, CSS, and other files available for download.
+Traditionally, when you access a URL like ``http://www.example.com/pages/help.html`` from your browser there is corresponding file on the webserver with the name ``help.html`` in the ``pages`` directory. This same process is used for HTML, images, Javascript, CSS, and other files available for download.
 
-Cerb6 uses a different approach for serving content, which is known to
-web application developers as the **Model-View-Controller (MVC)**  [1]_
-architectural pattern. As a consequence of this, all the public
-interaction with your helpdesk occurs with two main files in the root
-directory of your Cerb6 installation. The pages that your workers
-interact with are *virtual*. This means that there isn't a file on your
-webserver that corresponds with each URL.
+Cerb6 uses a different approach for serving content, which is known to web application developers as the **Model-View-Controller (MVC)** [1]_ architectural pattern. As a consequence of this, all the public interaction with your helpdesk occurs with two main files in the root directory of your Cerb6 installation. The pages that your workers interact with are *virtual*. This means that there isn't a file on your webserver that corresponds with each URL.
 
--  **index.php** returns *responses* for "full-cycle" HTTP *requests*.
-   These requests occur when you type a URL into your browser, click a
-   link, or request a resource (e.g. image, script, stylesheet, file
-   download). The typical response is to render a new page of output,
-   often including a header, top-level menu, body content, and footer.
--  **ajax.php** returns *responses* for **Asynchronous Javascript And
-   XML (Ajax)**  [2]_ *requests*. *"Asynchronous"* refers to the fact
-   that these requests happen silently in the background, and your
-   browser won't clear the existing page contents as it would during a
-   full-cycle request. Ajax requests are used to provide functionality
-   aimed at making web applications feel more responsive and interactive
-   (in a way that only desktop applications used to be). These requests
-   generally only affect one part of the greater whole.
+- **index.php** returns *responses* for "full-cycle" HTTP *requests*. These requests occur when you type a URL into your browser, click a link, or request a resource (e.g. image, script, stylesheet, file download). The typical response is to render a new page of output, often including a header, top-level menu, body content, and footer.
+- **ajax.php** returns *responses* for **Asynchronous Javascript And XML (Ajax)** [2]_ *requests*. *"Asynchronous"* refers to the fact that these requests happen silently in the background, and your browser won't clear the existing page contents as it would during a full-cycle request. Ajax requests are used to provide functionality aimed at making web applications feel more responsive and interactive (in a way that only desktop applications used to be). These requests generally only affect one part of the greater whole.
 
 Here are some common examples of Ajax functionality:
 
--  Autocomplete suggestions from the address book when you begin typing
-   an email address.
--  A list that refreshes its contents after sorting or paging without
-   redrawing the entire page.
--  Pulling up supplemental information from the server without leaving
-   the page you're on. For example, if you hover over an email address
-   the interface may display a tooltip with the past 10 conversations
-   you've had with that particular contact. This information is being
-   downloaded from the server in real-time, as it's usually far too much
-   information to send in advance for all possible interface
-   interactions.
+- Autocomplete suggestions from the address book when you begin typing an email address.
+- A list that refreshes its contents after sorting or paging without redrawing the entire page.
+- Pulling up supplemental information from the server without leaving the page you're on. For example, if you hover over an email address the interface may display a tooltip with the past 10 conversations you've had with that particular contact. This information is being downloaded from the server in real-time, as it's usually far too much information to send in advance for all possible interface interactions.
 
 Protecting filesystem access
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You only need to expose three files to the outside world. The
-application will transparently manage access to other resources, such as
-images or file attachment downloads.
+You only need to expose three files to the outside world. The application will transparently manage access to other resources, such as images or file attachment downloads.
 
 You should make the following files available to web requests:
 
@@ -65,9 +34,7 @@ Browser access to the following locations should be forbidden:
 -  ``libs/``
 -  ``storage/``
 
-If you're using the provided ``.htaccess`` file for *friendly URLs*,
-then we've already given you some defaults for blocking access to these
-directories:
+If you're using the provided ``.htaccess`` file for *friendly URLs*, then we've already given you some defaults for blocking access to these directories:
 
 ::
 
@@ -78,18 +45,16 @@ directories:
     RewriteRule ^(.*/)?libs(/|$) - [F,L]
     RewriteRule ^(.*/)?storage(/|$) - [F,L]
 
-With Apache, you can use directives in your virtual host configuration
-to protect these directories:
+With Apache, you can use directives in your virtual host configuration to protect these directories:
 
 -  http://httpd.apache.org/docs/2.0/sections.html
 -  http://httpd.apache.org/docs/2.0/misc/security_tips.html#protectserverfiles
 
-With nginx, you can use the following directive in your server
-configuration:
+With nginx, you can use the following directive in your server configuration:
 
 ::
 
-    location ~ ^/cerb5/(api|features|libs|storage)/ {
+    location ~ ^/cerb6/(api|features|libs|storage)/ {
         return 403;
     }
 
@@ -99,41 +64,22 @@ Considerations for HTTP authentication and IP-based security
 Workers
 ^^^^^^^
 
-Your organization may have a requirement that all worker access should
-be password protected or restricted to requests coming from inside your
-corporate network. That's a fine policy, but there are a few things you
-need to consider when implementing a firewall, HTTP authentication, or
-IP-based security restrictions.
+Your organization may have a requirement that all worker access should be password protected or restricted to requests coming from inside your corporate network. That's a fine policy, but there are a few things you need to consider when implementing a firewall, HTTP authentication, or IP-based security restrictions.
 
 Scheduled tasks
 ^^^^^^^^^^^^^^^
 
-All scheduled tasks are triggered by automated requests to the
-``/cerb5/cron`` URL. If these requests are coming from a cronjob on the
-same webserver then this usually doesn't present a problem. However,
-once you've established IP-based restrictions you should test the
-scheduled automated access to that URL to make sure it can get through.
-These scripts will also need to provide HTTP authentication details if
-you're enforcing them.
+All scheduled tasks are triggered by automated requests to the ``/cerb6/cron`` URL. If these requests are coming from a cronjob on the same webserver then this usually doesn't present a problem. However, once you've established IP-based restrictions you should test the scheduled automated access to that URL to make sure it can get through. These scripts will also need to provide HTTP authentication details if you're enforcing them.
 
 Web-API
 ^^^^^^^
 
-If you have applications that use the **Web-API**
-(http://wiki.cerb5.com/wiki/Web-API) to integrate with your helpdesk
-then you'll need to make sure they can make requests to the
-``/cerb5/rest/*`` path. You'll need to provide some extra code to handle
-HTTP authentication.
+If you have applications that use the :doc:`Web-API </developer_guide/rest_api/index>` to integrate with your helpdesk then you'll need to make sure they can make requests to the ``/cerb6/rest/*`` path. You'll need to provide some extra code to handle HTTP authentication.
 
 Community portals
 ^^^^^^^^^^^^^^^^^
 
-Community portals also make requests to Cerb6. If you install the
-Support Center, or another community portal, on an external webserver
-then you need to make sure that machine can make requests to the
-``/cerb5/portal/*`` path. The default community portal script doesn't
-provide a mechanism for HTTP authentication, but you could provide an
-override by IP address. This feature is on the project wishlist  [3]_.
+Community portals also make requests to Cerb6. If you install the Support Center, or another community portal, on an external webserver then you need to make sure that machine can make requests to the ``/cerb6/portal/*`` path. The default community portal script doesn't provide a mechanism for HTTP authentication, but you could provide an override by IP address. This feature is on the project wishlist [3]_.
 
 .. [1]
    Wikipedia: *Model-View-Controller (MVC)*
