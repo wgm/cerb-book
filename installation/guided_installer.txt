@@ -3,16 +3,16 @@ Running the guided installer
 
 Cerb comes with a guided installer that helps you configure the system.
 
-To start the installer, point your browser to: ``http://www.example.com/cerb5/install``
+To start the installer, point your browser to: ``http://www.example.com/cerb6/install``
 
 .. note:: 
 
-    You will need to replace :file:`www.example.com` in the URL with your actual domain name.  If you installed Cerb in a path other than :file:`/cerb` then you will need to change that too.
+    You will need to replace :file:`www.example.com` in the URL with your actual domain name.  If you installed Cerb in a path other than :file:`/cerb6` then you will need to change that too.
 
 The server environment checker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: /images/installation/installer_step1_checker.png
+.. figure:: /images/installation/installer_step1_checker.gif
    :alt: The requirements checker in the guided installer.
    :figclass: bordered
 
@@ -26,7 +26,7 @@ Click the :guilabel:`I Accept` button if you agree to the :doc:`licensing terms 
 Configure the database connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: /images/installation/installer_step3_database.png
+.. figure:: /images/installation/installer_step3_database.gif
    :alt: Adding database connection details.
    :figclass: bordered
 
@@ -52,16 +52,16 @@ If successful, the installer will create your initial database structure. This m
 Configure general settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: /images/installation/installer_step6_settings.png
+.. figure:: /images/installation/installer_step6_settings.gif
    :alt: Personalizing your helpdesk.
    :figclass: bordered
 
-In this step you'll configure the general settings of the helpdesk:
+In this step you'll configure a few global settings:
 
-**Helpdesk Title**
-    This is the text shown at the top of the browser, or on each browser tab, that makes it easy to distinguish your helpdesk from other web pages.
+**Website Title**
+    This is the text shown at the top of the browser, or on each browser tab, that makes it easy to distinguish Cerb from other web pages.
 **Default Sender**
-    This is the email address that your helpdesk will use as the :mailheader:`From:` address on outgoing mail that can't be attributed to a particular group. It is very important that this email address delivers mail to your helpdesk. In many cases you will want to use an email address like ``support@example.com``.
+    This is the email address that Cerb will use as the :mailheader:`From:` address on outgoing mail that can't be attributed to a particular group. It is very important that this email address delivers mail to your helpdesk. In many cases you will want to use an email address like ``support@example.com``.
 **Default Sender Name**
     This is the personalized name that will display next to the :mailheader:`From:` address in your customers' inboxes.
     
@@ -74,11 +74,11 @@ Click the :guilabel:`Continue` button when you've finished entering your prefere
 Configure outgoing mail (SMTP)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: /images/installation/installer_step7_smtp.png
+.. figure:: /images/installation/installer_step7_smtp.gif
    :alt: Configuring outgoing mail.
    :figclass: bordered
 
-Your helpdesk won't be very useful if it can't send mail to your contacts.  In this step, we'll configure your outgoing mail server.
+Cerb won't be very useful if it can't send mail to your contacts.  In this step, we'll configure your outgoing mail server.
 
 **SMTP Server**
     This is your SMTP mail server. If your mail server is located on the same machine as your webserver then you can enter ``localhost``. Otherwise this should be a hostname or IP address that your webserver is authorized to relay through. This is most often a corporate mail server or `Google Apps <https://www.google.com/a/>`_.
@@ -112,18 +112,18 @@ Click the :guilabel:`Test Outgoing Mail` button to verify your settings.
 Create your account
 ~~~~~~~~~~~~~~~~~~~
 
-.. figure:: /images/installation/installer_step8_account.png
+.. figure:: /images/installation/installer_step8_account.gif
    :alt: Creating your account.
    :figclass: bordered
 
-Now the installer will prompt you to create an administrator account that you will use to log in to the helpdesk. Use a personal email address that you check, but not something that will route back to the helpdesk. Your helpdesk will use this email address to contact you in the future; for example, if you forget your password.
+Now the installer will prompt you to create an administrator account that you will use to log in. Use a personal email address that you check, but not something that will route back to the application. Cerb will use this email address to contact you in the future (for example, if you forget your password).
 
 Choose a password and then click the :guilabel:`Continue` button.
 
-Register your helpdesk
-~~~~~~~~~~~~~~~~~~~~~~
+Register
+~~~~~~~~
 
-In the final step of the installer you are given the opportunity to introduce yourself to the Cerb development team in exchange for a *free* 3 seat (simultaneous workers) license to help you get started. There are no strings attached. This license provides full functionality with no expiration and it is valid for the version of the helpdesk you are installing, but it does not provide access to product updates. We hope that you find the software useful, and we're looking forward to growing along with you.
+In the final step of the installer you are given the opportunity to introduce yourself to the Cerb development team in exchange for a *free* 3 seat (simultaneous workers) license to help you get started. There are no strings attached. This free license provides full functionality, with no expiration, but it does not include future updates. We hope that you find the software useful, and we're looking forward to growing along with you.
 
 If you choose not to register your copy of Cerb then the software will default to *Free Mode* which is limited to a single seat but has no other restrictions.
 
@@ -132,15 +132,15 @@ Complete the short survey in exchange for your free license and then click the :
 Finish up!
 ~~~~~~~~~~
 
-.. figure:: /images/installation/installer_step11_finished.png
+.. figure:: /images/installation/installer_step11_finished.gif
    :alt: The installation process is complete.
    :figclass: bordered
 
-You're almost ready to start using your new helpdesk.
+You're almost ready to start using Cerb6.
 
 .. warning::
 
-    If this is a production installation, you should delete the :file:`install` directory since it is no longer necessary and it provides access to some sensitive information (specifically, the ``phpinfo()`` output that describes your webserver environment). If you're planning to use language packs for localization of your helpdesk, be sure to copy the :file:`install/extras/translations/*` files to another location.
+    If this is a production installation, you should delete the :file:`install` directory since it is no longer necessary and it provides access to some sensitive information (specifically, the ``phpinfo()`` output that describes your webserver environment). If you're planning to use language packs for localization, be sure to copy the :file:`install/extras/translations/*` files to another location.
 
 .. note::
 

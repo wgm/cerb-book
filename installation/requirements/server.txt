@@ -16,7 +16,7 @@ Required
     - :program:`Nginx`
     - :program:`lighttpd`
     - :program:`IIS`
-- :program:`PHP` 5.2 or later
+- :program:`PHP` 5.3 or later
     - With the following extensions enabled:
         - curl
         - dom

@@ -3,10 +3,6 @@ Installation
 
 While it is possible to successfully install Cerb6 on a shared hosting account, we highly recommend that you control the server where you’re installing the software.
 
-((GitHub: Git vs. Subversion))
-
-((Linux vs Windows vs OS X -- Dev XAMPP))
-
 .. toctree::
     :maxdepth: 2
 

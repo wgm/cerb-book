@@ -26,7 +26,7 @@ You won't need to download the entire project again after your initial installat
 
 You can download the project files using Subversion with a single command::
 
-    $ svn checkout http://svn.github.com/wgm/cerb5.git cerb5
+    $ svn checkout http://svn.github.com/wgm/cerb6.git/branches/stable cerb6
 
 .. note::
 
@@ -34,9 +34,9 @@ You can download the project files using Subversion with a single command::
     
     You can *clone* the repository with this command::
     
-    $ git clone git@github.com:wgm/cerb5.git
+    $ git clone git@github.com:wgm/cerb6.git
 
-    You can also fork the project at `GitHub <http://github.com/wgm/cerb5>`_.  See the :doc:`Guide for Developers </developer_guide/index>` for more information.
+    You can also fork the project at `GitHub <http://github.com/wgm/cerb6>`_.  See the :doc:`Guide for Developers </developer_guide/index>` for more information.
 
 Set permissions
 ~~~~~~~~~~~~~~~
@@ -52,7 +52,7 @@ You only need to enable write access in two locations:
 
 Give ownership of all the files to the webserver daemon using :program:`chown`, and make the two locations above writable using :program:`chmod`::
 
-    $ cd cerb5
+    $ cd cerb6
     $ chown -R www-data:www-data .
     $ chmod -R u+w framework.config.php storage
 
@@ -71,14 +71,14 @@ Create a new :program:`MySQL` database using the console or your favorite GUI.
 
 From the MySQL console, you can issue the following SQL statements::
 
-    mysql> CREATE DATABASE cerb5 CHARACTER SET utf8;
-    mysql> GRANT ALL PRIVILEGES ON cerb5.*  \
-            TO cerb5@localhost \
+    mysql> CREATE DATABASE cerb6 CHARACTER SET utf8;
+    mysql> GRANT ALL PRIVILEGES ON cerb6.*  \
+            TO cerb6@localhost \
             IDENTIFIED BY 'secret_password';
 
 .. note:: 
 
-    Substitute your own database name and login in place of ``cerb5``, and replace ``secret_password`` with something that's actually a secret.
+    Substitute your own database name and login in place of ``cerb6``, and replace ``secret_password`` with something that's actually a secret.
 
 If you're concerned about granting ``ALL PRIVILEGES``, the minimum required privileges for the database user are:
 
@@ -90,8 +90,3 @@ If you're concerned about granting ``ALL PRIVILEGES``, the minimum required priv
 -  ``ALTER``
 -  ``DROP``
 -  ``CREATE TEMPORARY TABLES``
-
-Run the guided installer
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can skip ahead to :doc:`/installation/guided_installer`.

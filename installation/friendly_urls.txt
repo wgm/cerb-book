@@ -27,7 +27,7 @@ with the following commands:
 
 ::
 
-    $ cd /path/to/cerb5
+    $ cd /path/to/cerb6
     $ cp .htaccess-dist .htaccess
 
 For this to work you will need ``mod_rewrite`` to be enabled in your
@@ -79,7 +79,7 @@ your server configuration to get the same effect:
         fastcgi_temp_file_write_size 256k;
     }
 
-This assumes that Cerb is installed in the root of the webserver.
+This assumes that Cerb6 is installed in the root of the webserver.
 Otherwise, just prepend the path in your configuration. You also will
 want to create a blank ``.htaccess`` file so Cerb will automatically
 generate friendly URLs for you.
