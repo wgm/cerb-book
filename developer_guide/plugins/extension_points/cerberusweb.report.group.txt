@@ -28,7 +28,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     Sets the name of the report group. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
 
 **<param key="acl" value="report.group.example">**
-        Specifies the permissions required for this report group to be displayed. If this param is omitted, the report group will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
+    Specifies the permissions required for this report group to be displayed. If this param is omitted, the report group will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.
 
 Implementation
 ==============

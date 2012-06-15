@@ -1,7 +1,7 @@
 cerberusweb.page
 ----------------
 
-The **cerberusweb.page** extension point allows you to create a new page in Cerb5's top-level menu. Pages are really just higher-level controllers that take care of the heavy lifting for you. Like controllers, they are associated with a URL. The key difference between pages and controllers is that pages are displayed inside of the Cerb5 layout, whereas controllers are not. If you need your URL to respond via AJAX you'll need to use a controller instead of a page.
+The **cerberusweb.page** extension point allows you to create a new page in Cerb6's top-level menu. Pages are really just higher-level controllers that take care of the heavy lifting for you. Like controllers, they are associated with a URL. The key difference between pages and controllers is that pages are displayed inside of the Cerb6 layout, whereas controllers are not. If you need your URL to respond via AJAX you'll need to use a controller instead of a page.
 
 Plugin Manifest
 ===============
