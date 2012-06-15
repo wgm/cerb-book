@@ -1,0 +1,56 @@
+cerberusweb.ui.context.profile.script
+-------------------------------------
+
+The **cerberusweb.ui.context.profile.script** extension point allows you to inject a script into the ``Profile`` pages for the specified context objects.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+
+	<!-- Profile Script -->
+	<extension point="cerberusweb.ui.context.profile.script">
+		<id>example.profile_script.example_script</id>
+		<name>Example Profile Script</name>
+		<class>
+			<file>api/App.php</file>
+			<name>ExContextProfileScript</name>
+		</class>
+		<params>
+			<param key="contexts">
+				<value>
+					<data key="*" />
+				</value>
+			</param>				
+		</params>
+	</extension>
+    
+**<param key="contexts">**
+    The contexts that this script should appear on.
+    
+    **<value>**
+       One or more contexts can be specified for each script.
+        
+        - **<data key="*" />**
+            Binds the script to all contexts using the ``*`` wildcard.
+
+Implementation
+==============
+.. php:class:: ExContextProfileScript extends Extension_ContextProfileScript
+    
+    .. php:method:: renderScript()
+
+        This method is called when a worker visits the profile of an object that your script is registered on.
+
+Examples
+========
+
+Timetracking
+~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.timetracking/plugin.xml#L137
+Implementation:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.crm/api/App.php#L60

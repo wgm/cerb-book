@@ -1,0 +1,46 @@
+cerberusweb.ui.workspace.tab
+----------------------------
+
+The **cerberusweb.ui.workspace.tab** extension point allows you to create ``Tab`` types for use on custom pages.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+
+	<!-- Workspace Tab -->
+	<extension point="cerberusweb.ui.workspace.tab">
+		<id>example.workspace.tab.example_tab</id>
+		<name>Example Workspace Tab</name>
+		<class>
+			<file>api/App.php</file>
+			<name>ExWorkspaceTab</name>
+		</class>
+		<params>
+			<param key="label" value="example.workspace.tab.label" />
+		</params>
+	</extension>
+
+**<param key="label" value="example.workspace.tab.label" />**
+    Sets the label that will be displayed in the menu where the tab type is selected.
+
+Implementation
+==============
+.. php:class:: ExWorkspaceTab extends Extension_WorkspaceTab
+    
+    .. php:method:: renderTab()
+
+        This method is called when a worker visits an instance of your tab type.
+
+Examples
+========
+
+Knowledgebase
+~~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.kb/plugin.xml#L181
+Implementation:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.kb/api/App.php#L134

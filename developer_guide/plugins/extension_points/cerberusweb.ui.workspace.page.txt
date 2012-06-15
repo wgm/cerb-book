@@ -1,0 +1,46 @@
+cerberusweb.ui.workspace.page
+-----------------------------
+
+The **cerberusweb.ui.workspace.page** extension point allows you to create new ``Page`` types.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+
+	<!-- Workspace Page -->
+	<extension point="cerberusweb.ui.workspace.page">
+		<id>example.workspace.page.example_page</id>
+		<name>Example Workspace Page</name>
+		<class>
+			<file>api/App.php</file>
+			<name>ExWorkspacePage</name>
+		</class>
+		<params>
+			<param key="label" value="example.workspace.page.label" />
+		</params>
+	</extension>
+
+**<param key="label" value="example.workspace.page.label" />**
+    Sets the label that will be displayed in the menu where the page type is selected.
+
+Implementation
+==============
+.. php:class:: ExWorkspacePage extends Extension_WorkspacePage
+    
+    .. php:method:: renderPage()
+
+        This method is called when a worker visits an instance of your page type.
+
+Examples
+========
+
+Reports
+~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.reports/plugin.xml#L46
+Implementation:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.reports/api/App.php#L98

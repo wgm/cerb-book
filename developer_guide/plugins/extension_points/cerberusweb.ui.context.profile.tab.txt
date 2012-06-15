@@ -1,0 +1,61 @@
+cerberusweb.ui.context.profile.tab
+----------------------------------
+
+The **cerberusweb.ui.context.profile.tab** extension point allows you to create new tabs on the ``Profile`` pages for the specified context objects.
+
+Plugin Manifest
+===============
+
+In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+
+.. code-block:: xml
+
+	<!-- Profile Tab -->
+	<extension point="cerberusweb.ui.context.profile.tab">
+		<id>example.profile_tab.example_tab</id>
+		<name>Example Profile Tab</name>
+		<class>
+			<file>api/App.php</file>
+			<name>ExContextProfileTab</name>
+		</class>
+		<params>
+			<param key="uri" value="example_tab" />
+			<param key="contexts">
+				<value>
+					<data key="*" />
+				</value>
+			</param>				
+			<param key="title" value="example.profile_tab.tab_title" />
+		</params>
+	</extension>
+
+**<param key="uri" value="example_tab">**
+    Binds the tab to the ``example_tab`` url.
+    
+**<param key="contexts">**
+    The contexts that this tab should appear on.
+    
+    **<value>**
+       One or more contexts can be specified for each tab.
+        
+        - **<data key="*" />**
+            Binds the tab to all contexts using the ``*`` wildcard.
+
+Implementation
+==============
+.. php:class:: ExContextProfileTab extends Extension_ContextProfileTab
+    
+    .. php:method:: showTab()
+
+        This method is called when a worker visits your tab on the profile of an object that your tab is registered on.
+
+Examples
+========
+
+Organizations
+~~~~~~~~~~~~~
+
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.crm/plugin.xml#L175
+Implementation:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.crm/api/App.php#L433
