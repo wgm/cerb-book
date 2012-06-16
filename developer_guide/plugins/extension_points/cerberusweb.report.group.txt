@@ -32,17 +32,11 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleReportGroup
-        extends Extension_ReportGroup {
-           
-            function render() {}
-    };
-
-**render()**
-    This method is called when the report group is displayed in the browser.
+.. php:class:: ExampleReportGroup extends Extension_ReportGroup
+    
+    .. php:method:: render()
+        
+        This method is called when the report group is displayed in the browser.
 
 Examples
 ========

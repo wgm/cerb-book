@@ -23,17 +23,11 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleSendMailToolbarItem
-        extends Extension_SendMailToolbarItem {
-            
-            function render() { }
-    };
-
-**render()**
-    This method is called when a worker views the Send Mail page.
+.. php:class:: ExampleSendMailToolbarItem extends Extension_SendMailToolbarItem
+    
+    .. php:method:: render() 
+        
+        This method is called when a worker views the Send Mail page.
 
 Examples
 ========

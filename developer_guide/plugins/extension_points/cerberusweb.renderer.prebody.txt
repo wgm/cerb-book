@@ -23,17 +23,11 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExamplePreBodyRenderer
-        extends Extension_AppPreBodyRenderer {
-            
-            function render() { }
-    };
-
-**render()**
-    This method is called on every page load. The contents will be injected just after the opening <body> tag.
+.. php:class:: ExamplePreBodyRenderer extends Extension_AppPreBodyRenderer
+    
+    .. php:method:: render() 
+        
+        This method is called on every page load. The contents will be injected just after the opening <body> tag.
 
 Examples
 ========

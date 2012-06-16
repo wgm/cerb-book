@@ -23,17 +23,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleTicketToolbarItem
-        extends Extension_TicketToolbarItem {
-            
-            function render(CerberusTicket $ticket) { }
-    };
-
-**render()**
-    This method is called when a worker views a ticket object. Your implementation is passed the ticket being displayed as the ``$ticket`` parameter. See the documentation on :php:class:`CerberusTicket` for more information on the data and methods you have access to for each task.
+.. php:class:: ExampleTicketToolbarItem extends Extension_TicketToolbarItem
+    
+    .. php:method:: render(CerberusTicket $ticket)
+        
+        :params CerberusTicket $ticket: The ticket being viewed by the worker.
+        
+        This method is called when a worker views a ticket object. See the documentation on :php:class:`CerberusTicket` for more information on the data and methods you have access to for each task.
 
 Examples
 ========

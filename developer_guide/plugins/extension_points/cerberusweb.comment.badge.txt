@@ -20,12 +20,12 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         </class>
         <params/>
     </extension>
-    
+
 Implementation
 ==============
-.. :php:class:: ExampleCommentBadge extends Extension_CommentBadge
-            
-    .. :php:method:: render(Model_Comment $comment)
+.. php:class:: ExampleCommentBadge extends Extension_CommentBadge
+    
+    .. php:method:: render(Model_Comment $comment)
         
         :params Model_Comment $comment: The comment being rendered.
         

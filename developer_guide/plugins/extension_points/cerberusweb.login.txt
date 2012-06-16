@@ -23,29 +23,19 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    abstract class Extension_LoginAuthenticator
-        extends DevblocksExtension {
-            
-            function renderLoginForm() {}
-            
-            function authenticate() {
-                return false;
-            }
-            
-            function signoff() {}
-    };
-
-**renderLoginForm()**
-    This method is called when the login form is displayed and the worker has selected your login extension for authentication. Your method should display the login form, and the form should submit to the ``authenticate()`` method of your extension.
+.. php:class:: ExampleLoginAuthenticator extends Extension_LoginAuthenticator
     
-**authenticate()**
-    This method should be called when the worker clicks the 'Sign On' button. On submit, it should check the supplied credentials. If the login is valid, it should return a user_id, otherwise it should return false.
-    
-**signoff()**
-    This method is called when a user clicks 'sign off'.
+    .. php:method:: renderLoginForm()
+        
+        This method is called when the login form is displayed and the worker has selected your login extension for authentication. Your method should display the login form, and the form should submit to the ``authenticate()`` method of your extension.
+        
+    .. php:method:: authenticate()
+        
+        This method should be called when the worker clicks the 'Sign On' button. On submit, it should check the supplied credentials. If the login is valid, it should return a user_id, otherwise it should return false.
+        
+    .. php:method:: signoff()
+        
+        This method is called when a user clicks 'sign off'.
 
 Examples
 ========

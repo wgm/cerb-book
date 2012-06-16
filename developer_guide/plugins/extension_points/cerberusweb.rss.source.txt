@@ -24,19 +24,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleRssSource
-        extends Extension_RssSource {
-            
-            function getFeedAsRss($feed) {}
-    };
-
-    [edit]
-
-**getFeedAsRss()**
-    This method is called when a feed is loaded. This should take the ``$feed`` parameter and return XML in the RSS format. See the documentation on :doc:`Model_ViewRSS </developer/devblocks/models/model_viewrss>` for more information on the data and methods you have access to for each feed.
+.. php:class:: ExampleRssSource extends Extension_RssSource
+    
+    .. php:method:: getFeedAsRss($feed)
+        
+        :params $feed: The RSS feed
+        
+        This method is called when a feed is loaded. This should take the ``$feed`` parameter and return XML in the RSS format. See the documentation on :doc:`Model_ViewRSS </developer/devblocks/models/model_viewrss>` for more information on the data and methods you have access to for each feed.
 
 Examples
 ========

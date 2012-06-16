@@ -47,8 +47,8 @@ Implementation
 Examples
 ========
 
-Timetracking
-~~~~~~~~~~~~
+Time Tracking
+~~~~~~~~~~~~~
 
 :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.timetracking/plugin.xml#L137

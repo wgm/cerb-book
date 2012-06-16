@@ -23,17 +23,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
+.. php:class:: ExampleReplyToolbarItem extends Extension_ReplyToolbarItem
+    
+    .. php:method:: render(CerberusMessage $message)
+        
+        :params CerberusMessage $message: The message being rendered.
 
-    <?php
-    class ExampleReplyToolbarItem
-        extends Extension_ReplyToolbarItem {
-            
-            function render(CerberusMessage $message) { }
-    };
-
-**render()**
-    This method is called when the reply form is rendered on the Conversation tab for a ticket. Your implementation is passed the message being displayed as the ``$message`` parameter. See the documentation on :php:class:`CerberusMessage` for more information on the data and methods you have access to for each message.
+        This method is called when the reply form is rendered on the Conversation tab for a ticket. See the documentation on :php:class:`CerberusMessage` for more information on the data and methods you have access to for each message.
 
 Examples
 ========

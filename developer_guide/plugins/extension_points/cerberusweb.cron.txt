@@ -23,27 +23,21 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
+.. php:class:: ExampleCron extends CerberusCronPageExtension
 
-    <?php
-    class ExampleCron
-        extends CerberusCronPageExtension {
-
-            public function run() {}
-            
-            public function configure($instance) {}
-            
-            public function saveConfigurationAction() {}
-    };
-
-**run()**
-    This method is called when the platform determines it is time for your scheduled task to run.
-    
-**configure($instance)**
-    Displays the configuration area for this scheduled task on the setup -> Scheduler page. Your implementation is passed an ``$instance`` parameter with all the information about the scheduled task. See the documentation on :php:class:`CerberusCronPageExtension` for more information on the data and methods available to each scheduled task.
-    
-**saveConfigurationAction()**
-    Saves the config when an admin clicks ``save`` in the configuration area for this scheduled task.
+    .. php:method:: run()
+        
+        This method is called when the platform determines it is time for your scheduled task to run.
+        
+    .. php:method:: configure($instance) {}
+        
+        :params $instance: The instance of the scheduled task being displayed
+        
+        Displays the configuration area for this scheduled task on the setup -> Scheduler page. See the documentation on :php:class:`CerberusCronPageExtension` for more information on the data and methods available to each scheduled task.
+        
+    .. php:method:: saveConfigurationAction()
+        
+        Saves the config when an admin clicks ``save`` in the configuration area for this scheduled task.
     
 Examples
 ========

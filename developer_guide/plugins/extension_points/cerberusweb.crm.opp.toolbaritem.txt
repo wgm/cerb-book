@@ -21,19 +21,16 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         <params/>
     </extension>
 
+
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleCrmOppToolbarItem
-        extends Extension_CrmOpportunityToolbarItem {
-            
-            function render(Model_CrmOpportunity $opp) { }
-    };
-
-**render()**
-    This method is called when a worker views an opportunity object. Your implementation is passed the opp being displayed as the ``$opp`` parameter. See the documentation on :php:class:`Model_CrmOpportunity` for more information on the data and methods you have access to for each opportunity.
+.. php:class:: ExampleCrmOppToolbarItem extends Extension_CrmOpportunityToolbarItem
+    
+    .. php:method:: render(Model_CrmOpportunity $opp)
+        
+        :params Model_CrmOpportunity $opp: The opportunity being viewed.
+        
+        This method is called when a worker views an opportunity object. Your implementation is passed the opp being displayed as the ``$opp`` parameter. See the documentation on :php:class:`Model_CrmOpportunity` for more information on the data and methods you have access to for each opportunity.
 
 Examples
 ========

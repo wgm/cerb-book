@@ -23,14 +23,8 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExamplePostBodyRenderer
-        extends Extension_AppPostBodyRenderer {
-            
-            function render() { }
-    };
-
-**render()**
+.. php:class:: ExamplePostBodyRenderer extends Extension_AppPostBodyRenderer
+    
+    .. php:method:: render()
+        
         This method is called on every page load. The contents will be injected just before the closing </body> tag.

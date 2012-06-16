@@ -23,17 +23,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
+.. php:class:: ExampleTicketToolbarItem extends Extension_TicketToolbarItem
+    
+    .. php:method:: render(Model_Task $task)
+        
+        :params Model_Task $task: The task being viewed by the worker.
 
-    <?php
-    class ExampleTicketToolbarItem
-        extends Extension_TicketToolbarItem {
-            
-            function render(Model_Task $task) { }
-    };
-
-**render()**
-    This method is called when a worker views a task object. Your implementation is passed the task being displayed as the ``$task`` parameter. See the documentation on :php:class:`Model_Task` for more information on the data and methods you have access to for each task.
+        This method is called when a worker views a task object. See the documentation on :php:class:`Model_Task` for more information on the data and methods you have access to for each task.
 
 Examples
 ========

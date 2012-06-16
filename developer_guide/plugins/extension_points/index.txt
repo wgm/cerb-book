@@ -8,14 +8,10 @@ Extension Points
     cerberusweb.comment.badge
     cerberusweb.crm.opp.toolbaritem
     cerberusweb.cron
-    cerberusweb.datacenter.server.tab
-    cerberusweb.datacenter.tab
-    cerberusweb.knowledgebase.tab
     cerberusweb.login
     cerberusweb.mail.send.toolbaritem
     cerberusweb.message.badge
     cerberusweb.message.toolbaritem
-    cerberusweb.org.tab
     cerberusweb.page
     cerberusweb.plugin.setup
     cerberusweb.preferences.tab
@@ -28,11 +24,14 @@ Extension Points
     cerberusweb.rss.source
     cerberusweb.support_center.message.badge
     cerberusweb.task.toolbaritem
-    cerberusweb.ticket.tab
     cerberusweb.ticket.toolbaritem
+    cerberusweb.ui.context.profile.script
+    cerberusweb.ui.context.profile.tab
     cerberusweb.ui.page.menu
     cerberusweb.ui.page.menu.item
     cerberusweb.ui.page.section
+    cerberusweb.ui.workspace.page
+    cerberusweb.ui.workspace.tab
     devblocks.controller
     devblocks.context
     devblocks.event

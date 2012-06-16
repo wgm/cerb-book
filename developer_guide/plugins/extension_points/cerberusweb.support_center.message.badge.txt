@@ -24,17 +24,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleMessageBadge
-        extends Extension_SupportCenterMessageBadge {
-            
-            function render(Model_Message $message) {}
-    };
-
-**render()**
-    This method is called when a message is rendered. Your implementation is passed the message being displayed as the ``$message`` parameter. See the documentation on :php:class:`Model_Message` for more information on the data and methods you have access to for each message.
+.. php:class:: ExampleMessageBadge extends Extension_SupportCenterMessageBadge
+    
+    .. php:method:: render(Model_Message $message)
+        
+        :params Model_Message $message: The message being rendered.
+        
+        This method is called when a message is rendered. Your implementation is passed the message being displayed as the ``$message`` parameter. See the documentation on :php:class:`Model_Message` for more information on the data and methods you have access to for each message.
 
 Examples
 ========
