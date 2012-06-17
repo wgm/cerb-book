@@ -6,3 +6,4 @@ Extensions
     
     Extension_DevblocksContext
     Extension_DevblocksEvent
+    Extension_RestController

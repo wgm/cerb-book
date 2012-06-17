@@ -4,7 +4,6 @@ Extension Points
 .. toctree::
     :maxdepth: 1
     
-    cerberusweb.activity.tab
     cerberusweb.comment.badge
     cerberusweb.crm.opp.toolbaritem
     cerberusweb.cron

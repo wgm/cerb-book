@@ -27,7 +27,7 @@ Implementation
     
     .. php:method:: render(CerberusTicket $ticket)
         
-        :params CerberusTicket $ticket: The ticket being viewed by the worker.
+        :param CerberusTicket $ticket: The ticket being viewed by the worker.
         
         This method is called when a worker views a ticket object. See the documentation on :php:class:`CerberusTicket` for more information on the data and methods you have access to for each task.
 

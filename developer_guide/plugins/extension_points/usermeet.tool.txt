@@ -34,70 +34,33 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
  
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class ExampleUmTool
-        extends Extension_UsermeetTool {
-            private $portal = '';
+.. php:class:: ExampleUmTool extends Extension_UsermeetTool
+    
+    .. php:method:: handleRequest(DevblocksHttpRequest $request)
+        
+        :param DevblocksHttpRequest $request: The current request.
             
-            /*
-             * Site Key
-             * Site Name
-             * Site URL
-             */
-             
-            /**
-             * @param DevblocksHttpRequest
-             * @return DevblocksHttpResponse
-             */
-            public function handleRequest(DevblocksHttpRequest $request) {
-                $path = $request->path;
-                
-                @$a = DevblocksPlatform::importGPC($_REQUEST['a'],'string');
-                
-                if(empty($a)) {
-                    @$action = array_shift($path) . 'Action';
-                } else {
-                    @$action = $a . 'Action';
-                }
-                
-                switch($action) {
-                    case NULL:
-                        // [TODO] Index/page render
-                        break;
-                        //            
-                    default:
-                        // Default action, call arg as a method suffixed with Action
-                        if(method_exists($this,$action)) {
-                            call_user_func(array(&$this, $action)); // [TODO] Pass HttpRequest as arg?
-                        }
-                        break;
-                }
-            }
+        Handles the request when the platform receives a request for this tool. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
+        
+    .. php:method:: writeResponse(DevblocksHttpResponse $response)
+        
+        :param DevblocksHttpResponse $response: The current response.
+        
+        Handles sending the response to the browser at the end of the request/response cycle. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
+        
+    .. php:method:: configure(Model_CommunityTool $instance)
+        
+        :param Model_CommunityTool $instance: The instance of the community portal being modified.
 
-            public function writeResponse(DevblocksHttpResponse $response) {}
+        Renders the configuration for this tool in the Community Portal area. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
+        
+    .. php:method:: saveConfiguration(Model_CommunityTool $instance)
+        
+        :param Model_CommunityTool $instance: The instance of the community portal being saved.
+        
+        Saves the configuration data specified in the Community Portal area. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
 
-            /**
-             * @param Model_CommunityTool $instance
-             */
-            public function configure(Model_CommunityTool $instance) {}
-
-            public function saveConfiguration(Model_CommunityTool $instance) {}
-    };
-
-**handleRequest(DevblocksHttpRequest $request)**
-    Handles the request when the platform receives a request for this tool. Access to the current request is provided via the ``$request`` variable. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
-
-**writeResponse(DevblocksHttpResponse $response)**
-    Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
     
-**configure(Model_CommunityTool $instance)**
-    Renders the configuration for this tool in the Community Portal area. Your implementation is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
-    
-**saveConfiguration(Model_CommunityTool $instance)**
-    Saves the configuration data specified in the Community Portal area. Your implementation is passed an instance of the tool being modified in the ``$instance`` parameter. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
-
 Examples
 ========
 

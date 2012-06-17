@@ -1,0 +1,71 @@
+Extension_RestController
+------------------------
+
+.. php:class:: Extension_RestController
+    
+    .. php:const:: ERRNO_CUSTOM
+    
+    .. php:const:: ERRNO_ACL
+    
+    .. php:const:: ERRNO_NOT_IMPLEMENTED
+    
+    .. php:const:: ERRNO_SEARCH_FILTERS_INVALID
+
+    .. php:method:: error($code, $message='')
+        
+        :param integer/string $code: An integer representing the error code, **or** a string containing the message of the error. If a string is provided, :php:const:`Extension_RestController::ERRNO_CUSTOM` will be used as the code. Valid codes are :php:const:`Extension_RestController::ERRNO_ACL`, :php:const:`Extension_RestController::ERRNO_NOT_IMPLEMENTED`, :php:const:`Extension_RestController::ERRNO_SEARCH_FILTERS_INVALID`, and :php:const:`ERRNO_CUSTOM`.
+        :param string $message: An optional error message.
+        
+         Handles processing an error. 
+        
+    .. php:method:: success($array)
+        
+        :param array $array: An array containing the objects returned.
+        
+    .. php:method:: getActiveWorker()
+        
+        :returns Model_Worker:
+        
+        Returns the currently active worker.
+
+    .. php:method:: getPayload()
+    
+    .. php:method::  setPayload($payload)
+        
+        :param string $payload:
+        
+    .. php:method:: setActiveWorker($worker)
+        
+        :param Model_Worker $worker: The current worker.
+        
+    .. php:method:: handleRequest(DevblocksHttpRequest $request)
+        
+        :param DevblocksHttpRequest $request: The current request.
+
+    .. php:method:: getAction($stack)
+        
+        :param array $stack: An array representing the requested path.
+        
+        This method is called when the get method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
+        
+    .. php:method:: putAction($stack)
+        
+        This method is called when the put method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
+        
+    .. php:method:: postAction($stack)
+        
+        This method is called when the post method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
+
+    .. php:method:: deleteAction($stack)
+        
+        This method is called when the delete method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
+
+    .. php:method:: _handleSearchBuildParamsCustomFields(&$filters, $context)
+
+    .. php:method:: _handleSearchBuildParams($filters)
+
+    .. php:method:: _handlePostSearch()
+
+    .. php:method:: _handleRequiredFields($required, $fields)
+
+    .. php:method:: _handleCustomFields($scope_array)

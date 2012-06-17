@@ -23,21 +23,20 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
-
-    <?php
-    class Search_ExampleContent {
-        public function index($stop_time=null) {}
+.. php:class:: Search_ExampleContent
+    
+    .. php:method:: index($stop_time=null)
         
-        public function delete($ids) {}
-    };
+        :param integer $stop_time: A timestamp indicating when to stop indexing.
 
-**index($stop_time=null)**
-    This method should handle indexing the data. The ``$stop_time`` parameter is a timestamp of when to stop indexing.
-    
-**delete($ids)**
-    This method handles deleting the indexes.
-    
+        This method is called when your data should be indexed.
+        
+    .. php:method:: delete($ids)
+        
+        :param array $ids: An array of ids representing the indexes to delete.
+        
+        This method is called when indexes should be deleted.
+        
 Examples
 ========
 

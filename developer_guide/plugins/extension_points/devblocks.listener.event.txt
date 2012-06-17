@@ -44,17 +44,13 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
+.. php:class:: ExampleEventListener extends DevblocksEventListenerExtension
 
-    <?php
-    class ExampleEventListener
-        extends DevblocksEventListenerExtension {
-            
-            function handleEvent(Model_DevblocksEvent $event) {}
-    };
-
-**handleEvent(Model_DevblocksEvent $event)**
-    This method is called automatically whenever one of the captured events is triggered. The event that triggered the call is passed in the ``$event`` parameter. See the documentation on :php:class:`Model_DevblocksEvent` for more information on the data and methods you have access to for each event.
+    .. php:method:: handleEvent(Model_DevblocksEvent $event)
+        
+        :param Model_DevblocksEvent $event: The event that triggered the listener.
+        
+        This method is called automatically whenever one of the captured events is triggered. See the documentation on :php:class:`Model_DevblocksEvent` for more information on the data and methods you have access to for each event.
 
 Examples
 ========

@@ -30,23 +30,19 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     
 Implementation
 ==============
-
-.. code-block:: php
-
-    <?php
-    class ExampleController
-        extends DevblocksControllerExtension {
-            
-            public function handleRequest(DevblocksHttpRequest $request) {}
-            
-            public function writeResponse(DevblocksHttpResponse $response) {}
-    };
+.. php:class ExampleController extends DevblocksControllerExtension
     
-**handleRequest(DevblocksHttpRequest $request)**
-    This method is called when the platform receives a request for this controller. Access to the current request is provided via the ``$request`` variable. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
-    
-**writeResponse(DevblocksHttpResponse $response)**
-    This method is called when the platform writes the response for the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
+    .. php:method:: handleRequest(DevblocksHttpRequest $request)
+        
+        :param DevblocksHttpRequest $request: The current request.
+        
+        This method is called when the platform receives a request for this controller. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
+        
+    .. php:method:: writeResponse(DevblocksHttpResponse $response)
+        
+        :param DevblocksHttpResponse $response: The current response.
+        
+        This method is called when the platform writes the response for the request/response cycle. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
 
 SDK
 ===

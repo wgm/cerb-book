@@ -27,7 +27,7 @@ Implementation
     
     .. php:method:: render(CerberusMessage $message)
         
-        :params CerberusMessage $message: The message being rendered.
+        :param CerberusMessage $message: The message being rendered.
         
         This method is called when a message is rendered on the Conversation tab for a ticket. See the documentation on :php:class:`CerberusMessage` for more information on the data and methods you have access to for each message.
 

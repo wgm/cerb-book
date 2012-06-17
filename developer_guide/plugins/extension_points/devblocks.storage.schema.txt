@@ -24,6 +24,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 Implementation
 ==============
 .. php:class:: class ExampleStorageSchema extends Extension_DevblocksStorageSchema
+
     .. php:const:: ID
         
         The id of your extension.

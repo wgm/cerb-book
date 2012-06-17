@@ -27,7 +27,7 @@ Implementation
     
     .. php:method:: render(Model_Task $task)
         
-        :params Model_Task $task: The task being viewed by the worker.
+        :param Model_Task $task: The task being viewed by the worker.
 
         This method is called when a worker views a task object. See the documentation on :php:class:`Model_Task` for more information on the data and methods you have access to for each task.
 

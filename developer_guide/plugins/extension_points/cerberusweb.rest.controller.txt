@@ -1,7 +1,7 @@
 cerberusweb.rest.controller
 ---------------------------
 
-The **cerberusweb.rest.controller** extension point allows you to add new objects to the :doc:`Rest API</developer_guide/rest_api/index>`. Your class needs to extend ``Extension_RestController``, and it also needs to implement ``IExtensionRestController``.
+The **cerberusweb.rest.controller** extension point allows you to add new objects to the :doc:`Rest API</developer_guide/rest_api/index>`. Your class needs to extend :php:class:`Extension_RestController`, and it also needs to implement ``IExtensionRestController``.
 
 Plugin Manifest
 ===============
@@ -28,118 +28,26 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
         
 Implementation
 ==============
-.. code-block:: php
+.. php:class:: ExampleRestController extends Extension_RestController implements IExtensionRestController
 
-    <?php
-    class ExampleRestController
-        extends Extension_RestController {
-        const ERRNO_CUSTOM = 0;
-        const ERRNO_ACL = 1;
-        const ERRNO_NOT_IMPLEMENTED = 2;
-        const ERRNO_SEARCH_FILTERS_INVALID = 20;
+    .. php:method:: getAction($stack)
+        
+        :param array $stack: An array representing the requested path.
+        
+        This method is called when the get method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
+        
+    .. php:method:: putAction($stack)
+        
+        This method is called when the put method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
+        
+    .. php:method:: postAction($stack)
+        
+        This method is called when the post method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
 
-        private $_activeWorker = null; /* @var $_activeWorker Model_Worker */ 
-        private $_format = 'json';
-        private $_payload = '';
+    .. php:method:: deleteAction($stack)
+        
+        This method is called when the delete method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
 
-        /**
-         * 
-         * @param string $message
-         */
-        protected function error($code, $message='') {}
-
-        /**
-         * 
-         * @param array $array
-         */
-        protected function success($array) {} 
-
-        /**
-         * @return Model_Worker
-         */
-        public function getActiveWorker() {
-            return($this->_activeWorker);
-        }
-
-        public function getPayload() {
-            return $this->_payload;
-        }
-
-        public function setPayload($payload) {
-            $this->_payload = $payload;
-        }
-
-        /**
-         * 
-         * @param Model_Worker $worker
-         */
-        public function setActiveWorker($worker) {
-            $this->_activeWorker = $worker;
-        }
-
-        function handleRequest(DevblocksHttpRequest $request) {}
-
-        function getAction($stack) {
-            /* Override */
-            $this->error('GET not implemented.');
-        }
-
-        function putAction($stack) {
-            /* Override */
-            $this->error('PUT not implemented.');
-        }
-
-        function postAction($stack) {
-            /* Override */
-            $this->error('POST not implemented.');
-        }
-
-        function deleteAction($stack) {
-            /* Override */
-            $this->error('DELETE not implemented.');
-        }
-
-        protected function _handleSearchBuildParamsCustomFields(&$filters, $context) {}
-
-        protected function _handleSearchBuildParams($filters) {}
-
-        protected function _handlePostSearch() {}
-
-        protected function _handleRequiredFields($required, $fields) {}
-
-        protected function _handleCustomFields($scope_array) {}
-    };
-    
-**error($code, $message)**
-    Handles processing an error. Valid codes are `self::ERRNO_ACL`, `self::ERRNO_NOT_IMPLEMENTED``, `self::ERRNO_SEARCH_FILTERS_INVALID``, and ``ERRNO_CUSTOM``.
-    
-**success($array)**
-    
-**getActiveWorker()**
-    
-**getPayload()**
-  
-**setPayload($payload)**
-    
-**setActiveWorker($worker)**
-    
-**handleRequest(DevblocksHttpRequest $request)**
-
-**getAction($stack)**
-
-**putAction($stack)**
-
-**postAction($stack)**
-
-**deleteAction($stack)**
-
-**_handleSearchBuildParams($filters)**
-
-**_handlePostSearch()**
-
-**_handleRequiredFields($required, $fields)**
-
-**_handleCustomFields($scope_array)**
 
 Examples
 ========

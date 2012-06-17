@@ -65,21 +65,20 @@ Implementation
         This method is called when the test button is used on a VA. It should return a random object with its context.
         
 	.. php:method:: getMeta($context_id)
-	    
-        This method is called when notifications are generated for your context. The id of the object is passed via the ``$context_id`` parameter. It should return an array with ``id``, ``name`` and ``permalink`` indices; the ``id`` should be the numerical ID of the object, the ``name`` should be the name or title of the object, and the ``permalink`` should be the full URL to the record after it's been passed through the URL service.
         
         :param integer $context_id: The id of the object.
-        
         :returns: an array with ``id``, ``name``, and ``permalink`` indices.
         
-	.. php:method:: getContext($object, &$token_labels, &$token_values, $prefix=null)
+        This method is called when notifications are generated for your context. The id of the object is passed via the ``$context_id`` parameter. It should return an array with ``id``, ``name`` and ``permalink`` indices; the ``id`` should be the numerical ID of the object, the ``name`` should be the name or title of the object, and the ``permalink`` should be the full URL to the record after it's been passed through the URL service.
         
-        This method is called when the context is retrieved for an object. The ``$token_labels`` and ``$token_values`` parameters are passed by reference, and you should add your own labels and values to these variables in your implementation.
+	.. php:method:: getContext($object, &$token_labels, &$token_values, $prefix=null)
         
         :param mixed $object: An instance of the current object.
         :param array &$token_labels: The various token labels imported for this context.
         :param array &$token_values: The various token values imported for this context.
         :param string $prefix: A human-friendly prefix for your token labels.
+        
+        This method is called when the context is retrieved for an object. The ``$token_labels`` and ``$token_values`` parameters are passed by reference, and you should add your own labels and values to these variables in your implementation.
         
 	.. php:method:: getChooserView()
     
@@ -87,10 +86,10 @@ Implementation
     
 	.. php:method:: getView($context=null, $context_id=null, $options=array())
         
-        This method is called when the view for this context is displayed. If the ``$context`` and ``$context_id`` parameters are both specified, your implementation should only display records that are linked to the specified ``$context`` and ``$context_id``.
-        
         :param string $context: The context to filter results against.
         :param integer $context_id: The context id to filter results against.
+        
+        This method is called when the view for this context is displayed. If the ``$context`` and ``$context_id`` parameters are both specified, your implementation should only display records that are linked to the specified ``$context`` and ``$context_id``.
 
 Examples
 ========

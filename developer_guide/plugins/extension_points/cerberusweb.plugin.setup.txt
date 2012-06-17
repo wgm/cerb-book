@@ -36,7 +36,7 @@ Implementation
         
     .. php:method:: save(&$errors)
         
-        :params $errors: An array of errors passed by reference.
+        :param $errors: An array of errors passed by reference.
         
         This method is called when the user hits the save button to save your plugins settings. It is passed an array by reference as the ``$errors`` parameter. Your implementation should check the configuration details, and should return a boolean. If there is an error, it should add items to the array for each error.
 

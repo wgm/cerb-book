@@ -32,43 +32,27 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
 
 Implementation
 ==============
-.. code-block:: php
+.. php:class:: ExamplePageMenu_CustomMenuItem extends Extension_PageMenuItem
+    
+    .. php:const:: POINT
+        
+        This extension's extension point.
+        
+    .. php:method:: getExtensions($as_instances=true, $page_id=null, $menu_id=null)
+        
+        Returns all of the page menu items for the specified ``$page_id`` and ``$menu_id``. If no ``$page_id`` or ``$menu_id`` are set, this method returns all of the page menu items currently registered with the platform. The ``$as_instances`` parameter allows you to specify whether or not to return instantiated objects for each of the page menus or just the extension (which you will need to instantiate yourself).
+        
+    .. php:method:: function render()
+        
+        This method is called when the menu is rendered on the page. You'll most likely want to return HTML or render a template inside of this method.
 
-    <?php
-    class ExamplePageMenu_CustomMenuItem
-        extends Extension_PageMenuItem {
-            const POINT = 'cerberusweb.ui.page.menu.item';
+Examples
+========
 
-            /**
-             * @return DevblocksExtensionManifest[]|Extension_PageMenuItem[]
-             */
-            static function getExtensions($as_instances=true, $page_id=null, $menu_id=null) {
-                if(empty($page_id) && empty($menu_id))
-                    return DevblocksPlatform::getExtensions(self::POINT, $as_instances);
+Time Tracking
+~~~~~~~~~~~~~
 
-                $results = array();
-
-                $exts = DevblocksPlatform::getExtensions(self::POINT, false);
-                foreach($exts as $ext_id => $ext) {
-                    if(empty($page_id) || 0 == strcasecmp($page_id, $ext->params['page_id']))
-                        if(empty($menu_id) || 0 == strcasecmp($menu_id, $ext->params['menu_id']))
-                            $results[$ext_id] = $as_instances ? $ext->createInstance() : $ext;
-                }
-
-                // Sorting
-                if($as_instances)
-                    uasort($results, create_function('$a, $b', "return strcasecmp(\$a->manifest->name,\$b->manifest->name);\n"));
-                else
-                    uasort($results, create_function('$a, $b', "return strcasecmp(\$a->name,\$b->name);\n"));
-
-                return $results;
-            }
-
-            public function render() {}
-    };
-
-**getExtensions($as_instances=true, $page_id=null, $menu_id=null)**
-    Returns all of the page menu items for the specified ``$page_id`` and ``$menu_id``. If no ``$page_id`` or ``$menu_id`` are set, this method returns all of the page menu items currently registered with the platform. The ``$as_instances`` parameter allows you to specify whether or not to return instantiated objects for each of the page menus or just the extension (which you will need to instantiate yourself).
-
-**render()**
-    This method is called when the menu is rendered on the page. You'll most likely want to return HTML or render a template inside of this method.
+:doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.timetracking/plugin.xml#L183
+Implementation:
+    https://github.com/wgm/cerb6/blob/stable/features/cerberusweb.crm/api/App.php#L587

@@ -32,22 +32,22 @@ Implementation
 .. php:class:: ExampleEventAction extends Extension_DevblocksEventAction
                 
     .. php:method:: render(Extension_DevblocksEvent $event, Model_TriggerEvent $trigger, $params=array(), $seq=null)
-
-        This method is called when a worker selects your action for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
         
         :param Extension_DevblocksEvent $event: The instance of the Virtual Attendant being displayed.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
         :param array $params: The parameters specified for the Virtual Attendant action.
         :param integer $seq: An integer representing the position of this action in the Virtual Attendant.
         
-    .. php:method:: run($token, $trigger, $params, &$values)
+        This method is called when a worker selects your action for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
         
-        This method is called when the defined action is run. Your implementation can modify the values parameter, which is passed to your method by reference.
+    .. php:method:: run($token, $trigger, $params, &$values)
         
         :param string $token: The label for this action.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
         :param array $params: The parameters specified for the Virtual Attendant action.
         :param array $values: The values of the object the Virtual Attendant is running on.
+
+        This method is called when the defined action is run. Your implementation can modify the values parameter, which is passed to your method by reference.
 
 Examples
 ========

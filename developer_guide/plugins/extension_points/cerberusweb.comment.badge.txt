@@ -27,7 +27,7 @@ Implementation
     
     .. php:method:: render(Model_Comment $comment)
         
-        :params Model_Comment $comment: The comment being rendered.
+        :param Model_Comment $comment: The comment being rendered.
         
         This method is called when a comment is rendered. See the documentation on :php:class:`Model_Comment` for more information on the data and methods you have access to for each comment.
 

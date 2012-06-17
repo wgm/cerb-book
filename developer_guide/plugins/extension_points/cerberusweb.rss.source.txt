@@ -28,7 +28,7 @@ Implementation
     
     .. php:method:: getFeedAsRss($feed)
         
-        :params $feed: The RSS feed
+        :param $feed: The RSS feed.
         
         This method is called when a feed is loaded. This should take the ``$feed`` parameter and return XML in the RSS format. See the documentation on :doc:`Model_ViewRSS </developer/devblocks/models/model_viewrss>` for more information on the data and methods you have access to for each feed.
 

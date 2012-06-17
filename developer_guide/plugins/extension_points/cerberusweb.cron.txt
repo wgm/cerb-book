@@ -31,7 +31,7 @@ Implementation
         
     .. php:method:: configure($instance) {}
         
-        :params $instance: The instance of the scheduled task being displayed
+        :param $instance: The instance of the scheduled task being displayed.
         
         Displays the configuration area for this scheduled task on the setup -> Scheduler page. See the documentation on :php:class:`CerberusCronPageExtension` for more information on the data and methods available to each scheduled task.
         

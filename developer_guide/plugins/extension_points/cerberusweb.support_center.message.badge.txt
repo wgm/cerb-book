@@ -28,7 +28,7 @@ Implementation
     
     .. php:method:: render(Model_Message $message)
         
-        :params Model_Message $message: The message being rendered.
+        :param Model_Message $message: The message being rendered.
         
         This method is called when a message is rendered. Your implementation is passed the message being displayed as the ``$message`` parameter. See the documentation on :php:class:`Model_Message` for more information on the data and methods you have access to for each message.
 
