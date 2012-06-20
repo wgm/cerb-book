@@ -31,20 +31,24 @@ Implementation
 .. php:class:: ExampleRestController extends Extension_RestController implements IExtensionRestController
 
     .. php:method:: getAction($stack)
+        :noindex:
         
         :param array $stack: An array representing the requested path.
         
         This method is called when the get method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
         
     .. php:method:: putAction($stack)
+        :noindex:
         
         This method is called when the put method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
         
     .. php:method:: postAction($stack)
+        :noindex:
         
         This method is called when the post method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
 
     .. php:method:: deleteAction($stack)
+        :noindex:
         
         This method is called when the delete method is invoked on your REST controller. You'll need to determine which method to call based on the stack.
 

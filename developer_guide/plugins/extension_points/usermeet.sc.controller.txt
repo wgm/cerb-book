@@ -39,36 +39,42 @@ Implementation
 .. php:class:: ExampleScController extends Extension_UmScController
     
     .. php:method:: handleRequest(DevblocksHttpRequest $request)
+        :noindex:
         
         :param DevblocksHttpRequest $request: The current request.
         
         Handles the request when the platform receives a request for this controller. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
         
     .. php:method:: writeResponse(DevblocksHttpResponse $response)
+        :noindex:
         
         :param DevblocksHttpResponse $response: The current response.
         
         Handles sending the response to the browser at the end of the request/response cycle. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
         
     .. php:method:: renderSidebar(DevblocksHttpResponse $response)
+        :noindex:
         
         :param DevblocksHttpResponse $response: The current response.
         
         Renders the sidebar for this controller when this controller has processed a request. Access to the current response is provided via the ``$response`` variable. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
         
     .. php:method:: isVisible()
+        :noindex:
         
         :returns boolean:
         
         This method is called before the controller is rendered in the menu, and determines whether or not the controller should be displayed in the menu.
             
     .. php:method:: configure(Model_CommunityTool $instance)
+        :noindex:
         
         :param Model_CommunityTool $instance: The instance of the community portal.
         
         Renders the configuration for this controller in the Community Portal area. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
             
     .. php:method:: saveConfiguration(Model_CommunityTool $instance)
+        :noindex:
         
         :param Model_CommunityTool $instance: The instance of the community portal.
     

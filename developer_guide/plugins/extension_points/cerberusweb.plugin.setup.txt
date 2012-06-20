@@ -31,10 +31,12 @@ Implementation
 .. php:class:: Example_Setup extends Extension_PluginSetup
 
     .. php:method:: render()
+        :noindex:
         
         This function is called when a worker clicks the ``Download and install`` or ``Configure`` button in the ``Manage Plugins`` area and then enables your plugin.
         
     .. php:method:: save(&$errors)
+        :noindex:
         
         :param $errors: An array of errors passed by reference.
         

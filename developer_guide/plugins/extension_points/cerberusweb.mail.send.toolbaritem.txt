@@ -1,3 +1,5 @@
+:noindex:
+
 cerberusweb.mail.send.toolbaritem
 ---------------------------------
 
@@ -25,7 +27,10 @@ Implementation
 ==============
 .. php:class:: ExampleSendMailToolbarItem extends Extension_SendMailToolbarItem
     
-    .. php:method:: render() 
+    Example Send Mail Toolbar Item class
+    
+    .. php:method:: render()
+        :noindex:
         
         This method is called when a worker views the Send Mail page.
 

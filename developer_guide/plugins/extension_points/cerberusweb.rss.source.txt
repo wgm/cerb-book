@@ -27,6 +27,7 @@ Implementation
 .. php:class:: ExampleRssSource extends Extension_RssSource
     
     .. php:method:: getFeedAsRss($feed)
+        :noindex:
         
         :param $feed: The RSS feed.
         

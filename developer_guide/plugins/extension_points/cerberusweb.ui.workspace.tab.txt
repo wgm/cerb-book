@@ -31,7 +31,8 @@ Implementation
 .. php:class:: ExWorkspaceTab extends Extension_WorkspaceTab
     
     .. php:method:: renderTab()
-
+        :noindex:
+        
         This method is called when a worker visits an instance of your tab type.
 
 Examples

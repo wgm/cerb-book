@@ -27,6 +27,7 @@ Implementation
 .. php:class:: ExampleHttpListener extends DevblocksHttpResponseListenerExtension
     
     .. php:method:: run(DevblocksHttpResponse $request, Smarty $tpl)
+        :noindex:
         
         :param DevblocksHttpResponse $request: The current request.
         :param Smarty $tpl: The Smarty singleton.

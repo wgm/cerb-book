@@ -1,3 +1,5 @@
+:noindex:
+
 cerberusweb.crm.opp.toolbaritem
 -------------------------------
 
@@ -26,7 +28,10 @@ Implementation
 ==============
 .. php:class:: ExampleCrmOppToolbarItem extends Extension_CrmOpportunityToolbarItem
     
+    Example CRM Opp Toolbar Item class
+    
     .. php:method:: render(Model_CrmOpportunity $opp)
+        :noindex:
         
         :param Model_CrmOpportunity $opp: The opportunity being viewed.
         

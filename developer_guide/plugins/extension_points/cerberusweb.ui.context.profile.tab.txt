@@ -46,7 +46,8 @@ Implementation
 .. php:class:: ExContextProfileTab extends Extension_ContextProfileTab
     
     .. php:method:: showTab()
-
+        :noindex:
+        
         This method is called when a worker visits your tab on the profile of an object that your tab is registered on.
 
 Examples

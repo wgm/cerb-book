@@ -35,6 +35,7 @@ Implementation
 .. php:class:: ExampleReportGroup extends Extension_ReportGroup
     
     .. php:method:: render()
+        :noindex:
         
         This method is called when the report group is displayed in the browser.
 

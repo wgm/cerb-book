@@ -31,6 +31,7 @@ Implementation
 .. php:class:: ExampleScRssController extends Extension_UmScRssController
     
     .. php:method:: handleRequest(DevblocksHttpRequest $request)
+        :noindex:
         
         :params DevblocksHttpRequest $request: The current request. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
         

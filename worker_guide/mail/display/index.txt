@@ -48,7 +48,7 @@ Virtual Attendant
 
 The :guilabel:`Virtual Attendant` button allows you to schedule a :doc:`Virtual Attendant Behavior</concepts/virtual_attendants/index>` for the current ticket.
 
-.. figure:: /images/worker_guide/mail/display/actions/va.png
+.. figure:: /images/worker_guide/mail/display/actions/va_button.png
     :alt: The virtual attendant button.
     :figclass: bordered
 

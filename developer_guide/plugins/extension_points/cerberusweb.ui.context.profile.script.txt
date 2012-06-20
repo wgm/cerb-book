@@ -41,6 +41,7 @@ Implementation
 .. php:class:: ExContextProfileScript extends Extension_ContextProfileScript
     
     .. php:method:: renderScript()
+        :noindex:
 
         This method is called when a worker visits the profile of an object that your script is registered on.
 

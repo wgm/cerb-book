@@ -26,14 +26,17 @@ Implementation
 .. php:class:: ExampleLoginAuthenticator extends Extension_LoginAuthenticator
     
     .. php:method:: renderLoginForm()
+        :noindex:
         
         This method is called when the login form is displayed and the worker has selected your login extension for authentication. Your method should display the login form, and the form should submit to the ``authenticate()`` method of your extension.
         
     .. php:method:: authenticate()
+        :noindex:
         
         This method should be called when the worker clicks the 'Sign On' button. On submit, it should check the supplied credentials. If the login is valid, it should return a user_id, otherwise it should return false.
         
     .. php:method:: signoff()
+        :noindex:
         
         This method is called when a user clicks 'sign off'.
 

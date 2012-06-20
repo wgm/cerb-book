@@ -26,6 +26,7 @@ Implementation
 .. php:class:: ExampleMessageToolbarItem extends Extension_MessageToolbarItem
     
     .. php:method:: render(CerberusMessage $message)
+        :noindex:
         
         :param CerberusMessage $message: The message being rendered.
         

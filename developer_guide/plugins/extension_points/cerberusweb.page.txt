@@ -40,14 +40,17 @@ Implementation
 .. php:class:: ExamplePage extends CerberusPageExtension
     
     .. php:method:: isVisible()
+        :noindex:
         
         This method is called when a worker visits the URL associated with your page. Your implementation should run the logic required to determine if the page should be visible and enabled. The most common condition to check here is whether a worker is logged in during the page request. You can omit this method in your subclass if you want a page to always be visible, but keep in mind this is *usually* not what you want. Most pages should be secured behind a valid worker session. See the Examples section below for an example.
         
     .. php:method:: render()
+        :noindex:
         
         This method is called when a worker visits the URL associated with your page if the ``isVisible()`` method returns true. Your implementation should draw the HTML content (usually from a template) into the appropriate section of the interface.
         
     .. php:method:: getActivity()
+        :noindex:
         
         This method is called when a worker visits the URL associated with your page if the ``isVisible()`` method returns true. This method can be used to update a worker's activity, which is shown in the Who's Online section of the interface on some pages. Because a default implementation is provided you don't need to implement this method unless you want to define a new activity. The value of activity.default provided as the first argument to Model_Activity in the example above is a string from the translation system. Your getActivity() implementation may pass a variable number of additional arguments to be displayed inside the string. For example, the activity on /display pages shows the specific ticket a worker is viewing; while the activity on /mail pages shows the specific workspace or group being displayed. 
 

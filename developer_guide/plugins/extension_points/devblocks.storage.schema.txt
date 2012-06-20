@@ -26,26 +26,32 @@ Implementation
 .. php:class:: class ExampleStorageSchema extends Extension_DevblocksStorageSchema
 
     .. php:const:: ID
+        :noindex:
         
         The id of your extension.
     
     .. php:staticmethod:: getActiveStorageProfile()
+        :noindex:
         
         This method should return the result of :php:meth:`DAO_DevblocksExtensionPropertyStore::get()`.
     
     .. php:method:: render()
+        :noindex:
         
         This method is called when your storage schema is displayed on the storage page.
         
     .. php:method:: renderConfig()
+        :noindex:
         
         This method is called when your storage schema is configured.
         
     .. php:method:: saveConfig()
+        :noindex:
         
         This method is called when a worker saves the configuration details for your storage schema.
         
     .. php:staticmethod:: get($object, &$fp=null)
+        :noindex:
         
         :param mixed $object: The object being retrieved. Can be either an ID or an instance of a model.
         :param resource &$fp: An optional resource handle. This should be passed to $storage->get().
@@ -53,6 +59,7 @@ Implementation
         This method is called when one of your objects is retrieved by the system. Your implementation should query the storage service for the profile associated with the requested object, then query that profile for the object itself.
         
     .. php:staticmethod:: put($id, $contents, $profile=null)
+        :noindex:
         
         :param integer $id: The id of the row in the database.
         :param string $contents: The contents to save to the storage profile.
@@ -61,22 +68,26 @@ Implementation
         This method is called when your object is saved to a storage profile. If no storage profile is provided, your implementation should save it to the storage profile that is active for your storage schema.
    
     .. php:staticmethod:: delete($ids)
+        :noindex:
         
         :param mixed $ids: The id or ids to delete. This can be an integer or an array of integers.
         
         Deletes an object.
    
     .. php:method:: getStats()
+        :noindex:
         
         This method is called when statistics are shown for your storage schema.
 
     .. php:staticmethod:: archive($stop_time=null)
+        :noindex:
         
         :param integer $stop_time: The unix epoch at which to stop.
         
         This method is called when the platform determines it is time to archive content. Your implementation should determine which objects need to be archived, and then ensure they are actually archived.
         
     .. php:staticmethod:: unarchive($stop_time=null)
+        :noindex:
         
         :param integer $stop_time: The unix epoch at which to stop.
         

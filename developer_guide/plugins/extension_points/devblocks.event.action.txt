@@ -32,6 +32,7 @@ Implementation
 .. php:class:: ExampleEventAction extends Extension_DevblocksEventAction
                 
     .. php:method:: render(Extension_DevblocksEvent $event, Model_TriggerEvent $trigger, $params=array(), $seq=null)
+        :noindex:
         
         :param Extension_DevblocksEvent $event: The instance of the Virtual Attendant being displayed.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
@@ -41,6 +42,7 @@ Implementation
         This method is called when a worker selects your action for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
         
     .. php:method:: run($token, $trigger, $params, &$values)
+        :noindex:
         
         :param string $token: The label for this action.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.

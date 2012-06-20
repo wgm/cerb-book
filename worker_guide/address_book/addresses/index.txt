@@ -60,6 +60,7 @@ Selecting a virtual attendant behavior will display the schedule behavior peek, 
 .. figure:: /images/worker_guide/address_book/addresses/actions/va_dialog.png
     :alt: The virtual attendant dialog.
     :figclass: bordered
+
 Edit
 ~~~~
 

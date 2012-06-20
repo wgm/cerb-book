@@ -31,7 +31,8 @@ Implementation
 .. php:class:: ExWorkspacePage extends Extension_WorkspacePage
     
     .. php:method:: renderPage()
-
+        :noindex:
+        
         This method is called when a worker visits an instance of your page type.
 
 Examples

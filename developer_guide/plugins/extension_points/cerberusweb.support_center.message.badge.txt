@@ -27,6 +27,7 @@ Implementation
 .. php:class:: ExampleMessageBadge extends Extension_SupportCenterMessageBadge
     
     .. php:method:: render(Model_Message $message)
+        :noindex:
         
         :param Model_Message $message: The message being rendered.
         

@@ -33,12 +33,14 @@ Implementation
 .. php:class ExampleController extends DevblocksControllerExtension
     
     .. php:method:: handleRequest(DevblocksHttpRequest $request)
+        :noindex:
         
         :param DevblocksHttpRequest $request: The current request.
         
         This method is called when the platform receives a request for this controller. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
         
     .. php:method:: writeResponse(DevblocksHttpResponse $response)
+        :noindex:
         
         :param DevblocksHttpResponse $response: The current response.
         

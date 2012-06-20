@@ -26,5 +26,6 @@ Implementation
 .. php:class:: ExamplePostBodyRenderer extends Extension_AppPostBodyRenderer
     
     .. php:method:: render()
+        :noindex:
         
         This method is called on every page load. The contents will be injected just before the closing </body> tag.

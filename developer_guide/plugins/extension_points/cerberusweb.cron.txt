@@ -26,16 +26,19 @@ Implementation
 .. php:class:: ExampleCron extends CerberusCronPageExtension
 
     .. php:method:: run()
+        :noindex:
         
         This method is called when the platform determines it is time for your scheduled task to run.
         
-    .. php:method:: configure($instance) {}
+    .. php:method:: configure($instance)
+        :noindex:
         
         :param $instance: The instance of the scheduled task being displayed.
         
         Displays the configuration area for this scheduled task on the setup -> Scheduler page. See the documentation on :php:class:`CerberusCronPageExtension` for more information on the data and methods available to each scheduled task.
         
     .. php:method:: saveConfigurationAction()
+        :noindex:
         
         Saves the config when an admin clicks ``save`` in the configuration area for this scheduled task.
     

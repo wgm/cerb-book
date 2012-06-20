@@ -25,7 +25,10 @@ Implementation
 ==============
 .. php:class:: ExampleCommentBadge extends Extension_CommentBadge
     
+    Example Comment Badge class
+    
     .. php:method:: render(Model_Comment $comment)
+        :noindex:
         
         :param Model_Comment $comment: The comment being rendered.
         

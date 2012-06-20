@@ -52,7 +52,7 @@ The :guilabel:`Edit` button allows you to edit the registered contact.
 
 Clicking the :guilabel:`Edit` button displays the edit dialog.
 
-.. figure:: /images/worker_guide/address_book/addresses/contacts/edit_dialog.png
+.. figure:: /images/worker_guide/address_book/contacts/actions/edit_dialog.png
     :alt: The edit dialog.
     :figclass: bordered
 

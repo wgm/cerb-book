@@ -47,6 +47,7 @@ Implementation
 .. php:class:: ExampleEventListener extends DevblocksEventListenerExtension
 
     .. php:method:: handleEvent(Model_DevblocksEvent $event)
+        :noindex:
         
         :param Model_DevblocksEvent $event: The event that triggered the listener.
         

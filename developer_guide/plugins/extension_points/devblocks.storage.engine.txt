@@ -26,34 +26,40 @@ Implementation
 .. php:class:: ExampleDevblocksStorageEngine extends Extension_DevblocksStorageEngine
     
     .. php:attr:: $_options
+        :noindex:
         
         The current options for the storage engine profile.
         
     .. php:method:: renderConfig(Model_DevblocksStorageProfile $profile)
+        :noindex:
         
         :param Model_DevblocksStorageProfile $profile: The instance of the profile being configured.
         
         This method renders the config form for this storage engine. See the documentation on :php:class:`Model_DevblocksStorageProfile` for more information on the data and methods available for each profile.
         
     .. php:method:: saveConfig(Model_DevblocksStorageProfile $profile)
+        :noindex:
         
         :param Model_DevblocksStorageProfile $profile: The instance of the profile being saved.
         
         This method is called when a worker saves the config form. See the documentation on :php:class:`Model_DevblocksStorageProfile` for more information on the data and methods available for each profile.
         
     .. php:method:: testConfig()
+        :noindex:
         
         This method is called when a worker clicks the test button. Your implementation should check the provided information, and return a boolean.        
         
 	.. php:method:: exists($namespace, $key)
-	    
+	    :noindex:
+        
 	    :param string $namespace: The namespace of the object.
 	    :param string $key: The key identifying the object.
 	    
         This method is called when the platform needs to determine if an object exists. Your implementation should check if the object exists, and return a boolean.
 	    
     .. php:method:: put($namespace, $id, $data)
-    
+        :noindex:
+        
         :param string $namespace: The namespace of the object.
 	    :param integer $id: The id identifying the object.
 	    :param string $data: The contents to save.
@@ -63,7 +69,8 @@ Implementation
 	    This method is called when content is saved to your storage profile. Your implementation should take the ``$namespace`` and ``$id`` and create a unique key from them, then assign  ``$data`` to that key. If there is an error, your implementation should return false, otherwise it should return the unique $key you generated.
 	    
 	.. php:method:: get($namespace, $key, &$fp=null)
-	    
+	    :noindex:
+        
 	    :param string $namespace: The namespace of the object.
 	    :param string $key: The key identifying the object.
 	    :param resource $fp: An optional filepointer.
@@ -73,14 +80,16 @@ Implementation
         This method is called when an object is retrieved from your storage engine.
         
 	.. php:method:: delete($namespace, $key)
-	    
+	    :noindex:
+        
 	    :param string $namespace: The namespace of the object.
 	    :param string $key: The key identifying the object.
 	    
 	    This method is called when an object is deleted from your storage engine.
 
 	.. php:method:: setOptions($options=array())
-	    
+	    :noindex:
+        
 	    :param array $options: An array of options to set for the storage profile.
 	    
 	    This method takes the $options array and assigns it to :php:attr:`ExampleDevblocksStorageEngine::$_options`

@@ -26,6 +26,7 @@ Implementation
 .. php:class:: ExampleTicketToolbarItem extends Extension_TicketToolbarItem
     
     .. php:method:: render(CerberusTicket $ticket)
+        :noindex:
         
         :param CerberusTicket $ticket: The ticket being viewed by the worker.
         

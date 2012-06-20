@@ -37,24 +37,28 @@ Implementation
 .. php:class:: ExampleUmTool extends Extension_UsermeetTool
     
     .. php:method:: handleRequest(DevblocksHttpRequest $request)
+        :noindex:
         
         :param DevblocksHttpRequest $request: The current request.
             
         Handles the request when the platform receives a request for this tool. See the documentation on :php:class:`DevblocksHttpRequest` for more information on the data and methods available for each request.
         
     .. php:method:: writeResponse(DevblocksHttpResponse $response)
+        :noindex:
         
         :param DevblocksHttpResponse $response: The current response.
         
         Handles sending the response to the browser at the end of the request/response cycle. See the documentation on :php:class:`DevblocksHttpResponse` for more information on the data and methods available for each response.
         
     .. php:method:: configure(Model_CommunityTool $instance)
+        :noindex:
         
         :param Model_CommunityTool $instance: The instance of the community portal being modified.
 
         Renders the configuration for this tool in the Community Portal area. See the documentation on :php:class:`Model_CommunityTool` for more information on the data and methods available for each instance.
         
     .. php:method:: saveConfiguration(Model_CommunityTool $instance)
+        :noindex:
         
         :param Model_CommunityTool $instance: The instance of the community portal being saved.
         

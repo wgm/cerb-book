@@ -83,13 +83,13 @@ Reply
 
 The :guilabel:`Reply` button allows you to reply to a message. By default, the message you reply to is quoted.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/reply/button.png
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/reply_button.png
     :alt: The reply button in the actions toolbar.
     :figclass: bordered
 
 The :guilabel:`▾` button expands the reply menu, providing you with the ability to **Quote and reply**, **Reply without quoting**, and **Forward**.
 
-.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/reply/menu.png
+.. figure:: /images/worker_guide/mail/display/tabs/timeline/messages/actions/reply_menu.png
     :alt: The reply menu in the actions toolbar.
     :figclass: bordered
 
@@ -234,7 +234,7 @@ The :guilabel:`Start watching` button allows you to watch the ticket and see how
 
 The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the ticket. The watchers peek also allows you 
 
-.. figure:: /images/worker_guide/mail/display/watchers_dialog.png
+.. figure:: /images/worker_guide/mail/display/actions/watchers_dialog.png
     :alt: The watchers peek.
     :figclass: bordered
 

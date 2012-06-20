@@ -152,6 +152,7 @@ The properties tab allows you quick access to other information about the ticket
 
 .. ::
     Should we link to other docs below?
+
 You can edit the Properties of the ticket - *Status*, *Subject*, *Organization*, *Watchers*, *Owner*, *Bucket* - on the :guilabel:`Properties` tab.
 
 .. figure:: /images/worker_guide/mail/peek_properties_properties.png

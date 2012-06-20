@@ -26,12 +26,14 @@ Implementation
 .. php:class:: Search_ExampleContent
     
     .. php:method:: index($stop_time=null)
+        :noindex:
         
         :param integer $stop_time: A timestamp indicating when to stop indexing.
 
         This method is called when your data should be indexed.
         
     .. php:method:: delete($ids)
+        :noindex:
         
         :param array $ids: An array of ids representing the indexes to delete.
         

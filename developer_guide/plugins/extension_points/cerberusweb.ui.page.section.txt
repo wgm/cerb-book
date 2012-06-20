@@ -35,15 +35,18 @@ Implementation
 .. php:class: PageSection_Example extends Extension_PageMenu
     
     .. php:const:: POINT
+        :noindex:
         
         This extension's extension point.
         
     .. php:method:: getExtensions($as_instances=true, $page_id=null)
+        :noindex:
         
         Returns all of the page menus for the specified ``$page_id``. If no ``$page_id`` is set, this method returns all of the page menus currently registered with the platform. The ``$as_instances`` parameter allows you to specify whether or not to return instantiated objects for each of the page menus or just the extension (which you will need to instantiate yourself).
         
     .. php:method:: render()
-    
+        :noindex:
+        
         This method is called when the menu is rendered on the page. You'll most likely want to return HTML or render a template inside of this method.
     
 Examples

@@ -35,6 +35,7 @@ Implementation
 .. php:class:: ExampleReport extends Extension_Report
 
     .. php:method:: render()
+        :noindex:
         
         This method is called when the report is displayed in the browser.
 

@@ -49,12 +49,14 @@ Implementation
 .. php:class:: ExampleEvent extends Extension_DevblocksEvent
         
     .. php:method:: getConditionExtensions()
+        :noindex:
         
         :returns: An array of label => field type pairs.
         
         This method is called when conditions are added to an outcome for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>` for your event. Your implementation should grab the labels with :php:meth:`Extension_DevblocksEvent::getLabels()`, make an array of context label => field type pairs, with the context label as the index and the field type as the value, then pass the labels and your array through :php:meth:`Extension_DevblocksEvent::_importLabelsTypesAsConditions()`. If you don't set a field type for a specific context label you will need to implement rendering and running the condition yourself.
         
     .. php:method:: renderConditionExtension($token, $trigger, $params=array(), $seq=null)
+        :noindex:
         
         :param string $token: The context label for this condition.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is registered to
@@ -64,6 +66,7 @@ Implementation
         This method is called when a worker selects one of your conditions for an outcome on a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
         
     .. php:method:: runConditionExtension($token, $trigger, $params, $values)
+        :noindex:
         
         :param string $token: The context label for this condition.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this condition is registered to.
@@ -73,10 +76,12 @@ Implementation
         This method is called when your condition is matched and it doesn't have a type defined in the ``getConditionExtensions()`` method. You'll need to implement your own logic to determine if the values for the object match the conditions for the token specified in the :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
         
     .. php:method:: getActionExtensions()
+        :noindex:
         
         This method is called when a worker adds an action for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. Your implementation needs to return a multi-dimensional array of tokens => array pairs. The second level array should contain a ``label`` index and a text string describing the action.
         
     .. php:method:: renderActionExtension($token, $trigger, $params=array(), $seq=null)
+        :noindex:
         
         :param string $token: The label for this action.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
@@ -86,6 +91,7 @@ Implementation
         This method is called when a worker selects one of your actions for a :doc:`Virtual Attendant </concepts/virtual_attendants/index>`. See the documentation on :php:class:`Model_TriggerEvent` for more information on the data and methods available for the trigger parameter.
         
     .. php:method:: runActionExtension($token, $trigger, $params, &$values)
+        :noindex:
         
         :param string $token: The label for this action.
         :param DAO_TriggerEvent $trigger: The instance of the Virtual Attendant this action is running in.
