@@ -7,13 +7,85 @@ A **worklist** is a fully customizable list of :doc:`objects </concepts/objects/
     :alt: A worklist, with a filter and subtotals active.
     :figclass: bordered
 
-Items in a worklist change color to a pale yellow when you hover over them.
+Actions
+=======
+
+All worklists have a variety of icons displayed in the header. These icons are explained below. Note that individual objects may have their own icons. Those icons will be explained in the relevant section for those objects.
+
+Add
+~~~
+
+.. figure:: /images/concepts/worklists/actions/add_icon.png
+    :alt: The add icon.
+    :figclass: bordered
+
+Clicking the :guilabel:`add` icon allows you to add a new object.
+
+Customize
+~~~~~~~~~
+
+.. figure:: /images/concepts/worklists/actions/customize_icon.png
+    :alt: The customize icon.
+    :figclass: bordered
+
+Clicking the :guilabel:`customize` icon opens the :doc:`Customize </concepts/worklists/customize>` section.
+
+Subtotals
+~~~~~~~~~
+
+.. figure:: /images/concepts/worklists/actions/subtotals_icon.png
+    :alt: The subtotals icon.
+    :figclass: bordered
+
+Clicking the :guilabel:`subtotals` icon opens the :doc:`Subtotals </concepts/worklists/subtotals>` section.
+
+Export
+~~~~~~
+
+.. figure:: /images/concepts/worklists/actions/export_icon.png
+    :alt: The export icon.
+    :figclass: bordered
+
+Clicking the :guilabel:`export` icon opens the :doc:`Export </concepts/worklists/export>` section.
+
+Copy
+~~~~
+
+.. figure:: /images/concepts/worklists/actions/copy_icon.png
+    :alt: The copy icon.
+    :figclass: bordered
+
+Clicking the :guilabel:`copy` icon opens the :doc:`Copy </concepts/worklists/copy>` section.
+
+
+Refresh
+~~~~~~~
+
+.. figure:: /images/concepts/worklists/actions/refresh_icon.png
+    :alt: The refresh icon.
+    :figclass: bordered
+
+Clicking the :guilabel:`refresh` icon opens the :doc:`Refresh </concepts/worklists/refresh>` section.
+
+
+Checkbox
+~~~~~~~~
+
+.. figure:: /images/concepts/worklists/actions/checkbox.png
+    :alt: The checkbox.
+    :figclass: bordered
+
+Clicking the :guilabel:`checkbox` will select all of the records currently displayed on the Worklist.
+
+Objects
+=======
+The objects in a worklist change color to a pale yellow when you hover over them.
 
 .. figure:: /images/concepts/worklists/worklist_hover.png
     :alt: A worklist with an item just before it's been selected.
     :figclass: bordered
 
-Items can be selected by clicking on them. Items that have been selected will turn to a golden color.
+Items can be selected by clicking on them. Items that have been selected will turn to a golden color. Selecting items in a worklist may cause additional actions to appear in the actions toolbar below the worklist.
 
 .. figure:: /images/concepts/worklists/worklist_selected.png
     :alt: A worklist, with a filter and subtotals active.
@@ -25,20 +97,6 @@ The checkbox in the upper right hand corner of any worklist allows you to select
     :alt: A worklist, with a filter and subtotals active.
     :figclass: bordered
 
-Actions
-=======
-
-Any worklist that displays the following actions in the header of the worklist has implemented the functionality indicated.
-
-.. toctree::
-    :maxdepth: 1
-
-    subtotals
-    customize
-    export
-    piles
-    copy
-
 Behaviors
 =========
 
@@ -49,7 +107,6 @@ Most worklists implement the following behaviors.
     
     sorting
     paging
-    refresh
     peek
     filters
     presets
@@ -65,6 +122,3 @@ Below the results is the :doc:`actions </concepts/worklists/actions>` toolbar.
     
     explore
     bulk_update
-
-
-

@@ -68,7 +68,11 @@ Clicking :guilabel:`search` allows you to copy all of the filters on a worklist 
 Piles
 ~~~~~
 
-Clicking :guilabel:`piles` at the top of the mail worklist allows you to easily perform bulk actions on tickets with similar properties, without having to setup a filter first.
+.. figure:: /images/concepts/worklists/actions/piles_icon.png
+    :alt: The piles icon.
+    :figclass: bordered
+
+Clicking the :guilabel:`piles` icon allows you to easily perform bulk actions on tickets with similar properties, without having to setup a filter first.
 
 .. figure:: /images/worker_guide/mail/piles.png
     :alt: The piles area.
@@ -83,13 +87,13 @@ The sorting options displayed at the top of the piles section allow you to group
 RSS
 ~~~
 
-Clicking the RSS icon will allow you to create an RSS feed for the worklist currently being displayed. RSS feeds can be managed from the RSS tab in settings.
+Clicking the :guilabel:`RSS` icon will allow you to create an RSS feed for the worklist currently being displayed. RSS feeds can be managed from the RSS tab in settings.
 
 .. ::
     Create and link to worker settings doc, etc
 
-.. figure:: /images/worker_guide/mail/rss.png
-    :alt: The RSS icon on a worklist.
+.. figure:: /images/concepts/worklists/actions/rss_icon.png
+    :alt: The RSS icon.
     :figclass: bordered
 
 Saving the RSS feed will take you to the RSS tab in settings.
@@ -185,7 +189,6 @@ The actions toolbar allows you to quickly perform actions on the tickets that ar
 - Clicking the :guilabel:`spam` button marks the selected tickets as spam.
 - Clicking the :guilabel:`delete` button deletes the selected tickets.
 - Clicking the :guilabel:`move ▾` button allows you to move the ticket to another group or bucket.
-- Clicking the :guilabel:`more »` button expands the toolbar to show additional actions.
 - Clicking the :guilabel:`not spam` button marks the selected tickets as not spam.
 - Clicking the :guilabel:`merge` button merges the selected tickets.
 - Clicking the :guilabel:`waiting` button sets the status of the selected tickets to **waiting**.

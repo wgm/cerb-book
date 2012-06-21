@@ -18,8 +18,7 @@ The address book page is divided into a series of :doc:`tabs </concepts/ui/tabs>
 	tabs/organizations
 	tabs/contacts
 	tabs/addresses
-	tabs/import
-	
+
 Points of Interest
 ==================
 

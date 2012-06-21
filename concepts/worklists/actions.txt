@@ -6,9 +6,3 @@ Beneath each :doc:`worklist </concepts/worklists/index>` is a toolbar of possibl
 .. figure:: /images/concepts/worklists/actions.png
     :alt: The actions toolbar.
     :figclass: bordered
-
-The :guilabel:`more »` button expands the actions toolbar to show additional actions.
-
-.. figure:: /images/concepts/worklists/actions_more.png
-    :alt: The expanded actions toolbar.
-    :figclass: bordered

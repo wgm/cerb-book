@@ -170,7 +170,7 @@ Clicking the :guilabel:`Track Time` button allows you to track time.  See the do
     :alt: The track time button in the actions toolbar.
     :figclass: bordered
 
-The snippets section allows you to quickly insert :doc:`snippets </concepts/snippets>` into the message.
+The snippets section allows you to quickly insert :doc:`snippets </concepts/snippets/index>` into the message.
 
 .. figure:: /images/worker_guide/mail/display/tabs/timeline/reply/snippets.png
     :alt: The snippets section.
@@ -262,7 +262,7 @@ The ticket can be assigned to a worker by selecting a worker from the drop-down 
     :alt: The assign setting in the next section.
     :figclass: bordered
 
-Custom fields can be set in the custom fields section. See the documentation on :doc:`custom fields <concepts/objects/custom_fields>` for more information.
+Custom fields can be set in the custom fields section. See the documentation on :doc:`custom fields </concepts/objects/custom_fields>` for more information.
 
 Clicking the :guilabel:`Send Message` button will send the message to the recipients.
 
@@ -291,7 +291,7 @@ The :guilabel:`snippets` button opens the :doc:`snippets </concepts/snippets/ind
     :alt: The snippets button in the sticky note section.
     :figclass: bordered
 
-The notify workers box allows you to select workers to notify. Clicking the button next to the box opens the :doc:`worker </concepts/worker>` :doc:`chooser </concepts/ui/choosers>`.
+The notify workers box allows you to select workers to notify. Clicking the button next to the box opens the :doc:`worker </concepts/context/worker>` :doc:`chooser </concepts/ui/choosers>`.
 
 Print
 ~~~~~
