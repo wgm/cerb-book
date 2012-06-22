@@ -3,6 +3,19 @@ Profiles
 
 The **profile** page...
 
+
+.. toctree::
+    :maxdepth: 1
+    
+	address
+	contact
+	organization
+	feedback
+	knowledgebase
+	opportunity
+	task
+	time_tracking
+
 Tabs
 ====
 

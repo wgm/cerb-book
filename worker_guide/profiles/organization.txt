@@ -1,5 +1,5 @@
-Display
--------
+Organization
+------------
 
 The display page is divided into two sections. The top section of the display page provides you quick access to the properties of the organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
 
@@ -139,7 +139,7 @@ Clicking the :guilabel:`Send Mail` button opens the :guilabel:`Compose` dialog, 
 People
 ~~~~~~
 
-The People tab displays all of the :doc:`contacts</worker_guide/address_book/tabs/addresses>` that are assigned to an organization, and allows you to quickly add a new contact.
+The People tab displays all of the :doc:`contacts</worker_guide/search/addresses/>` that are assigned to an organization, and allows you to quickly add a new contact.
 
 .. figure:: /images/worker_guide/address_book/organizations/tabs/people.png
     :alt: The Add Contact button on the People tab.
