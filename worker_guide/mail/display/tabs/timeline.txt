@@ -164,7 +164,7 @@ Clicking the :guilabel:`Knowledgebase` button will display the Knowledgebase sec
 
 The knowledgebase section allows you to pick the topic to search, enter a search term, and select the kind of search you wish to perform.  Results are displayed directly below the form, and clicking
 
-Clicking the :guilabel:`Track Time` button allows you to track time.  See the documentation on :doc:`time tracking </worker_guide/activity/tabs/time_tracking>` for more information.
+Clicking the :guilabel:`Track Time` button allows you to track time.  See the documentation on :doc:`time tracking </worker_guide/search/time_tracking>` for more information.
 
 .. figure:: /images/worker_guide/mail/display/tabs/timeline/reply/action_tracktime.png
     :alt: The track time button in the actions toolbar.

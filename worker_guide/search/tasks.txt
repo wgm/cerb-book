@@ -11,7 +11,7 @@ Toolbar
 =======
 The toolbar at the top of the tasks tab contains one button and the quick search box.
 
-.. figure:: /images/worker_guide/activity/tabs/tasks/actions.png
+.. figure:: /images/worker_guide/search/tasks/actions.png
   :alt: The tasks toolbar.
   :figclass: bordered
 
@@ -20,13 +20,13 @@ Add Task
 
 The :guilabel:`Add Task` button at the top of the tasks tab allows you to add tasks.
 
-.. figure:: /images/worker_guide/activity/tabs/tasks/actions/add_button.png
+.. figure:: /images/worker_guide/search/tasks/actions/add_button.png
     :alt: The add task button.
     :figclass: bordered
 
 Clicking the :guilabel:`Add Task` button will open the :guilabel:`Add Task` dialog.
 
-.. figure:: /images/worker_guide/activity/tabs/tasks/actions/add_dialog.png
+.. figure:: /images/worker_guide/search/tasks/actions/add_dialog.png
     :alt: The add task dialog.
     :figclass: bordered
 
@@ -40,7 +40,7 @@ Quick Search
 
 The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
-.. figure:: /images/worker_guide/activity/tabs/tasks/actions/quick_search.png
+.. figure:: /images/worker_guide/search/tasks/actions/quick_search.png
     :alt: The quick search box.
     :figclass: bordered
 
@@ -49,14 +49,14 @@ Worklist
 
 The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs.  At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`.  Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`.  Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
 
-.. figure:: /images/worker_guide/activity/tabs/tasks/worklist.png
+.. figure:: /images/worker_guide/search/tasks/worklist.png
     :alt: The tasks worklist with subtotals active.
     :figclass: bordered
 
 Actions Toolbar
 ~~~~~~~~~~~~~~~
 
-.. figure:: /images/worker_guide/activity/tabs/tasks/completed.png
+.. figure:: /images/worker_guide/search/tasks/completed.png
     :alt: The completed button.
     :figclass: bordered
 

@@ -108,7 +108,7 @@ The ticket chooser allows you to select which tickets should also be merged with
 Track Time
 ~~~~~~~~~~
 
-The :guilabel:`Track Time` button displays the time tracking overlay. See the :doc:`Time Tracking </worker_guide/activity/tabs/time_tracking>` documentation for more information.
+The :guilabel:`Track Time` button displays the time tracking overlay. See the :doc:`Time Tracking </worker_guide/search/time_tracking>` documentation for more information.
 
 .. figure:: /images/worker_guide/mail/display/actions/tracktime.png
     :alt: The track time button.
@@ -168,7 +168,7 @@ The :guilabel:`Refresh` button is a convenient way to refresh the ticket and vie
 Tabs
 ====
 
-The tabs in the bottom section can be used to view the Timeline, Activity Log, Links, and Recipient History. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
+The tabs in the bottom section can be used to view the Timeline, Activity Log, Links, and Recipient History. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/search/opportunities>`.
 
 .. figure:: /images/worker_guide/mail/display/tabs.png
     :alt: The tabs.

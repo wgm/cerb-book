@@ -9,14 +9,11 @@ In this guide we will walk you through the routine duties of a worker.  For the 
 	logging_in
 	ui/index
 	mail/index
-	activity/index
-	address_book/index
-	knowledgebase/index
+    search/index
 	reports/index
 	profiles/index
 	settings/index
 	
-
 .. ::
 
 	keyboard shortcuts

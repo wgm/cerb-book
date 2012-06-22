@@ -82,7 +82,7 @@ The comments tab shows you all of the comments set on the organization, and allo
 Tabs
 ====
 
-The tabs in the bottom section can be used to view the Activity Log, Comments, Links, Mail History, and People. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/activity/tabs/opportunities>`.
+The tabs in the bottom section can be used to view the Activity Log, Comments, Links, Mail History, and People. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/search/opportunities>`.
 
 .. figure:: /images/worker_guide/address_book/organizations/tabs.png
     :alt: The tabs.

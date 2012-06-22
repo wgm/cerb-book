@@ -1,5 +1,5 @@
-Browse
-------
+Knowledgebase
+-------------
 
 The browse tab allows you to view and edit knowledgebase topics and articles.
 
