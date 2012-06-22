@@ -1,4 +1,17 @@
 Search
 ------
 
-The **search** menu...
+The **search** menu provides access to all of the :doc:`objects </concepts/objects/index>` available in Cerb.
+
+
+.. toctree::
+	:maxdepth: 1
+	
+	addresses
+	contacts
+	organizations
+	feedback
+	knowledgebase
+	opportunities
+	tasks
+	time_tracking
