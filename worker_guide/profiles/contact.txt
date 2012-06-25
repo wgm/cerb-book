@@ -1,4 +1,4 @@
-Display
+Contact
 -------
 
 The display page is divided into two sections. The top section of the display page provides you quick access to the properties of the organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
