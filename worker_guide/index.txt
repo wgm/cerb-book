@@ -9,7 +9,7 @@ In this guide we will walk you through the routine duties of a worker.  For the 
 	logging_in
 	ui/index
 	mail/index
-    search/index
+	search/index
 	reports/index
 	profiles/index
 	settings/index
