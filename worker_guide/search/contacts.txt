@@ -22,4 +22,4 @@ The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs
 Profile
 =======
 
-Clicking on the name of registered contact in the worklist displays the :doc:`registered contact display page</worker_guide/profiles/contact>` for that organization.
+Clicking on the name of registered contact in the worklist displays the :doc:`Registered Contact profile page</worker_guide/profiles/contact>` for that organization.

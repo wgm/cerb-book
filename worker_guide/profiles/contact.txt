@@ -1,28 +1,28 @@
 Contact
 -------
 
-The display page is divided into two sections. The top section of the display page provides you quick access to the properties of the organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
+The profile page is divided into two sections. The top section of the profile page provides you quick access to the properties of the organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
 
 .. figure:: /images/worker_guide/profiles/contact/profile.png
-    :alt: The organizations display page.
+    :alt: The Registered Contact profile page.
     :figclass: bordered
 
 Properties
 ==========
 
-The properties section displays the **email**, **created**, and **last login** of the registered contact. Any custom fields that are set for the registered contact are also displayed in this section.
+The Properties section displays the **email**, **created**, and **last login** of the registered contact. Any custom fields that are set for the registered contact are also displayed in this section.
 
 .. figure:: /images/worker_guide/profiles/contact/properties.png
-    :alt: The properties section of the display page.
+    :alt: The properties section of the Registered Contact profile page.
     :figclass: bordered
 
 Actions
 =======
 
-The actions toolbar has a single button.
+The actions toolbar has three buttons.
 
 .. figure:: /images/worker_guide/profiles/contact/actions.png
-    :alt: The toolbar section of the display page.
+    :alt: The toolbar on the Registered Contact profile page.
     :figclass: bordered
 
 Start Watching
@@ -31,7 +31,7 @@ Start Watching
 The :guilabel:`Start watching` button allows you to watch the registered contact and see how many workers are currently watching it.
 
 .. figure:: /images/worker_guide/profiles/contact/actions/start_watching.png
-    :alt: The start watching button.
+    :alt: The start watching button in the toolbar.
     :figclass: bordered
 
 The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the registered contact. The watchers peek also allows you to add and remove watchers from the registered contact.
@@ -46,7 +46,7 @@ Edit
 The :guilabel:`Edit` button allows you to edit the registered contact.
 
 .. figure:: /images/worker_guide/profiles/contact/actions/edit.png
-    :alt: The edit button.
+    :alt: The edit button in the toolbar.
     :figclass: bordered
 
 Clicking the :guilabel:`Edit` button displays the edit dialog.
@@ -60,10 +60,10 @@ The **password**, and **watchers** can be specified in the dialog.  If any custo
 Time Tracking
 ~~~~~~~~~~~~~
 
-If you have the :doc:`Time Tracking </worker_guide/search/time_tracking>` plugin enabled, the :guilabel:`Track Time` button will allow you to track time against the registered contact you are currently viewing.
+If you have the :doc:`Time Tracking</worker_guide/search/time_tracking>` plugin enabled, the :guilabel:`Track Time` button will allow you to track time against the registered contact you are currently viewing.
 
 .. figure:: /images/worker_guide/profiles/contact/actions/track_time.png
-    :alt: The track time button.
+    :alt: The track time button in the toolbar.
     :figclass: bordered
 
 Clicking the :guilabel:`Track Time` button will open the Time Tracking overlay - the :doc:`documentation on Time Tracking </worker_guide/search/time_tracking>` has more information.
@@ -71,10 +71,10 @@ Clicking the :guilabel:`Track Time` button will open the Time Tracking overlay -
 Tabs
 ====
 
-The tabs in the bottom section can be used to view the Activity Log, Comments, Links, Mail History, and People. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/search/opportunities>`.
+The tabs on the Registered Contact profile page in the bottom section can be used to view the Activity Log, Comments, Links, Mail History, and People. Some plugins also add additional tabs to the profile page, such as :doc:`Opportunities </worker_guide/search/opportunities>`.
 
 .. figure:: /images/worker_guide/profiles/contact/tabs.png
-    :alt: The tabs.
+    :alt: The tabs on the Registered Contact profile page.
     :figclass: bordered
 
 Activity Log
@@ -83,7 +83,7 @@ Activity Log
 The :guilabel:`Activity Log` tab displays a record of all the changes made to a registered contact.
 
 .. figure:: /images/worker_guide/profiles/contact/tabs/activity_log.png
-    :alt: The activity log tab.
+    :alt: The Activity Log tab on the Registered Contact profile page.
     :figclass: bordered
 
 Comments
@@ -92,7 +92,7 @@ Comments
 The :guilabel:`Comments` tab shows you all of the comments set on a registered contact, and allows you to write a new comment.
 
 .. figure:: /images/worker_guide/profiles/contact/tabs/comments.png
-    :alt: The comments tab.
+    :alt: The Comments tab on the Registered Contact profile page.
     :figclass: bordered
 
 Links
@@ -101,7 +101,7 @@ Links
 The :guilabel:`Links` tab displays all of the objects currently linked to a registered contact. The drop-down fields at the top of the tab can be used to quickly link existing objects to a registered contact, and create and link new ones.
 
 .. figure:: /images/worker_guide/profiles/contact/tabs/links.png
-    :alt: The links tab.
+    :alt: The Links tab on the Registered Contact profile page.
     :figclass: bordered
 
 Email Addresses
@@ -110,7 +110,7 @@ Email Addresses
 The :guilabel:`Email Addresses` tab displays all of the email addresses associated with a registered contact.
 
 .. figure:: /images/worker_guide/profiles/contact/tabs/email_addresses.png
-    :alt: The email addresses tab.
+    :alt: The Email Addresses tab on the Registered Contact profile page.
     :figclass: bordered
 
 Mail History
@@ -119,5 +119,5 @@ Mail History
 The :guilabel:`Mail History` tab displays the ticket history for a registered contact.
 
 .. figure:: /images/worker_guide/profiles/contact/tabs/mail_history.png
-    :alt: The mail history tab.
+    :alt: The Mail History tab on the Registered Contact profile page.
     :figclass: bordered
