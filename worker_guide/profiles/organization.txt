@@ -1,10 +1,10 @@
 Organization
 ------------
 
-The display page is divided into two sections. The top section of the display page provides you quick access to the properties of the organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
+The profile page is divided into two sections. The top section of the Organization profile page provides you quick access to the properties of the organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
 
-.. figure:: /images/worker_guide/address_book/organizations/display.png
-    :alt: The organizations display page.
+.. figure:: /images/worker_guide/profiles/organization/profile.png
+    :alt: The Organization profile page.
     :figclass: bordered
 
 Properties
@@ -12,17 +12,17 @@ Properties
 
 The properties section displays the **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, **website**, and **created** of the organization. Any custom fields that are set for the organization are also displayed in this section.
 
-.. figure:: /images/worker_guide/address_book/organizations/properties.png
-    :alt: The properties section of the display page.
+.. figure:: /images/worker_guide/profiles/organization/properties.png
+    :alt: The properties section of the Organzation profile page.
     :figclass: bordered
 
 Actions
 =======
 
-The actions toolbar has two buttons.
+The actions toolbar has three buttons.
 
-.. figure:: /images/worker_guide/address_book/organizations/actions.png
-    :alt: The toolbar section of the display page.
+.. figure:: /images/worker_guide/profiles/organization/actions.png
+    :alt: The toolbar on the Organization profile page.
     :figclass: bordered
 
 Start Watching
@@ -30,13 +30,13 @@ Start Watching
 
 The :guilabel:`Start watching` button allows you to watch the organization and see how many workers are currently watching it.
 
-.. figure:: /images/worker_guide/address_book/organizations/actions/start_watching.png
-    :alt: The start watching button.
+.. figure:: /images/worker_guide/profiles/organization/actions/start_watching.png
+    :alt: The start watching button in the toolbar.
     :figclass: bordered
 
 The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the organization. The watchers peek also allows you to add and remove watchers from the organization.
 
-.. figure:: /images/worker_guide/address_book/organizations/actions/watchers_dialog.png
+.. figure:: /images/worker_guide/profiles/organization/actions/watchers_dialog.png
     :alt: The watchers peek.
     :figclass: bordered
 
@@ -45,10 +45,9 @@ Edit
 
 The :guilabel:`Edit` button allows you to edit the organization.
 
-.. figure:: /images/worker_guide/address_book/organizations/actions/edit.png
-    :alt: The edit button.
+.. figure:: /images/worker_guide/profiles/organization/actions/edit.png
+    :alt: The edit button in the toolbar.
     :figclass: bordered
-
 
 Clicking the :guilabel:`Edit` button displays the edit dialog. The edit dialog has 3 tabs.
 
@@ -57,8 +56,8 @@ Properties
 
 The :guilabel:`Properties` tab can be used to edit the properties and custom fields on the organization, and quickly leave a comment.
 
-.. figure:: /images/worker_guide/address_book/organizations/actions/edit_dialog_properties.png
-    :alt: The properties tab in the edit dialog.
+.. figure:: /images/worker_guide/profiles/organization/actions/edit_dialog_properties.png
+    :alt: The Properties tab in the Edit Organization dialog.
     :figclass: bordered
 
 People
@@ -66,8 +65,8 @@ People
 
 The :guilabel:`People` tab can be used to view and add contacts to the organization.
 
-.. figure:: /images/worker_guide/address_book/organizations/actions/edit_dialog_people.png
-    :alt: The people tab in the edit dialog.
+.. figure:: /images/worker_guide/profiles/organization/actions/edit_dialog_people.png
+    :alt: The People tab in the Edit Organization dialog.
     :figclass: bordered
 
 Comments
@@ -75,84 +74,80 @@ Comments
 
 The comments tab shows you all of the comments set on the organization, and allows you to write a new comment.
 
-.. figure:: /images/worker_guide/address_book/organizations/actions/edit_dialog_comments.png
-    :alt: The comments tab in the edit dialog.
+.. figure:: /images/worker_guide/profiles/organization/actions/edit_dialog_comments.png
+    :alt: The Comments tab in the Edit Organization dialog.
     :figclass: bordered
+
+Time Tracking
+~~~~~~~~~~~~~
+
+If you have the :doc:`Time Tracking</worker_guide/search/time_tracking>` plugin enabled, the :guilabel:`Track Time` button will allow you to track time against the registered contact you are currently viewing.
+
+.. figure:: /images/worker_guide/profiles/organization/actions/track_time.png
+    :alt: The track time button in the toolbar.
+    :figclass: bordered
+
+Clicking the :guilabel:`Track Time` button will open the Time Tracking overlay - the :doc:`documentation on Time Tracking </worker_guide/search/time_tracking>` has more information.
 
 Tabs
 ====
 
-The tabs in the bottom section can be used to view the Activity Log, Comments, Links, Mail History, and People. Some plugins also add additional tabs to the display page, such as :doc:`Opportunities </worker_guide/search/opportunities>`.
+The tabs in the bottom section can be used to view the Activity Log, Comments, Links, Mail History, and People. Some plugins also add additional tabs to the profile page.
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs.png
-    :alt: The tabs.
+.. figure:: /images/worker_guide/profiles/organization/tabs.png
+    :alt: The tabs on the Organization profile page.
     :figclass: bordered
 
 Activity Log
 ~~~~~~~~~~~~
 
-The Activity Log tab displays a record of all the changes made to an organization.
+The :guilabel:`Activity Log` tab displays a record of all the changes made to an organization.
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs/activity_log.png
-    :alt: The activity log tab.
+.. figure:: /images/worker_guide/profiles/organization/tabs/activity_log.png
+    :alt: The Activity Log tab on the Organization profile page.
     :figclass: bordered
 
 Comments
 ~~~~~~~~
 
-The comments tab shows you all of the comments set on the organization, and allows you to write a new comment.
+The :guilabel:`Comments` tab shows you all of the comments set on an Organization, and allows you to write a new comment.
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs/comments.png
-    :alt: The comments tab.
+.. figure:: /images/worker_guide/profiles/organization/tabs/comments.png
+    :alt: The Comments tab on the Organization profile page.
     :figclass: bordered
 
 Links
 ~~~~~
 
-The Links tab displays all of the objects currently linked to the organization you are viewing. The drop-down fields at the top of the tab can be used to quickly link existing objects to the organization, and create and link new ones.
+The :guilabel:`Links` tab displays all of the objects linked to an Organization. The drop-down fields at the top of the tab can be used to quickly link existing objects to an Organization, and create and link new ones.
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs/links.png
-    :alt: The links tab.
+.. figure:: /images/worker_guide/profiles/organization/tabs/links.png
+    :alt: The Links tab on the Organization profile page.
     :figclass: bordered
 
 Mail History
 ~~~~~~~~~~~~
 
-The Mail History tab displays the ticket history for the organization.
+The :guilabel:`Mail History` tab displays the ticket history for the organization.
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs/mail_history.png
-    :alt: The mail history tab.
-    :figclass: bordered
-
-The :guilabel:`Send Mail` button at the top of the Mail History tab allows you to easily send a new message.
-
-.. figure:: /images/worker_guide/address_book/organizations/tabs/send_mail.png
-    :alt: The Send Mail button on the Mail History tab.
-    :figclass: bordered
-
-Clicking the :guilabel:`Send Mail` button opens the :guilabel:`Compose` dialog, allowing you to compose a new message.
-
-.. figure:: /images/worker_guide/address_book/organizations/tabs/compose.png
-    :alt: The Compose dialog.
+.. figure:: /images/worker_guide/profiles/organization/tabs/mail_history.png
+    :alt: The Mail History tab on the Organization profile page.
     :figclass: bordered
 
 People
 ~~~~~~
 
-The People tab displays all of the :doc:`contacts</worker_guide/search/addresses/>` that are assigned to an organization, and allows you to quickly add a new contact.
+The :guilabel:`People` tab displays all of the :doc:`contacts</worker_guide/search/addresses/>` that are assigned to an Organization, and allows you to quickly add a new contact.
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs/people.png
-    :alt: The Add Contact button on the People tab.
+.. figure:: /images/worker_guide/profiles/organization/tabs/people.png
+    :alt: The People tab on the Organization profile page.
     :figclass: bordered
 
-The :guilabel:`Add Contact` button allows you to add a new contact to the organization.
+Opportunities
+~~~~~~~~~~~~~
 
-.. figure:: /images/worker_guide/address_book/organizations/tabs/add_contact_button.png
-    :alt: The Add Contact button on the People tab.
-    :figclass: bordered
+If you have the :doc:`Opportunities plugin</worker_guide/search/opportunities>` enabled, the :guilabel:`Opportunities` tab will allow you to view any Opportunities linked to an Organization.
 
-Clicking the :guilabel:`Add Contact` button opens the :guilabel:`Email Contact` dialog.
-
-.. figure:: /images/worker_guide/address_book/organizations/tabs/email_contact.png
-    :alt: The Email Contact dialog.
+.. figure:: /images/worker_guide/profiles/organization/tabs/opportunities.png
+    :alt: The Opportunities tab on the Organization profile page.
     :figclass: bordered

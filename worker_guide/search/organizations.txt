@@ -1,66 +1,12 @@
 Organizations
 -------------
 
-The **Organizations** tab is where you add and view organizations.
-
-.. figure:: /images/worker_guide/address_book/tabs/organizations_tab.png
-    :alt: The organizations tab.
-    :figclass: bordered
-
-Toolbar
-=======
-The toolbar at the top of the organizations tab contains two buttons and the quick search box.
-
-.. figure:: /images/worker_guide/address_book/tabs/organizations/toolbar.png
-  :alt: The orgs toolbar.
-  :figclass: bordered
-
-Add Org
-~~~~~~~
-
-The :guilabel:`Add Org` button at the top of the organizations tab allows you to add organizations.
-
-.. figure:: /images/worker_guide/address_book/tabs/organizations/add.png
-    :alt: The add org button.
-    :figclass: bordered
-
-Clicking the :guilabel:`Add Org` button will open the add organization dialog.
-
-.. figure:: /images/worker_guide/address_book/tabs/organizations/dialog_add.png
-    :alt: The add organization dialog.
-    :figclass: bordered
-
-The **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, **website**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for organizations, they can be specified as well. There is also a comment box so you can quickly leave a comment on the organization when you create it.
-
-Merge
-~~~~~
-
-The :guilabel:`Merge` button at the top of the organizations tab allows you to merge organizations.
-
-.. figure:: /images/worker_guide/address_book/tabs/organizations/merge.png
-    :alt: The merge button.
-    :figclass: bordered
-
-Clicking the :guilabel:`Merge` button will open the merge organization dialog.
-
-.. figure:: /images/worker_guide/address_book/tabs/organizations/dialog_merge.png
-    :alt: The merge dialog.
-    :figclass: bordered
-
-The organization entry field will auto-complete as you type, and clicking the magnifying glass icon will open the organizations :doc:`chooser </concepts/ui/choosers>`. Clicking the :guilabel:`continue` button will display another dialog which allows you to pick which values to use for each field.
-
-.. figure:: /images/worker_guide/address_book/tabs/organizations/dialog_merge_select.png
-    :alt: The merge dialog.
-    :figclass: bordered
-
-Clicking the :guilabel:`continue` button will merge the selected organizations into a single organization.
-
 Quick Search
-~~~~~~~~~~~~
+============
 
 The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations/quick_search.png
+.. figure:: /images/worker_guide/search/organizations/quick_search.png
     :alt: The quick search box.
     :figclass: bordered
 
@@ -69,11 +15,35 @@ Worklist
 
 The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs.  At the top of the worklist are the currently applied :doc:`filters </concepts/worklists/filters>`.  Just below the filters, on the right side of the worklist, you have access to :doc:`subtotals </concepts/worklists/subtotals>`, :doc:`copy </concepts/worklists/copy>`, and :doc:`export </concepts/worklists/export>`.  Beneath the worklist is a toolbar of :doc:`actions </concepts/worklists/actions>` you can perform on the selected results.
 
-.. figure:: /images/worker_guide/address_book/tabs/organizations/worklist.png
+.. figure:: /images/worker_guide/search/organizations/worklist.png
     :alt: The tasks worklist with subtotals active.
     :figclass: bordered
 
-Display
+
+Merge
+~~~~~
+
+The :guilabel:`Merge` button will appear when an organization has been selected.
+
+.. figure:: /images/worker_guide/search/organizations/merge_button.png
+    :alt: The merge dialog.
+    :figclass: bordered
+
+Clicking the :guilabel:`Merge` button will open the merge organization dialog.
+
+.. figure:: /images/worker_guide/search/organizations/merge_dialog.png
+    :alt: The merge dialog.
+    :figclass: bordered
+
+The organization entry field will auto-complete as you type, and clicking the magnifying glass icon will open the organizations :doc:`chooser </concepts/ui/choosers>`. Clicking the :guilabel:`continue` button will display a second dialog which will allow you to pick the values to use for each field. Only the fields that have multiple values between the selected Organizations will have this option.
+
+.. figure:: /images/worker_guide/search/organizations/merge_dialog_select.png
+    :alt: The merge dialog.
+    :figclass: bordered
+
+Clicking the :guilabel:`continue` button will merge the selected organizations into a single organization.
+
+Profile
 =======
 
-Clicking on the name of an organization in the worklist displays the :doc:`organization display page</worker_guide/address_book/organizations/index>` for that organization.
+Clicking on the name of an organization in the worklist displays the :doc:`Organization profile page</worker_guide/profiles/organization>` for that organization.
