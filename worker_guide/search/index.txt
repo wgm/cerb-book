@@ -8,9 +8,9 @@ The **search** menu provides access to all of the :doc:`objects </concepts/objec
 	
 	addresses
 	contacts
-	organizations
 	feedback
 	knowledgebase
 	opportunities
+	organizations
 	tasks
 	time_tracking

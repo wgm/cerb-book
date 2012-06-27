@@ -46,4 +46,4 @@ Clicking the :guilabel:`continue` button will merge the selected organizations i
 Profile
 =======
 
-Clicking on the name of an organization in the worklist displays the :doc:`Organization profile page</worker_guide/profiles/organization>` for that organization.
+Clicking on the name of an Organization in the worklist displays the :doc:`Organization profile page</worker_guide/profiles/organization>` for that Organization.

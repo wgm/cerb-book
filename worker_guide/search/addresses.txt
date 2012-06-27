@@ -22,4 +22,4 @@ The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs
 Profile
 =======
 
-Clicking on any email address in the worklist displays the :doc:`address profile page</worker_guide/profiles/address>` for that address.
+Clicking on the email address of any Address in the worklist displays the :doc:`Address profile page</worker_guide/profiles/address>` for that Address.

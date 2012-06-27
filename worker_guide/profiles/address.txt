@@ -1,7 +1,7 @@
 Address
 -------
 
-The profile page is divided into two sections. The top section of the profile page provides you quick access to the properties of the address and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
+The profile page is divided into two sections. The top section of the profile page provides you quick access to the properties of an Address and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
 
 .. figure:: /images/worker_guide/profiles/address/profile.png
     :alt: The Address profile page.
@@ -10,7 +10,7 @@ The profile page is divided into two sections. The top section of the profile pa
 Properties
 ==========
 
-The properties section displays the **spam**, **nonspam**, and **is banned** of the address. Any custom fields that are set for the address are also displayed in this section.
+The properties section displays the **spam**, **nonspam**, and **is banned** of an Address. Any custom fields that are set for an Address are also displayed in this section.
 
 .. figure:: /images/worker_guide/profiles/address/properties.png
     :alt: The properties section of the Address profile page.
@@ -28,13 +28,13 @@ The actions toolbar has three buttons.
 Start Watching
 ~~~~~~~~~~~~~~
 
-The :guilabel:`Start watching` button allows you to watch the address and see how many workers are currently watching it.
+The :guilabel:`Start watching` button allows you to watch an Address and see how many workers are currently watching it.
 
 .. figure:: /images/worker_guide/profiles/address/actions/start_watching.png
     :alt: The start watching button in the toolbar.
     :figclass: bordered
 
-The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the address. The watchers peek also allows you to add and remove watchers from the address.
+The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching an Address. The watchers peek also allows you to add and remove watchers from an Address.
 
 .. figure:: /images/worker_guide/profiles/address/actions/watchers_dialog.png
     :alt: The watchers peek.
@@ -43,7 +43,7 @@ The :guilabel:`▾` button expands the watchers peek so you can see which worker
 Edit
 ~~~~
 
-The :guilabel:`Edit` button allows you to edit the address.
+The :guilabel:`Edit` button allows you to edit an Address.
 
 .. figure:: /images/worker_guide/profiles/address/actions/edit.png
     :alt: The edit button in the toolbar.
@@ -55,12 +55,12 @@ Clicking the :guilabel:`Edit` button displays the edit dialog.
     :alt: The edit dialog.
     :figclass: bordered
 
-The **first name**, **last name**, **organization**, **is banned**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for addresses, they can be specified as well. There is also a comment box so you can quickly leave a comment on the address when you create it.
+The **first name**, **last name**, **organization**, **is banned**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for addresses, they can be specified as well. There is also a comment box so you can quickly leave a comment on an Address when you create it.
 
 Time Tracking
 ~~~~~~~~~~~~~
 
-If you have the :doc:`Time Tracking</worker_guide/search/time_tracking>` plugin enabled, the :guilabel:`Track Time` button will allow you to track time against the address you are currently viewing.
+If you have the :doc:`Time Tracking</worker_guide/search/time_tracking>` plugin enabled, the :guilabel:`Track Time` button will allow you to track time against an Address.
 
 .. figure:: /images/worker_guide/profiles/address/actions/track_time.png
     :alt: The track time button in the toolbar.
@@ -89,7 +89,7 @@ The :guilabel:`Activity Log` tab displays a record of all the changes made to a 
 Comments
 ~~~~~~~~
 
-The :guilabel:`Comments` tab shows you all of the comments on an address, and allows you to create a new comment.
+The :guilabel:`Comments` tab shows you all of the comments on an Address, and allows you to create a new comment.
 
 .. figure:: /images/worker_guide/profiles/address/tabs/comments.png
     :alt: The Comments tab on the Address profile page.
@@ -98,7 +98,7 @@ The :guilabel:`Comments` tab shows you all of the comments on an address, and al
 Links
 ~~~~~
 
-The :guilabel:`Links` tab displays all of the objects currently linked to the address you are viewing. The drop-down fields at the top of the tab can be used to quickly link existing objects to the address, and create and link new ones.
+The :guilabel:`Links` tab displays all of the objects currently linked to an Address. The drop-down fields at the top of the tab can be used to quickly link existing objects to an Address, and create and link new ones.
 
 .. figure:: /images/worker_guide/profiles/address/tabs/links.png
     :alt: The Links tab on the Address profile page.
@@ -107,7 +107,7 @@ The :guilabel:`Links` tab displays all of the objects currently linked to the ad
 Mail History
 ~~~~~~~~~~~~
 
-The :guilabel:`Mail History` tab displays the ticket history for the address.
+The :guilabel:`Mail History` tab displays the ticket history for an Address.
 
 .. figure:: /images/worker_guide/profiles/address/tabs/mail_history.png
     :alt: The Mail History tab on the Address profile page.
