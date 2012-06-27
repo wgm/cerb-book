@@ -1,27 +1,14 @@
 Feedback
 --------
 
-The **feedback** tab is where you capture and view feedback.
+Quick Search
+============
 
-.. figure:: /images/worker_guide/activity/feedback_tab.png
-    :alt: The feedback tab.
+The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
+
+.. figure:: /images/worker_guide/search/feedback/quick_search.png
+    :alt: The quick search box.
     :figclass: bordered
-
-
-.. figure:: /images/worker_guide/search/feedback/actions.png
-    :alt: The capture feedback button.
-    :figclass: bordered
-
-Clicking the :guilabel:`Capture Feedback` button will open the :guilabel:`Capture Feedback` dialog.
-
-.. figure:: /images/worker_guide/search/feedback/actions/capture_dialog.png
-    :alt: The capture feedback dialog.
-    :figclass: bordered
-
-.. ::
-    Link to custom fields doc, update above image for custom fields.
-    
-The **author e-mail**, **quote**, **mood**, and **link** fields can all be specified in the dialog.  If any custom fields have been defined for feedback, they can be specified as well.
 
 Worklist
 ========
