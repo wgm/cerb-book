@@ -1,7 +1,7 @@
 Organization
 ------------
 
-The profile page is divided into two sections. The top section of the Organization profile page provides you quick access to the properties of the organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
+The profile page is divided into two sections. The top section of the Organization profile page provides you quick access to the properties of an Organization and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
 
 .. figure:: /images/worker_guide/profiles/organization/profile.png
     :alt: The Organization profile page.
@@ -10,7 +10,7 @@ The profile page is divided into two sections. The top section of the Organizati
 Properties
 ==========
 
-The properties section displays the **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, **website**, and **created** of the organization. Any custom fields that are set for the organization are also displayed in this section.
+The properties section displays the **name**, **street**, **city**, **state/province**, **postal**, **country**, **phone**, **website**, and **created** of an Organization. Any custom fields that are set for an Organization are also displayed in this section.
 
 .. figure:: /images/worker_guide/profiles/organization/properties.png
     :alt: The properties section of the Organzation profile page.
@@ -28,13 +28,13 @@ The actions toolbar has three buttons.
 Start Watching
 ~~~~~~~~~~~~~~
 
-The :guilabel:`Start watching` button allows you to watch the organization and see how many workers are currently watching it.
+The :guilabel:`Start watching` button allows you to watch an Organization and see how many workers are currently watching it.
 
 .. figure:: /images/worker_guide/profiles/organization/actions/start_watching.png
     :alt: The start watching button in the toolbar.
     :figclass: bordered
 
-The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the organization. The watchers peek also allows you to add and remove watchers from the organization.
+The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching an Organization. The watchers peek also allows you to add and remove watchers from an Organization.
 
 .. figure:: /images/worker_guide/profiles/organization/actions/watchers_dialog.png
     :alt: The watchers peek.
@@ -43,7 +43,7 @@ The :guilabel:`▾` button expands the watchers peek so you can see which worker
 Edit
 ~~~~
 
-The :guilabel:`Edit` button allows you to edit the organization.
+The :guilabel:`Edit` button allows you to edit an Organization.
 
 .. figure:: /images/worker_guide/profiles/organization/actions/edit.png
     :alt: The edit button in the toolbar.
@@ -54,7 +54,7 @@ Clicking the :guilabel:`Edit` button displays the edit dialog. The edit dialog h
 Properties
 """"""""""
 
-The :guilabel:`Properties` tab can be used to edit the properties and custom fields on the organization, and quickly leave a comment.
+The :guilabel:`Properties` tab can be used to edit the properties and custom fields on an Organization, and quickly leave a comment.
 
 .. figure:: /images/worker_guide/profiles/organization/actions/edit_dialog_properties.png
     :alt: The Properties tab in the Edit Organization dialog.
@@ -63,7 +63,7 @@ The :guilabel:`Properties` tab can be used to edit the properties and custom fie
 People
 """"""
 
-The :guilabel:`People` tab can be used to view and add contacts to the organization.
+The :guilabel:`People` tab can be used to view and add contacts to an Organization.
 
 .. figure:: /images/worker_guide/profiles/organization/actions/edit_dialog_people.png
     :alt: The People tab in the Edit Organization dialog.
@@ -72,7 +72,7 @@ The :guilabel:`People` tab can be used to view and add contacts to the organizat
 Comments
 """"""""
 
-The comments tab shows you all of the comments set on the organization, and allows you to write a new comment.
+The comments tab shows you all of the comments set on an Organization, and allows you to write a new comment.
 
 .. figure:: /images/worker_guide/profiles/organization/actions/edit_dialog_comments.png
     :alt: The Comments tab in the Edit Organization dialog.
@@ -101,7 +101,7 @@ The tabs in the bottom section can be used to view the Activity Log, Comments, L
 Activity Log
 ~~~~~~~~~~~~
 
-The :guilabel:`Activity Log` tab displays a record of all the changes made to an organization.
+The :guilabel:`Activity Log` tab displays a record of all the changes made to an Organization.
 
 .. figure:: /images/worker_guide/profiles/organization/tabs/activity_log.png
     :alt: The Activity Log tab on the Organization profile page.
@@ -128,7 +128,7 @@ The :guilabel:`Links` tab displays all of the objects linked to an Organization.
 Mail History
 ~~~~~~~~~~~~
 
-The :guilabel:`Mail History` tab displays the ticket history for the organization.
+The :guilabel:`Mail History` tab displays the ticket history for an Organization.
 
 .. figure:: /images/worker_guide/profiles/organization/tabs/mail_history.png
     :alt: The Mail History tab on the Organization profile page.

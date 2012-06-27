@@ -1,72 +1,12 @@
 Opportunities
 -------------
 
-The **opportunities** tab is where you add and view opportunities.
-
-.. figure:: /images/worker_guide/activity/opportunities_tab.png
-    :alt: The opportunities tab.
-    :figclass: bordered
-
-Toolbar
-=======
-The toolbar at the top of the opportunities tab contains two buttons and the quick search box.
-
-.. figure:: /images/worker_guide/search/opportunities/actions.png
-  :alt: The opportunities toolbar.
-  :figclass: bordered
-
-Add Opportunity
-~~~~~~~~~~~~~~~
-
-The :guilabel:`Add Opportunity` button at the top of the opportunities tab allows you to add opportunities.
-
-.. figure:: /images/worker_guide/search/opportunities/actions/add_opportunity_button.png
-    :alt: The add opportunity button.
-    :figclass: bordered
-
-Clicking the :guilabel:`Add Opportunity` button will open the :guilabel:`Add Opportunity` dialog.
-
-.. figure:: /images/worker_guide/search/opportunities/actions/add_opportunity_dialog.png
-    :alt: The add opportunity dialog.
-    :figclass: bordered
-
-.. ::
-    Link to comments doc.
-
-The **email**, **title**, **status**, **amount**, **created date**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for opportunities, they can be specified as well. There is also a comment box so you can quickly leave a comment on the opportunity when you create it.
-
-Import
-~~~~~~
-
-The :guilabel:`Import` button allows you to import a CSV file.
-
-.. figure:: /images/worker_guide/search/opportunities/actions/import_button.png
-    :alt: The import button.
-    :figclass: bordered
-
-Clicking the :guilabel:`Import` button will open the **import** dialog.
-
-.. figure:: /images/worker_guide/search/opportunities/actions/import_dialog.png
-    :alt: The import dialog.
-    :figclass: bordered
-
-The dialog allows you to specify a CSV file to upload.
-
-.. figure:: /images/worker_guide/search/opportunities/actions/import.png
-    :alt: The add opportunity button.
-    :figclass: bordered
-
-.. ::
-    Link to custom field docs below.
-    
-The columns present in the CSV file can be imported as data for any of the fields available for opportunities, including custom fields.
-
 Quick Search
-~~~~~~~~~~~~
+============
 
 The :doc:`quick search </concepts/objects/quick_search>` box is a time-saving feature that allows you to quickly apply a filter to the worklist.
 
-.. figure:: /images/worker_guide/search/opportunities/actions/quick_search.png
+.. figure:: /images/worker_guide/search/opportunities/quick_search.png
     :alt: The quick search box.
     :figclass: bordered
 
@@ -79,3 +19,7 @@ The :doc:`worklist </concepts/worklists/index>` is displayed just below the tabs
     :alt: The opportunities worklist with subtotals active.
     :figclass: bordered
 
+Profile
+=======
+
+Clicking on the title of an Opportunity in the worklist displays the :doc:`Opportunity profile page</worker_guide/profiles/opportunity>` for that Opportunity.
