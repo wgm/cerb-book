@@ -1,0 +1,12 @@
+Plugins
+-------
+
+Integration
+===========
+
+.. toctree::
+    :maxdepth: 1
+
+    wgm.campfire
+    wgm.facebook
+    wgm.twitter
