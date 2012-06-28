@@ -1,0 +1,53 @@
+Downloading Cerb from GitHub
+============================
+
+Installing Git
+--------------
+
+We use `Git <http://git-scm.com/>`_ for distributed source control and versioning. You can test if Git is currently installed by running the command::
+
+    git --version
+
+If Git is not installed, you can download the latest version for your platform from: http://git-scm.com/download
+
+Pulling the project files from GitHub
+-------------------------------------
+
+Our `project <https://github.com/wgm/cerb6>`_ and `plugin repositories <https://github.com/cerb-plugins/repositories>`_ are hosted on `GitHub <http://www.github.com/>`_. You don't need a GitHub account to download our project files, but we recommend creating one so you can take advantage of the collaborative tools.
+
+Navigate to the web-accessible directory for the appropriate virtual host (or default) of your local webserver. For example, if you're using Apache this path is usually something like :file:`/var/www/`. On a Windows server with IIS it may be ``C:\Inetpub\``.
+
+If you're only developing third-party plugins...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you only intend to work on your own custom plugins then you can anonymously use our repositories with read-only access.
+
+Issue the following command at the console::
+
+    git clone https://github.com/wgm/cerb6.git
+
+If you plan to contribute to Cerb6, and work on plugins...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you plan to contribute patches (e.g. bug fixes) to the Cerb6 project, in addition to working on custom plugins, we recommend that you *fork* the project on GitHub. This will create your own copy of our official repository that you can *commit* (save) your changes to. It also makes it easier for us to view and integrate those changes.
+
+* `Create a free account at GitHub <https://github.com/signup/free>`_ if you don't already have one.
+* Once logged in, browse to https://github.com/wgm/cerb6
+* Click the :guilabel:`Fork` button in the top right. This will create your own personal repository for making modifications to Cerb.
+
+    .. figure:: /images/developer_guide/tools/cerb/github_fork_button.png
+       :figclass: bordered
+
+When your repository is created, use the credentials from the SSH section on your page at GitHub to download your files.
+
+For example::
+
+    git clone git@github.com:{you}/cerb6.git
+
+*Replace {you} with your account name at GitHub.*
+
+.. note::
+
+    You can also use a graphical Git client like `TortoiseGit <http://code.google.com/p/tortoisegit/>`_ for Windows or `Tower.app <http://www.git-tower.com/>`_ for Mac; however, it is worth becoming proficient with the command line interface to Git since it will always provide you with full functionality. Git also comes with a simple GUI for managing your repository which can be accessed with the ``git gui`` command.
+
+    At WebGroup Media (WGM), we develop on Macs and use `GitX <http://brotherbard.com/blog/2010/03/experimental-gitx-fork/>`_ to make it easy to visually audit changes before staging and committing them. Everything else is accomplished from the command line.

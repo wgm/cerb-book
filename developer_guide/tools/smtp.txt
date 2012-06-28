@@ -1,0 +1,23 @@
+Mail Server
+===========
+
+Your development machine can use an existing mailserver, although you often want to remove the possibility of accidentally sending test messages to real recipients; especially if you're developing using a copy of your live data. This is best accomplished with a dummy SMTP server on a non-standard port (e.g. 2525).
+
+There are a couple different options for a fake mail server:
+
+FakeSMTP
+--------
+
+If you're using a Mac, install our `FakeSMTP <https://github.com/jstanden/fakesmtp-app>`_ project. This will listen for SMTP connections on an arbitrary port (:kbd:`2525` by default) and provide an easy way to inspect outgoing mail without actually delivering anything.
+
+Using Python's dummy mail server
+--------------------------------
+
+Python provides a dummy SMTP server::
+
+    sudo python -m smtpd -n -c DebuggingServer localhost:2525
+
+Postfix with a null transport
+-----------------------------
+
+Install `Postfix <http://www.postfix.org/>`_ using your package manager and set up a null transport.

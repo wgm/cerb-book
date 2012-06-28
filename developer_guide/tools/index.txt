@@ -1,0 +1,12 @@
+Setting up a development environment
+====================================
+
+We recommend that each developer maintains a local web environment on their development machine with a self-contained webserver, database, and dummy mail server.  This chapter explains how to accomplish this using the same toolset as the official developers.
+
+.. toctree::
+    :maxdepth: 2
+
+    lamp
+    smtp
+    cerb
+    eclipse
