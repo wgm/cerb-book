@@ -7,10 +7,10 @@ In this guide we will walk you through a technical analysis of Cerb with the goa
     :maxdepth: 2
 
     tools/index
-    toolkit
-    devblocks/index
     plugins/index
     rest_api/index
+    toolkit
+    devblocks/index
 
 The toolchain used by the official development team
 ---------------------------------------------------
@@ -43,21 +43,6 @@ We use the following tools at WebGroup Media when developing Cerb:
    written for Mac OS X by WebGroup Media LLC that allows developers to
    monitor and discard mail that is being sent via SMTP by applications
    in testing environments.
-
-Forking and checking out the project files from GitHub
-------------------------------------------------------
-
-Setting up a development environment
-------------------------------------
-
-Mac OS X
-~~~~~~~~
-
-Linux
-~~~~~
-
-Windows
-~~~~~~~
 
 Developer guidelines
 --------------------
@@ -147,19 +132,3 @@ entire historical timeline would be inaccurate by the offset between
 those time zones. When dates are stored in GMT/UTC, it doesn't matter
 where you are currently located; historical dates can always be
 displayed for your current time zone with perfect accuracy.
-
-Developers should download the project from GitHub using Git
-------------------------------------------------------------
-
-If you are planning on contributing patches back to the project then you
-should `fork <http://help.github.com/forking/>`_ the `Cerb6 project on 
-GitHub <http://github.com/wgm/cerb5>`_ first. This will give you your
-own copy of the source code. Once that is done you should use your own
-repository information in the command below. If you want to checkout the
-project from our official repository use the following command:
-
-**On Unix-based servers:**
-
-::
-
-    $ git clone git@github.com:wgm/cerb5.git

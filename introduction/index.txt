@@ -20,7 +20,7 @@ Cerb is the result of over 10 years of continuous research and development by :t
 
 Licenses are sold based on the number of simultaneous workers (i.e. :term:`seats <seat>`).  Community licenses provide up to three seats at no cost.  The software can be deployed on your own servers, or it can be subscribed to as an "on-demand" service that requires only a web browser.
 
-Cerb is written in the :term:`PHP5 <PHP>` programming language.  Data is stored in a :term:`MySQL` database.  The source code is publicly available on `GitHub <https://github.com/wgm/cerb5>`_.
+Cerb is written in the :term:`PHP5 <PHP>` programming language.  Data is stored in a :term:`MySQL` database.  The source code is publicly available on `GitHub <https://github.com/wgm/cerb6>`_.
 
 .. ::
 

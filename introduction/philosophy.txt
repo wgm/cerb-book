@@ -6,7 +6,7 @@ Philosophy
 We believe in commercial open source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  We've never felt entirely comfortable using tools that hide their source code, so we share **100%** of ours on `GitHub <http://github.com/wgm/cerb5>`_.
+-  We've never felt entirely comfortable using tools that hide their source code, so we share **100%** of ours on `GitHub <http://github.com/wgm/cerb6>`_.
 - Our industrious community shares thousands of extra eyes and minds, and shoddy work wouldn't make it past their enthusiastic scrutiny. 
 -  There will always be people who bypass the license, steal code, or copycat our innovative concepts. We're not going to be paranoid about it and mistrust everyone.
 - If people have to be forced into financially supporting our work then we went very wrong somewhere.  Our target audience wants us to succeed.

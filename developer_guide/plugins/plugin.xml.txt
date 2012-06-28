@@ -1,7 +1,9 @@
-Plugin.xml
+plugin.xml
 ----------
 
-The plugin.xml file tells Devblocks about your plugin. Every plugin requires a plugin.xml file. An example plugin.xml file has been provided below. See the documentation on extensions for information on how to access the data stored in your Plugin.xml file within your plugin.
+The :file:`plugin.xml` manifest file tells the Devblocks platform about your plugin. Every plugin must provide a manifest.
+
+The format of the :file:`plugin.xml` manifest file is as follows:
 
 .. code-block:: xml
 

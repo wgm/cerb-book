@@ -93,7 +93,7 @@ Our Smarty-based template files use the :file:`*.tpl` file extension, which is n
 .. figure:: /images/developer_guide/tools/eclipse/eclipse_prefs_tpl_files.png
    :figclass: bordered
 
-* Click the OK button at the bottom of the popup window.
+* Click the :guilabel:`OK` button at the bottom of the popup window.
 
 Validation
 ~~~~~~~~~~

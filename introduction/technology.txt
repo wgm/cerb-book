@@ -1,7 +1,7 @@
 Technology
 ----------
 
-* PHP 5.2+ (w/ extensions...)
+* PHP 5.3+ (w/ extensions...)
 * MySQL 5.0+ (MyISAM/InnoDB)
 * Smarty templates
 * Devblocks

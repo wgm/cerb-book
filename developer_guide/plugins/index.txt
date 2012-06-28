@@ -1,34 +1,48 @@
 Plugin Development
-------------------
+==================
 
-## Writing plugins ##
-
-(SDK in `/cerb5/install/extras/sdk`)
+Anatomy of a plugin
+-------------------
 
 .. toctree::
     :maxdepth: 1
     
     plugin.xml
-    extension_points/index
+    
+Extension Points
+----------------
+
+.. toctree::
+    :maxdepth: 2
+    
+    extension_points/index 
+    
+Event Points
+------------
+    
+.. toctree::
+    :maxdepth: 2
+
     event_points/index
 
-### Namespaces ###
+.. ::
+    ### Namespaces ###
 
-### Resource proxy ###
+    ### Resource proxy ###
 
-### Smarty ###
+    ### Smarty ###
 
-* `{devblocks_url}`
-* `{$var|devblocks_date}`
-* `{$var|devblocks_prettybytes}`
-* `{$var|devblocks_prettytime}`
-* `{$var|devblocks_translate}`
+    * `{devblocks_url}`
+    * `{$var|devblocks_date}`
+    * `{$var|devblocks_prettybytes}`
+    * `{$var|devblocks_prettytime}`
+    * `{$var|devblocks_translate}`
 
-### DevblocksPlatform class ###
+    ### DevblocksPlatform class ###
 
-### CerberusApplication class ###
+    ### CerberusApplication class ###
 
-### Scope (jQuery/Smarty/etc) ###
+    ### Scope (jQuery/Smarty/etc) ###
 
 
     

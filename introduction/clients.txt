@@ -1,4 +1,4 @@
 Who is using Cerb?
 -------------------
 
-((noteworthy clients))
+See: http://www.cerberusweb.com/clients
