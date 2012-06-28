@@ -10,8 +10,8 @@ In this guide we will walk you through the routine duties of a worker.  For the 
 	ui/index
 	mail/index
 	search/index
-	reports/index
 	profiles/index
+	reports/index
 	settings/index
 	
 .. ::
