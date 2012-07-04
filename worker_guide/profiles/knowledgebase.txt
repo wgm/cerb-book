@@ -1,0 +1,57 @@
+Knowledgebase
+-------------
+
+The profile page is divided into two sections. The top section of the Knowledgebase Article profile page provides you quick access to the properties of a Knowledgebase Article and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
+
+.. figure:: /images/worker_guide/profiles/knowledgebase/profile.png
+    :alt: The Knowledgebase profile page.
+    :figclass: bordered
+
+Properties
+==========
+
+The properties section displays the **updated**, **views**, and **id** of a Knowledgebase Article. Any custom fields that are set for a Knowledgebase Article are also displayed in this section.
+
+.. figure:: /images/worker_guide/profiles/knowledgebase/properties.png
+    :alt: The properties section of the Organzation profile page.
+    :figclass: bordered
+
+Actions
+=======
+
+The actions toolbar has two buttons.
+
+.. figure:: /images/worker_guide/profiles/knowledgebase/actions.png
+    :alt: The toolbar on the Knowledgebase Article profile page.
+    :figclass: bordered
+
+Edit
+~~~~
+
+The :guilabel:`Edit` button allows you to edit a Knowledgebase Article.
+
+.. figure:: /images/worker_guide/profiles/knowledgebase/actions/edit.png
+    :alt: The edit button in the toolbar.
+    :figclass: bordered
+
+Clicking the :guilabel:`Edit` button displays the edit dialog.
+
+.. figure:: /images/worker_guide/profiles/knowledgebase/actions/edit_dialog.png
+    :alt: The edit dialog.
+    :figclass: bordered
+
+Tabs
+====
+
+The tabs in the bottom section can be used to view the Activity Log, Comments, Links, Mail History, and People. Some plugins also add additional tabs to the profile page.
+
+.. figure:: /images/worker_guide/profiles/knowledgebase/tabs.png
+    :alt: The tabs on the Knowledgebase Article profile page.
+    :figclass: bordered
+
+Article
+=======
+
+.. figure:: /images/worker_guide/profiles/knowledgebase/tabs/article.png
+    :alt: The Article tab on the Knowledgebase Article profile page.
+    :figclass: bordered
