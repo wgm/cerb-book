@@ -55,7 +55,7 @@ Clicking the :guilabel:`Edit` button displays the edit dialog.
     :alt: The edit dialog.
     :figclass: bordered
 
-The **first name**, **last name**, **organization**, **is banned**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for addresses, they can be specified as well. There is also a comment box so you can quickly leave a comment on an Address when you create it.
+The **first name**, **last name**, **organization**, **is banned**, and **watchers** can all be specified in the dialog.  If any custom fields have been defined for A ddresses, they can be specified as well. There is also a comment box so you can quickly leave a comment on an Address when you create it.
 
 Time Tracking
 ~~~~~~~~~~~~~

@@ -1,7 +1,7 @@
 Opportunity
-------------
+-----------
 
-The profile page is divided into two sections. The top section of the Opportunity profile page provides you quick access to the properties of the opportunity and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
+The profile page is divided into two sections. The top section of the Opportunity profile page provides you quick access to the properties of an Opportunity and a toolbar which allows you to quickly perform actions on the ticket.  The bottom section of the page is a group of tabs which control what content is displayed.
 
 .. figure:: /images/worker_guide/profiles/opportunity/profile.png
     :alt: The Opportunity profile page.
@@ -10,7 +10,7 @@ The profile page is divided into two sections. The top section of the Opportunit
 Properties
 ==========
 
-The properties section displays the **status**, **email**, **organization**, **amount**, **created**, and **updated** of the Opportunity. Any custom fields that are set for the opportunity are also displayed in this section.
+The properties section displays the **status**, **email**, **organization**, **amount**, **created**, and **updated** of the Opportunity. Any custom fields that are set for an Opportunity are also displayed in this section.
 
 .. figure:: /images/worker_guide/profiles/opportunity/properties.png
     :alt: The properties section of the Organzation profile page.
@@ -28,13 +28,13 @@ The actions toolbar has three buttons.
 Start Watching
 ~~~~~~~~~~~~~~
 
-The :guilabel:`Start watching` button allows you to watch the opportunity and see how many workers are currently watching it.
+The :guilabel:`Start watching` button allows you to watch an Opportunity and see how many workers are currently watching it.
 
 .. figure:: /images/worker_guide/profiles/opportunity/actions/start_watching.png
     :alt: The Start watching button in the toolbar.
     :figclass: bordered
 
-The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching the opportunity. The watchers peek also allows you to add and remove watchers from the opportunity.
+The :guilabel:`▾` button expands the watchers peek so you can see which workers are watching an Opportunity. The watchers peek also allows you to add and remove watchers from an Opportunity.
 
 .. figure:: /images/worker_guide/profiles/opportunity/actions/watchers_dialog.png
     :alt: The watchers peek.
@@ -43,7 +43,7 @@ The :guilabel:`▾` button expands the watchers peek so you can see which worker
 Edit
 ~~~~
 
-The :guilabel:`Edit` button allows you to edit the opportunity.
+The :guilabel:`Edit` button allows you to edit an Opportunity.
 
 .. figure:: /images/worker_guide/profiles/opportunity/actions/edit.png
     :alt: The edit button in the toolbar.
@@ -55,10 +55,7 @@ Clicking the :guilabel:`Edit` button displays the edit dialog.
     :alt: The edit dialog.
     :figclass: bordered
 
-
-.. ::
-
-    The **password**, and **watchers** can be specified in the dialog.  If any custom fields have been defined for registered contacts, they can be specified as well.
+The **email**, **title**, **status**, **amount**, **created date**, and **watdchers** can be specified in the dialog.  If any custom fields have been defined for Opportunities, they can be specified as well.
 
 Time Tracking
 ~~~~~~~~~~~~~
@@ -110,7 +107,7 @@ The :guilabel:`Links` tab displays all of the objects linked to an Opportunity. 
 Mail History
 ~~~~~~~~~~~~
 
-The :guilabel:`Mail History` tab displays the ticket history for the opportunity.
+The :guilabel:`Mail History` tab displays the ticket history for an Opportunity.
 
 .. figure:: /images/worker_guide/profiles/opportunity/tabs/mail_history.png
     :alt: The Mail History tab on the Opportunity profile page.
