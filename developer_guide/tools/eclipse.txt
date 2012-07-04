@@ -1,0 +1,149 @@
+Eclipse
+=======
+
+We recommend using `Eclipse <http://eclipse.org>`_ as your Integrated Development Environment (IDE).
+
+.. figure:: /images/developer_guide/tools/eclipse/eclipse_ready.png
+   :figclass: bordered
+
+Installing the Eclipse Platform as your code editor
+---------------------------------------------------
+
+These steps will install an Eclipse installation with the minimum number of packages:
+
+* Download the Platform Runtime Binary for your operating system from: http://download.eclipse.org/eclipse/downloads/drops4/R-4.2-201206081400/#PlatformRuntime
+* Extract it to your desired location.
+* Run it.
+
+.. figure:: /images/developer_guide/tools/eclipse/eclipse_splash.png
+   :figclass: bordered
+
+You'll be prompted to create a new workspace directory (e.g. :file:`php5-workspaces`). Choose a location that is convenient for you; it does not need to be in the same place where your web-accessible files are located.
+
+Installing Eclipse plugins for PHP development
+----------------------------------------------
+
+* Open the :guilabel:`Help` menu and select :guilabel:`Install New Software`.
+* In the :guilabel:`Work With:` dropdown, select **Juno**.
+
+Installing the Eclipse Web Developer Tools
+
+* In the filter box, type :kbd:`web dev` and press :kbd:`ENTER`.
+* Check the box to the left of :guilabel:`Eclipse Web Developer Tools`.
+
+Installing the Eclipse XML Editors and Tools
+
+* In the filter box, type :kbd:`xml ed` and press :kbd:`ENTER`.
+* Check the box to the left of :guilabel:`Eclipse XML Editors and Tools` under :guilabel:`Programming Languages`.
+
+Installing the PHP Development Tools (PDT)
+
+* In the filter box, type :kbd:`php` and press :kbd:`ENTER`.
+* Check the box to the left of :guilabel:`PHP Development Tools (PDT)` under :guilabel:`Programming Languages`.
+
+* Clear the filter by clicking the :guilabel:`x` on the right.  You should see :guilabel:`3 items selected` at the bottom of the list.
+
+.. figure:: /images/developer_guide/tools/eclipse/eclipse_plugins_install.png
+   :figclass: bordered
+
+* Click the :guilabel:`Next` button twice.
+* Accept the software terms and click the :guilabel:`Finish` button.
+* When prompted to restart Eclipse Platform, select :guilabel:`Yes`.
+* Select your workspace and click the :guilabel:`OK` button.
+
+Importing Cerb as a project
+---------------------------
+
+* Open the :guilabel:`File` menu and select :guilabel:`Import`.
+* Expand :guilabel:`General` and select :guilabel:`Existing Projects into Workspace`.
+    .. figure:: /images/developer_guide/tools/eclipse/eclipse_import_existing.png
+       :figclass: bordered
+* Click the :guilabel:`Next` button.
+* On :guilabel:`Select root directory:` click the :guilabel:`Browse` button and select the directory where you installed Cerb.  Then click :guilabel:`Open`
+* Click the :guilabel:`Finish` button.
+
+The project will be indexed for a couple minutes.
+
+    .. figure:: /images/developer_guide/tools/eclipse/eclipse_indexing.png
+       :figclass: bordered
+
+Configuring Eclipse for PHP development
+---------------------------------------
+
+Perspective
+~~~~~~~~~~~
+
+* Window -> Open Perspective -> Other... -> PHP
+* Close the :guilabel:`Welcome` tab.
+
+Template files
+~~~~~~~~~~~~~~
+
+Our Smarty-based template files use the :file:`*.tpl` file extension, which is not associated with the HTML editor in Eclipse by default.
+
+* Open Eclipse's preferences.
+
+* Expand :guilabel:`General` from the tree on the left and select :guilabel:`Content Types`.
+* Expand :guilabel:`Text` on the right and select :guilabel:`HTML`. Click the :guilabel:`Add...` button below, enter :file:`*.tpl` and click the :guilabel:`OK` button.
+
+* :guilabel:`General` -> :guilabel:`Editors` -> :guilabel:`File Associations`
+* Click :guilabel:`Add...`, enter :file:`*.tpl`, and click :guilabel:`OK`.
+* Select :guilabel:`HTML Editor` from the :guilabel:`Associated editors:` section below and click the :guilabel:`Default` button to the right.
+
+.. figure:: /images/developer_guide/tools/eclipse/eclipse_prefs_tpl_files.png
+   :figclass: bordered
+
+* Click the OK button at the bottom of the popup window.
+
+Validation
+~~~~~~~~~~
+
+By default, Eclipse PDT will output several HTML validation warnings. To suppress these:
+
+* Open up Eclipse's preferences.
+
+**HTML**
+
+* Select :guilabel:`Validation` from the tree on the left of the popup.
+* Click the :guilabel:`...` button to the right of :guilabel:`HTML Syntax Validator`.
+
+* Click the :guilabel:`Add Exclude Group` button to the right of the popup.
+* Select :guilabel:`Exclude Group` on the left and click the :guilabel:`Add Rule...` button.
+* Select :guilabel:`File Extension` and click the :guilabel:`Next` button.
+* Enter the extension :file:`tpl` and click the :guilabel:`Finish` button.
+* Click the :guilabel:`OK` button.
+
+.. figure:: /images/developer_guide/tools/eclipse/eclipse_prefs_validation_html.png
+   :figclass: bordered
+
+**XML**
+
+* XML -> XML Files -> Validation
+* Set :guilabel:`No grammar specified:` to **Ignore** 
+
+* Click the :guilabel:`OK` button at the bottom of the preferences popup.
+* You will be prompted to rebuild the project.  Click :guilabel:`Yes`.
+* If prompted to run a full validation, click :guilabel:`Yes`.
+
+.. figure:: /images/developer_guide/tools/eclipse/eclipse_prefs_xml_grammar.png
+   :figclass: bordered
+
+The project will be reindexed.
+
+After indexing is complete, you should see :guilabel:`0 items` in the :guilabel:`Problems` tab at the bottom of the window.
+
+Misc
+~~~~
+
+* Drag the :guilabel:`Outline` tab from the right to below the :guilabel:`PHP Explorer` on the left.
+* Click the minimize button to the right of the bottom tabs (Problems, Tasks, Console, Progress).
+
+Style
+~~~~~
+
+Dark editor colors for better contrast:
+
+* File -> Import
+* General -> Preferences
+* Click :guilabel:`Browse`, select :file:`cerb6/install/extras/developers/eclipse-cerb5-syntax-dark-coloring.epf`, and click :guilabel:`Open`.
+* Click the :guilabel:`Finish` button.

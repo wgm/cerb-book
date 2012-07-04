@@ -1,0 +1,168 @@
+Twitter Integration
+-------------------
+:Author: WebGroup Media LLC
+:Repository: https://github.com/cerb-plugins/wgm.twitter
+
+This plugin provides integration with `Twitter <http://www.twitter.com/>`_ through their `official API <https://dev.twitter.com/docs>`_.
+
+.. figure:: /images/plugins/wgm.twitter/library_wgm_twitter.png
+   :figclass: bordered
+
+It enables you to:
+
+* Automatically monitor multiple Twitter accounts for @mentions
+* Distribute Twitter duties among many workers
+* Reply to Twitter @mentions from inside Cerb
+* Mark handled Twitter messages as closed for improved workflow
+* Build workspaces and Virtual Attendant behavior based on your Twitter data
+
+Installing the plugin
+=====================
+
+You can install this plugin from your web browser using Cerb's Plugin Library:
+
+* Click :guilabel:`setup` in the top right of the navigation bar.
+* Hover over :guilabel:`Plugins` in the menu bar.
+* Select :guilabel:`Manage Plugins` from the pulldown menu.
+* Click the :guilabel:`Plugin Library` tab.
+* Click the :guilabel:`Check for updates` button to download the latest plugin information.
+* In the top-right quick search box, select :guilabel:`Name`. Type :kbd:`Twitter` and press :kbd:`<ENTER>`.
+* The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
+* In the popup, click the :guilabel:`Download and install` button again to confirm.
+* Set the :guilabel:`Status:` to **Enabled**.
+    .. figure:: /images/plugins/wgm.twitter/enable_wgm_twitter.png
+       :figclass: bordered
+* Click the :guilabel:`Save Changes` button.
+
+Creating a Twitter application
+==============================
+
+Twitter allows third-party applications to interact with its services using an API and OAuth authentication. You need to create a new *application profile* from Twitter's developer website in order to link your accounts to Cerb.
+
+Log in to Twitter's developer website to create a new application:
+https://dev.twitter.com/apps/new
+
+Enter the following information in the :guilabel:`Create an application` form:
+
+**Name**
+    A name that uniquely identifies your application.  For instance, when you reply to a tweet, or your Virtual Attendant posts an automated status update, Twitter will display "via *<Name>*".  You can use your own company name.  If you want to promote Cerb, then name your application *"Cerb (Company)"* with your company name in parenthesis.  Please do not simply put *"Cerb"* or *"Cerb6"*.
+    
+**Description**
+    This description is shown when you link Cerb and Twitter with *"Sign in with Twitter"* functionality.
+    
+**Website**
+    This is a link to a web page that describes the application.  You're welcome to use http://www.cerberusweb.com/ here to help promote Cerb, though you can also enter your own website.
+    
+**Callback URL**
+    This can be anything, as long as it's not blank.  We recommend just copying your website URL from above.
+
+Click the :guilabel:`Create your Twitter application` button.
+
+Once your application is created, click the :guilabel:`Settings` tab.  Scroll down to :guilabel:`Application Type` and set :guilabel:`Access:` to **Read, Write and Access direct messages**.
+
+Scroll down and click the :guilabel:`Update this Twitter Application's Settings` button.
+
+Click the :guilabel:`Details` tab.
+
+Scroll down to the :guilabel:`OAuth settings` section.  Make a note of the consumer key and secret.  You will need to copy both of these values to configure the Twitter plugin in Cerb.
+
+Configuring the Twitter plugin
+==============================
+
+Switch back to Cerb.
+
+Click :guilabel:`setup` to the right of the global navigation menu.
+
+Select **Twitter** from the :guilabel:`Plugins` menu.
+
+Connecting to your Twitter application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enter your consumer key and secret from the application you created on Twitter's website.
+
+.. figure:: /images/plugins/wgm.twitter/twitter_consumer.png
+   :figclass: bordered
+
+Click the :guilabel:`Save Changes` button.
+
+Linking your Twitter accounts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you input your consumer key and secret correctly, a :guilabel:`Sign in with Twitter` button will appear:
+
+.. figure:: /images/plugins/wgm.twitter/twitter_signin.png
+   :figclass: bordered
+
+Click the button.
+
+You will be redirected to Twitter's website in order to grant Cerb access to your account:
+
+.. figure:: /images/plugins/wgm.twitter/twitter_oauth_confirm.png
+   :figclass: bordered
+
+Enter your account information and click the blue :guilabel:`Sign In` button.
+
+You will be redirected back to Cerb.  You should see your new account listed in the :guilabel:`Authorized Accounts` worklist.
+
+.. figure:: /images/plugins/wgm.twitter/twitter_accounts_worklist.png
+   :figclass: bordered
+
+You can repeat the above steps to authorize multiple Twitter accounts.
+
+Scheduler
+~~~~~~~~~
+
+The Twitter plugin will automatically retrieve tweets that @mention your account name.  It uses a new scheduler job to accomplish this.
+
+Navigate to :menuselection:`setup --> Configure --> Scheduler`.
+
+.. figure:: /images/plugins/wgm.twitter/twitter_scheduler.png
+   :figclass: bordered
+
+Select the :guilabel:`Twitter Checker` job, enable it, and set it to run every 5 minutes.  Then click the :guilabel:`Save Changes` button.
+
+At this point, you can also click the :guilabel:`run now` link for the :guilabel:`Twitter Checker` to fetch recent tweets.  Close the new browser tab when it finishes running.
+
+Using the Twitter plugin
+========================
+
+The plugin adds a new record type for Twitter Messages.
+
+Searching
+~~~~~~~~~
+
+You can search Twitter Messages by navigating to :menuselection:`Search --> Twitter Message`:
+
+.. figure:: /images/plugins/wgm.twitter/twitter_mentions_worklist.png
+   :figclass: bordered
+
+Replying to @mentions
+~~~~~~~~~~~~~~~~~~~~~
+
+You can reply to Twitter messages by hovering over any message and clicking on the :doc:`peek </concepts/worklists/peek>` icon:
+
+.. figure:: /images/plugins/wgm.twitter/twitter_reply.png
+    :figclass: bordered
+
+Assigning messages
+~~~~~~~~~~~~~~~~~~
+
+You can assign Twitter messages to workers with a custom field.
+
+Closing messages
+~~~~~~~~~~~~~~~~
+
+You can close Twitter messages to keep track of what you've already responded to.
+
+Adding to Workspaces
+~~~~~~~~~~~~~~~~~~~~
+
+You can also add Twitter Messages to workspaces:
+
+.. figure:: /images/plugins/wgm.twitter/twitter_workspace.png
+   :figclass: bordered
+
+Related resources
+=================
+
+* :doc:`/cookbook/virtual_attendants/send_twitter_mentions_to_campfire`

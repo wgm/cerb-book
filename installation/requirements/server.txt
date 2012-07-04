@@ -15,7 +15,7 @@ Required
     - :program:`Apache` 2.x
     - :program:`Nginx`
     - :program:`lighttpd`
-    - :program:`IIS`
+    - :program:`Microsoft Internet Information Server (IIS)`
 - :program:`PHP` 5.3 or later
     - With the following extensions enabled:
         - curl
@@ -39,7 +39,7 @@ Recommended
 ===========
 
 - :program:`Linux` 
-    - :program:`Ubuntu` (10.04 LTS or 11.10) or :program:`Debian` (6.0 Squeeze)
+    - :program:`Ubuntu` (12.04 LTS or 11.10) or :program:`Debian` (6.0 Squeeze)
     - :program:`CentOS` is supported but not recommended due to outdated packages
 - :program:`Apache` 2.x or later
 - :program:`PHP` 5.3 or later

@@ -1,0 +1,36 @@
+Apache, MySQL, and PHP
+======================
+
+Your local development machine should have the following services available:
+
+* Webserver (e.g. Apache, Nginx, lighttpd, IIS)
+* MySQL Server 5.x+
+* PHP 5.3+
+    * Extensions: curl, imap, mailparse, mbstring
+
+There are various ways to install and maintain a local server:
+
+Installing XAMPP
+----------------
+
+One of the easiest ways to install Apache, MySQL, and PHP for development is to use `XAMPP <http://www.apachefriends.org/en/xampp.html>`_.  Installers are available for Linux, Mac OS X, Solaris, and Windows.
+
+MacPorts
+--------
+
+If you're using a Mac, you can use MacPorts to install these applications in :file:`/opt`::
+
+    sudo port install apache2 php5 mysql5-server
+
+Linux
+-----
+
+If you're using a Unix-based operating system, use your distribution's package manager (e.g. apt-get, yum) to install these applications.
+
+Debian/Ubuntu
+~~~~~~~~~~~~~
+
+::
+
+    apt-get install apache2 mysql-server php5
+    

@@ -3,8 +3,8 @@ Cerb6 Manual
 
 :Release: |version|
 :Last Updated: |today|
-:Website: http://www.cerb5.com/
-:Source Code: https://github.com/wgm/cerb5
+:Website: http://www.cerb6.com/
+:Source Code: https://github.com/wgm/cerb6
 
 .. toctree::
     :maxdepth: 3
@@ -18,6 +18,7 @@ Cerb6 Manual
     worker_guide/index
     developer_guide/index
     tips/index
+    plugins/index
     cookbook/index
     credits/index
     License <license>

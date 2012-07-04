@@ -5,8 +5,8 @@ Installing on a Linux server
 
 These instructions assume that you have console access to your Linux-based server and that it meets the :doc:`server requirements </installation/requirements/server>`.
 
-Download the files from GitHub using Subversion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Download the files from GitHub using Git
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First, change directory to your website's document directory. The directory will usually be named something like :file:`htdocs`, :file:`httpdocs`, :file:`public_html`, or :file:`www`, and it will be located in the directory of the appropriate website.
 
@@ -14,7 +14,7 @@ First, change directory to your website's document directory. The directory will
 
     $ cd /path/to/example.com/httpdocs
 
-When deploying Cerb on a production server you should use :program:`Subversion` to manage the project files. Subversion provides many useful capabilities:
+When deploying Cerb on a production server you should use :program:`Git` to manage the project files. Git provides many useful capabilities:
 
 * You can quickly upgrade by just fetching files that have changed since your last update.
 * You can see the local changes that you have made to any project files.
@@ -24,19 +24,15 @@ When deploying Cerb on a production server you should use :program:`Subversion` 
 
 You won't need to download the entire project again after your initial installation. You also won't have to hassle with copying your :file:`framework.config.php` configuration file or storage directory when upgrading, or repeating any of your custom modifications to the source code.
 
-You can download the project files using Subversion with a single command::
+You can download the project files using Git with a single command::
 
-    $ svn checkout http://svn.github.com/wgm/cerb6.git/branches/stable cerb6
+    $ git clone git://github.com/wgm/cerb6.git cerb6
 
 .. note::
-
-    If you're comfortable with using :program:`Git` for version control (or willing to learn), we recommend that you use it instead of Subversion.  You'll receive the same files either way, but the project is officially developed using Git and you'll be able to participate that way.
     
-    You can *clone* the repository with this command::
+    GitHub also provides a :program:`Subversion` interface to the project files.  If you're unable to use Git, you can checkout the the project using Subversion::
     
-    $ git clone git@github.com:wgm/cerb6.git
-
-    You can also fork the project at `GitHub <http://github.com/wgm/cerb6>`_.  See the :doc:`Guide for Developers </developer_guide/index>` for more information.
+    $ svn checkout https://github.com/wgm/cerb6.git/branches/6.0 cerb6
 
 Set permissions
 ~~~~~~~~~~~~~~~
@@ -72,8 +68,8 @@ Create a new :program:`MySQL` database using the console or your favorite GUI.
 From the MySQL console, you can issue the following SQL statements::
 
     mysql> CREATE DATABASE cerb6 CHARACTER SET utf8;
-    mysql> GRANT ALL PRIVILEGES ON cerb6.*  \
-            TO cerb6@localhost \
+    mysql> GRANT ALL PRIVILEGES ON cerb6.*  
+            TO cerb6@localhost 
             IDENTIFIED BY 'secret_password';
 
 .. note:: 
