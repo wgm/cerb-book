@@ -26,6 +26,7 @@ You can install this plugin from your web browser using Cerb's Plugin Library:
 * Set the :guilabel:`Status:` to **Enabled**.
     .. figure:: /images/plugins/wgm.freshbooks/enable_wgm_freshbooks.png
        :figclass: bordered
+* Click the :guilabel:`Save Changes` button.
 
 Obtaining your Auth Token
 =========================
@@ -45,7 +46,7 @@ The `FreshBooks API` page displays your `API URL` and `Authentication Token`.
    :figclass: bordered
 
 Configuring the Freshbooks plugin
-==============================
+=================================
 
 Switch back to Cerb.
 

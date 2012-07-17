@@ -8,7 +8,7 @@ This plugin provides integration with `Facebook <http://www.facebook.com/>`_ thr
 .. figure:: /images/plugins/wgm.facebook/library_wgm_facebook.png
    :figclass: bordered
 
-It enables you to post status updates
+It enables you to post status updates to your wall and make posts on pages you have access to.
 
 Installing the plugin
 =====================
@@ -71,7 +71,7 @@ Once you're finished configuring your app, click :guilabel:`Save Changes`.
     :figclass: bordered
 
 Configuring the Facebook plugin
-==============================
+===============================
 
 Switch back to Cerb.
 
