@@ -1,0 +1,75 @@
+Twilio Integration
+------------------
+:Author: WebGroup Media LLC
+:Repository: https://github.com/cerb-plugins/wgm.twilio
+
+This plugin provides integration with `Twilio <http://www.twilio.com/>`_ through their `official API <http://www.twilio.com/docs>`_.
+
+.. figure:: /images/plugins/wgm.twilio/library_wgm_twilio.png
+   :figclass: bordered
+
+It enables you to send SMS messages from within Cerb.
+
+Installing the plugin
+=====================
+
+You can install this plugin from your web browser using Cerb's Plugin Library:
+
+* Click :guilabel:`setup` in the top right of the navigation bar.
+* Hover over :guilabel:`Plugins` in the menu bar.
+* Select :guilabel:`Manage Plugins` from the pulldown menu.
+* Click the :guilabel:`Plugin Library` tab.
+* Click the :guilabel:`Check for updates` button to download the latest plugin information.
+* In the top-right quick search box, select :guilabel:`Name`. Type :kbd:`Twilio` and press :kbd:`<ENTER>`.
+* The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
+* In the popup, click the :guilabel:`Download and install` button again to confirm.
+* Set the :guilabel:`Status:` to **Enabled**.
+    .. figure:: /images/plugins/wgm.twilio/enable_wgm_twilio.png
+       :figclass: bordered
+* Click the :guilabel:`Save Changes` button.
+
+Obtaining your Auth Token
+=========================
+The Twilio API requires an `Auth Token` for SMS messages.  To obtain your `Auth Token`, login to your Twilio account. Your `Account SID` and `Auth Token` will be displayed in the center of the page.
+
+.. figure:: /images/plugins/wgm.twilio/twilio_account_page.png
+   :figclass: bordered
+  
+To view your `Auth Token` you'll need to click on the lock button to the right of the words :guilabel:`Auth Token`.
+
+.. figure:: /images/plugins/wgm.twilio/twilio_auth_token_button.png
+    :figclass: bordered
+
+Clicking the button will display your `Auth Token`.
+
+.. figure:: /images/plugins/wgm.twilio/twilio_auth_token.png
+    :figclass: bordered
+
+Configuring the Twilio plugin
+=============================
+
+Switch back to Cerb.
+
+Click :guilabel:`setup` to the right of the global navigation menu.
+
+Select **Twilio** from the :guilabel:`Plugins` menu.
+
+Connecting to your Twilio Account
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enter your Account SID and Auth Token you retrieved from Twilio's website, along with your phone number.
+
+.. figure:: /images/plugins/wgm.twilio/twilio_auth.png
+   :figclass: bordered
+
+Click the :guilabel:`Save Changes` button.
+
+Using the Twilio plugin
+=======================
+
+The plugin adds a new action to Virtual Attendants that allows you to send an SMS
+
+Related resources
+=================
+
+* :doc:`/cookbook/virtual_attendants/send_twitter_mentions_to_twilio`
