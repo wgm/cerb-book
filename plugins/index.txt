@@ -9,4 +9,5 @@ Integration
 
     wgm.campfire
     wgm.facebook
+    wgm.freshbooks
     wgm.twitter
