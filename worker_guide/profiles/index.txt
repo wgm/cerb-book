@@ -1,7 +1,7 @@
 Profiles
 --------
 
-The **profile** page...
+The **profile** page allows you to view details about an object.
 
 .. toctree::
     :maxdepth: 1

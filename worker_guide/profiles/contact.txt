@@ -55,7 +55,7 @@ Clicking the :guilabel:`Edit` button displays the edit dialog.
     :alt: The edit dialog.
     :figclass: bordered
 
-The **password**, and **watchers** can be specified in the dialog.  If any custom fields have been defined for registered contacts, they can be specified as well.
+The **password**, and **watchers** can be specified in the dialog.  If any custom fields have been defined for Registered Contacts, they can be specified as well.
 
 Time Tracking
 ~~~~~~~~~~~~~
