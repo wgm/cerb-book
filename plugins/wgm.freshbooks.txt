@@ -81,7 +81,8 @@ Using the Freshbooks plugin
 
 The plugin adds a new record type for Freshbooks Clients.
 
-Related resources
-=================
+..
+    Related resources
+    =================
 
-* :doc:`/cookbook/virtual_attendants/send_twitter_mentions_to_freshbooks`
+    * :doc:`/cookbook/virtual_attendants/send_twitter_mentions_to_freshbooks`

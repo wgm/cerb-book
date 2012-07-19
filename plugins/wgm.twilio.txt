@@ -72,4 +72,4 @@ The plugin adds a new action to Virtual Attendants that allows you to send an SM
 Related resources
 =================
 
-* :doc:`/cookbook/virtual_attendants/send_twitter_mentions_to_twilio`
+* :doc:`/cookbook/virtual_attendants/send_sms_on_sensor_warning`
