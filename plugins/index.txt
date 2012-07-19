@@ -1,8 +1,15 @@
 Plugins
 -------
 
-Integration
-===========
+Basic Plugins
+=============
+.. toctree::
+    :maxdepth: 1
+    
+    cerberusweb.datacenter.sensors
+
+3rd-party Integration
+=====================
 
 .. toctree::
     :maxdepth: 1

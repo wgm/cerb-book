@@ -3,5 +3,6 @@ Virtual Attendants
 
 .. toctree::
     :maxdepth: 1
-
+    
+    send_sms_on_sensor_warning
     send_twitter_mentions_to_campfire
