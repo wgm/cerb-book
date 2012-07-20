@@ -6,5 +6,5 @@ Virtual Attendants
     
     send_sms_on_sensor_warning
     send_twitter_mentions_to_campfire
-    set_watchers_worker_availability
+    set_watchers_calendar_availability
     sla_escalation
