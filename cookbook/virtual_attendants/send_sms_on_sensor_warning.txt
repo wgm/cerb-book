@@ -10,15 +10,13 @@ The first thing you'll need to do is setup your sensors.  For this example, we'l
 
 * Hover over the :guilabel:`Search` menu in the top right of the navigation bar.
 * Click on :guilabel:`Sensors` from the pulldown menu.
-* Enter a :guilabel:`Title` for the new Sensor and select `HTTP` as the :guilabel:`Type`
-.. 
-    , and enter a :guilabel:`URL` to monitor.
-    
+* Enter a :guilabel:`Title` for the new Sensor and select `HTTP` as the :guilabel:`Type`.
 * Click :guilabel:`Save Changes`.
 * Click on the new sensor, then click on the gear icon to edit it.
 * Enter a :guilabel:`URL` to monitor, and click :guilabel:`Save Changes`.
 .. figure:: /images/cookbook/sensors_notify_sms/create_sensor_dialog.png
     :figclass: bordered
+
 Setting up the Virtual Attendant
 ================================
 
@@ -43,14 +41,14 @@ Setting up the Virtual Attendant
     :figclass: bordered
 * Click :guilabel:`Save Worklist`.
 * Select `Replace the variable with these objects` for :guilabel:`Then`.
-.. figure:: /images/cookbook/sensors_notify_sms/new_action_sms.png
-    :figclass: bordered
 * Select the `Send SMS via Twilio` action from the :guilabel:`Add Action` dropdown menu.
 * Enter a :guilabel:`Phone` number to send an SMS to.
 * Set the :guilabel:`Message` to:
     {% for sensor in var_changed_sensors %}
     * {{sensor.name}} is {{sensor.status}}
     {% endfor %}
+.. figure:: /images/cookbook/sensors_notify_sms/new_action_sms.png
+    :figclass: bordered
 * Schedule the behavior to run by clicking on the :guilabel:`Virtual Attendant` button at the top of your worker profile, then selecting the Scheduled Behavior. Set it to :guilabel:`Repeat` `every` :kbd:`5 minutes` and set it to run :kbd:`now`. Notice that setting this to run every `5 minutes`, combined with the filter you set above, will cause the scheduled behavior to only report new mentions each time the task runs.
 .. figure:: /images/cookbook/sensors_notify_sms/schedule_behavior.png
     :figclass: bordered
