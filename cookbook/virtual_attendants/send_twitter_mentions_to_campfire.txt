@@ -1,7 +1,7 @@
 Send Twitter Mentions to Campfire
 ---------------------------------
 
-This cookbook article will explain how to setup a Virtual Attendant that posts Twitter mentions to Campfire.  You'll need to install the :doc:`Twitter </plugins/wgm.twitter>` and :doc:`Campfire </plugins/wgm.campfire>` plugins.  Once you have those plugins installed, you'll want to setup a new Virtual Attendant.
+This cookbook recipe will explain how to setup a Virtual Attendant that posts Twitter mentions to Campfire.  You'll need to install the :doc:`Twitter </plugins/wgm.twitter>` and :doc:`Campfire </plugins/wgm.campfire>` plugins.  Once you have those plugins installed, you'll want to setup a new Virtual Attendant.
 
 Setting up the Virtual Attendant
 ================================
@@ -9,32 +9,32 @@ Setting up the Virtual Attendant
 * Click on your Worker Menu in the top right of the navigation bar.
 * Select :guilabel:`virtual attendant` from the pulldown menu.
 * Click :guilabel:`Create Behavior`.
-.. figure:: /images/cookbook/twitter_mentions_campfire/new_behavior_dialog.png
-    :figclass: bordered
 * Enter a :guilabel:`Title` for your new behavior.
 * Set the :guilabel:`Event` to `Custom worker behavior`.
 * Click the :guilabel:`+` to add a :guilabel:`Variable`.
 * Set the variable to `private`, type :kbd:`mentions` in the text box, and select `(List) Twitter Message` from the list.
+.. figure:: /images/cookbook/twitter_mentions_campfire/new_behavior_dialog.png
+    :figclass: bordered
 * Click :guilabel:`Save Changes`
 * Click on your new Virtual Attendant, and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Retrieve and Post Mentions` as the :guilabel:`Title` of your action.
 * Select the `Set (variable) mentions` action from the :guilabel:`Add Action` dropdown menu.
 .. figure:: /images/cookbook/twitter_mentions_campfire/new_action_var.png
     :figclass: bordered
-* Click on the worklist displayed under :guilabel:`Find objects using this worklist`.
+* Click on the :guilabel:`Twitter Message` worklist displayed under :guilabel:`Find objects using this worklist`.
+* Add a :guilabel:`Filter` by selecting `Created` for the :guilabel:`Field`.  Set the range to between :kbd:`-30 minutes` and :kbd:`now` for :guilabel:`Between`.
 .. figure:: /images/cookbook/twitter_mentions_campfire/new_action_var_worklist.png
     :figclass: bordered
-* Add a :guilabel:`Filter` by selecting `Created` for the :guilabel:`Field`.  Set the range to between :kbd:`-30 minutes` and :kbd:`now` for  :guilabel:`Between`.
 * Click :guilabel:`Save Worklist`.
 * Select `Replace the variable with these objects` for :guilabel:`Then`.
-* Add a `Post to Campfire` action by selecting it from the :guilabel:`Add Actions` dropdown.
-.. figure:: /images/cookbook/twitter_mentions_campfire/new_action_post.png
-    :figclass: bordered
+* Add a `Post to Campfire` action by selecting it from the :guilabel:`Add Action` dropdown.
 * Set the :guilabel:`Room` you wish to post the Twitter Mentions to.
 * Set the :guilabel:`Message` to:
     {% for twitter_message in var_mentions %}
     {{twitter_message.twitter_url}}
     {% endfor %}
+.. figure:: /images/cookbook/twitter_mentions_campfire/new_action_post.png
+    :figclass: bordered
 * Schedule the behavior to run by clicking on the :guilabel:`Virtual Attendant` button at the top of your worker profile, then selecting the Scheduled Behavior. Set it to :guilabel:`Repeat` `every` :kbd:`30 minutes` and set it to run :kbd:`now`. Notice that setting this to run every `30 minutes`, combined with the filter you set above, will cause the scheduled behavior to only report new mentions each time the task runs.
 .. figure:: /images/cookbook/twitter_mentions_campfire/schedule_behavior.png
     :figclass: bordered
