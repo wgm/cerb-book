@@ -1,0 +1,27 @@
+Assign Ticket Based on Worker's Workload
+----------------------------------------
+
+This cookbook recipe will explain how to assign tickets to a worker based on a worker's current workload using a Virtual Attendant.  You'll need to be an administrator.
+
+Setting up the Virtual Attendant
+================================
+
+* Click on :guilabel:`groups` in the top right of the navigation bar.
+* Click on any group - we'll use `Dispatch` for this example.
+* Click on the :guilabel:`Virtual Attendant` tab.
+* Click :guilabel:`Create Behavior`.
+* Enter :kbd:`Assign Ticket Based on Workload` as the :guilabel:`Title`.
+* Set the :guilabel:`Event` to `Conversation moved in group`.
+.. figure:: /images/cookbook/assign_ticket_workload/new_behavior_dialog.png
+    :figclass: bordered
+* Click :guilabel:`Save Changes`.
+* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+* Enter :kbd:`Set Owner` as the :guilabel:`Title`.
+* Select `Set (variable) worker` action from the :guilabel:`Add Action` dropdown menu.
+* Add the `Dispatch` group for the :guilabel:`And the workers from these groups` option.
+* Select `The worker with the fewest open assignments` for :guilabel:`Pick`.
+* Select `Set owner` from the :guilabel:`Add Action` dropdown menu.
+* Select `(variable) Worker` from the :guilabel:`Set owner` action dropdown menu.
+.. figure:: /images/cookbook/assign_ticket_workload/new_action_dialog.png
+    :figclass: bordered
+* Click :guilabel:`Save Changes`.
