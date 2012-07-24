@@ -4,22 +4,22 @@ Glossary
 .. glossary::
 
     action
-        ...
+        An action performs a specific task in a :term:`Virtual Attendant <virtual_attendant>`.
 
     address book
-        A directory of all known :term:`contacts <contact>`. It provides the ability to group contacts by various attributes (e.g. location, language, industry) to build customer lists and mailing lists.
+        A directory of all known :term:`contacts <contact>`.  It provides the ability to group contacts by various attributes (e.g.  location, language, industry) to build customer lists and mailing lists.
 
     administrator
         ...
 
     Apache
-        ...
+        A popular web server which is used to server webpages.
 
     behavior
-        ...
+        A set of linked :term:`decisions <decision>` that determine how to react to an even.
 
     bucket
-        A container for storing similar mail :term:`conversations <conversation>` together. Common buckets are: Leads, Receipts, Newsletters, Refunds, and Spam. Buckets aren't the only means for organizing mail, but they're the simplest to understand and use.
+        A container for storing similar mail :term:`conversations <conversation>` together.  Common buckets are: Leads, Receipts, Newsletters, Refunds, and Spam.  Buckets aren't the only means for organizing mail, but they're the simplest to understand and use.
 
     Cerb
         A web-based communications platform for collaborating with a large audience.  Originally known as Cerberus Helpdesk, the project was started in January 2002 to help online teams efficiently distribute and handle large volumes of work: customer support questions, technical problems, tasks, sales opportunities, business partnerships, and more.
@@ -28,10 +28,10 @@ Glossary
         See: :term:`Cerb`
 
     condition
-        ...
+        A conditions is the comparison of a single property to one or more values using an operator.  Conditions control whether an :term:`outcome <outcome>` should be run or not.
 
     contact
-        A person who corresponds with the :term:`helpdesk`. These are your customers, partners, and prospects. If you're part of the I.T. department for a large corporation, then contacts are likely your co-workers who ask questions and report problems.
+        A person who corresponds with the :term:`helpdesk`.  These are your customers, partners, and prospects.  If you're part of the I.T.  department for a large corporation, then contacts are likely your co-workers who ask questions and report problems.
 
     context
         A specific kind of :term:`object`.
@@ -40,31 +40,31 @@ Glossary
         A series of email messages pertaining to a specific topic and involving the same :term:`recipients <recipient>`.
 
     database
-        Provides long-term storage for arbitrary information (i.e. data). Databases help applications maintain relationships between data (e.g. *"Which products were shipped for order #1234?"*), and they assist with performing complex analysis (e.g. *"How many orders over the past 12 months were from someone who has a surname that begins with F (AND) resides in Germany (AND) spent more than $100 USD?"*).  See: :term:`MySQL`
+        Provides long-term storage for arbitrary information (i.e.  data).  Databases help applications maintain relationships between data (e.g.  *"Which products were shipped for order #1234?"*), and they assist with performing complex analysis (e.g.  *"How many orders over the past 12 months were from someone who has a surname that begins with F (AND) resides in Germany (AND) spent more than $100 USD?"*).  See: :term:`MySQL`
 
     decision
-        ...
+        A decision determines whether an :term:`outcome </outcome>` should be run based on the outcome's :term:`conditions <condition>`.
 
     Devblocks
-        A commercial open source framework created by :term:`WebGroup Media <WGM>` for rapid :term:`PHP5 <PHP>` application development which provides many reusable "nuts and bolts" services. This approach enables a development team to spend more time solving their project's target problem.  Devblocks has been heavily influenced by over 10 years of experience working on :term:`Cerb`, agile methodologies like extreme programming, and many innovative frameworks like Eclipse/RCP (cross-platform native desktop apps in Java), Tapestry (web development), and Hibernate (object relational mapping).
+        A commercial open source framework created by :term:`WebGroup Media <WGM>` for rapid :term:`PHP5 <PHP>` application development which provides many reusable "nuts and bolts" services.  This approach enables a development team to spend more time solving their project's target problem.  Devblocks has been heavily influenced by over 10 years of experience working on :term:`Cerb`, agile methodologies like extreme programming, and many innovative frameworks like Eclipse/RCP (cross-platform native desktop apps in Java), Tapestry (web development), and Hibernate (object relational mapping).
 
     event
-        ...
+        An event is triggered when something noteworthy occurs.  Events are used to cause :term:`Virtual Attendants <virtual_attendant>` to run.
 
     group
-        A collection of :term:`workers <worker>` who share responsibility for the same conversations and :term:`buckets <bucket>`. Common groups are: Sales, Support, Development, Billing, and Corporate. These examples happen to all be departments, but groups can be established based on any attribute (e.g. product, location, etc).
+        A collection of :term:`workers <worker>` who share responsibility for the same conversations and :term:`buckets <bucket>`.  Common groups are: Sales, Support, Development, Billing, and Corporate.  These examples happen to all be departments, but groups can be established based on any attribute (e.g.  product, location, etc).
 
     helpdesk
-        A web-based hub for centrally managing and archiving :term:`conversations <conversation>`, and routing messages between :term:`workers <worker>` and :term:`contacts <contact>`. This allows multiple :term:`workers <worker>` to send and receive email from shared mailboxes without disclosing their personal contact information.
+        A web-based hub for centrally managing and archiving :term:`conversations <conversation>`, and routing messages between :term:`workers <worker>` and :term:`contacts <contact>`.  This allows multiple :term:`workers <worker>` to send and receive email from shared mailboxes without disclosing their personal contact information.
 
     inbox
-        By default, where new :term:`conversations <conversation>` are delivered to a :term:`group`. These conversations are then dispatched automatically by :term:`Virtual Attendants <Virtual Attendant>` or manually by :term:`workers <worker>`.
+        By default, where new :term:`conversations <conversation>` are delivered to a :term:`group`.  These conversations are then dispatched automatically by :term:`Virtual Attendants <Virtual Attendant>` or manually by :term:`workers <worker>`.
 
     manager
-         A :term:`member` with :term:`group` administration authority. Managers can create :term:`buckets <bucket>`, add new group members, and establish routing rules for new work. Groups can have any number of managers.
+         A :term:`member` with :term:`group` administration authority.  Managers can create :term:`buckets <bucket>`, add new group members, and establish routing rules for new work.  Groups can have any number of managers.
 
     mask
-        A unique identifier (e.g. ABC-12345-987) that doesn't disclose sensitive statistics like the total number of :term:`conversations <conversation>` or the volume of activity over arbitrary time periods.  Sequential IDs (e.g. 1, 2, ...) expose these statistics with every new object.
+        A unique identifier (e.g.  ABC-12345-987) that doesn't disclose sensitive statistics like the total number of :term:`conversations <conversation>` or the volume of activity over arbitrary time periods.  Sequential IDs (e.g.  1, 2, ...) expose these statistics with every new object.
 
     member
         A :term:`worker` in a :term:`group`, under the supervision of one or more :term:`managers <manager>`.
@@ -85,19 +85,19 @@ Glossary
         A specific instance of a :term:`context`.  For example, an individual :term:`ticket` or :term:`task`.
 
     outcome
-        ...
+        A set of :term:`conditions <condition>` and :term:`actions <action>` on a :term:`Virtual Attendant <virtual_attendant>`.  The :term:`action <actions>` will be run which should be run if the :term:`conditions <conditions>` are true.
 
     PHP
         PHP Hypertext Preprocessor.  A widely-used general-purpose scripting language that is especially suited for web development.  The primary programming language used to build :term:`Cerb`.  The letter P in the :term:`LAMP <LAMP stack>` acronym.
 
     plugin
-        ...
+        A plugin adds new functionality to :term:`Cerb <cerb>`.  Plugins usually add new :term:`contexts <context>` to the app.
 
     privilege
         Explicit permission to perform a specific action.
 
     recipient
-        A :term:`contact` that is associated with a particular :term:`conversation`. Recipients receive a copy of every new message.
+        A :term:`contact` that is associated with a particular :term:`conversation`.  Recipients receive a copy of every new message.
 
     RSS
         RDF Site Summary (aka Really Simple Syndication).  An :term:`XML` interchange format for syndicating news and other content from one web application to another.  See: <http://en.wikipedia.org/wiki/RSS>
@@ -106,7 +106,7 @@ Glossary
         A set of :term:`privileges <privilege>` granted to a :term:`worker`.
     
     seat
-        ...
+        A seat allows a worker to login.  For each seat you have, one additional worker can be logged in concurrently.
     
     snippet
         ...
@@ -115,7 +115,7 @@ Glossary
         ...
 
     ticket
-        A specific email conversation, including all of its messages, comments, and settings. Each ticket has a unique identifier (:term:`mask`) for future reference by anyone involved.
+        A specific email conversation, including all of its messages, comments, and settings.  Each ticket has a unique identifier (:term:`mask`) for future reference by anyone involved.
 
     URL
         Uniform Resource Locator (URL).  The combination of protocol, domain, and path that you type into a web browser to visit a page on a specific site.  For example: ``http://www.example.com/about-us``
@@ -124,19 +124,19 @@ Glossary
         See: :term:`Virtual Attendant`
     
     Virtual Attendant
-        ...
+        A set of actions which is triggered by :term:`events <event>`.  Virtual Attendants can have any combinations of :term:`outcomes <outcome` and :term:`actions <action>`.
 
     watcher
-        A worker who subscribes to notifications about new activity on specific objects. For example, a manager may assign a task to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion. Being a watcher on something *does not* imply that you are taking responsibility for it. If you aren't sure how to answer a particular question, it can be useful to watch it so you can leave from the answer a more experienced worker gives. Watching facilitates collaboration, observation, and training.
+        A worker who subscribes to notifications about new activity on specific objects.  For example, a manager may assign a task to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion.  Being a watcher on something *does not* imply that you are taking responsibility for it.  If you aren't sure how to answer a particular question, it can be useful to watch it so you can leave from the answer a more experienced worker gives.  Watching facilitates collaboration, observation, and training.
     
     WebGroup Media LLC
-        A commercial open source company that was founded in April 2002 to build web-based enterprise collaboration software.  The developers of Cerb.  WGM is lean, profitable, and organically-bootstrapped.  The company shares 100% of its source code due to a fundamental belief that bits and bytes have less value than experience and long-term, mutually advantageous relationships. WGM's client list is international and spans most industries, including governments, advocacy groups, political campaigns, educational institutions, charities, and businesses of all sizes. 
+        A commercial open source company that was founded in April 2002 to build web-based enterprise collaboration software.  The developers of Cerb.  WGM is lean, profitable, and organically-bootstrapped.  The company shares 100% of its source code due to a fundamental belief that bits and bytes have less value than experience and long-term, mutually advantageous relationships.  WGM's client list is international and spans most industries, including governments, advocacy groups, political campaigns, educational institutions, charities, and businesses of all sizes.  
 
     WGM
         See: :term:`WebGroup Media LLC`
     
     worker
-        The people who log in to the helpdesk to represent your organization. Other software applications frequently use the term *users*, but we find that term ambiguous; users can refer to either customers or staff members.
+        The people who log in to the helpdesk to represent your organization.  Other software applications frequently use the term *users*, but we find that term ambiguous; users can refer to either customers or staff members.
     
     worklist
         A fully customizable list of :term:`objects <object>` of a particular :term:`type <context>`.
