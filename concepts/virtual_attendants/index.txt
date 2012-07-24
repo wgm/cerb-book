@@ -144,3 +144,15 @@ Examples:
    first name and company name.
 -  Close the conversation.
 -  Send an SMS message to a list of mobile phones.
+
+Variables
+~~~~~~~~~
+
+A **variable** allows you to capture data when a Virtual Attendant runs.  Variables can contain almost anything, and that data can then be used in :term:`outcomes <outcome>` and :term:`actions <action>`.
+
+Examples:
+
+- Capture a list of workers based on Calendar Availability.
+- Set a date variable based on the last time someone wrote in.
+- Set a boolean variable based on several different factors to use in an email template.
+- Set a worker variable based on a list of workers, groups, and other criteria.
