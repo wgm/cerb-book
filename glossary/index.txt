@@ -4,7 +4,7 @@ Glossary
 .. glossary::
 
     action
-        An action performs a specific task in a :term:`Virtual Attendant <virtual_attendant>`.
+        An action performs a specific task in a :term:`Virtual Attendant <virtual attendant>`.
 
     address book
         A directory of all known :term:`contacts <contact>`.  It provides the ability to group contacts by various attributes (e.g.  location, language, industry) to build customer lists and mailing lists.
@@ -13,7 +13,7 @@ Glossary
         ...
 
     Apache
-        A popular web server which is used to server webpages.
+        A popular web server which is used to server webpages. The letter A in the :term:`<LAMP stack>` acronym.
 
     behavior
         A set of linked :term:`decisions <decision>` that determine how to react to an even.
@@ -49,7 +49,7 @@ Glossary
         A commercial open source framework created by :term:`WebGroup Media <WGM>` for rapid :term:`PHP5 <PHP>` application development which provides many reusable "nuts and bolts" services.  This approach enables a development team to spend more time solving their project's target problem.  Devblocks has been heavily influenced by over 10 years of experience working on :term:`Cerb`, agile methodologies like extreme programming, and many innovative frameworks like Eclipse/RCP (cross-platform native desktop apps in Java), Tapestry (web development), and Hibernate (object relational mapping).
 
     event
-        An event is triggered when something noteworthy occurs.  Events are used to cause :term:`Virtual Attendants <virtual_attendant>` to run.
+        An event is triggered when something noteworthy occurs.  Events are used to cause :term:`Virtual Attendants <virtual attendant>` to run.
 
     group
         A collection of :term:`workers <worker>` who share responsibility for the same conversations and :term:`buckets <bucket>`.  Common groups are: Sales, Support, Development, Billing, and Corporate.  These examples happen to all be departments, but groups can be established based on any attribute (e.g.  product, location, etc).
@@ -85,7 +85,7 @@ Glossary
         A specific instance of a :term:`context`.  For example, an individual :term:`ticket` or :term:`task`.
 
     outcome
-        A set of :term:`conditions <condition>` and :term:`actions <action>` on a :term:`Virtual Attendant <virtual_attendant>`.  The :term:`action <actions>` will be run which should be run if the :term:`conditions <conditions>` are true.
+        A set of :term:`conditions <condition>` and :term:`actions <action>` on a :term:`Virtual Attendant <virtual attendant>`.  The :term:`action <actions>` will be run which should be run if the :term:`conditions <conditions>` are true.
 
     PHP
         PHP Hypertext Preprocessor.  A widely-used general-purpose scripting language that is especially suited for web development.  The primary programming language used to build :term:`Cerb`.  The letter P in the :term:`LAMP <LAMP stack>` acronym.
@@ -124,7 +124,7 @@ Glossary
         See: :term:`Virtual Attendant`
     
     Virtual Attendant
-        A set of actions which is triggered by :term:`events <event>`.  Virtual Attendants can have any combinations of :term:`outcomes <outcome` and :term:`actions <action>`.
+        A set of actions which is triggered by :term:`events <event>`.  Virtual Attendants can have any combinations of :term:`outcomes <outcome>` and :term:`actions <action>`.
 
     watcher
         A worker who subscribes to notifications about new activity on specific objects.  For example, a manager may assign a task to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion.  Being a watcher on something *does not* imply that you are taking responsibility for it.  If you aren't sure how to answer a particular question, it can be useful to watch it so you can leave from the answer a more experienced worker gives.  Watching facilitates collaboration, observation, and training.
