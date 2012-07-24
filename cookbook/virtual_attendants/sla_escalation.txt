@@ -31,7 +31,7 @@ Setting up the Virtual Attendant
 
 * Still in the `setup` area, hover over :guilabel:`Configure` in the menu bar.
 * Select :guilabel:`Virtual Attendants` from the pulldown menu.
-* Select the `Default Role` as the :guilabel:`Ownder`.
+* Select the `Default Role` as the :guilabel:`Owner`.
 * Click :guilabel:`Create Behavior`.
 * Enter :kbd:`Escalate Ticket for Priority Support Customers` as the :guilabel:`Title`.
 * Set the :guilabel:`Event` to `Custom ticket behavior`.
@@ -68,4 +68,4 @@ Setting up the Virtual Attendant
 User Excercise
 ==============
 
-Try adding a `Number` :doc:`Custom Field</concepts/objects/custom_fields>` to `Tickets` to keep track of how high the Ticket has been escalated. This would be most useful when used in combination with a workspace filter that automatically shows the highest escalated Ticket at the top. From there, you would probably want to add another action to the Virtual Attendant to Schedule a Behavior to raise the escalation level every couple of hours if there hasn't been a response from a member of your staff.
+Try adding a `Picklist` :doc:`Custom Field</concepts/objects/custom_fields>` to `Tickets` to keep track of how high the Ticket has been escalated. This would be most useful when used in combination with a workspace filter that automatically shows the highest escalated Ticket at the top. From there, you would probably want to add another action to the Virtual Attendant to Schedule a Behavior to raise the escalation level every couple of hours if there hasn't been a response from a member of your staff.
