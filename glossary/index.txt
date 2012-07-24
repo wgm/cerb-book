@@ -4,7 +4,7 @@ Glossary
 .. glossary::
 
     action
-        An action performs a specific task in a :term:`Virtual Attendant <virtual attendant>`.
+        An action performs a specific task in a :term:`Virtual Attendant`.
 
     address book
         A directory of all known :term:`contacts <contact>`.  It provides the ability to group contacts by various attributes (e.g.  location, language, industry) to build customer lists and mailing lists.
@@ -85,7 +85,7 @@ Glossary
         A specific instance of a :term:`context`.  For example, an individual :term:`ticket` or :term:`task`.
 
     outcome
-        A set of :term:`conditions <condition>` and :term:`actions <action>` on a :term:`Virtual Attendant <virtual attendant>`.  The :term:`action <actions>` will be run which should be run if the :term:`conditions <conditions>` are true.
+        A set of :term:`conditions <condition>` and :term:`actions <action>` on a :term:`Virtual Attendant`.  The :term:`action <actions>` will be run which should be run if the :term:`conditions <conditions>` are true.
 
     PHP
         PHP Hypertext Preprocessor.  A widely-used general-purpose scripting language that is especially suited for web development.  The primary programming language used to build :term:`Cerb`.  The letter P in the :term:`LAMP <LAMP stack>` acronym.
