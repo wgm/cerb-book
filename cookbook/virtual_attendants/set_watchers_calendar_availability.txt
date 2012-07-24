@@ -1,7 +1,7 @@
 Set Watchers Based on Calendar Availability
 -------------------------------------------
 
-This cookbook recipe will explain how to assign tickets to a worker based on a worker's calendar availability using a Virtual Attendant.  You'll need to be an administrator or manager of a group to follow the instructions below.
+This cookbook recipe will explain how to set workers as watchers on a ticket based on a worker's calendar availability using a Virtual Attendant.  You'll need to be an administrator or manager of a group to follow the instructions below.
 
 Setting up the Virtual Attendant
 ================================
