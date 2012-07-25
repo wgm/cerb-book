@@ -6,17 +6,46 @@ The Rest API allows you to integrate a lot of the functionality of Cerb5 with ot
 Installation
 ============
 
-Like many parts of Cerb5, the RestAPI functionality is provided through a plugin. You'll need to enable the RestAPI plugin before you can take advantage of the RestAPI functionality.
+Like many parts of Cerb6, the RestAPI functionality is provided through a plugin. You'll need to enable the RestAPI plugin before you can take advantage of the RestAPI functionality.
+
+
+.. _credentials:
+
+Credentials
+===========
+
+In Cerb6, we've changed the credentials you use to access the Web-API.  You can no longer use the email address and password of a worker.  Instead, you need to generate an Access Key and Secret Key through the interface.  This also gives the added benefit of being able to make different keys with access only to specific parts of the app; for example, you could create a key that would give read-only access to one part of the app, and another key that has write access to something else.
+
+To generate your credentials:
+
+* Click on your Worker Menu in the top right of the navigation bar.
+* Click on :guilabel:`settings`.
+* Click on the :guilabel:`API Credentials` tab.
+* Click on the :guilabel:`+` button at the top of the :guilabel:`Web API Credentials` worklist.
+
+.. figure:: /images/developer_guide/rest_api/new_credentials_dialog.png
+    :figclass: bordered
+
+* Enter :kbd:`Everything` for the :guilabel:`Label`.
+* Enter :kbd:`*` for the :guilabel:`Allowed paths`.
+* Click :guilabel:`Save Changes`.
+* Click on the newly created credentials in the worklist, then make a note of your :guilabel:`Access Key` and :guilabel:`Secret Key`.
+
+.. figure:: /images/developer_guide/rest_api/credentials.png
+    :figclass: bordered
+
+* Click :guilabel:`Save Changes`.
+
 
 Library
 =======
 
-We've written a PHP (5.2+) library that makes it easier to interact with the Rest API. You can download the library :download:`here <Cerb6Api.php.txt>`. Make sure you rename it from ``Cerb6Api.php.txt`` to ``Cerb6Api.php`` before trying to use the below example code.
+We've written a PHP (5.2+) library that makes it easier to interact with the Rest API. You can :download:`download the library here <Cerb6Api.php.txt>`. Make sure you rename it from ``Cerb6Api.php.txt`` to ``Cerb6Api.php`` before trying to use the below example code.
 
 Example
 =======
 
-Comprehensive examples are provided for each object in the following sections of the book, but you'll need use the below code to setup the environment before you can use them.
+Comprehensive examples are provided for each object in the following sections of the book, but you'll need to generate :ref:`credentials <credentials>` first, then use the below code to setup the environment before you can use them.
 
 .. code-block:: php
 
@@ -24,8 +53,8 @@ Comprehensive examples are provided for each object in the following sections of
 	require_once("Cerb5Api.php");
 
 	$base_url = 'http://localhost/cerb5/rest/'; // URL to your Cerb5 install
-	$access_key = "superuser@localhost"; // Worker's Email Address
-	$secret_key = "mypassword";  // Worker's Password
+	$access_key = "u7gawte5ecc8"; // Access Key
+	$secret_key = "e6fxngx3f5kwnk53zmt3lhama8gyazrj";  // Secret Key
 
 	$cerb5 = new Cerb5_WebAPI($access_key, $secret_key);
 
