@@ -29,7 +29,7 @@ You can install this plugin from your web browser using Cerb's Plugin Library:
 * Click the :guilabel:`Save Changes` button.
 
 Creating a Facebook application
-==============================
+===============================
 
 Facebook allows third-party applications to interact with its services using an API and OAuth authentication.  You need to create a new *application* on Facebook's developer website in order to link your accounts to Cerb.
 

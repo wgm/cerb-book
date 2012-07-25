@@ -14,6 +14,7 @@ The first thing you'll need to do is setup your sensors.  For this example, we'l
 * Click :guilabel:`Save Changes`.
 * Click on the new sensor, then click on the gear icon to edit it.
 * Enter a :guilabel:`URL` to monitor, and click :guilabel:`Save Changes`.
+
 .. figure:: /images/cookbook/sensors_notify_sms/create_sensor_dialog.png
     :figclass: bordered
 
@@ -27,29 +28,40 @@ Setting up the Virtual Attendant
 * Set the :guilabel:`Event` to `Custom sensor behavior`.
 * Click the :guilabel:`+` to add a :guilabel:`Variable`.
 * Set the variable to `private`, type :kbd:`Changed Sensors` in the text box, and select `(List) Sensors` from the list.
+
 .. figure:: /images/cookbook/sensors_notify_sms/new_behavior_dialog.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Changes`.
 * Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Send Warning and Critical Sensors via SMS` as the :guilabel:`Title` of your action.
 * Select the `Set (variable) Warning Sensors` action from the :guilabel:`Add Action` dropdown menu.
+
 .. figure:: /images/cookbook/sensors_notify_sms/new_action_var.png
     :figclass: bordered
+    
 * Click on the :guilabel:`Sensors` worklist displayed under :guilabel:`Find objects using this worklist`.
 * Add a :guilabel:`Filter` by selecting `Updated` for the :guilabel:`Field`.  Set the range to between :kbd:`-5 minutes` and :kbd:`now` for :guilabel:`Between`.
+
 .. figure:: /images/cookbook/sensors_notify_sms/new_action_var_worklist.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Worklist`.
 * Select `Replace the variable with these objects` for :guilabel:`Then`.
 * Select the `Send SMS via Twilio` action from the :guilabel:`Add Action` dropdown menu.
 * Enter a :guilabel:`Phone` number to send an SMS to.
 * Set the :guilabel:`Message` to:
+
     {% for sensor in var_changed_sensors %}
     * {{sensor.name}} is {{sensor.status}}
     {% endfor %}
+    
 .. figure:: /images/cookbook/sensors_notify_sms/new_action_sms.png
     :figclass: bordered
+    
 * Schedule the behavior to run by clicking on the :guilabel:`Virtual Attendant` button at the top of your worker profile, then selecting the Scheduled Behavior. Set it to :guilabel:`Repeat` `every` :kbd:`5 minutes` and set it to run :kbd:`now`. Notice that setting this to run every `5 minutes`, combined with the filter you set above, will cause the scheduled behavior to only report new mentions each time the task runs.
+
 .. figure:: /images/cookbook/sensors_notify_sms/schedule_behavior.png
     :figclass: bordered
+    
 * Click :guilabel:`Save & Close`.

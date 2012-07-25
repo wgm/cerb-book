@@ -64,8 +64,8 @@ Implementation
         :noindex:
         
         This method is called when the test button is used on a VA. It should return a random object with its context.
-        
-	.. php:method:: getMeta($context_id)
+
+    .. php:method:: getMeta($context_id)
         :noindex:
         
         :param integer $context_id: The id of the object.
@@ -73,7 +73,7 @@ Implementation
         
         This method is called when notifications are generated for your context. The id of the object is passed via the ``$context_id`` parameter. It should return an array with ``id``, ``name`` and ``permalink`` indices; the ``id`` should be the numerical ID of the object, the ``name`` should be the name or title of the object, and the ``permalink`` should be the full URL to the record after it's been passed through the URL service.
         
-	.. php:method:: getContext($object, &$token_labels, &$token_values, $prefix=null)
+    .. php:method:: getContext($object, &$token_labels, &$token_values, $prefix=null)
         :noindex:
         
         :param mixed $object: An instance of the current object.
@@ -83,12 +83,12 @@ Implementation
         
         This method is called when the context is retrieved for an object. The ``$token_labels`` and ``$token_values`` parameters are passed by reference, and you should add your own labels and values to these variables in your implementation.
         
-	.. php:method:: getChooserView()
+    .. php:method:: getChooserView()
         :noindex:
         
         This method is called when a chooser dialog is shown for your context. This method should return the view that should be used for chooser dialogs. This will be displayed when a worker tries to link your object to another object.
     
-	.. php:method:: getView($context=null, $context_id=null, $options=array())
+    .. php:method:: getView($context=null, $context_id=null, $options=array())
         :noindex:
         
         :param string $context: The context to filter results against.

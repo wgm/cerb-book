@@ -12,8 +12,10 @@ Setting up the Virtual Attendant
 * Click :guilabel:`Create Behavior`.
 * Enter :kbd:`Assign Ticket Based on Workload` as the :guilabel:`Title`.
 * Set the :guilabel:`Event` to `Conversation moved in group`.
+
 .. figure:: /images/cookbook/assign_ticket_workload/new_behavior_dialog.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Changes`.
 * Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Set Owner` as the :guilabel:`Title`.
@@ -22,6 +24,8 @@ Setting up the Virtual Attendant
 * Select `The worker with the fewest open assignments` for :guilabel:`Pick`.
 * Select `Set owner` from the :guilabel:`Add Action` dropdown menu.
 * Select `(variable) Worker` from the :guilabel:`Set owner` action dropdown menu.
+
 .. figure:: /images/cookbook/assign_ticket_workload/new_action_dialog.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Changes`.

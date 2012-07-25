@@ -13,7 +13,7 @@ Glossary
         ...
 
     Apache
-        A popular web server which is used to server webpages. The letter A in the :term:`<LAMP stack>` acronym.
+        A popular web server which is used to server webpages. The letter A in the :term:`LAMP <LAMP stack>` acronym.
 
     behavior
         A set of linked :term:`decisions <decision>` that determine how to react to an even.
@@ -43,7 +43,7 @@ Glossary
         Provides long-term storage for arbitrary information (i.e.  data).  Databases help applications maintain relationships between data (e.g.  *"Which products were shipped for order #1234?"*), and they assist with performing complex analysis (e.g.  *"How many orders over the past 12 months were from someone who has a surname that begins with F (AND) resides in Germany (AND) spent more than $100 USD?"*).  See: :term:`MySQL`
 
     decision
-        A decision determines whether an :term:`outcome </outcome>` should be run based on the outcome's :term:`conditions <condition>`.
+        A decision determines whether an :term:`outcome <outcome>` should be run based on the outcome's :term:`conditions <condition>`.
 
     Devblocks
         A commercial open source framework created by :term:`WebGroup Media <WGM>` for rapid :term:`PHP5 <PHP>` application development which provides many reusable "nuts and bolts" services.  This approach enables a development team to spend more time solving their project's target problem.  Devblocks has been heavily influenced by over 10 years of experience working on :term:`Cerb`, agile methodologies like extreme programming, and many innovative frameworks like Eclipse/RCP (cross-platform native desktop apps in Java), Tapestry (web development), and Hibernate (object relational mapping).
@@ -85,7 +85,7 @@ Glossary
         A specific instance of a :term:`context`.  For example, an individual :term:`ticket` or :term:`task`.
 
     outcome
-        A set of :term:`conditions <condition>` and :term:`actions <action>` on a :term:`Virtual Attendant`.  The :term:`action <actions>` will be run which should be run if the :term:`conditions <conditions>` are true.
+        A set of :term:`conditions <condition>` and :term:`actions <action>` on a :term:`Virtual Attendant`.  The :term:`action <action>` will be run which should be run if the :term:`conditions <condition>` are true.
 
     PHP
         PHP Hypertext Preprocessor.  A widely-used general-purpose scripting language that is especially suited for web development.  The primary programming language used to build :term:`Cerb`.  The letter P in the :term:`LAMP <LAMP stack>` acronym.
