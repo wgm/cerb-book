@@ -1,0 +1,49 @@
+Variables
+---------
+
+    Date
+        
+        
+    Number
+        
+        
+    Text
+        
+        
+    True/False
+        
+        
+    Worker
+        
+        
+    (List) Calendar Event
+        
+        
+    (List) Draft
+        
+        
+    (List) Email Address
+        
+        
+    (List) Group
+        
+        
+    (List) Knowledgebase Article
+        
+        
+    (List) Notification
+        
+        
+    (List) Opportunity
+        
+        
+    (List) Organization
+        
+        
+    (List) Task
+        
+        
+    (List) Worker
+        
+        
+    

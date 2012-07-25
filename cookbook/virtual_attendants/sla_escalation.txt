@@ -8,8 +8,10 @@ Setting up a Priority Support Group
 * Click on :guilabel:`setup` in the top right of the navigation bar.
 * Hover over :guilabel:`Workers & Groups` in the menu.
 * Select :guilabel:`Groups` from the pulldown menu.
+
 .. figure:: /images/cookbook/sla_escalation/new_group.png
     :figclass: bordered
+    
 * Enter :kbd:`Priority Support` as the :guilabel:`Name` of the new group, add yourself as a `manager` in the :guilabel:`Members` section, then click :guilabel:`Save Changes`.
 
 Configuring the Custom Fields
@@ -19,8 +21,10 @@ Configuring the Custom Fields
 * Select :guilabel:`Custom Fields` from the pulldown menu.
 * Click the :guilabel:`Email Address` record type.
 * Add a new `Checkbox` custom field named :kbd:`Priority Support`.
+
 .. figure:: /images/cookbook/sla_escalation/new_custom_field.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Changes`.
 * Click the :guilabel:`Organization` record type.
 * Add a new `Checkbox` custom field named :kbd:`Priority Suppoort`.
@@ -31,17 +35,21 @@ Setting up the Virtual Attendant
 
 * Still in the `setup` area, hover over :guilabel:`Configure` in the menu bar.
 * Select :guilabel:`Virtual Attendants` from the pulldown menu.
-* Select the `Default Role` as the :guilabel:`Ownder`.
+* Select the `Default Role` as the :guilabel:`Owner`.
 * Click :guilabel:`Create Behavior`.
 * Enter :kbd:`Escalate Ticket for Priority Support Customers` as the :guilabel:`Title`.
 * Set the :guilabel:`Event` to `Custom ticket behavior`.
+
 .. figure:: /images/cookbook/sla_escalation/new_behavior_dialog.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Changes`.
 * Click on your new Virtual Attendant and select :guilabel:`Add Decision` from the pulldown menu.
 * Enter :kbd:`Has Priority Support?` as the :guilabel:`Title`.
+
 .. figure:: /images/cookbook/sla_escalation/new_decision_dialog.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Changes`.
 * Click on the :guilabel:`Has Priority Support?` decision you just added and select :guilabel:`Add Outcome` from the pulldown menu.
 * Enter :kbd:`Yes` as the :guilabel:`Title`.
@@ -51,21 +59,27 @@ Setting up the Virtual Attendant
 * Select :guilabel:`Ticket initial message sender priority support` from the pulldown menu to add it as a condition.
 * Select :guilabel:`Ticket initial message sender org priority support` from the pulldown menu to add it as another condition
 * Select :guilabel:`Ticket org priority support` as a third and final condition.
+
 .. figure:: /images/cookbook/sla_escalation/new_outcome_condition_priority.png
     :figclass: bordered
+    
 * Make sure :guilabel:`True` is selected for all three conditions.
+
 .. figure:: /images/cookbook/sla_escalation/new_outcome_dialog.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Changes`.
 * Click on the :guilabel:`Yes` outcome you just added and select :guilabel:`Add Actions`.
 * Enter :kbd:`Escalate Ticket` as the :guilabel:`Title`.
 * Select `Move to` action from the :guilabel:`Add Action` dropdown menu.
 * Select `Priority Support` for the :guilabel:`Move To` action.
+
 .. figure:: /images/cookbook/sla_escalation/new_action_dialog.png
     :figclass: bordered
+    
 * Click :guilabel:`Save Changes`.
 
 User Excercise
 ==============
 
-Try adding a `Number` :doc:`Custom Field</concepts/objects/custom_fields>` to `Tickets` to keep track of how high the Ticket has been escalated. This would be most useful when used in combination with a workspace filter that automatically shows the highest escalated Ticket at the top. From there, you would probably want to add another action to the Virtual Attendant to Schedule a Behavior to raise the escalation level every couple of hours if there hasn't been a response from a member of your staff.
+Try adding a `Picklist` :doc:`Custom Field</concepts/objects/custom_fields>` to `Tickets` to keep track of how high the Ticket has been escalated. This would be most useful when used in combination with a workspace filter that automatically shows the highest escalated Ticket at the top. From there, you would probably want to add another action to the Virtual Attendant to Schedule a Behavior to raise the escalation level every couple of hours if there hasn't been a response from a member of your staff.

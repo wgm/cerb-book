@@ -68,7 +68,7 @@ Clicking :guilabel:`search` allows you to copy all of the filters on a worklist 
 Piles
 ~~~~~
 
-.. figure:: /images/concepts/worklists/actions/piles_icon.png
+.. figure:: /images/worker_guide/mail/piles_icon.png
     :alt: The piles icon.
     :figclass: bordered
 

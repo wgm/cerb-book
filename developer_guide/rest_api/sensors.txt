@@ -1,0 +1,119 @@
+Sensors
+-------
+The sensors API allows you to create, retrieve, update, and search Worker objects.
+
+Create
+======
+**POST /sensors/create.xml**
+
+Creates a new sensor.
+
+================      =======
+Field                 Type
+================      =======
+``metric``            string
+``name``              string
+``output``            string
+``status``            char
+``type``              string
+``updated``           int
+================      =======
+
+**Status** should be `O`, `W`, or `C`. **Type** should be `cerberusweb.datacenter.sensor.http`, `cerberusweb.datacenter.sensor.port`, or `cerberusweb.datacenter.sensor.external`.
+
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+        array('name','Cerb6 Site'),
+        array('type', `cerberusweb.datacenter.sensor.http`),
+        array('status', 'O'),
+    );
+    $out = $cerb5->post($base_url . 'sensors/create.xml', $postfields);
+
+Bulk Update
+===========
+**POST /sensors/bulk_update.xml**
+
+Updates multiple sensors at once. You'll need to post an XML string containing all of the sensors to update.
+
+.. code-block:: xml
+    
+    <?xml version="1.0" encoding="UTF-8"?>
+        <sensor id="1">
+            <name>Cerb6 Site</name>
+            <status>C</status>
+            <output>500</output>
+        </sensor>
+    </xml>
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb5->post($base_url . 'sensors/bulk_update.xml', $contents);
+
+Retrieve
+========
+**GET /sensors/<id>.xml**
+
+Retrieves information about a Sensor.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb5->get($base_url . 'sensors/1.xml');
+	
+Update
+======
+**PUT /sensors/<id>.xml**
+
+Updates a sensor.
+
+================      =======
+Field                 Type
+================      =======
+``id``                int
+``metric``            string
+``name``              string
+``output``            string
+``status``            char
+``updated``           int
+================      =======
+
+.. code-block:: php
+	
+    <?php
+    $postfields = array(
+        array('output', 'C'),
+    );
+    $out = $cerb5->put($base_url . 'sensors/1.xml', $postfields);
+	
+Search
+======
+**POST /sensors/search.xml**
+
+Performs a search across sensor objects.
+
+================      =======
+Field                 Type
+================      =======
+``id``                int
+``metric``            string
+``name``              string
+``output``            string
+``status``            char
+``updated``           int
+================      =======
+	
+.. code-block:: php
+	
+    <?php
+    $postfields = array(
+         array('criteria[]','status'),
+         array('oper[]','='),
+         array('value[]','O'),
+         array('sortBy','updated'),
+         array('sortAsc','1'),
+         array('page','1'),
+    );
+    $out = $cerb5->post($base_url . 'workers/search.xml', $postfields);

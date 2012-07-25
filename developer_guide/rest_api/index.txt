@@ -17,6 +17,7 @@ REST-based Web API
     opportunities
     organizations
     parser
+    sensors
     tasks
     tickets
     timetracking
