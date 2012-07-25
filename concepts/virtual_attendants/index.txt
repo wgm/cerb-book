@@ -3,9 +3,6 @@
 Virtual Attendants
 ------------------
 
-.. toctree::
-    :maxdepth: 2
-
 **Virtual Attendants** (VAs) are automated workers.  You can think of them as robotic personal assistants that handle repetitive tasks for you.  Every worker and group has their own Virtual Attendant.  VAs are capable of making complex decisions based on the details of a given situation.
 
 Virtual Attendants can perform almost any action that a worker can.  For example, they can:
@@ -40,6 +37,16 @@ One of the most powerful aspects of Attendants is that you aren't limited to our
 
 Virtual Attendants are given instructions by creating custom **behavior** on various **events**.  This behavior is comprised of **decisions**, **outcomes**, and **actions**.
 
+For a list of all the available events, variables, conditions, and actions, see the below pages.
+
+.. toctree::
+    :maxdepth: 2
+    
+    events
+    variables
+    conditions
+    actions
+
 Events
 ~~~~~~
 
@@ -51,6 +58,8 @@ Examples:
 -  A worker replies to a customer.
 -  A conversation is moved to a new bucket.
 -  A conversation is marked closed.
+
+A full list of available events can be found in our :doc:`Events documentation </concepts/virtual_attendants/events>`.
 
 Behavior
 ~~~~~~~~
@@ -80,8 +89,7 @@ Examples:
 Decisions
 ~~~~~~~~~
 
-A **decision** chooses the best :term:`outcome` from several possible choices. The
-result of a :term:`decision` can be a series of :term:`actions <action>` and/or another decision.
+A **decision** chooses the best :term:`outcome` from several possible choices. The result of a :term:`decision` can be a series of :term:`actions <action>` and/or another decision.
 
 Examples:
 
