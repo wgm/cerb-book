@@ -32,7 +32,7 @@ Implementation
         :param DevblocksHttpResponse $request: The current request.
         :param Smarty $tpl: The Smarty singleton.
         
-        This method is called automatically whenever a page request/response cycle is processed. See the documentation on :php:class:`DevblocksHttpRequest </developer_guide/devblocks/devblockshttprequest>` for more information on the data and methods available for each request, and the documentation on :doc:`Smarty` for more information on the data and methods available for Smarty.
+        This method is called automatically whenever a page request/response cycle is processed. See the documentation on :php:class:`DevblocksHttpRequest </developer_guide/devblocks/devblockshttprequest>` for more information on the data and methods available for each request, and the documentation on :doc:`Smarty </developer_guide/devblocks/api/classes/core/_DevblocksTemplateManager>` for more information on the data and methods available for Smarty.
 
 Examples
 ========
