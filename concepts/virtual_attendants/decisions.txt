@@ -1,0 +1,12 @@
+Decisions
+---------
+
+A **decision** chooses the best :term:`outcome` from several possible choices. The result of a :term:`decision` can be a series of :term:`actions <action>` and/or another decision.
+
+Examples:
+
+-  Is today either Monday or Friday?
+-  Is it after 8am and before 6pm?
+-  Is this conversation in the Inbox bucket?
+-  Does the sender's organization have 'Software' checked in the
+   'Industries' custom field?

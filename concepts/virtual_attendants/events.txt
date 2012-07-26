@@ -1,6 +1,17 @@
 Events
 ------
 
+An **event** is triggered when something noteworthy occurs.
+
+Examples:
+
+-  A customer replies to a conversation.
+-  A worker replies to a customer.
+-  A conversation is moved to a new bucket.
+-  A conversation is marked closed.
+
+A full list of available events can be found below.
+
     After sending worker message
         This event is triggered when a worker sends a message.
         

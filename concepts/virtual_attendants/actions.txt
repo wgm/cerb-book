@@ -1,0 +1,14 @@
+Actions
+-------
+
+An **action** defines a set of things to do.
+
+Examples:
+
+-  Write a comment with the text "Automatically added to billing."
+-  Create task with the title "Follow-up in 3 days" and add a list of
+   workers as watchers.
+-  Send a reply to the recipients using a template with placeholders for
+   first name and company name.
+-  Close the conversation.
+-  Send an SMS message to a list of mobile phones.

@@ -1,0 +1,10 @@
+Conditions
+----------
+
+A **condition** is the comparison of a single property to one or more values using an operator. There are many possible operators depending on the type of field: equals, doesn't equal, contains phrase, is greater than, is any of, etc. The result of a condition will always be either `true` or `false`.
+
+Examples:
+
+-  "Time of Day" [is not] before 8am
+-  "Day of Week" [is any of] Saturday or Sunday
+-  "Message Subject" [starts with] "Receipt"
