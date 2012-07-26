@@ -1,7 +1,7 @@
 cerberusweb.support_center.message.badge
 ----------------------------------------
 
-The **cerberuswebsupport_center.message.badge** extension point allows you to display an image next to messages in the :doc:`Support Center`.
+The **cerberuswebsupport_center.message.badge** extension point allows you to display an image next to messages in the :doc:`Support Center </admin_guide/setup/portals/support_center>`.
 
 Plugin Manifest
 ===============

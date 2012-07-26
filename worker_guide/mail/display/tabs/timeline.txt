@@ -291,7 +291,7 @@ The :guilabel:`snippets` button opens the :doc:`snippets </concepts/snippets/ind
     :alt: The snippets button in the sticky note section.
     :figclass: bordered
 
-The notify workers box allows you to select workers to notify. Clicking the button next to the box opens the :doc:`worker </concepts/context/worker>` :doc:`chooser </concepts/ui/choosers>`.
+The notify workers box allows you to select workers to notify. Clicking the button next to the box opens the :doc:`worker </concepts/contexts/worker>` :doc:`chooser </concepts/ui/choosers>`.
 
 Print
 ~~~~~

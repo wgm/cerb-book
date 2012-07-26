@@ -25,7 +25,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     </extension>
     
 **<param key="report_name" value="reports.ui.group.example.report1">**
-    Sets the name of the report. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
+    Sets the name of the report. Devblocks will automatically pass this string through the :ref:`translation service <translation-service>` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
 
 **<param key="report_group" value="report.group.example">**
     The group the report should be displayed in.

@@ -1,7 +1,7 @@
 devblocks.storage.engine
 ------------------------
 
-The **devblocks.storage.engine** extension point allows you to create new :doc:`Storage Engines` to store your data in.
+The **devblocks.storage.engine** extension point allows you to create new :ref:`Storage Engines <storage-engines>` to store your data in.
 
 Plugin Manifest
 ===============

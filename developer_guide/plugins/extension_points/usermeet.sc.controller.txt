@@ -1,7 +1,7 @@
 usermeet.sc.controller
 ----------------------
 
-The **usermeet.sc.controller** extension point allows you to create new modules for your Support Center. Each module will need to be enabled in each individual Support Center instance once your plugin has been enabled. See the :doc:`Community Portal` documentation for more information.
+The **usermeet.sc.controller** extension point allows you to create new modules for your :doc:`Support Center </admin_guide/setup/portals/support_center>`. Each module will need to be enabled in each individual Support Center instance once your plugin has been enabled. See the :doc:`Community Portal </admin_guide/setup/portals/index>` documentation for more information.
 
 Plugin Manifest
 ===============
@@ -29,7 +29,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     Binds the tab to the ``example`` url.
 
 **<param key="menu_title" value="example.sc.title">**
-    Sets the text of the tab. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
+    Sets the text of the tab. Devblocks will automatically pass this string through the :ref:`translation service <translation-service>` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
 
 **<param key="icon" value="images/crystal/example.gif">**
     Defines the URI to an icon which will be displayed in the Support Center menu. The specified URI is relative to the resources directory of your plugin.
