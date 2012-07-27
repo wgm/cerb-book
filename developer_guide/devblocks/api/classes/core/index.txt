@@ -7,3 +7,5 @@ Core
     DevblocksPlatform
     CerberusCronPageExtension
     _DevblocksCacheManager
+    _DevblocksTemplateManager
+    _DevblocksTranslationManager

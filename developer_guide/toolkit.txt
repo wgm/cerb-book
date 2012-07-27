@@ -218,6 +218,13 @@ example, the ``files`` URI routes a request to a built-in controller
 that authenticates requesters before serving file attachments from
 storage.
 
+.. _translation-service:
+
+Translation Service
+~~~~~~~~~~~~~~~~~~~
+
+The translation service allows you to make various strings of text within your plugin available to the translation editor.  The translation service defaults to the strings contained within your :doc:`Strings.xml </developer_guide/plugins/strings.xml>` file.
+
 Objects
 ~~~~~~~
 

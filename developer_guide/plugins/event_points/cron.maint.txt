@@ -63,8 +63,6 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
             **<data key="cron.maint" />**
                 Specifies `cron.maint` as an event to watch for.
 
-    See: :doc:`/developer_guide/plugins/extension_points/cerberusweb.config.tab`
-
 Implementation
 ==============
 .. code-block:: php

@@ -1,0 +1,27 @@
+Outcomes
+--------
+
+The first **outcome** to pass all of its :term:`conditions <condition>` is selected by the :term:`decision`. The final :term:`outcome` in a list of choices can have zero conditions in order to catch every other outcome. If no outcomes match the behavior is terminated.
+
+Examples:
+
+-  Decision: What day of week is it?
+    - Outcome: Friday, Saturday, or Sunday
+    - Outcome: Anything else
+
+- Decision: What time of day is it?
+    - Outcome: Before 8am
+    - Outcome: Before 6pm
+    - Outcome: After 6pm
+
+-  Decision: What bucket is the conversation in?
+    - Outcome: Inbox
+
+-  Decision: Does the sender's first name begin with "J"?
+    - Outcome: Yes
+    - Outcome: No
+
+-  Decision: What is the value of the service level custom field on sender's organization?
+    - Outcome: V.I.P.
+    - Outcome: Paid support
+    - Outcome: Anything else (Regular support)

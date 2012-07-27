@@ -1,7 +1,7 @@
 cerberusweb.cron
 ----------------
 
-The **cerberusweb.cron** extension point allows you to create new :doc:`Scheduled Tasks`.
+The **cerberusweb.cron** extension point allows you to create new :doc:`Scheduled Tasks </admin_guide/setup/settings/scheduler>`.
 
 Plugin Manifest
 ===============

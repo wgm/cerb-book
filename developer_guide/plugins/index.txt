@@ -24,6 +24,7 @@ Event Points
     :maxdepth: 2
 
     event_points/index
+    strings.xml
 
 .. ::
     ### Namespaces ###

@@ -30,7 +30,7 @@ In :doc:`plugin.xml </developer_guide/plugins/plugin.xml>`:
     Binds the page to the ``example`` url.
 
 **<param key="menutitle" value="example.page.title">**
-    Sets the text of the link in the menu. Devblocks will automatically pass this string through the :doc:`translation service` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
+    Sets the text of the link in the menu. Devblocks will automatically pass this string through the :ref:`translation service <translation-service>` before rendering it, so you should use a namespaced translation string whenever possible. You can use literal text if you wish, though we advise against it.
 
 **<param key="acl" value="example.page.acl">**
     Specifies the permissions required for this page to be displayed. If this param is omitted, the page will automatically be displayed to all workers; otherwise, it will be displayed to only those workers with the permission indicated.

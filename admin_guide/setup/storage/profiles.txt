@@ -25,6 +25,8 @@ Click the :guilabel:`Add` button to create a new storage profile.
 **Name**
     The name of the storage profile that will be used to identify it in the interface.
 
+.. _storage-engines:
+
 **Engine**
     - **Disk**
         Content is stored in the filesystem.  Without a storage profile, content is stored in the :file:`storage/` directory where you installed Cerb.  You can add additional disk-based profiles to store content on a file server, Network-Attached Storage (NAS), or Storage Area Network (SAN).  A top-level folder will be created in this filesystem for each storage namespace.

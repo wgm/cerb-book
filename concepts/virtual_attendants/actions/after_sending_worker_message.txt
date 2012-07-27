@@ -1,0 +1,82 @@
+After sending worker message
+----------------------------
+
+Add watchers
+============
+This action adds watchers to the ticket.
+
+Create a comment
+================
+This action adds a comment to the ticket.
+
+Create a notification
+=====================
+This action creates a notification for a worker.
+
+Create a task
+=============
+This action creates a task and links it to the ticket.
+
+Create a ticket
+===============
+This action creates another ticket and links it to the ticket.
+
+Move to
+=======
+This action moves a ticket to another group or bucket.
+
+Relay to worker email
+=====================
+This action relays the message to a worker email.
+
+Schedule behavior
+=================
+This action schedules a behavior to run on the ticket.
+
+Schedule email to recipients
+============================
+This action schedules an email to recipients.
+
+Send email
+==========
+This action sends an email.
+
+Send email to recipients
+========================
+This action sends an email to the recipients.
+
+Set owner
+=========
+This action sets the owner of the ticket.
+
+Set reopen date
+===============
+This action sets the reopen date of the ticket.
+
+Set spam training
+=================
+This action sets the spam training of the ticket
+
+Set status
+==========
+This action sets the status of the ticket.
+
+Set subject
+===========
+This action sets the subject of the ticket.
+
+Set links on sender
+===================
+This action sets links on the sender of the message.
+
+Set links on sender org
+=======================
+This action sets links on the org of the sender of the message.
+
+Set links on ticket
+===================
+This action sets links on the ticket.
+
+Unschedule behavior
+===================
+This action unschedules a scheduled behavior to run on the ticket.

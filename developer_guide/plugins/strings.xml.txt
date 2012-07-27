@@ -1,0 +1,4 @@
+Strings.xml
+-----------
+
+The strings.xml file provides translatable strings to the :ref:`Translation Service <translation-service>`.

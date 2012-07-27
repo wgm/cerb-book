@@ -1,0 +1,18 @@
+Before sending worker message
+-----------------------------
+
+Append text to message content
+==============================
+This action adds text after message content.
+
+Prepend text to message content
+===============================
+This action adds text before message content.
+
+Replace text in message content
+===============================
+This action replaces text in message content.
+
+Create a notification
+=====================
+This action creates a notification for a worker.

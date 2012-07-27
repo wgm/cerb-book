@@ -8,10 +8,10 @@ The **profile** page allows you to view details about an object.
     
     address
     contact
-    feedback
     knowledgebase
     opportunity
     organization
+..
     task
     time_tracking
 

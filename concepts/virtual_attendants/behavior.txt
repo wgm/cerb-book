@@ -1,0 +1,24 @@
+Behavior
+--------
+
+A **behavior** is a set of linked :term:`decisions <decision>` that determine how to react to
+an event.
+
+Examples:
+
+-  If new mail is received during the weekend, and the sender has a paid
+   support plan, then relay the message to a list of worker mobile email
+   addresses.
+-  When new mail is delivered to the Inbox, and it has a high
+   probability of being spam, then move it to the "Spam" bucket.
+-  If a new order is received, send an SMS message to a list of worker
+   mobile phones.
+-  If it's Friday, then decide if it's before or after 6pm. If before
+   6pm, do nothing. If after 6pm, send an automatic reply to the
+   recipients that we've left the office for the weekend but will return
+   at 8am on Monday, and give them emergency contact information.
+-  If a new message has the subject "send me a price list", then reply
+   with a pre-defined message detailing the current prices.
+-  If a new message has the subject "unsubscribe", then set the "Do not
+   contact" custom field on the sender address to "yes" and move the
+   message to the "Cancels" bucket.
