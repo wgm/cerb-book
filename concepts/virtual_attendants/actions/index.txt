@@ -18,5 +18,11 @@ A full list of available actions for each event can be found below.
 .. toctree::
     :maxdepth: 2
     
+    after_sending_worker_message
     before_new_mail_is_accepted
+    before_sending_worker_message
     conversation_assigned_in_group
+    conversation_closed_in_group
+    conversation_moved_in_group
+    new_message_on_a_group_conversation
+    
