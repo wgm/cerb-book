@@ -10,7 +10,7 @@ Examples:
 -  A conversation is moved to a new bucket.
 -  A conversation is marked closed.
 
-The owner of a :doc:`Virtual Attendant </concepts/virtual_attendants>` determines what events are available to a Virtual Attendant. A full list of available events can be found below.
+The owner of a :doc:`Virtual Attendant </concepts/virtual_attendants/index>` determines what events are available to a Virtual Attendant. A full list of available events can be found below.
 
 Global
 ======
