@@ -11,6 +11,7 @@ Plugin Development
     plugin.xml
     extension_points/index
     event_points/index
+    strings.xml
 
 ### Namespaces ###
 
