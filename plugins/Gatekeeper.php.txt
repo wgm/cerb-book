@@ -1,0 +1,163 @@
+<?php
+
+date_default_timezone_set('America/Los_Angeles');
+
+define('AWS_KEY', '');
+define('AWS_SECRET_KEY', '');
+define('BUCKET', '');
+// MUST have a trailing slash
+define('KEY_PREFIX', '/');
+
+define('USERNAME', '');
+define('PASSWORD', '');
+
+class Gatekeeper {
+	
+	private $_payload = null;
+	
+	public function handleRequest() {
+		
+		// **** BEGIN AUTH
+		@$verb = $_SERVER['REQUEST_METHOD'];
+		@$header_date = $_SERVER['HTTP_DATE'];
+		@$header_signature = $_SERVER['HTTP_CERB5_AUTH'];
+		@$this->_payload = $this->_getRawPost();
+		@list($auth_access_key, $auth_signature) = explode(":", $header_signature, 2);
+		$url_parts = parse_url(self::getWebPath());
+		$url_path = $url_parts['path'];
+		$url_query = $this->_sortQueryString($_SERVER['QUERY_STRING']);
+		$string_to_sign_prefix = "$verb\n$header_date\n$url_path\n$url_query\n$this->_payload";
+		
+		if(!$this->_validateRfcDate($header_date)) {
+			self::render(array('__status'=>'error', 'message'=>"Access denied! (Invalid timestamp)"));
+		}
+		
+		$secret = strtolower(md5(PASSWORD));
+		
+		$string_to_sign = "$string_to_sign_prefix\n$secret\n";
+		
+		$compare_hash = md5($string_to_sign); //base64_encode(sha1(
+		
+		if(0 != strcmp($auth_signature, $compare_hash)) {
+			self::render(array('__status'=>'error', 'message'=>"Access denied! (Invalid credentials: checksum)"));
+		}
+		if(isset($_GET['test']) && $_GET['test'] == 'true')
+			self::render(array('__status'=>'success', 'message'=>"true"));
+		
+		if(!isset($_POST['verb']))
+			self::render(array('__status'=>'error', 'message'=>"You must set a verb to generate a pre-authorized URL"));
+		
+		if(!isset($_POST['key']))
+			self::render(array('__status'=>'error', 'message'=>"You must specify a file to generate a pre-authorized URL"));
+		
+		$key = KEY_PREFIX . $_POST['key'];
+		$expires = strtotime('+1 minute', time());
+		
+		$string_to_sign = sprintf("%s\n\n\n%d\n/%s/%s",
+			$_POST['verb'],
+			$expires,
+			BUCKET,
+			$key
+		);
+		$signature = base64_encode(hash_hmac('sha1', $string_to_sign, AWS_SECRET_KEY, true));
+		
+		$url = sprintf("http%s://%s.%s/%s?AWSAccessKeyId=%s&Expires=%d&Signature=%s",
+		(true?'':'s'), // SSL
+			BUCKET,
+			's3.amazonaws.com',
+			$key,
+			AWS_KEY,
+			$expires,
+			urlencode($signature)
+		);
+		
+		self::render(array('__status'=>'success', 'message'=>$url));
+	}
+	
+	static function getWebPath() {
+		$location = "";
+		
+		// Read the relative URL into an array
+		if(isset($_SERVER['HTTP_X_REWRITE_URL'])) {
+			// IIS Rewrite
+			$location = $_SERVER['HTTP_X_REWRITE_URL'];
+		} elseif(isset($_SERVER['REQUEST_URI'])) {
+			// Apache
+			$location = $_SERVER['REQUEST_URI'];
+		} elseif(isset($_SERVER['REDIRECT_URL'])) {
+			// Apache mod_rewrite (breaks on CGI)
+			$location = $_SERVER['REDIRECT_URL'];
+		} elseif(isset($_SERVER['ORIG_PATH_INFO'])) {
+			// IIS + CGI
+			$location = $_SERVER['ORIG_PATH_INFO'];
+		}
+		
+		return $location;
+	}
+	
+	private function _sortQueryString($query) {
+		// Strip the leading ?
+		if(substr($query,0,1)=='?') $query = substr($query,1);
+		$args = array();
+		$parts = explode('&', $query);
+		foreach($parts as $part) {
+			$pair = explode('=', $part, 2);
+			if(is_array($pair) && 2==count($pair))
+			$args[$pair[0]] = $part;
+		}
+		ksort($args);
+		return implode("&", $args);
+	}
+	
+	/**
+	 * Enter description here...
+	 *
+	 * @param string $rfcDate
+	 * @return boolean
+	 */
+	private function _validateRfcDate($rfcDate) {
+		$diff_allowed = 600; // 10 min
+		$mktime_rfcdate = strtotime($rfcDate);
+		$mktime_rfcnow = strtotime(date('r'));
+		$diff = $mktime_rfcnow - $mktime_rfcdate;
+		return ($diff > (-1*$diff_allowed) && $diff < $diff_allowed) ? true : false;
+	}
+	
+	private function _getRawPost() {
+		$contents = "";
+	
+		$putdata = fopen( "php://input" , "rb" );
+		while(!feof( $putdata ))
+		$contents .= fread($putdata, 4096);
+		fclose($putdata);
+	
+		return $contents;
+	}
+	
+	public static function render($array, $format='json') {
+		if(!is_array($array))
+			return false;
+	
+		if('json' == $format) {
+			header("Content-type: text/javascript; charset=utf-8");
+			echo json_encode($array);
+		} elseif ('xml' == $format) {
+			header("Content-type: text/xml; charset=utf-8");
+			$xml = new SimpleXMLElement("<response/>");
+			self::xml_encode($array, $xml);
+			echo $xml->asXML();
+		} else {
+			header("Content-type: text/plain; charset=utf-8");
+			echo "'" . $format . "' is not implemented.";
+		}
+	
+		exit;
+	}
+}
+
+//$payload = array('username' => $username, 'password' => $password, 'verb' => $verb, 'filename' => $filename);
+
+// [TODO] Auth
+// [TODO] Switch by user
+$gatekeeper = new Gatekeeper();
+$gatekeeper->handleRequest();
