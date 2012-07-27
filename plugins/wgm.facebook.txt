@@ -33,86 +33,61 @@ Creating a Facebook application
 
 Facebook allows third-party applications to interact with its services using an API and OAuth authentication.  You need to create a new *application* on Facebook's developer website in order to link your accounts to Cerb.
 
-Log in to Facebook's developer website to create a new application:
-https://developers.facebook.com/apps/
-
-.. figure:: /images/plugins/wgm.facebook/facebook_create_app_button.png
-    :figclass: bordered
-
-You'll need to enter an `App Name` that uniquely identifies your application into the :guilabel:`Create New App` dialog.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_create_app_dialog.png
-    :figclass: bordered
-
-When you're finished entering your `App Name`, click :guilabel:`Continue`.  You'll be taken to a page that displays your `App ID` and `App Secret`.  You'll need these credentials to allow Cerb to authenticate with Facebook.  You'll also need to change the :guilabel:`App Domains` setting to point to the domain your Cerb installation is hosted on.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_edit_app.png
-    :figclass: bordered
+* Log in to `Facebook's developer website <https://developers.facebook.com/apps/>`_ to create a new application.
+    .. figure:: /images/plugins/wgm.facebook/facebook_create_app_button.png
+        :figclass: bordered
+* Enter an `App Name` that uniquely identifies your application into the :guilabel:`Create New App` dialog.
+    .. figure:: /images/plugins/wgm.facebook/facebook_create_app_dialog.png
+        :figclass: bordered
+* Click :guilabel:`Continue`.  You'll be taken to a page that displays your `App ID` and `App Secret`.  You'll need these credentials to allow Cerb to authenticate with Facebook.  You'll also need to change the :guilabel:`App Domains` setting to point to the domain your Cerb installation is hosted on.
+    .. figure:: /images/plugins/wgm.facebook/facebook_edit_app.png
+        :figclass: bordered
 
 **App Domains**
     The domains your Cerb installation will authenticate from.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_edit_app_app_domains.png
-    :figclass: bordered
-
-Also make sure you enable the :guilabel:`Website with Facebook Login` option to allow Cerb to authenticate with Facebook.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_edit_app_website.png
-    :figclass: bordered
-
-Once you've enabled the :guilabel:`Website with Facebook Login` option, you'll need to enter the domain your Cerb installation is hosted on.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_edit_app_website_selected.png
-    :figclass: bordered
+    .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_app_domains.png
+        :figclass: bordered
+* Enable the :guilabel:`Website with Facebook Login` option to allow Cerb to authenticate with Facebook.
+    .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_website.png
+        :figclass: bordered
+* Once you've enabled the :guilabel:`Website with Facebook Login` option, you'll need to enter the domain your Cerb installation is hosted on.
+    .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_website_selected.png
+        :figclass: bordered
     
-Once you're finished configuring your app, click :guilabel:`Save Changes`.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_edit_app_save_changes.png
-    :figclass: bordered
-
+* Click :guilabel:`Save Changes`.
+    .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_save_changes.png
+        :figclass: bordered
+        
 Configuring the Facebook plugin
 ===============================
 
-Switch back to Cerb.
-
-Click :guilabel:`setup` to the right of the global navigation menu.
-
-Select **Facebook** from the :guilabel:`Plugins` menu.
+* Switch back to Cerb.
+* Click :guilabel:`setup` to the right of the global navigation menu.
+* Select **Facebook** from the :guilabel:`Plugins` menu.
 
 Connecting to your Facebook application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Enter your consumer key and secret from the application you created on Facebook's website.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_consumer.png
-   :figclass: bordered
-
-Click the :guilabel:`Save Changes` button.
+* Enter your consumer key and secret from the application you created on Facebook's website.
+    .. figure:: /images/plugins/wgm.facebook/facebook_consumer.png
+        :figclass: bordered
+* Click the :guilabel:`Save Changes` button.
 
 Linking your Facebook accounts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you input your consumer key and secret correctly, a :guilabel:`Sign in with Facebook` button will appear:
-
-.. figure:: /images/plugins/wgm.facebook/facebook_signin.png
-   :figclass: bordered
-
-Click the :guilabel:`Sign in with Facebook` button.
-
-You will be redirected to Facebook's website in order to grant Cerb access to your account.  You may be asked to sign in.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_oauth_confirm.png
-   :figclass: bordered
-
-When you click on the :guilabel:`Go to App` button, you'll be asked to give permission to the App to post status updates and login as any of your pages.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_oauth_confirm2.png
-    :figclass: bordered
-
-Upon clicking the :guilabel:`Allow` button, you will be redirected back to Cerb.  You should see your new account listed in the :guilabel:`Authorized Users` section.
-
-.. figure:: /images/plugins/wgm.facebook/facebook_accounts_section.png
-   :figclass: bordered
+* If you input your consumer key and secret correctly, a :guilabel:`Sign in with Facebook` button will appear:
+    .. figure:: /images/plugins/wgm.facebook/facebook_signin.png
+        :figclass: bordered
+* Click the :guilabel:`Sign in with Facebook` button.  You will be redirected to Facebook's website in order to grant Cerb access to your account.  You may be asked to sign in.
+    .. figure:: /images/plugins/wgm.facebook/facebook_oauth_confirm.png
+        :figclass: bordered
+* When you click on the :guilabel:`Go to App` button, you'll be asked to give permission to the App to post status updates and login as any of your pages.
+    .. figure:: /images/plugins/wgm.facebook/facebook_oauth_confirm2.png
+        :figclass: bordered
+* Upon clicking the :guilabel:`Allow` button, you will be redirected back to Cerb.  You should see your new account listed in the :guilabel:`Authorized Users` section.
+    .. figure:: /images/plugins/wgm.facebook/facebook_accounts_section.png
+        :figclass: bordered
 
 You can repeat the above steps to authorize multiple Facebook accounts.
 

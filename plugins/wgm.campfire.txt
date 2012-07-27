@@ -4,23 +4,21 @@ Campfire Integration
 :Repository: https://github.com/cerb-plugins/wgm.campfire
 
 This plugin provides integration with `37Signals Campfire <http://www.campfirenow.com/>`_ through their `official API <http://developer.37signals.com/campfire/index>`_.
-
-.. figure:: /images/plugins/wgm.campfire/library_wgm_campfire.png
-   :figclass: bordered
+    .. figure:: /images/plugins/wgm.campfire/library_wgm_campfire.png
+        :figclass: bordered
 
 It enables you to post messages to Campfire from Virtual Attendants.
 
 Obtaining your Auth Token
 =========================
-The 37Signals Campfire API requires an `Auth Token` for posting messages to a Campfire chatroom via the API. `Auth Tokens` are unique to each user, and you will likely want to setup a user specifically for Cerb. To obtain your `Auth Token`, login to your Campfire account and click the :guilabel:`My info` link in the upper-right hand corner.
+The 37Signals Campfire API requires an `Auth Token` for posting messages to a Campfire chatroom via the API. `Auth Tokens` are unique to each user, and you will likely want to setup a user specifically for Cerb.
 
-.. figure:: /images/plugins/wgm.campfire/campfire_my_info.png
-   :figclass: bordered
-   
-Clicking the :guilabel:`My info` link will display a page which allows you to edit your personal information and displays your `Auth Token`.
-
-.. figure:: /images/plugins/wgm.campfire/campfire_auth_token.png
-    :figclass: bordered
+* Login to your Campfire account and click the :guilabel:`My info` link in the upper-right hand corner to obtain your `Auth Token`.
+    .. figure:: /images/plugins/wgm.campfire/campfire_my_info.png
+        :figclass: bordered
+* Click the :guilabel:`My info` link to retrieve your `Auth Token`.
+    .. figure:: /images/plugins/wgm.campfire/campfire_auth_token.png
+        :figclass: bordered
 
 Installing the plugin
 =====================
@@ -37,7 +35,7 @@ You can install this plugin from your web browser using Cerb's Plugin Library:
 * In the popup, click the :guilabel:`Download and install` button again to confirm.
 * Set the :guilabel:`Status:` to **Enabled**.
     .. figure:: /images/plugins/wgm.campfire/enable_wgm_campfire.png
-       :figclass: bordered
+        :figclass: bordered
 * Enter an :guilabel:`API Auth Token` and :guilabel:`Campfire Subdomain`.
 * Click the :guilabel:`Save Changes` button.
 
