@@ -1,0 +1,30 @@
+Before new mail is accepted
+---------------------------
+
+Append text to message content
+==============================
+This action adds text after message content.
+
+Prepend text to message content
+===============================
+This action adds text before message content.
+
+Replace text in message content
+===============================
+This action replaces text in message content.
+
+Reject delivery of message
+==========================
+This action causes the delivery of a message to be rejected.
+
+Redirect delivery to another email address
+==========================================
+This action redirects delivery of the message to another email address.
+
+Reply to sender
+===============
+This action sends an auto-reply to the sender of a message.
+
+Set message header
+==================
+This action sets a header on the message.

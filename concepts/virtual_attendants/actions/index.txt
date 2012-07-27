@@ -12,3 +12,11 @@ Examples:
    first name and company name.
 -  Close the conversation.
 -  Send an SMS message to a list of mobile phones.
+
+A full list of available actions for each event can be found below.
+
+.. toctree::
+    :maxdepth: 2
+    
+    before_new_mail_is_accepted
+    conversation_assigned_in_group

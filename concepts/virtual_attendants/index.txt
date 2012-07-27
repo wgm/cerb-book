@@ -38,11 +38,11 @@ One of the most powerful aspects of Attendants is that you aren't limited to our
 Virtual Attendants are given instructions by creating custom **behavior** on various **events**.  This behavior is comprised of **decisions**, **outcomes**, and **actions**. More information can be found in the pages below.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
     
-    events
+    events/index
     behavior
-    variables
-    conditions
+    variables/index
+    conditions/index
     outcomes
-    actions
+    actions/index
