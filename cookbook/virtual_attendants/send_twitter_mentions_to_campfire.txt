@@ -50,3 +50,6 @@ Setting up the Virtual Attendant
     :figclass: bordered
     
 * Click :guilabel:`Save & Close`.
+
+.. figure:: /images/cookbook/twitter_mentions_campfire/twitter_to_campfire.png
+    :figclass: bordered
