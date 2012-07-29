@@ -30,39 +30,33 @@ You can install this plugin from your web browser using Cerb's Plugin Library:
 
 Obtaining your Auth Token
 =========================
-The Twilio API requires an `Auth Token` for SMS messages.  To obtain your `Auth Token`, login to your Twilio account. Your `Account SID` and `Auth Token` will be displayed in the center of the page.
 
-.. figure:: /images/plugins/wgm.twilio/twilio_account_page.png
-   :figclass: bordered
-  
-To view your `Auth Token` you'll need to click on the lock button to the right of the words :guilabel:`Auth Token`.
+The Twilio API requires an `Auth Token` for SMS messages.
 
-.. figure:: /images/plugins/wgm.twilio/twilio_auth_token_button.png
-    :figclass: bordered
-
-Clicking the button will display your `Auth Token`.
-
-.. figure:: /images/plugins/wgm.twilio/twilio_auth_token.png
-    :figclass: bordered
+* Login to your Twilio account to obtain your `Auth Token`.  Your `Account SID` and `Auth Token` will be displayed in the center of the page.
+    .. figure:: /images/plugins/wgm.twilio/twilio_account_page.png
+        :figclass: bordered
+* Click on the lock button to the right of the words :guilabel:`Auth Token` to view your `Auth Token`.
+    .. figure:: /images/plugins/wgm.twilio/twilio_auth_token_button.png
+        :figclass: bordered
+* Clicking on the button to display your `Auth Token`.
+    .. figure:: /images/plugins/wgm.twilio/twilio_auth_token.png
+        :figclass: bordered
 
 Configuring the Twilio plugin
 =============================
 
-Switch back to Cerb.
-
-Click :guilabel:`setup` to the right of the global navigation menu.
-
-Select **Twilio** from the :guilabel:`Plugins` menu.
+* Switch back to Cerb.
+* Click :guilabel:`setup` to the right of the global navigation menu.
+* Select **Twilio** from the :guilabel:`Plugins` menu.
 
 Connecting to your Twilio Account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Enter your Account SID and Auth Token you retrieved from Twilio's website, along with your phone number.
-
-.. figure:: /images/plugins/wgm.twilio/twilio_auth.png
-   :figclass: bordered
-
-Click the :guilabel:`Save Changes` button.
+* Enter your Account SID and Auth Token you retrieved from Twilio's website, along with your phone number.
+    .. figure:: /images/plugins/wgm.twilio/twilio_auth.png
+       :figclass: bordered
+* Click the :guilabel:`Save Changes` button.
 
 Using the Twilio plugin
 =======================

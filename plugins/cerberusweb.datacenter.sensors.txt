@@ -4,9 +4,8 @@ Sensors
 :Repository: https://github.com/cerb-plugins/cerberusweb.datacenter.sensors
 
 This plugin provides monitoring of external sensors.
-
-.. figure:: /images/plugins/cerberusweb.datacenter.sensors/library_wgm_sensors.png
-   :figclass: bordered
+    .. figure:: /images/plugins/cerberusweb.datacenter.sensors/library_wgm_sensors.png
+       :figclass: bordered
 
 It allows you to monitor external services and warn you about downtime.  Nearly anything can be monitored as a server - HTTP, MySQL, Disk Usage, Bandwidth, etc.
 

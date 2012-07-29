@@ -3,6 +3,7 @@ Plugins
 
 Basic Plugins
 =============
+
 .. toctree::
     :maxdepth: 1
     
@@ -17,5 +18,31 @@ Basic Plugins
     wgm.campfire
     wgm.facebook
     wgm.freshbooks
-    wgm.twilio
     wgm.twitter
+
+Communications
+==============
+
+.. toctree::
+    :maxdepth: 1
+    
+    wgm.clickatell
+    wgm.twilio
+
+Datacenter
+==========
+
+.. toctree::
+    :maxdepth: 1
+    
+    cerberusweb.datacenter.domains
+    cerberusweb.datacenter.sensors
+    cerberusweb.datacenter.servers
+
+Storage Engines
+===============
+
+.. toctree::
+    :maxdepth: 1
+    
+    wgm.storage.s3.gatekeeper
