@@ -6,6 +6,7 @@ S3 Gatekeeper Storage Engine
 This plugin provides integration with `Amazon S3 <http://aws.amazon.com/s3/>`_ via a :download:`Gatekeeper script <Gatekeeper.php.txt>` through their `official API <http://docs.amazonwebservices.com/AmazonS3/latest/gsg/GetStartedWithS3.html>`_.
     .. figure:: /images/plugins/wgm.storage.s3.gatekeeper/library_wgm_gatekeeper.png
         :figclass: bordered
+
 It enables you to store objects on Amazon S3 without making you share your AWS credentials.
 
 Installing the plugin

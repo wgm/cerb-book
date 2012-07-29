@@ -43,17 +43,17 @@ Facebook allows third-party applications to interact with its services using an 
     .. figure:: /images/plugins/wgm.facebook/facebook_edit_app.png
         :figclass: bordered
 
-**App Domains**
-    The domains your Cerb installation will authenticate from.
+    **App Domains**
+        The domains your Cerb installation will authenticate from.
+    
     .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_app_domains.png
-        :figclass: bordered
+       :figclass: bordered
 * Enable the :guilabel:`Website with Facebook Login` option to allow Cerb to authenticate with Facebook.
     .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_website.png
         :figclass: bordered
 * Once you've enabled the :guilabel:`Website with Facebook Login` option, you'll need to enter the domain your Cerb installation is hosted on.
     .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_website_selected.png
         :figclass: bordered
-    
 * Click :guilabel:`Save Changes`.
     .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_save_changes.png
         :figclass: bordered
