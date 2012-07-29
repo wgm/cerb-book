@@ -18,6 +18,9 @@ Basic Plugins
     wgm.campfire
     wgm.facebook
     wgm.freshbooks
+    wgm.github
+    wgm.jira
+    wgm.linkedin
     wgm.twitter
 
 Communications
@@ -26,6 +29,7 @@ Communications
 .. toctree::
     :maxdepth: 1
     
+    wgm.calls
     wgm.clickatell
     wgm.twilio
 
@@ -34,7 +38,7 @@ Datacenter
 
 .. toctree::
     :maxdepth: 1
-    
+
     cerberusweb.datacenter.domains
     cerberusweb.datacenter.sensors
     cerberusweb.datacenter.servers
@@ -46,3 +50,26 @@ Storage Engines
     :maxdepth: 1
     
     wgm.storage.s3.gatekeeper
+
+Authentication
+==============
+
+.. toctree::
+    :maxdepth:1
+    
+    cerberusweb.openid
+    wgm.ldap
+
+Misc
+====
+
+.. toctree::
+    :maxdepth:1 
+    
+    cerberusweb.feed_reader
+    cerberusweb.gravatar
+    cerberusweb.spam_analysis
+    jsjohnst.fluidapp
+    wgm.notifications.emailer
+    wgm.org_dupe_finder
+    wgm.ticket.display.move_to
