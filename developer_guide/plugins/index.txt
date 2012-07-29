@@ -8,7 +8,8 @@ Anatomy of a plugin
     :maxdepth: 1
     
     plugin.xml
-    
+    strings.xml
+        
 Extension Points
 ----------------
 
@@ -24,7 +25,6 @@ Event Points
     :maxdepth: 2
 
     event_points/index
-    strings.xml
 
 .. ::
     ### Namespaces ###
