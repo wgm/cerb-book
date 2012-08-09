@@ -84,7 +84,6 @@ Field                 Type
 ``email``             string
 ``first_name``        string
 ``last_name``         string
-``password``          string
 ``title``             string
 ``is_disabled``       bit
 ``is_superuser``      bit
