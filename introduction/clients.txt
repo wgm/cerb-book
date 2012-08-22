@@ -2,3 +2,5 @@ Who is using Cerb?
 -------------------
 
 See: http://www.cerberusweb.com/clients
+
+.. figure:: /images/introduction/clients.gif
