@@ -1,4 +1,4 @@
 Attachment
 ----------
 
-An **attachment** ...
+An **attachment** is an arbitrary file that has been *attached* to an object.  For example, an image file that is included in an email message.

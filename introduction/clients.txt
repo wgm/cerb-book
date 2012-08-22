@@ -1,6 +1,9 @@
 Who is using Cerb?
 -------------------
 
-See: http://www.cerberusweb.com/clients
+Cerb has been evaluated by more than 18,979 organizations.
+
+See our website for the most recent list of testimonials and noteworthy clients:
+http://www.cerberusweb.com/clients
 
 .. figure:: /images/introduction/clients.gif

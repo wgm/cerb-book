@@ -1,7 +1,7 @@
 Opportunity
 -----------
 
-An **opportunity** is...
+An **opportunity** represents a demonstrated interest in your products and services.
 
 Fields
 ======

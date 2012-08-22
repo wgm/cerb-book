@@ -12,6 +12,15 @@ There is no limit to the number of workspaces that may be created.
 .. index::
     pair: workspaces; sharing
 
+Pages
+=====
+
+Tabs
+====
+
+Dashboards
+==========
+
 Sharing
 =======
 
