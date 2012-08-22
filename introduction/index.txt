@@ -1,12 +1,17 @@
 Introduction
 ============
 
-**Cerb** is a fast and flexible toolkit for web-based collaboration and workflow automation.  In addition to equipping small teams with an arsenal of productivity-enhancing tools, the project also serves as an extensible web development platform.
+.. figure:: /images/introduction/home.png
+   :figclass: bordered
+
+**Cerb** is a fast and flexible toolkit for web-based collaboration and workflow automation.  In addition to equipping small teams with an arsenal of productivity-enhancing tools, the project also serves as a plugin-driven web development platform.
 
 Cerb provides:
 
 * Distributed email management that can scale to millions of conversations per year
 * Virtual Attendants for the intelligent automation of repetitive behavior
+* Shared pages for workers and groups to enhance productivity with their own workspaces
+* Dashboards for reporting, monitoring, goal setting, and operational intelligence
 * Contact information management for remembering anything about anyone
 * Targeted broadcasting of personalized messages to thousands of contacts at once
 * Notifications for keeping up to date about new activity
@@ -126,5 +131,5 @@ Cerb is written in the :term:`PHP5 <PHP>` programming language.  Data is stored 
 
     philosophy
     toolkit_mentality
-    technology
+    #technology
     clients

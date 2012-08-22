@@ -1,6 +1,8 @@
 Technology
 ----------
 
+Cerb is written in the PHP programming language and stores information in a MySQL database.
+
 * PHP 5.3+ (w/ extensions...)
 * MySQL 5.0+ (MyISAM/InnoDB)
 * Smarty templates
