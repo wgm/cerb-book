@@ -6,3 +6,4 @@ Cookbook
 
     custom_fields/index
     virtual_attendants/index
+    workspaces/index

@@ -1,0 +1,35 @@
+Plot ticket response vs. resolution time
+----------------------------------------
+
+:doc:`Create a dashboard </cookbook/workspaces/dashboards/create>` if you haven't already.
+
+.. figure:: /images/cookbook/workspaces/dashboards/charts/scatterplot_response_vs_resolution.png
+    :figclass: bordered
+  
+Click the :guilabel:`Add Widget` button.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
+    :figclass: bordered
+
+Select :guilabel:`Type:` **Chart** and click the :guilabel:`Continue` button.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_create_chart_popup.png
+    :figclass: bordered
+
+Do this:
+
+.. figure:: /images/cookbook/workspaces/dashboards/charts/scatterplot_response_vs_resolution_config.png
+    :figclass: bordered
+
+.. figure:: /images/cookbook/workspaces/dashboards/charts/scatterplot_response_vs_resolution_config_datasource1.png
+    :figclass: bordered
+
+.. figure:: /images/cookbook/workspaces/dashboards/charts/scatterplot_response_vs_resolution_config_datasource2.png
+    :figclass: bordered
+
+Then:
+
+.. figure:: /images/cookbook/workspaces/dashboards/charts/common_type_scatterplot.png
+    :figclass: bordered
+
+Click the :guilabel:`Save Changes` button.

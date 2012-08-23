@@ -1,0 +1,24 @@
+List today's calendar events
+----------------------------
+
+.. figure:: /images/cookbook/workspaces/dashboards/worklists/worklist_todays_events.png
+    :figclass: bordered
+  
+:doc:`Create a dashboard </cookbook/workspaces/dashboards/create>` if you haven't already.
+
+Click the :guilabel:`Add Widget` button.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
+    :figclass: bordered
+
+Select :guilabel:`Type:` **Worklist** and click the :guilabel:`Continue` button.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_create_worklist_popup.png
+    :figclass: bordered
+
+Do this:
+
+.. figure:: /images/cookbook/workspaces/dashboards/worklists/worklist_todays_events_config.png
+    :figclass: bordered
+
+Click the :guilabel:`Save Changes` button.

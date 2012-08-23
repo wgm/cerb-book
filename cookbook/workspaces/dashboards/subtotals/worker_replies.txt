@@ -1,0 +1,24 @@
+Display a worker reply leaderboard
+----------------------------------
+
+:doc:`Create a dashboard </cookbook/workspaces/dashboards/create>` if you haven't already.
+
+.. figure:: /images/cookbook/workspaces/dashboards/subtotals/subtotals_worker_replies.png
+    :figclass: bordered
+  
+Click the :guilabel:`Add Widget` button.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
+    :figclass: bordered
+
+Select :guilabel:`Type:` **Subtotals** and click the :guilabel:`Continue` button.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_create_subtotals_popup.png
+    :figclass: bordered
+
+Do this:
+
+.. figure:: /images/cookbook/workspaces/dashboards/subtotals/subtotals_worker_replies_config.png
+    :figclass: bordered
+
+Click the :guilabel:`Save Changes` button.

@@ -1,0 +1,41 @@
+Set a revenue goal
+------------------
+
+.. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_weekly_revenue.png
+  :figclass: bordered
+
+Description
+===========
+
+Your team can track your progress toward a revenue goal by using a gauge.  The goal can cover any time period: daily, weekly, monthly, yearly, etc.
+
+The needle reflects the current revenue for the time period.  You could use a sensor to automatically update the current revenue, or you could manually update the total at regular intervals.
+
+The colored zones are milestones.  In the example above, the red zone visualizes the amount of weekly revenue needed to cover expenses, while the yellow zone shows the amount needed to cover salaries, and the green zone provides a large area for pushing the needle as far into profit as possible.  It's important to set the final threshold high enough that your team has room to excel.  If the needle reaches the maximum position too easily then your team may not continue pushing as hard as they would if there was potential progress left.
+
+Instructions
+============
+
+1. Navigate to a dashboard, or :doc:`create one </cookbook/workspaces/dashboards/create>` if you haven't already.
+
+2. Click the :guilabel:`Add Widget` button to start building the gauge:
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
+   :figclass: bordered
+
+3. In the popup window, select :guilabel:`Type:` **Gauge** and click the :guilabel:`Continue` button:
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_create_gauge_popup.png
+  :figclass: bordered
+
+4. Fill in the :guilabel:`Label:` and pick your :guilabel:`Thresholds`.  The figure below shows the values used to create our example gauge.  You can modify the :guilabel:`Max. Value` to meet your needs, depending on your revenue goals, and the time period you would like to measure.
+
+.. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_weekly_revenue_config_thresholds.png
+  :figclass: bordered
+
+5. When you're done setting up the thresholds, click the :guilabel:`Data Source` tab to configure where the current revenue total comes from.  In our example we're setting the value manually, but you could also pull the current revenue total from a sensor or worklist.  You can set the :guilabel:`Prefix:` to the appropriate currency symbol.
+
+.. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_weekly_revenue_config_datasource.png
+  :figclass: bordered
+
+6. Once you're finished setting up your new gauge, click the :guilabel:`Save Changes` button.  The gauge should now be displayed on your dashboard.

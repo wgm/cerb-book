@@ -1,0 +1,34 @@
+Monitor the average response time
+---------------------------------
+
+:doc:`Create a dashboard </cookbook/workspaces/dashboards/create>` if you haven't already.
+
+.. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_avg_response_time.png
+  :figclass: bordered
+
+Click the :guilabel:`Add Widget` button.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
+   :figclass: bordered
+
+Select :guilabel:`Type:` **Gauge** and click the :guilabel:`Continue` button.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_create_gauge_popup.png
+  :figclass: bordered
+
+Do this:
+
+.. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_avg_response_time_config_thresholds.png
+  :figclass: bordered
+
+Do this:
+
+.. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_avg_response_time_config_datasource.png
+  :figclass: bordered
+
+Do this:
+
+.. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_avg_response_time_config_datasource_worklist.png
+    :figclass: bordered
+
+Click the :guilabel:`Save Changes` button.

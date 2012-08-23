@@ -1,0 +1,45 @@
+Dashboards
+----------
+
+.. toctree::
+    :maxdepth: 1
+
+    create
+
+Charts
+======
+
+.. toctree::
+    :maxdepth: 1
+
+    charts/sla_compliance_response
+    charts/spam_score_distribution
+    charts/ticket_resolution_ratio
+    charts/ticket_response_vs_resolution
+
+Gauges
+======
+
+.. toctree::
+    :maxdepth: 1
+
+    gauges/average_response_time
+    gauges/revenue_goal
+    gauges/server_sensor    
+
+Subtotals
+=========
+    
+.. toctree::
+    :maxdepth: 1
+    
+    subtotals/worker_replies
+
+Worklists
+=========
+
+.. toctree::
+    :maxdepth: 1
+    
+    worklists/overdue_tasks
+    worklists/todays_events

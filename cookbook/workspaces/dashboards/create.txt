@@ -1,0 +1,16 @@
+Create a workspace dashboard
+----------------------------
+
+Navigate to an existing workspace page or :doc:`create a new one </worker_guide/ui/pages>`.
+
+Click the :guilabel:`+` tab.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_create_dashboard_tab.png
+    :figclass: bordered
+
+Name the tab in the :guilabel:`Label:` field.  Select :guilabel:`Type:` **Dashboard** and then click the :guilabel:`Add` button.
+
+Click on your new tab and you're ready to :doc:`start adding dashboard widgets </cookbook/workspaces/dashboards/index>`.
+
+.. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
+    :figclass: bordered
