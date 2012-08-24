@@ -1,27 +1,37 @@
 Chart the spam score distribution
 ---------------------------------
 
-:doc:`Create a dashboard </cookbook/workspaces/dashboards/create>` if you haven't already.
-
 .. figure:: /images/cookbook/workspaces/dashboards/charts/chart_spam_score_dist.png
     :figclass: bordered
-  
-Click the :guilabel:`Add Widget` button.
+
+Description
+===========
+
+This chart visualizes the distribution of spam scores.  A low, flat line indicates a large amount of legitimate non-spam messages.  A high, flat line indicates a large amount of junk messages.  A steep curve indicates very little variation between very legitimate and very suspicious messages.  A gradual curve indicates a wider variation.
+
+Instructions
+============
+
+1. Navigate to a dashboard, or :doc:`create one </cookbook/workspaces/dashboards/create>` if you haven't already.
+
+2. Click the :guilabel:`Add Widget` button:
 
 .. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
     :figclass: bordered
 
-Select :guilabel:`Type:` **Chart** and click the :guilabel:`Continue` button.
+3. Select :guilabel:`Type:` **Chart** and click the :guilabel:`Continue` button:
 
 .. figure:: /images/cookbook/workspaces/dashboards/common_create_chart_popup.png
     :figclass: bordered
 
-Do this:
+4. This chart has a single series of *ticket* data on the :guilabel:`Data Source` tab.  The :guilabel:`X-axis` has a plot for each record in the worklist.  The :guilabel:`Y-axis` plots the **value** of the **spam score** field for each record.
 
 .. figure:: /images/cookbook/workspaces/dashboards/charts/chart_spam_score_dist_config.png
     :figclass: bordered
 
+5. Click on the :guilabel:`Worklist` button for :guilabel:`Series #1`.  You should filter this worklist to a reasonable time period; otherwise, there may be hundreds of thousands of plots (or more).  Alternatively, you could plot this data as a histogram (e.g. by month or year) and compare two different time periods.  In order to get a continuous curve on the chart, it is important that you sort the worklist by spam score, since the sorted column determines the order of the records on the x-axis.  You may have to add the spam score column to the worklist first.
+
 .. figure:: /images/cookbook/workspaces/dashboards/charts/chart_spam_score_dist_config_worklist.png
     :figclass: bordered
 
-Click the :guilabel:`Save Changes` button.
+6. Once you're finished setting up your new chart, click the :guilabel:`Save Changes` button.  The chart should now be displayed on your dashboard.
