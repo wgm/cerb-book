@@ -1,35 +1,59 @@
 Chart SLA compliance on initial response
 ----------------------------------------
 
-:doc:`Create a dashboard </cookbook/workspaces/dashboards/create>` if you haven't already.
-
 .. figure:: /images/cookbook/workspaces/dashboards/charts/chart_sla_compliance_response.png
     :figclass: bordered
-  
-Click the :guilabel:`Add Widget` button.
+
+Description
+===========
+
+You can chart your Service Level Agreement (SLA) response times to get a visual indication of your organization's compliance.  This example assumes that you guarantee a first response within 4 hours.
+
+The data is rendered as a bar chart with a bar for each day.  The number of compliant replies -- where the first response was sent within 4 hours -- are drawn in green.  The red bars show the number of replies on a given day where the client waited more than 4 hours for their first response.  Taken together, these bars give you a daily compliance ratio.
+
+Instructions
+============
+
+1. Navigate to a dashboard, or :doc:`create one </cookbook/workspaces/dashboards/create>` if you haven't already.
+ 
+2. Click the :guilabel:`Add Widget` button:
 
 .. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
     :figclass: bordered
 
-Select :guilabel:`Type:` **Chart** and click the :guilabel:`Continue` button.
+3. Select :guilabel:`Type:` **Chart** and click the :guilabel:`Continue` button:
 
 .. figure:: /images/cookbook/workspaces/dashboards/common_create_chart_popup.png
     :figclass: bordered
 
-Do this:
+4. Configure the :guilabel:`Data Source` tab as shown below.  There are two series that load ticket data.  The :guilabel:`X-axis` plots the :guilabel:`created` date :guilabel:`by day`.  The :guilabel:`Y-axis` plots the count (or frequency).  The labels and colors are different, but all the other settings should be identical.  You'll configure each worklist separately in the following steps.
 
 .. figure:: /images/cookbook/workspaces/dashboards/charts/chart_sla_compliance_response_config.png
     :figclass: bordered
 
+5. Click on the :guilabel:`Worklist` button for :guilabel:`Series #1`.  This ticket worklist should be filtered as follows:
+
+* Status is not **Deleted**.
+* First Response < **14400**
+* Created between **-30 days to now**
+
+The value of `14400` in the *First Response* filter is a number of seconds (60 seconds * 60 minutes * 4 hours).  You can change this value to your own response time threshold (in seconds).
+
 .. figure:: /images/cookbook/workspaces/dashboards/charts/chart_sla_compliance_response_config_datasource1.png
     :figclass: bordered
+
+6. Click on the :guilabel:`Worklist` button for :guilabel:`Series #2`.  This ticket worklist is nearly identical to the one you just set up for the first series, but the *Response Time* filter is checking for a value greater than or equal to `14400` instead.  As above, if you're using a different threshold then enter that number of seconds here instead.
+
+* Status is not **Deleted**.
+* First Response >= **14400**
+* Created between **-30 days to now**
 
 .. figure:: /images/cookbook/workspaces/dashboards/charts/chart_sla_compliance_response_config_datasource2.png
     :figclass: bordered
 
-Then:
+7. Finally, click on the :guilabel:`Chart Type` tab and select :guilabel:`Bar Chart`.  This will display a stacked bar chart, which is better for making direct comparisons between two or more series.
 
 .. figure:: /images/cookbook/workspaces/dashboards/charts/common_type_bar.png
     :figclass: bordered
 
-Click the :guilabel:`Save Changes` button.
+8. Once you're finished setting up your new chart, click the :guilabel:`Save Changes` button.  The chart should now be displayed on your dashboard.
