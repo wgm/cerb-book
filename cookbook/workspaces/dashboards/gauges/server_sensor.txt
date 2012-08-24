@@ -1,29 +1,47 @@
-Monitor server load or disk space
----------------------------------
-
-:doc:`Create a dashboard </cookbook/workspaces/dashboards/create>` if you haven't already.
+Monitor server resources
+------------------------
 
 .. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_server_sensor.png
     :figclass: bordered
-  
-Click the :guilabel:`Add Widget` button.
+
+Description
+===========
+
+Gauges can be used to visualize server resources in real-time by connecting them to sensors.  This requires the :doc:`sensors plugin </plugins/cerberusweb.datacenter.sensors>` to be installed and enabled.
+
+The needle reflects the current metric of the sensor -- CPU load average, disk space utilization, memory usage, webserver connections, concurrent users, etc.
+
+This style of gauge has three colored zones:
+
+* **Green (OK):** No action is needed
+* **Yellow (Warning):** Preventative action should be taken soon
+* **Red (Critical):** Emergency action must be taken
+
+You can set the thresholds for these zones based on your needs.  For example, a disk usage gauge may change to the *Warning* state above 80% utilization and go *Critical* above 90%.  A CPU load average gauge may go *Warning* above 5.0 and *Critical* above 15.0.  These levels will depend on your particular environment. 
+
+Instructions
+============  
+
+1. Navigate to a dashboard, or :doc:`create one </cookbook/workspaces/dashboards/create>` if you haven't already.
+
+2. Click the :guilabel:`Add Widget` button:
 
 .. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
     :figclass: bordered
 
-Select :guilabel:`Type:` **Gauge** and click the :guilabel:`Continue` button.
+3. Select :guilabel:`Type:` **Gauge** and click the :guilabel:`Continue` button:
 
 .. figure:: /images/cookbook/workspaces/dashboards/common_create_gauge_popup.png
     :figclass: bordered
 
-Do this:
+4. Configure the :guilabel:`Thresholds`:
 
 .. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_server_sensor_config_thresholds.png
     :figclass: bordered
 
-Do this:
+5. Click the :guilabel:`Data Source` tab, select :guilabel:`Sensor`, and pick the sensor that you want to display from the dropdown:
 
 .. figure:: /images/cookbook/workspaces/dashboards/gauges/gauge_server_sensor_config_datasource.png
     :figclass: bordered
 
-Click the :guilabel:`Save Changes` button.
+6. Once you're finished setting up your new gauge, click the :guilabel:`Save Changes` button.  The gauge should now be displayed on your dashboard.
