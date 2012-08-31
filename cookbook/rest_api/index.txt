@@ -4,4 +4,5 @@ Rest API
 .. toctree::
     :maxdepth: 1
     
+    parsing_new_message
     retrieve_tickets_multiple_requesters

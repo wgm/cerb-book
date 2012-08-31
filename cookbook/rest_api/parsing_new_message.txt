@@ -1,0 +1,31 @@
+Parsing a New Message
+---------------------
+
+This cookbook recipe will demonstrate how to parse a new message via the Rest API.
+
+Setup
+=====
+
+You'll need to setup your environment before you can use the below code samples. Information on setting up your environment can be found in our :doc:`Rest API introduction </developer_guide/rest_api/introduction>`.
+
+Code Sample
+===========
+
+For this code sample, we will assume that you have setup a form to post to a PHP script on your website.
+
+.. code-block:: php
+    
+	<?php
+    
+	$to = $_POST['to'];
+	$from = $_POST['from'];
+	$subject = $_POST['subject'];
+	$message = $_POST['subject'];
+    
+	$parse_msg = sprintf("To: %s\nFrom: %s\nSubject: %s\nDate: %s\n\n\n%s",
+	    $to, $from, $subject, date('D, j M Y H:i:s O'), $message);
+    
+	$postfields = array(
+		array('message', $parse_msg),
+	);
+	$result = $cerb->post($this->base_url . sprintf('%s/parse.json', 'parser'), $postfields);
