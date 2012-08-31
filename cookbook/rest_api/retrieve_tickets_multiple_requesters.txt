@@ -31,7 +31,7 @@ The below code sample requires the `JSON extension <http://www.php.net/manual/en
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'tickets/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'tickets/search.json', $postfields);
 
 Code Sample (JSON extension not required)
 =========================================
@@ -56,4 +56,4 @@ It's recommended that you use the JSON extension whenever possible, but if for s
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'tickets/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'tickets/search.json', $postfields);
