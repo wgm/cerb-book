@@ -50,18 +50,18 @@ Comprehensive examples are provided for each object in the following sections of
 .. code-block:: php
 
     <?php
-	require_once("Cerb5Api.php");
+	require_once("Cerb6Api.php");
 
-	$base_url = 'http://localhost/cerb5/rest/'; // URL to your Cerb5 install
+	$base_url = 'http://localhost/cerb/rest/'; // URL to your Cerb install
 	$access_key = "u7gawte5ecc8"; // Access Key
 	$secret_key = "e6fxngx3f5kwnk53zmt3lhama8gyazrj";  // Secret Key
 
-	$cerb5 = new Cerb5_WebAPI($access_key, $secret_key);
+	$cerb = new Cerb6_WebAPI($access_key, $secret_key);
 
 	// Please see the examples in the following sections of the book
 	// Your object calls will go here
 
-	if(null != ($content_type = $cerb5->getContentType())) {
+	if(null != ($content_type = $cerb->getContentType())) {
         header("Content-Type: " . $content_type);
         echo $out;
         

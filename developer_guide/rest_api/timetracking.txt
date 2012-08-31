@@ -11,7 +11,7 @@ Retrieves information about a time tracking object.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'timetracking/1.xml');
+    $out = $cerb->get($base_url . 'timetracking/1.xml');
 
 Search
 ======
@@ -41,4 +41,4 @@ Field              Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'timetracking/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'timetracking/search.xml', $postfields);

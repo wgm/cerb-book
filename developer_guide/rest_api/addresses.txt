@@ -28,7 +28,7 @@ Field               Type
         array('last_name','Baltar'),
         array('custom_16','http://www.cerberusweb.com/'),
     );
-    $out = $cerb5->post($base_url . 'addresses/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'addresses/create.xml', $postfields);
 
 Retrieve
 ========
@@ -39,7 +39,7 @@ Retrieves information about an address record.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'addresses/1.xml');
+    $out = $cerb->get($base_url . 'addresses/1.xml');
 
 Update
 ======
@@ -67,7 +67,7 @@ Field               Type
         array('last_name','Baltar'),
         array('custom_16','http://www.cerberusdemo.com/'),
     );
-    $out = $cerb5->post($base_url . 'addresses/1.xml', $postfields);
+    $out = $cerb->post($base_url . 'addresses/1.xml', $postfields);
 
 Search
 ======
@@ -106,4 +106,4 @@ Field                Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'addresses/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'addresses/search.xml', $postfields);

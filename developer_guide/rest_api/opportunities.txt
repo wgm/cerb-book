@@ -29,7 +29,7 @@ Field                                  Type
         array('title','Sell Cerb6 to Salesforce'),
         array('email_address','unlikely@example.com'),
     );
-    $out = $cerb5->post($base_url . 'opps/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'opps/create.xml', $postfields);
 	
 	
 Update
@@ -59,7 +59,7 @@ Field                                  Type
         array('title','Sell Cerb6 to Atlassian'),
         array('email_address','nothappening@example.com'),
     );
-    $out = $cerb5->post($base_url . 'opps/1.xml', $postfields);
+    $out = $cerb->post($base_url . 'opps/1.xml', $postfields);
 
 Retrieve
 ========
@@ -70,7 +70,7 @@ Retrieves information about an opportunity.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'opps/1.xml');
+    $out = $cerb->get($base_url . 'opps/1.xml');
 	
 Search
 ======
@@ -109,4 +109,4 @@ Field                                  Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'opps/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'opps/search.xml', $postfields);

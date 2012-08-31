@@ -25,7 +25,7 @@ You can parse a new message like so:
     $postfields = array(
         array('message', $mime),
     );
-    $out = $cerb5->post($base_url . 'parser/parse.xml', $postfields);
+    $out = $cerb->post($base_url . 'parser/parse.xml', $postfields);
 	
 	
 Parse a reply
@@ -50,4 +50,4 @@ Parsing a reply to an existing message is fairly simple. You should use the Mess
     $postfields = array(
         array('message', $mime),
     );
-    $out = $cerb5->post($base_url . 'parser/parse.xml', $postfields);
+    $out = $cerb->post($base_url . 'parser/parse.xml', $postfields);

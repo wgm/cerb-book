@@ -30,7 +30,7 @@ Field                 Type
         array('last_name','Stark'),
         array('password','test'),
     );
-    $out = $cerb5->post($base_url . 'workers/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'workers/create.xml', $postfields);
 	
 Retrieve
 ========
@@ -41,7 +41,7 @@ Retrieves information about a Worker.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'workers/1.xml');
+    $out = $cerb->get($base_url . 'workers/1.xml');
 	
 Update
 ======
@@ -69,7 +69,7 @@ Field                 Type
         array('title','Superhero'),
         array('password','new'),
     );
-    $out = $cerb5->put($base_url . 'workers/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'workers/1.xml', $postfields);
 	
 Search
 ======
@@ -103,5 +103,5 @@ Field                 Type
          array('sortAsc','1'),
          array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'workers/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'workers/search.xml', $postfields);
 	

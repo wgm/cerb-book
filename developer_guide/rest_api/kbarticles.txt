@@ -28,7 +28,7 @@ Field             Type
         array('category_id[]','+661'),
         array('category_id[]','662'),
     );
-    $out = $cerb5->post($base_url . 'kbarticles/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'kbarticles/create.xml', $postfields);
 	
 	
 Retrieve
@@ -40,7 +40,7 @@ Retrieves information about a knowledgebase article object.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'kbarticles/4.xml');
+    $out = $cerb->get($base_url . 'kbarticles/4.xml');
 	
 Update
 ======
@@ -70,7 +70,7 @@ Field             Type
         array('category_id[]','-661'),
         array('category_id[]','-662'),
     );
-    $out = $cerb5->put($base_url . 'kbarticles/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'kbarticles/1.xml', $postfields);
 	
 Search
 ======
@@ -99,4 +99,4 @@ Field             Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'kbarticles/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'kbarticles/search.xml', $postfields);

@@ -27,7 +27,7 @@ Field                              Type
         array('address', 'comment@cerberusdemo.com'),
         array('comment', 'This is a comment'),
     );
-    $out = $cerb5->post($base_url . 'comments/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'comments/create.xml', $postfields);
 	
 Retrieve
 ========
@@ -38,7 +38,7 @@ Retrieves information about a Comment.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'comments/1.xml');
+    $out = $cerb->get($base_url . 'comments/1.xml');
 	
 Search
 ======
@@ -68,4 +68,4 @@ Field                              Type
          array('oper[]','='),
          array('value[]','1'),
     );
-    $out = $cerb5->post($base_url . 'comments/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'comments/search.xml', $postfields);

@@ -29,7 +29,7 @@ Field                 Type
         array('type', `cerberusweb.datacenter.sensor.http`),
         array('status', 'O'),
     );
-    $out = $cerb5->post($base_url . 'sensors/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'sensors/create.xml', $postfields);
 
 Bulk Update
 ===========
@@ -50,7 +50,7 @@ Updates multiple sensors at once. You'll need to post an XML string containing a
 .. code-block:: php
 
     <?php
-    $out = $cerb5->post($base_url . 'sensors/bulk_update.xml', $contents);
+    $out = $cerb->post($base_url . 'sensors/bulk_update.xml', $contents);
 
 Retrieve
 ========
@@ -61,7 +61,7 @@ Retrieves information about a Sensor.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'sensors/1.xml');
+    $out = $cerb->get($base_url . 'sensors/1.xml');
 	
 Update
 ======
@@ -86,7 +86,7 @@ Field                 Type
     $postfields = array(
         array('output', 'C'),
     );
-    $out = $cerb5->put($base_url . 'sensors/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'sensors/1.xml', $postfields);
 	
 Search
 ======
@@ -116,4 +116,4 @@ Field                 Type
          array('sortAsc','1'),
          array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'workers/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'workers/search.xml', $postfields);

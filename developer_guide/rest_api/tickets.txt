@@ -9,7 +9,7 @@ Retrieve
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'tickets/1.xml');
+    $out = $cerb->get($base_url . 'tickets/1.xml');
 
 Update
 ======
@@ -34,7 +34,7 @@ Field               Type
         array('custom_6',"Line 1\nLine 2\nLine 3"), // multi-line
         array('custom_4','Option 3'), // picklist
     );
-    $out = $cerb5->put($base_url . 'tickets/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'tickets/1.xml', $postfields);
 	
 Search
 ======
@@ -76,4 +76,4 @@ Field                Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'tickets/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'tickets/search.xml', $postfields);

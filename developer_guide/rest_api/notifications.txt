@@ -29,7 +29,7 @@ Field                Type
         array('url','http://www.cerberusweb.com'),
         array('assignee_id', 1),
     );
-    $out = $cerb5->post($base_url . 'notifications/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'notifications/create.xml', $postfields);
 	
 Retrieve
 ========
@@ -38,7 +38,7 @@ Retrieve
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'notifications/1.xml');
+    $out = $cerb->get($base_url . 'notifications/1.xml');
 	
 Update
 ======
@@ -62,7 +62,7 @@ Field                Type
         array('assignee_id','1'),
         array('title','You have a *new* notification!'),
     );
-    $out = $cerb5->put($base_url . 'notifications/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'notifications/1.xml', $postfields);
 	
 List
 ====
@@ -73,11 +73,11 @@ Lists the notifications for the authenticated worker.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'notifications/list.xml');
+    $out = $cerb->get($base_url . 'notifications/list.xml');
 	
 You an also list all unread notifications like so:
 
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'notifications/list.xml?unread=1');
+    $out = $cerb->get($base_url . 'notifications/list.xml?unread=1');

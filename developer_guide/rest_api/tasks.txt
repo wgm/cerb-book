@@ -26,7 +26,7 @@ Field                 Type
     $postfields = array(
         array('title','Finish documentation'),
     );
-    $out = $cerb5->post($base_url . 'tasks/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'tasks/create.xml', $postfields);
 
 Retrieve
 ========
@@ -37,7 +37,7 @@ Retrieves information about a task.
 .. code-block:: php
 
     <?php
-    $out = $cerb5->get($base_url . 'tasks/1.xml');
+    $out = $cerb->get($base_url . 'tasks/1.xml');
 	
 Update
 ======
@@ -64,7 +64,7 @@ Field                 Type
         array('title','Complete documentation'),
         array('assignee_id', '1'),
     );
-    $out = $cerb5->put($base_url . 'tasks/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'tasks/1.xml', $postfields);
 	
 Search
 ======
@@ -98,4 +98,4 @@ Field                 Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb5->post($base_url . 'tasks/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'tasks/search.xml', $postfields);
