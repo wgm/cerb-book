@@ -5,4 +5,5 @@ Rest API
     :maxdepth: 1
     
     parsing_new_message
+    parsing_reply_ticket
     retrieve_tickets_multiple_requesters

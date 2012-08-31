@@ -1,0 +1,34 @@
+Parsing a Reply to an Existing Ticket
+-------------------------------------
+
+This cookbook recipe will demonstrate how to parse a reply to an existing ticket via the Rest API.
+
+Setup
+=====
+
+You'll need to setup your environment before you can use the below code samples. Information on setting up your environment can be found in our :doc:`Rest API introduction </developer_guide/rest_api/introduction>`.
+
+Code Sample
+===========
+
+For this code sample, we will assume that you have setup a form to post to a PHP script on your website.
+
+.. code-block:: php
+    
+    <?php
+    $ticket_id = $_POST['ticket_id'];
+    $result = $cerb->get($base_url . sprintf('tickets/%d.json', $ticket_id));
+    
+    $ticket = json_decode($result);
+    
+    $to = $_POST['to'];
+    $from = $_POST['from'];
+    // Add the mask to the beginning of the subject
+    // so the parser knows which ticket to add the reply to
+    $subject = sprintf('[#%s] %s', $ticket->mask, $ticket->subject);
+    $message = $_POST['message'];
+    
+	$parse_msg = sprintf("To: %s\nFrom: %s\nSubject: %s\nDate: %s\n\n\n%s",
+	    $to, $from, $subject, date('D, j M Y H:i:s O'), $message);
+
+	$result = $cerb->post($this->base_url . sprintf('%s/parse.json', 'parser'), $postfields);
