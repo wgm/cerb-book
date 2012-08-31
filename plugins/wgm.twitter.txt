@@ -91,6 +91,9 @@ Linking your Twitter accounts
 
 You can repeat the above steps to authorize multiple Twitter accounts.
 
+.. note:: 
+    If you see an "**Exception: Invalid auth/bad request (got a 401, expected HTTP/1.1 20X or a redirect)**" error message when clicking the :guilabel:`Sign in with Twitter` button, make sure the *Callback URL* setting in your Twitter application is not blank.  You can set it to any URL value (e.g. your website).
+
 Scheduler
 ~~~~~~~~~
 
