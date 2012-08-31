@@ -6,7 +6,7 @@ The Rest API allows you to integrate a lot of the functionality of Cerb5 with ot
 Installation
 ============
 
-Like many parts of Cerb6, the RestAPI functionality is provided through a plugin. You'll need to enable the RestAPI plugin before you can take advantage of the RestAPI functionality.
+Like many parts of Cerb6, the RestAPI functionality is provided through a plugin. You'll need to enable the :doc:`RestAPI plugin </plugins/cerberusweb.restapi>` before you can take advantage of the RestAPI functionality.
 
 
 .. _credentials:
