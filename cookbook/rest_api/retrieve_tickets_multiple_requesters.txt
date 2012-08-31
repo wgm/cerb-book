@@ -1,0 +1,59 @@
+Retrieving Tickets for Multiple Requesters
+------------------------------------------
+
+This short cookbook recipe will explain how to retrieve tickets for multiple requesters via the Rest API. The code samples below detail how to search for tickets created by any of the given requesters. This allows you to easily search for any tickets created by any of the supplied requesters without having to make multiple requests. This functionality is only available in *Cerb 6.1.1 and later.*
+
+Setup
+=====
+
+You'll need to setup your environment before you can use the below code samples. Information on setting up your environment can be found in our :doc:`Rest API introduction </developer_guide/rest_api/introduction>`.
+
+Code Sample (JSON extension required)
+=====================================
+
+The below code sample requires the `JSON extension <http://www.php.net/manual/en/book.json.php>`_. The JSON extension simplifies the process of adding additional requesters to the search.
+
+.. code-block:: php
+
+    <?php
+	
+    $postfields = array(
+        array('criteria[]','requester'),
+        array('oper[]','in'),
+        array('value[]',json_encode(array('jstanden@cerberusdemo.com','sluther@cerberusdemo.com'))),
+        array('criteria[]','is_deleted'),
+        array('oper[]','='),
+        array('value[]','0'),
+        array('criteria[]','group'),
+        array('oper[]','='),
+        array('value[]','1'),
+        array('sortBy','mask'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb5->post($base_url . 'tickets/search.xml', $postfields);
+
+Code Sample (JSON extension not required)
+=========================================
+
+It's recommended that you use the JSON extension whenever possible, but if for some reason your environment does not support it, the below code sample will provide the same functionality as above.
+	
+.. code-block:: php
+
+    <?php
+	
+    $postfields = array(
+        array('criteria[]','requester'),
+        array('oper[]','in'),
+        array('value[]', '["jstanden@cerberusdemo.com","sluther@cerberusdemo.com"]'),
+        array('criteria[]','is_deleted'),
+        array('oper[]','='),
+        array('value[]','0'),
+        array('criteria[]','group'),
+        array('oper[]','='),
+        array('value[]','1'),
+        array('sortBy','mask'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb5->post($base_url . 'tickets/search.xml', $postfields);
