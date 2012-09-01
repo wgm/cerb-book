@@ -10,7 +10,7 @@ Setting up the Virtual Attendant
 * Click on any group - we'll use `Dispatch` for this example.
 * Click on the :guilabel:`Virtual Attendant` tab.
 * Click on :guilabel:`Create Behavior`.
-* Enter :kbd:`Set Watchers Based on Calendar Availability` as the :guilabel:`Title`.
+* Enter :kbd:`Relay Email to Workers` as the :guilabel:`Title`.
 * Select the `New message on a group conversation` as the :guilabel:`Event`.
 * Click :guilabel:`Save Changes`.
 * Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.

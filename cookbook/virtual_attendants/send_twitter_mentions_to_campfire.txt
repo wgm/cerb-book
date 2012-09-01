@@ -49,7 +49,7 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/twitter_mentions_campfire/schedule_behavior.png
     :figclass: bordered
     
-* Click :guilabel:`Save & Close`.
+* Click :guilabel:`Save Changes`.
 
 .. figure:: /images/cookbook/twitter_mentions_campfire/twitter_to_campfire.png
     :figclass: bordered

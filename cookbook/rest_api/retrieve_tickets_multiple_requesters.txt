@@ -57,3 +57,14 @@ It's recommended that you use the JSON extension whenever possible, but if for s
         array('page','1'),
     );
     $out = $cerb->post($base_url . 'tickets/search.json', $postfields);
+
+Code Sample (Looping over results)
+==================================
+
+Once you have the results of your search, you can loop over all of the tickets that are returned.
+
+.. code-block:: php
+    
+    <?php
+    
+    $postfields = array();

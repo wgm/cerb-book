@@ -64,4 +64,4 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/sensors_notify_sms/schedule_behavior.png
     :figclass: bordered
     
-* Click :guilabel:`Save & Close`.
+* Click :guilabel:`Save Changes`.

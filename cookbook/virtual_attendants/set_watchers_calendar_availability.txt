@@ -40,5 +40,5 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/set_watchers_calendar_availability/new_action_add_watchers.png
     :figclass: bordered
 
-* Click :guilabel:`Save & Close`.
+* Click :guilabel:`Save Changes`.
     
