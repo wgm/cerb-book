@@ -1,0 +1,26 @@
+Relaying Emails to Workers
+--------------------------
+
+This cookbook recipe will explain how to send a copy of incoming messages to a workers' email address.  Workers can reply to these emails, and those replies will automatically be forwarded to the requesters on the ticket.  Workers can also modify the ticket through the usage of special commands.
+
+Setting up the Virtual Attendant
+================================
+
+* Click on :guilabel:`groups` in the top right of the navigation bar.
+* Click on any group - we'll use `Dispatch` for this example.
+* Click on the :guilabel:`Virtual Attendant` tab.
+* Click on :guilabel:`Create Behavior`.
+* Enter :kbd:`Set Watchers Based on Calendar Availability` as the :guilabel:`Title`.
+* Select the `New message on a group conversation` as the :guilabel:`Event`.
+* Click :guilabel:`Save Changes`.
+* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+* Enter :kbd:`Relay Email to Worker` as the :guilabel:`Title` of your action.
+* Select the `Relay to external email` action from the :guilabel:`Add Action` dropdown menu.
+
+.. figure:: /images/cookbook/relay_emails_to_workers/new_action_dialog.png
+    :figclass: bordered
+
+* Check the boxes for both `Owner` and `Watchers` for :guilabel:`Relay to`. 
+* Enter :kbd:`[{{ticket_mask}}] {{ticket_subject}}` as the :guilabel:`Subject` field.
+* Enter anything you want for the :guilabel:`message`. Anything prefixed by a :kbd:`##` will not be forwarded to any requesters.
+* Click :guilabel:`Save Changes`.
