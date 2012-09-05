@@ -1,0 +1,62 @@
+Set Custom Fields Using Regular Expressions
+-------------------------------------------
+
+This cookbook recipe will explain how to set  :doc:`custom fields </concepts/objects/custom_fields>` in a :doc:`Virtual Attendant </concepts/virtual_attendants/index>` based on the content of a message using regular expressions. This behavior is useful if you receive automated messages from another system and would like to parse specific pieces of data out of them.
+
+**Note:** This cookbook recipe uses the following email template to obtain the values for the custom fields. If you wish to test the Virtual Attendant below, you'll need to add the following code to the very first action:
+
+**Note:** To effectively use this cookbook recipe, you'll need to be familiar with `regular expressions <http://en.wikipedia.org/wiki/Regular_expression>`_ so you can modify it to suit your needs.
+
+.. code-block:: none
+
+    {% set ticket_initial_message_content = "Enquiry number: 7545967
+    From: Scott Luther	Dates:10 Aug 2012 to 1 Sep 2012
+    Email: scott@cerberusdemo.com	Number of guests: Adults: 6 Children:
+    Telephone: +7 921 9660943	Source: Holiday Lettings
+    Details: Dear Mr. Smith
+
+    According to holidaylettings.co.uk website, this property is available for rent from Aug 10 to Sep 1, 2012. Please confirm." %}
+
+Configuring the Custom Fields
+=============================
+
+* Click on :guilabel:`setup` in the top right of the navigation bar.
+* Hover over :guilabel:`Configure` in the menu bar.
+* Select :guilabel:`Custom Fields` from the pulldown menu.
+* Click the :guilabel:`Ticket` record type.
+* Add a new `Text: Single Line` custom field named :kbd:`Enquiry Number`.
+* Add a new `Text: Single Line` custom field named :kbd:`Dates`.
+* Add a new `Text: Single Line` custom field named :kbd:`Telephone`.
+
+.. figure:: /images/cookbook/set_custom_fields_regular_expressions/new_custom_fields.png
+    :figclass: bordered
+    
+* Click :guilabel:`Save Changes`.
+
+Setting up the Virtual Attendant
+================================
+
+* Click on :guilabel:`groups` in the top right of the navigation bar.
+* Click on any group - we'll use `Dispatch` for this example.
+* Click on the :guilabel:`Virtual Attendant` tab.
+* Click on :guilabel:`Create Behavior`.
+* Enter :kbd:`Set Custom Fields Using Regular Expressions` as the :guilabel:`Title`.
+* Select the `New message on a group conversation` as the :guilabel:`Event`.
+
+.. figure:: /images/cookbook/set_custom_fields_regular_expressions/new_behavior_dialog.png
+    :figclass: bordered
+    
+* Click :guilabel:`Save Changes`.
+* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+* Enter :kbd:`Set Custom Fields` as the :guilabel:`Title` of your action.
+* Select the `Set enquiry number` action from the :guilabel:`Add Action` dropdown menu.
+* Enter :kbd:`{{ticket_initial_message_content|regexp('/Enquiry number:(.*)/i', 1)}}`
+* Select the `Set enquiry number` action from the :guilabel:`Add Action` dropdown menu.
+* Enter :kbd:`{{ticket_initial_message_content|regexp('/Enquiry number:(.*)/i', 1)}}`
+* Select the `Set telephone` action from the :guilabel:`Add Action` dropdown menu.
+* Enter :kbd:`{{ticket_initial_message_content|regexp('/Telephone:(.*)Source:/mi', 1)}}`.
+
+.. figure:: /images/cookbook/set_custom_fields_regular_expressions/new_action_dialog.png
+    :figclass: bordered
+
+* Click :guilabel:`Save Changes`.
