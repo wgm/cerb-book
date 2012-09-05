@@ -5,3 +5,4 @@ Tips and Tricks
     :maxdepth: 2
     
     date_entry
+    email_relay

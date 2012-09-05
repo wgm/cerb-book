@@ -1,7 +1,7 @@
 Relaying Emails to Workers
 --------------------------
 
-This cookbook recipe will explain how to send a copy of incoming messages to a workers' email address.  Workers can reply to these emails, and those replies will automatically be forwarded to the requesters on the ticket.  Workers can also modify the ticket through the usage of special commands.
+This cookbook recipe will explain how to send a copy of incoming messages to a workers' email address.  Workers can reply to these emails, and those replies will automatically be forwarded to the requesters on the ticket.  Workers can also modify the ticket through the usage of :doc:`special commands </tips/email_relay>`.
 
 Setting up the Virtual Attendant
 ================================
