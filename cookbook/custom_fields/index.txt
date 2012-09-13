@@ -5,3 +5,5 @@ Custom Fields
     :maxdepth: 1
 
     examples
+    ../virtual_attendants/set_custom_fields_regular_expressions
+    ../virtual_attendants/sla_escalation
