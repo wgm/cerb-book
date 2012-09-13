@@ -41,6 +41,7 @@ Mail
     mail/incoming/pop3
     mail/incoming/routing
     mail/incoming/filtering
+    mail/incoming/external_relay
     
     mail/outgoing/smtp
     mail/outgoing/reply_to

@@ -1,0 +1,118 @@
+External Relay
+--------------
+
+:menuselection:`Setup --> Mail --> Incoming Mail --> External Relay`
+
+The email relay enables workers to respond to messages from external mail applications (e.g. Gmail, mobile phones, Outlook, etc) instead of always requiring them to use Cerb in the web browser. Relayed responses are received from a worker's personal email address and rewritten so they appear to be from Cerb before being sent to a conversation's recipients. This process protects the privacy of personal worker email addresses, while still providing the benefits of Cerb (e.g. shared history, assignments, etc).
+
+By default, relayed messages are authenticated by checking the mail headers. Copies of mail that are relayed to workers outside of Cerb using Virtual Attendant behavior are "signed" with a secret key in the Message-Id: header. According to the RFC-2822 standard, this Message-Id: should be referenced in the In-Reply-To: header of any reply.
+
+Unfortunately, some email applications "break the Internet" by ignoring these many decade old conventions. Common culprits include Microsoft Exchange and some Android and Blackberry mobile devices.
+
+In the event that the worker relay doesn't function properly in your environment, you may disable the built-in authentication. Be careful when doing this! When authentication is disabled, anyone can forge a message From: one of your workers and have it relayed to arbitrary conversations. It is very important that you set up alternative authentication using :doc:`Virtual Attendants </concepts/virtual_attendants/index>` in :doc:`Mail Filtering <filtering>` to approve or deny inbound worker replies through the relay.
+
+Disabling built-in authentication
+=================================
+
+The first step is disabling the built-in authentication.
+
+* Click on :guilabel:`setup` in the top right of the navigation bar.
+* Hover over :guilabel:`Mail` in the menu bar.
+* Select :guilabel:`External Relay` from the pulldown menu.
+* Select :kbd:`Disabled` for :guilabel:`Built-in-relay authentication`
+
+.. figure:: /images/admin_guide/setup/mail/external_relay/menu.png
+    :figclass: bordered
+
+Setting up the Email Relay
+==========================
+
+The next step is setting up the :doc:`email relay </cookbook/virtual_attendants/relay_emails_to_workers>`.
+
+Setting up Authentication
+=========================
+
+The final step is setting up a :doc:`Virtual Attendant </concepts/virtual_attendants/index>` to authenticate the reply.
+
+* Click on :guilabel:`setup` in the top right of the navigation bar.
+* Hover over :guilabel:`Configure` in the menu bar.
+* Select :guilabel:`Virtual Attendants` from the pulldown menu.
+* Select the `Application` as the :guilabel:`Owner`.
+* Click :guilabel:`Create Behavior`.
+* Enter :kbd:`Authenticate Worker Replies` as the :guilabel:`Title`.
+* Set the :guilabel:`Event` to `Before new mail is accepted`.
+* Click the :guilabel:`+` to add a :guilabel:`Variable`.
+* Set the variable to `private`, type :kbd:`Hash Sig` in the text box, and select `Text` from the list.
+* Set the variable to `private`, type :kbd:`Hash Check` in the text box, and select `Text` from the list.
+* Set the variable to `private`, type :kbd:`Auth Valid` in the text box, and select `Text` from the list.
+
+.. figure:: /images/admin_guide/setup/mail/external_relay/new_behavior_dialog.png
+    :figclass: bordered
+
+* Click :guilabel:`Save Changes`.
+* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+* Enter :kbd:`Set Auth` as the :guilabel:`Title` of your action.
+* Select the `Set (variable) Hash Sig` action from the :guilabel:`Add Action` dropdown menu.
+* Enter the following for the :guilabel:`Set (variable) Hash Sig` field:
+
+.. code-block:: none
+
+    {% set hash_sig = ticket_created ~ '.' ~ ticket_mask %}
+    {{hash_sig|md5}}
+
+* Select the `Set (variable) Hash Check` action from the :guilabel:`Add Action` dropdown menu.
+* Enter the following for the :guilabel:`Set (variable) Hash Check` field:
+    
+.. code-block:: none
+    
+    {{content|regexp('/## Worker-Auth:(\\w*)/mi', 1)}}
+
+* Select the `Set (variable) Auth Valid` action from the :guilabel:`Add Action` dropdown menu.
+* Enter the following for the :guilabel:`Set (variable) Auth Valid` field:
+    
+.. code-block:: none
+    
+    {% if(var_hash_check == var_hash_sig) %}true{% endif %}
+
+.. figure:: /images/admin_guide/setup/mail/external_relay/set_auth_valid_action.png
+    :figclass: bordered
+
+* Click :guilabel:`Save & Close`.
+* Click on your new Virtual Attendant and select :guilabel:`Add Decision` from the pulldown menu.
+* Enter :kbd:`Is the message from a worker?` as the :guilabel:`Title`.
+
+.. figure:: /images/admin_guide/setup/mail/external_relay/worker_decision_dialog.png
+    :figclass: bordered
+
+* Click on the new Decision you just added and select :guilabel:`Add Outcome` from the pulldown menu.
+* Enter :kbd:`Yes` as the :guilabel:`Title`.
+* Click on :guilabel:`Add Condition` and select the :guilabel:`Sender Email address` condition.
+* Select :guilabel:`matches (*) wildcards` from the dropdown box, and enter :kbd:`*@yourdomain.com` for the condition value, replacing `yourdomain.com` with your domain.
+
+.. figure:: /images/admin_guide/setup/mail/external_relay/worker_outcome_dialog.png
+    :figclass: bordered
+
+* Click :guilabel:`Save Changes`.
+* Click on the new Outcome you just added and select :guilabel:`Add Decision` from the pulldown menu.
+* Enter :kbd:`Auth Is Valid?` as the :guilabel:`Title`.
+
+.. figure:: /images/admin_guide/setup/mail/external_relay/auth_valid_decision_dialog.png
+    :figclass: bordered
+
+* Click :guilabel:`Save Changes`.
+* Click on the new Decision you just added and select :guilabel:`Add Outcome`.
+* Enter :kbd:`Yes` as the :guilabel:`Title`.
+* Click on :guilabel:`Add Condition` and select the :guilabel:`(variable) Auth Valid` condition.
+* Make sure :guilabel:`is not` is selected, and enter :kbd:`true` for the condition value.
+
+.. figure:: /images/admin_guide/setup/mail/external_relay/auth_valid_outcome_dialog.png
+    :figclass: bordered
+
+* Click on the new Outcome you just added and select :guilabel:`Add Action` from the pulldown menu.
+* Enter :kbd:`Reject Mail` as the :guilabel:`Title`.
+* Select `Reject delivery of message` action from the :guilabel:`Add Action` dropdown menu.
+
+.. figure:: /images/admin_guide/setup/mail/external_relay/reject_mail_action.png
+    :figclass: bordered
+
+* Click :guilabel:`Save Changes`.

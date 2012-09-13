@@ -22,5 +22,18 @@ Setting up the Virtual Attendant
 
 * Check the boxes for both `Owner` and `Watchers` for :guilabel:`Relay to`. 
 * Enter :kbd:`[{{ticket_mask}}] {{ticket_subject}}` as the :guilabel:`Subject` field.
-* Enter anything you want for the :guilabel:`message`. Anything prefixed by a :kbd:`##` will not be forwarded to any requesters.
+* Enter the following for the :guilabel:`Content` field:
+
+.. code-block:: none
+
+    {% set hash_sig = ticket_created ~ '.' ~ ticket_mask %}
+    {% set hash_sig_md5 = hash_sig|md5 %}
+    ## Relayed from {{ticket_url}}
+    ## Your reply to this message will be broadcast to the requesters. 
+    ## Instructions: http://wiki.cerb5.com/wiki/Email_Relay
+    ##
+
+    ## Worker-Auth:{{hash_sig_md5}} **DO NOT REMOVE**
+    {{content}}
+
 * Click :guilabel:`Save Changes`.
