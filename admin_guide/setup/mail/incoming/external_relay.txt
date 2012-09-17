@@ -49,8 +49,8 @@ The final step is setting up a :doc:`Virtual Attendant </concepts/virtual_attend
 .. figure:: /images/admin_guide/setup/mail/external_relay/new_behavior_dialog.png
     :figclass: bordered
 
-* Click :guilabel:`Save Changes`.
-* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`Before new mail is accepted` Event you just added and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Set Auth` as the :guilabel:`Title` of your action.
 * Select the `Set (variable) Hash Sig` action from the :guilabel:`Add Action` dropdown menu.
 * Enter the following for the :guilabel:`Set (variable) Hash Sig` field:
@@ -78,13 +78,13 @@ The final step is setting up a :doc:`Virtual Attendant </concepts/virtual_attend
     :figclass: bordered
 
 * Click :guilabel:`Save & Close`.
-* Click on your new Virtual Attendant and select :guilabel:`Add Decision` from the pulldown menu.
+* Click on the the :guilabel:`Before new mail is accepted` Event you added earlier and select :guilabel:`Add Decision` from the pulldown menu.
 * Enter :kbd:`Is the message from a worker?` as the :guilabel:`Title`.
 
 .. figure:: /images/admin_guide/setup/mail/external_relay/worker_decision_dialog.png
     :figclass: bordered
 
-* Click on the new Decision you just added and select :guilabel:`Add Outcome` from the pulldown menu.
+* Click on the :guilabel:`Is the message from a worker?` Decision you just added and select :guilabel:`Add Outcome` from the pulldown menu.
 * Enter :kbd:`Yes` as the :guilabel:`Title`.
 * Click on :guilabel:`Add Condition` and select the :guilabel:`Sender Email address` condition.
 * Select :guilabel:`matches (*) wildcards` from the dropdown box, and enter :kbd:`*@yourdomain.com` for the condition value, replacing `yourdomain.com` with your domain.
@@ -92,15 +92,15 @@ The final step is setting up a :doc:`Virtual Attendant </concepts/virtual_attend
 .. figure:: /images/admin_guide/setup/mail/external_relay/worker_outcome_dialog.png
     :figclass: bordered
 
-* Click :guilabel:`Save Changes`.
-* Click on the new Outcome you just added and select :guilabel:`Add Decision` from the pulldown menu.
-* Enter :kbd:`Auth Is Valid?` as the :guilabel:`Title`.
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`Yes` Outcome you just added and select :guilabel:`Add Decision` from the pulldown menu.
+* Enter :kbd:`Auth is valid?` as the :guilabel:`Title`.
 
 .. figure:: /images/admin_guide/setup/mail/external_relay/auth_valid_decision_dialog.png
     :figclass: bordered
 
-* Click :guilabel:`Save Changes`.
-* Click on the new Decision you just added and select :guilabel:`Add Outcome`.
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`Auth is valid?` Decision you just added and select :guilabel:`Add Outcome`.
 * Enter :kbd:`Yes` as the :guilabel:`Title`.
 * Click on :guilabel:`Add Condition` and select the :guilabel:`(variable) Auth Valid` condition.
 * Make sure :guilabel:`is not` is selected, and enter :kbd:`true` for the condition value.
@@ -115,4 +115,4 @@ The final step is setting up a :doc:`Virtual Attendant </concepts/virtual_attend
 .. figure:: /images/admin_guide/setup/mail/external_relay/reject_mail_action.png
     :figclass: bordered
 
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
