@@ -54,7 +54,7 @@ Facebook allows third-party applications to interact with its services using an 
 * Once you've enabled the :guilabel:`Website with Facebook Login` option, you'll need to enter the domain your Cerb installation is hosted on.
     .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_website_selected.png
         :figclass: bordered
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
     .. figure:: /images/plugins/wgm.facebook/facebook_edit_app_save_changes.png
         :figclass: bordered
         
