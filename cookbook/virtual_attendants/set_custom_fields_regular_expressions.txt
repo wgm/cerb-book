@@ -30,8 +30,8 @@ Configuring the Custom Fields
 
 .. figure:: /images/cookbook/set_custom_fields_regular_expressions/new_custom_fields.png
     :figclass: bordered
-    
-* Click :guilabel:`Save Changes`.
+
+* Click the :guilabel:`Save Changes` button.
 
 Setting up the Virtual Attendant
 ================================
@@ -45,18 +45,34 @@ Setting up the Virtual Attendant
 
 .. figure:: /images/cookbook/set_custom_fields_regular_expressions/new_behavior_dialog.png
     :figclass: bordered
-    
-* Click :guilabel:`Save Changes`.
-* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`New message on a group conversation` Event you just added and select :guilabel:`Add Decision` from the pulldown menu.
+* Enter :kbd:`Is first message?` as the :guilabel:`Title`.
+
+.. figure:: /images/cookbook/set_custom_fields_regular_expressions/new_decision_dialog.png
+    :figclass: bordered
+
+* Click on the :guilabel:`Is first message?` Decision you just added and select :guilabel:`Add Outcome` from the pulldown menu.
+* Enter :kbd:`Yes` as the :guilabel:`Title`.
+* Click on :guilabel:`Add Condition` and select the :guilabel:`Message is first in conversation` condition.
+* Select `True` for :guilabel:`Message is first in conversation`.
+
+.. figure:: /images/cookbook/set_custom_fields_regular_expressions/new_outcome_dialog.png
+    :figclass: bordered
+
+* Click the :guilabel:`Save Changes` button.
+* Click the :guilabel:`Yes` Outcome you just added and select :guilabel:`Add Actions` from the pulldown menu.
+
 * Enter :kbd:`Set Custom Fields` as the :guilabel:`Title` of your action.
 * Select the `Set enquiry number` action from the :guilabel:`Add Action` dropdown menu.
-* Enter :kbd:`{{ticket_initial_message_content|regexp('/Enquiry number:(.*)/i', 1)}}`
-* Select the `Set enquiry number` action from the :guilabel:`Add Action` dropdown menu.
-* Enter :kbd:`{{ticket_initial_message_content|regexp('/Enquiry number:(.*)/i', 1)}}`
+* Enter :kbd:`{{content|regexp('/Enquiry number:(.*)/i', 1)}}`
+* Select the `Set dates` action from the :guilabel:`Add Action` dropdown menu.
+* Enter :kbd:`{{content|regexp('/Dates:(.*)/i', 1)}}`
 * Select the `Set telephone` action from the :guilabel:`Add Action` dropdown menu.
-* Enter :kbd:`{{ticket_initial_message_content|regexp('/Telephone:(.*)Source:/mi', 1)}}`.
+* Enter :kbd:`{{content|regexp('/Telephone:(.*)Source:/mi', 1)}}`.
 
 .. figure:: /images/cookbook/set_custom_fields_regular_expressions/new_action_dialog.png
     :figclass: bordered
 
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
