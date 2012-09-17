@@ -28,13 +28,13 @@ To generate your credentials:
 
 * Enter :kbd:`Everything` for the :guilabel:`Label`.
 * Enter :kbd:`*` for the :guilabel:`Allowed paths`.
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 * Click on the newly created credentials in the worklist, then make a note of your :guilabel:`Access Key` and :guilabel:`Secret Key`.
 
 .. figure:: /images/developer_guide/rest_api/credentials.png
     :figclass: bordered
 
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 
 
 Library

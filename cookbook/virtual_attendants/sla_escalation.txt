@@ -25,10 +25,10 @@ Configuring the Custom Fields
 .. figure:: /images/cookbook/sla_escalation/new_custom_field.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 * Click the :guilabel:`Organization` record type.
 * Add a new `Checkbox` custom field named :kbd:`Priority Suppoort`.
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 
 Setting up the Virtual Attendant
 ================================
@@ -43,14 +43,14 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/sla_escalation/new_behavior_dialog.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
-* Click on your new Virtual Attendant and select :guilabel:`Add Decision` from the pulldown menu.
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`Custom ticket behavior` Event you just added and select :guilabel:`Add Decision` from the pulldown menu.
 * Enter :kbd:`Has Priority Support?` as the :guilabel:`Title`.
 
 .. figure:: /images/cookbook/sla_escalation/new_decision_dialog.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 * Click on the :guilabel:`Has Priority Support?` decision you just added and select :guilabel:`Add Outcome` from the pulldown menu.
 * Enter :kbd:`Yes` as the :guilabel:`Title`.
 * Toggle the condition to `any of the following conditions` by clicking on :guilabel:`all`.
@@ -68,7 +68,7 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/sla_escalation/new_outcome_dialog.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 * Click on the :guilabel:`Yes` outcome you just added and select :guilabel:`Add Actions`.
 * Enter :kbd:`Escalate Ticket` as the :guilabel:`Title`.
 * Select `Move to` action from the :guilabel:`Add Action` dropdown menu.
@@ -77,7 +77,7 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/sla_escalation/new_action_dialog.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 
 User Excercise
 ==============

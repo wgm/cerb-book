@@ -16,8 +16,8 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/assign_ticket_workload/new_behavior_dialog.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
-* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`Conversation moved in group` Event you just added and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Set Owner` as the :guilabel:`Title`.
 * Select `Set (variable) worker` action from the :guilabel:`Add Action` dropdown menu.
 * Add the `Dispatch` group for the :guilabel:`And the workers from these groups` option.
@@ -28,4 +28,4 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/assign_ticket_workload/new_action_dialog.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.

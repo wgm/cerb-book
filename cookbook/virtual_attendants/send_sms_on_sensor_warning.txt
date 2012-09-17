@@ -11,7 +11,7 @@ The first thing you'll need to do is setup your sensors.  For this example, we'l
 * Hover over the :guilabel:`Search` menu in the top right of the navigation bar.
 * Click on :guilabel:`Sensors` from the pulldown menu.
 * Enter a :guilabel:`Title` for the new Sensor and select `HTTP` as the :guilabel:`Type`.
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 * Click on the new sensor, then click on the gear icon to edit it.
 * Enter a :guilabel:`URL` to monitor, and click :guilabel:`Save Changes`.
 
@@ -32,8 +32,8 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/sensors_notify_sms/new_behavior_dialog.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
-* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`Custom sensor behavior` Event you just added and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Send Warning and Critical Sensors via SMS` as the :guilabel:`Title` of your action.
 * Select the `Set (variable) Warning Sensors` action from the :guilabel:`Add Action` dropdown menu.
 
@@ -64,4 +64,4 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/sensors_notify_sms/schedule_behavior.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.

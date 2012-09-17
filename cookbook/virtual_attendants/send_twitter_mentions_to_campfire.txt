@@ -18,7 +18,7 @@ Setting up the Virtual Attendant
     :figclass: bordered
     
 * Click :guilabel:`Save Changes`
-* Click on your new Virtual Attendant, and select :guilabel:`Add Actions` from the pulldown menu.
+* Click on the :guilabel:`Custom worker behavior` Event you just added and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Retrieve and Post Mentions` as the :guilabel:`Title` of your action.
 * Select the `Set (variable) mentions` action from the :guilabel:`Add Action` dropdown menu.
 
@@ -49,7 +49,7 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/twitter_mentions_campfire/schedule_behavior.png
     :figclass: bordered
     
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
 
 .. figure:: /images/cookbook/twitter_mentions_campfire/twitter_to_campfire.png
     :figclass: bordered
