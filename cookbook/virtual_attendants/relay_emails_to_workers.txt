@@ -12,8 +12,12 @@ Setting up the Virtual Attendant
 * Click on :guilabel:`Create Behavior`.
 * Enter :kbd:`Relay Email to Workers` as the :guilabel:`Title`.
 * Select the `New message on a group conversation` as the :guilabel:`Event`.
-* Click :guilabel:`Save Changes`.
-* Click on your new Virtual Attendant and select :guilabel:`Add Actions` from the pulldown menu.
+
+.. figure:: /images/cookbook/relay_emails_to_workers/new_behavior_dialog.png
+    :figclass: bordered
+
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`New message on a group conversation` Event you just added and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Relay Email to Worker` as the :guilabel:`Title` of your action.
 * Select the `Relay to external email` action from the :guilabel:`Add Action` dropdown menu.
 
@@ -36,4 +40,4 @@ Setting up the Virtual Attendant
     ## Worker-Auth:{{hash_sig_md5}} **DO NOT REMOVE**
     {{content}}
 
-* Click :guilabel:`Save Changes`.
+* Click the :guilabel:`Save Changes` button.
