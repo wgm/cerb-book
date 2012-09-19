@@ -5,10 +5,11 @@ In this guide we will walk you through a technical analysis of Cerb with the goa
 
 .. toctree::
     :maxdepth: 2
-
+    
     tools/index
     plugins/index
     rest_api/index
+    contexts/index
     toolkit
     devblocks/index
 
