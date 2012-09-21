@@ -1,0 +1,88 @@
+PHP opcode caching with XCache
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a webserver receives an HTTP request for a PHP script, the
+human-readable source code is compiled into a machine-friendly format
+called *opcodes*  [1]_. By default, opcodes are only kept around long
+enough to serve an individual request and then they're disposed of to
+free up resources.
+
+The default behavior makes sense in a shared hosting environment where
+dozens of scripts and applications may be sharing the same system
+resources. However, as you can imagine, when a single PHP web-app
+receives a disproportionately large amount of the traffic then the
+process of constantly recompiling its source code can become a
+performance bottleneck.
+
+**XCache** (http://xcache.lighttpd.net/) is an extension for PHP which
+caches the most frequently-accessed scripts in the machine-friendly
+opcode format. Typically, XCache is a moderate, turnkey
+performance-boost that doesn't require any application-level changes to
+benefit from the cache.
+
+.. figure:: /images/checklist/xcache_flowchart.png
+   :alt: XCache flowchart
+   :figclass: bordered
+
+   XCache flowchart
+
+Installing XCache
+^^^^^^^^^^^^^^^^^
+
+Installing XCache is an advanced topic. If you don't have
+administrator-level control of your server then it's likely not
+something you're going to be able to do.
+
+XCache is not found in the **PHP Extension and Application Repository
+(PEAR)** (http://pear.php.net/), so you'll need to install it through a
+package manager or compile it manually.
+
+On Debian and Ubuntu systems you can install XCache with ``apt-get``:
+
+::
+
+    $ sudo apt-get install php5-xcache
+
+Depending on your installation method the XCache configuration will be
+at the end of your ``php.ini`` file, or in a ``conf.d/xcache.ini`` file.
+
+If you have other applications on your webserver that you don't want to
+be managed by XCache, you can disable caching by default with the
+following settings in your ``php.ini`` or ``conf.d/xcache.ini`` file:
+
+::
+
+    xcache.cacher = Off
+
+Then you can add the following option in your virtual host configuration
+or an ``.htaccess`` file:
+
+::
+
+    php_flag xcache.cacher On
+
+Don't use Alternative PHP Cache (APC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The **Alternative PHP Cache (APC)**  [2]_ is a popular choice for opcode
+caching because it's part of PEAR, which makes installing it really
+simple. However, APC suffers from some major drawbacks. It has limited
+support for recent versions of PHP, and there are many situations where
+it will produce segmentation faults  [3]_, cryptic ``FATAL`` errors on
+*"Line 0"*  [4]_, or blank white pages in the web browser.
+
+.. [1]
+  Wikipedia: *Opcode*
+  http://en.wikipedia.org/wiki/Opcode
+
+.. [2]
+  PHP Manual: *Alternative PHP Cache (APC)*
+  http://php.net/manual/en/book.apc.php
+
+.. [3]
+  Google: *Segfaults caused by APC.*
+  http://www.google.com/search?q=apc+segfault
+
+.. [4]
+  Cerb5 forums: *Cryptic errors on "Line 0" found to be caused by APC.*
+  http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache

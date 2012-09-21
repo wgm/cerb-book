@@ -1,0 +1,4 @@
+Content Delivery Networks (CDN)
+===============================
+
+[TODO] Explain how to use Amazon Cloudfront, MaxCDN, NetDNA, etc. to server static content.
