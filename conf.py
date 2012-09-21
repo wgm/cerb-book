@@ -66,7 +66,7 @@ release = '6.2-dev'
 # directories to ignore when looking for source files.
 exclude_patterns = []
 
-unused_docs = ['todo','examples','developer_guide/rest_api/Cerb6Api.php', 'plugins/Gatekeeper.php']
+unused_docs = ['todo','examples', 'plugins/Gatekeeper.php']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None

@@ -82,6 +82,7 @@ Field                 Type
 ``title``             string
 ``updated``           timestamp
 ``custom_*``          mixed
+``watchers``          integer
 ================      =======
 
 .. code-block:: php
@@ -94,6 +95,9 @@ Field                 Type
         array('criteria[]','title'),
         array('oper[]','like'),
         array('value[]','t*'),
+        array('criteria[]','watchers'),
+        array('oper[]','in'),
+        array('value[]','[1,2,3]'),
         array('sortBy','id'),
         array('sortAsc','1'),
         array('page','1'),

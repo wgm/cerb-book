@@ -1,12 +1,25 @@
 REST-based Web API
 ------------------
 
+Topics
+======
+
 .. toctree::
     :maxdepth: 1
 
     introduction
+    topics/authentication
+    topics/tips
+
+Contexts
+========
+
+.. toctree::
+    :maxdepth: 1
+
     addresses
     attachments
+    calls
     comments
     contacts
     customfields
@@ -22,3 +35,13 @@ REST-based Web API
     tickets
     timetracking
     workers
+    
+Examples
+========
+
+.. toctree::
+    :maxdepth: 1
+
+    examples/php
+    examples/nodejs
+    examples/zapier

@@ -36,35 +36,7 @@ To generate your credentials:
 
 * Click the :guilabel:`Save Changes` button.
 
-
-Library
-=======
-
-We've written a PHP (5.2+) library that makes it easier to interact with the Rest API. You can :download:`download the library here <Cerb6Api.php.txt>`. Make sure you rename it from ``Cerb6Api.php.txt`` to ``Cerb6Api.php`` before trying to use the below example code.
-
-Example
-=======
-
-Comprehensive examples are provided for each object in the following sections of the book, but you'll need to generate :ref:`credentials <credentials>` first, then use the below code to setup the environment before you can use them.
-
-.. code-block:: php
-
-    <?php
-	require_once("Cerb6Api.php");
-
-	$base_url = 'http://localhost/cerb/rest/'; // URL to your Cerb install
-	$access_key = "u7gawte5ecc8"; // Access Key
-	$secret_key = "e6fxngx3f5kwnk53zmt3lhama8gyazrj";  // Secret Key
-
-	$cerb = new Cerb6_WebAPI($access_key, $secret_key);
-
-	// Please see the examples in the following sections of the book
-	// Your object calls will go here
-
-	if(null != ($content_type = $cerb->getContentType())) {
-        header("Content-Type: " . $content_type);
-        echo $out;
-        
+    
 Data Types
 ==========
 

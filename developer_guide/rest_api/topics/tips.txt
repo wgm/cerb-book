@@ -1,0 +1,12 @@
+Tips for working with the REST-API
+----------------------------------
+
+Searching for multiple values
+=============================
+
+JSON format: [1,2,3]
+
+Lazy-loading field expansion
+============================
+
+?expand=custom_,watchers
