@@ -22,8 +22,7 @@ Skip to the :doc:`/admin_guide/index` if you would like to learn how to:
 Group Managers
 --------------
 
-Skip to the :doc:`/manager_guide/index` if you've been made the manager 
-of a group and you would like to learn how to:
+Skip to the :doc:`/manager_guide/index` if you've been made the manager of a group and you would like to learn how to:
 
 -  Manage the group roster
 -  Create buckets for group organization
@@ -32,21 +31,18 @@ of a group and you would like to learn how to:
 Workers
 -------
 
-Skip to the :doc:`/worker_guide/index` if you're new to
-the helpdesk and you would like to learn how to:
+Skip to the :doc:`/worker_guide/index` if you're new to the helpdesk and you would like to learn how to:
 
 -  Read and respond to email conversations
 -  Build a watch-list for monitoring activity on content of interest
 -  Set up custom workspaces to track information you care about
--  Configure your own personal Virtual Attendant to notify you by email,
-   SMS, IM, and more
+-  Configure your own personal Virtual Attendant to notify you by email, SMS, IM, and more
 -  Find and capture answers with the knowledgebase
 
 Developers
 ----------
 
-Skip to the :doc:`/developer_guide/index` if you are a
-software developer and you would like to learn how to:
+Skip to the :doc:`/developer_guide/index` if you are a software developer and you would like to learn how to:
 
 -  Create new plugins to extend the functionality of Cerb
 -  Integrate Cerb with other software

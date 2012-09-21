@@ -131,5 +131,4 @@ Cerb is written in the :term:`PHP5 <PHP>` programming language.  Data is stored 
 
     philosophy
     toolkit_mentality
-..  technology
     clients

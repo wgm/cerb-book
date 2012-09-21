@@ -1,4 +1,4 @@
 Authentication
 --------------
 
-[TODO]
+[TODO] header signing, date checks, defeat replay attacks, etc.

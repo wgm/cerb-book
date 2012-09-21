@@ -42,7 +42,8 @@ Virtual Attendants are given instructions by creating custom **behavior** on var
     
     events/index
     behavior
-    variables/index
+    variables
+    decisions
     conditions/index
     outcomes
     actions/index

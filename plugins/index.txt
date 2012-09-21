@@ -29,7 +29,7 @@ Communications
 .. toctree::
     :maxdepth: 1
     
-    wgm.calls
+    cerberusweb.calls
     wgm.clickatell
     wgm.twilio
 
@@ -55,7 +55,7 @@ Authentication
 ==============
 
 .. toctree::
-    :maxdepth:1
+    :maxdepth: 1
     
     cerberusweb.openid
     wgm.ldap
@@ -64,7 +64,7 @@ Misc
 ====
 
 .. toctree::
-    :maxdepth:1 
+    :maxdepth: 1 
     
     cerberusweb.feed_reader
     cerberusweb.gravatar

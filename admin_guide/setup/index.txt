@@ -20,6 +20,8 @@ Configure
     settings/scheduler
     settings/snippets
     portals/index
+    settings/virtual_attendants
+    settings/scheduled_behavior
 
 Workers & Groups
 ================
