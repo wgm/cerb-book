@@ -14,21 +14,41 @@ Code Sample
 For this code sample, we will assume that you have setup a form to post to a PHP script on your website.
 
 .. code-block:: php
-    
+
     <?php
+
+    // Set API credentials
+
+    require_once("Cerb6Api.php");
+
+    $base_url = 'http://example.com/cerb/rest/'; // URL to your Cerb install
+    $access_key = "xxxxxxxxxxxxx";
+    $secret_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+    $cerb = new Cerb6_WebAPI($access_key, $secret_key);
+
+    // Load the parent ticket
+
     $ticket_id = $_POST['ticket_id'];
     $result = $cerb->get($base_url . sprintf('tickets/%d.json', $ticket_id));
-    
+
     $ticket = json_decode($result);
-    
+
     $to = $_POST['to'];
     $from = $_POST['from'];
+
     // Add the mask to the beginning of the subject
     // so the parser knows which ticket to add the reply to
     $subject = sprintf('[#%s] %s', $ticket->mask, $ticket->subject);
     $message = $_POST['message'];
-    
-	$parse_msg = sprintf("To: %s\nFrom: %s\nSubject: %s\nDate: %s\n\n\n%s",
-	    $to, $from, $subject, date('D, j M Y H:i:s O'), $message);
 
-	$result = $cerb->post($this->base_url . sprintf('%s/parse.json', 'parser'), $postfields);
+    $parse_msg = sprintf(
+        "To: %s\nFrom: %s\nSubject: %s\nDate: %s\n\n\n%s",
+            $to,
+            $from,
+            $subject,
+            date('r'),
+            $message
+        );
+
+    $result = $cerb->post($this->base_url . 'parser/parse.json', $postfields);

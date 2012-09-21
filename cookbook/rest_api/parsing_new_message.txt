@@ -11,21 +11,40 @@ You'll need to setup your environment before you can use the below code samples.
 Code Sample
 ===========
 
-For this code sample, we will assume that you have setup a form to post to a PHP script on your website.
+For this code sample, we will assume that you have setup a `<form>` to post to a PHP script on your website.
 
 .. code-block:: php
-    
-	<?php
-    
-	$to = $_POST['to'];
-	$from = $_POST['from'];
-	$subject = $_POST['subject'];
-	$message = $_POST['subject'];
-    
-	$parse_msg = sprintf("To: %s\nFrom: %s\nSubject: %s\nDate: %s\n\n\n%s",
-	    $to, $from, $subject, date('D, j M Y H:i:s O'), $message);
-    
-	$postfields = array(
-		array('message', $parse_msg),
-	);
-	$result = $cerb->post($this->base_url . sprintf('%s/parse.json', 'parser'), $postfields);
+
+    <?php
+
+    // Set up your API credentials
+
+    require_once("Cerb6Api.php");
+
+    $base_url = 'http://example.com/cerb/rest/'; // URL to your Cerb install
+    $access_key = "xxxxxxxxxxxxx";
+    $secret_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+    $cerb = new Cerb6_WebAPI($access_key, $secret_key);
+
+    // Parse the message
+
+    $to = $_POST['to'];
+    $from = $_POST['from'];
+    $subject = $_POST['subject'];
+    $message = $_POST['subject'];
+
+    $parse_msg = sprintf(
+        "To: %s\nFrom: %s\nSubject: %s\nDate: %s\n\n\n%s",
+            $to,
+            $from,
+            $subject,
+            date('r'),
+            $message
+        );
+
+    $postfields = array(
+    	array('message', $parse_msg),
+    );
+
+    $result = $cerb->post($base_url . 'parser/parse.json', $postfields);
