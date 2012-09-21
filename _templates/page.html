@@ -2,7 +2,7 @@
 
 {% block body %}
 {% for parent in parents %}
-<a href="{{parent.link|e}}">{{parent.title}}</a>
+<a href="{{parent.link|e}}" style="font-weight:bold;">{{parent.title}}</a>
 {% if loop.last == false %} &raquo; {% endif %}
 {% endfor %}
 
