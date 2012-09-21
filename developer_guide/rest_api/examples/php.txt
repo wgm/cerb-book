@@ -2,7 +2,7 @@ PHP5
 ----
 
 Cerb6Api.php
-===========
+============
 
 :file:`Cerb6Api.php`:
 

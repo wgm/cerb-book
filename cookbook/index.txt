@@ -7,4 +7,4 @@ Cookbook
     custom_fields/index
     rest_api/index
     virtual_attendants/index
-    workspaces/index
+    workspaces/dashboards/index

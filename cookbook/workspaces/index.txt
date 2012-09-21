@@ -1,7 +1,0 @@
-Workspaces
-----------
-
-.. toctree::
-    :maxdepth: 1
-
-    dashboards/index
