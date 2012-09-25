@@ -10,4 +10,5 @@ Virtual Attendants
     set_watchers_calendar_availability
     set_custom_fields_regular_expressions
     sla_escalation
+    strip_history_from_message
     relay_emails_to_workers
