@@ -9,7 +9,7 @@ Setting up the Virtual Attendant
 * Click on :guilabel:`groups` in the top right of the navigation bar.
 * Click on any group - we'll use `Dispatch` for this example.
 * Click on the :guilabel:`Virtual Attendant` tab.
-* Click :guilabel:`Create Behavior`.
+* Click the :guilabel:`Create Behavior` button.
 * Enter :kbd:`Assign Ticket Based on Workload` as the :guilabel:`Title`.
 * Set the :guilabel:`Event` to `Conversation moved in group`.
 

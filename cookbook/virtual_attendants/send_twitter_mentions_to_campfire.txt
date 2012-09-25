@@ -8,7 +8,7 @@ Setting up the Virtual Attendant
 
 * Click on your Worker Menu in the top right of the navigation bar.
 * Select :guilabel:`virtual attendant` from the pulldown menu.
-* Click :guilabel:`Create Behavior`.
+* Click the :guilabel:`Create Behavior` button.
 * Enter a :guilabel:`Title` for your new behavior.
 * Set the :guilabel:`Event` to `Custom worker behavior`.
 * Click the :guilabel:`+` to add a :guilabel:`Variable`.
@@ -31,7 +31,7 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/twitter_mentions_campfire/new_action_var_worklist.png
     :figclass: bordered
     
-* Click :guilabel:`Save Worklist`.
+* Click the :guilabel:`Save Worklist` button.
 * Select `Replace the variable with these objects` for :guilabel:`Then`.
 * Add a `Post to Campfire` action by selecting it from the :guilabel:`Add Action` dropdown.
 * Set the :guilabel:`Room` you wish to post the Twitter Mentions to.

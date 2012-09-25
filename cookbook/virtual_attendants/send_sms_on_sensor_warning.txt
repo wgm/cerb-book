@@ -23,7 +23,7 @@ Setting up the Virtual Attendant
 
 * Click on your worker menu in the top right of the navigation bar.
 * Click on :guilabel:`virtual attendant` in the pulldown menu.
-* Click :guilabel:`Create Behavior`.
+* Click the :guilabel:`Create Behavior` button.
 * Enter a :guilabel:`Title` for your new behavior.
 * Set the :guilabel:`Event` to `Custom sensor behavior`.
 * Click the :guilabel:`+` to add a :guilabel:`Variable`.
@@ -46,7 +46,7 @@ Setting up the Virtual Attendant
 .. figure:: /images/cookbook/sensors_notify_sms/new_action_var_worklist.png
     :figclass: bordered
     
-* Click :guilabel:`Save Worklist`.
+* Click the :guilabel:`Save Worklist` button.
 * Select `Replace the variable with these objects` for :guilabel:`Then`.
 * Select the `Send SMS via Twilio` action from the :guilabel:`Add Action` dropdown menu.
 * Enter a :guilabel:`Phone` number to send an SMS to.

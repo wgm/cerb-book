@@ -38,7 +38,7 @@ The final step is setting up a :doc:`Virtual Attendant </concepts/virtual_attend
 * Hover over :guilabel:`Configure` in the menu bar.
 * Select :guilabel:`Virtual Attendants` from the pulldown menu.
 * Select the `Application` as the :guilabel:`Owner`.
-* Click :guilabel:`Create Behavior`.
+* Click the :guilabel:`Create Behavior` button.
 * Enter :kbd:`Authenticate Worker Replies` as the :guilabel:`Title`.
 * Set the :guilabel:`Event` to `Before new mail is accepted`.
 * Click the :guilabel:`+` to add a :guilabel:`Variable`.
@@ -77,7 +77,7 @@ The final step is setting up a :doc:`Virtual Attendant </concepts/virtual_attend
 .. figure:: /images/admin_guide/setup/mail/external_relay/set_auth_valid_action.png
     :figclass: bordered
 
-* Click :guilabel:`Save & Close`.
+* Click the :guilabel:`Save & Close` button.
 * Click on the the :guilabel:`Before new mail is accepted` Event you added earlier and select :guilabel:`Add Decision` from the pulldown menu.
 * Enter :kbd:`Is the message from a worker?` as the :guilabel:`Title`.
 
