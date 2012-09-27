@@ -101,7 +101,7 @@ The final step is setting up a :doc:`Virtual Attendant </concepts/virtual_attend
 
 * Click the :guilabel:`Save Changes` button.
 * Click on the :guilabel:`Auth is valid?` Decision you just added and select :guilabel:`Add Outcome`.
-* Enter :kbd:`Yes` as the :guilabel:`Title`.
+* Enter :kbd:`No` as the :guilabel:`Title`.
 * Click on :guilabel:`Add Condition` and select the :guilabel:`(variable) Auth Valid` condition.
 * Make sure :guilabel:`is not` is selected, and enter :kbd:`true` for the condition value.
 
