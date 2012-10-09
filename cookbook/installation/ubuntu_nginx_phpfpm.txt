@@ -1,0 +1,463 @@
+Installing in Ubuntu with Nginx with PHP-FPM
+============================================
+
+Introduction
+------------
+
+This article provides step-by-step instructions for installing Cerb on an Ubuntu 12.04 LTS server with `Nginx <http://nginx.org/en/>`_ as a webserver and `PHP-FPM <http://php-fpm.org/>`_ (*PHP5 FastCGI Process Manager*) for executing PHP code.
+
+The :program:`Nginx + PHP-FPM` combination has several advantages over :program:`Apache2 + mod_php5`:
+
+    * :program:`Nginx` often uses less memory than :program:`Apache` because it performs a more specific task with less overhead. This makes it ideal for virtual machines with limited memory, but it can also better utilize resources on a busy server.
+    * There is a clear division of responsibility between :program:`Nginx` handling HTTP requests and :program:`PHP-FPM` running :program:`PHP` code.  This makes it easier to restrict the types of scripts that are able to be executed.  With :program:`Cerb` there are only two files that ever need to be visible to users' web browsers: :file:`index.php` and :file:`ajax.php`.  Security is improved when no other PHP scripts will be executed on the server.
+    * :program:`Nginx` makes it very simple to restrict access to other resources.  Rather than assuming all files and directories in the web path should be accessible to web browsers, access to directories with sensitive information like :file:`/storage` can be denied.  This is possible to configure with Apache as well, but the syntax of Nginx configuration files are less cryptic.
+
+This article assumes you are using the `root` user to install software.  If not, you will need to prefix all commands with `sudo`.  You can open a root shell with the following command:
+
+.. code-block:: bash
+
+    sudo -s
+
+Provisioning the server
+-----------------------
+
+Provision a server at your provider of choice.
+
+Your server can be virtual (e.g. `Linode <http://www.linode.com/?r=a544762ccb5d1fd59422c04e1ebb5076aa3070f2>`_, Amazon EC2) or dedicated (e.g. Softlayer, self-hosted).  We'll assume that you've provisioned a new machine with only the bare operating system installed.  If you've already performed some of the following steps you can skip ahead.
+
+If you're provisioning a virtual server with limited memory (such as the $19.95 512MB node at Linode) then it is recommended that you install a 32-bit version of Ubuntu because it will utilize less RAM.
+
+Once your new server is online, set up a DNS record to point your desired hostname (e.g. yoursite.example.com) to the IP address.
+
+Connect to your server using :program:`SSH`.
+
+Make sure the :program:`apt` package manager has the latest version information:
+
+::
+
+    apt-get update
+
+Set your timezone:
+
+::
+
+    dpkg-reconfigure tzdata
+
+Set the hostname of the new server:
+
+.. code-block:: bash
+
+    echo "yoursite.example.com" > /etc/hostname
+
+    hostname `cat /etc/hostname`
+
+Upgrade all installed packages to their latest version:
+
+::
+
+    apt-get upgrade
+
+Reboot the server:
+
+::
+
+    reboot
+
+Once the server has rebooted you're ready to continue.
+
+Configure PHP-FPM
+-----------------
+
+:program:`Nginx` will relay PHP requests to :program:`PHP-FRM` on local port :code:`9000`. Install it from :program:`apt`:
+
+::
+
+    apt-get install php5-fpm
+
+Edit the :file:`php.ini` file:
+
+::
+
+    vi /etc/php5/fpm/php.ini
+
+When using FastCGI and applications that read the path information directly (e.g. :file:`/some/virtual/path`), you need to disable the built-in :code:`cgi.fix_pathinfo` setting:
+
+.. code-block:: ini
+
+    cgi.fix_pathinfo=0
+
+Save and configuration file and reload :program:`PHP-FPM` to use the new changes:
+
+::
+
+    service php5-fpm reload
+
+Configure MySQL
+---------------
+
+:program:`MySQL` is a relational database that is used to store Cerb's persistent data.  Install it from :program:`apt`:
+
+::
+
+    apt-get install mysql-server
+
+MySQL's binary log allows you to keep a record of all queries that change the database.  This allows you to do point-in-time recovery, as well as incremental backups between full database dumps.  Edit the :file:`my.cnf` configuration file to enable the binary log:
+
+::
+
+    vi /etc/mysql/my.cnf
+
+.. code-block:: ini
+
+    log_bin                 = /var/log/mysql/mysql-bin.log
+    expire_logs_days        = 2
+    max_binlog_size         = 2000M
+
+Restart :program:`MySQL` for the changes to take effect:
+
+::
+
+    service mysql restart
+
+((TODO: Memory tuning))
+
+Install Cerb dependencies
+-------------------------
+
+:program:`Cerb` requires several :program:`PHP` extensions.  Install them using :program:`apt`:
+
+::
+
+    apt-get install make php-pear php5-mysql php5-curl php5-gd php5-imap
+
+There isn't an apt package for the :program:`mailparse` extension.  We'll install it from :program:`PECL` instead:
+
+.. code-block:: bash
+
+    pecl install mailparse
+    
+    echo "extension=mailparse.so" > /etc/php5/fpm/conf.d/mailparse.ini
+
+Optional dependencies
+---------------------
+
+There are several optional extensions that you can install to enable additional capabilities in :program:`Cerb`.
+
+Memcache
+~~~~~~~~
+
+:program:`Memcache` is a fast, distributed key/value database for storing short-lived data in memory.  When this extension is enabled, :program:`Cerb` will store its cache information in memory rather than on disk.  This improves performance by reducing I/O contention.  An additional benefit is that the same cache can be shared between multiple webservers.  The cache can also grow by simply adding new Memcache instances.
+
+Install Memcache from :program:`apt`:
+
+::
+
+    apt-get install memcached php5-memcache
+
+XCache
+~~~~~~
+
+:program:`XCache` is a PHP opcode cache.  Put simply, this improves the performance of PHP pages by caching the machine-readable output that is compiled from human-readable source code.  This eliminates the need for the webserver to compile the PHP source code every time a request is made.
+
+Install XCache from :program:`apt`:
+
+::
+
+    apt-get install php5-xcache
+
+
+OAuth
+~~~~~
+
+:program:`OAuth` is an authentication standard for granting API access to remote applications without disclosing an account's primary login information.  This extension is required to use :program:`Cerb`'s plugin integration with services like Twitter, Facebook, and GitHub.
+
+There is no :program:`apt` package for the :code:`oauth` extension, so it needs to be compiled from source using :program:`PECL`.
+
+First, install the development package for PCRE (*Perl Compatible Regular Expressions*).  This is the primary dependency for the extension.
+
+::
+
+    apt-get install libpcre3-dev
+
+Now install the extension using :program:`pecl`:
+
+::
+
+    pecl install oauth
+
+Enable the extension in :program:`PHP-FPM`:
+
+.. code-block:: bash
+
+    echo "extension=oauth.so" > /etc/php5/fpm/conf.d/oauth.ini
+
+Restart PHP-FPM
+---------------
+
+In order for the configuration changes to take place, we need to restart :program:`PHP-FPM`:
+
+::
+
+    service php5-fpm restart
+
+Configure Postfix for mail delivery
+-----------------------------------
+
+We need a mail server to deliver outgoing email from :program:`Cerb` to external recipients.
+
+.. note::
+
+    If you have an external mail server, or you'd like to use a service like Amazon SES (*Simple Email Service*) or Sendgrid, you can skip this step.  Use your existing details when running :program:`Cerb`'s installer.
+
+:program:`Postfix` is a popular mail server that can be installed through :program:`apt`:
+
+::
+
+    apt-get install postfix
+
+When prompted, choose *Internet Site* and then enter the full host name of your server (e.g. *yoursite.example.com*).
+
+We don't want to act as a public mail server, so we'll configure :program:`Postfix` to only listen to local requests made by :program:`Cerb`:
+
+.. code-block:: bash
+
+    postconf -e "inet_interfaces=127.0.0.1"
+
+Then we need to restart :program:`Postfix` for the changes to take effect:
+
+::
+    
+    service postfix restart
+
+.. note::
+
+    You should also make sure you have a reverse DNS entry that resolves your server's IP address to its host name.  This is checked by many mail servers to reduce spam.  This option is available at providers like Linode and Softlayer.  With Amazon Web Servers you can configure the rDNS record for elastic IPs.
+
+Configure Nginx as the webserver
+--------------------------------
+
+Now we're ready to install :program:`Nginx` to serve web requests:
+
+::
+
+    apt-get install nginx
+
+Disable the default site:
+
+::
+
+    unlink /etc/nginx/sites-enabled/default
+
+Create a new web directory for :program:`Cerb`:
+
+::
+
+    mkdir -p /home/vhosts/cerb/httpdocs
+
+Create a new virtual host record for :program:`Cerb`:
+
+::
+    
+    vi /etc/nginx/sites-available/cerb
+
+Use the following configuration file, but replace :code:`yoursite.example.com` with your own hostname:
+
+.. code-block:: nginx
+
+    ##
+    # http://wiki.nginx.org/Pitfalls
+    # http://wiki.nginx.org/QuickStart
+    # http://wiki.nginx.org/Configuration
+    ##
+    
+    server {
+        server_name yoursite.example.com; 
+    	root /home/vhosts/cerb/httpdocs;
+    	index index.php;
+        
+        # Always let people see the favicon file
+    	location = /favicon\.ico {
+    	    allow all;
+    	}
+	    
+        # Always deny the config file
+    	location = /framework\.config\.php {
+    	    return 404;
+    	}
+        
+        # Allow the installer to work
+    	location ~ /install/index\.php {
+    		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    		fastcgi_pass 127.0.0.1:9000;
+    		fastcgi_index index.php;
+    		fastcgi_read_timeout 300;
+    		include fastcgi_params;
+    		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    	}
+        
+        # Relay any ajax.php or index.php requests to PHP-FPM
+    	location ~ /(index|ajax)\.php$ {
+    		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    		fastcgi_pass 127.0.0.1:9000;
+    		fastcgi_index index.php;
+    		fastcgi_read_timeout 30;
+    		include fastcgi_params;
+    		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    	}
+        
+        # Explicitly deny any other .php requests
+    	location ~ /(.*)\.php {
+    	    deny all;
+    	}
+        
+        # Deny requests for the .htaccess file
+    	location ~ /\.ht {
+    		deny all;
+    	}
+	    
+        # Send all other paths to the Devblocks front controller index.php
+    	location / {
+    		try_files $uri /index.php;
+    	}
+    }
+
+Enable the new virtual host:
+
+::
+
+    ln -s /etc/nginx/sites-available/cerb /etc/nginx/sites-enabled/cerb
+
+Reload :program:`Nginx`'s configuration:
+
+::
+
+    service nginx reload
+
+Download the Cerb6 files from GitHub
+------------------------------------
+
+You'll need :program:`Git` to download :program:`Cerb` from `GitHub <http://github.com>`_.  You can install it from :program:`apt`:
+
+::
+
+    apt-get install git-core
+
+Change to the new directory we created for :program:`Cerb`'s files:
+
+::
+
+    cd /home/vhosts/cerb/httpdocs
+
+Checkout the project using :program:`git`:
+
+::
+
+    git clone http://github.com/wgm/cerb6.git .
+
+Set the permissions on the files.  The files should be owned by the webserver user and group (:code:`www-data`).  The webserver only needs read access to all files except the :file:`storage/` directory.  This improves security because a vulnerability in the webserver or PHP will not be able to create or modify files with arbitrary PHP code.  We'll temporarily make the :file:`framework.config.php` file writeable so it can be saved by the installer, and we'll remove that permission after installation.
+
+::
+
+    chown -R www-data:www-data .
+    
+    find . -type f -exec chmod 400 {} \;
+    
+    find . -type d -exec chmod 500 {} \;
+    
+    chmod -R u+w storage/
+    
+    chmod 600 framework.config.php
+
+To automatically enable friendly URLs (e.g. :file:`/profiles/ticket/ABC` vs. :file:`/index.php/profiles/ticket/ABC`), the file :file:`.htaccess` needs to exist.  We can create an empty file using the :program:`touch` command:
+
+::
+
+    touch .htaccess
+
+Create the database
+-------------------
+
+Now we need to create a new database for :program:`Cerb` to store data.  Connect to :program:`MySQL`:
+
+::
+
+    mysql -u root -p
+
+Create a new database with **UTF-8** encoding:
+
+.. code-block:: mysql
+
+    CREATE DATABASE cerb CHARACTER SET utf8;
+
+Grant permissions to a new database user.  You should change the database name (:code:`cerb`), user (:code:`cerb@`), and password (:code:`s3cr3t_password`) to values only you know:
+
+.. code-block:: mysql
+
+    GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,DROP,CREATE TEMPORARY TABLES 
+    ON cerb.* 
+    TO cerb@localhost 
+    IDENTIFIED BY 's3cr3t_password';
+
+Running the Cerb web-based installer
+------------------------------------
+
+Follow the :doc:`guided installer instructions </installation/guided_installer>`.
+
+Finishing up
+------------
+
+Once the guided installer has finished, there are a few final steps you should perform.
+
+First, remove the :file:`install/` directory since it contains sensitive information:
+
+::
+
+    rm -Rf install/
+
+Enable :program:`Memcache` in the :file:`framework.config.php` file:
+
+::
+
+    vi framework.config.php
+
+Uncomment the following lines and choose a unique :code:`DEVBLOCKS_CACHE_PREFIX`:
+
+.. code-block:: php
+
+    <?php
+    // Memcached (high-performance shared memory cache)
+    define('DEVBLOCKS_CACHE_PREFIX','example'); // ONLY A-Z, a-z, 0-9 and underscore
+    define('DEVBLOCKS_MEMCACHED_SERVERS','127.0.0.1:11211');
+
+Edit the virtual host configuration file:
+
+::
+
+    vi /etc/nginx/sites-available/cerb
+
+And comment out (or delete) the :code:`location` directive for the :file:`install/` directory:
+
+.. code-block:: nginx
+
+    # Allow the installer to work
+    #location ~ /install/index\.php {
+    #	fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    #	fastcgi_pass 127.0.0.1:9000;
+    #	fastcgi_index index.php;
+    #	fastcgi_read_timeout 300;
+    #	include fastcgi_params;
+    #	fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    #}
+
+Reload the webserver:
+
+::
+
+    service nginx reload
+
+And finally, set the permissions on the configuration file to read only:
+
+::
+
+    chmod 400 framework.config.php
+

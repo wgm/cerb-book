@@ -4,6 +4,7 @@ Cookbook
 .. toctree::
     :maxdepth: 2
 
+    installation/index
     custom_fields/index
     rest_api/index
     virtual_attendants/index
