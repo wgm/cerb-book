@@ -3,7 +3,7 @@ Filtering
 
 :menuselection:`Setup --> Mail --> Incoming Mail --> Filtering`
 
-.. figure:: /images/admin_guide/setup/mail_filtering_example1.png
+.. figure:: /images/admin_guide/setup/mail/filtering/example1.png
     :alt: A mail filter.
     :figclass: bordered
 
@@ -12,7 +12,7 @@ A :doc:`Virtual Attendant </concepts/virtual_attendants/index>` screens all inco
 Creating a mail filter
 ======================
 
-.. figure:: /images/admin_guide/setup/mail_filtering_add.png
+.. figure:: /images/admin_guide/setup/mail/filtering/add.png
     :alt: The Create Behavior button.
     :figclass: bordered
 
@@ -27,8 +27,13 @@ Modifying incoming messages
 Rejecting messages
 ~~~~~~~~~~~~~~~~~~
 
-- ...
-- ...
+Rejecting mail is useful when you want to completely ignore mail coming into your helpdesk. Rejecting mail is as simple as selecting the *Reject delivery of message* action.
+
+.. figure:: /images/admin_guide/setup/mail/filtering/reject.png
+    :alt: The Reject delivery of message action
+    :figclass: bordered
+
+For a more comprehensive example, see our documentation on :doc:`Disabling built-in relay authentication </admin_guide/setup/mail/incoming/external_relay>`.
 
 Changing the order of mail filters
 ==================================
@@ -37,6 +42,6 @@ There are times when the execution order of your mail filters matters.  For exam
 
 To change the execution order of your mail filtering behavior, click and drag the title of each behavior.
 
-.. figure:: /images/admin_guide/setup/mail_filtering_reorder.png
+.. figure:: /images/admin_guide/setup/mail/filtering/reorder.png
     :alt: Reordering behaviors with drag and drop.
     :figclass: bordered
