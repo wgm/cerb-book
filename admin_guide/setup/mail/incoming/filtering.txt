@@ -21,13 +21,50 @@ Click the :guilabel:`Create Behavior` button to give mail filtering instructions
 Modifying incoming messages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ...
-- ...
+Modifying incoming messages is useful when you want to add, replace, or strip text in a message, or set or change the headers of a message.
+
+Adding text
+^^^^^^^^^^^
+
+The `Prepend text to message content` and `Append text to message content` actions allow you to add text to a message.
+
+.. figure:: /images/admin_guide/setup/mail/filtering/add.png
+    :alt: Add text to a message
+    :figclass: bordered
+
+Replacing text
+^^^^^^^^^^^^^^
+
+The `Replace text in message content` action allows you to replace text in a message.
+
+.. figure:: /images/admin_guide/setup/mail/filtering/replace.png
+    :alt: Replace text in a message
+    :figclass: bordered
+
+Stripping text
+^^^^^^^^^^^^^^
+
+The `Replace text in message content` action also allows you to strip text from a message.
+
+.. figure:: /images/admin_guide/setup/mail/filtering/strip.png
+    :alt: Strip text from a message
+    :figclass: bordered
+
+For a more comprehensive example, see our documentation on :doc:`Stripping history from a message </cookbook/virtual_attendants/strip_history_from_message>`.
+
+Setting message headers
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The `Set message header` action allows you to set and change the headers of a message.
+
+.. figure:: /images/admin_guide/setup/mail/filtering/headers.png
+    :alt: Set headers on a message
+    :figclass: bordered
 
 Rejecting messages
 ~~~~~~~~~~~~~~~~~~
 
-Rejecting mail is useful when you want to completely ignore mail coming into your helpdesk. Rejecting mail is as simple as selecting the *Reject delivery of message* action.
+The `Reject delivery of message` action allows you to completely ignore a message coming into your helpdesk.
 
 .. figure:: /images/admin_guide/setup/mail/filtering/reject.png
     :alt: The Reject delivery of message action
