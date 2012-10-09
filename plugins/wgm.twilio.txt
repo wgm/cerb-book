@@ -15,7 +15,7 @@ Installing the plugin
 
 You can install this plugin from your web browser using Cerb's Plugin Library:
 
-* Click :guilabel:`setup` in the top right of the navigation bar.
+* Click on :guilabel:`setup` in the top right of the navigation bar.
 * Hover over :guilabel:`Plugins` in the menu bar.
 * Select :guilabel:`Manage Plugins` from the pulldown menu.
 * Click the :guilabel:`Plugin Library` tab.
@@ -47,7 +47,7 @@ Configuring the Twilio plugin
 =============================
 
 * Switch back to Cerb.
-* Click :guilabel:`setup` to the right of the global navigation menu.
+* Click on :guilabel:`setup` to the right of the global navigation menu.
 * Select **Twilio** from the :guilabel:`Plugins` menu.
 
 Connecting to your Twilio Account

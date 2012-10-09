@@ -98,6 +98,12 @@ Tickets have the following primary fields:
 - **Last Wrote**
     The :doc:`contact </concepts/contexts/address>` who wrote the latest message.  This might be the helpdesk itself.
 
+- **First Response**
+    The amount of time between when this ticket was first received and the first worker reply.
+
+- **First Resolution**
+    The amount of time between when this ticket was first opened and when it was *first* closed.
+
 - **Interesting Words**
     The most interesting words found in this conversation's opening message as determined by the spam filter.  The least interesting words are found equally in spam and non-spam.  These are called *stop words*, referring to common words like: a, is, it, the, what, when, where, who, why, etc.  The most interesting words are those that occur only in spam or non-spam.  These words may be different in each environment.  For example, the word *pills* may be incriminating to a software company but expected for a health care organization.  The interestingness of words changes over time.  Manufactured words may be considered especially interesting (and spammy); for example, spammers often use tricks to disguise words: vi4gra, pi11s, w4tches, s0ftware, etc.  These words will probably never occur in normal conversation (though there are exceptions, like abuse reports that describe spam).
     
