@@ -317,7 +317,7 @@ Use the following configuration file, but replace :code:`yoursite.example.com` w
 	    
         # Send all other paths to the Devblocks front controller index.php
     	location / {
-    		try_files $uri /index.php;
+    		try_files $uri /index.php?$query_string;
     	}
     }
 
