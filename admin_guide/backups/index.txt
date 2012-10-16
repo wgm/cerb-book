@@ -112,6 +112,8 @@ MySQL's binary logs keep a record of all SQL queries that modify a database (e.g
 
 In the :file:`my.cnf` file you need to make sure these options are enabled:
 
+.. code-block:: ini
+
     log_bin                 = /backups/mysql-binlogs/mysql-bin.log
     expire_logs_days        = 2 
     max_binlog_size         = 2000M
