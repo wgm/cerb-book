@@ -1,78 +1,37 @@
 Upgrades
 --------
 
-Introduction
-~~~~~~~~~~~~
+The officially supported way of upgrading Cerb is by using :program:`Git` [1]_, a distributed version control system.  The official project is hosted on `GitHub <http://github.com/wgm/cerb6>`_. This environment makes it much easier for people to collaborate and share improvements.
 
-The officially supported way of upgrading Cerb is by using version
-control software like Git [1]_ or Subversion [2]_. These tools will
-automatically update your helpdesk files to the latest version. The
-major advantage of version control is that it will attempt to
-automatically merge official code changes with any customization you
-have done. It also gives you the ability to list all your local changes
-to any project files, and to revert to an official version when
-desirable.
-
-We recommend that you use Git whenever possible because the official
-project is hosted using Git on `GitHub <http://www.github.com>`_. This
-environment makes it much easier for people to collaborate and share
-improvements. You can even *fork* your own copy of Cerb so you can keep
-track of your custom changes.
-
-If you aren't able to use Git directly, GitHub provides a Subversion
-interface to our project repository.
+You can use Git to quickly update your local Cerb files to the latest version. The major advantage of version control is that it will attempt to automatically merge official code improvements with any local configuration and customization you have performed. Git also gives you the ability to list all your changes to any project files, and to easily restore to an official version when desirable.
 
 On Unix-based servers you can check if Git is installed by typing:
 
-::
+.. code-block:: bash
 
-    $ git --version
+    git --version
 
-If you need to install Git, it's usually available in a package named
-``git-core``. The actual package name will depend on your distribution
-of Linux/BSD.
+If you need to install Git, it's usually available in a package named ``git-core``. The actual package name will depend on your operating system.
 
-On Unix-based servers you can check if Subversion is installed by
-typing:
-
-::
-
-    $ svn --version
-
-On Windows-based servers, a graphical tool like
-`TortoiseGit <http://code.google.com/p/tortoisegit/>`_ or
-`TortoiseSVN <http://tortoisesvn.tigris.org/>`_ is your best option.
-
-If you can't use Git or Subversion, you really should consider having us
-host your helpdesk on Cerb6 On-Demand rather than managing it yourself.
+If you can't use Git, you really should consider having us host your copy of Cerb on our On-Demand network rather than managing it yourself.
 
 Preparation
-~~~~~~~~~~~
+^^^^^^^^^^^
 
--  **Always make a backup** of your helpdesk database prior to
-   upgrading. MySQL backups are best done with ``mysqlhotcopy`` or
-   ``mysqldump``. See the chapter on `Backups <#backups>`_ for more
-   information.
+- **Always make a backup** of your Cerb database prior to upgrading.  See the chapter on :doc:`Backups </admin_guide/backups/index>` for more information.
 
--  Copy your ``framework.config.php`` file to ``backup.config.php``
+- Change directory to your ``cerb`` installation.
 
--  Change directory to your ``cerb6`` installation.
+Update using Git on a Unix-based server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  The choice of using Git or Subversion to update will depend on how
-   you originally installed the software.
-
-Updating using Git on Linux
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Ensure that you're using Git:
+Verify that you're using Git:
 
 ::
 
     $ git status
 
-You can also verify that a ``.git`` directory exists. If the above
-command returns an error, or the ``.git`` directory doesn't exist, then
-you probably installed using Subversion. Skip to the next section.
+You can also verify that a ``.git`` directory exists. If the above command returns an error, or the ``.git`` directory doesn't exist, then you probably installed the software a different way.  You should reinstall Cerb from GitHub [2]_.
 
 Update the list of branches from the remote repository.
 
@@ -80,194 +39,123 @@ Update the list of branches from the remote repository.
 
     $ git fetch origin
 
-If this gives an error, you can check your list of remotes with the
-``git remote`` command. Use another remote in place of ``remote``.
+.. note:: 
 
-Display the list of available branches:
+    If this gives an error, you can check your list of remotes with the ``git remote`` command. Use another remote in place of ``remote``.
 
-::
-
-    $ git branch
-
-Switch to the new version, using the ``-m`` switch to merge your local
-changes (e.g. ``framework.config.php``):
+Stash your uncommitted local changes (like your :file:`framework.config.php` configuration file).  This leaves you with a clean version of the project files that simplifies merging:
 
 ::
 
-    $ git checkout -m 6.0
+    $ git stash
 
-Updating using Subversion on Linux
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can ensure that you're using Subversion with the following command:
+Switch to the ``stable`` branch if it's not your current branch:
 
 ::
 
-    $ svn info
-
-You can also verify that a ``.svn`` directory exists. If this returns an
-error, or the ``.svn`` directory doesn't exist, then you may have
-installed the software using Git instead. Refer to the previous section.
-
-In most cases you can update to the latest stable version using:
+    $ git checkout stable
+    
+Update the latest stable version:
 
 ::
 
-    $ svn update
+    $ git pull origin stable
+    
+Unstash your local changes:
 
-Updating with TortoiseSVN on Windows
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+::
 
-**Using TortoiseSVN to update Cerberus Helpdesk**
+    $ git stash pop
 
-.. figure:: /images/maintenance/maintenance_updating_svn_win.png
-   :align: center
-   :alt: 
-
-TortoiseSVN integrates with your Windows GUI. To update Cerberus
-Helpdesk:
-
--  Open the folder containing your Cerb6 files.
--  Right-click in the empty whitespace of the folder (as if you were
-   going to create a new file).
--  Choose "SVN Update" from the pop-up menu.
-
-You should be shown a list of updated files and the new build versions
-for the project. Press the "OK" button when finished reading.
 
 Dealing with conflicts
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If you encounter conflicts while updating, you can attempt to resolve
-them manually, or you can revert your changes and restore your
-``framework.config.php`` settings by hand. Don't simply copy over the
-new file with your old file, because it may have changed in the recent
-version.
+If you encounter conflicts while updating, you can attempt to resolve them manually, or you can revert your changes and restore your :file:`framework.config.php` settings by hand. Don't simply copy over the new file with your old file, because it may have changed in the recent version.
 
-Ensure that you have no remaining conflicts before continuing with the
-upgrade.
-
-**Git:**
+Ensure that you have no remaining conflicts before continuing with the upgrade.
 
 ::
 
     $ git status
-
-**Subversion:**
+    
+A handy tool to visualize and reconcile conflicts is built into Git:
 
 ::
 
-    $ svn status
+    $ git mergetool
+    
 
 Finishing the Upgrade
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 Permissions
-^^^^^^^^^^^
+~~~~~~~~~~~
 
-You should set file ownership and permissions again after updating your
-files using Subversion.
+You should set file ownership and permissions again after updating your files.
 
 **Unix-based servers:**
 
-From your cerb6/ directory at the console (replace **www-data** with
-your appropriate Apache user and group):
+From your :file:`cerb/` directory at the console:
 
-::
+.. code-block:: bash
 
     chown -R www-data:www-data .
-    chmod -R 0774 storage/
 
-Permissions, especially on php files are a common upgrade issue. See
-**Troubleshooting** (below) for more details.
+    find . -type f -exec chmod 400 {} \;
+
+    find . -type d -exec chmod 500 {} \;
+
+    chmod -R u+w storage/
+    
+.. note::
+
+    Replace ``www-data`` with your webserver's user and group.
 
 **Windows-based servers:**
 
-Use Windows Explorer to set the appropriate write permissions on the
-``/cerb6/storage`` directory for your IIS user.
+Use Windows Explorer to set the appropriate write permissions on the ``/cerb/storage`` directory for your IIS user.
 
 Database schema updates
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Some Cerb updates contain database changes which require a helpdesk
-administrator to finalize. This will prohibit all helpdesk activity
-(e.g., logins, scheduled tasks, mail parsing) to prevent any database
-corruption while you're between versions.
+Some Cerb updates contain database changes which require an administrator to finalize. This will prohibit all Cerb activity (e.g., logins, scheduled tasks, mail parsing) to prevent any database corruption while you're between versions.
 
-After your files are updated, attempt to log into your Cerb helpdesk
-instance as you normally would. If a database update is required the
-software will automatically prompt you. Upon finalizing you should be
-able to log in and continue working.
+After your files are updated, attempt to log into your Cerb instance as you normally would. If a database update is required the software will automatically prompt you. Upon finalizing you should be able to log in and continue working.
 
 Community Tools
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
-Very rarely, the ``index.php`` file which drives Community Tools like
-the Support Center may change during an upgrade.
+Very rarely, the ``index.php`` file which drives Community Tools like the Support Center may change during an upgrade.
 
 How to tell if you need to update your Community Tool file:
 
--  Log into your Cerb6 helpdesk.
--  Click *setup* from the top right.
--  Click the *Community Portals* menu.
--  Click the *Configure* menu item.
--  Select any portal to edit it.
--  Click the *Installation* tab.
--  Compare the following line from the ``index.php`` output with your
-   deployed ``index.php``:
+- Log into Cerb.
+- Click *setup* from the top right.
+- Click the *Configure* menu and select *Community Portals*.
+- Select any portal to edit it.
+- Click the *Installation* tab.
+- Compare the following line from the ``index.php`` output with your deployed ``index.php``:
 
-   ``define('SCRIPT_LAST_MODIFY', 2009070901); // last change``
+   ``define('SCRIPT_LAST_MODIFY', 2012101301); // last change``
 
--  If the number is different you should replace the ``index.php`` file
-   for your Community Tool with the new version from the helpdesk.
+- If the number is different you should replace the :file:`index.php` file for your community portal with the new version from Cerb.
 
-We're working on a way to make this check happen automatically.
+.. note::
+
+    This is only required if you used the bundled :file:`index.php` file to deploy a portal. This step isn't necessary if you use a true reverse proxy (e.g. Apache *mod_proxy* or Nginx) to serve your community portals.
 
 Install directory
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
-Git will usually leave your ``cerb6/install`` directory deleted, but
-Subversion will always restore it. Delete the ``install`` directory if
-it exists.
+If there were changes in the :file:`install/` directory then it will be partially restored.  Delete the directory if it exists:
 
-.. raw:: html
+::
 
-   <!--
-   #### Troubleshooting ####
+    $ rm -Rf install/
 
-   If you opted for a "safe" upgrade by making a backup and moving your install to a different location, you may see a blank page or cache-related error in your browser when loading the Helpdesk. Try [clearing the cache](http://wiki.cerb5.com/wiki/Clearing_the_cache) to fix this.
+.. rubric:: Footnotes
 
-   Occasionally you may want to force your plugins to reload after a simple update that doesn't patch the database and clear out the cache. Click 'Helpdesk Setup' and select the plugins tab to automatically reload them.
-   -->
-
-   <!--
-   ##### Linux errors caused by PHP file permissions #####
-
-   When upgrading, Subversion can change file permissions. When this happens you may see several symptoms:
-
-   * Cerb fails to start and the browser displays an *Internal Server Error* page.
-   * Cerberus displays in the browser, but nothing happens when you click some of the buttons or links.
-   * If you have access to your server logs, look for errors similar to *SoftException in Application* or other errors indicating a specific PHP file failed.
-
-   If you are receiving the *Internal Server Error* page, check the permissions on `index.php` in your main Cerb directory.
-
-   If you are receiving the *Internal Server Error* page, or Cerb fails to run when links or buttons are clicked, check the file permissions on the PHP files.
-   -->
-
-   <!--
-   **PHP permissions**
-
-   File permissions are dependent on server setup and vary widely. Before proceeding, if you have any questions about correct PHP file permissions, check the permissions on other browser accessible PHP files that are currently working, or check with a server administrator.
-
-   If PHP permissions are causing these errors, the permissions may be set to allow group or public writing to these files. Disallow writing to *public* and *group*. Then test your installation.
-
-   You can use `CHMOD` or an FTP client to set the permissions. With the exceptions noted in the upgrade procedure, all files within the Cerberus directory and sub-directories usually have the same permissions.
-   -->
-
-.. [1]
-   Wikipedia: *Git*
-   http://en.wikipedia.org/wiki/Git_(software)
-
-.. [2]
-   Wikipedia: *Subversion*
-   http://en.wikipedia.org/wiki/Subversion_(software)
+.. [1] Wikipedia: *Git* http://en.wikipedia.org/wiki/Git_(software)
+.. [2] Convert an existing Cerb installation to Git http://cerbweb.com/support/kb/article/71-Switching_a_Cerb5_installation_from_Subversion_to_Git
