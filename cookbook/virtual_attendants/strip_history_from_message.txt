@@ -1,0 +1,34 @@
+Strip History From Message
+--------------------------
+
+This cookbook recipe will show you how to strip text from a message. This is useful for removing unnecessary message history before parsing the message.
+
+Setting Up the Virtual Attendant
+================================
+
+* Click on :guilabel:`setup` in the top right of the navigation bar.
+* Hover over :guilabel:`Mail` in the menu bar.
+* Select :guilabel:`Filtering` from the pulldown menu.
+* Click the :guilabel:`Create Behavior` button.
+* Enter :kbd:`Strip History From Message` as the :guilabel:`Title`.
+* Set the :guilabel:`Event` to `Custom worker behavior`.
+
+.. figure:: /images/cookbook/strip_history_from_message/new_behavior_dialog.png
+    :figclass: bordered
+
+* Click the :guilabel:`Save Changes` button.
+* Click on the :guilabel:`Before new mail is accepted` Event you just added and select :guilabel:`Add Actions` from the pulldown menu.
+* Select the `Replace text in message content` action from the :guilabel:`Add Action` dropdown menu.
+* Check the box for :guilabel:`Regular expression`.
+* Enter the following for the :guilabel:`Replace` field:
+
+.. code-block:: none
+    
+    /---- reply above this line ----.*/s
+
+* Make sure the content for the :guilabel:`With` field is blank.
+
+.. figure:: /images/cookbook/strip_history_from_message/new_action_dialog.png
+    :figclass: bordered
+
+* Click the :guilabel:`Save Changes` button.

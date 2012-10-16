@@ -39,7 +39,7 @@ Setting up the Virtual Attendant
 * Click on :guilabel:`groups` in the top right of the navigation bar.
 * Click on any group - we'll use `Dispatch` for this example.
 * Click on the :guilabel:`Virtual Attendant` tab.
-* Click on :guilabel:`Create Behavior`.
+* Click the :guilabel:`Create Behavior` button.
 * Enter :kbd:`Set Custom Fields Using Regular Expressions` as the :guilabel:`Title`.
 * Select the `New message on a group conversation` as the :guilabel:`Event`.
 

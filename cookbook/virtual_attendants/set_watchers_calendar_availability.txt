@@ -9,7 +9,7 @@ Setting up the Virtual Attendant
 * Click on :guilabel:`groups` in the top right of the navigation bar.
 * Click on any group - we'll use `Dispatch` for this example.
 * Click on the :guilabel:`Virtual Attendant` tab.
-* Click on :guilabel:`Create Behavior`.
+* Click the :guilabel:`Create Behavior` button.
 * Enter :kbd:`Set Watchers Based on Calendar Availability` as the :guilabel:`Title`.
 * Select the `New message on a group conversation` as the :guilabel:`Event`.
 * Click the :guilabel:`+` to add a :guilabel:`Variable`.
@@ -19,7 +19,7 @@ Setting up the Virtual Attendant
     :figclass: bordered
     
 * Click the :guilabel:`Save Changes` button.
-* Click on the :guilabel:`New message on a group conversation` Even you just added and select :guilabel:`Add Actions` from the pulldown menu.
+* Click on the :guilabel:`New message on a group conversation` Event you just added and select :guilabel:`Add Actions` from the pulldown menu.
 * Enter :kbd:`Set Watchers to Available Workers` as the :guilabel:`Title` of your action.
 * Select the `Set (variable) Available Workers` action from the :guilabel:`Add Action` dropdown menu.
 
@@ -28,14 +28,15 @@ Setting up the Virtual Attendant
 
 * Click on the :guilabel:`Workers` worklist displayed under :guilabel:`Find objects using this worklist`.
 * Add a :guilabel:`Filter` by selecting `Calendar Availability` for the :guilabel:`Field`.  Set the range to between :kbd:`now` and :kbd:`+8 hours` for :guilabel:`Between`.
+* Select `Replace the variable with these objects` from the :guilabel:`Then` dropdown menu.
 
 .. figure:: /images/cookbook/set_watchers_calendar_availability/new_action_var_worklist.png
     :figclass: bordered
 
-* Click :guilabel:`Save Worklist`.
+* Click the :guilabel:`Save Worklist` button.
 * Select the `Add Watchers` action from the :guilabel:`Add Action` dropdown menu.
 * Select `Ticket` in the pulldown menu for :guilabel:`On`.
-* Click :guilabel:`Add` and select :guilabel:`(variable) Available Workers` in the pulldown menu.
+* Click on :guilabel:`Add` and select :guilabel:`(variable) Available Workers` in the pulldown menu.
 
 .. figure:: /images/cookbook/set_watchers_calendar_availability/new_action_add_watchers.png
     :figclass: bordered
