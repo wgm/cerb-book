@@ -4,362 +4,264 @@ Backups
 Introduction
 ~~~~~~~~~~~~
 
-To fully protect your Cerb6 helpdesk data you need to backup both the
-MySQL database and the ``/cerb6/storage/`` filesystem. While there are
-countless good approaches for performing backups, this document will
-focus on the best practices we've discovered over the past several years
-of hosting hundreds of helpdesk instances on our On-Demand network. The
-examples will be Unix-based since that's what we're most comfortable
-with.
+To fully protect your Cerb data you need to backup both the MySQL database and the ``storage/`` filesystem. While there are many good ways to perform backups, this document will focus on the best practices we've discovered over the past decade of hosting hundreds of Cerb instances on our On-Demand network. The examples are Unix-based.
 
-Requirements
-~~~~~~~~~~~~
+**Requirements:**
 
 -  A Unix-based server with shell access
--  A Cerb6 installation
+-  A Cerb installation
 
-Setting up the environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Set up the environment
+~~~~~~~~~~~~~~~~~~~~~~
 
-Creating a backups user
-^^^^^^^^^^^^^^^^^^^^^^^
+Create a backups user
+^^^^^^^^^^^^^^^^^^^^^
 
-For convenience and permissions, it's a good idea to make a ``backups``
-user on the local system. If at all possible, you should put the
-``backups`` user home directory on a different hard disk than your live
-databases to provide for fault tolerance and better write performance.
-The examples below will refer to this location as ``~backups``. A
-separate location is important -- while a
-`RAID <http://en.wikipedia.org/wiki/RAID>`_ configuration will protect
-you from the failure of individual storage hardware devices, it won't
-protect you from filesystem corruption or non-hardware-related data loss
-(e.g. bugs, errant queries, maliciousness).
+For convenience and security, it's a good idea to make a *backups* user on the local system.  This account's home directory should be on a different hard disk than your live databases to provide extra fault tolerance and better write performance. The examples below will refer to this location as ``~backups``. A separate location is important -- while a `RAID <http://en.wikipedia.org/wiki/RAID>`_ configuration will protect you from the failure of individual storage hardware devices, it won't protect you from certain forms of filesystem corruption, or any data loss not related to hardware (e.g. bugs, errant queries, maliciousness).  We've seen a failing RAID controller write corrupt data to the entire disk array.
 
--  You can usually accomplish this with something like:
+You can add a new *backups* user with the following command:
 
-   ::
+.. code-block:: bash
 
-       # adduser --home /backups --disabled-password --disabled-login backups
+    adduser --system --home /backups backups
 
-Creating a backups database user with a shadow password
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create a backups database user with a shadow password
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It's a really smart idea to make a separate backup user that is
-read-only, especially when you start automating backups.
+In addition to the *backups* user on the system, it's a really smart idea to make a separate database user that only has read-only access to your databases. This helps protect you from making unintentional changes to the data, especially when you start automating backups.
 
--  In MySQL you can do this with the following query (*make up your own
-   password!*):
+In MySQL you can add a read-only user with the following query:
 
-   ::
+.. code-block:: mysql
 
-       mysql> GRANT SELECT, RELOAD, LOCK TABLES 
-       ON *.* 
-       TO backups@localhost 
-       IDENTIFIED BY 's3cret';
+   GRANT SELECT, RELOAD, LOCK TABLES 
+   ON *.* 
+   TO backups@localhost 
+   IDENTIFIED BY 's3cret';
 
--  You should then create a `Shadow
-   file <http://en.wikipedia.org/wiki/Shadow_password>`_ which will
-   "securely" store your password for automation:
+.. note::
 
-   -  Put the password text inside a hidden file. It's better to use
-      something like ``vi`` instead of ``echo``, since you don't want to
-      leave your password in your command history. We'll use ``echo``
-      here for simplicity:
+    Choose your own password in place of ``s3cret`` above.
 
-      ::
 
-          # echo -n "s3cret" > ~backups/.db.shadow;
+Next, we're going to create a `shadow file <http://en.wikipedia.org/wiki/Shadow_password>`_ to securely store your database password for automation.  This is a fancy way of saying we're going to store the password text inside a hidden file with strict permissions.
 
-   -  Make the backups user the owner:
+When writing to the file, it's better to use an editor like ``vi`` rather than redirecting the output of ``echo``, since you don't want to leave your password in your command history.  We'll use ``echo`` here for simplicity:
 
-      ::
+.. code-block:: bash
 
-          # chown backups:backups ~backups/.db.shadow;
+    echo -n "s3cret" > ~backups/.db.shadow;
 
-   -  Make the file read-only by the owner and invisible to world:
+Make the backups user the owner of the shadow file:
 
-      ::
+.. code-block:: bash
 
-          # chmod 400 ~backups/.db.shadow;
+    chown backups ~backups/.db.shadow;
 
-In the examples below we'll use this shadow file in place of literally
-typing the password on the command line. In addition to enabling
-automation, this also helps prevent sensitive information from being
-visible to other users in the global process list.
+Make the file read-only by the owner and invisible to everyone else:
+
+.. code-block:: bash
+
+    chmod 400 ~backups/.db.shadow;
+
+In the examples below we'll use this shadow file in place of literally typing the password on the command line. In
+addition to enabling automation, this also helps prevent sensitive information from being visible to other users in the
+global process list, logs, or command history.
 
 Backing up the database
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The database stores the majority of your helpdesk information. In the
-majority of cases, it stores anything that isn't an attachment.
+The database stores the majority of Cerb's data. The only exceptions are the large, immutable files in the :file:`storage/` filesystem -- attachments by default, and email content if enabled.
 
-Using mysqlhotcopy (recommended for MyISAM)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
 
-One of the quickest ways to backup (and restore) a MyISAM-based MySQL
-database is to use the ``mysqlhotcopy``  [1]_ tool, which copies the raw
-.frm, .MYD, and .MYI files to a new location. This utility will flush
-any pending row changes from memory to the disk and then lock the tables
-while copying them to a new location. Unless your database is huge
-(relative to your hardware), or your disk or network I/O is very slow,
-you should be able to hotcopy a live database with minimal interruption.
-If you're using replication you can make hotcopies of a slave without
-any service interruption.
+    We no longer recommend using the ``mysqlhotcopy`` command for backups.  Even though it's often faster than other options for MyISAM tables, it doesn't work for InnoDB tables, and the binary files it copies aren't guaranteed to be compatible with different server architectures.  We've seen several situations where moving the binary files between 32-bit and 64-bit systems, or platforms with different `endianness <http://en.wikipedia.org/wiki/Endianness>`_,  led to subtle data corruption that became worse over time.
 
-**Pros:**
+Using mysqldump (recommended)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  It's as fast as your disk or network I/O.
--  Restoring a hotcopy on similar hardware is nearly instantaneous. It
-   won't need to rebuild the indexes.
--  It's very flexible, allowing for table inclusion/exclusion by regexp
-   patterns, truncating indexes, redirecting output over
-   `SCP <http://en.wikipedia.org/wiki/Secure_copy>`_, etc.
-
-**Cons:**
-
--  It's Unix only.
--  It's only compatible with MyISAM tables (not InnoDB).
--  Binary files are less corruption-tolerant than SQL dump text files.
--  You may have issues restoring a hotcopy on a new machine with a
-   significantly different architecture (e.g. 32-bit to 64-bit and
-   [http://en.wikipedia.org/wiki/Endianness endianness]).
-
-It's **important** to reiterate that ``mysqlhotcopy`` will not properly
-back up InnoDB tables, but it won't give you an error if you try. If
-you're using InnoDB tables you must use ``mysqldump`` or an Inno-DB
-specific hotcopy solution.
-
-**Usage: (to local filesystem)**
-
-::
-
-    $ mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices \
-    c5_database ~backups/dbs/
-
-**Usage: (to SCP)**
-
-::
-
-    $ mysqlhotcopy -u backups -p`cat ~backups/.db.shadow` --addtodest --noindices \
-    --method='scp -c arcfour -C -2' c5_database backups@remotehost:~backups/dbs/
-
-Using mysqldump (recommended for InnoDB)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you're using InnoDB tables, or you don't have access to the
-``mysqlhotcopy`` tool or you aren't comfortable using it, then
 ``mysqldump`` is the standard tool for performing database backups.
 
 **Pros:**
 
--  It works for most database storage engine types (e.g. MyISAM,
-   InnoDB).
--  It's very corruption-tolerant since it writes text files that you can
-   edit with any text editor. In the event of file corruption it's
-   easier to salvage your data.
+-  It works for most database storage engine types (e.g. MyISAM, InnoDB).
+-  It's very corruption-tolerant since it writes text files that you can edit with any text editor. In the event of file corruption it's easier to salvage your data.
 -  It's available in almost every environment.
--  SQL dumps are widely compatible with different versions of MySQL on
-   different architectures.
+-  SQL dumps are widely compatible with different versions of MySQL on different architectures.
+-  You can use the ``--master-data=2`` flag to record the binary log file and position in the dump file for each database.  This enables incremental backups and point-in-time recovery when MySQL's binary logs are enabled.
+-  You can use ``mysqldump`` on a replication slave to avoid locking the live database.
 
 **Cons:**
 
--  When you reimport a SQL dump file the database will have to recreate
-   your key indexes which may take a significant amount of time. You can
-   use the ``--disable-keys`` flag to improve this.
--  Writing a dump file is usually slower than using a tool like
-   ``mysqlhotcopy`` to copy the binary data files.
--  To ensure a consistent snapshot you may need to lock your tables with
-   ``--lock-tables``. This prevents data from being written in a file
-   you've already backed up while you're still backing up other files.
-   Without locking, some tables will have references to data in other
-   tables that doesn't exist. However, if you're using InnoDB you can
-   use the ``--single-transaction`` flag to make a consistent snapshot
-   without locks (but you should ensure the database schema itself
-   doesn't change during the process; which usually only happens during
-   a software update).
+-  When you reimport a SQL dump file the database will have to recreate your indexes which may take a significant amount of time. The ``--disable-keys`` flag is enabled by default to improve performance by rebuilding the keys only after all the data has been imported.
+-  Writing a dump file is usually slower than using a tool like ``mysqlhotcopy`` to copy the binary data files.
+-  To ensure a consistent snapshot you need to lock your tables with ``--lock-tables``. This prevents data from being written to any database tables until the entire backup is complete.  Without locking, new content may be written to previously backed-up table *A* while you're still writing the output for table *B*.  If you're using InnoDB tables you can use the ``--single-transaction`` flag to make a consistent snapshot without locking the tables.
 
 **Usage: (MyISAM)**
 
-::
+.. code-block:: bash
 
-    $ mysqldump -Q --disable-keys --e -u backups -p`cat ~backups/.db.shadow` \
-    --lock-tables c5_database > c5_database.sql
+    mysqldump --opt -Q --master-data=2 -u backups \
+       -p`cat ~backups/.db.shadow` \
+       --lock-tables cerb_database > cerb_database.sql
+
+Enabling MySQL's binary logs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+MySQL's binary logs keep a record of all SQL queries that modify a database (e.g. ALTER TABLE, INSERT, UPDATE, REPLACE, DELETE).  This enables you to do incremental backups and point-in-time recovery by replaying the logs against an earlier full backup.
+
+In the :file:`my.cnf` file you need to make sure these options are enabled:
+
+    log_bin                 = /backups/mysql-binlogs/mysql-bin.log
+    expire_logs_days        = 2 
+    max_binlog_size         = 2000M
+
+You can customize the settings for your own environment:
+
+- ``log_bin`` determines the location and prefix of the binary logs.  The above setting will create log files like ``mysql-bin.000012``.  The suffix number is incremented every time MySQL restarts or the logs are flushed.
+
+- ``expire_logs_days`` automatically deletes old log files after a given number of days.  The above setting is useful if you run daily full backups because you'll keep old logs around for two days.  You should always be able to replay any new changes on top of your last full backup.
+
+- ``max_binlog_size`` determines the maximum size that a log file should grow to before it is automatically flushed and a new file begins.  This is useful in 32-bit environments, or when you want to archive old log files more often.
+
+**Tips:**
+
+- You can use the command ``SHOW MASTER LOGS`` in MySQL to show information about the current binary logs.
+
+- The ``FLUSH LOGS`` command in MySQL will close the current binary log and open a new one.  This is a useful command to add to the top of a ``mysqldump`` script because it will start a new binary log after each full backup.
+
+- When importing a SQL file you generally want to avoid sending its entire contents to the binary log.  You can do this with the ``SET SQL_LOG_BIN=0;`` command.  This will remain in effect for the same connection until you issue ``SET SQL_LOG_BIN=1;``.  We add this command to the top of all our ``.sql`` backup files.
 
 Backing up the storage filesystem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``/cerb6/storage`` filesystem stores the pending mail parser queue,
-import queue, and all the file attachments from mail. It's the only
-filesystem hierarchy you need to backup for a full recovery (the rest of
-the files are temporary caches, or can be downloaded from the project
-website). Since the bulk of the ``storage`` directory is comprised of
-tons of small file attachments that will never be modified (only
-deleted), it's the ideal candidate for incremental backups.
+The ``storage/`` filesystem contains the mail queue, import queue, and large immutable objects like email attachments. It's the only directory that you need to backup for a full recovery; the rest of the files are either temporary caches, or project files that can be re-downloaded from GitHub.
+
+Since the bulk of the ``storage/`` directory is comprised of files that will never be modified you should perform incremental backups.  An incremental backup only copies content that is newer than the last backup.  For example, imagine that you have one million attachments stored in the filesystem.  If you ran backups last night, and there were 250 new attachments today, then you should only need to backup those 250 new files.  It would be very inefficient to copy all million files every night.  They were copied already and their contents can't change.
 
 Using rsync (recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`rsync <http://en.wikipedia.org/wiki/Rsync>`_ is one of the simplest
-ways to copy only changed files to a new location. In a nutshell, its
-purpose is to keep two copies of the same directory in-sync.
+`rsync <http://en.wikipedia.org/wiki/Rsync>`_ is one of the simplest ways to copy only new and modified files to a new location. Its main purpose is to synchronize multiple copies of the same directory by only copying their differences between them.
 
 **Pros:**
 
--  It's available on most Unix distributions.
+-  It's available on most Unix-based operating systems (e.g. Linux, BSD, OS X).
 -  It's fast and flexible.
 -  You can use key-based authentication to automate remote copies.
 
 **Cons:**
 
--  It's Unix-only, though there are several clones and ports for
-   Windows.
+- It's Unix-only, though there are several clones and ports available for Windows.
 
 **Usage: (to local filesystem)**
 
-::
+.. code-block:: bash
 
-    rsync -a --verbose --delete /path/to/cerb6/storage ~backups/storage
+    rsync -a --verbose --delete /path/to/cerb/storage ~backups/storage
 
 **Usage: (to SSH)**
 
-::
+.. code-block:: bash
 
-    rsync -aze ssh --verbose --delete /path/to/cerb6/storage \
+    rsync -aze ssh --verbose --delete /path/to/cerb/storage \
     backups@remotehost:~backups/storage
 
 **Tips:**
 
--  When dealing with directories in rsync, including a trailing slash
-   (``storage/``) means to copy the directory's contents and not the
-   directory. Excluding the trailing slash (``storage``) will copy a
-   directory *and* its contents.
--  The ``--delete`` option will remove files from the destination
-   directory that are no longer in the source directory. Since this can
-   be dangerous if you mistype a directory, you may omit this option
-   until you're confident things work.
+- When dealing with directories in ``rsync``, including a trailing slash (``storage/``) means to copy a directory's contents but not the directory itself. Excluding the trailing slash (``storage``) will copy a directory *and* its contents.
+
+- The ``--delete`` option will remove files from the destination directory that are no longer in the source directory. Since this can be dangerous if you mistype a directory, you may omit this option until you're confident that the command is working as expected.
 
 Keeping off-site backups
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-It's crucial to assume that `anything that can go wrong will go
-wrong <http://en.wikipedia.org/wiki/Murphy's_law>`_ (at some point). You
-can't trust your local RAID, your server, or your datacenter, to store
-the only copy of data that your business is doomed without.
+It's crucial to assume that `anything that can go wrong will go wrong <http://en.wikipedia.org/wiki/Murphy's_law>`_ (given enough time). You can't trust your RAID, your server, or your datacenter, to store the only copy of data that your business is doomed without.
 
-At the simplest, off-site backups may involve downloading a copy of your
-backups to your office and burning an extra copy to DVD. Keep in mind,
-it does you no good to have 250GB of backups on your office network with
-a 256Kbps upstream to your datacenter. If you could drive across the
-country to hand deliver the backups faster than you could upload them
-then you'll want to place your backups somewhere where you can retrieve
-them quickly. However, there's something to be said for the secure
-feeling of having tangible, offline copy of your critical data; and even
-WebGroup Media's 10 year old Cerb6 database could fit on a DVD and be
-re-uploaded from a residential Internet connection.
+In a simple scenario, off-site backups may involve downloading a copy of your backups to your office. Keep in mind that it does you no good to have 250GB of backups on your office network if you have a 256Kbps upstream to your datacenter. If you could drive across the country to hand deliver your backups faster than you could upload them, then you'll want to place your backups somewhere where you can retrieve them quickly.
 
-If you have the resources, you may also choose to have a standby server
-in a different location than your production server. This would allow
-you to make server-to-server backups, which would require two hardware
-configurations, or two datacenters, to fail at the same time before you
-follow them into the blackness of failure.
+However, there's a lot to be said for the secure feeling of having tangible, offline copy of your critical data; and even WebGroup Media's 10 year old Cerb database can fit on a DVD and be re-uploaded in under an hour over a typical residential Internet connection.
 
-Our favorite choice, cloud and utility computing, also provides a great
-opportunity for off-site backups, since you can store massive amounts of
-data, highly redundantly, for a few dollars per month; and you'll likely
-be able to move data to and from a cloud computing network MUCH faster
-than using your office DSL.
+If you have the resources, you may also choose to have one or more standby servers in a different locations than your production server.  This provides business continuity protection against major disasters that may affect large geographical areas.  You can synchronize your database across multiple machines using MySQL's replication functionality.  You can also enable the binary logs and save them to an external storage device or service.
 
-Using Amazon EC2/S3 (recommended)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+At Webgroup Media, we prefer to use cloud computing services to store our off-site backups.  We're able to store massive amounts of data in multiple geographic locations (i.e. highly redundantly) for a few dollars per month.  It's also much faster for us to store and retrieve content between our servers and the cloud (often dozens of megabytes per second), compared to our servers and our office.
 
-Amazon S3 is a storage service. At the time of this writing, Amazon S3
-costs 10 cents (USD $) per month per gigabyte stored. For that price,
-your data is protected by being replicated to multiple locations. You
-also get reasonably fast network access to it (generally 10-20 MB/sec
-for us at WGM in Southern California). That's $1/mo per redundant 10GB!
-Be sure to read the terms on their site, as there are also similar rates
-for bandwidth (though most of the time you'll just be uploading).
+Using Amazon S3 (recommended)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Amazon S3 is a storage service. At the time of this writing, Amazon $0.10 USD per month per gigabyte stored in S3. For that price, your data is stored redundantly in multiple locations. You also get reasonably fast network access to it (generally 10-20 MB/sec for us). Most of the databases on our network are less than 10GB, which means they can be stored in S3 for less than $1/month. Be sure to read the terms on their site, as there are also similar rates for bandwidth -- though, most often you'll just be uploading once per backup and never retrieving the files again.  That means there's no monthly bandwidth cost after you first copy the files.
 
 **Pros:**
 
--  It's highly redundant and secure.
--  It's inexpensive.
--  Amazon is a very well known and respected online technology company.
+- It's highly redundant and secure.
+- It's inexpensive.
+- Amazon is a very well known and respected online technology company.
 
 **Cons:**
 
--  Cloud and utility computing are in their infancy, and some growing
-   pains are inevitable.
--  It costs money (but it's worth every penny!)
+- Cloud and utility computing are in their infancy, and some growing pains are inevitable.
+- It costs money (but it's worth every penny!)
 
 **Usage:**
 
--  `Sign up <http://www.amazonaws.com/>`_ for Amazon Web Services (click
-   'Sign Up' on the right).
+- `Sign up <http://www.amazonaws.com/>`_ for Amazon Web Services (click 'Sign Up' on the right).
 
 .. figure:: /images/maintenance/backups_aws_signup.png
-   :align: center
-   :alt: 
+    :figclass: bordered
 
--  Once your registration is complete, click on 'AWS Access Identifiers'
-   from the account menu.
+- Once your registration is complete, click on 'AWS Access Identifiers' from the account menu.
 
 .. figure:: /images/maintenance/backups_aws_accessid.png
-   :align: center
-   :alt: 
+    :figclass: bordered
 
--  Make a note of your Access Key ID and Secret Access Key. You'll need
-   to plug these values into the various tools you use to interact with
-   their services.
+Using s3cmd to send database backups to S3
+''''''''''''''''''''''''''''''''''''''''''
 
-.. figure:: /images/maintenance/backups_aws_access_secret.png
-   :align: center
-   :alt: 
-
-Using Jets3t at the server command line
-'''''''''''''''''''''''''''''''''''''''
-
-The `Jets3t <http://jets3t.s3.amazonaws.com/downloads.html>`_ project
-provides a Synchronize tool that works much like rsync, replicating
-changes from a local directory structure to a remote S3 bucket. It
-requires a Java Runtime Environment (JRE) of version 1.5 or later to be
-available.
+We highly recommend using ``s3cmd`` for interacting with Amazon S3 from your server.  This software can be installed using your OS's package manager (e.g. ``apt-get`` on Debian/Ubuntu).
 
 **Usage:**
 
-::
+.. code-block:: bash
 
-    ~backups/jets3t/bin/synchronize.sh -k UP yourbucket/backups/server1/dbs/20110531 *.gz
+    s3cmd put *.gz s3://yourbucket/backups/`hostname -s`/dbs/`date +%Y%m%d`/
+
+.. note::
+
+    The command above will send all gzipped files (``*.gz``) to the bucket named ``yourbucket`` in S3.  The files will be saved in a backups directory structure organized by server name (```hostname -s```) and date (```date +%Y%m%d```).
 
 **Tips:**
 
--  The ``-k`` option above prevents files from being deleted from S3 if
-   they no longer exist in the local filesystem.
--  If you don't require SSL (i.e. your content is public) you can modify
-   ``jets3t/config/jets3t.properties`` and set ``s3service.https-only``
-   to ``false``. This should give you a moderate speed boost on
-   uploading.
+- Use Amazon's IAM (Identity Access Management) to make PUT-only credentials that are restricted to a single bucket.  This allows you to leave the credentials on the server (for automation) while mitigating the potential damage if they're compromised.  You should deny the GET and DELETE permissions.  This allows your server to send backups but not retrieve or remove them.  You can perform those actions through Amazon's Web Console, or through a separate set of *recovery* credentials.
 
-Using S3Fox in Firefox3
-'''''''''''''''''''''''
+- Keep *rolling backups** by using timestamps in the S3 directory structure (as above) to save different versions of your data.  You'll have access to daily, weekly, and monthly historical versions of your backups.  This is important if a worker accidentally deletes important data and it takes a few days for anyone to notice.  If you overwrite your off-site backups then you lose the ability to do point-in-time recovery.  With rolling backups you can restore an older copy of your data into a new database and copy the missing information over to your live database.  This also helps protect you against issues like corruption (or low disk space) that may affect the integrity of your latest backup.
 
-Our favorite tool for browsing S3 buckets is the
-`S3Fox <https://addons.mozilla.org/en-US/firefox/addon/3247>`_ extension
-for `Firefox <http://www.mozilla.com/en-US/firefox/>`_. Once installed,
-you can simply drag files back and forth between your S3 account and
-your local machine. It will also allow you to modify the access level
-(ACL) of any file, which gives you the option of creating a publicly
-sharable URL. This is great, since S3 is useful for far more than just
-off-site backups -- you can host downloads or high-resolution
-screencasts without bogging down your servers (and paying a bandwidth
-ransom at the datacenter) if your content becomes popular.
+Using s3cmd to send incremental filesystem backups to S3
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-.. figure:: /images/maintenance/backups_aws_s3fox.png
-   :align: center
-   :alt: The S3Fox extension for Firefox
+You can also use ``s3cmd`` to send incremental filesystem backups to S3 (just like ``rsync``).
 
-   The S3Fox extension for Firefox
+**Usage:**
 
-.. [1]
-   MySQL Documentation: *mysqlhotcopy*
-   http://dev.mysql.com/doc/refman/5.0/en/mysqlhotcopy.html
+.. code-block:: bash
+
+    s3cmd --verbose -r --exclude="tmp/*" --skip-existing sync \
+       /path/to/cerb/storage/ s3://yourbucket/cerb/storage/
+    
+In the above command:
+
+- ``--verbose`` shows detailed output.
+- ``-r`` synchronizes recursively (i.e. the contents of all subdirectories).
+- ``--exclude`` skips the contents of the temporary directory.
+- ``--skip-existing`` is an optimization to skip comparison if a file of the same name exists.  Otherwise, the checksum of each file is compared to your local copy and this can be very slow with millions of files.
+    
+**Tips:**
+    
+- You can achieve drastically better synchronize performance by using Philip Corliss's `s3cmd-modification fork on GitHub <https://github.com/pcorliss/s3cmd-modification>`_.  This allows you to specify two additional options, ``--parallel`` and ``--workers=10``, to enable parallel file transfers.
+
+- Your S3 credentials will need LIST and PUT access to use ``s3cmd sync``, but you can skip deletions with the ``--no-delete-removed`` flag.  This is useful if you're leaving synchronizations unattended.  You can occasionally use higher-privilege credentials to perform deletions.
+
+Using Amazon's Web Console
+''''''''''''''''''''''''''
+
+You can also manage your data in S3 by using Amazon's `web-based management interface <http://console.aws.amazon.com/>`_.  Log in and click **S3** in the *Services* menu.  After selecting your bucket on the left you should see a list of your directories and files.
+
