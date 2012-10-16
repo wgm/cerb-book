@@ -1,5 +1,5 @@
-Memcached
-~~~~~~~~~
+Using Memcached as an object cache
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One of the major sources of latency in web applications is often
 database interaction. Databases are used to save information between

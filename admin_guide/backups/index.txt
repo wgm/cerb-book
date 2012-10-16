@@ -1,9 +1,6 @@
 Backups
 -------
 
-Introduction
-~~~~~~~~~~~~
-
 To fully protect your Cerb data you need to backup both the MySQL database and the ``storage/`` filesystem. While there are many good ways to perform backups, this document will focus on the best practices we've discovered over the past decade of hosting hundreds of Cerb instances on our On-Demand network. The examples are Unix-based.
 
 **Requirements:**

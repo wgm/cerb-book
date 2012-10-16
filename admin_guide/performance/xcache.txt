@@ -69,7 +69,9 @@ caching because it's part of PEAR, which makes installing it really
 simple. However, APC suffers from some major drawbacks. It has limited
 support for recent versions of PHP, and there are many situations where
 it will produce segmentation faults  [3]_, cryptic ``FATAL`` errors on
-*"Line 0"*  [4]_, or blank white pages in the web browser.
+*"Line 0"*, or blank white pages in the web browser.
+
+.. rubric:: Footnotes
 
 .. [1]
   Wikipedia: *Opcode*
@@ -82,7 +84,3 @@ it will produce segmentation faults  [3]_, cryptic ``FATAL`` errors on
 .. [3]
   Google: *Segfaults caused by APC.*
   http://www.google.com/search?q=apc+segfault
-
-.. [4]
-  Cerb5 forums: *Cryptic errors on "Line 0" found to be caused by APC.*
-  http://forum.cerb4.com/showthread.php?t=3106&highlight=xcache
