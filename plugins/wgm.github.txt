@@ -1,2 +1,2 @@
-wgm.github
-==========
+GitHub Integration
+==================

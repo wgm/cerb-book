@@ -1,2 +1,2 @@
-wgm.org_dupe_finder
-===================
+Organzation Dupe Finder
+=======================

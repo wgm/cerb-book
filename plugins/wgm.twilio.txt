@@ -18,7 +18,6 @@ The Twilio plugin requires an `Account SID` and an `Auth Token` to authenticate 
 
 Obtaining Your Twilio Credentials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The Twilio API requires an `Auth Token` for SMS messages.
 
 * Login to your Twilio account to obtain your `Auth Token`.  Your `Account SID` and `Auth Token` will be displayed in the center of the page.
 

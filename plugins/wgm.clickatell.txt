@@ -1,2 +1,2 @@
-wgm.clickatell
-==============
+Clickatell Integration
+----------------------

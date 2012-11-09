@@ -1,2 +1,2 @@
-wgm.jira
-========
+JIRA Integration
+================

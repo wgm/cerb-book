@@ -1,2 +1,2 @@
-jsjohnst.fluidapp
-=================
+Fluid.app
+=========

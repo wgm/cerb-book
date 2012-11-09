@@ -1,2 +1,2 @@
-wgm.ldap
-========
+LDAP Authentication
+===================

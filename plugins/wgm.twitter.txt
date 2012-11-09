@@ -21,7 +21,7 @@ Installing the Twitter Plugin
 
 For instructions on installing the Twitter plugin, see the documentation on :ref:`installing-a-plugin`.
 
-The Twitter plugin requires a `Consumer Key` and a `Consumer Secret` to authenticate with Twitter's API. To obtain your `Consumer Key` and `Consumer Secret`, follow the steps below.
+The Twitter plugin requires a `Consumer Key` and a `Consumer Secret` to authenticate with Twitter's API.  To obtain your `Consumer Key` and `Consumer Secret`, follow the steps below.
 
 Obtaining Your Twitter Credentials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

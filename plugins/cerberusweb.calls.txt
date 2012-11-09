@@ -10,6 +10,10 @@ The Call Loggin plugin allows you to log incoming and outgoing calls.
    
    The Calls plugin in the Plugin Library.
 
+Installing the Calls Plugin
+===========================
+For instructions on installing the FreshBooks plugin, see the documentation on :ref:`installing-a-plugin`.
+
 Using the Calls plugin
 ======================
 This plugin adds a new record type for Calls.

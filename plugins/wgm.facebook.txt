@@ -14,7 +14,7 @@ Installing the Facebook Plugin
 ==============================
 For instructions on installing the Facebook plugin, see the documentation on :ref:`installing-a-plugin`.
 
-The Facebook plugin requires an `App ID` and an `App Secret` to authenticate with Facebook's API. To obtain your `App ID` and `App Secret`, follow the steps below.
+The Facebook plugin requires an `App ID` and an `App Secret` to authenticate with Facebook's API.  To obtain your `App ID` and `App Secret`, follow the steps below.
 
 Obtaining Your Facebook Credentials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
