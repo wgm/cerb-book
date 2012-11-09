@@ -1,19 +1,27 @@
 Plugins
 -------
+Plugins provide additional functionality which is not part of the core app. Most plugins add a new item to the :doc:`Search menu</worker_guide/search/index>`. Plugins can also add pages, tabs, worklists, database tables, and provide integration with 3rd-party systems.
 
 Basic Plugins
 =============
 
+These basic plugins add new items to the Search menu in Cerb. See the documentation for a specific plugin for more information on what installing it will enable you to do.
+
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 3
     
+    cerberusweb.datacenter.domains
     cerberusweb.datacenter.sensors
+    cerberusweb.datacenter.servers
+
 
 3rd-party Integration
 =====================
 
+These plugins add the ability to communicate with 3rd-party systems. Some of them also add new items to the Search menu. See the documentation for a specific plugin for more information on what installing it will add to your Cerb installation.
+
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 3
 
     wgm.campfire
     wgm.facebook
@@ -22,32 +30,17 @@ Basic Plugins
     wgm.jira
     wgm.linkedin
     wgm.twitter
-
-Communications
-==============
-
-.. toctree::
-    :maxdepth: 1
-    
-    cerberusweb.calls
     wgm.clickatell
     wgm.twilio
 
-Datacenter
-==========
 
-.. toctree::
-    :maxdepth: 1
-
-    cerberusweb.datacenter.domains
-    cerberusweb.datacenter.sensors
-    cerberusweb.datacenter.servers
 
 Storage Engines
 ===============
+These plugins add new Storage Engines
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 3
     
     wgm.storage.s3.gatekeeper
 
@@ -55,16 +48,17 @@ Authentication
 ==============
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 3
     
     cerberusweb.openid
     wgm.ldap
 
-Misc
-====
+Miscellaneous Plugins
+=====================
+These plugins provide additional functionality for individual parts within Cerb. See the documentation for each plugin to see what functionality will be added to Cerb upon installation.
 
 .. toctree::
-    :maxdepth: 1 
+    :maxdepth: 3
     
     cerberusweb.feed_reader
     cerberusweb.gravatar

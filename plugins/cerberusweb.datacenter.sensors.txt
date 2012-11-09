@@ -3,11 +3,12 @@ Sensors
 :Author: WebGroup Media LLC
 :Repository: https://github.com/cerb-plugins/cerberusweb.datacenter.sensors
 
-This plugin provides monitoring of external sensors.
-    .. figure:: /images/plugins/cerberusweb.datacenter.sensors/library_wgm_sensors.png
-       :figclass: bordered
+The Sensors plugin add allows you to monitor external services and warn you about downtime.  Nearly anything can be monitored as a server - HTTP, MySQL, Disk Usage, Bandwidth, etc.
 
-It allows you to monitor external services and warn you about downtime.  Nearly anything can be monitored as a server - HTTP, MySQL, Disk Usage, Bandwidth, etc.
+.. figure:: /images/plugins/cerberusweb.datacenter.sensors/library_wgm_sensors.png
+   :figclass: bordered
+   
+   The Sensors plugin in the Plugin Library.
 
 Installing the plugin
 =====================
@@ -23,14 +24,15 @@ You can install this plugin from your web browser using Cerb's Plugin Library:
 * The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
 * In the popup, click the :guilabel:`Download and install` button again to confirm.
 * Set the :guilabel:`Status:` to **Enabled**.
-    .. figure:: /images/plugins/cerberusweb.datacenter.sensors/enable_wgm_sensors.png
-       :figclass: bordered
+
+.. figure:: /images/plugins/cerberusweb.datacenter.sensors/enable_wgm_sensors.png
+   :figclass: bordered
+
 * Click the :guilabel:`Save Changes` button.
 
 Using the Sensors plugin
 ========================
-
-The plugin adds a new record type for Sensors.
+This plugin adds a new record type for Sensors.
 
 Related resources
 =================

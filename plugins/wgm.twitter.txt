@@ -16,28 +16,16 @@ It enables you to:
 * Mark handled Twitter messages as closed for improved workflow
 * Build workspaces and Virtual Attendant behavior based on your Twitter data
 
-Installing the plugin
-=====================
+Installing the Twitter Plugin
+=============================
 
-You can install this plugin from your web browser using Cerb's Plugin Library:
+For instructions on installing the Twitter plugin, see the documentation on :ref:`installing-a-plugin`.
 
-* Click on :guilabel:`setup` in the top right of the navigation bar.
-* Hover over :guilabel:`Plugins` in the menu bar.
-* Select :guilabel:`Manage Plugins` from the pulldown menu.
-* Click the :guilabel:`Plugin Library` tab.
-* Click the :guilabel:`Check for updates` button to download the latest plugin information.
-* In the top-right quick search box, select :guilabel:`Name`. Type :kbd:`Twitter` and press :kbd:`<ENTER>`.
-* The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
-* In the popup, click the :guilabel:`Download and install` button again to confirm.
-* Set the :guilabel:`Status:` to **Enabled**.
-    .. figure:: /images/plugins/wgm.twitter/enable_wgm_twitter.png
-       :figclass: bordered
-* Click the :guilabel:`Save Changes` button.
+The Twitter plugin requires a `Consumer Key` and a `Consumer Secret` to authenticate with Twitter's API. To obtain your `Consumer Key` and `Consumer Secret`, follow the steps below.
 
-Creating a Twitter application
-==============================
-
-Twitter allows third-party applications to interact with its services using an API and OAuth authentication. You need to create a new *application profile* from Twitter's developer website in order to link your accounts to Cerb.
+Obtaining Your Twitter Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Twitter allows third-party applications to interact with its services using an API and OAuth authentication. You need to create a new *application* on Twitter's developer website in order to obtain credentials to link your accounts to Cerb.
 
 * Log in to `Twitter's developer website <https://dev.twitter.com/apps/new>`_ to create a new application.
 * Enter the following information in the :guilabel:`Create an application` form:
@@ -61,7 +49,7 @@ Twitter allows third-party applications to interact with its services using an A
 * Scroll down to the :guilabel:`OAuth settings` section.  Make a note of the consumer key and secret.  You will need to copy both of these values to configure the Twitter plugin in Cerb.
 
 Configuring the Twitter plugin
-==============================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Switch back to Cerb.
 * Click on :guilabel:`setup` to the right of the global navigation menu.
