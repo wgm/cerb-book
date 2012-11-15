@@ -3,18 +3,16 @@ Campfire Integration
 :Author: WebGroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.campfire
 
-This plugin provides integration with `37Signals Campfire <http://www.campfirenow.com/>`_ through their `official API <http://developer.37signals.com/campfire/index>`_.
+This plugin provides integration with `37Signals Campfire <http://www.campfirenow.com/>`_ through their `official API <http://developer.37signals.com/campfire/index>`_. It enables you to post messages to Campfire from Virtual Attendants.
 
 .. figure:: /images/plugins/wgm.campfire/library_wgm_campfire.png
     :figclass: bordered
     
     The Campfire plugin in the Plugin Library.
 
-It enables you to post messages to Campfire from Virtual Attendants.
-
 Installing the Campfire Plugin
 ==============================
-For instructions on installing the FreshBooks plugin, see the documentation on :ref:`installing-a-plugin`.
+For instructions on installing the Campfire plugin, see the documentation on :ref:`installing-a-plugin`.
 
 The 37Signals Campfire API requires an `Auth Token` to authenticate with Campfire's API.  `Auth Tokens` are unique to each user, and you will likely want to setup a user specifically for Cerb.  These credentials must be entered when you first enable the plugin for it to work properly.  To obtain your `Auth Token`, follow the steps below.
 

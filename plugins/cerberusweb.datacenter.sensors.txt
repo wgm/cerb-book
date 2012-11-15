@@ -5,18 +5,26 @@ Sensors
 
 The Sensors plugin add allows you to monitor external services and warn you about downtime.  Nearly anything can be monitored as a server - HTTP, MySQL, Disk Usage, Bandwidth, etc.
 
-.. figure:: /images/plugins/cerberusweb.datacenter.sensors/library_wgm_sensors.png
+.. figure:: /images/plugins/cerberusweb.datacenter.sensors/library_sensors.png
    :figclass: bordered
    
    The Sensors plugin in the Plugin Library.
 
-Installing the plugin
-=====================
-For instructions on installing the FreshBooks plugin, see the documentation on :ref:`installing-a-plugin`.
+Installing the Sensors Plugin
+=============================
+For instructions on installing the Sensors plugin, see the documentation on :ref:`installing-a-plugin`.
 
-Using the Sensors plugin
+Using the Sensors Plugin
 ========================
-This plugin adds a new record type for Sensors.
+This plugin adds a new :guilabel:`Sensor` item to the :doc:`Search menu</worker_guide/search/index>`.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.sensors/search_sensors.png
+   :figclass: bordered
+
+Clicking the :guilabel:`+` button in the toolbar opens the :guilabel:`Sensor` dialog, allowing you to add a new sensor.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.sensors/add_sensor.png
+   :figclass: bordered
 
 Related resources
 =================

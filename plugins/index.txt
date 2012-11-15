@@ -10,10 +10,10 @@ These basic plugins add new items to the Search menu in Cerb. See the documentat
 .. toctree::
     :maxdepth: 3
     
+    cerberusweb.calls
+    cerberusweb.datacenter.servers
     cerberusweb.datacenter.domains
     cerberusweb.datacenter.sensors
-    cerberusweb.datacenter.servers
-
 
 3rd-party Integration
 =====================
@@ -32,8 +32,6 @@ These plugins add the ability to communicate with 3rd-party systems. Some of the
     wgm.twitter
     wgm.clickatell
     wgm.twilio
-
-
 
 Storage Engines
 ===============

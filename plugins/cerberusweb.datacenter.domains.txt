@@ -1,2 +1,27 @@
 Domains
 -------
+:Author: WebGroup Media LLC
+:Repository: https://github.com/cerb-plugins/cerberusweb.datacenter.domains
+
+The Domains plugin allows you add domains to your Cerb installation. These domains can be associated with contacts. This plugin requires the :doc:`Servers plugin</plugins/cerberusweb.datacenter.servers>` to be installed.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.domains/library_domains.png
+   :figclass: bordered
+   
+   The Domains plugin in the Plugin Library.
+
+Installing the Domains Plugin
+=============================
+For instructions on installing the Domains plugin, see the documentation on :ref:`installing-a-plugin`.
+
+Using the Domains plugin
+========================
+This plugin adds a new :guilabel:`Domain` item to the :doc:`Search menu</worker_guide/search/index>`.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.domains/search_domains.png
+   :figclass: bordered
+
+Clicking the :guilabel:`+` button in the toolbar opens the :guilabel:`Domain` dialog, allowing you to add a new Domain.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.domains/add_domain.png
+   :figclass: bordered

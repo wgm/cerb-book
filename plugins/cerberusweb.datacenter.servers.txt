@@ -1,2 +1,29 @@
 Servers
 -------
+:Author: WebGroup Media LLC
+:Repository: https://github.com/cerb-plugins/cerberusweb.datacenter.servers
+
+The Servers plugin allows you to add servers to your Cerb installation. Servers can be associated with :doc:`Domains</plugins/cerberusweb.datacenter.domains>` and :doc:`Sensors</plugins/cerberusweb.datacenter.sensors>`.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.servers/library_servers.png
+   :figclass: bordered
+   
+   The Servers plugin in the Plugin Library.
+
+Installing the Servers Plugin
+=============================
+For instructions on installing the Servers plugin, see the documentation on :ref:`installing-a-plugin`.
+
+Using the Servers Plugin
+========================
+This plugin adds a new :guilabel:`Server` item to the :doc:`Search menu</worker_guide/search/index>`.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.servers/search_servers.png
+   :figclass: bordered
+
+Clicking the :guilabel:`+` button in the toolbar opens the :guilabel:`Server` dialog, allowing you to add a new server.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.servers/add_server.png
+   :figclass: bordered
+
+Once a server has been added, it can be associated with :doc:`Domains</plugins/cerberusweb.datacenter.domains>` and :doc:`Sensors</plugins/cerberusweb.datacenter.sensors>`.

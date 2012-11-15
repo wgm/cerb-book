@@ -3,25 +3,25 @@ Call Logging
 :Author: WebGroup Media LLC
 :Repository: https://github.com/cerb-plugins/cerberusweb.calls
 
-The Call Loggin plugin allows you to log incoming and outgoing calls.
+The Call Logging plugin allows you to log incoming and outgoing calls.
 
-.. figure:: /images/plugins/cerberusweb.calls/library_wgm_calls.png
+.. figure:: /images/plugins/cerberusweb.calls/library_calls.png
    :figclass: bordered
    
-   The Calls plugin in the Plugin Library.
+   The Call Logging plugin in the Plugin Library.
 
-Installing the Calls Plugin
-===========================
-For instructions on installing the FreshBooks plugin, see the documentation on :ref:`installing-a-plugin`.
+Installing the Call Logging Plugin
+==================================
+For instructions on installing the Call Logging plugin, see the documentation on :ref:`installing-a-plugin`.
 
-Using the Calls plugin
-======================
-This plugin adds a new record type for Calls.
+Using the Call Logging plugin
+=============================
+This plugin adds a new :guilabel:`Call` item to the :doc:`Search menu</worker_guide/search/index>`.
 
-.. figure:: /images/plugins/cerberusweb.calls/search_wgm_calls.png
+.. figure:: /images/plugins/cerberusweb.calls/search_calls.png
    :figclass: bordered
 
-Clicking the :guilabel:`+` button in the toolbar allows you to log a new call.
+Clicking the :guilabel:`+` button in the toolbar opens the :guilabel:`Log Call` dialog, allowing you to log a new call.
 
 .. figure:: /images/plugins/cerberusweb.calls/log_call.png
    :figclass: bordered

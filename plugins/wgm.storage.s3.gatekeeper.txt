@@ -12,7 +12,7 @@ This plugin enables you to store objects on `Amazon S3 <http://aws.amazon.com/s3
 
 Installing the plugin
 =====================
-For instructions on installing the FreshBooks plugin, see the documentation on :ref:`installing-a-plugin`.
+For instructions on installing the S3 Gatekeeper Storage Engine plugin, see the documentation on :ref:`installing-a-plugin`.
 
 Using the Gatekeeper plugin
 ===========================
