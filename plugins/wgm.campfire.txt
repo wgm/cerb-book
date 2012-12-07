@@ -30,9 +30,11 @@ Obtaining your Campfire Credentials
 
 * Once you have your `Auth Token`, you can enter it on the :guilabel:`Enable Plugin` dialog.
 
+.. figure:: /images/plugins/wgm.campfire/enable_wgm_campfire.png
+    :figclass: bordered
+
 Using the Campfire plugin
 =========================
-
 The plugin adds a new action to Virtual Attendants.
 
 Related resources
