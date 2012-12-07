@@ -27,6 +27,7 @@ These plugins add the ability to communicate with 3rd-party systems. Some of the
     wgm.facebook
     wgm.freshbooks
     wgm.github
+    wgm.hipchat
     wgm.jira
     wgm.linkedin
     wgm.twitter
