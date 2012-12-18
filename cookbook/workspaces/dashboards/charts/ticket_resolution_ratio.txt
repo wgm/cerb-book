@@ -1,12 +1,18 @@
 Chart ticket resolution ratio
 -----------------------------
 
-:doc:`Create a dashboard </cookbook/workspaces/dashboards/create>` if you haven't already.
-
 .. figure:: /images/cookbook/workspaces/dashboards/charts/chart_ticket_resolution_ratio.png
     :figclass: bordered
-  
-Click the :guilabel:`Add Widget` button.
+
+Description
+===========
+
+Instructions
+============
+
+1. Navigate to a dashboard, or :doc:`create one </cookbook/workspaces/dashboards/create>` if you haven't already.
+
+2. Click the :guilabel:`Add Widget` button:
 
 .. figure:: /images/cookbook/workspaces/dashboards/common_add_widget_button.png
     :figclass: bordered
