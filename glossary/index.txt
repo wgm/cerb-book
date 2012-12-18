@@ -129,11 +129,11 @@ Glossary
     watcher
         A worker who subscribes to notifications about new activity on specific objects.  For example, a manager may assign a task to another worker, and add themselves as a watcher to the task so they can be automatically notified about progress and completion.  Being a watcher on something *does not* imply that you are taking responsibility for it.  If you aren't sure how to answer a particular question, it can be useful to watch it so you can leave from the answer a more experienced worker gives.  Watching facilitates collaboration, observation, and training.
     
-    WebGroup Media LLC
+    Webgroup Media LLC
         A commercial open source company that was founded in April 2002 to build web-based enterprise collaboration software.  The developers of Cerb.  WGM is lean, profitable, and organically-bootstrapped.  The company shares 100% of its source code due to a fundamental belief that bits and bytes have less value than experience and long-term, mutually advantageous relationships.  WGM's client list is international and spans most industries, including governments, advocacy groups, political campaigns, educational institutions, charities, and businesses of all sizes.  
 
     WGM
-        See: :term:`WebGroup Media LLC`
+        See: :term:`Webgroup Media LLC`
     
     worker
         The people who log in to the helpdesk to represent your organization.  Other software applications frequently use the term *users*, but we find that term ambiguous; users can refer to either customers or staff members.
