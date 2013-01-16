@@ -1,14 +1,188 @@
 Snippets
 --------
 
-A **snippet** is a reusable piece of text 
+Frequently used text (e.g. Q&A, price sheets, FAQs, troubleshooting tips) can be saved as a **snippet**.  Workers can use snippets to quickly insert content into messages.
 
-...that can automatically incorporate contextual information through the use of **placeholders**.
+You can think of snippets as copying and pasting from a shared clipboard.  However, snippets are also capable of sophisticated functionality like *placeholders* and *conditional logic*.
 
-((example placeholders))
+Placeholders
+============
 
-((canned responses / auto-replies))
+A *placeholder* represents a fragment of text that will automatically adapt to whatever records are involved with your current action.
 
-((personalization))
+For example, a basic placeholder can be used to personalize a "Hi {{first_name}}" greeting at the top of outgoing messages, where the ``{{first_name}}`` text will be automatically replaced with the first name of the recipient.  You will notice that placeholders are surrounded by two pairs of curly braces.
 
-The **Snippets** tab manages fragments of text that can be reused in various conversations. For example, when a customer asks for your price list you can simply insert the 'Price Sheet' snippet rather than monotonously typing it by hand or copying and pasting it from your website. Snippets can also contain placeholder text that will change depending on where they are used; for example, a ``{{first_name}}`` placeholder would be replaced by the first name of the contact you are talking to.
+Worker Input Placeholders
+=========================
+
+Snippets also support 'fill-in' placeholders which will prompt the current worker for more information before the text is inserted.  These are values that aren't derived from records or custom fields; for example: order numbers, tracking numbers, product names, ETAs, etc. There are three types of fill-in placeholders: a single line of text with a descriptive label (e.g. "paste tracking number here"), a single line of text with a default value (that can be modified by the worker if needed), and multiple lines of text (e.g. "paste receipt here").
+
+Filters
+=======
+
+The ability to personalize snippets is very useful, but substituting text for various placeholders is just the beginning.  The contents of a placeholder may also be modified using *filters*.  For example, a date value can be configured to display only the month and year; a numeric value can be rounded to two decimal places with commas separating thousands; or a blank placeholder value can be given a default.  These are just a few examples of the dozens of filters that are available.  You can also combine filters; a single placeholder value can use filters to remove punctuation characters, truncate to 16 characters, and convert the result to uppercase.
+
+Cerb-specific Filters
+=====================
+
+Cerb supports the following custom filters in snippets:
+
+**bytes_pretty**
+
+	Formats a numeric value as bytes, automatically selecting the most appropriate unit (e.g. bytes, KB, MB, GB, TB).  An optional parameter may specify the number of decimal places to be displayed.
+	
+	Example: ``{{1234567890|bytes_pretty(2)}}`` will display ``1.23GB``.
+
+**date_pretty**
+
+	Formats a timestamp as a human-readable relative date.  An optional parameter specifies whether to return the result as a delta value (i.e. difference).
+	
+	Example: ``{{'January 1 2013'|date('U')|date_pretty}}`` displays ``16 days ago`` at the time this article was written.
+
+**md5**
+
+	Converts any text value to an MD5 signature.
+	
+	Example: ``{{'This is an MD5 hash'|md5}}`` will display ``ff1e28da049942e608ba9207df8d0523``.
+
+**regexp**
+
+	Returns the result of a regular expression match.  The first parameter provides the pattern to match, and an optional second argument returns a specific pattern group.
+	
+	Example: ``{{'Customer Name: Widgets Inc.'|regexp('/.*: (.*)/', 1)}}`` will display ``Widgets Inc.``
+
+**truncate**
+
+	Truncates a long value.  The first parameter is the maximum length of the value.  The optional second parameter is true/false for preserving whole words, and the optional third parameter provides an alternate separator (default: ...).
+
+	Example: ``{{'This sentence is 36 characters long.'|truncate(13)}}`` will display ``This sentence...``
+
+Scripting
+=========
+
+Powerful scripting functionality is also available for use in snippets by workers with basic experience in computer programming concepts.  The syntax provides the ability to get and set variables, run functions, evaluate logic, loop through sequences or arrays, etc.  Snippets use the Twig template engine as the basis for their syntax, and the full documentation may be found at: http://twig.sensiolabs.org/doc/templates.html
+
+
+Variables
+~~~~~~~~~
+
+A variable temporarily stores a value for later use.  Placeholders are variables.
+
+Example::
+
+	{% set name = 'Cerb' %}
+	{{name}}
+	
+Will display::
+
+	Cerb
+
+
+Conditional Logic
+~~~~~~~~~~~~~~~~~
+
+Snippets can also contain *conditional logic*.  In its simplest form, this means that you can use one response when a certain condition is true (e.g. "Is the office open for business right now?"), and a different response when it is false.  Conditional logic may also be used to make choose between complex outcomes using boolean logic (AND, OR, NOT).  For example, you could include an extra paragraph in a snippet if the recipient is German, but only if the current day is Friday.
+
+For example::
+
+	Today is a {% if 'now'|date('w') in [0,6] %}
+	weekend{% else %}
+	weekday{% endif %}	
+
+Will display on Monday through Friday::
+
+	Today is a weekday.
+	
+Or, on Saturday or Sunday::
+
+	Today is a weekend.
+
+Operators
+~~~~~~~~~
+
+Operators specify how two expressions should be compared.
+
+**==**
+	
+	Compares variables for equality.
+	
+	Example: ``{% if ticket_owner_id == 0 %}``
+	
+**!=**
+
+	Compares variables for inequality.
+
+	Example: ``{% if ticket_owner_id != 0 %}``
+	
+**<, <=**
+
+	Compares variables with less-than.
+	
+	Example: ``{% if address_num_nonspam < 1 %}``
+	
+**>, >=**
+
+	Compares variables with greater-than.
+
+	Example: ``{% if address_num_spam > 0 %}``
+
+**in**
+
+	Tests if one variable is contained in another.
+	
+	Example: ``{% if group_id in [1,2,3] %}``
+
+**not**
+
+	Negates a test.
+
+	Example: ``{% if group_id not in [1,2,3] %}``
+
+**~**
+
+	Concatenates multiple variables together.
+	
+	Example: ``{{'Hi ' ~ 'there, ' ~ first_name}}``
+
+Boolean Logic
+~~~~~~~~~~~~~
+
+**and**
+
+	Returns ``true`` if both expressions are true.
+	
+	Example: ``{% if message_is_outgoing and ticket_is_waiting %}``
+
+**or**
+
+	Returns ``true`` if any expression is true.
+
+	Example: ``{% if ticket_is_closed or ticket_is_deleted %}``
+
+**not**
+
+	Returns ``true`` if the given expressive is false.
+	
+	Example: ``{% if not worker_id %}``
+
+You can also combined boolean logic into groups using parenthesis.
+
+Functions
+~~~~~~~~~
+
+Functions execute code to generate a value.  The full list of Twig functions can be found at: http://twig.sensiolabs.org/doc/functions/index.html
+
+Example:
+
+	{% set timestamp = date('now') %}
+
+Loops
+~~~~~
+
+Loops iterate through a collection of values.
+
+::
+
+	{% for number in [1,2,3,4] %}
+	{{number}}
+	{% endfor %}
