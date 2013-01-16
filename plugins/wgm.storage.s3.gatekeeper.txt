@@ -3,29 +3,16 @@ S3 Gatekeeper Storage Engine
 :Author: WebGroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.storage.s3.gatekeeper
 
-This plugin provides integration with `Amazon S3 <http://aws.amazon.com/s3/>`_ via a :download:`Gatekeeper script <Gatekeeper.php.txt>` through their `official API <http://docs.amazonwebservices.com/AmazonS3/latest/gsg/GetStartedWithS3.html>`_.
-    .. figure:: /images/plugins/wgm.storage.s3.gatekeeper/library_wgm_gatekeeper.png
-        :figclass: bordered
 
-It enables you to store objects on Amazon S3 without making you share your AWS credentials.
+This plugin enables you to store objects on `Amazon S3 <http://aws.amazon.com/s3/>`_  without making you share your AWS credentials. It provides integration with Amazon S3 via a :download:`Gatekeeper script <Gatekeeper.php.txt>`. through their `official API <http://docs.amazonwebservices.com/AmazonS3/latest/gsg/GetStartedWithS3.html>`_.
+
+.. figure:: /images/plugins/wgm.storage.s3.gatekeeper/library_wgm_gatekeeper.png
+   :figclass: bordered
+
 
 Installing the plugin
 =====================
-
-You can install this plugin from your web browser using Cerb's Plugin Library:
-
-* Click on :guilabel:`setup` in the top right of the navigation bar.
-* Hover over :guilabel:`Plugins` in the menu bar.
-* Select :guilabel:`Manage Plugins` from the pulldown menu.
-* Click the :guilabel:`Plugin Library` tab.
-* Click the :guilabel:`Check for updates` button to download the latest plugin information.
-* In the top-right quick search box, select :guilabel:`Name`. Type :kbd:`S3` and press :kbd:`<ENTER>`.
-* The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
-* In the popup, click the :guilabel:`Download and install` button again to confirm.
-* Set the :guilabel:`Status:` to **Enabled**.
-    .. figure:: /images/plugins/wgm.storage.s3.gatekeeper/enable_wgm_gatekeeper.png
-       :figclass: bordered
-* Click the :guilabel:`Save Changes` button.
+For instructions on installing the S3 Gatekeeper Storage Engine plugin, see the documentation on :ref:`installing-a-plugin`.
 
 Using the Gatekeeper plugin
 ===========================
@@ -33,4 +20,6 @@ Using the Gatekeeper plugin
 The plugin adds a new adds a new :ref:`Storage Engine <storage-engines>`.  You'll need to enter a :guilabel:`Username`, :guilabel:`Password`, and :guilabel:`URL`, then modify the script to connect to Amazon S3 and accept your auth details.
 
     .. figure:: /images/plugins/wgm.storage.s3.gatekeeper/storage_profile_gatekeeper.png
-        :figclass: bordered
+       :figclass: bordered
+       
+       A :doc:`Storage Profile</admin_guide/setup/storage/profiles>` configured to use the Gatekeeper Storage Engine.

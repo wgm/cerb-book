@@ -99,7 +99,7 @@ This event is triggered when a conversation is closed.
 
 Conversation moved in group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This event is triggered when a conversation is moved into a group.
+This event is triggered when a new ticket is created, or when an existing ticket is moved into a different group or bucket.
 
 Custom address behavior
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,7 +147,7 @@ This event is triggered when a worker selects it manually on the profile page or
 
 New message on group conversation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This event is triggered when a new message is received on a conversation.
+This event is triggered when a new ticket is created, and when new incoming or outgoing messages are appended to an existing conversation.
 
 Worker
 ======

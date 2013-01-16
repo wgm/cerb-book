@@ -6,7 +6,7 @@ Security
 .. TODO: Delay login failures
 .. TODO: Log auth failures
 
-Traditionally, when you access a URL like ``http://www.example.com/pages/help.html`` from your browser there is corresponding file on the webserver in the ``pages`` directory with the name ``help.html``. This is how resources like HTML, images, Javascript, CSS, and other files are made available for download.
+Traditionally, when you access a URL like ``http://www.example.com/pages/help.html`` from your browser there is a corresponding file on the webserver in the ``pages`` directory with the name ``help.html``. This is how resources like HTML, images, Javascript, CSS, and other files are made available for download.
 
 Cerb uses a different approach for serving content, which is known to web application developers as the **Model-View-Controller (MVC)** [1]_ architectural pattern. As a consequence of this, all the public interaction with the application occurs with two main files in the root directory of your Cerb installation. The pages that your workers interact with are *virtual*.  In other words, there isn't a file on your webserver that corresponds with each URL.
 

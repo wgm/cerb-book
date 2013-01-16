@@ -1,7 +1,7 @@
 Send SMS on Sensor Warning
 --------------------------
 
-This cookbook recipe will explain how to setup a Virtual Attendant that sends an SMS when a Sensor .  You'll need to install the :doc:`Sensors </plugins/wgm.sensors>` and :doc:`Twilio </plugins/wgm.twilio>` plugins.  Once you have those plugins installed, you'll want to setup a new Virtual Attendant.
+This cookbook recipe will explain how to setup a Virtual Attendant that sends an SMS when a Sensor .  You'll need to install the :doc:`Sensors </plugins/cerberusweb.datacenter.sensors>` and :doc:`Twilio </plugins/wgm.twilio>` plugins.  Once you have those plugins installed, you'll want to setup a new Virtual Attendant.
 
 Setting up the Sensor
 =====================

@@ -1,0 +1,14 @@
+Installed Plugins
+-----------------
+:menuselection:`Setup --> Plugins --> Installed Plugins`
+
+The Installed Plugins tab displays all plugins that have been installed. Plugins can be enabled, disabled, and removed from this tab.
+
+Enabling a Plugin
+=================
+
+Disabling a Plugin
+==================
+
+Uninstalling a Plugin
+=====================

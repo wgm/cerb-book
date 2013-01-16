@@ -3,78 +3,59 @@ FreshBooks Integration
 :Author: WebGroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.freshbooks
 
-This plugin provides integration with `FreshBooks <http://www.freshbooks.com/>`_ through their `official API <http://developers.freshbooks.com>`_.
+This plugin provides integration with `FreshBooks <http://www.freshbooks.com/>`_ through their `official API <http://developers.freshbooks.com>`_.  It enables to you sync clients and invoices from FreshBooks.
 
 .. figure:: /images/plugins/wgm.freshbooks/library_wgm_freshbooks.png
    :figclass: bordered
 
-It enables to you sync clients from FreshBooks.
-
 Installing the plugin
 =====================
+For instructions on installing the FreshBooks plugin, see the documentation on :ref:`installing-a-plugin`.
 
-You can install this plugin from your web browser using Cerb's Plugin Library:
-
-* Click on :guilabel:`setup` in the top right of the navigation bar.
-* Hover over :guilabel:`Plugins` in the menu bar.
-* Select :guilabel:`Manage Plugins` from the pulldown menu.
-* Click the :guilabel:`Plugin Library` tab.
-* Click the :guilabel:`Check for updates` button to download the latest plugin information.
-* In the top-right quick search box, select :guilabel:`Name`. Type :kbd:`Freshbooks` and press :kbd:`<ENTER>`.
-* The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
-* In the popup, click the :guilabel:`Download and install` button again to confirm.
-* Set the :guilabel:`Status:` to **Enabled**.
-    .. figure:: /images/plugins/wgm.freshbooks/enable_wgm_freshbooks.png
-       :figclass: bordered
-* Click the :guilabel:`Save Changes` button.
+The FreshBooks API requires an `Auth Token` for retrieving clients via the API.  `Auth Tokens` are unique to each user.  To obtain your auth token, follow the steps below.
 
 Obtaining your Auth Token
-=========================
-The FreshBooks API requires an `Auth Token` for retrieving clients via the API. `Auth Tokens` are unique to each user.
-
+~~~~~~~~~~~~~~~~~~~~~~~~~
 * Visit the `My Account` section to retrieve your `Auth Token`.
-    .. figure:: /images/plugins/wgm.freshbooks/freshbooks_my_account.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.freshbooks/freshbooks_my_account.png
+   :figclass: bordered
+
 * Click the :guilabel:`My Account` link to display your account page.  The account page has several sections - you'll want click on the section titled :guilabel:`FreshBooks API`.
-    .. figure:: /images/plugins/wgm.freshbooks/freshbooks_freshbooks_api.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.freshbooks/freshbooks_freshbooks_api.png
+   :figclass: bordered
+
 * The `FreshBooks API` page displays your `API URL` and `Authentication Token`.
-    .. figure:: /images/plugins/wgm.freshbooks/freshbooks_auth_token.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.freshbooks/freshbooks_auth_token.png
+   :figclass: bordered
 
 Configuring the Freshbooks plugin
-=================================
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Switch back to Cerb.
 * Click on :guilabel:`setup` to the right of the global navigation menu.
 * Select **Freshbooks** from the :guilabel:`Plugins` menu.
-
-Connecting to Freshbooks
-~~~~~~~~~~~~~~~~~~~~~~~~
-
 * Enter your :guilabel:`API URL` and :guilabel:`Authentication Token` you retrieved from FreshBooks.
-    .. figure:: /images/plugins/wgm.freshbooks/freshbooks_authentication.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.freshbooks/freshbooks_authentication.png
+   :figclass: bordered
 
 Scheduler
 ~~~~~~~~~
 
-The Freshbooks plugin will automatically sync clients between Cerb and FreshBooks.  It uses a new scheduler job to accomplish this.
+The Freshbooks plugin will automatically sync clients and invoices between Cerb and FreshBooks.  It uses a new scheduler job to accomplish this.
 
 * Navigate to :menuselection:`setup --> Configure --> Scheduler`.
-    .. figure:: /images/plugins/wgm.freshbooks/freshbooks_scheduler.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.freshbooks/freshbooks_scheduler.png
+   :figclass: bordered
+
 * Select the :guilabel:`Freshbooks Synchronize Cron` job, enable it, and set it to run every 5 minutes.  Then click the :guilabel:`Save Changes` button.
 
-At this point, you can also click the :guilabel:`run now` link for the :guilabel:`Freshbooks Synchronize Cron` to sync clients.  Close the new browser tab when it finishes running.
+At this point, you can also click the :guilabel:`run now` link for the :guilabel:`Freshbooks Synchronize Cron` to perform a synchronization.  You can close the new browser tab when it finishes running.
 
 Using the Freshbooks plugin
 ===========================
 
-The plugin adds a new record type for Freshbooks Clients.
-
-..
-    Related resources
-    =================
-
-    * :doc:`/cookbook/virtual_attendants/send_twitter_mentions_to_freshbooks`
+The plugin adds new record types for Freshbooks Clients and Freshbooks Invoices.

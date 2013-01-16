@@ -65,4 +65,5 @@ Plugins
 .. toctree::
     :maxdepth: 1
 
-    Manage Plugins <plugins/manage>
+    plugins/installed_plugins
+    plugins/plugin_library

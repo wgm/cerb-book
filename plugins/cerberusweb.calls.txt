@@ -1,3 +1,27 @@
-cerberusweb.calls
-=================
+Call Logging
+------------
+:Author: WebGroup Media LLC
+:Repository: https://github.com/cerb-plugins/cerberusweb.calls
 
+The Call Logging plugin allows you to log incoming and outgoing calls.
+
+.. figure:: /images/plugins/cerberusweb.calls/library_calls.png
+   :figclass: bordered
+   
+   The Call Logging plugin in the Plugin Library.
+
+Installing the Call Logging Plugin
+==================================
+For instructions on installing the Call Logging plugin, see the documentation on :ref:`installing-a-plugin`.
+
+Using the Call Logging plugin
+=============================
+This plugin adds a new :guilabel:`Call` item to the :doc:`Search menu</worker_guide/search/index>`.
+
+.. figure:: /images/plugins/cerberusweb.calls/search_calls.png
+   :figclass: bordered
+
+Clicking the :guilabel:`+` button in the toolbar opens the :guilabel:`Log Call` dialog, allowing you to log a new call.
+
+.. figure:: /images/plugins/cerberusweb.calls/log_call.png
+   :figclass: bordered

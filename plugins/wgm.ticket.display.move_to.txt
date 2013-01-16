@@ -1,2 +1,2 @@
-wgm.ticket.display.move_to
-==========================
+Display Ticket 'move to' Shortcut
+=================================

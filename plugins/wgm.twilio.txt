@@ -10,38 +10,29 @@ This plugin provides integration with `Twilio <http://www.twilio.com/>`_ through
 
 It enables you to send SMS messages from within Cerb.
 
-Installing the plugin
-=====================
+Installing the Twilio Plugin
+============================
+For instructions on installing the Twilio plugin, see the documentation on :ref:`installing-a-plugin`.
 
-You can install this plugin from your web browser using Cerb's Plugin Library:
+The Twilio plugin requires an `Account SID` and an `Auth Token` to authenticate with Twilio's API. To obtain your `Account SID` and `Auth Token`, follow the steps below.
 
-* Click on :guilabel:`setup` in the top right of the navigation bar.
-* Hover over :guilabel:`Plugins` in the menu bar.
-* Select :guilabel:`Manage Plugins` from the pulldown menu.
-* Click the :guilabel:`Plugin Library` tab.
-* Click the :guilabel:`Check for updates` button to download the latest plugin information.
-* In the top-right quick search box, select :guilabel:`Name`. Type :kbd:`Twilio` and press :kbd:`<ENTER>`.
-* The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
-* In the popup, click the :guilabel:`Download and install` button again to confirm.
-* Set the :guilabel:`Status:` to **Enabled**.
-    .. figure:: /images/plugins/wgm.twilio/enable_wgm_twilio.png
-       :figclass: bordered
-* Click the :guilabel:`Save Changes` button.
-
-Obtaining your Auth Token
-=========================
-
-The Twilio API requires an `Auth Token` for SMS messages.
+Obtaining Your Twilio Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Login to your Twilio account to obtain your `Auth Token`.  Your `Account SID` and `Auth Token` will be displayed in the center of the page.
-    .. figure:: /images/plugins/wgm.twilio/twilio_account_page.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.twilio/twilio_account_page.png
+   :figclass: bordered
+
 * Click on the lock button to the right of the words :guilabel:`Auth Token` to view your `Auth Token`.
-    .. figure:: /images/plugins/wgm.twilio/twilio_auth_token_button.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.twilio/twilio_auth_token_button.png
+   :figclass: bordered
+
 * Clicking on the button to display your `Auth Token`.
-    .. figure:: /images/plugins/wgm.twilio/twilio_auth_token.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.twilio/twilio_auth_token.png
+   :figclass: bordered
 
 Configuring the Twilio plugin
 =============================
@@ -54,8 +45,10 @@ Connecting to your Twilio Account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Enter your Account SID and Auth Token you retrieved from Twilio's website, along with your phone number.
-    .. figure:: /images/plugins/wgm.twilio/twilio_auth.png
-       :figclass: bordered
+
+.. figure:: /images/plugins/wgm.twilio/twilio_auth.png
+   :figclass: bordered
+
 * Click the :guilabel:`Save Changes` button.
 
 Using the Twilio plugin

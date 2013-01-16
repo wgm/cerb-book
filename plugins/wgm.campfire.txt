@@ -3,45 +3,38 @@ Campfire Integration
 :Author: WebGroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.campfire
 
-This plugin provides integration with `37Signals Campfire <http://www.campfirenow.com/>`_ through their `official API <http://developer.37signals.com/campfire/index>`_.
-    .. figure:: /images/plugins/wgm.campfire/library_wgm_campfire.png
-        :figclass: bordered
+This plugin provides integration with `37Signals Campfire <http://www.campfirenow.com/>`_ through their `official API <http://developer.37signals.com/campfire/index>`_. It enables you to post messages to Campfire from Virtual Attendants.
 
-It enables you to post messages to Campfire from Virtual Attendants.
+.. figure:: /images/plugins/wgm.campfire/library_wgm_campfire.png
+    :figclass: bordered
+    
+    The Campfire plugin in the Plugin Library.
 
-Obtaining your Auth Token
-=========================
-The 37Signals Campfire API requires an `Auth Token` for posting messages to a Campfire chatroom via the API. `Auth Tokens` are unique to each user, and you will likely want to setup a user specifically for Cerb.
+Installing the Campfire Plugin
+==============================
+For instructions on installing the Campfire plugin, see the documentation on :ref:`installing-a-plugin`.
 
+The 37Signals Campfire API requires an `Auth Token` to authenticate with Campfire's API.  `Auth Tokens` are unique to each user, and you will likely want to setup a user specifically for Cerb.  These credentials must be entered when you first enable the plugin for it to work properly.  To obtain your `Auth Token`, follow the steps below.
+
+Obtaining your Campfire Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Login to your Campfire account and click the :guilabel:`My info` link in the upper-right hand corner to obtain your `Auth Token`.
-    .. figure:: /images/plugins/wgm.campfire/campfire_my_info.png
-        :figclass: bordered
+
+.. figure:: /images/plugins/wgm.campfire/campfire_my_info.png
+    :figclass: bordered
+
 * Click the :guilabel:`My info` link to retrieve your `Auth Token`.
-    .. figure:: /images/plugins/wgm.campfire/campfire_auth_token.png
-        :figclass: bordered
 
-Installing the plugin
-=====================
+.. figure:: /images/plugins/wgm.campfire/campfire_auth_token.png
+    :figclass: bordered
 
-You can install this plugin from your web browser using Cerb's Plugin Library:
+* Once you have your `Auth Token`, you can enter it on the :guilabel:`Enable Plugin` dialog.
 
-* Click on :guilabel:`setup` in the top right of the navigation bar.
-* Hover over :guilabel:`Plugins` in the menu bar.
-* Select :guilabel:`Manage Plugins` from the pulldown menu.
-* Click the :guilabel:`Plugin Library` tab.
-* Click the :guilabel:`Check for updates` button to download the latest plugin information.
-* In the top-right quick search box, select :guilabel:`Name`. Type :kbd:`37Signals` and press :kbd:`<ENTER>`.
-* The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
-* In the popup, click the :guilabel:`Download and install` button again to confirm.
-* Set the :guilabel:`Status:` to **Enabled**.
-    .. figure:: /images/plugins/wgm.campfire/enable_wgm_campfire.png
-        :figclass: bordered
-* Enter an :guilabel:`API Auth Token` and :guilabel:`Campfire Subdomain`.
-* Click the :guilabel:`Save Changes` button.
+.. figure:: /images/plugins/wgm.campfire/enable_wgm_campfire.png
+    :figclass: bordered
 
 Using the Campfire plugin
 =========================
-
 The plugin adds a new action to Virtual Attendants.
 
 Related resources

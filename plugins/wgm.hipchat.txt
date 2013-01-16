@@ -1,0 +1,49 @@
+HipChat Integration
+--------------------
+:Author: WebGroup Media LLC
+:Repository: https://github.com/cerb-plugins/wgm.hipchat
+
+This plugin provides integration with `37Signals HipChat <http://www.hipchat.com/>`_ through their `official API <https://www.hipchat.com/docs/api>`_. It enables you to post messages to HipChat from Virtual Attendants.
+
+.. figure:: /images/plugins/wgm.hipchat/library_wgm_hipchat.png
+    :figclass: bordered
+    
+    The HipChat plugin in the Plugin Library.
+
+Installing the HipChat Plugin
+==============================
+For instructions on installing the HipChat plugin, see the documentation on :ref:`installing-a-plugin`.
+
+The HipChat API requires a `Token` to authenticate with HipChat's API.  These credentials must be entered when you first enable the plugin for it to work properly.  To obtain a `Token`, follow the steps below.
+
+Obtaining your HipChat Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Login to your HipChat account and click the :guilabel:`Group admin` link in the upper-left hand corner.
+
+.. figure:: /images/plugins/wgm.hipchat/menu_group_admin.png
+    :figclass: bordered
+
+* Click the :guilabel:`API` link to create a `Token`.
+
+.. figure:: /images/plugins/wgm.hipchat/menu_api.png
+    :figclass: bordered
+
+* Under the :guilabel:`Create new token` section, set the :guilabel:`Type` to `Notification` and the :guilabel:`Label` to `Cerb`.
+* Click the :guilabel:`Create` button.
+
+.. figure:: /images/plugins/wgm.hipchat/hipchat_auth_token_create.png
+    :figclass: bordered
+
+* Once you have your `Token`, you can enter it on the :guilabel:`Enable Plugin` dialog.
+
+.. figure:: /images/plugins/wgm.hipchat/enable_wgm_hipchat.png
+    :figclass: bordered
+
+Using the HipChat plugin
+=========================
+The plugin adds a new action to Virtual Attendants.
+
+Related resources
+=================
+
+.. * :doc:`/cookbook/virtual_attendants/send_twitter_mentions_to_hipchat`

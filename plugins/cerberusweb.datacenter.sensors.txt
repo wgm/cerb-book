@@ -3,34 +3,28 @@ Sensors
 :Author: WebGroup Media LLC
 :Repository: https://github.com/cerb-plugins/cerberusweb.datacenter.sensors
 
-This plugin provides monitoring of external sensors.
-    .. figure:: /images/plugins/cerberusweb.datacenter.sensors/library_wgm_sensors.png
-       :figclass: bordered
+The Sensors plugin add allows you to monitor external services and warn you about downtime.  Nearly anything can be monitored as a server - HTTP, MySQL, Disk Usage, Bandwidth, etc.
 
-It allows you to monitor external services and warn you about downtime.  Nearly anything can be monitored as a server - HTTP, MySQL, Disk Usage, Bandwidth, etc.
+.. figure:: /images/plugins/cerberusweb.datacenter.sensors/library_sensors.png
+   :figclass: bordered
+   
+   The Sensors plugin in the Plugin Library.
 
-Installing the plugin
-=====================
+Installing the Sensors Plugin
+=============================
+For instructions on installing the Sensors plugin, see the documentation on :ref:`installing-a-plugin`.
 
-You can install this plugin from your web browser using Cerb's Plugin Library:
-
-* Click on :guilabel:`setup` in the top right of the navigation bar.
-* Hover over :guilabel:`Plugins` in the menu bar.
-* Select :guilabel:`Manage Plugins` from the pulldown menu.
-* Click the :guilabel:`Plugin Library` tab.
-* Click the :guilabel:`Check for updates` button to download the latest plugin information.
-* In the top-right quick search box, select :guilabel:`Name`. Type :kbd:`Sensors` and press :kbd:`<ENTER>`.
-* The plugin will be displayed in the search results.  Click the :guilabel:`Download and install` button.
-* In the popup, click the :guilabel:`Download and install` button again to confirm.
-* Set the :guilabel:`Status:` to **Enabled**.
-    .. figure:: /images/plugins/cerberusweb.datacenter.sensors/enable_wgm_sensors.png
-       :figclass: bordered
-* Click the :guilabel:`Save Changes` button.
-
-Using the Sensors plugin
+Using the Sensors Plugin
 ========================
+This plugin adds a new :guilabel:`Sensor` item to the :doc:`Search menu</worker_guide/search/index>`.
 
-The plugin adds a new record type for Sensors.
+.. figure:: /images/plugins/cerberusweb.datacenter.sensors/search_sensors.png
+   :figclass: bordered
+
+Clicking the :guilabel:`+` button in the toolbar opens the :guilabel:`Sensor` dialog, allowing you to add a new sensor.
+
+.. figure:: /images/plugins/cerberusweb.datacenter.sensors/add_sensor.png
+   :figclass: bordered
 
 Related resources
 =================
