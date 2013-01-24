@@ -172,7 +172,7 @@ Functions
 
 Functions execute code to generate a value.  The full list of Twig functions can be found at: http://twig.sensiolabs.org/doc/functions/index.html
 
-Example:
+Example::
 
 	{% set timestamp = date('now') %}
 

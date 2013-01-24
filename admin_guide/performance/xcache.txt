@@ -61,15 +61,9 @@ or an ``.htaccess`` file:
 
     php_flag xcache.cacher On
 
-Don't use Alternative PHP Cache (APC)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. warning::
 
-The **Alternative PHP Cache (APC)**  [2]_ is a popular choice for opcode
-caching because it's part of PEAR, which makes installing it really
-simple. However, APC suffers from some major drawbacks. It has limited
-support for recent versions of PHP, and there are many situations where
-it will produce segmentation faults  [3]_, cryptic ``FATAL`` errors on
-*"Line 0"*, or blank white pages in the web browser.
+	The **Alternative PHP Cache (APC)**  [2]_ is a popular choice for opcode caching because it's part of PEAR/PECL, which makes installing it really simple. However, APC suffers from some major drawbacks. It has limited support for recent versions of PHP, and there are many situations where it will produce segmentation faults  [3]_, cryptic **FATAL** errors on *"Line 0"*, or blank white pages in the web browser.
 
 .. rubric:: Footnotes
 

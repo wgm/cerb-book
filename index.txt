@@ -13,9 +13,9 @@ Cerb6 Manual
     concepts/index
     installation/index
     getting_started/index
-    admin_guide/index
-    manager_guide/index
     worker_guide/index
+    manager_guide/index
+    admin_guide/index
     developer_guide/index
     tips/index
     plugins/index

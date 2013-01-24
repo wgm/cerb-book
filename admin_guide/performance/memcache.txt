@@ -1,20 +1,20 @@
 Using Memcached as an object cache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One of the major sources of latency in web applications is often
+Often, one of the major sources of latency in web applications is 
 database interaction. Databases are used to save information between
-sessions (*persistence*), and they provide functionality for sorting,
+sessions (i.e. *persistence*), and they provide functionality for sorting,
 joining, and filtering large collections of information. Databases are a
-natural fit for *dynamic* content -- that which changes frequently as
+natural fit for *dynamic* content -- information that changes frequently as
 people use the application (e.g. profiles, voting, comments).
 
 The use of a database may feel so convenient for novice developers that
 they begin to serve all content that way, including *static* content --
-that which doesn't change while the application is in use (e.g. HTML
+information that doesn't change often while the application is in use (e.g. HTML
 templates, CSS stylesheets, files for download).
 
 In our experience, the worst kind of content to frequently read from a
-database is *immutable* -- that which is written once and then *never*
+database is *immutable* -- information that is written once and then *never*
 changes (e.g. email messages, file attachments, log entries).
 
 There is nothing inherently wrong with storing this information in a
@@ -37,7 +37,7 @@ Memcached advantages:
 -  Shared memory allows multiple processes to share a single cache.
 -  Memcached instances can be shared by multiple readers.
 -  Cache requests can be distributed over multiple instances.
--  Reading from Memcached is often faster than reading from a database;
+-  Reading from Memcached is often significantly faster than reading from a database;
    especially when content has been pre-sorted and pre-filtered, and is
    cached in a serialized object format (e.g. JSON) that can be quickly
    reconstituted by the application. Information read from databases is
@@ -64,7 +64,7 @@ Installing Memcached
 ^^^^^^^^^^^^^^^^^^^^
 
 It's often best to install Memcached from your platform's package
-manager; however, some distributions (such as Debian Etch) will install
+manager; however, some OS distributions will install
 rather old versions. You want version 1.2.2 or later.
 
 You'll use PECL to install **PHP's Memcached extension**
@@ -75,14 +75,14 @@ an older library with fewer features.
 Once Memcached is installed you need to edit your Cerb6
 ``framework.config.php`` file and change the following lines:
 
-::
+.. code-block:: php
 
     //define('DEVBLOCKS_CACHE_PREFIX',''); // ONLY A-Z, a-z, 0-9 and underscore
     //define('DEVBLOCKS_MEMCACHED_SERVERS','127.0.0.1:11211');
 
 To something like:
 
-::
+.. code-block:: php
 
     define('DEVBLOCKS_CACHE_PREFIX','myhelpdesk'); // ONLY A-Z, a-z, 0-9 and underscore
     define('DEVBLOCKS_MEMCACHED_SERVERS','127.0.0.1:11211');
