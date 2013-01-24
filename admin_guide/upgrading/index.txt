@@ -33,9 +33,11 @@ Verify that you're using Git:
 
 You can also verify that a ``.git`` directory exists. If the above command returns an error, or the ``.git`` directory doesn't exist, then you probably installed the software a different way.  You should reinstall Cerb from GitHub [2]_.
 
-Update the list of branches from the remote repository.
+Restore the :file:`/install` directory::
 
-::
+	$ git checkout -- install
+
+Update the list of branches from the remote repository::
 
     $ git fetch origin
 
@@ -43,30 +45,25 @@ Update the list of branches from the remote repository.
 
     If this gives an error, you can check your list of remotes with the ``git remote`` command. Use another remote in place of ``remote``.
 
-Stash your uncommitted local changes (like your :file:`framework.config.php` configuration file).  This leaves you with a clean version of the project files that simplifies merging:
-
-::
+Stash your uncommitted local changes (like your :file:`framework.config.php` configuration file).  This leaves you with a clean version of the project files that simplifies merging (and it's the same reason we restore the install directory before updating)::
 
     $ git stash
 
-
-Switch to the ``stable`` branch if it's not your current branch:
-
-::
+Switch to the ``stable`` branch if it's not your current branch::
 
     $ git checkout stable
     
-Update the latest stable version:
-
-::
+Update to the latest stable version::
 
     $ git pull origin stable
     
-Unstash your local changes:
-
-::
+Reapply your local file changes::
 
     $ git stash pop
+
+Remove the :file:`/install` directory::
+
+    $ rm -Rf install
 
 
 Dealing with conflicts
@@ -136,9 +133,9 @@ How to tell if you need to update your Community Tool file:
 - Click the *Configure* menu and select *Community Portals*.
 - Select any portal to edit it.
 - Click the *Installation* tab.
-- Compare the following line from the ``index.php`` output with your deployed ``index.php``:
+- Compare the following line from the ``index.php`` output with your deployed ``index.php``::
 
-   ``define('SCRIPT_LAST_MODIFY', 2012101301); // last change``
+   define('SCRIPT_LAST_MODIFY', 2012101301); // last change
 
 - If the number is different you should replace the :file:`index.php` file for your community portal with the new version from Cerb.
 
@@ -149,7 +146,7 @@ How to tell if you need to update your Community Tool file:
 Install directory
 ~~~~~~~~~~~~~~~~~
 
-If there were changes in the :file:`install/` directory then it will be partially restored.  Delete the directory if it exists:
+Delete the :file:`install/` directory if it exists:
 
 ::
 
