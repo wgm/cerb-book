@@ -131,6 +131,55 @@ You can customize the settings for your own environment:
 
 - When importing a SQL file you generally want to avoid sending its entire contents to the binary log.  You can do this with the ``SET SQL_LOG_BIN=0;`` command.  This will remain in effect for the same connection until you issue ``SET SQL_LOG_BIN=1;``.  We add this command to the top of all our ``.sql`` backup files.
 
+Backing up MySQL's binary logs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You should make frequent backups of MySQL's binary logs when they are enabled.
+
+Change to the directory where the log files are stored::
+
+	cd ~backups/mysql-binlogs/
+	
+.. note::
+
+	Your location may be different than the above example.  If you're unsure, consult your :file:`my.cnf` MySQL configuration file.  You'll know you're in the right place when you see a :file:`mysql-bin.index` file.
+	
+Now we want to flush the binary logs so a new log file is opened::
+
+	mysqladmin -u backups -p`cat ~backups/.db.shadow` flush-logs
+
+After a FLUSH, we can now archive and remove the older log files.  We recommend using :program:`lzop` for archival due to its nice balance of performance and compression, but there's nothing wrong with using other tools like :program:`zip`, :program:`gzip`, :program:`bzip`, etc.
+
+The following command will archive all binary log files *except* the currently active one::
+
+	lzop `head -n -1 mysql-bin.index | xargs`
+	
+You can then copy or move these compressed log files to a new location.  For example, the Cerb On-Demand service frequently sends log archives to Amazon S3.
+
+If you're using :program:`s3cmd`, the command to copy the files to S3 might look like::
+
+	s3cmd put *.lzo s3://your-bucket/mysql-binlogs/`hostname -s`/
+	
+.. note::
+
+	In the above example, you need to replace *your-bucket* with a valid S3 bucket name.  The ```hostname -s``` command will make a directory in that bucket for each short hostname.  For example, a server with the fully qualified hostname of ``atlas.webgroupmedia.com`` will make a directory called ``atlas``.  This is useful if you have multiple servers sending binary log archives to the same bucket.
+	
+Once you've copied the binary logs to a different location, you may optionally delete them.  This is important if you have limited disk space, because a busy server can easily generate several gigabytes of log files per day::
+
+	rm *.lzo
+	
+Finally, you should instruct MySQL to purge the old log files.  This is important because you don't want to waste server resources by constantly archiving and copying an increasingly long list of files.  You only want to deal with new files since your last backup::
+
+	mysql -u backups -p`cat ~backups/.db.shadow` -e "PURGE MASTER LOGS TO '`basename \`tail -n 1 mysql-bin.index\``'"
+	
+.. note::
+
+	The above command will remove all binary log files *except* the currently active one.
+	
+.. warning::
+
+	MySQL keeps track of the logs with the :file:`mysql-bin.index` file.  It is very important that you **never** delete MySQL's binary log files yourself in the filesystem.  Always use the ``PURGE MASTER LOGS`` command.
+
 Backing up the storage filesystem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
