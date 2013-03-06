@@ -240,7 +240,7 @@ Now we're ready to install :program:`Nginx` to serve web requests:
 
 ::
 
-    apt-get install nginx
+    apt-get install nginx-extras
 
 Disable the default site:
 
