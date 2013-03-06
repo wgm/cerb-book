@@ -24,6 +24,47 @@ Downloads an Attachment object.
 
     <?php
     $out = $cerb->get($base_url . 'attachments/1/download.xml');
+
+Upload
+======
+**POST /attachments/upload.xml**
+
+Uploads an Attachment object.
+
+.. versionadded:: 6.3
+
+==============      =======
+Field               Type
+==============      =======
+``file_name``       string
+``mime_type``       string
+``encoding``        string
+``content``         string
+==============      =======
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('file_name','test.txt'),
+		array('mime_type','text/plain'),
+		array('encoding','text'), // text, base64
+		array('content','These are the file contents'),
+	);
+	$out = $cerb6->post($base_url . 'attachments/upload.xml', $postfields);
+
+Using base64 encoding for binary files:
+
+.. code-block:: php
+
+    <?php
+	$postfields = array(
+		array('file_name','image.png'),
+		array('mime_type','image/png'),
+		array('encoding','base64'), // text, base64
+		array('content',base64_encode(file_get_contents('/path/to/image.png'))),
+	);
+	$out = $cerb6->post($base_url . 'attachments/upload.xml', $postfields);
 	
 Search
 ======
