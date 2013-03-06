@@ -11,6 +11,47 @@ Retrieve
     <?php
     $out = $cerb->get($base_url . 'tickets/1.xml');
 
+Compose
+=======
+**POST /tickets/compose.xml**
+
+.. versionadded:: 6.3
+
+==============      =======
+Field               Type
+==============      =======
+``group_id``        integer
+``bucket_id``      	integer
+``org_id``      	integer
+``to``         		string
+``cc``         		string
+``bcc``        		string
+``subject``    		string
+``content``    		string
+``file_id[]``  		integer
+``custom_*``        mixed
+==============      =======
+
+.. code-block:: php
+	
+	<?php
+	$postfields = array(
+	 	array('expand','bucket_,group_,custom_'),
+		array('group_id','6'),
+		array('bucket_id','6'),
+		array('org_id','123'), // optional
+		array('to','customer@example.com'),
+		array('cc','cc@example.com'), // optional
+		array('bcc','bcc@example.com'), // optional
+		array('subject','Testing compose from API'),
+		array('content','This is the raw message with an attachment'),
+		array('file_id[]', '368'), // optional, can send multiple instances
+		array('custom_5','+1 hour'), // date custom field
+		array('custom_6',"Line 1\nLine 2\nLine 3"), // multi-line
+		array('custom_4','Option 3'), // picklist
+	);
+	$out = $cerb6->post($base_url . 'tickets/compose.xml', $postfields);
+
 Update
 ======
 **PUT /tickets/<id>.xml**
