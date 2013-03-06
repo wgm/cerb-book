@@ -17,9 +17,9 @@ Compose
 
 .. versionadded:: 6.3
 
-==============      =======
+==============      =========
 Field               Type
-==============      =======
+==============      =========
 ``group_id``        integer
 ``bucket_id``      	integer
 ``org_id``      	integer
@@ -29,8 +29,10 @@ Field               Type
 ``subject``    		string
 ``content``    		string
 ``file_id[]``  		integer
+``status``  		integer
+``reopen_at``  		timestamp
 ``custom_*``        mixed
-==============      =======
+==============      =========
 
 .. code-block:: php
 	
@@ -45,6 +47,8 @@ Field               Type
 		array('bcc','bcc@example.com'), // optional
 		array('subject','Testing compose from API'),
 		array('content','This is the raw message with an attachment'),
+		array('status','1'), // 0=open, 1=closed, 2=waiting
+		array('reopen_at','strtotime('+1 day')),
 		array('file_id[]', '368'), // optional, can send multiple instances
 		array('custom_5','+1 hour'), // date custom field
 		array('custom_6',"Line 1\nLine 2\nLine 3"), // multi-line
