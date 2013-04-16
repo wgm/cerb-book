@@ -13,7 +13,8 @@ Field                              Type
 =============================      =================
 ``context``                        string
 ``context_id``                     integer
-``address`` or ``address_id``      string or integer
+``owner_context``                  string
+``owner_context_id``               integer
 ``comment``                        string
 ``created``                        timestamp
 =============================      =================
@@ -22,9 +23,11 @@ Field                              Type
 
     <?php
     $postfields = array(
+		array('expand', 'author_label,author_type,record_label,record_type'),
         array('context', 'cerberusweb.contexts.ticket'),
         array('context_id', 1),
-        array('address', 'comment@cerberusdemo.com'),
+        array('owner_context', 'cerberusweb.contexts.address'),
+        array('owner_context_id', 123),
         array('comment', 'This is a comment'),
     );
     $out = $cerb->post($base_url . 'comments/create.xml', $postfields);
@@ -38,7 +41,7 @@ Retrieves information about a Comment.
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'comments/1.xml');
+    $out = $cerb->get($base_url . 'comments/1.xml?expand=author_label,author_type,record_label,record_type');
 	
 Search
 ======
@@ -52,7 +55,8 @@ Field                              Type
 ``id``                             integer
 ``context``                        string
 ``context_id``                     integer
-``address`` or ``address_id``      string or integer
+``owner_context``                  string
+``owner_context_id``               integer
 ``comment``                        string
 ``created``                        timestamp
 =============================      =================
@@ -61,6 +65,7 @@ Field                              Type
 
     <?php
     $postfields = array(
+		 array('expand', 'author_label,author_type,record_label,record_type'),
          array('criteria[]','context'),
          array('oper[]','='),
          array('value[]','cerberusweb.contexts.ticket'),
