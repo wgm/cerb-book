@@ -1,0 +1,108 @@
+Workspaces
+----------
+The workspaces API retrieves page, tab, widget, and worklist data.
+
+:Versions: Cerb 6.4 or later
+
+List Pages
+==========
+**GET /workspaces/list.json**
+
+Retrieves the workspace pages accessible by the current worker.  This includes pages owned by the worker, their groups, or roles.
+
+Options:
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``owner``
+		Retrieve full owner information.
+
+	``tabs``
+		Retrieve tabs for each page.
+		
+	``widgets``
+		Retrieve widgets for each tab.  This automatically includes ``tabs``.
+		
+	``worklists``
+		Retrieve worklists for each tab.  This automatically includes ``tabs``.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'workspaces/list.json?expand=owner,widgets');
+
+Retrieve Page
+=============
+**GET /workspaces/pages/123.json**
+
+Retrieves a specific workspace page.
+
+Options:
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``owner``
+		Retrieve full owner information.
+
+	``tabs``
+		Retrieve tabs for each page.
+		
+	``widgets``
+		Retrieve widgets for each tab.  This automatically includes ``tabs``.
+		
+	``worklists``
+		Retrieve worklists for each tab.  This automatically includes ``tabs``.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'workspaces/pages/123.json?expand=worklists,widgets');
+
+Retrieve Tab
+============
+**GET /workspaces/tabs/123.json**
+
+Retrieves a specific workspace tab.
+
+Options:
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``widgets``
+		Retrieve all widgets on this tab.
+
+	``widgets_data``
+		Retrieve all widgets on this tab including their current data.  This is useful for external monitoring and reporting.  This automatically includes ``widgets``.
+		
+	``worklists``
+		Retrieve all worklists on this tab.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'workspaces/tabs/123.json?expand=widgets_data');
+
+Retrieve Widget
+===============
+**GET /workspaces/widgets/123.json**
+
+Retrieves a specific workspace widget.  This automatically includes the widget's current data.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'workspaces/widgets/123.json');
+
+Retrieve Worklist
+=================
+**GET /workspaces/worklists/123.json**
+
+Retrieves a specific workspace worklist.  This automatically includes the worklist's current results, which may be paged like a search.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'workspaces/worklists/123.json');
