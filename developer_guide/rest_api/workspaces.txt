@@ -102,7 +102,18 @@ Retrieve Worklist
 
 Retrieves a specific workspace worklist.  This automatically includes the worklist's current results, which may be paged like a search.
 
+Options:
+
+* **expand**
+	A comma-separated list of additional keys to retrieve.  Available options generally have a ``__context`` suffix in the results.  For example ``?expand=group`` would retrieve all the ``group_*`` keys on a ticket worklist by expanding the ``group__context`` key.
+
+* **page**
+	The page of results to retrieve, starting with 1.
+	
+* **limit**
+	The number of results per page.  Accepts values from 1 to 100.
+
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'workspaces/worklists/123.json');
+    $out = $cerb->get($base_url . 'workspaces/worklists/123.json?page=1&limit=5');
