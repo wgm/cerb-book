@@ -1,0 +1,95 @@
+Calendars
+---------
+The calendars API allows you to retrieve and search Calendar objects.
+
+List
+====
+**GET /calendars/list.json**
+
+Retrieves the calendars accessible by the current worker.  This includes calendars owned by the worker, their groups, or roles.
+
+Options:
+
+* **month**
+    The calendar month to display.
+
+* **year**
+    The calendar year to display.
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``owner``
+		Retrieve full owner information.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'calendars/list.json?expand=owner');
+
+Retrieve
+========
+**GET /calendars/<id>.xml**
+
+Retrieves information about a calendar.
+
+Options:
+
+* **month**
+    The calendar month to display.
+
+* **year**
+    The calendar year to display.
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``owner``
+		Retrieve detailed information about this calendar's owner.
+
+	``weeks``
+		Retrieve a padded list of weeks and days to easily render this calendar.
+        
+	``weeks_events``
+		Retrieves event information for each day on this calendar.  This automatically includes ``weeks`` and adds an ``events`` list to each day.
+
+	``events``
+		Retrieve event information for this calendar.  Unlike ``weeks_events``, this just returns a flat list of events sorted by their start date in ascending order.
+
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'calendar/1.xml?month=12&year=2013&expand=weeks_events');
+	
+Search
+======
+**POST /calendars/search.xml**
+
+Performs a search across Calendar objects.
+
+================      =======
+Field                 Type
+================      =======
+``name``              string
+``updated``           timestamp
+================      =======
+
+.. code-block:: php
+	
+    <?php
+    $postfields = array(
+        array('criteria[]','assignee_id'),
+        array('oper[]','!='),
+        array('value[]','8'),
+        array('criteria[]','title'),
+        array('oper[]','like'),
+        array('value[]','t*'),
+        array('criteria[]','watchers'),
+        array('oper[]','in'),
+        array('value[]','[1,2,3]'),
+        array('sortBy','id'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb->post($base_url . 'calendars/search.xml', $postfields);

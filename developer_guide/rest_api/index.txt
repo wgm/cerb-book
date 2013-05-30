@@ -19,6 +19,7 @@ Contexts
 
     addresses
     attachments
+    calendars
     calls
     comments
     contacts
