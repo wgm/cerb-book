@@ -1,0 +1,116 @@
+Quarantining spam in a group bucket with Virtual Attendants
+-----------------------------------------------------------
+
+:Version: Cerb 6.4.1 or later
+
+This cookbook recipe will explain how to quarantine spam tickets using a Virtual Attendant.  You'll need to be an administrator or a group manager.
+
+.. figure:: /images/cookbook/anti_spam/va_antispam_behavior_tree.png
+    :figclass: bordered
+
+Setting up the Virtual Attendant
+================================
+
+#. Click on :guilabel:`groups` in the top right of the navigation bar.
+#. Click on any group - we'll use `Dispatch` for this example.
+#. Click on the :guilabel:`Virtual Attendant` tab.
+#. Click the :guilabel:`Create Behavior` button.
+#. Click the :guilabel:`Import` tab.
+#. Paste the following behavior into the text box::
+
+    {
+      "behavior":{
+        "title":"Quarantine spam",
+        "event":{
+          "key":"event.mail.received.group",
+          "label":"New message on a group conversation"
+        },
+        "nodes":[
+          {
+            "type":"switch",
+            "title":"Is this a new ticket?",
+            "nodes":[
+              {
+                "type":"outcome",
+                "title":"Yes",
+                "params":{
+                  "groups":[
+                    {
+                      "any":0,
+                      "conditions":[
+                        {
+                          "condition":"is_first",
+                          "bool":"1"
+                        },
+                        {
+                          "condition":"is_outgoing",
+                          "bool":"0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "nodes":[
+                  {
+                    "type":"switch",
+                    "title":"Is it most likely spam? (>= 85% probability)",
+                    "nodes":[
+                      {
+                        "type":"outcome",
+                        "title":"Yes",
+                        "params":{
+                          "groups":[
+                            {
+                              "any":0,
+                              "conditions":[
+                                {
+                                  "condition":"ticket_spam_score",
+                                  "oper":"gt",
+                                  "value":"84"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "nodes":[
+                          {
+                            "type":"action",
+                            "title":"Move to spam bucket",
+                            "params":{
+                              "actions":[
+                            
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+
+#. Click the :guilabel:`Continue` button.
+#. Click the :guilabel:`Move to spam bucket` action at the bottom of the decision tree in the new behavior:
+
+    .. figure:: /images/cookbook/anti_spam/va_antispam_behavior_action_moveto.png
+        :figclass: bordered
+
+#. Click the :guilabel:`Add Action` button.
+#. Select :guilabel:`Move to` from the menu.
+#. Choose the group and bucket where you would like probable spam to be quarantined.  If you haven't created a bucket yet, you can close the popup to cancel.  Add a new bucket and then start from step 7 again.
+
+    .. figure:: /images/cookbook/anti_spam/va_antispam_behavior_action_moveto2.png
+        :figclass: bordered
+        
+#. Click the :guilabel:`Save & Close` button.
+
+.. ::
+
+    Simulating the Virtual Attendant behavior
+    =========================================
+
