@@ -1,0 +1,99 @@
+Automatically selecting custom fields during a reply
+----------------------------------------------------
+
+:Version: Cerb 6.4 or later
+
+This cookbook recipe will explain how to automatically select custom fields to set during a reply by using a Virtual Attendant.
+
+.. figure:: /images/cookbook/reply_auto_cfields/reply_auto_cfields_behavior.png
+    :figclass: bordered
+
+Setting up the Virtual Attendant
+================================
+
+Where you should create the Virtual Attendant behavior depends on the number of workers you want to have affected by it.  An administrator can set up the behavior to affect all workers, or each worker can set up their own VA behavior from their profiles to affect only themselves.
+
+For this example we'll assume that a worker wants to affect only their own default custom fields when replying to tickets.
+
+#. Click on your name in the top right of the navigation bar to open the worker menu.
+#. Select :guilabel:`Virtual Attendant` from the menu.
+
+    .. figure:: /images/_common/nav_worker_menu.png
+        :figclass: bordered
+
+#. Click the :guilabel:`Create Behavior` button.
+#. Click the :guilabel:`Import` tab.
+#. Paste the following behavior into the text box::
+
+    {
+      "behavior":{
+        "title":"Auto-enable custom fields on reply",
+        "event":{
+          "key":"event.mail.reply.pre.ui.worker",
+          "label":"[UI] When starting a reply to a message"
+        },
+        "nodes":[
+          {
+            "type":"action",
+            "title":"Execute jQuery script",
+            "params":{
+              "actions":[
+                {
+                  "action":"exec_jquery",
+                  "jquery_script":"var $reply = $(this);\r\nvar $form = {\r\n\tfields: $reply.find('form:nth(0)'),\r\n\tactions: $reply.find('form:nth(1)')\r\n};\r\n\r\nvar $fieldset_cfields = $form.actions.find('div.reply-custom-fields');\r\nvar $cfield_checkboxes = $fieldset_cfields.find('input:checkbox[name=\"field_ids[]\"]');\r\n\r\n\/\/ Tick checkboxes by field ID\r\n$cfield_checkboxes.filter('[value=12345]:unchecked').click();\r\n\r\n"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+
+#. Click the :guilabel:`Continue` button.
+#. Click the :guilabel:`Execute jQuery script` action at the bottom of the decision tree in the new behavior.
+#. You'll need to replace the default ``value=12345`` text on the last line of the script with the ID of the custom fields you want to enable by default.
+
+    .. figure:: /images/cookbook/reply_auto_cfields/reply_auto_cfields_action.png
+        :figclass: bordered
+
+#. The easiest way to locate the internal IDs of custom fields is to use a browser like Chrome and right-click on the checkbox at the bottom of Cerb's reply form for the custom field you want to automatically enable.
+
+    .. figure:: /images/cookbook/reply_auto_cfields/reply_auto_cfields_devtools_menu.png
+        :figclass: bordered
+
+    .. figure:: /images/cookbook/reply_auto_cfields/reply_auto_cfields_devtools.png
+        :figclass: bordered
+
+#. To automatically enable multiple custom fields when starting a reply, copy the last line and use a different ``value=...`` ID.
+        
+#. Click the :guilabel:`Save & Close` button.
+
+Now when you begin a new reply, the checkboxes for your desired custom fields will be automatically selected.
+
+Conditionally selecting custom fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You may want to enable custom fields only when certain conditions are met.  For instance, only for tickets in the Support group.  To do this, add decisions and outcomes to the Virtual Attendant behavior.  Drag the :guilabel:`Execute jQuery script` action and drop it on the desired outcome.
+
+Enabling all custom fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can modify the action to select **all** custom fields by replacing it with the following script::
+
+    var $reply = $(this);
+    var $form = {
+    	fields: $reply.find('form:nth(0)'),
+    	actions: $reply.find('form:nth(1)')
+    };
+
+    var $fieldset_cfields = $form.actions.find('div.reply-custom-fields');
+    var $cfield_checkboxes = $fieldset_cfields.find('input:checkbox[name="field_ids[]"]');
+
+    $cfield_checkboxes.click();
+
+
+.. ::
+
+    Simulating the Virtual Attendant behavior
+    =========================================
+

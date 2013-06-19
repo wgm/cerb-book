@@ -5,6 +5,7 @@ Virtual Attendants
     :maxdepth: 1
     
     anti_spam
+    reply_auto_enable_custom_fields
     assign_ticket_workload
     send_sms_on_sensor_warning
     send_twitter_mentions_to_campfire
