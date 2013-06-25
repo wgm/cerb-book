@@ -1,0 +1,59 @@
+Opening worklist record links in a new window
+---------------------------------------------
+
+:Version: Cerb 6.4 or later
+
+This cookbook recipe demonstrates how to open worklist links in a new browser window.
+
+.. figure:: /images/cookbook/va_worklist_links_target/va_worklist_links_target_tree.png
+    :figclass: bordered
+
+Setting up the Virtual Attendant
+================================
+
+You can set up this behavior per-worker or globally.  You would use a global behavior if you want to force worklist links to open a new browser window for every worker.  A per-worker behavior gives each person the option of using the behavior or not.
+
+For demonstration purposes, we'll apply this behavior to the current worker only.  To apply it globally instead, simply import the behavior below from :guilabel:`Setup -> Configure -> Virtual Attendants -> Application` instead.
+
+#. Click on your name in the top right of Cerb.
+#. Select :guilabel:`Virtual Attendant` from the menu.
+
+    .. figure:: /images/_common/nav_worker_menu.png
+        :figclass: bordered
+
+#. Click the :guilabel:`Create Behavior` button.
+#. Click the :guilabel:`Import` tab.
+#. Paste the following behavior into the text box::
+
+    {
+      "behavior":{
+        "title":"Open worklist links in a new window",
+        "event":{
+          "key":"event.ui.worklist.render.worker",
+          "label":"[UI] While displaying a worklist"
+        },
+        "nodes":[
+          {
+            "type":"action",
+            "title":"Execute jQuery script",
+            "params":{
+              "actions":[
+                {
+                  "action":"exec_jquery",
+                  "jquery_script":"var view_id = '{{view_id}}';\r\nvar $view = $('#view' + view_id);\r\nvar $worklist = $view.find('TABLE.worklist');\r\nvar $worklist_rows = $view.find('TABLE.worklistBody');\r\nvar $worklist_actions = $('#' + view_id + '_actions');\r\n\r\n$worklist_rows.find('a.subject').attr('target','_blank');"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+
+#. Click the :guilabel:`Continue` button.
+#. Navigate to a worklist and click on one of the record links.
+
+.. ::
+
+    Simulating the Virtual Attendant behavior
+    =========================================
+
