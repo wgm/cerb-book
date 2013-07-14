@@ -14,14 +14,14 @@ Cerb provides:
 * Dashboards for reporting, monitoring, goal setting, and operational intelligence
 * Contact information management for remembering anything about anyone
 * Targeted broadcasting of personalized messages to thousands of contacts at once
-* Notifications for keeping up to date about new activity
+* Notifications for keeping workers up to date about new activity
 * Task management for delegating responsibilities
 * Knowledge management for sharing accumulated experience
 * :doc:`Devblocks </developer_guide/devblocks/index>`, a plugin-driven web development framework, for rapidly implementing new functionality
 * A library of third-party plugins for integrating with other applications and services (e.g. Facebook, Twitter, Twilio, Freshbooks, Amazon S3, Campfire, etc)
 * ... Time tracking, call logging, opportunity management, and much more
 
-Cerb is the result of over 10 years of continuous research and development by :term:`Webgroup Media <Webgroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on feedback from a community that has included more than 18,979 organizations.
+Cerb is the result of over 11 years of continuous research and development by :term:`Webgroup Media <Webgroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on feedback from a community that has included more than 18,979 organizations.
 
 Licenses are sold based on the number of simultaneous workers (i.e. :term:`seats <seat>`).  Community licenses provide up to three seats at no cost.  The software can be deployed on your own servers, or it can be subscribed to as an "on-demand" service that requires only a web browser.
 

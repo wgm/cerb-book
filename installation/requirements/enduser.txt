@@ -1,7 +1,7 @@
 End-user Requirements
 ---------------------
 
-End-users only require a modern web browser and a network connection to use :program:`Cerb`.
+End-users only require a modern web browser and a network connection to use Cerb.
 
 Required
 ========
