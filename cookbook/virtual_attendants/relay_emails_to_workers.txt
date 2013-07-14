@@ -25,10 +25,13 @@ Setting up the Virtual Attendant
     :figclass: bordered
 
 * Check the boxes for both `Owner` and `Watchers` for :guilabel:`Relay to`. 
-* Enter :kbd:`[{{ticket_mask}}] {{ticket_subject}}` as the :guilabel:`Subject` field.
-* Enter the following for the :guilabel:`Content` field:
+* Enter the following in the :guilabel:`Subject` field::
 
-.. code-block:: none
+    [#{{ticket_mask}}] {{ticket_subject}}
+
+.. ::
+
+    * Enter the following for the :guilabel:`Content` field:
 
     {% set hash_sig = ticket_created ~ '.' ~ ticket_mask %}
     {% set hash_sig_md5 = hash_sig|md5 %}
