@@ -5,3 +5,5 @@ Installation
     :maxdepth: 1
 
     ubuntu_nginx_phpfpm
+    windows_server_2008_iis7_php
+    windows_server_2012_iis8_php

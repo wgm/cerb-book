@@ -1,0 +1,361 @@
+Installing in Windows Server 2008 with IIS 7 and PHP
+====================================================
+
+Introduction
+------------
+
+This article provides step-by-step instructions for installing Cerb on a Windows Server 2008 server with IIS 7 and PHP.  It is assumed that you have Administrator access to the server.
+
+Provisioning the server
+-----------------------
+
+If you already have a Windows server running then you can skip this section.
+
+You can follow these instructions to provision a Windows Server 2008 instance on Amazon EC2:
+
+#. Log in to your Amazon Web Services account at https://console.aws.amazon.com/console/home
+
+#. Select :guilabel:`EC2` from the :guilabel:`Services` menu.
+
+#. Click the blue :guilabel:`Launch Instance` button.
+
+#. Select the :guilabel:`Quick Launch Wizard`
+
+    * Name Your Instance: Cerb
+    * Choose a Key Pair: (select your desired credentials)
+    * Choose a Launch Configuration: Microsoft Windows Server 2008 R2 Base 64-bit
+
+#. Click the :guilabel:`Continue` button.
+
+#. Click the :guilabel:`Edit details` button.
+
+#. In the :guilabel:`Instance Details` section:
+
+    * Type: (select the appropriate `instance type <http://aws.amazon.com/ec2/instance-types/>`_ for your needs)
+
+#. In the :guilabel:`Security Settings` section, pick an existing security group, or create one that permits connections to ports 80 (HTTP), 443 (HTTPS), and 3389 (RDP).
+
+#. In the :guilabel:`Storage Device Configuration` section, modify the root volume to have more than the 30GB default space.  An exact number will depend on your storage requirements.  If you're unsure, it's possible to resize an EBS volume later.  Start with something like 50GB and see how it goes.
+
+#. Click the :guilabel:`Save details` button.
+
+#. Click the :guilabel:`Launch` button.
+
+    .. figure:: /images/cookbook/installation/windows2008/ec2_windows2008_launch.png
+        :figclass: bordered
+
+#. Click the :guilabel:`View your instances on the Instances page` link.
+
+Once your new instance shows :guilabel:`State` *running*:
+
+#. Select your new Windows Server instance in the list.
+
+#. Click the :guilabel:`Actions` button at the top of the page and select :guilabel:`Get Windows Admin Password`.
+
+    .. figure:: /images/cookbook/installation/windows2008/ec2_windows2008_getpw.png
+        :figclass: bordered
+
+It can take several minutes for login information to be available.  Once it's ready:
+
+#. Paste your private key or select the file from your hard drive.
+
+#. Click the :guilabel:`Decrypt Password` button.
+
+#. Copy the decrypted password to your clipboard.
+
+#. Click the :guilabel:`Close` button.
+
+Now you're ready to log into your new Windows Server instance:
+
+#. Select your new instance in the list.
+
+#. Scroll down and copy the :guilabel:`Public DNS` hostname of your new instance.
+
+#. Open :program:`Remote Desktop Connection` and enter the hostname in the :guilabel:`Computer` field.  Click the :guilabel:`Connect` button.
+
+#. When prompted for your credentials:
+
+    * User: Administrator
+    * Password: (paste what you copied above)
+    
+#. Click the :guilabel:`OK` button.
+
+Installing tools
+----------------
+
+There are several tools that will make the process of installing and managing Cerb easier.
+
+Install Google Chrome
+~~~~~~~~~~~~~~~~~~~~~
+
+Using Google Chrome as your browser is optional, but it will provide the best experience while using Cerb.  Internet Explorer is supported but not recommended.
+
+#. Click the :guilabel:`Start` button and open :program:`Internet Explorer`.
+
+#. Navigate to http://google.com/chrome
+
+#. Click the :guilabel:`Download Chrome` button.
+
+Install Git
+~~~~~~~~~~~
+
+:program:`Git` is the most efficient way to keep your copy of Cerb up to date with the latest version.  We highly recommend using Git instead of downloading a ZIP file.
+
+#. Open your web browser to http://git-scm.com/download/win
+
+#. Once the file has downloaded, run the installer.  You can accept the defaults for each step.
+
+Install Notepad++
+~~~~~~~~~~~~~~~~~
+
+If you already have a preferred text editor then you can skip this step.  Otherwise, Notepad++ provides many useful features compared to the default Notepad editor.
+
+#. Open your web browser to http://notepad-plus-plus.org
+
+#. Click the :guilabel:`Download` link on the left.
+
+#. Click the green :guilabel:`Download` link in the middle of the page on the right.
+
+#. Once downloaded, run the installer.
+
+Install IIS7
+------------
+
+If IIS is already installed, you can skip to the next section.  However, you should verify that the :guilabel:`HTTP Redirection` feature is enabled.
+
+Now we're ready to configure Internet Information Services:
+
+#. Open the :program:`Server Manager` from the icon in the taskbar.
+
+    .. figure:: /images/cookbook/installation/windows2008/ec2_windows2008_servermanager.png
+        :figclass: bordered
+
+#. Click :guilabel:`Roles` in the tree on the left.
+
+#. Click :guilabel:`Add Roles` on the right.
+
+#. Click :guilabel:`Next`.
+
+#. Check :guilabel:`Web Server (IIS)` and then click :guilabel:`Next`.
+
+#. Click :guilabel:`Next` again.
+
+#. Under :guilabel:`Common HTTP Features`:
+    * Check :guilabel:`HTTP Redirection`
+
+#. Click :guilabel:`Next`.
+
+#. Click :guilabel:`Install`.
+
+#. Once completed, click :guilabel:`Close`.
+
+Install Microsoft Web Platform Installer
+----------------------------------------
+
+If Microsoft Web Platform Installer (WPI) is already installed, open it and skip to the next section.
+
+#. Open your web browser to http://www.microsoft.com/web/downloads/platform.aspx
+
+#. Click the green :guilabel:`Free Download` button.
+
+#. Once downloaded, run the installer.
+
+Install PHP using WPI
+---------------------
+
+#. Open Microsoft Web Platform Installer
+
+#. Click :guilabel:`Products` at the top.
+
+#. Click :guilabel:`Frameworks` on the left.
+
+#. Select the latest version of PHP 5.3.x (at the time these instructions were written it was 5.3.24).
+
+#. Click the :guilabel:`Add` button.
+
+#. Click the :guilabel:`Install` button.
+
+#. Click :guilabel:`I Accept`.
+
+#. When installation is complete, click the :guilabel:`Finish` button.
+
+Install MySQL using WPI
+-----------------------
+
+#. Open Microsoft Web Platform Installer
+
+#. Click :guilabel:`Products` at the top.
+
+#. Click :guilabel:`Database` on the left.
+
+#. Select the latest version of MySQL 5.x (at the time these instructions were written it was 5.1).
+
+#. Click the :guilabel:`Add` button.
+
+#. Click the :guilabel:`Install` button.
+
+#. Choose an administrator password for MySQL and click :guilabel:`Continue`.
+
+#. Click :guilabel:`I Accept`.
+
+#. When installation is complete, click the :guilabel:`Finish` button.
+
+#. Click the :guilabel:`Exit` button.
+
+Installing Mailparse
+--------------------
+
+Cerb requires a PHP extension called *mailparse*.  This is not included in PHP by default.
+
+#. Open your web browser to http://windows.php.net/downloads/pecl/releases/mailparse/2.1.6/
+
+#. Download the appropriate file for your PHP version.  With PHP 5.3, you want: http://windows.php.net/downloads/pecl/releases/mailparse/2.1.6/php_mailparse-2.1.6-5.3-nts-vc9-x86.zip
+
+#. When the ZIP file has downloaded, extract the :file:`php_mailparse.dll` file to :file:`C:\\Program Files (x86)\\PHP\\v5.3\\ext`
+
+#. Open the :file:`C:\\Program Files (x86)\\PHP\\v5.3\\php.ini` file.
+
+#. Near the bottom of the file, add the following line to the end of the :guilabel:`[ExtensionList]` section::
+
+    extension=php_mailparse.dll
+
+Download Cerb using Git
+-----------------------
+
+#. Click the :guilabel:`Start` button and run :program:`Git Bash` from the Git folder.
+
+#. Change directory to IIS's web path::
+
+    cd /c/inetpub/wwwroot
+
+#. Clone Cerb's repository::
+
+    git clone http://github.com/wgm/cerb6.git cerb
+    
+#. Enter the :file:`cerb` directory::
+
+    cd cerb
+
+Set permissions
+---------------
+
+Cerb needs read access to all of its file, and read/write access to the contents of the :file:`storage` directory.
+
+#. Open Explorer and navigate to :file:`C:\\inetpub\\wwwroot\\cerb`
+
+#. Right-click on the :file:`storage` directory and select :guilabel:`Properties` from the menu.
+
+#. Click the :guilabel:`Security` tab.
+
+#. Click the :guilabel:`Advanced` button at the bottom of the popup.
+
+#. Click the :guilabel:`Owner` tab.
+
+#. Click the :guilabel:`Edit` button.
+
+#. Click the :guilabel:`Other users or groups...` button.
+
+#. Click :guilabel:`Advanced`, click :guilabel:`Find now`, and select the IIS user.  It's usually named something like :guilabel:`IUSR`.  Click :guilabel:`OK`.
+
+#. Make sure the :guilabel:`Replace owner on subcontainers and objects` box is checked.
+
+#. Click :guilabel:`OK`.
+
+Add a new website in IIS
+------------------------
+
+Now we need to create a website in IIS where Cerb will be located.
+
+#. Click the :guilabel:`Start` button and open :guilabel:`Internet Information Services (IIS) Manager` from the :guilabel:`Administration Tools` folder. 
+
+#. Right click on the server and select :guilabel:`Add Web Site` from the menu.
+
+Enter the following details:
+
+* Site name: Cerb
+* Physical path: (select the :file:`C:\\inetpub\\wwwroot\\cerb` directory)
+* Host name: (enter the server's host name, or use something like *localhost* while testing)
+
+Click the :guilabel:`OK` button.
+
+Create a new MySQL database for Cerb
+------------------------------------
+
+Before installing Cerb you'll need to create a new MySQL database:
+
+#. Click the :guilabel:`Start` button and select :guilabel:`MySQL Command Line Client` from the :guilabel:`MySQL` folder.
+
+#. Enter your admin password.
+
+#. Create a new database::
+
+    CREATE DATABASE cerb CHARACTER SET utf8;
+    
+#. Create a new database user::
+
+    GRANT ALL PRIVILEGES ON cerb.* to cerb@localhost IDENTIFIED BY 'secret_password'
+    
+.. note::
+
+    Change *secret_password* above to a secure password.
+    
+Install Cerb
+------------
+
+#. Open your web browser to the Cerb installation.  If you used *localhost* as the host name above, then you'd use http://localhost/ (otherwise, use your appropriate host name and path)
+
+#. Everything should say *Passed!*
+
+#. Follow the `guided installer instructions <http://cerb.book/installation/guided_installer.html>`_
+
+Enable friendly URLs
+--------------------
+
+Cerb uses virtual URLs instead of actual file paths.  By default, you'll notice that the text :file:`/index.php/` is included in every URL at the top of your browser.  You can make these URLs more friendly looking with a URL Rewrite rule.
+
+Create a URL Rewrite rule in IIS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Open :program:`Internet Information Services (IIS) Manager`.
+
+#. Click on the :guilabel:`Cerb` web site.
+
+#. Double click on the :guilabel:`URL Rewrite` icon.
+
+#. Click :guilabel:`Add Rule(s)...` in the right sidebar.
+
+#. Double click :guilabel:`Blank Rule`:
+
+    * Name: Friendly URLs
+    * Requested URL: Matches the pattern
+    * Using: Regular Expressions
+    * Pattern: ^(.*)
+    * Conditions: {REQUEST_FILENAME} 'is not a file'
+    * Rewrite URL: /index.php/{R:1}
+    
+#. Click :guilabel:`Apply` in the right sidebar.
+
+Enable URL rewriting in Cerb
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create a blank file called :file:`.htaccess` in :file:`C:\\inetpub\\wwwroot\\cerb\\`
+
+.. note::
+
+    If you still have the :program:`Git Bash` console open, you can use the command::
+        
+        touch .htaccess
+
+Test friendly URLs
+~~~~~~~~~~~~~~~~~~
+
+Open your web browser to your Cerb installation.  The login form should now look like **http://localhost/login** instead of **http://localhost/index.php/login**
+
+If you see an error message instead, double check the steps above.  If you can't figure it out, remove the URL Rewrite rule in IIS and delete the blank :file:`.htaccess` file.
+
+Finishing up
+------------
+
+#. Make sure you deleted the :file:`install` directory.
+
+#. You're all ready to log in and start using Cerb!
