@@ -2,18 +2,18 @@ Plugins
 -------
 Plugins provide additional functionality which is not part of the core app. Most plugins add a new item to the :doc:`Search menu</worker_guide/search/index>`. Plugins can also add pages, tabs, worklists, database tables, and provide integration with 3rd-party systems.
 
-Basic Plugins
-=============
+Context Plugins
+===============
 
-These basic plugins add new items to the Search menu in Cerb. See the documentation for a specific plugin for more information on what installing it will enable you to do.
+These plugins add new record types to Cerb.  See the documentation for a specific plugin for more information on what installing it will enable you to do.
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 1
     
     cerberusweb.calls
-    cerberusweb.datacenter.servers
     cerberusweb.datacenter.domains
     cerberusweb.datacenter.sensors
+    cerberusweb.datacenter.servers
 
 3rd-party Integration
 =====================
@@ -21,43 +21,47 @@ These basic plugins add new items to the Search menu in Cerb. See the documentat
 These plugins add the ability to communicate with 3rd-party systems. Some of them also add new items to the Search menu. See the documentation for a specific plugin for more information on what installing it will add to your Cerb installation.
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 1
 
     wgm.campfire
+    wgm.clickatell
     wgm.facebook
     wgm.freshbooks
     wgm.github
     wgm.hipchat
     wgm.jira
     wgm.linkedin
-    wgm.twitter
-    wgm.clickatell
     wgm.twilio
+    wgm.twitter
 
 Storage Engines
 ===============
-These plugins add new Storage Engines
+
+These plugins add new storage engines.
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 1
     
     wgm.storage.s3.gatekeeper
 
 Authentication
 ==============
 
+These plugins provide alternate authentication methods.
+
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 1
     
+    wgm.login.password.google_auth
     cerberusweb.openid
     wgm.ldap
 
 Miscellaneous Plugins
 =====================
-These plugins provide additional functionality for individual parts within Cerb. See the documentation for each plugin to see what functionality will be added to Cerb upon installation.
+These plugins provide additional functionality within Cerb. See the documentation for each plugin for details.
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 1
     
     cerberusweb.feed_reader
     cerberusweb.gravatar
