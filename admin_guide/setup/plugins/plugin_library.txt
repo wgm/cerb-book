@@ -11,38 +11,38 @@ Installing a Plugin
 
 You can install any plugin from within Cerb's Plugin Library by following the below instructions:
 
-* Click on :guilabel:`setup` in the top right of the navigation bar.
-* Hover over :guilabel:`Plugins` in the menu bar.
-* Select :guilabel:`Manage Plugins` from the pulldown menu.
-* Click the :guilabel:`Plugin Library` tab.
-* Click the :guilabel:`Check for updates` button to download the latest plugin information.
+#. Click on :guilabel:`setup` in the top right of the navigation bar.
+#. Hover over :guilabel:`Plugins` in the menu bar.
+#. Select :guilabel:`Plugin Library` from the pulldown menu.
+#. Click the :guilabel:`Download updates` button to download the latest plugin information.
 
-.. figure:: /images/admin_guide/setup/plugins/check_updates_button.png
-   :figclass: bordered
+    .. figure:: /images/admin_guide/setup/plugins/download_updates_button.png
+       :figclass: bordered
    
-* Click the :guilabel:`Download and install` button for the plugin you wish to install.
+#. Click the :guilabel:`Download and install` button for the plugin you wish to install.
 
-.. figure:: /images/admin_guide/setup/plugins/download_plugin_button.png
-   :figclass: bordered
+    .. figure:: /images/admin_guide/setup/plugins/download_plugin_button.png
+       :figclass: bordered
    
-* In the :guilabel:`Download Plugin` dialog, click the :guilabel:`Download and install` button again to confirm.
+#. In the :guilabel:`Download Plugin` dialog, click the :guilabel:`Download and install` button again to confirm.
 
-.. figure:: /images/admin_guide/setup/plugins/download_plugin_dialog.png
-   :figclass: bordered
+    .. figure:: /images/admin_guide/setup/plugins/download_plugin_dialog.png
+       :figclass: bordered
    
-* Set the :guilabel:`Status:` to **Enabled**.
+#. Set the :guilabel:`Status:` to **Enabled**.
 
-.. figure:: /images/admin_guide/setup/plugins/enable_plugin_dialog.png
-   :figclass: bordered
+    .. figure:: /images/admin_guide/setup/plugins/enable_plugin_dialog.png
+       :figclass: bordered
    
-* Click the :guilabel:`Save Changes` button.
+#. Click the :guilabel:`Save Changes` button.
 
 Plugins may provide plugin-specific configuration options which are displayed upon enabling the plugin. These plugins typically provide integration with 3rd-party systems, and these configuration options are **required** for the plugin to work. Please see the :doc:`documentation for each plugin</plugins/index>` for instructions on how to properly configure these settings.
 
-.. figure:: /images/admin_guide/setup/plugins/configure_plugin_dialog.png
-   :figclass: bordered
+    .. figure:: /images/admin_guide/setup/plugins/configure_plugin_dialog.png
+       :figclass: bordered
    
-   An example of a plugin with required config options in the :guilabel:`Enable Plugin` dialog.
-       
+   
 Upgrading a Plugin
 ==================
+
+Plugins now are automatically updated when you click the :guilabel:`Download updates` button.
