@@ -1,2 +1,98 @@
 JIRA Integration
 ================
+:Author: Webgroup Media LLC
+:Repository: https://github.com/cerb-plugins/wgm.jira
+
+The JIRA Integration plugin:
+
+* Synchronizes project and issue records from JIRA
+* Synchronizes public comments for display on issue profiles as a discussion history
+* Enables Virtual Attendants to create issues in JIRA
+* Enables Virtual Attendants to post comments on issues in JIRA
+* Provides JIRA data to dashboards for reports and visualizations
+* Provides a way to formally link JIRA records to tickets, addresses, organizations, time tracking, and tasks.  For example, the links on completed issues can enter the sales cycle once developers have implemented feedback.
+* Provides an improved system of notifications about activity on JIRA records.  For instance, Cerb's Virtual Attendants can send notifications to the workers who are watching an issue when it receives a new comment.  JIRA's own system for this is less flexible.
+
+.. ::
+
+    In process:
+    * Provides a public interface for searching, viewing, and voting on JIRA data
+
+Installing the Plugin
+---------------------
+
+This plugin can be installed from the :doc:`Plugin Library </admin_guide/setup/plugins/plugin_library>`.  Refer to the :doc:`Admin Guide </admin_guide/index>` for instructions about :ref:`how to install a plugin <installing-a-plugin>`.
+
+    .. figure:: /images/plugins/wgm.jira/library.png
+       :figclass: bordered
+
+Setting up JIRA API Authentication
+----------------------------------
+
+You'll be prompted for your JIRA login details when enabling the plugin.  Since this plugin will act as a single user, we recommend creating a *Cerb* user in JIRA.  Once you are done, click the :guilabel:`Save Changes` button.
+
+    .. figure:: /images/plugins/wgm.jira/auth.png
+       :figclass: bordered
+
+Setting up Synchronization
+--------------------------
+
+The plugin adds a new **JIRA Synchronization** job to the :doc:`scheduler </admin_guide/setup/settings/scheduler>`.  You can find it at :menuselection:`Setup --> Configure --> Scheduler`.  Make sure it's enabled, and that it's set up to run every 15 minutes or so.
+
+This job is responsible for synchronizing data based on when each record was last updated in JIRA.  Each time the job runs it only downloads content that has changed since it last checked.  During a single run, the job will synchronize a maximum of about 500 records.  This means that the job may need to run several times in order to fully synchronize when you first set up the plugin.  You can speed up this process by utilizing the :guilabel:`run now` link in the Scheduler.
+
+When using the :guilabel:`run now` link, you can stop reloading the page when you no longer see issues being updated like this::
+
+    [INFO] [Attendant] EVENT: dao.jira_issue.update
+    
+Instead, you will start seeing output like::
+
+    [INFO] [JIRA] Started
+    [INFO] [JIRA] Finished
+
+After you've synchronized JIRA information using the scheduler, you're ready to view project and issue records.
+    
+Viewing JIRA Projects
+---------------------
+
+Click on the :guilabel:`search` menu in the top right, and select :guilabel:`Jira Project` from the list.
+
+    .. figure:: /images/plugins/wgm.jira/project_worklist.png
+       :figclass: bordered
+
+Clicking on any row in the worklist will display a project profile:
+
+    .. figure:: /images/plugins/wgm.jira/project_profile.png
+       :figclass: bordered
+
+Viewing JIRA Issues
+-------------------
+
+Click on the :guilabel:`search` menu in the top right, and select :guilabel:`Jira Issue` from the list.
+
+    .. figure:: /images/plugins/wgm.jira/issue_worklist.png
+       :figclass: bordered
+
+Clicking on any row in the worklist will display an issue profile:
+
+    .. figure:: /images/plugins/wgm.jira/issue_profile.png
+       :figclass: bordered
+
+As you can see, Cerb also synchronizes comments on issues.
+
+
+Displaying JIRA Issues on a Dashboard
+-------------------------------------
+
+
+
+Creating a JIRA Issue from a Virtual Attendant
+----------------------------------------------
+
+
+
+.. ::
+
+    Where to go from here:
+    Dashboards (summarize issues, show open issues by version, etc)
+    Virtual Attendants (create issues, comment on issues, link to ticket)
