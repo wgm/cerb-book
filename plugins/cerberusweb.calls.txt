@@ -1,6 +1,6 @@
 Call Logging
 ------------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/cerberusweb.calls
 
 The Call Logging plugin allows you to log incoming and outgoing calls.

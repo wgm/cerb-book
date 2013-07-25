@@ -1,6 +1,6 @@
 Servers
 -------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/cerberusweb.datacenter.servers
 
 The Servers plugin allows you to add servers to your Cerb installation. Servers can be associated with :doc:`Domains</plugins/cerberusweb.datacenter.domains>` and :doc:`Sensors</plugins/cerberusweb.datacenter.sensors>`.

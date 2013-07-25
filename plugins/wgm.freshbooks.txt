@@ -1,6 +1,6 @@
 FreshBooks Integration
 ----------------------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.freshbooks
 
 This plugin provides integration with `FreshBooks <http://www.freshbooks.com/>`_ through their `official API <http://developers.freshbooks.com>`_.  It enables to you sync clients and invoices from FreshBooks.

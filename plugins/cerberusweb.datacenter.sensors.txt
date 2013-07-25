@@ -1,6 +1,6 @@
 Sensors
 -------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/cerberusweb.datacenter.sensors
 
 The Sensors plugin add allows you to monitor external services and warn you about downtime.  Nearly anything can be monitored as a server - HTTP, MySQL, Disk Usage, Bandwidth, etc.

@@ -1,6 +1,6 @@
 Twilio Integration
 ------------------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.twilio
 
 This plugin provides integration with `Twilio <http://www.twilio.com/>`_ through their `official API <http://www.twilio.com/docs>`_.

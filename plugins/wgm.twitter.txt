@@ -1,6 +1,6 @@
 Twitter Integration
 -------------------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.twitter
 
 This plugin provides integration with `Twitter <http://www.twitter.com/>`_ through their `official API <https://dev.twitter.com/docs>`_.

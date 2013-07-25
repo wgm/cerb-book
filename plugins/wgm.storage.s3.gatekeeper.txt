@@ -1,6 +1,6 @@
 S3 Gatekeeper Storage Engine
 ----------------------------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.storage.s3.gatekeeper
 
 

@@ -1,6 +1,6 @@
 Domains
 -------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/cerberusweb.datacenter.domains
 
 The Domains plugin allows you add domains to your Cerb installation. These domains can be associated with contacts. This plugin requires the :doc:`Servers plugin</plugins/cerberusweb.datacenter.servers>` to be installed.

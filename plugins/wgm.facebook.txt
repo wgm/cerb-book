@@ -1,6 +1,6 @@
 Facebook Integration
 --------------------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.facebook
 
 This plugin provides integration with `Facebook <http://www.facebook.com/>`_ through their `official API <https://developers.facebook.com/docs/reference/api/>`_.  It enables you to post status updates to your wall and make posts on pages you have access to.

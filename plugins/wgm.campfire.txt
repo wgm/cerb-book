@@ -1,6 +1,6 @@
 Campfire Integration
 --------------------
-:Author: WebGroup Media LLC
+:Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.campfire
 
 This plugin provides integration with `37Signals Campfire <http://www.campfirenow.com/>`_ through their `official API <http://developer.37signals.com/campfire/index>`_. It enables you to post messages to Campfire from Virtual Attendants.
