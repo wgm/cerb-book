@@ -81,15 +81,216 @@ Clicking on any row in the worklist will display an issue profile:
 As you can see, Cerb also synchronizes comments on issues.
 
 
-Displaying JIRA Issues on a Dashboard
+Creating a JIRA Issue from a Virtual Attendant
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Integrating JIRA with Cerb Dashboards
 -------------------------------------
 
+Issue Resolution Ratio as a Chart
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. figure:: /images/plugins/wgm.jira/dashboard_chart_resolution.png
+   :figclass: bordered
 
-Creating a JIRA Issue from a Virtual Attendant
-----------------------------------------------
+You can :doc:`import this widget </index>` on a :doc:`dashboard </index>` to display a bar chart of the number of JIRA issues opened per month along with the percentage of those issues that have been resolved::
 
+    {
+      "widget":{
+        "label":"Issue Resolution Ratio (past 12mo)",
+        "extension_id":"core.workspace.widget.chart",
+        "params":{
+          "chart_type":"bar",
+          "series":[
+            {
+              "datasource":"core.workspace.widget.datasource.worklist",
+              "label":"Resolved",
+              "xaxis_field":"j_created",
+              "xaxis_tick":"month",
+              "yaxis_func":"count",
+              "line_color":"#57970A",
+              "worklist_model":{
+                "columns":[
+                  "j_jira_key",
+                  "j_project_id",
+                  "j_jira_versions",
+                  "j_jira_type_id",
+                  "j_jira_status_id",
+                  "j_updated"
+                ],
+                "params":{
+                  "j_jira_status_id":{
+                    "field":"j_jira_status_id",
+                    "operator":"in",
+                    "value":[
+                      6,
+                      5
+                    ]
+                  },
+                  "j_created":{
+                    "field":"j_created",
+                    "operator":"between",
+                    "value":[
+                      "first day of this month -1 year",
+                      "today"
+                    ]
+                  }
+                },
+                "limit":"10",
+                "sort_by":"j_updated",
+                "sort_asc":false,
+                "subtotals":"",
+                "context":"cerberusweb.contexts.jira.issue"
+              },
+              "fill_color":"rgba(87,151,10,0.15)"
+            },
+            {
+              "datasource":"core.workspace.widget.datasource.worklist",
+              "label":"Open",
+              "xaxis_field":"j_created",
+              "xaxis_tick":"month",
+              "yaxis_func":"count",
+              "line_color":"#C4C4C4",
+              "worklist_model":{
+                "columns":[
+                  "j_jira_key",
+                  "j_project_id",
+                  "j_jira_versions",
+                  "j_jira_type_id",
+                  "j_jira_status_id",
+                  "j_updated"
+                ],
+                "params":{
+                  "j_jira_status_id":{
+                    "field":"j_jira_status_id",
+                    "operator":"in",
+                    "value":[
+                      3,
+                      1,
+                      4
+                    ]
+                  },
+                  "j_created":{
+                    "field":"j_created",
+                    "operator":"between",
+                    "value":[
+                      "first day of this month -1 year",
+                      "today"
+                    ]
+                  }
+                },
+                "limit":"10",
+                "sort_by":"j_updated",
+                "sort_asc":false,
+                "subtotals":"",
+                "context":"cerberusweb.contexts.jira.issue"
+              },
+              "fill_color":"rgba(196,196,196,0.15)"
+            },
+            {
+              "datasource":"",
+              "label":"",
+              "line_color":"#058DC7",
+              "fill_color":"rgba(5,141,199,0.15)"
+            }
+          ]
+        }
+      }
+    }
 
+Issue Types as a Pie Chart
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /images/plugins/wgm.jira/dashboard_piechart_types.png
+   :figclass: bordered
+
+You can :doc:`import this widget </index>` on a :doc:`dashboard </index>` to display a pie chart of JIRA issues by type::
+
+    {
+      "widget":{
+        "label":"JIRA Issues by Type",
+        "extension_id":"core.workspace.widget.subtotals",
+        "params":{
+          "style":"pie",
+          "limit_to":"20",
+          "worklist_model":{
+            "columns":[
+              "j_jira_key",
+              "j_project_id",
+              "j_jira_versions",
+              "j_jira_type_id",
+              "j_jira_status_id",
+              "j_updated"
+            ],
+            "params":[
+          
+            ],
+            "limit":"10",
+            "sort_by":"j_updated",
+            "sort_asc":false,
+            "subtotals":"j_jira_type_id",
+            "context":"cerberusweb.contexts.jira.issue"
+          }
+        }
+      }
+    }
+
+Open Bug Counter
+~~~~~~~~~~~~~~~~
+
+.. figure:: /images/plugins/wgm.jira/dashboard_counter_bugs.png
+   :figclass: bordered
+
+You can :doc:`import this widget </index>` on a :doc:`dashboard </index>` to display a counter with the number of open bugs in JIRA::
+
+    {
+      "widget":{
+        "label":"Open Bugs in JIRA",
+        "extension_id":"core.workspace.widget.counter",
+        "params":{
+          "datasource":"core.workspace.widget.datasource.worklist",
+          "metric_func":"count",
+          "metric_type":"number",
+          "metric_prefix":"",
+          "metric_suffix":"",
+          "color":"#34434E",
+          "worklist_model":{
+            "columns":[
+              "j_jira_key",
+              "j_project_id",
+              "j_jira_versions",
+              "j_jira_type_id",
+              "j_jira_status_id",
+              "j_updated"
+            ],
+            "params":{
+              "j_jira_type_id":{
+                "field":"j_jira_type_id",
+                "operator":"in",
+                "value":[
+                  1
+                ]
+              },
+              "j_jira_status_id":{
+                "field":"j_jira_status_id",
+                "operator":"in",
+                "value":[
+                  3,
+                  1,
+                  4
+                ]
+              }
+            },
+            "limit":"10",
+            "sort_by":"j_updated",
+            "sort_asc":false,
+            "subtotals":"j_jira_type_id",
+            "context":"cerberusweb.contexts.jira.issue"
+          }
+        }
+      }
+    }
 
 .. ::
 

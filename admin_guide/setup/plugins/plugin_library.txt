@@ -2,7 +2,7 @@ Plugin Library
 --------------
 :menuselection:`Setup --> Plugins --> Plugin Library`
 
-The Plugin Library tab provides a centralized place to view plugins which can be installed directly from within your Cerb installation. Plugins that are installed from the Plugin Library tab are downloaded from our server into your `storage/admin_guide/setup/plugins/` directory. The Plugin Library tab can also be used to the latest version of a plugin.
+The Plugin Library tab provides a centralized place to view plugins which can be installed directly from within your Cerb installation.  These plugins are downloaded into your :file:`/storage/plugins/` directory.  The Plugin Library automatically keeps your plugins up-to-date with the latest compatible version.
 
 .. _installing-a-plugin:
 
