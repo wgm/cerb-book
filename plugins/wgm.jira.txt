@@ -80,13 +80,141 @@ Clicking on any row in the worklist will display an issue profile:
 
 As you can see, Cerb also synchronizes comments on issues.
 
+Integrating JIRA with Cerb Virtual Attendants
+---------------------------------------------
 
 Creating a JIRA Issue from a Virtual Attendant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. figure:: /images/plugins/wgm.jira/va_create_issue_from_ticket.png
+   :figclass: bordered
+
+You can :doc:`import this behavior </index>` into a :doc:`Virtual Attendant </index>` to create JIRA issues from tickets::
+
+    {
+      "behavior":{
+        "title":"Create JIRA Issue",
+        "event":{
+          "key":"event.macro.ticket",
+          "label":"Custom ticket behavior"
+        },
+        "variables":{
+          "var_summary":{
+            "key":"var_summary",
+            "label":"Summary",
+            "type":"S",
+            "is_private":"0"
+          },
+          "var_description":{
+            "key":"var_description",
+            "label":"Description",
+            "type":"S",
+            "is_private":"0"
+          }
+        },
+        "nodes":[
+          {
+            "type":"action",
+            "title":"Create JIRA Issue",
+            "params":{
+              "actions":[
+                {
+                  "action":"wgmjira.event.action.create_issue",
+                  "project_key":"CHD",
+                  "summary":"{{var_summary}}",
+                  "type":"Bug",
+                  "description":"{{var_description}}",
+                  "link_to":[
+                    "ticket_id"
+                  ],
+                  "response_placeholder":"_jira_issue"
+                }
+              ]
+            }
+          },
+          {
+            "type":"switch",
+            "title":"Successful?",
+            "nodes":[
+              {
+                "type":"outcome",
+                "title":"Yes",
+                "params":{
+                  "groups":[
+                    {
+                      "any":0,
+                      "conditions":[
+                        {
+                          "condition":"_custom_script",
+                          "tpl":"{% if _jira_issue.id %}true{% endif %}",
+                          "oper":"is",
+                          "value":"true"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "nodes":[
+                  {
+                    "type":"action",
+                    "title":"Comment on ticket",
+                    "params":{
+                      "actions":[
+                        {
+                          "action":"create_comment",
+                          "on":"ticket_id",
+                          "content":"Created: {{_jira_issue._label}} <{{_jira_issue.record_url}}>"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
 
 Integrating JIRA with Cerb Dashboards
 -------------------------------------
+
+Issue Types as a Pie Chart
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /images/plugins/wgm.jira/dashboard_piechart_types.png
+   :figclass: bordered
+
+You can :doc:`import this widget </index>` on a :doc:`dashboard </index>` to display a pie chart of JIRA issues by type::
+
+    {
+      "widget":{
+        "label":"JIRA Issues by Type",
+        "extension_id":"core.workspace.widget.subtotals",
+        "params":{
+          "style":"pie",
+          "limit_to":"20",
+          "worklist_model":{
+            "columns":[
+              "j_jira_key",
+              "j_project_id",
+              "j_jira_versions",
+              "j_jira_type_id",
+              "j_jira_status_id",
+              "j_updated"
+            ],
+            "params":[
+          
+            ],
+            "limit":"10",
+            "sort_by":"j_updated",
+            "sort_asc":false,
+            "subtotals":"j_jira_type_id",
+            "context":"cerberusweb.contexts.jira.issue"
+          }
+        }
+      }
+    }
 
 Issue Resolution Ratio as a Chart
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -195,43 +323,6 @@ You can :doc:`import this widget </index>` on a :doc:`dashboard </index>` to dis
               "fill_color":"rgba(5,141,199,0.15)"
             }
           ]
-        }
-      }
-    }
-
-Issue Types as a Pie Chart
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. figure:: /images/plugins/wgm.jira/dashboard_piechart_types.png
-   :figclass: bordered
-
-You can :doc:`import this widget </index>` on a :doc:`dashboard </index>` to display a pie chart of JIRA issues by type::
-
-    {
-      "widget":{
-        "label":"JIRA Issues by Type",
-        "extension_id":"core.workspace.widget.subtotals",
-        "params":{
-          "style":"pie",
-          "limit_to":"20",
-          "worklist_model":{
-            "columns":[
-              "j_jira_key",
-              "j_project_id",
-              "j_jira_versions",
-              "j_jira_type_id",
-              "j_jira_status_id",
-              "j_updated"
-            ],
-            "params":[
-          
-            ],
-            "limit":"10",
-            "sort_by":"j_updated",
-            "sort_asc":false,
-            "subtotals":"j_jira_type_id",
-            "context":"cerberusweb.contexts.jira.issue"
-          }
         }
       }
     }
