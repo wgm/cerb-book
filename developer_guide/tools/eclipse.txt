@@ -11,7 +11,8 @@ Installing the Eclipse Platform as your code editor
 
 These steps will install an Eclipse installation with the minimum number of packages:
 
-* Download the Platform Runtime Binary for your operating system from: http://download.eclipse.org/eclipse/downloads/drops4/R-4.2-201206081400/#PlatformRuntime
+* Download the Platform Runtime Binary for your operating system from:
+http://download.eclipse.org/eclipse/downloads/drops4/R-4.3-201306052000/#PlatformRuntime 
 * Extract it to your desired location.
 * Run it.
 
@@ -24,7 +25,7 @@ Installing Eclipse plugins for PHP development
 ----------------------------------------------
 
 * Open the :guilabel:`Help` menu and select :guilabel:`Install New Software`.
-* In the :guilabel:`Work With:` dropdown, select **Juno**.
+* In the :guilabel:`Work With:` dropdown, select **Kepler**.
 
 Installing the Eclipse Web Developer Tools
 
