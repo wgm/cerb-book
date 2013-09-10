@@ -1,25 +1,28 @@
 Guide for Workers
-=================
+-----------------
 
 In this guide we will walk you through the routine duties of a worker.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
 
 .. toctree::
-	:maxdepth: 3
-	
-	logging_in
-	ui/index
-	mail/index
-	search/index
-	profiles/index
-	reports/index
-	settings/index
+    :maxdepth: 2
+    
+    logging_in
+    ui/index
+    workspaces/index
+    calendars/index
+    virtual_attendants/index
+    mail/index
+    search/index
+    profiles/index
+    reports/index
+    settings/index
 	
 .. ::
 
-	keyboard shortcuts
-	watchers
-	virtual attendants
-	replying to mail
-	linking records
-	workspaces (and making worklists)
+    keyboard shortcuts
+    watchers
+    virtual attendants
+    replying to mail
+    linking records
+    workspaces (and making worklists)
     
