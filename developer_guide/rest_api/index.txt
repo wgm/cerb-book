@@ -45,5 +45,6 @@ Examples
     :maxdepth: 1
 
     examples/php
+    examples/perl
     examples/nodejs
     examples/zapier
