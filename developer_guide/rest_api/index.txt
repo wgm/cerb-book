@@ -35,6 +35,7 @@ Contexts
     tasks
     tickets
     timetracking
+    virtual_attendants
     workers
     workspaces
     

@@ -1,0 +1,77 @@
+Virtual Attendants
+------------------
+The Virtual Attendants API can retrieve and run behaviors.
+
+:Versions: Cerb 6.5 or later
+
+List Virtual Attendants
+=======================
+**GET /va/list.json**
+
+Retrieves the Virtual Attendants accessible by the current worker.  This includes VAs owned by the worker, their groups or roles, or the application.
+
+Options:
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``owner``
+		Retrieve full owner information.
+
+	``behaviors``
+		Retrieve behavior details for each Virtual Attendant.
+		
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'va/list.json?expand=owner,behaviors');
+
+Retrieve Virtual Attendant
+==========================
+**GET /va/123.json**
+
+Retrieves a specific Virtual Attendant.
+
+Options:
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``owner``
+		Retrieve full owner information.
+
+	``behaviors``
+		Retrieve behavior details for each Virtual Attendant.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'va/123.json?expand=owner,behaviors');
+
+Run Virtual Attendant behavior
+==============================
+**POST /va/behavior/123/run.json**
+
+Execute the specified Virtual Attendant 'Custom API Request' behavior.  The response will provide the values from the behavior's dictionary at conclusion.  A common strategy is to use the 'Set custom placeholder' action in the Virtual Attendant behavior in order to send information back to the API caller.
+
+The parameters are the public variables defined on the behavior (if any).
+
+==============      =========
+Field               Type
+==============      =========
+``var_*``           mixed
+==============      =========
+
+.. code-block:: php
+	
+	<?php
+	$postfields = array(
+    	array('var_name','Jeff@WGM'),
+    	array('var_picklist','Red'),
+    	array('var_number',1234),
+    	array('var_date',"tomorrow 5pm"),
+    	array('var_bool',1),
+    	array('var_worker',1),
+    	array('var_tickets',json_encode(array(1024,1025,1026))),
+	);
+	$out = $cerb6->post($base_url . 'va/behavior/123/run.json', $postfields);
