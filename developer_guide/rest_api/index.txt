@@ -24,6 +24,7 @@ Contexts
     comments
     contacts
     customfields
+    domains
     feedback
     kbarticles
     messages
