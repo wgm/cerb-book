@@ -33,6 +33,7 @@ Contexts
     organizations
     parser
     sensors
+    servers
     tasks
     tickets
     timetracking
