@@ -1,6 +1,6 @@
 Sensors
 -------
-The sensors API allows you to create, retrieve, update, and search Worker objects.
+The sensors API allows you to create, retrieve, update, and search Sensor objects.
 
 Create
 ======
@@ -116,4 +116,4 @@ Field                 Type
          array('sortAsc','1'),
          array('page','1'),
     );
-    $out = $cerb->post($base_url . 'workers/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'sensors/search.xml', $postfields);
