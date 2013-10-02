@@ -85,3 +85,30 @@ Field                 Type
          array('page','1'),
     );
     $out = $cerb->post($base_url . 'domains/search.json', $postfields);
+
+Contacts
+========
+**POST /domains/123/contacts.json**
+
+Add or remove contacts on a domain record.  The contacts can be specified by email address, ID, or any combination of both.
+
+Parameters:
+
+* **mode**
+	Either ``add`` or ``remove``.
+
+* **emails**
+	A comma-separated list of email addresses to add or remove.
+
+* **ids**
+    A comma-separated list of email address IDs to add or remove.
+	
+.. code-block:: php
+	
+    <?php
+    $postfields = array(
+    	array('mode','add'),
+    	array('emails','jeff@example.com,darren@example.com'),
+    	array('ids','1'),
+    );
+    $out = $cerb6->post($base_url . 'domains/123/contacts.xml', $postfields);
