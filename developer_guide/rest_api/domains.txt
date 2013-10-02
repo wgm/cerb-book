@@ -31,10 +31,24 @@ Retrieve
 
 Retrieves information about a specific domain record.
 
+Options:
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``contacts``
+		Retrieve full contacts list for each domain.
+
+	``contacts_list``
+		Retrieve comma-separated contacts list for each domain.
+
+	``watchers``
+		Retrieve watchers list for each domain.
+
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'domains/1.json');
+    $out = $cerb->get($base_url . 'domains/1.json?expand=contacts');
 	
 Update
 ======
