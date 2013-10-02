@@ -12,7 +12,7 @@ This module can be included by :program:`Node.js` applications to simplify inter
 
     /***********************************************************************
     Cerb6 Web-API Library for Node.js
-    (c) Copyright 2012 WebGroup Media LLC
+    (c) Copyright 2013 WebGroup Media LLC
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
