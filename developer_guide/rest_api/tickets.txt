@@ -92,7 +92,8 @@ Field                Type
 ``content``          string   
 ``created``          timestamp
 ``first_wrote``      string   
-``group``            integer  
+``group_id``         integer
+``bucket_id``      	 integer
 ``is_closed``        bit      
 ``is_deleted``       bit      
 ``is_waiting``       bit      
@@ -111,9 +112,12 @@ Field                Type
         array('criteria[]','is_deleted'),
         array('oper[]','='),
         array('value[]','0'),
-        array('criteria[]','group'),
+        array('criteria[]','group_id'),
         array('oper[]','='),
         array('value[]','1'),
+        array('criteria[]','bucket_id'),
+        array('oper[]','='),
+        array('value[]','0'),
         array('criteria[]','mask'),
         array('oper[]','like'),
         array('value[]','e*'),
