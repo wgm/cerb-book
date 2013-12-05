@@ -1,0 +1,94 @@
+Notify Ticket Watchers When a JIRA Issue Changes
+------------------------------------------------
+
+This cookbook recipe will explain how to notify ticket watchers about changes on any linked JIRA issues using a Virtual Attendant.  This requires the :doc:`/plugins/wgm.jira` plugin to be installed and enabled.
+
+Set up the Virtual Attendant
+============================
+
+#. Hover over the :guilabel:`search` link in the top right of the page and select :guilabel:`Virtual Attendant` from the menu.
+
+#. You should group all of your JIRA-related behavior together under a single Virtual Attendant.  If you haven't done so already, you can add a new Virtual Attendant named **JIRA Bot**.
+
+    .. figure:: /images/cookbook/jira_comments_notify_watchers/create_va.png
+        :figclass: bordered
+
+#. Click on **JIRA Bot** in the list of Virtual Attendants to view its profile.
+
+Create a behavior to notify ticket watchers about linked JIRA issues
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We want to create a behavior that will run every time a JIRA issue changes status.  It will then notify the watchers on any tickets linked to it by creating a comment on the ticket about the new activity.  This can be quickly accomplished by importing our default example below.
+
+#. Click the :guilabel:`Create Behavior` button.
+
+    .. figure:: /images/_common/create_behavior_button.png
+        :figclass: bordered
+
+#. Select the :guilabel:`Import` tab and paste the following behavior into the text box::
+
+    {
+      "behavior":{
+        "title":"Notify ticket watchers about JIRA issue status changes",
+        "is_disabled":false,
+        "is_private":false,
+        "event":{
+          "key":"wgmjira.event.issue.status.changed",
+          "label":"JIRA issue status changed"
+        },
+        "variables":{
+          "var_tickets":{
+            "key":"var_tickets",
+            "label":"Tickets",
+            "type":"ctx_cerberusweb.contexts.ticket",
+            "is_private":"1",
+            "params":[
+          
+            ]
+          }
+        },
+        "nodes":[
+          {
+            "type":"action",
+            "title":"Find tickets linked to the current JIRA issue",
+            "params":{
+              "actions":[
+                {
+                  "action":"_get_links",
+                  "on":"issue_id",
+                  "links_context":"cerberusweb.contexts.ticket",
+                  "var":"var_tickets"
+                }
+              ]
+            }
+          },
+          {
+            "type":"action",
+            "title":"Notify ticket watchers",
+            "params":{
+              "actions":[
+                {
+                  "action":"create_comment",
+                  "on":"var_tickets",
+                  "content":"The status of a linked JIRA issue was changed to {{issue_jira_status}}:\r\n\r\n[{{issue_jira_key}}] {{issue_summary}}"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+
+Linking JIRA issues to Tickets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For this behavior to work, you will need to link JIRA issues to tickets throughout the course of interacting with your audience.  You can use the :guilabel:`Links` tab when viewing a ticket to accomplish this.
+
+How to build on this behavior
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+At this point, you now have a Virtual Attendant behavior that will automatically notify the watchers of any tickets linked to a JIRA issue when it changes status.  A comment is also created on the linked tickets to record the activity.  You could also modify the behavior to do things like automatically notify customers when a JIRA issue is resolved, or to notify watchers about new comments coming from JIRA.
+
+In our example behavior, we were able to create a comment on each issue using a simple action.  The easiest way to accomplish more complex behaviors is to create a :guilabel:`Custom ticket behavior` on the **JIRA Bot** Virtual Attendant.  You can then add a new *action* to the original behavior to :guilabel:`(Run behavior)` and set the :guilabel:`On:` field to the :guilabel:`(variable) Tickets` list.  This allows you to run a custom ticket behavior on every ticket linked to the JIRA issue.  You can also pass on details about the JIRA issue by using public variables.
+
+Using this process you can automate nearly any action on any record in response to a JIRA issue changing status.  You can also follow the same pattern for other events; for instance, to react to new comments in JIRA and relay them to linked tickets.

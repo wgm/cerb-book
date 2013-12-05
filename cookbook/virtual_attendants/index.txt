@@ -15,3 +15,4 @@ Virtual Attendants
     sla_escalation
     strip_history_from_message
     relay_emails_to_workers
+    jira_comments_notify_watchers
