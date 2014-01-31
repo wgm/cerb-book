@@ -23,6 +23,7 @@ Contexts
     calls
     comments
     contacts
+    contexts
     customfields
     domains
     feedback

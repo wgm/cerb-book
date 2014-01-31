@@ -1,0 +1,70 @@
+Contexts
+--------
+
+The contexts API provides access to generic record functionality.
+
+List
+====
+**GET /contexts/list.json**
+
+Retrieve a list of context IDs and names, including those contributed by plugins.
+
+.. versionadded:: 6.6
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'contexts/list.json');
+	
+Link
+====
+**POST /contexts/link.json**
+
+Add any number of links to one context record.
+
+.. versionadded:: 6.6
+
+==============      =======
+Field               Type
+==============      =======
+``on``              string
+``targets``         JSON array string
+==============      =======
+
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+      array('on','cerberusweb.contexts.ticket:1148'),
+      array('targets', json_encode(array(
+        'cerberusweb.contexts.org:17581',
+        'cerberusweb.contexts.address:5447',
+      ))),
+    );
+    $out = $cerb6->post($base_url . 'contexts/link.json', $postfields);
+    
+Unlink
+======
+**POST /contexts/unlink.json**
+
+Remove any number of links from one context record.
+
+.. versionadded:: 6.6
+
+==============      =======
+Field               Type
+==============      =======
+``on``              string
+``targets``         JSON array string
+==============      =======
+
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+      array('on','cerberusweb.contexts.ticket:1148'),
+      array('targets', json_encode(array(
+        'cerberusweb.contexts.org:17581',
+      ))),
+    );
+    $out = $cerb6->post($base_url . 'contexts/unlink.json', $postfields);
