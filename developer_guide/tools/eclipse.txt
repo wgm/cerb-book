@@ -11,8 +11,7 @@ Installing the Eclipse Platform as your code editor
 
 These steps will install an Eclipse installation with the minimum number of packages:
 
-* Download the Platform Runtime Binary for your operating system from:
-http://download.eclipse.org/eclipse/downloads/drops4/R-4.3-201306052000/#PlatformRuntime 
+* Download the Platform Runtime Binary for your operating system from: http://download.eclipse.org/eclipse/downloads/drops4/R-4.3-201306052000/#PlatformRuntime 
 * Extract it to your desired location.
 * Run it.
 
