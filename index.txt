@@ -3,7 +3,7 @@ Cerb6 Manual
 
 :Release: |version|
 :Last Updated: |today|
-:Website: http://www.cerb6.com/
+:Website: http://www.cerbweb.com/
 :Source Code: https://github.com/wgm/cerb6
 
 .. toctree::
