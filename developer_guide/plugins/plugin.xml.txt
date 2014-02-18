@@ -55,7 +55,7 @@ https://github.com/wgm/cerb6/blob/stable/install/extras/sdk/plugin.xml
         <!-- Event Points -->
         
         <event_points>
-            <event id="example.event">
+            <event id="example.myplugin.event">
                 <name>Example Event</name>
                 <param key="field_name"/>
             </event>
