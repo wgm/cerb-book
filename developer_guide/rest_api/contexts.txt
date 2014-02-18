@@ -3,26 +3,89 @@ Contexts
 
 The contexts API provides access to generic record functionality.
 
+Activity Log
+~~~~~~~~~~~~
+
+List Events
+===========
+**GET /contexts/activity/events.json**
+
+Retrieve a list of activity log event IDs and names, including those contributed by plugins.
+
+.. versionadded:: 6.6.3
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'contexts/activity/events.json');
+
+Create
+======
+**POST /contexts/activity/create.json**
+
+Create an activity log entry.
+
+.. versionadded:: 6.6.3
+
+==================      ==========
+Field                   Type
+==================      ==========
+``on``                  string
+``activity_point``      string
+``variables``           JSON array
+``urls``                JSON array
+==================      ==========
+
+* The ``on`` field should be a target record in ``context:context_id`` format.
+
+* The ``activity_point`` field options are provided in the List Events request above.
+
+* The ``variables`` field should be a JSON encoded array, where the key is a placeholder in the activity log message and the value is the text to substitute.
+
+* The ``urls`` field is an option JSON encoded array, where the key is a placeholder in the activity log message and the value is the URL to use for hyperlinking the text.
+
+.. note::
+
+    You do not need to provide a value for ``{{actor}}`` in ``variables`` or ``urls`` since this is handled automatically by Cerb.
+
+.. code-block:: php
+    
+    <?php
+    $postfields = array(
+    	array('on','cerberusweb.contexts.worker:2'),
+    	array('activity_point','example.worker_high_five'),
+        array('variables', json_encode(array(
+            'target' => 'Dan Hildebrandt',
+        ))),
+        array('urls', json_encode(array(
+            'target' => 'ctx://cerberusweb.contexts.worker:2'
+        ))),
+    );
+    $out = $cerb->post($base_url . 'contexts/activity/create.json', $postfields);    
+
+Links
+~~~~~
+
 List
 ====
 **GET /contexts/list.json**
 
 Retrieve a list of context IDs and names, including those contributed by plugins.
 
-.. versionadded:: 6.6
+.. versionadded:: 6.6.0
 
 .. code-block:: php
 
     <?php
     $out = $cerb->get($base_url . 'contexts/list.json');
-	
+
 Link
 ====
 **POST /contexts/link.json**
 
 Add any number of links to one context record.
 
-.. versionadded:: 6.6
+.. versionadded:: 6.6.0
 
 ==============      =======
 Field               Type
@@ -41,7 +104,7 @@ Field               Type
         'cerberusweb.contexts.address:5447',
       ))),
     );
-    $out = $cerb6->post($base_url . 'contexts/link.json', $postfields);
+    $out = $cerb->post($base_url . 'contexts/link.json', $postfields);
     
 Unlink
 ======
@@ -49,7 +112,7 @@ Unlink
 
 Remove any number of links from one context record.
 
-.. versionadded:: 6.6
+.. versionadded:: 6.6.0
 
 ==============      =======
 Field               Type
@@ -67,4 +130,4 @@ Field               Type
         'cerberusweb.contexts.org:17581',
       ))),
     );
-    $out = $cerb6->post($base_url . 'contexts/unlink.json', $postfields);
+    $out = $cerb->post($base_url . 'contexts/unlink.json', $postfields);
