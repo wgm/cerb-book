@@ -1,129 +1,187 @@
 plugin.xml
 ----------
 
-The :file:`plugin.xml` manifest file tells the Devblocks platform about your plugin. Every plugin must provide a manifest.
+Every plugin must provide a :file:`plugin.xml` manifest file which tells the Devblocks platform about the contributions being made.  The plugin meta-data is required (i.e. ``id``, ``name``, ``description``, ``author``, ``version``, ``link``, ``requires``), but everything else is optional.
 
-The format of the :file:`plugin.xml` manifest file is as follows:
+An example ``plugin.xml`` file is provided in the bundled SDK at:
+https://github.com/wgm/cerb6/blob/stable/install/extras/sdk/plugin.xml
 
 .. code-block:: xml
 
     <?xml version="1.0" encoding="UTF-8"?>
-        <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    		xsi:noNamespaceSchemaLocation="http://www.devblocks.com/schema/plugin.xsd">
-            <id>xyzcompany.myplugin</id>
-            <name>[Plugin] Plugin Name</name>
-            <description>A description of your plugin</description>
-            <author>XYZ Company, LLC</author>
-            <version>1.0.0</version>
-            <link>http://wiki.abc.com/wiki/Cerb5/Plugin_Name</link>
-    
-            <!-- Plugin Dependencies -->
-    
-            <dependencies>
-                <require plugin_id="cerberusweb.core" version="5.1.0" />
-            </dependencies>
-
-            <!-- Patches -->
-    
-            <patches>
-                <patch version="1.0.0-alpha" revision="1" file="patches/1.x/1.0.0_alpha.php" />
-            </patches>
-
-            <!-- Controller Routing -->
-
-            <uri_routing>
-                <uri name="dostuff" controller="xyzcompany.myplugin.controller" />
-            </uri_routing>
-    
-            <!-- Exported Classes -->
-    
-            <class_loader>
-                <file path="api/plugin.classes.php">
-                    <class name="XyzPluginClass" />
-                </file>     
-            </class_loader>
-    
-            <!-- Event Points -->
-
-            <event_points>
-                <event id="address.peek.saved">
-                    <name>Address Peek Saved</name>
-                    <param key="address_id" />
-                    <param key="changed_fields" />
-                </event>
-            </event_points>
-
-            <!-- Permissions -->
-    
-            <acl>
-                <priv id="xyzcompany.do.stuff" label="xyzcompany.do.stuff" />       
-            </acl>
-
-            <!-- Extensions -->
-    
-            <extensions>
-                <extension point="core.extension.point">
-                    <id>xyzcompany.myplugin.do.stuff</id>
-                    <name>Do Stuff</name>
-                    <class>
-                        <file>api/App.php</file>
-                        <name>XyzDoStuff</name>
-                    </class>
-                    <params>
-                        <param key="dostuff" value="xyzcompany.do.stuff">
-                    </params>
-                </extension>        
-            </extensions>
-        </plugin>
-    </xml>
+    <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+            xsi:noNamespaceSchemaLocation="http://www.devblocks.com/schema/plugin.xsd">
+        <id>example.myplugin</id>
+        <name>Plugin Name</name>
+        <description>A description of your plugin</description>
+        <author>Example Company LLC</author>
+        <version>1.0.0</version>
+        <link>http://www.example.com/</link>
+        <image>plugin.png</image>
+        
+        <!-- Requirements -->
+        
+        <requires>
+            <app_version min="6.6" max="6.6.99"/>
+            <php_extension name="curl"/>
+        </requires>
+        
+        <!-- Plugin Dependencies -->
+        
+        <dependencies>
+            <require plugin_id="cerberusweb.core" version="6.6.0"/>
+        </dependencies>
+        
+        <!-- Patches -->
+        
+        <patches>
+            <patch version="1.0.0" revision="1" file="patches/1.x/1.0.0.php"/>
+        </patches>
+        
+        <!-- Controller Routing -->
+        
+        <uri_routing>
+            <uri name="example_path" controller="example.myplugin.controller"/>
+        </uri_routing>
+        
+        <!-- Classloader -->
+        
+        <class_loader>
+            <file path="api/App.php">
+                <class name="Example_MyPluginClass"/>
+            </file>
+        </class_loader>
+        
+        <!-- Event Points -->
+        
+        <event_points>
+            <event id="example.event">
+                <name>Example Event</name>
+                <param key="field_name"/>
+            </event>
+        </event_points>
+        
+        <!-- Permissions -->
+        
+        <acl>
+            <priv id="example.myplugin.action" label="acl.example.myplugin.action"/>
+        </acl>
+        
+        <!-- Activity Points -->
+        
+        <activity_points>
+            <activity point="example.event">
+                <param key="label_key" value="Example Event"/>
+                <param key="string_key" value="activities.example_event"/>
+                <param key="options" value="api_create, no_notifications"/>
+            </activity>
+        </activity_points>
+        
+        <!-- User-Editable Templates -->
+        
+        <templates set="example.myplugin.templates">
+            <template path="path/to/template.tpl"/>
+        </templates>
+        
+        <!-- Extensions -->
+        
+        <extensions>
+            <extension point="core.extension.point">
+                <id>example.myplugin.extension.id</id>
+                <name>Example Extension</name>
+                <class>
+                    <file>api/App.php</file>
+                    <name>Extension_ExampleMyPlugin</name>
+                </class>
+                <params>
+                    <param key="example_option" value="example value"/>
+                </params>
+            </extension>
+        </extensions>
+        
+    </plugin>
 
 **<id>**
-	A dot-delimited namespace string. It must be unique across all Cerb6 plugins. The namespace should follow the format "zyxcompany.myplugin".
+	A dot-delimited namespace string that must be globally unique across all Cerb plugins. We recommend that you prefix all your plugin and extension IDs with a namespace comprised of your company name and plugin id.  This is similar to Java package namespaces.  The namespace above is ``example``, the Cerb built-in plugins use ``cerberusweb.core``, and our third-party plugins at Webgroup Media use ``wgm``.  You can use an owned domain name to guarantee uniqueness, like ``com.example.plugin.id``.
    
 **<name>**
-	A human-readable name for your plugin. This is displayed in the 'Manage Plugins' area of 'setup'.
+	A human-readable name for your plugin. This is displayed in the :guilabel:`Plugins` area of :guilabel:`Setup`.
    
 **<author>**
-	The author of the plugin. You should put your name, or perhaps your company name here.
+	The copyright holder of the plugin; a person or organization.
     
 **<version>**
-	The current version of your plugin.
+	The current version of the plugin.  This is used by the Plugin Library to distribute updates to people who have installed your plugin.
    
 **<link>**
-	A link to a page containing information about your plugin.
+	A link to a page containing more information about your plugin.
+
+**<image>**
+	An optional icon that is shown next to your plugin in the Plugin Library and :guilabel:`Setup`.  The image should be 100x100 pixels, and the path is relative to the :file:`/resources/` directory in your plugin's filesystem.
    
+**<requires>**
+   The requirements that must be met for this plugin to work properly.
+   
+   **app_version**
+       The minimum and maximum versions of Cerb that this plugin works with.  The minimum version should change when the plugin requires features that were implemented in a specific version.  The Plugin Library will serve an older version of your plugin to someone that can't meet the newer requirements.  The maximum version should be set to the latest version that has been tested, although the maintenance release number can be set to ``x.x.99`` to work with all updates within a branch.
+
+   **php_extension**
+       Any number of PHP extensions can be required by adding one of these tags for each of them.
+       
 **<dependencies>**
-	A list of the dependencies required by your plugin. Each ``<require>`` node has a ``plugin_id`` and a ``version`` attribute. The ``plugin_id`` attribute is the ID of the plugin your plugin depends on ``(not an extension point!)``. The ``version`` attribute tells the platform the minimum version required for your plugin to operate.
+	A list of the dependencies required by your plugin. Each ``<require>`` element has a ``plugin_id`` and a ``version`` attribute. The ``plugin_id`` attribute is the ID of the plugin your plugin depends on ``(not an extension point!)``. The ``version`` attribute tells the platform the minimum version of that plugin required for your plugin to operate.
    
 **<patches>**
-	A list of all of the patches associated with your plugin. Each ``<patch>`` node has a ``version``, ``revision``, and ``file`` attribute. The ``version`` attribute specifies the human-readable version information. The ``revision`` attribute is used by the platform to determine if the patch needs to run. The ``file`` attribute contains the path of the file relative to your plugin.xml containing the patch code. Patches are typically a combination of PHP logic and SQL, but you could theoretically do anything inside a patch. If you want a patch to run again, increase the value for the ``revision`` attribute.
+	A list of all of the patches associated with your plugin. Each ``<patch>`` element has a ``version``, ``revision``, and ``file`` attribute. The ``version`` attribute specifies the human-readable version information. The ``revision`` attribute is used by the platform to determine if the patch needs to run. The ``file`` attribute contains the path of the file relative to your plugin.xml containing the patch code. Patches are typically a combination of PHP logic and SQL, but you could theoretically do anything inside a patch. If you want a patch to run again for a specific version, increase its value in the ``revision`` attribute.
    
 **<uri_routing>**
-	Provides a list of the top-level routes your plugin supplies to the platform. Each ``<uri>`` node has a ``name`` attribute and a ``controller`` attribute. ``Name`` defines the top-level URI and ``controller`` defines the extension point that should handle processing all requests made to that URI.
+	Provides a list of the top-level routes your plugin supplies to the platform. Each ``<uri>`` element has a ``name`` attribute and a ``controller`` attribute. ``Name`` defines the top-level URI and ``controller`` defines the extension point that should handle processing all requests made to that URI.  This is usually not required since it is handled automatically by controller extensions, but this section may be used to implement aliases or redirects to a controller.
    
 **<class_loader>**
-	Allows your plugin to provide classes to the rest of the platform. Each ``<file>`` node has a ``path`` attribute which specifies the path relative to your plugin.xml that contains the defined classes. You can define multiple ``<file>`` nodes in your plugin.xml. Each ``<file>`` also contains one or more ``<class>`` nodes which have a single ``name`` attribute. The ``name`` attribute is the exact name of the class to load.
+	Allows your plugin to expose public classes to the rest of the platform. Each ``<file>`` element has a ``path`` attribute which specifies the path relative to your plugin.xml that contains the defined classes. You can define multiple ``<file>`` elements in your plugin.xml. Each ``<file>`` also contains one or more ``<class>`` elements which have a single ``name`` attribute. The ``name`` attribute is the exact name of the class to load.  Generally, you do not need to provide any classes referenced in an ``<extension>`` here since they are automatically added, but you do need to specify any public helper classes that are referenced in a file other than the one they are defined in.
 
 **<event_points>**
+    Contains a list of event points that your plugin introduces.
 
-	**<acl>**
-		Contains a list of permissions your plugin should register with the permissions plugin. You can then use these permissions in your code. Each ``<priv>`` node has an ``id`` attribute and a ``label`` attribute. The value for the``id`` attribute should be used in your code to test permissions, while the value for the ``label`` attribute should point to a namespaced ID from the translation system; you can also use literal text, but it is preferred to use the translation system instead. 
+**<acl>**
+	Contains a list of permissions your plugin should register with the permissions plugin. You can then use these permissions in your code. Each ``<priv>`` element has an ``id`` attribute and a ``label`` attribute. The value for the ``id`` attribute should be used in your code to test permissions, while the value for the ``label`` attribute should point to a namespaced ID from the translation system; you can also use literal text, but it is preferred to use the translation system instead. 
 
+**<activity_points>**
+    Contains a list of Activity Log points that your plugin introduces.
+    
+    **<activity>**
+        The ``point`` attribute should be a globally unique namepaced ID.  The following ``<param>`` keys are available:
+        
+             **label_key**
+                 The human-readable name of the activity point.
+                 
+             **string_key**
+                 The key from the :file:`string.xml` translation file for the activity's message.
+             
+             **options**
+                 Any of the following options in a comma-separated list:
+                 
+                     * **api_create**: This activity log entry can be created through the :doc:`REST API </developer_guide/rest_api/index>`.
+                     * **no_notifications**: Suppress watcher notifications for this activity.
+    
+**<templates>**
+    A list of user-editable templates contributed by your plugin.  This is not common, but it's how :doc:`Support Center </admin_guide/setup/portals/support_center>` templates become editable in :guilabel:`Setup`.
+    
 **<extensions>**
    A list of all the your plugin provides. Each ``<extension>`` has a ``point`` attribute which specifies the ID your extension point binds to.
    
    **<extension>**
     
 		**<id>**
-			Must be unique across all Cerb4 plugins. This is a dot-delimited namespace string. The name is entirely up to you, but the namespace should follow the name of your plugin, and the ID itself should have a hierarchy. If your plugin is named xyzcompany.myplugin then your extension IDs should follow the convention xyzcompany.myplugin.point.name where point.name represents the extension point and a unique identifier for each particular extension.
+            A dot-delimited namespace string that must be globally unique across all Cerb extensions. We recommend that you prefix all your extension IDs with a namespace comprised of your company name and plugin id (similar to Java package namespaces).  You can use an owned domain name to guarantee uniqueness, like ``com.example.plugin_name.id``.
 
 		**<name>**
-			A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extensions name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+			A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extension's name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
 
 		**<class>**
-			Contains the definition for the file and class that hooks in to the extension point. Each ``<class>`` node contains one ``<file>`` node and one ``<name>`` node. The ``<file>`` node contains the path relative to your plugin.xml file. The ``<name>`` node contains the name of the class to load.
+			Contains the definition for the file and class that hooks in to the extension point. Each ``<class>`` contains a ``<file>`` and ``<name>``. The ``<file>`` element contains the path relative to your :file:`plugin.xml` file. The ``<name>`` element contains the class to load from that file.
 
 		**<params>**
-			Params allow the manifest to pass information to each implementation of an extension. Each ``<param>`` node has a ``key`` attribute, and a ``value`` attribute ``or`` a ``<value>`` node. Each ``<value>`` node contains a ``<data>`` node with a ``key`` and ``value`` attribute. These are static values that are not expected to change.
+			Params allow the manifest to pass information to each implementation of an extension. Each ``<param>`` element has a ``key`` attribute, and a ``value`` attribute ``or`` a ``<value>`` element. Each ``<value>`` element contains a ``<data>`` element with a ``key`` and ``value`` attribute. These are static values that are not expected to change.
 
 

@@ -38,7 +38,7 @@ Field                   Type
 
 * The ``on`` field should be a target record in ``context:context_id`` format.
 
-* The ``activity_point`` field options are provided in the List Events request above.
+* The ``activity_point`` field contains an activity ID from List Events request above.  You can implement new Activity Log events in the ``<activity_points>`` section of a :doc:`plugin.xml </developer_guide/plugins/plugin.xml>` manifest.
 
 * The ``variables`` field should be a JSON encoded array, where the key is a placeholder in the activity log message and the value is the text to substitute.
 
