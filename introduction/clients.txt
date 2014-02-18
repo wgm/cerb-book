@@ -1,9 +1,24 @@
 Who is using Cerb?
--------------------
+------------------
 
-Cerb has been evaluated by more than 18,979 organizations.
+Cerb licenses have been requested by more than 18,979 organizations.  See our website <http://www.cerbweb.com/clients> for the most recent list of testimonials and noteworthy clients.
 
-See our website for the most recent list of testimonials and noteworthy clients:
-http://www.cerberusweb.com/clients
+.. epigraph::
+
+    "When ThinkGeek started using Cerberus we soon realized how much wasted time we had spent dealing with conventional email clients. We became so efficient with our email customer relations using Cerberus that we started to get more work done elsewhere in the organization. No kidding! It's so easy to setup, maintain and use that we simply cannot imagine what life was like pre-cerberus. This isn't a TV Commercial, Cerberus works!"
+    
+    -- Willie, ThinkGeek
+    
+.. epigraph::
+
+    "Cerb is a breath of fresh air. So much so that I can't help sitting back and going 'You know what else I could use with this?' It's got me thinking in ways I haven't in a long time."
+    
+    -- Joshua G., Card Group Support
+
+Here are some well-known organizations that use (or have used) Cerb:
 
 .. figure:: /images/introduction/clients.gif
+
+.. note::
+    Some of the larger organizations on this list may use Cerb within individual teams and departments rather than company-wide.  It's very common that a small team will initially evangelize Cerb, and through their efforts and experiences its usage will grow.
+

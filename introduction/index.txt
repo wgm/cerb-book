@@ -22,11 +22,11 @@ Cerb provides:
 * A library of third-party plugins for integrating with other applications and services (e.g. Facebook, Twitter, Twilio, Freshbooks, Amazon S3, JIRA, Campfire, etc)
 * ... Time tracking, call logging, opportunity management, and much more
 
-Cerb is the result of over 11 years of continuous research and development by :term:`Webgroup Media <Webgroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on feedback from a community that has included more than 18,979 organizations.
+Cerb is the result of over 12 years of continuous research and development by :term:`Webgroup Media <Webgroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on feedback from a community that has included more than 18,979 organizations.
 
 Licenses are sold based on the number of simultaneous workers (i.e. :term:`seats <seat>`).  Community licenses provide up to three seats at no cost.  The software can be deployed on your own servers, or it can be subscribed to as an "on-demand" service that requires only a web browser.
 
-Cerb is written in the :term:`PHP5 <PHP>` programming language.  Data is stored in a :term:`MySQL` database.  The source code is publicly available on `GitHub <https://github.com/wgm/cerb6>`_.
+Cerb is written in the :term:`PHP5 <PHP>` programming language.  Data is stored in a :term:`MySQL` database.  The source code is publicly available on `GitHub <https://github.com/wgm/cerb6>`_.  See the :doc:`credits </credits/index>` for a full list of third-party libraries, resources, and contributions.
 
 .. ::
 
