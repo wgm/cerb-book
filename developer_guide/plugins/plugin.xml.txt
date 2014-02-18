@@ -170,18 +170,19 @@ https://github.com/wgm/cerb6/blob/stable/install/extras/sdk/plugin.xml
 **<extensions>**
    A list of all the your plugin provides. Each ``<extension>`` has a ``point`` attribute which specifies the ID your extension point binds to.
    
-   **<extension>**
-    
-		**<id>**
+    **<extension>**
+        Each extension must provide the following elements:
+
+        **<id>**
             A dot-delimited namespace string that must be globally unique across all Cerb extensions. We recommend that you prefix all your extension IDs with a namespace comprised of your company name and plugin id (similar to Java package namespaces).  You can use an owned domain name to guarantee uniqueness, like ``com.example.plugin_name.id``.
 
-		**<name>**
-			A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extension's name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
+        **<name>**
+            A human-readable name for your extension. This can be anything you want. There are situations where you'll want to retrieve your extension's name and use it in functionality exposed to the user (e.g. in a dropdown list); and it's a great approach because the name can be quickly retrieved from the manifest (in memory) without running any plugin-level code.
 
-		**<class>**
-			Contains the definition for the file and class that hooks in to the extension point. Each ``<class>`` contains a ``<file>`` and ``<name>``. The ``<file>`` element contains the path relative to your :file:`plugin.xml` file. The ``<name>`` element contains the class to load from that file.
+        **<class>**
+            Contains the definition for the file and class that hooks in to the extension point. Each ``<class>`` contains a ``<file>`` and ``<name>``. The ``<file>`` element contains the path relative to your :file:`plugin.xml` file. The ``<name>`` element contains the class to load from that file.
 
-		**<params>**
-			Params allow the manifest to pass information to each implementation of an extension. Each ``<param>`` element has a ``key`` attribute, and a ``value`` attribute ``or`` a ``<value>`` element. Each ``<value>`` element contains a ``<data>`` element with a ``key`` and ``value`` attribute. These are static values that are not expected to change.
+        **<params>**
+            Params allow the manifest to pass information to each implementation of an extension. Each ``<param>`` element has a ``key`` attribute, and a ``value`` attribute ``or`` a ``<value>`` element. Each ``<value>`` element contains a ``<data>`` element with a ``key`` and ``value`` attribute. These are static values that are not expected to change.
 
 
