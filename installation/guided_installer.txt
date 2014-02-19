@@ -3,11 +3,11 @@ Running the guided installer
 
 Cerb comes with a guided installer that helps you configure the system.
 
-To start the installer, point your browser to: ``http://www.example.com/cerb6/install``
+To start the installer, point your browser to: ``http://www.example.com/cerb/install``
 
 .. note:: 
 
-    You will need to replace :file:`www.example.com` in the URL with your actual domain name.  If you installed Cerb in a path other than :file:`/cerb6` then you will need to change that too.
+    You will need to replace :file:`www.example.com` in the URL with your actual domain name.  If you installed Cerb in a path other than :file:`/cerb` then you will need to change that too.
 
 The server environment checker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

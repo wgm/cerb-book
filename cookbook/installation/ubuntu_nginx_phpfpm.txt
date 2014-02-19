@@ -260,6 +260,8 @@ Create a new virtual host record for :program:`Cerb`:
     
     vi /etc/nginx/sites-available/cerb
 
+.. _nginx_vhost_config:
+
 Use the following configuration file, but replace :code:`yoursite.example.com` with your own hostname:
 
 .. code-block:: nginx

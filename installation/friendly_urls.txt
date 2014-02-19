@@ -27,7 +27,7 @@ with the following commands:
 
 ::
 
-    $ cd /path/to/cerb6
+    $ cd /path/to/cerb
     $ cp .htaccess-dist .htaccess
 
 For this to work you will need ``mod_rewrite`` to be enabled in your
@@ -45,41 +45,8 @@ command on many Linux-based servers:
 Enabling friendly URLs with nginx
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`nginx <http://wiki.nginx.org/>`_ is another popular lightweight
-webserver for serving PHP content. It doesn't support the Apache
-``.htaccess`` file format, but you can add the following directives to
-your server configuration to get the same effect:
+See: :ref:`Configuring Nginx for friendly URLs <nginx_vhost_config>`
 
-::
+.. note::
 
-    location / {
-        if (!-e $request_filename) { 
-            rewrite ^/(.+)$ /index.php/$1 last;
-        }
-    }
-    location ~ ^(.+.php)(.*)$ {
-        fastcgi_split_path_info ^(.+.php)(.*)$;
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME  /var/www$fastcgi_script_name;
-        fastcgi_param  PATH_INFO        $fastcgi_path_info;
-        include fastcgi_params;
-        fastcgi_param  QUERY_STRING     $query_string;
-        fastcgi_param  REQUEST_METHOD   $request_method;
-        fastcgi_param  CONTENT_TYPE     $content_type;
-        fastcgi_param  CONTENT_LENGTH   $content_length;
-        fastcgi_intercept_errors        on;
-        fastcgi_ignore_client_abort     off;
-        fastcgi_connect_timeout 60;
-        fastcgi_send_timeout 180;
-        fastcgi_read_timeout 180;
-        fastcgi_buffer_size 128k;
-        fastcgi_buffers 4 256k;
-        fastcgi_busy_buffers_size 256k;
-        fastcgi_temp_file_write_size 256k;
-    }
-
-This assumes that Cerb6 is installed in the root of the webserver.
-Otherwise, just prepend the path in your configuration. You also will
-want to create a blank ``.htaccess`` file so Cerb will automatically
-generate friendly URLs for you.
+    You should create a blank :file:`.htaccess` file in your :file:`/cerb` directory to enable URL rewriting with non-Apache webservers.

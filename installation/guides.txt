@@ -1,9 +1,17 @@
 .. _installation_linux:
 
-Installing on a Linux server
-----------------------------
+Installing Cerb on your server
+------------------------------
 
-These instructions assume that you have console access to your Linux-based server and that it meets the :doc:`server requirements </installation/requirements/server>`.
+The following general instructions assume that you have console access to a Linux-based server and that it meets the :doc:`server requirements </installation/requirements/index>`.  You should already have the webserver, database, and PHP installed before proceeding.
+
+Specialized guides
+~~~~~~~~~~~~~~~~~~
+
+Consider using one of these comprehensive installation guides instead:
+
+* :doc:`/cookbook/installation/ubuntu_nginx_phpfpm`
+* :doc:`/cookbook/installation/windows_server_2008_iis7_php`
 
 Download the files from GitHub using Git
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -26,18 +34,12 @@ You won't need to download the entire project again after your initial installat
 
 You can download the project files using Git with a single command::
 
-    $ git clone git://github.com/wgm/cerb6.git cerb6
-
-.. note::
-    
-    GitHub also provides a :program:`Subversion` interface to the project files.  If you're unable to use Git, you can checkout the the project using Subversion::
-    
-    $ svn checkout https://github.com/wgm/cerb6.git/branches/6.0 cerb6
+    $ git clone git://github.com/wgm/cerb6.git cerb
 
 Set permissions
 ~~~~~~~~~~~~~~~
 
-Next, we want to make sure the Cerb files are owned by the proper user and group on the webserver.  The default user and group are both ``www-data`` when using Debian or Ubuntu.  If you're using something else, you should consult your configuration for the proper values.
+Next, we want to make sure the Cerb files are owned by the proper user and group on the webserver.  The default user and group are both ``www-data`` when using Ubuntu.  If you're using something else, you should consult your configuration for the proper values.
 
 You only need to enable write access in two locations:
 
@@ -48,7 +50,7 @@ You only need to enable write access in two locations:
 
 Give ownership of all the files to the webserver daemon using :program:`chown`, and make the two locations above writable using :program:`chmod`::
 
-    $ cd cerb6
+    $ cd cerb
     $ chown -R www-data:www-data .
     $ chmod -R u+w framework.config.php storage
 
@@ -68,13 +70,13 @@ Create a new :program:`MySQL` database using the console or your favorite GUI.
 From the MySQL console, you can issue the following SQL statements::
 
     mysql> CREATE DATABASE cerb6 CHARACTER SET utf8;
-    mysql> GRANT ALL PRIVILEGES ON cerb6.*  
-            TO cerb6@localhost 
+    mysql> GRANT ALL PRIVILEGES ON cerb.*  
+            TO cerb@localhost 
             IDENTIFIED BY 'secret_password';
 
 .. note:: 
 
-    Substitute your own database name and login in place of ``cerb6``, and replace ``secret_password`` with something that's actually a secret.
+    Substitute your own database name and login in place of ``cerb``, and replace ``secret_password`` with something that's actually a secret.
 
 If you're concerned about granting ``ALL PRIVILEGES``, the minimum required privileges for the database user are:
 

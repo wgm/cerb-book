@@ -1,11 +1,95 @@
 Requirements
 ------------
 
-With the On-Site edition of :program:`Cerb6`, you will need to install the software on a server that meets the following requirements.  End-users only need a modern web browser.
+Workers
+=======
 
-.. toctree::
-    :maxdepth: 1
+Workers only require a modern web browser and a network connection to use Cerb.
+
+Required
+~~~~~~~~
+
+- An Internet or intranet connection to the server (e.g. Ethernet, wifi, mobile data)
+
+- Any of these modern HTML5 web browsers, with Javascript enabled:
+    - :program:`Google Chrome`
+    - :program:`Firefox`
+    - :program:`Safari`
+    - :program:`Opera`
+    - :program:`Internet Explorer`
+
+Recommended
+~~~~~~~~~~~
+
+* :program:`Google Chrome` and :program:`Firefox` receive the most attention during development and :abbr:`QA (Quality assurance)` testing.
+
+* Anything *other than* :program:`Internet Explorer`.
+
+Server
+======
+
+With the On-Site edition of :program:`Cerb`, you will need to install the software on a server that meets the following requirements.
+
+If you are unable to meet these requirements, consider the `On-Demand edition <http://cerbweb.com/buy/?ondemand>`_, or utilizing a cloud-based virtual private server from a vendor like `Linode <http://www.linode.com/>`_.
+
+Required
+~~~~~~~~
+
+- Any of these operating systems:
+    - :program:`Linux`
+    - :program:`BSD`
+    - :program:`Mac OS X`
+    - :program:`Windows`
+
+- Any of these webserver applications:
+    - :program:`Nginx`
+    - :program:`Apache` 2.x
+    - :program:`lighttpd`
+    - :program:`Microsoft Internet Information Server (IIS)`
+
+* :program:`PHP` 5.3 or later
+
+- With the following extensions enabled:
+    - curl
+    - dom
+    - gd
+    - imap
+    - json
+    - mailparse
+    - mbstring
+    - mysql
+    - pcre
+    - session
+    - simplexml
+    - spl
+    - xml
     
-    server
-    enduser
+- With the :file:`php.ini` settings:
+    - `file_uploads = On`
 
+* :program:`MySQL` 5.0 or later
+
+Recommended
+~~~~~~~~~~~
+
+* :program:`Ubuntu` Linux (12.04 LTS or 13.10) 
+
+* :program:`Nginx` 1.4 or later
+
+* :program:`PHP` 5.3 or later
+
+- With the required extensions, plus:
+    - memcached
+    - xcache
+    
+- With the :file:`php.ini` settings:
+    - `file_uploads = On`
+    - `magic_quotes_gpc = Off`
+    - `safe_mode = Off`
+    - `memory_limit = 32M` (or higher)
+    
+* :program:`PHP-FPM`
+
+* :program:`MySQL` 5.0 or later, with `strict mode <http://dev.mysql.com/doc/refman/5.0/en/server-sql-mode.html#sqlmode_strict_all_tables>`_ disabled
+
+* :program:`Memcached`

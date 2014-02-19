@@ -1,12 +1,16 @@
 Installation
 ============
 
-While it is possible to successfully install Cerb6 on a shared hosting account, we highly recommend that you control the server where you’re installing the software.
+If Cerb is already installed, you can :doc:`skip to the next section </getting_started/index>`.
+
+While it is possible to successfully install Cerb on a shared hosting account, we highly recommend that you control the server where you’re installing the software.
+
+The installation guide covers the following topics:
 
 .. toctree::
     :maxdepth: 2
 
     requirements/index
-    linux
+    guides
     guided_installer
     friendly_urls
