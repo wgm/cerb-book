@@ -1,19 +1,19 @@
 Getting Started
 ===============
 
-The rest of this book is organized into a series of guides depending on
-your role.  You should be familiar with the :doc:`concepts </concepts/index>` before proceeding.
+The rest of this book is organized into a series of guides depending on your role.
 
 Workers
 -------
 
-Skip to the :doc:`/worker_guide/index` if you're new to the helpdesk and you would like to learn how to:
+Skip to the :doc:`/worker_guide/index` if you're new to Cerb and you would like to learn how to:
 
 -  Read and respond to email conversations
--  Build a watch-list for monitoring activity on content of interest
+-  Build a watchlist for monitoring activity on content of interest
 -  Set up custom workspaces to track information you care about
 -  Configure your own personal Virtual Attendant to notify you by email, SMS, IM, and more
 -  Find and capture answers with the knowledgebase
+-  Use the mobile interface
 
 Group Managers
 --------------

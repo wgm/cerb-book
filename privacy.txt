@@ -1,7 +1,7 @@
 Privacy Statement and Disclosure
 ================================
 
-**WebGroup Media LLC** ("WGM") is a commercial open source company that has been leading and supporting the community development of Cerb6 (formerly Cerberus Helpdesk) since January 2002. In connection with this business, we operate the `cerberusweb.com <http://cerberusweb.com>`_ project website, as well as an On-Demand ("software as a service") network of applications hosted by subscription as subdomains of cerb4.com, cerb5.com, and cerb6.com.
+**Webgroup Media LLC** ("WGM") is a commercial open source company that has been leading and supporting the community development of Cerb (formerly Cerberus Helpdesk) since January 2002. In connection with this business, we operate the `cerberusweb.com <http://cerberusweb.com>`_ project website, as well as an On-Demand ("software as a service") network of applications hosted by subscription as subdomains of cerb4.com, cerb5.com, and cerb6.com.
 
 It is WGM's policy to respect your privacy regarding any information we may collect while operating our websites and services. We do not sell any personally identifiable information or data stored by On-Demand services to third-parties. We do not directly share your information with third-parties without explicit permission except to comply with the law or to provide necessary infrastructure in connection with the services you request; however, there is some passive risk of exposure to third-party access inherent in web-based services that is outlined in detail below. We do our best to mitigate and minimize these risks on your behalf.
 
