@@ -1,5 +1,5 @@
-Adding pages to your navigation menu
-------------------------------------
+Workspaces
+==========
 
 .. figure:: /images/worker_guide/ui/navigation_menu.gif
     :alt: The navigation menu.

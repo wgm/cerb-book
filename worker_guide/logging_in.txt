@@ -1,8 +1,16 @@
 Logging In
 ----------
 
-.. figure:: /images/worker_guide/logging_in.gif
-    :alt: Logging in
-    :figclass: bordered
+Each worker is given an account in Cerb with specific group members and privileges.  The first step in using Cerb is to log in to your account.
 
-The first step in using Cerb6 is to log in.  Enter your email address and password, then click the :guilabel:`Sign On` button (or press :kbd:`ENTER` after typing your password).
+#. Open your web browser and visit the URL that you were given by a manager or administrator.  This may have been sent to you by email.
+
+#. Enter your email address in the :guilabel:`Sign On` form.  You most likely want to check the :guilabel:`Remember me` box so you won't have to repeat this step in the future.
+
+    .. figure:: /images/worker_guide/logging_in.png
+        :alt: Logging in
+        :figclass: bordered
+
+#. Next you will be asked to authenticate your account.  This can take several forms depending on your environment: password, password plus Google Authenticator, LDAP, OpenID, etc.  Enter the requested credentials and click the :guilabel:`Sign On` button.
+
+Once you have logged in you're ready to explore to start exploring Cerb.

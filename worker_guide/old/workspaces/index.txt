@@ -1,0 +1,31 @@
+Workspaces
+==========
+
+A **workspace** is a custom-built page that is owned by a role, group, or worker.
+
+A group-owned workspace can be modified by that group's managers, and its contents can be viewed by all members.
+
+Workers can also create their own private workspaces that they have full control over.
+
+Frequently used workspaces can be added to a worker's global navigation menu as shortcuts.
+
+Workspaces are divided into a series of **tabs**.  There are three main types of tabs: worklists, dashboards, and calendars.  Additional tab types may be added through :doc:`plugins </plugins/index>`.  New tabs are added by clicking on the last tab labeled with a plus sign (:guilabel:`+`).
+
+Worklists
+---------
+
+As you might expect, a worklists tab contains one or more lists of any record type.  Worklists are configured to display particular columns and their results are determined by filters.
+
+Dashboard
+---------
+
+A dashboard tab contains a collection of **widgets**.
+
+calendar, clock, countdown, counter, custom html, gauge, line/bar chart, pie chart, scatterplot, subtotals, worklists
+
+((Importing widgets))
+
+Calendar
+--------
+
+A calendar tab displays...

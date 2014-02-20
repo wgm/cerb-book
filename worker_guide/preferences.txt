@@ -1,0 +1,110 @@
+Preferences
+-----------
+
+You can configure your account preferences by selecting :guilabel:`settings` from the :ref:`worker menu <ui_worker_menu>`:
+
+.. figure:: /images/worker_guide/settings/worker_menu.png
+    :figclass: bordered
+
+The preferences page is divided into several :ref:`tabs <ui_tabs>`:
+
+.. figure:: /images/worker_guide/settings/tabs.png
+    :figclass: bordered
+
+Settings
+========
+
+The :guilabel:`Settings` tab contains worker preferences divided into several sections:
+
+Account Settings
+~~~~~~~~~~~~~~~~
+
+.. figure:: /images/worker_guide/settings/account.png
+    :figclass: bordered
+
+The :guilabel:`Account Settings` section configures the following preferences:
+
+    **Timezone**
+        Select your current location to have dates and times displayed in your local timezone.
+
+    **Time Format**
+        Times can be displayed using a 12-hour or 24-hour clock.
+
+    **Language**
+        If you are in a multilingual environment, select your preferred language. This will change all the text in the interface. Any text that does not have an available translation will be displayed in English by default. This option won't translate individual email messages; they will still be displayed in the language they were originally written in.
+    
+    **Assist Mode**
+        This enables the guided tour.
+    
+    **Keyboard Shortcuts**
+        This enables keyboard shortcuts in worklists and on profiles.
+
+Availability
+~~~~~~~~~~~~
+
+The :guilabel:`Availability` section determines which of your :doc:`calendars </worker_guide/calendars>` is used to determine your availability.
+
+.. figure:: /images/worker_guide/settings/availability.png
+    :figclass: bordered
+
+For instance, a :doc:`Virtual Attendant </worker_guide/virtual_attendants>` can use different contact methods to send you a notifications depending on whether you are available or not.
+
+Mail
+~~~~
+
+The :guilabel:`Mail` section configures mail-related preferences.
+
+.. figure:: /images/worker_guide/settings/mail.png
+    :figclass: bordered
+
+Email Addresses
+~~~~~~~~~~~~~~~
+
+The :guilabel:`Email Addresses` section is where you can add alternate email addresses to your account.
+
+.. figure:: /images/worker_guide/settings/email_addresses.png
+    :figclass: bordered
+
+For instance, you can add a mobile email address so a :doc:`Virtual Attendant </worker_guide/virtual_attendants>` can relay your assignments there.  When you reply, Cerb will be able to identify you as the sender.
+
+Security
+========
+
+The :guilabel:`Security` tab helps protects your account.
+
+Secret questions
+~~~~~~~~~~~~~~~~
+
+When recovering your account's login information, you'll be prompted to answer these secret questions in order to verify your identity.
+
+This helps protect you in the event that your email account is compromised, because the attacker will still need to be able to answer personal questions about you before they can reset your login information. Without these secret questions, your account can be reset with nothing more than a confirmation code that is emailed to you.
+
+You should pick questions that don't have answers that could be easily obtained from social networks or a Google search. Your answers shouldn't be continuous numbers or come from a small set of choices that could be guessed in a few attempts, such as "How old were you when..." or "How many...".
+
+Reset login information
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You can use this section to reset your login credentials, such as choosing a new password or configuring the Google Authenticator mobile app.
+
+Sessions
+========
+
+The :guilabel:`Sessions` tab displays the currently active sessions from your account.  If you log in from different web browsers, locations, or devices, it's normal to see multiple sessions listed.
+
+If you have a reason to suspect that someone else is using your account, you can verify that here, and force them to log out if necessary.  You can also accomplish this by selecting the :guilabel:`sign off (all my sessions)` option in the :ref:`worker menu <ui_worker_menu>`.
+
+Watcher Notifications
+=====================
+
+On the :guilabel:`Watcher Notifications` tab you can specify the :doc:`activities <>` that generate :doc:`notifications <>` on records you're :doc:`watching <>`.  Any events that you leave unchecked will be ignored.
+
+For instance, if you don't want to be notified every time someone else watches a record that you're also watching, you can uncheck the :guilabel:`Watcher Followed` event.
+
+RSS
+===
+
+The :guilabel:`RSS` tab lists the `RSS feeds <http://en.wikipedia.org/wiki/RSS>`_ that you have created from :doc:`worklists </worker_guide/workspaces>`.  You can use a feed reader application to monitor changes on the worklist.
+
+    .. note::
+
+        The RSS feature is likely to be deprecated in the near future in favor of the :doc:`Web API </developer_guide/rest_api/index>`.

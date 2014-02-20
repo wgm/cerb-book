@@ -1,0 +1,25 @@
+Virtual Attendants
+==================
+
+**events**
+
+**behaviors**
+
+Events
+------
+
+Behaviors
+---------
+
+Decisions
+~~~~~~~~~
+
+Outcomes
+~~~~~~~~
+
+Actions
+~~~~~~~
+
+Importing a behavior
+--------------------
+

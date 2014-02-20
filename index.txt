@@ -10,7 +10,6 @@ Cerb6 Manual
     :maxdepth: 3
 
     introduction/index
-    concepts/index
     installation/index
     getting_started/index
     worker_guide/index
@@ -19,6 +18,7 @@ Cerb6 Manual
     developer_guide/index
     tips/index
     plugins/index
+    concepts/index
     cookbook/index
     credits/index
     License <license>

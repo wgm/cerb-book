@@ -1,0 +1,103 @@
+The User Interface
+==================
+
+Your interaction with Cerb takes place inside a web browser, where you navigate through the application by clicking links and buttons.  After logging in, you'll be shown a page like this:
+
+.. figure:: /images/worker_guide/ui/ui.png
+    :figclass: bordered
+
+Global navigation
+-----------------
+
+There are several interface elements that are visible on every page, and they collectively provide your *global navigation*.
+
+.. _ui_worker_menu:
+
+The worker menu
+~~~~~~~~~~~~~~~
+
+In the top-right of every page you'll notice an underlined link with your name in it.  Clicking on your name brings up a **worker menu** with several options related to your account.
+
+.. figure:: /images/worker_guide/ui/worker_menu.png
+    :figclass: bordered
+
+The options in the worker menu will be covered in more detail later in this guide.
+
+The search menu
+~~~~~~~~~~~~~~~
+
+In the top-right of every page you'll also find the **search menu**, which provides quick access to all the records stored in Cerb.  This menu removes the need to have individual pages for different types of records, and the menu will automatically expand as new record types are added through plugins.
+
+.. figure:: /images/worker_guide/ui/search_menu.png
+    :figclass: bordered
+    
+For instance, if you need to locate a specific ticket, you can open the search menu and select :guilabel:`Ticket` from the list.  This will take you to a search page where you can add filters and modify the way the results are displayed.
+
+You could work exclusively from the search menu, but soon you'll learn how to save frequently used searches as a workspace.
+
+The pages menu
+~~~~~~~~~~~~~~
+
+In the top-left of every page you'll find the **pages menu**.  As you become proficient with Cerb, this is where you'll save shortcuts to your most frequently used workspace pages.
+
+.. figure:: /images/worker_guide/ui/pages_menu.png
+    :figclass: bordered
+
+The logo
+~~~~~~~~
+
+You can click on the logo in the top-left to jump to your default page.
+
+The footer
+~~~~~~~~~~
+
+The footer displays information about your current version of Cerb, which is useful when contacting support for help.  It also displays the license owner, and performance metrics like the time it took for the server to generate the page and the maximum memory usage while doing so.
+
+.. figure:: /images/worker_guide/ui/footer.png
+    :figclass: bordered
+
+Interface controls
+------------------
+
+Aside from the common interface controls you've seen on most other web pages -- links, buttons, and forms inputs like text boxes -- Cerb introduces several new controls that are reused throughout the interface.
+
+.. _ui_tabs:
+
+Tabs
+~~~~
+
+Tabs are used to divide pages into sections.  Some tabs have a *badge* that displays how many records they contain, which saves you from having to click and check.
+
+.. figure:: /images/worker_guide/ui/tabs.png
+    :figclass: bordered
+
+Worklists
+~~~~~~~~~
+
+Worklists display a list of records and provide tools for interacting with the data: viewing, filtering, sorting, paging, etc.
+
+.. figure:: /images/worker_guide/ui/worklists.png
+    :figclass: bordered
+
+Later in this guide you'll learn about all the options available in worklists.
+
+Popups
+~~~~~~
+
+Popups are floating windows that enable you to display content, edit records, and perform other actions without leaving the current page.
+
+For instance, while viewing a ticket worklist you can click the *peek* icon on any row to view a summary of that record in a popup.  If you're trying to determine if a message is spam or not, you can often do so just by peeking at it without having to view its full record and risk losing your place in a list.
+
+.. figure:: /images/worker_guide/ui/popup.png
+    :figclass: bordered
+
+Tour mode
+---------
+
+When you log in for the first time, **tour mode** is automatically enabled to provide basic training. As you navigate through Cerb, a yellow box at the top of the page will highlight relevant *points of interest* based on where you are. Clicking on each item will display a callout bubble that highlights the location of a feature and explains how to use it.
+
+Once you are familiar with Cerb you can click the :guilabel:`hide this` link at the top right of the yellow box to disable the tour. Tour mode can always be re-enabled from the settings page.
+
+.. figure:: /images/worker_guide/ui/tour_mode.png
+    :alt: Tour mode
+    :figclass: bordered
