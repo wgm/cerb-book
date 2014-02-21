@@ -2,7 +2,7 @@ Virtual Attendants
 ------------------
 The Virtual Attendants API can retrieve and run behaviors.
 
-:Versions: Cerb 6.5 or later
+.. versionadded:: 6.5.0
 
 List Virtual Attendants
 =======================

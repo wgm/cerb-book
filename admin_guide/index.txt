@@ -1,7 +1,7 @@
 Guide for Administrators
 ------------------------
 
-In this guide we will walk you through the routine duties of an administrator.  For the best results, become familiar with the basic :doc:`concepts </concepts/index>` before continuing.
+In this guide you'll learn how to configure and maintain Cerb.
 
 .. toctree::
     :maxdepth: 3
