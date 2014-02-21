@@ -1,0 +1,64 @@
+Groups
+------
+The groups API allows you to retrieve and search Group records.
+
+.. versionadded:: 6.6.3
+
+Retrieve
+========
+**GET /groups/<id>.json**
+
+Retrieves information about a specific group record.
+
+Options:
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``buckets``
+		Retrieve the list of buckets for each group.
+
+	``members``
+		Retrieve the list of members for each group.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'groups/1.json?expand=buckets,members');
+	
+Search
+======
+**POST /groups/search.json**
+
+Performs a search across group objects.
+
+================      =======
+Field                 Type
+================      =======
+``name``              string
+================      =======
+
+Options:
+
+* **expand**
+	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	
+	``buckets``
+		Retrieve the list of buckets for each group.
+
+	``members``
+		Retrieve the list of members for each group.
+
+.. code-block:: php
+	
+    <?php
+    $postfields = array(
+         array('expand','buckets,members'),
+         array('criteria[]','name'),
+         array('oper[]','='),
+         array('value[]','Support'),
+         array('sortBy','name'),
+         array('sortAsc','1'),
+         array('page','1'),
+    );
+    $out = $cerb->post($base_url . 'groups/search.json', $postfields);

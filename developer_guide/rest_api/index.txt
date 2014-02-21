@@ -27,6 +27,7 @@ Contexts
     customfields
     domains
     feedback
+    groups
     kbarticles
     messages
     notifications
