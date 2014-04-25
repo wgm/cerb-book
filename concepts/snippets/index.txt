@@ -51,6 +51,12 @@ Cerb supports the following custom filters in snippets:
 	
 	Example: ``{{'Customer Name: Widgets Inc.'|regexp('/.*: (.*)/', 1)}}`` will display ``Widgets Inc.``
 
+**secs_pretty**
+
+	Formats a number of elapsed seconds as a human readable label, automatically selecting the most appropriate unit (e.g. months, days, hours, minutes, seconds).  An optional parameter may specify the number of units to be displayed.
+	
+	Example: ``{{505|secs_pretty}}`` will display ``8 mins, 25 secs``.
+
 **truncate**
 
 	Truncates a long value.  The first parameter is the maximum length of the value.  The optional second parameter is true/false for preserving whole words, and the optional third parameter provides an alternate separator (default: ...).
