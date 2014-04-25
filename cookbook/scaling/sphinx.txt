@@ -1,0 +1,449 @@
+Using Sphinx Search for full-text searching
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Sphinx Search** (http://sphinxsearch.com/) is an open source search server built for speed, scalability, and simple integration with MySQL.  It has been `supported since Cerb 6.7 <http://wiki.cerbweb.com/6.7#Sphinx_Search_support>`_ as a high performance replacement for the built-in MySQL fulltext indexes, which often become increasingly less efficient in high volume environments.
+
+Sphinx can index arbitrary fields and expose them to Cerb for more precise searching (@status @subject @mask @headers, etc).  It also supports advanced features like stemming and quorums (which will be covered in more detail later in this guide).
+
+After switching to Sphinx, you can drop the related ``fulltext_*`` tables in Cerb's database to reduce memory and storage usage, and to speed up processes like backups.
+
+This option requires Sphinx to be installed and configured separately, but you can expect searches to perform several times faster than using MySQL alone.
+
+How Sphinx integration works
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Index types
+-----------
+
+Sphinx has three main search index types:
+
+* **Static**
+    Once static indexes are built they are read-only.  The fact that they don't change makes them very fast to search, but it also means that the results may not include the most recent content.  These indexes are ideally suited for large collections of immutable content, like archived email messages.  Another common use of static indexes is for searching product catalogs, where the contents change infrequently.  Static indexes are updated (adding new records and ejecting deleted records) by rebuilding the entire index at an interval appropriate for how often the content changes.  This guide will cover a strategy to handle this efficiently even when the collection contains millions of records.
+    
+* **Real-time**
+    Real-time indexes can instantly reflect the addition, modification, and deletion of records in search results.  However, this instantaneous flexibility comes at the cost of peak search performance when compared to static indexes.  Real-time indexes are ideal for frequently created or modified records.  As a tradeoff, much of their content is kept in memory for performance reasons, and this can become prohibitive with large collections.
+    
+* **Distributed**
+    Distributed indexes are not an alternative to static or real-time indexes; instead, they combine other indexes of multiple types, or from multiple locations, into a single virtual index.  This allows a large search index to be distributed horizontally across several machines so that searches can be performed in parallel, and it also allows for patterns like hybrid static + realtime indexes.
+
+Best practices when using Sphinx with Cerb
+------------------------------------------
+
+Generally, when using Sphinx with Cerb there is no single `best` index type to use.  The best results often come from combining the strengths of the multiple index types depending on the content being searched.
+
+A single `static` index is fast but it wouldn't show the latest content until the index was fully rebuilt.  Similarly, a single `real-time` index returns new records in the results quickly, but at the cost of higher memory (RAM) usage and slightly impacted peak performance.  With a relatively small set of records (e.g. fewer than 1 million), a single index may perform sufficiently without a more advanced optimization (like the one we're about to introduce).
+
+The most common use case for integrating Sphinx and Cerb is to search email content more efficiently.  In Cerb, there may be millions of messages stored, and their content never changes once they are saved.  New messages are also added frequently -- perhaps as often as several times per minute.
+
+This use case isn't ideally suited for either static or real-time indexes individually.  The goals are fast searching, combined with the ability for searches to return new content in the results very soon after it is added.  To accomplish this, we recommend using a `distributed` index to create a hybrid `static` and `real-time` index.  This is also known as a "main + delta" pattern.  The `static` (main) index contains the long history of all message content as of the last time the index was fully generated, and the `real-time` (delta) index contains all the records that have been added since then.  When a search is performed against the `distributed` index, the results from both underlying indexes are combined.  Because the `real-time` index is much smaller, the performance hit from its real-time nature is no longer a factor.  Similarly, the much larger collection of messages can be searched quickly as a `static` index.  
+
+Every time the `static` index is rebuilt, the `real-time` index can be reset.  The frequency with which the static index is rebuilt should be determined by the number of records in the index, and how greedily the `real-time` index is using memory.  Rebuilding an index with several million email messages should only take a few minutes on modern hardware, but this may temporarily disrupt search functionality, or otherwise generate a higher load (or I/O contention) on the host server.  Finding the right interval requires a bit of experimentation and observation.
+
+Generally, you could rebuild the `static` index nightly or weekly.  If server RAM is limited, lean more toward nightly.  If your index is very large and the rebuild time impacts searches, lean more toward weekly.  The reindex process is performed by Sphinx's ``indexer`` command, which will be covered later in this guide.
+
+SphinxQL
+--------
+
+There are many search servers that have comparable features and performance to Sphinx (e.g. Lucene, Solr, Elasticsearch, AWS Cloudsearch).  One of the features that makes Sphinx Search perfectly suited for integration with Cerb is its `SphinxQL interface <http://sphinxsearch.com/docs/current.html#sphinxql-reference>`_.
+
+Instead of requiring a standalone API (which does exist), SphinxQL allows applications to communicate with Sphinx using the existing MySQL protocol and drivers.  The **QL** stands for `query language`, as it does in **SQL**.
+
+How searching from Cerb works
+-----------------------------
+
+When Sphinx is configured in Cerb, a full-text search is sent to Sphinx using the SphinxQL interface.  Sphinx returns a list of IDs for matching records.  These IDs are used to look up the full records from Cerb's database.
+
+Sphinx implements a limit to the maximum number of results that are returned for a given query, however those results are ordered by the highest relevancy first.  For instance, when searching for something on Google, a user is unlikely to look through more than the first few pages of results.  Sphinx returns up to 1000 results by default.  Cerb currently further restricts this to the top 500.
+
+Installing Sphinx
+^^^^^^^^^^^^^^^^^
+
+Generally, Sphinx should be installed through your operating system's package manager.  For instance, Ubuntu has an ``sphinxsearch`` package in ``apt``, although this may be an older version without the latest features.
+
+To use the latest version, the source can be downloaded and compiled.
+
+These instructions should be followed for installation:
+<http://sphinxsearch.com/docs/current.html#installation>
+
+.. ::
+
+    Stemming
+    Stop Words
+    Syntax Examples
+    Quick Search tips
+    
+Configuring Sphinx
+^^^^^^^^^^^^^^^^^^
+
+By default, Sphinx is configured through a :file:`sphinx.conf` file.  The paths given in the following examples are based on Ubuntu's ``sphinxsearch`` package.
+
+Indexer
+-------
+
+First, configure the ``indexer`` process.  This is what builds search indexes:
+
+.. code-block:: yaml
+
+    indexer
+    {
+        mem_limit    = 1000M
+        write_buffer = 8M
+    }
+    
+If you have plenty of RAM on the server, you can raise the ``mem_limit`` here.  Conversely, you can reduce it if your resources are limited.
+
+Searchd
+-------
+
+Next, configure the ``searchd`` process.  This is what answers search requests:
+
+.. code-block:: yaml
+
+    searchd
+    {
+        #listen                  = 127.0.0.1:9312
+        listen                  = 127.0.0.1:9306:mysql41
+        pid_file                = /var/run/sphinxsearch/searchd.pid
+        max_matches             = 1000
+        workers                 = threads
+        dist_threads            = 4
+        log                     = /var/log/searchd.conf
+    }
+    
+The ``listen = 127.0.0.1:9306:mysql41`` line starts a SphinxQL process on port ``9306``.  This is what Cerb will use to communicate with Sphinx.  The ``127.0.0.1`` IP assumes that Sphinx is located on the same server as Cerb.  If not, you should change the IP; however, you should run Sphinx on an internal network IP that doesn't accept connections from the public Internet.  Sphinx doesn't require a password to connect.  You should firewall incoming connections to just those originating from your webservers.
+
+.. note::
+    Even if you completely disregard the above security practices, Sphinx generally doesn't disclose sensitive information.  It doesn't store indexed content in its original format and it usually only returns IDs in response to searches.  There is a possibility that attributes may contain customer information.  A malicious actor could modify real-time indexes, which would likely just interfere with searches providing the right results.
+    
+Sources
+-------
+
+Sphinx defines indexes using a ``source`` with a matching ``index``.  Conveniently, `sources` allow inheritance, which means that we can configure a common set of options and then only define what differs individually.
+
+For the parent of all `sources`, we want to define a ``_mysql`` source with database connection details:
+
+.. code-block:: yaml
+
+    source _mysql
+    {
+        type      = mysql
+        sql_host  = localhost
+        sql_db    = cerb
+        sql_user  = sphinx
+        sql_pass  = s3cr3t
+        #sql_port  = 3306
+        sql_sock  = /var/run/mysqld/mysqld.sock
+    }
+    
+You should create a new MySQL user for ``sphinx`` with limited privileges to your Cerb database.  Define the host, db, user, and password above.  You can switch between TCP port or socket connections depending on your environment.
+
+At minimum, Sphinx needs ``SELECT`` access to your Cerb database tables.  The following examples also ``REPLACE INTO`` the ``cerb_property_store`` table to automatically checkpoint the latest ID and timestamp at the time that the index was built.  This makes it easier to implement the `main + delta` pattern using a combination of `static` and `real-time` indexes.
+
+Next, we'll define the sources for comment content, knowledgebase article content, and message content.  You shouldn't need to make any changes to these definitions, although you're free to add additional fields to the index to meet your needs.
+
+.. code-block:: yaml
+
+    source _mysql_comment_content : _mysql
+    {
+        sql_query_pre = SET NAMES utf8
+        sql_query_pre = SET SESSION query_cache_type=OFF
+        sql_query_pre = REPLACE INTO cerb_property_store (extension_id, property, value) VALUES ('cerberusweb.search.schema.comment_content', 'last_indexed_time', UNIX_TIMESTAMP())
+        sql_query = SELECT id, comment AS content, CRC32(context) AS context_crc32 FROM comment
+        sql_query_post_index = REPLACE INTO cerb_property_store (extension_id, property, value) VALUES ('cerberusweb.search.schema.comment_content', 'last_indexed_id', $maxid)
+        sql_attr_uint = context_crc32
+    }
+
+The above indexes comment content, and adds an attribute for the `context` of the comment (e.g. ticket, task, opp, etc).  The attribute is encoded as a 4-byte integer (for efficiency) using the CRC32 function.
+
+.. code-block:: yaml
+
+    source _mysql_kb_article : _mysql
+    {
+        sql_query_pre = SET NAMES utf8 
+        sql_query_pre = SET SESSION query_cache_type=OFF
+        sql_query_pre = REPLACE INTO cerb_property_store (extension_id, property, value) VALUES ('cerberusweb.search.schema.kb_article', 'last_indexed_time', UNIX_TIMESTAMP())
+        sql_query = SELECT id, title, content FROM kb_article
+        sql_query_post_index = REPLACE INTO cerb_property_store (extension_id, property, value) VALUES ('cerberusweb.search.schema.kb_article', 'last_indexed_id', $maxid)
+    }
+    
+The above indexes knowledgebase article content.  You will be able to search ``@title`` and ``@content`` fields separately, although both will be searched by default when a field isn't specified.
+
+.. code-block:: yaml
+
+    source _mysql_message_content : _mysql
+    {
+        sql_query_pre = SET NAMES utf8 
+        sql_query_pre = SET SESSION query_cache_type=OFF
+        sql_query_pre = REPLACE INTO cerb_property_store (extension_id, property, value) VALUES ('cerberusweb.search.schema.message_content', 'last_indexed_time', UNIX_TIMESTAMP())
+        sql_query = SELECT storage_message_content.id, ticket.mask, ticket.subject, storage_message_content.data AS content FROM storage_message_content INNER JOIN message ON (storage_message_content.id=message.id) INNER JOIN ticket ON (message.ticket_id=ticket.id) WHERE storage_message_content.chunk = 1
+        sql_joined_field = attachment_name FROM query; SELECT attachment_link.context_id AS message_id, attachment.display_name FROM attachment_link INNER JOIN attachment ON (attachment.id=attachment_link.attachment_id) WHERE attachment_link.context = 'cerberusweb.contexts.message' ORDER BY message_id
+        sql_joined_field = attachment_type FROM query; SELECT attachment_link.context_id AS message_id, attachment.mime_type FROM attachment_link INNER JOIN attachment ON (attachment.id=attachment_link.attachment_id) WHERE attachment_link.context = 'cerberusweb.contexts.message' ORDER BY message_id
+        sql_query_post_index = REPLACE INTO cerb_property_store (extension_id, property, value) VALUES ('cerberusweb.search.schema.message_content', 'last_indexed_id', $maxid)
+    }
+    
+The above indexes email message content.  You will be able to search ``@mask``, ``@subject``, and ``@content`` fields separately, although all will be searched by default when a field isn't specified.
+
+Additionally, the above example includes ``@attachment_name`` for searching attachment names on messages, and ``@attachment_type`` for searching MIME types (e.g. XML, PNG, PDF).  This example can be used to index additional fields like message headers, custom fields, etc.
+
+Indexes
+-------
+
+Finally, we need to define an `index` using each of the `sources` we created above.
+
+This creates a `static` index for comment content:
+
+.. code-block:: yaml
+
+    index comment_content_index
+    {
+        source        = _mysql_comment_content
+        path          = /var/lib/sphinxsearch/data/cerb/comment_content
+        charset_type  = utf-8
+    }
+    
+This creates a `real-time` index for comments created since the `static` index was built:
+
+.. code-block:: yaml
+
+    index comment_content_delta
+    {
+        type          = rt
+        path          = /var/lib/sphinxsearch/data/cerb/comment_content_delta
+        rt_field      = content
+        rt_attr_uint  = context_crc32
+        charset_type  = utf-8
+    }
+    
+This creates a `distributed` hybrid of the above `static` and `real-time` indexes:
+
+.. code-block:: yaml
+
+    index comment_content {
+        type = distributed
+        local = comment_content_delta
+        local = comment_content_index
+    }
+
+This creates a `static` index for knowledgebase articles:
+
+.. code-block:: yaml
+
+    index kb_article_index
+    {
+        source        = _mysql_kb_article
+        path          = /var/lib/sphinxsearch/data/cerb/kb_article
+        charset_type  = utf-8
+        html_strip    = 1
+    }
+    
+This creates a `real-time` index for knowledgebase articles modified since the `static` index was built:
+
+.. code-block:: yaml
+
+    index kb_article_delta
+    {
+        type          = rt
+        path          = /var/lib/sphinxsearch/data/cerb/kb_article_delta
+        #rt_mem_limit = 1024M
+        rt_field      = content    
+        charset_type  = utf-8
+        html_strip    = 1
+    }
+    
+This creates a `distributed` hybrid of the above `static` and `real-time` indexes:
+
+.. code-block:: yaml
+
+    index kb_article {
+        type = distributed
+        local = kb_article_delta
+        local = kb_article_index
+    }
+
+This creates a `static` index for email messages:
+
+.. code-block:: yaml
+
+    index message_content_index
+    {
+        source        = _mysql_message_content
+        path          = /var/lib/sphinxsearch/data/cerb/message_content
+        charset_type  = utf-8
+    }
+
+This creates a `real-time` index for new messages received since the `static` index was built:
+
+.. code-block:: yaml
+
+    index message_content_delta
+    {
+        type          = rt
+        path          = /var/lib/sphinxsearch/data/cerb/message_content_delta
+        #rt_mem_limit = 1024M
+        rt_field      = content
+        charset_type  = utf-8
+    }
+    
+This creates a `distributed` hybrid of the above `static` and `real-time` indexes:
+
+.. code-block:: yaml
+
+    index message_content {
+        type = distributed
+        local = message_content_delta
+        local = message_content_index
+    }
+
+Building your indexes
+^^^^^^^^^^^^^^^^^^^^^
+
+Once you've configured the `sources` and `indexes` in the :file:`sphinx.conf` file, you can run the following command to build the indexes:
+
+.. code-block:: bash
+
+    indexer --all --rotate
+    
+Starting Sphinx
+^^^^^^^^^^^^^^^
+
+After the indexes have been created, you can start Sphinx's :program:`searchd` process:
+
+.. code-block:: bash
+
+    service sphinxsearch start
+    
+.. note::
+    You may need to create the log file and set permissions manually::
+    
+        touch /var/log/searchd.conf
+        chown sphinxsearch /var/log/searchd.conf
+        
+        mkdir /var/lib/sphinxsearch
+        chown -R sphinxsearch /var/lib/sphinxsearch/
+        
+.. note::
+    If you're not using Ubuntu or Debian, and don't have the ``service`` command (or anything like it), you can start ``searchd`` directly::
+    
+        searchd
+        
+.. note::
+
+    After :program:`searchd` has started, you shouldn't need to restart it when you rebuild indexes.  The ``--rotate`` argument to the ``indexer`` program does that for you.
+    
+Testing Sphinx using the MySQL Console
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As mentioned earlier, you can connect to Sphinx using your existing MySQL tools and drivers.
+
+.. code-block:: bash
+
+    mysql -h 127.0.0.1 -u sphinx -P 9306
+    
+Once connected, you can search using a MySQL-like syntax:
+
+.. code-block:: mysql
+
+    SELECT id FROM message_content WHERE MATCH('test');
+    
+You can change `test` to any words or phrases that you're sure are in your message content.  You should receive up to 20 rows by default.
+
+Configuring Cerb to use Sphinx
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once you've verified that Sphinx is working properly, you're ready to configure Cerb to use it instead of the default MySQL fulltext feature.
+
+* Click :guilabel:`setup` in the top right.
+
+* Hover over the :guilabel:`Configure` menu and select :guilabel:`Search`.
+    .. figure:: /images/cookbook/scaling/sphinx_setup_search.png
+        :figclass: bordered
+
+* Click the :guilabel:`(edit)` link next to a search index.
+
+* Select :guilabel:`Sphinx` and enter the details referenced below:
+
+Comment content
+---------------
+
+.. figure:: /images/cookbook/scaling/sphinx_index_config_comment_content.png
+    :figclass: bordered
+
+
+Knowledgebase articles
+----------------------
+
+.. figure:: /images/cookbook/scaling/sphinx_index_config_kb_article.png
+    :figclass: bordered
+
+* **Quick search examples**::
+
+    all of these words
+    "this exact phrase"
+    (this | that)
+    wildcard*
+    "a quorum of at least three of these words"/3
+    @title search words
+    @content search words
+
+Message content
+---------------
+
+.. figure:: /images/cookbook/scaling/sphinx_index_config_message_content.png
+    :figclass: bordered
+
+* **Quick search examples**::
+
+    all of these words
+    "this exact phrase"
+    (this | that)
+    wildcard*
+    "a quorum of at least three of these words"/3
+    @mask ABC
+    @subject words in subject
+    @content words in content
+    @attachment_name "Screen Shot"
+    @attachment_type (jpeg | png)
+
+Searching from Cerb
+^^^^^^^^^^^^^^^^^^^
+
+Now we're ready to search in Cerb using Sphinx.
+
+* Hover over the :guilabel:`search` menu in the top right, and select :guilabel:`Ticket`.
+
+* In the quick search box in the top right, select :guilabel:`Message Content`
+
+* You should now see the Sphinx search options:
+
+    .. figure:: /images/cookbook/scaling/sphinx_search_cerb.png
+        :figclass: bordered
+
+Finishing up
+^^^^^^^^^^^^
+
+Remove the database tables that are no longer used
+--------------------------------------------------
+
+Now that your search indexes are handled by Sphinx, you can delete the ``fulltext_*`` tables in Cerb's database:
+
+.. code-block:: mysql
+
+    DROP TABLE fulltext_comment_content;
+    
+    DROP TABLE fulltext_kb_article;
+    
+    DROP TABLE fulltext_message_content;
+    
+This reduces the amount of storage space used, and it also speeds up ongoing processes like database backups.
+
+Schedule the Sphinx indexer to run
+----------------------------------
+
+You'll want to intermittently run the :program:`indexer` in order to update your `static` indexes.  For instance, you should schedule the following command from the crontab file of the Sphinx user:
+
+.. code-block:: bash
+
+    indexer --all --rotate
+
+.. ::
+    jira plugin

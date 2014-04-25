@@ -9,3 +9,5 @@ Cookbook
     rest_api/index
     virtual_attendants/index
     workspaces/dashboards/index
+    scaling/index
+    
