@@ -3,7 +3,7 @@ HipChat Integration
 :Author: Webgroup Media LLC
 :Repository: https://github.com/cerb-plugins/wgm.hipchat
 
-This plugin provides integration with `37Signals HipChat <http://www.hipchat.com/>`_ through their `official API <https://www.hipchat.com/docs/api>`_. It enables you to post messages to HipChat from Virtual Attendants.
+This plugin provides integration with `Atlassian HipChat <http://www.hipchat.com/>`_ through their `official API <https://www.hipchat.com/docs/api>`_. It enables you to post messages to HipChat from Virtual Attendants.
 
 .. figure:: /images/plugins/wgm.hipchat/library_wgm_hipchat.png
     :figclass: bordered
