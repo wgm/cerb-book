@@ -1,5 +1,5 @@
-Cerb6 Manual
-============
+Cerb Manual
+===========
 
 :Release: |version|
 :Last Updated: |today|
