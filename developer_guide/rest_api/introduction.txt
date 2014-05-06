@@ -1,56 +1,44 @@
 Introduction
 ------------
 
-The Rest API allows you to integrate a lot of the functionality of Cerb5 with other applications. For example, you could use the Rest API to view and create new tickets, monitor notifications, or manage tasks, all within your own application. The Rest API uses worker logins and permissions to authenticate API calls, and it supports returning results in both the XML and JSON formats. The Rest API also fully supports reading and writing custom fields for all objects.
+The `REST <http://en.wikipedia.org/wiki/REST>`_-based Web `API <http://en.wikipedia.org/wiki/API>`_ provides the ability to remote control Cerb for automation, synchronization, and integration. For example, you can use the API from other applications and services to create tickets, search records, monitor notifications, manage tasks, and interact with Virtual Attendants.
+
+The API uses per-application credentials and per-worker permissions to authorize API requests. It supports returning data in XML or JSON.
 
 Installation
 ============
 
-Like many parts of Cerb6, the RestAPI functionality is provided through a plugin. You'll need to enable the :doc:`RestAPI plugin </plugins/cerberusweb.restapi>` before you can take advantage of the RestAPI functionality.
-
+The Web API functionality is provided through a built-in :doc:`plugin </plugins/index>`. Make sure that the :doc:`Web API plugin </plugins/cerberusweb.restapi>` is enabled before continuing.
 
 .. _credentials:
 
 Credentials
 ===========
 
-In Cerb6, we've changed the credentials you use to access the Web-API.  You can no longer use the email address and password of a worker.  Instead, you need to generate an Access Key and Secret Key through the interface.  This also gives the added benefit of being able to make different keys with access only to specific parts of the app; for example, you could create a key that would give read-only access to one part of the app, and another key that has write access to something else.
+To access the Web API, a worker generates a *credentials* key-pair consisting of an *access key* and a *secret key*.  Credentials can be created with restricted access to only specific Cerb features. For example, you can create credentials that can only read notifications.
 
-To generate your credentials:
+To generate new API credentials:
 
-* Click on your Worker Menu in the top right of the navigation bar.
+* Click on the :ref:`worker menu <ui_worker_menu>` in the top right of the navigation bar.
+
 * Click on :guilabel:`settings`.
-* Click on the :guilabel:`API Credentials` tab.
-* Click on the :guilabel:`+` button at the top of the :guilabel:`Web API Credentials` worklist.
 
-.. figure:: /images/developer_guide/rest_api/new_credentials_dialog.png
-    :figclass: bordered
+* Click the :guilabel:`API Credentials` tab.
 
-* Enter :kbd:`Everything` for the :guilabel:`Label`.
-* Enter :kbd:`*` for the :guilabel:`Allowed paths`.
+* Click the green :guilabel:`+` icon at the top of the :guilabel:`Web API Credentials` worklist.
+
+    .. figure:: /images/developer_guide/rest_api/new_credentials_dialog.png
+        :figclass: bordered
+
+* Enter :kbd:`Everything` for the :guilabel:`Label`.  Optionally, you can use a more descriptive name that makes it easier to remember where the credentials will be used (e.g. "Campfire Virtual Attendant").
+
+* Enter :kbd:`*` for the :guilabel:`Allowed paths`.  Optionally, you can restrict this to specific request paths (e.g. ``tickets/*``).
+
 * Click the :guilabel:`Save Changes` button.
+
 * Click on the newly created credentials in the worklist, then make a note of your :guilabel:`Access Key` and :guilabel:`Secret Key`.
 
-.. figure:: /images/developer_guide/rest_api/credentials.png
-    :figclass: bordered
+    .. figure:: /images/developer_guide/rest_api/credentials.png
+        :figclass: bordered
 
 * Click the :guilabel:`Save Changes` button.
-
-    
-Data Types
-==========
-
-Throughout the following sections, many different datatypes are used for different fields on each object. Below is a list of each data type and a short explanation about it.
-
-bit
-	A bit is binary flag; Use a value of 0 for false and a value of 1 for true.
-integer
-	An integer is a number with no decimals or commas.
-timestamp
-	An integer representing the number of seconds since the Unix Epoch (00:00:00 UTC January 1st, 1970)
-string
-	Any value wrapped in single- or double-quotes.
-char
-    A single alphabetical character.
-mixed
-	A mixed data type can be any of the above, depending on the custom field in question. See the :doc:`documentation on Custom Fields</concepts/objects/custom_fields>` for more information.
