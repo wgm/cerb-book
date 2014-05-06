@@ -9,6 +9,7 @@ Topics
 
     introduction
     topics/authentication
+    topics/requests
 
 .. _rest_api_modules:
 

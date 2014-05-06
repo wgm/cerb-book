@@ -1,0 +1,99 @@
+Making API requests
+-------------------
+
+The Web API's available actions are organized into :ref:`modules <rest_api_modules>`.  For instance, ticket-related actions are found in the :doc:`tickets </developer_guide/rest_api/tickets>` module.
+
+A request is performed by pairing an HTTP **verb** with the appropriate **path** as a URL.  An **extension** of ``.json`` or ``.xml`` is added to the path to specify the format that the server should use for the response.  Some actions require a **payload**, which uses the `standard HTTP POST web form format <http://en.wikipedia.org/wiki/POST_(HTTP)>`_ of key/value pairs.
+
+Verbs
+=====
+
+There are four verbs: ``GET``, ``PUT``, ``POST``, and ``DELETE``.
+
+GET
+~~~
+
+A ``GET`` request performs simple retrieval actions.  It may only specify options in the URL (i.e. path and query string).
+
+For instance, this request retrieves the record for ticket #5 in JSON format::
+
+    GET /rest/tickets/5.json
+    
+Similarly, this request retrieves the record for organization #9 in XML format, including custom fields::
+
+    GET /rest/orgs/9.xml?expand=custom_
+
+PUT
+~~~
+
+A ``PUT`` request updates an existing record.  It may specify options in the URL and must provide a payload.
+
+For instance, this request updates the subject on ticket record #5 using a form-encoded payload::
+
+    PUT /rest/tickets/5.json
+    Content-Type: application/x-www-form-urlencoded; charset=utf-8
+    
+    subject=This+is+a+new+subject
+
+Notice how the path above is exactly the same as the first ``GET`` example?  The path refers to a specific record, and the verb describes what is being done to it.  The ``PUT`` verb performs a different action.
+
+.. note::
+    When using the :ref:`provided libraries <rest_api_libraries>`, payload encoding is performed automatically.  In this situation, you would just provide an associative array of key/value pairs instead.  The possible keys are available in the documentation for each module and action.
+
+POST
+~~~~
+
+A ``POST`` request performs complex actions that require a payload, such as record creation and searching.
+
+For instance, this request searches tickets for masks that start with *ABC* and returns results in JSON format::
+
+    POST /rest/tickets/search.json
+    Content-Type: application/x-www-form-urlencoded; charset=utf-8
+    
+    criteria[]=mask&oper[]=like&value[]=ABC*
+
+.. note::
+    Like with a ``PUT`` request, the payload encoding of a ``POST`` is handled automatically by the :ref:`provided libraries <rest_api_libraries>`.  The payload format is described by the documentation for each module and action.
+
+DELETE
+~~~~~~
+
+A ``DELETE`` request permanently removes the record specified in the URL.
+
+For instance, this request deletes ticket record #5::
+
+    DELETE /rest/tickets/5.json
+    
+.. _api_request_data_types:
+    
+Data Types
+==========
+
+Data types are provided for each action's options and payload fields.  Here are the possible data types:
+
+    **bit**
+    	A binary flag with a value of ``0`` for *false* and ``1`` for *true*.
+        
+    **integer**
+        A whole number with no commas or decimals.
+        
+        Example: ``1234``
+        
+    **timestamp**
+        A Unix 32-bit timestamp representing the number of seconds since the Unix Epoch (January 1, 1970 00:00:00 UTC).
+        
+        Example: ``1399376670``
+        
+    **string**
+        A text value.
+        
+        Example: ``This is a string of text.``
+        
+    **char**
+        A single character.
+        
+        Example: ``C``
+        
+    **mixed**
+    	A mixed data type can be any of the above, depending on the custom field in question. See :doc:`/developer_guide/rest_api/topics/custom_fields` for more information.
+
