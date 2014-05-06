@@ -1,4 +1,4 @@
 Zapier
 ------
 
-[TODO] Use or clone the pre-built Cerb app
+See: https://zapier.com/zapbook/cerb/

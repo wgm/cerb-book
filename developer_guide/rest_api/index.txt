@@ -9,10 +9,11 @@ Topics
 
     introduction
     topics/authentication
-    topics/tips
 
-Contexts
-========
+.. _rest_api_modules:
+
+Modules
+=======
 
 .. toctree::
     :maxdepth: 1
@@ -42,9 +43,11 @@ Contexts
     virtual_attendants
     workers
     workspaces
-    
-Examples
-========
+
+.. _rest_api_libraries:
+
+Libraries
+=========
 
 .. toctree::
     :maxdepth: 1
