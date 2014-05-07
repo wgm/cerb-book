@@ -10,6 +10,7 @@ Topics
     introduction
     topics/authentication
     topics/requests
+    topics/responses
 
 .. _rest_api_modules:
 
