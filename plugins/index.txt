@@ -1,30 +1,67 @@
 Plugins
 -------
-Plugins provide additional functionality which is not part of the core app. Most plugins add a new item to the :doc:`Search menu</worker_guide/search/index>`. Plugins can also add pages, tabs, worklists, database tables, and provide integration with 3rd-party systems.
+Plugins contribute *extensions* that expand or modify Cerb's functionality.  For example, a simple plugin may add a new tab to every ticket profile that displays external information about the sender.  Plugins can also add new record types, scheduler jobs, authentication methods, community portals, dashboard widgets, workspace page types, user interfaces, Virtual Attendant actions, etc.
 
-Context Plugins
-===============
+Everything in Cerb comes from a *plugin* -- even the built-in functionality.  Third-party developers have access to all the tools that were used to build Cerb, and their modifications are seamlessly combined with built-in features.  This means that every time Cerb gains new built-in features, plugin developers gain new tools as well.
 
-These plugins add new record types to Cerb.  See the documentation for a specific plugin for more information on what installing it will enable you to do.
+In general, plugins can be enabled or disabled as needed.  This allows the complexity and capabilities of Cerb to scale with the needs of a particular organization.  Access to plugins can be restricted per-role and per-worker.  Administrators can discover and install plugins through the Plugin Library, which is also capable of automatically updating plugins when new versions are released.
+
+There are two special plugins in Cerb that are required, and they cannot be disabled:
+
+* **Devblocks** (devblocks.core)
+    This plugin contains the Devblocks web development platform, designed specifically to facilitate Cerb's philosophy of extensibility and fast-paced incremental improvement.  It provides the low-level building blocks like database access, caching, plugins, localization, patch management, scheduling, HTTP request handling, etc.
+    
+* **Core** (cerberusweb.core)
+    This plugin implements the the higher-level building blocks that constitute Cerb: user interface elements like tabs and popups, workspaces, records, custom fields, email, worklists, dashboard widgets, workers, Virtual Attendants, community portals, etc.
+
+Built-in Plugins
+================
+
+These plugins are bundled with Cerb:
+
+.. toctree::
+    :maxdepth: 1
+
+    REST-based Web API <cerberusweb.restapi>
+    
+Plugin Library
+==============
+
+New Record Types
+~~~~~~~~~~~~~~~~
+
+These plugins add new record types:
 
 .. toctree::
     :maxdepth: 1
     
+    cerberusweb.assets
     cerberusweb.calls
     cerberusweb.datacenter.domains
     cerberusweb.datacenter.sensors
     cerberusweb.datacenter.servers
 
-3rd-party Integration
-=====================
+Mobile
+~~~~~~
 
-These plugins add the ability to communicate with 3rd-party systems. Some of them also add new items to the Search menu. See the documentation for a specific plugin for more information on what installing it will add to your Cerb installation.
+These plugins add mobile functionality:
+
+.. toctree::
+    :maxdepth: 1
+
+    cerberusweb.mobile
+
+Third-party Integration
+~~~~~~~~~~~~~~~~~~~~~~~
+
+These plugins add the ability to communicate with third-party services:
 
 .. toctree::
     :maxdepth: 1
 
     wgm.campfire
     wgm.clickatell
+    wgm.cloudglue
     wgm.facebook
     wgm.freshbooks
     wgm.github
@@ -35,9 +72,9 @@ These plugins add the ability to communicate with 3rd-party systems. Some of the
     wgm.twitter
 
 Storage Engines
-===============
+~~~~~~~~~~~~~~~
 
-These plugins add new storage engines.
+These plugins add new storage engines:
 
 .. toctree::
     :maxdepth: 1
@@ -45,9 +82,9 @@ These plugins add new storage engines.
     wgm.storage.s3.gatekeeper
 
 Authentication
-==============
+~~~~~~~~~~~~~~
 
-These plugins provide alternate authentication methods.
+These plugins provide alternate authentication methods:
 
 .. toctree::
     :maxdepth: 1
@@ -57,8 +94,8 @@ These plugins provide alternate authentication methods.
     wgm.ldap
 
 Miscellaneous Plugins
-=====================
-These plugins provide additional functionality within Cerb. See the documentation for each plugin for details.
+~~~~~~~~~~~~~~~~~~~~~
+These plugins provide additional functionality within Cerb. See the documentation for each plugin for details:
 
 .. toctree::
     :maxdepth: 1
