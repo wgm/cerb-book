@@ -63,7 +63,12 @@ A ``DELETE`` request permanently removes the record specified in the URL.
 For instance, this request deletes ticket record #5::
 
     DELETE /rest/tickets/5.json
-    
+
+Payloads
+========
+
+Field names that end in ``[]`` can be provided multiple times.
+
 .. _api_request_data_types:
     
 Data Types
