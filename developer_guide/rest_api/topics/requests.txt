@@ -74,10 +74,10 @@ Field names that end in ``[]`` can be provided multiple times.
 Data Types
 ==========
 
-Data types are provided for each action's options and payload fields.  Here are the possible data types:
+Data types are provided for each request's options and payload fields.  Here are the possible data types:
 
     **bit**
-    	A binary flag with a value of ``0`` for *false* and ``1`` for *true*.
+    	A binary flag with a value of ``0`` for *false* or ``1`` for *true*.
         
     **integer**
         A whole number with no commas or decimals.
@@ -85,7 +85,7 @@ Data types are provided for each action's options and payload fields.  Here are 
         Example: ``1234``
         
     **timestamp**
-        A Unix 32-bit timestamp representing the number of seconds since the Unix Epoch (January 1, 1970 00:00:00 UTC).
+        A Unix 32-bit timestamp representing the number of seconds since the Unix Epoch (January 1, 1970 00:00:00 GMT).
         
         Example: ``1399376670``
         
