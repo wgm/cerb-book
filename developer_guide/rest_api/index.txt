@@ -11,6 +11,7 @@ Topics
     topics/authentication
     topics/requests
     topics/responses
+    topics/custom_fields
 
 .. _rest_api_modules:
 

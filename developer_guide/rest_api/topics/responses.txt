@@ -152,6 +152,8 @@ The nested model in the previous example could be represented as the following s
     
 All of the keys and values can now be iterated with a simple loop.  Keys have globally unique names.  Any key can be retrieved directly in a consistent way without recursion.  And we still have the ability to model hierarchal relationships at any depth.
 
+.. _api_key_expansion:
+
 Contexts and key expansion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -227,6 +229,8 @@ At this point, Cerb will expand the keys for message #1195, which provides the `
 
 .. _api_response_expanding_keys:
 
+.. _api_key_expansion_in_requests:
+
 Expanding keys in API requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -268,26 +272,4 @@ The labels meta data is also useful for understanding what is stored in a partic
 Data types
 ~~~~~~~~~~
 
-**(C) Checkbox/Bit**
-    A *true* or *false* value, represented by ``1`` or ``0`` respectively.
-
-**(D) Dropdown/Picklist**
-    A single value from a predefined list of options.
-
-**(E) Date**
-    A 32-bit Unix timestamp integer, representing the number of elapsed seconds since January 1, 1970 00:00:00 GMT.
-
-**(F) File**
-    A file contained within the storage service.
-
-**(L) Record Link**
-    A link to another record.
-
-**(S) Single Line**
-    A single line of text.
-
-**(T) Multiple Lines**
-    Multiple lines of text, with linefeeds preserved.
-
-**(X) Multiple Checkboxes**
-    Any number of selected values from a predefined list of options.
+See: :ref:`Custom field types <api_custom_field_types>`

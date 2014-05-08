@@ -1,0 +1,192 @@
+Working with custom fields
+--------------------------
+
+Records in Cerb can be extended with **custom fields** and **fieldsets**.  These fields are available in the :doc:`API responses </developer_guide/rest_api/topics/responses>` using :ref:`key expansion <api_key_expansion_in_requests>`.
+
+Custom field concepts
+=====================
+
+.. _api_custom_field_types:
+
+Field types
+~~~~~~~~~~~
+
+A custom field is created with one of the following types:
+
+    **(C) Checkbox/Bit**
+        A *true* or *false* value, represented by ``1`` or ``0`` respectively.
+
+    **(D) Dropdown/Picklist**
+        A single selection from a predefined list of options.
+
+    **(E) Date**
+        A 32-bit Unix timestamp integer, representing the number of elapsed seconds since January 1, 1970 00:00:00 GMT.
+
+    **(F) File**
+        A file contained within the storage service.
+
+    **(I) Multiple File**
+        Multiple files contained within the storage service.
+
+    **(L) Record Link**
+        A link to another record.
+
+    **(N) Number**
+        An unsigned 32-bit whole number.
+
+    **(S) Single Line**
+        A single line of text.
+
+    **(T) Multiple Lines**
+        Multiple lines of text, with linefeeds preserved.
+
+    **(U) URL**
+        A Uniform Resource Locator to a web page.
+
+    **(W) Worker**
+        A single selection from the list of active workers.
+
+    **(X) Multiple Checkboxes**
+        Any number of selections from a predefined list of options.
+
+Fieldsets
+~~~~~~~~~
+
+A fieldset is an optional collection of custom fields that can be added to a record.  Fieldsets can be owned by different actors (e.g. Cerb, roles, groups, workers, and Virtual Attendants).
+
+Using custom fields in the API
+==============================
+
+Building a list of the available custom fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The available custom fields and fieldsets for a specific record type can be retrieved using the :ref:`Contexts <api_record_types>` module::
+
+    GET /rest/contexts/list.json
+    
+This will return a list of record types with custom field information, like the following example:
+
+.. code-block:: javascript
+    
+    ...
+    {
+       id: "cerberusweb.contexts.ticket",
+       name: "Ticket",
+       plugin_id: "cerberusweb.core",
+       custom_fields: [
+          {
+             id: 146,
+             name: "Due",
+             type: "E"
+          },
+          {
+             id: 143,
+             name: "Priority",
+             type: "D",
+             params: {
+                options: [
+                   "Moderate",
+                   "High",
+                   "Critical"
+                ]
+             }
+          }
+       ],
+       custom_fieldsets: [
+          {
+             id: "1",
+             name: "Billing",
+             owner__context: "cerberusweb.contexts.group",
+             owner_id: "5",
+             custom_fields: [
+                {
+                   id: 14,
+                   name: "Invoice #",
+                   type: "S"
+                }
+             ]
+          },
+          {
+             id: "45",
+             name: "Impact",
+             owner__context: "cerberusweb.contexts.group",
+             owner_id: "2",
+             custom_fields: [
+                {
+                   id: 166,
+                   name: "Severity",
+                   type: "D",
+                   params: {
+                      options: [
+                         "4 - Suggestion",
+                         "3 - Need assistance",
+                         "2 - Something isn't right",
+                         "1 - Urgent"
+                      ],
+                      context: "cerberusweb.contexts.activity_log"
+                   }
+                }
+             ]
+          }
+       ]
+    }
+
+Retrieving custom fields on records
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Custom fields can be retrieved on records using :ref:`key expansion <api_key_expansion_in_requests>` in ``GET`` requests::
+
+    GET /rest/tickets/123.json?expand=custom_
+
+The *keys* for custom fields are in the format ``custom_123``, where ``123`` is the ID.  The labels and types of each custom field are in the ``_labels`` and ``_types`` keys respectively.
+
+Retrieving custom fields on search results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Custom fields can be retrieved in :doc:`search results </developer_guide/rest_api/topics/search>` using :ref:`key expansion <api_key_expansion_in_requests>` in ``POST`` requests::
+
+    POST /rest/tickets/search.json
+    Content-Type: application/x-www-form-urlencoded; charset=utf-8
+    
+    expand=custom_&criteria[]=subject&oper[]=like&value[]=Receipt*
+
+When using a :ref:`library <rest_api_libraries>`, the requests look like:
+
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+        array('expand','custom_'),
+        array('criteria[]','subject'),
+        array('oper[]','like'),
+        array('value[]','Receipt*'),
+        array('sortBy','created'),
+        array('sortAsc','0'),
+        array('page','1'),
+    );
+    $out = $cerb->post($base_url . 'tickets/search.json', $postfields);
+
+The *keys* for custom fields are in the format ``custom_123``, where ``123`` is the ID.  The labels and types of each custom field are in the ``results_meta`` key.
+
+Setting custom fields on records
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Custom fields can be set on records in ``PUT`` requests::
+
+    PUT /rest/tickets/123.json?expand=custom_
+    Content-Type: application/x-www-form-urlencoded; charset=utf-8
+    
+    custom_14=CERB-1234&custom_143=Critical
+    
+When using a :ref:`library <rest_api_libraries>`, the requests look like:
+
+.. code-block:: php
+
+    <?php
+    $putfields = array(
+        array('custom_14','CERB-1234'),
+        array('custom_143','Critical'),
+    );
+    $out = $cerb->put($base_url . 'tickets/123.json?expand=custom_', $putfields);    
+
+Each custom field value is sent as a form field in the format ``custom_123=value``, where ``123`` is the ID, and ``value`` is determined by the :ref:`custom field type <api_custom_field_types>`.
