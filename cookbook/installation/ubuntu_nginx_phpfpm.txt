@@ -1,10 +1,10 @@
-Installing in Ubuntu with Nginx with PHP-FPM
-============================================
+Installing in Ubuntu with Nginx and PHP-FPM
+===========================================
 
 Introduction
 ------------
 
-This article provides step-by-step instructions for installing Cerb on an Ubuntu 12.04 LTS server with `Nginx <http://nginx.org/en/>`_ as a webserver and `PHP-FPM <http://php-fpm.org/>`_ (*PHP5 FastCGI Process Manager*) for executing PHP code.
+This article provides step-by-step instructions for installing Cerb on an Ubuntu 14.04 LTS server with `Nginx <http://nginx.org/en/>`_ as a webserver and `PHP-FPM <http://php-fpm.org/>`_ (*PHP5 FastCGI Process Manager*) for executing PHP code.
 
 The :program:`Nginx + PHP-FPM` combination has several advantages over :program:`Apache2 + mod_php5`:
 
@@ -24,8 +24,6 @@ Provisioning the server
 Provision a server at your provider of choice.
 
 Your server can be virtual (e.g. `Linode <http://www.linode.com/?r=a544762ccb5d1fd59422c04e1ebb5076aa3070f2>`_, Amazon EC2) or dedicated (e.g. Softlayer, self-hosted).  We'll assume that you've provisioned a new machine with only the bare operating system installed.  If you've already performed some of the following steps you can skip ahead.
-
-If you're provisioning a virtual server with limited memory (such as the $19.95 512MB node at Linode) then it is recommended that you install a 32-bit version of Ubuntu because it will utilize less RAM.
 
 Once your new server is online, set up a DNS record to point your desired hostname (e.g. yoursite.example.com) to the IP address.
 
@@ -86,6 +84,14 @@ When using FastCGI and applications that read the path information directly (e.g
 
     cgi.fix_pathinfo=0
 
+Increase the :code:`upload_max_filesize` and :code:`post_max_size` settings:
+
+.. code-block:: ini
+
+    upload_max_filesize=64M
+
+    post_max_size=64M
+
 Save and configuration file and reload :program:`PHP-FPM` to use the new changes:
 
 ::
@@ -110,16 +116,20 @@ MySQL's binary log allows you to keep a record of all queries that change the da
 .. code-block:: ini
 
     log_bin                 = /var/log/mysql/mysql-bin.log
-    expire_logs_days        = 2
+    expire_logs_days        = 7
     max_binlog_size         = 2000M
 
+Increase the ``key_buffer_size`` to roughly 25% of your available RAM:
+
+.. code-block:: ini
+
+    key_buffer_size         = 2G  # This assumes 8GB of RAM
+    
 Restart :program:`MySQL` for the changes to take effect:
 
 ::
 
     service mysql restart
-
-((TODO: Memory tuning))
 
 Install Cerb dependencies
 -------------------------
@@ -277,6 +287,8 @@ Use the following configuration file, but replace :code:`yoursite.example.com` w
     	root /home/vhosts/cerb/httpdocs;
     	index index.php;
         
+        client_max_body_size 64M;
+        
         # Always let people see the favicon file
     	location = /favicon\.ico {
     	    allow all;
@@ -335,8 +347,8 @@ Reload :program:`Nginx`'s configuration:
 
     service nginx reload
 
-Download the Cerb6 files from GitHub
-------------------------------------
+Download the Cerb files from GitHub
+-----------------------------------
 
 You'll need :program:`Git` to download :program:`Cerb` from `GitHub <http://github.com>`_.  You can install it from :program:`apt`:
 
@@ -416,21 +428,6 @@ First, remove the :file:`install/` directory since it contains sensitive informa
 
     rm -Rf install/
 
-Enable :program:`Memcache` in the :file:`framework.config.php` file:
-
-::
-
-    vi framework.config.php
-
-Uncomment the following lines and choose a unique :code:`DEVBLOCKS_CACHE_PREFIX`:
-
-.. code-block:: php
-
-    <?php
-    // Memcached (high-performance shared memory cache)
-    define('DEVBLOCKS_CACHE_PREFIX','example'); // ONLY A-Z, a-z, 0-9 and underscore
-    define('DEVBLOCKS_MEMCACHED_SERVERS','127.0.0.1:11211');
-
 Edit the virtual host configuration file:
 
 ::
@@ -463,3 +460,4 @@ And finally, set the permissions on the configuration file to read only:
 
     chmod 400 framework.config.php
 
+You can enable :program:`Memcache` in Setup -> Configure -> Cache after logging in.
