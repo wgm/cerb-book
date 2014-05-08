@@ -3,6 +3,27 @@ Contexts
 
 The contexts API provides access to generic record functionality.
 
+.. _api_record_types:
+
+Records Types
+~~~~~~~~~~~~~
+
+List
+====
+**GET /contexts/list.json**
+
+Retrieve a list of record contexts with IDs, names, custom fields and fieldsets.  This includes contexts contributed by :doc:`plugins </plugins/index>`.
+
+.. versionadded:: 6.6.0
+
+.. versionchanged:: 6.7.3
+    Custom field and fieldset information is included in context results.
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'contexts/list.json');
+
 Activity Log
 ~~~~~~~~~~~~
 
@@ -10,7 +31,7 @@ List Events
 ===========
 **GET /contexts/activity/events.json**
 
-Retrieve a list of activity log event IDs and names, including those contributed by plugins.
+Retrieve a list of activity log event IDs and names, including those contributed by :doc:`plugins </plugins/index>`.
 
 .. versionadded:: 6.6.3
 
@@ -66,19 +87,6 @@ Field                   Type
 Links
 ~~~~~
 
-List
-====
-**GET /contexts/list.json**
-
-Retrieve a list of context IDs and names, including those contributed by plugins.
-
-.. versionadded:: 6.6.0
-
-.. code-block:: php
-
-    <?php
-    $out = $cerb->get($base_url . 'contexts/list.json');
-
 Link
 ====
 **POST /contexts/link.json**
@@ -131,3 +139,4 @@ Field               Type
       ))),
     );
     $out = $cerb->post($base_url . 'contexts/unlink.json', $postfields);
+

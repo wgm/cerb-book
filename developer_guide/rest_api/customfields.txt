@@ -1,6 +1,12 @@
 Custom Fields
 -------------
 
+.. deprecated:: 6.7.3
+
+.. warning::
+
+    This module will be removed in the near future.  Use the :doc:`/developer_guide/rest_api/contexts` module instead.
+
 The custom field API allows you to retrieve the Custom Field objects for a given context or object.
 
 Retrieve
