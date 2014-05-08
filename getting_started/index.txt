@@ -45,4 +45,4 @@ Developers
 Skip to the :doc:`/developer_guide/index` if you are a software developer and you would like to learn how to:
 
 -  Create new plugins to extend the functionality of Cerb
--  Integrate Cerb with other software
+-  Integrate Cerb with other software using the REST-based Web API

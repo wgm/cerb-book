@@ -26,7 +26,7 @@ We believe in platforms and toolkits
 -  We don't want to build schizophrenic software that forces everyone's opinions on everyone else.
 -  We want you to see our work as a great starting point for the solution you've always wanted. We'll help you add the finishing touches.
 -  People are used to asking what software wants them to do. We believe in taking the time to retrain people that they should be in control.
-- It's rewarding to see people using our tools to solve problems we never anticipated in creative ways that we never thought of.
+- It's rewarding to see people using our tools to solve problems that we never anticipated in creative ways that we never thought of.
 
 We believe software is art
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

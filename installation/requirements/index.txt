@@ -72,7 +72,7 @@ Required
 Recommended
 ~~~~~~~~~~~
 
-* :program:`Ubuntu` Linux (12.04 LTS or 13.10) 
+* :program:`Ubuntu` Linux (14.04 LTS) 
 
 * :program:`Nginx` 1.4 or later
 
@@ -81,12 +81,13 @@ Recommended
 - With the required extensions, plus:
     - memcached
     - xcache
+    - oauth
     
 - With the :file:`php.ini` settings:
     - `file_uploads = On`
-    - `magic_quotes_gpc = Off`
-    - `safe_mode = Off`
-    - `memory_limit = 32M` (or higher)
+    - `memory_limit = 64M` (or higher)
+    - `upload_max_filesize = 32M` (or higher)
+    - `post_max_size = 32M` (or higher)
     
 * :program:`PHP-FPM`
 

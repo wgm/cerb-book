@@ -1,7 +1,7 @@
 Who is using Cerb?
 ------------------
 
-Cerb licenses have been requested by more than 18,979 organizations.  See our website <http://www.cerbweb.com/clients> for the most recent list of testimonials and noteworthy clients.
+Cerb has been licensed to more than 18,979 organizations.  See our website <http://www.cerbweb.com/clients> for the most recent list of testimonials and noteworthy clients.
 
 .. epigraph::
 

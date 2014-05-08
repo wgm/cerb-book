@@ -19,10 +19,11 @@ Cerb provides:
 * Knowledge management for sharing accumulated experience
 * Mobile functionality for reading notifications, using workspaces, and interacting with Virtual Attendants
 * :doc:`Devblocks </developer_guide/devblocks/index>`, a plugin-driven web development framework, for rapidly implementing new functionality
-* A library of third-party plugins for integrating with other applications and services (e.g. Facebook, Twitter, Twilio, Freshbooks, Amazon S3, JIRA, Campfire, etc)
+* A library of browser-installable third-party plugins for extending functionality and integrating with other applications and services (e.g. Facebook, Twitter, Twilio, Freshbooks, Amazon S3, JIRA, Campfire, etc)
+* A REST-based Web API for automation, synchronization, and integration
 * ... Time tracking, call logging, opportunity management, and much more
 
-Cerb is the result of over 12 years of continuous research and development by :term:`Webgroup Media <Webgroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on feedback from a community that has included more than 18,979 organizations.
+Cerb is the result of over 12 years of continuous research and development by :term:`Webgroup Media <Webgroup Media LLC>`.  The software is distributed under the Devblocks Public License as a commercial open source project.  It has evolved based on the feedback of a community that has included more than 18,979 organizations.
 
 Licenses are sold based on the number of simultaneous workers (i.e. :term:`seats <seat>`).  Community licenses provide up to three seats at no cost.  The software can be deployed on your own servers, or it can be subscribed to as an "on-demand" service that requires only a web browser.
 
