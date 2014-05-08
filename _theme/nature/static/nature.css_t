@@ -250,11 +250,10 @@ div.body p, div.body dd, div.body li {
     line-height: 1.5em;
 }
 
-li ul {
-    padding: 0;
-    margin: 0;
+div.section > div.section {
+  margin-left: 15px;
 }
- 
+
 div.admonition p.admonition-title + p {
     display: inline;
 }
