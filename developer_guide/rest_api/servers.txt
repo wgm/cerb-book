@@ -1,6 +1,6 @@
 Servers
 -------
-The servers API allows you to create, retrieve, update, and search Domain records.
+Retrieve, create, update, and search server records.
 
 Create
 ======

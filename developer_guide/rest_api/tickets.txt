@@ -103,6 +103,7 @@ Field                Type
 ``updated``          timestamp
 ``org_id``           integer
 ``org_name``         string
+``custom_*``         mixed
 ===============      =========
 
 .. code-block:: php

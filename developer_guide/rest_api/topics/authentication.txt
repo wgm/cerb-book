@@ -10,7 +10,7 @@ Similarly, the secret key is like a password.  However, unlike a traditional pas
 Authenticating with the provided libraries
 ==========================================
 
-The process of signing a request is automatically handled by the :ref:`provided libraries <rest_api_libraries>` for PHP, Python, and Node.js.
+The process of signing a request is automatically handled by the :ref:`provided libraries <rest_api_libraries>` for PHP, Perl, Python, and Node.js.
 
 Authenticating from custom scripts
 ==================================

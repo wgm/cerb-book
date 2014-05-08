@@ -5,8 +5,8 @@ The `REST <http://en.wikipedia.org/wiki/REST>`_-based Web `API <http://en.wikipe
 
 The API uses per-application credentials and per-worker permissions to authorize API requests. It supports returning data in XML or JSON.
 
-Installation
-============
+Enable the Web API plugin
+=========================
 
 The Web API functionality is provided through a built-in :doc:`plugin </plugins/index>`. Make sure that the :doc:`Web API plugin </plugins/cerberusweb.restapi>` is enabled before continuing.
 
