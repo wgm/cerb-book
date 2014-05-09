@@ -1,13 +1,15 @@
 Parser
 ------
 
-The parser API allows you to parse new messages and replies.
+Parse new messages and replies.
 
 Parse a new message
 ===================
 **POST /parser/parse.json**
 
-You can parse a new message like so:
+Import a raw message source.
+
+**Example:**
 
 .. code-block:: php
 
@@ -32,7 +34,9 @@ Parse a reply
 =============
 **POST /parser/parse.json**
 
-Parsing a reply to an existing message is fairly simple. You should use the Message-Id when possible, but you can also use the subject-mask.
+Parsing a reply to an existing message is fairly simple. You should use the quoted ``Message-Id:`` header as an ``In-Reply-To:`` when possible, but you can also use a ticket mask in the subject as a fallback option.
+
+**Example:**
 
 .. code-block:: php
 
@@ -40,7 +44,7 @@ Parsing a reply to an existing message is fairly simple. You should use the Mess
     $mime = <<< EOF
     From: ben@localhost
     To: support@localhost
-    Subject: [Parser #TKD-88128-525] This is a test through the Web-API.
+    Subject: [parser #TKD-88128-525] This is a test through the Web-API.
     Message-Id: <abc1@local1234>
     X-Mailer: cURL+PHP5
     
