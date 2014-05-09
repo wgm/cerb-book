@@ -1,7 +1,7 @@
 Contexts
 --------
 
-The contexts API provides access to generic record functionality.
+Access common object functionality.
 
 .. _api_record_types:
 
@@ -19,6 +19,8 @@ Retrieve a list of record contexts with IDs, names, custom fields and fieldsets.
 .. versionchanged:: 6.7.3
     Custom field and fieldset information is included in context results.
 
+**Example:**
+
 .. code-block:: php
 
     <?php
@@ -35,6 +37,8 @@ Retrieve a list of activity log event IDs and names, including those contributed
 
 .. versionadded:: 6.6.3
 
+**Example:**
+
 .. code-block:: php
 
     <?php
@@ -48,14 +52,14 @@ Create an activity log entry.
 
 .. versionadded:: 6.6.3
 
-==================      ==========
-Field                   Type
-==================      ==========
-``on``                  string
-``activity_point``      string
-``variables``           JSON array
-``urls``                JSON array
-==================      ==========
+    ==================      ==========
+    Field                   Type
+    ==================      ==========
+    ``on``                  string
+    ``activity_point``      string
+    ``variables``           JSON array
+    ``urls``                JSON array
+    ==================      ==========
 
 * The ``on`` field should be a target record in ``context:context_id`` format.
 
@@ -68,6 +72,8 @@ Field                   Type
 .. note::
 
     You do not need to provide a value for ``{{actor}}`` in ``variables`` or ``urls`` since this is handled automatically by Cerb.
+
+**Example:**
 
 .. code-block:: php
     
@@ -95,12 +101,14 @@ Add any number of links to one context record.
 
 .. versionadded:: 6.6.0
 
-==============      =======
-Field               Type
-==============      =======
-``on``              string
-``targets``         JSON array string
-==============      =======
+    ==============      =======
+    Field               Type
+    ==============      =======
+    ``on``              string
+    ``targets``         JSON array string
+    ==============      =======
+
+**Example:**
 
 .. code-block:: php
 
@@ -122,12 +130,14 @@ Remove any number of links from one context record.
 
 .. versionadded:: 6.6.0
 
-==============      =======
-Field               Type
-==============      =======
-``on``              string
-``targets``         JSON array string
-==============      =======
+    ==============      =======
+    Field               Type
+    ==============      =======
+    ``on``              string
+    ``targets``         JSON array string
+    ==============      =======
+
+**Example:**
 
 .. code-block:: php
 
