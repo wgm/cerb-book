@@ -1,14 +1,14 @@
 Virtual Attendants
 ------------------
-The Virtual Attendants API can retrieve and run behaviors.
+.. versionadded:: 6.5
 
-.. versionadded:: 6.5.0
+Retrieve Virtual Attendant objects; list and run behaviors.
 
 List Virtual Attendants
 =======================
 **GET /va/list.json**
 
-Retrieves the Virtual Attendants accessible by the current worker.  This includes VAs owned by the worker, their groups or roles, or the application.
+Retrieve the Virtual Attendants accessible by the current worker.  This includes VAs owned by the worker, their groups or roles, or the application.
 
 Options:
 
@@ -20,7 +20,9 @@ Options:
 
 	``behaviors``
 		Retrieve behavior details for each Virtual Attendant.
-		
+
+**Example:**
+
 .. code-block:: php
 
     <?php
@@ -30,7 +32,7 @@ Retrieve Virtual Attendant
 ==========================
 **GET /va/123.json**
 
-Retrieves a specific Virtual Attendant.
+Retrieve a Virtual Attendant object.
 
 Options:
 
@@ -42,6 +44,8 @@ Options:
 
 	``behaviors``
 		Retrieve behavior details for each Virtual Attendant.
+
+**Example:**
 
 .. code-block:: php
 
@@ -56,11 +60,13 @@ Execute the specified Virtual Attendant 'Custom API Request' behavior.  The resp
 
 The parameters are the public variables defined on the behavior (if any).
 
-==============      =========
-Field               Type
-==============      =========
-``var_*``           mixed
-==============      =========
+    ==============      =========
+    Field               Type
+    ==============      =========
+    ``var_*``           mixed
+    ==============      =========
+
+**Example:**
 
 .. code-block:: php
 	
