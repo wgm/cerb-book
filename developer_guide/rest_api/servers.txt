@@ -1,18 +1,21 @@
 Servers
 -------
-Retrieve, create, update, and search server records.
+Retrieve, create, update, and search server objects.
 
 Create
 ======
 **POST /servers/create.json**
 
-Creates a new domain.
+Create a new server object.
 
-================      =======
-Field                 Type
-================      =======
-``name``              string
-================      =======
+    ==============      =========  ===
+    Field                 Type
+    ==============      =========  ===
+    ``name``            string     **required**
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ==============      =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -26,7 +29,9 @@ Retrieve
 ========
 **GET /servers/<id>.json**
 
-Retrieves information about a specific server record.
+Retrieve a server object.
+
+**Example:**
 
 .. code-block:: php
 
@@ -37,13 +42,16 @@ Update
 ======
 **PUT /servers/<id>.json**
 
-Updates a server.
+Update a server object.
 
-================      =======
-Field                 Type
-================      =======
-``name``              string
-================      =======
+    ==============      =========  ===
+    Field                 Type
+    ==============      =========  ===
+    ``name``            string     
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ==============      =========  ===
+
+**Example:**
 
 .. code-block:: php
 	
@@ -57,14 +65,48 @@ Search
 ======
 **POST /servers/search.json**
 
-Performs a search across server objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for server objects.
 
-================      =======
-Field                 Type
-================      =======
-``name``              string
-================      =======
-	
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ==============      =========  ===
+    Field                 Type
+    ==============      =========  ===
+    ``id``              integer     
+    ``name``            string     
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ==============      =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ===============      ========
+    Key                  Description
+    ===============      ========
+    ``fieldsets``        Custom fieldsets on servers
+    ``links``            Objects linked to servers
+    ``watchers``         Watchers on servers
+    ===============      ========
+    	
+**Example:**
+
 .. code-block:: php
 	
     <?php
