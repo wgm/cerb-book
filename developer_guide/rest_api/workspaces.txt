@@ -1,14 +1,14 @@
 Workspaces
 ----------
-The workspaces API retrieves page, tab, widget, and worklist data.
+.. versionadded:: 6.4
 
-:Versions: Cerb 6.4 or later
+Retrieve page, tab, widget, and worklist objects.
 
 List Pages
 ==========
 **GET /workspaces/list.json**
 
-Retrieves the workspace pages accessible by the current worker.  This includes pages owned by the worker, their groups, or roles.
+Retrieve the workspace pages accessible by the current worker.  This includes pages owned by the worker, their groups, or roles.
 
 Options:
 
@@ -26,6 +26,8 @@ Options:
 		
 	``worklists``
 		Retrieve worklists for each tab.  This automatically includes ``tabs``.
+
+**Example:**
 
 .. code-block:: php
 
@@ -36,7 +38,7 @@ Retrieve Page
 =============
 **GET /workspaces/pages/123.json**
 
-Retrieves a specific workspace page.
+Retrieve a workspace page object.
 
 Options:
 
@@ -55,6 +57,8 @@ Options:
 	``worklists``
 		Retrieve worklists for each tab.  This automatically includes ``tabs``.
 
+**Example:**
+
 .. code-block:: php
 
     <?php
@@ -64,7 +68,7 @@ Retrieve Tab
 ============
 **GET /workspaces/tabs/123.json**
 
-Retrieves a specific workspace tab.
+Retrieve a workspace tab object.
 
 Options:
 
@@ -80,6 +84,8 @@ Options:
 	``worklists``
 		Retrieve all worklists on this tab.
 
+**Example:**
+
 .. code-block:: php
 
     <?php
@@ -89,7 +95,9 @@ Retrieve Widget
 ===============
 **GET /workspaces/widgets/123.json**
 
-Retrieves a specific workspace widget.  This automatically includes the widget's current data.
+Retrieve a workspace widget object.  This automatically includes the widget's current data.
+
+**Example:**
 
 .. code-block:: php
 
@@ -100,7 +108,7 @@ Retrieve Worklist
 =================
 **GET /workspaces/worklists/123.json**
 
-Retrieves a specific workspace worklist.  This automatically includes the worklist's current results, which may be paged like a search.
+Retrieve a workspace worklist object.  This automatically includes the worklist's current results, which may be paged like a search.
 
 Options:
 
@@ -112,6 +120,8 @@ Options:
 	
 * **limit**
 	The number of results per page.  Accepts values from 1 to 100.
+
+**Example:**
 
 .. code-block:: php
 
