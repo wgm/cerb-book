@@ -1,34 +1,91 @@
 Messages
 --------
 
-The messages API allows you to retrieve and search Message objects.
+Retrieve and search message objects.
 
 Retrieve
 ========
 **GET /messages/<id>.json**
 
-Retrieves information about message object.
+Retrieve a message object.
+
+Options:
+
+* **expand**
+	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
+	
+	``content``
+		Retrieve full message content.
+
+	``headers``
+		Retrieve all message email headers.
+
+**Example:**
 
 .. code-block:: php
 	
     <?php
-    $out = $cerb->get($base_url . 'messages/1.json');
+    $out = $cerb->get($base_url . 'messages/1.json?expand=content,headers');
 	
 Search
 ======
 **POST /messages/search.json**
 
-Performs a search across message objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for message objects.
 
-==============      =========
-Field               Type
-==============      =========
-``id``              integer
-``created``         timestamp
-``content``         string
-``sender_id``       integer
-``ticket_id``       integer
-==============      =========
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ===============      =========  ===
+    Field                Type
+    ===============      =========  ===
+    ``id``               integer
+    ``created``          timestamp
+    ``content``          string
+    ``sender_id``        integer
+    ``ticket_id``        integer
+    ===============      =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **expand**
+	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
+	
+	``content``
+		Retrieve full message content.
+
+	``headers``
+		Retrieve all message email headers.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ==================   ========
+    Key                  Description
+    ==================   ========
+    ``is_broadcast``     Messages by broadcast flag
+    ``is_outgoing``      Messages by incoming/outgoing
+    ``sender_address``   Messages by sender email
+    ``ticket_group``     Messages by group/bucket
+    ``ticket_status``    Messages by parent ticket status
+    ``worker``           Messages by worker sender
+    ==================   ========
+
+**Example:**
 
 .. code-block:: php
 
