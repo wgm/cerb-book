@@ -1,27 +1,29 @@
 Organizations
 -------------
-The organizations API allows you to create, retrieve, update, and search Organization objects.
+Create, retrieve, update, and search organization objects.
 
 Create
 ======
 **POST /orgs/create.json**
 
-Creates a new organization.
+Create an organization object.
 
-============      =========
-Field             Type     
-============      =========
-``name``          string   
-``street``        string   
-``city``          string   
-``province``      string   
-``postal``        string   
-``country``       string   
-``phone``         string   
-``website``       string   
-``created``       timestamp
-``custom_*``      mixed    
-============      =========
+    ===============      =========  ===
+    Field                Type
+    ===============      =========  ===
+    ``name``             string     **required**
+    ``street``           string   
+    ``city``             string   
+    ``province``         string   
+    ``postal``           string   
+    ``country``          string   
+    ``phone``            string   
+    ``website``          string   
+    ``created``          timestamp
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============      =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -35,7 +37,9 @@ Retrieve
 ========
 **GET /orgs/<id>.json**
 
-Retrieves information about an organization.
+Retrieve an organization object.
+
+**Example:**
 
 .. code-block:: php
 
@@ -46,22 +50,24 @@ Update
 ======
 **PUT /orgs/<id>.json**
 
-Updates an existing organization.
+Update an organization object.
 
-============     =========
-Field            Type     
-============     =========
-``name``         string   
-``street``       string   
-``city``         string   
-``province``     string   
-``postal``       string   
-``country``      string   
-``phone``        string   
-``website``      string   
-``created``      timestamp
-``custom_*``     mixed    
-============     =========
+    ===============      =========  ===
+    Field                Type
+    ===============      =========  ===
+    ``city``             string   
+    ``country``          string   
+    ``created``          timestamp
+    ``name``             string   
+    ``phone``            string   
+    ``postal``           string   
+    ``province``         string   
+    ``street``           string   
+    ``website``          string   
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============      =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -75,23 +81,58 @@ Search
 ======
 **POST /orgs/search.json**
 
-Performs a search across organization objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for organization objects.
 
-============    =========
-Field           Type     
-============    =========
-``id``          integer  
-``name``        string   
-``street``      string   
-``city``        string   
-``province``    string   
-``postal``      string   
-``country``     string   
-``phone``       string   
-``website``     string   
-``created``     timestamp
-``custom_*``    mixed    
-============    =========
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ===============      =========  ===
+    Field                Type
+    ===============      =========  ===
+    ``city``             string   
+    ``country``          string   
+    ``created``          timestamp
+    ``id``               integer   
+    ``name``             string   
+    ``phone``            string   
+    ``postal``           string   
+    ``province``         string   
+    ``street``           string   
+    ``website``          string   
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============      =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ===============      ========
+    Key                  Description
+    ===============      ========
+    ``country``          Orgs by country
+    ``fieldsets``        Custom fieldsets on orgs
+    ``links``            Objects linked to orgs
+    ``postal``           Orgs by postal code
+    ``province``         Orgs by state/province
+    ``watchers``         Watchers on orgs
+    ===============      ========
+
+**Example:**
 
 .. code-block:: php
 
