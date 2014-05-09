@@ -1,23 +1,40 @@
 Addresses
 ---------
-The addresses API allows you to create, retrieve, update, and search Address Book objects.
+Retrieve, create, update, and search email address objects.
+
+Retrieve
+========
+**GET /addresses/<id>.json**
+
+Retrieve an email address object.
+
+**Example:**
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'addresses/1.json');
 
 Create
 ======
 **POST /addresses/create.json**
 
-Creates a new email address.
+Create a new email address object using the following fields:
 
-==============      =======
-Field               Type
-==============      =======
-``email``           string
-``first_name``      string
-``is_banned``       bit
-``last_name``       string
-``org_id``          integer
-``custom_*``        mixed
-==============      =======
+    ==============      =========  ===
+    Field               Type     
+    ==============      =========  ===
+    ``email``           string     **required**
+    ``first_name``      string
+    ``is_banned``       bit
+    ``is_defunct``      bit
+    ``last_name``       string
+    ``org_id``          integer
+    ``updated``         timestamp
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ==============      =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -28,35 +45,28 @@ Field               Type
         array('last_name','Baltar'),
         array('custom_16','http://www.cerberusweb.com/'),
     );
-    $out = $cerb->post($base_url . 'addresses/create.xml', $postfields);
-
-Retrieve
-========
-**GET /addresses/<id>.xml**
-
-Retrieves information about an address record.
-
-.. code-block:: php
-
-    <?php
-    $out = $cerb->get($base_url . 'addresses/1.xml');
+    $out = $cerb->post($base_url . 'addresses/create.json', $postfields);
 
 Update
 ======
 **PUT /addresses/<id>.json**
 
-Updates an existing email address.
+Update an existing email address object using any of the following fields:
 
-==============      =======
-Field               Type
-==============      =======
-``email``           string
-``first_name``      string
-``is_banned``       bit
-``last_name``       string
-``org_id``          integer
-``custom_*``        mixed
-==============      =======
+    ==============      =========  ===
+    Field               Type
+    ==============      =========  ===
+    ``email``           string
+    ``first_name``      string
+    ``is_banned``       bit
+    ``is_defunct``      bit
+    ``last_name``       string
+    ``org_id``          integer
+    ``updated``         timestamp
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ==============      =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -73,21 +83,62 @@ Search
 ======
 **POST /addresses/search.json**
 
-Performs a search across address objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for address objects.
 
-===============      =======
-Field                Type
-===============      =======
-``id``               integer
-``email``            string
-``first_name``       string
-``is_banned``        bit
-``last_name``        string
-``num_nonspam``      integer
-``num_spam``         integer
-``org_id``           integer
-``org_name``         string
-===============      =======
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ===============      =========  ===
+    Field                Type
+    ===============      =========  ===
+    ``id``               integer
+    ``email``            string
+    ``first_name``       string
+    ``is_banned``        bit
+    ``is_defunct``       bit
+    ``last_name``        string
+    ``num_nonspam``      integer
+    ``num_spam``         integer
+    ``org_id``           integer
+    ``org_name``         string
+    ``updated``          timestamp
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============      =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ===============      ========
+    Key                  Description
+    ===============      ========
+    ``first_name``       Contact first name
+    ``fieldsets``        Custom fieldsets on the addresses
+    ``is_banned``        Whether senders are banned or not
+    ``is_defunct``       Whether senders are defunct or not
+    ``last_name``        Contact last name
+    ``links``            Objects linked to addresses
+    ``org_name``         Contact organization name
+    ``watchers``         Watchers on addresses
+    ===============      ========
+
+
+**Example:**
 
 .. code-block:: php
 
