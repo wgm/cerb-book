@@ -1,19 +1,23 @@
 Contacts
 --------
-The address API allows you to create, retrieve, update, and search registered Support Center contacts.
+Create, retrieve, update, and search contacts.
 
 Create
 ======
 **POST /contacts/create.json**
 
-Creates a new support center contact.
+Create a contact object.
 
-=========================      =================
-Field                          Type
-=========================      =================
-``email`` or ``email_id``      string or integer
-``password``                   string
-=========================      =================
+    =========================  ==========  ===
+    Field                      Type
+    =========================  ==========  ===
+    ``email``                  string      **required** if ``email_id`` is not provided
+    ``email_id``               integer     **required** if ``email`` is not provided
+    ``password``               string      **required**
+    ``custom_*``               mixed       :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =========================  ==========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -28,25 +32,29 @@ Retrieve
 ========
 **GET /contacts/<id>.json**
 
-Retrieves information about a support center contact.
+Retrieve a contact object.
+
+**Example:**
 
 .. code-block:: php
 
     <?php
     $out = $cerb->get($base_url . 'contacts/1.json');
 	
-	
 Update
 ======
 **PUT /contacts/<id>.json**
 
-Updates a support center contact.
+Update a contact object.
 
-============      ======
-Field             Type
-============      ======
-``password``      string
-============      ======
+    ===============   =========  ===
+    Field             Type
+    ===============   =========  ===
+    ``password``      string
+    ``custom_*``      mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============   =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -60,18 +68,54 @@ Search
 ======
 **POST /contacts/search.json**
 
-Performs a search across support center contacts.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for contact objects.
 
-====================      =======
-Field                     Type
-====================      =======
-``created``               integer
-``email_id``              integer
-``email_address``         string
-``email_first_name``      string
-``email_last_name``       string
-``last_login``            integer
-====================      =======
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    =========================  ================= ===
+    Field                      Type
+    =========================  ================= ===
+    ``created``                timestamp
+    ``email_id``               integer
+    ``email_address``          string
+    ``email_first_name``       string
+    ``email_last_name``        string
+    ``last_login``             timestamp
+    ``custom_*``               mixed             :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =========================  ================= ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ====================  ========
+    Key                   Description
+    ====================  ========
+    ``email_address``     Contact email
+    ``email_first_name``  Contact first name
+    ``email_last_name``   Contact last name
+    ``fieldsets``         Custom fieldsets on contacts
+    ``links``             Objects linked to contacts
+    ``watchers``          Watchers on contacts
+    ====================  ========
+
+**Example:**
 
 .. code-block:: php
 
@@ -90,7 +134,9 @@ Delete
 ======
 **DELETE /contacts/<id>.json**
 
-Deletes a support center contact.
+Delete a contact object.
+
+**Example:**
 
 .. code-block:: php
 	
