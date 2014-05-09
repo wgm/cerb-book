@@ -8,7 +8,7 @@ The Cerb development team has been ironically fortunate in choosing our
 area of expertise. When we started the project in 2002, we possessed the
 naive belief that a web-based shared inbox *"couldn't take more than a
 couple of weeks to build"*. We also couldn't have imagined where that
-simple idea would take us. Nearly 10 years later, we've been pleasantly
+simple idea would take us. Over 12 years later, we've been pleasantly
 surprised. Online collaboration is a business challenge that is
 inherently unsolvable. We've had more than 20,000 organizations express
 interest in what we're working on -- including a countless number of
@@ -18,7 +18,7 @@ more great ideas. Every time we make a major improvement in some part of
 the application, we begin to see how that same approach could solve a
 wide variety of other feature requests or development obstacles.
 
-Over the past 9 years, we've used this cumulative experience to refine a
+Over the past 12 years, we've used this cumulative experience to refine a
 library of reusable web-based tools that can be applied to an
 increasingly wide variety of business requirements. When you hear us
 talk about **Devblocks**, we're talking about these tools and the

@@ -1,5 +1,5 @@
 Calls
 -----
-The calls API allows you to create, retrieve, update, and search :doc:`Call </plugins/cerberusweb.calls>` objects.
+Create, retrieve, update, and search :doc:`call </plugins/cerberusweb.calls>` objects.
 
 [TODO]

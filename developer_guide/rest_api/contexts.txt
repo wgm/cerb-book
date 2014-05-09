@@ -5,14 +5,14 @@ Access common object functionality.
 
 .. _api_record_types:
 
-Records Types
-~~~~~~~~~~~~~
+Object Types
+~~~~~~~~~~~~
 
 List
 ====
 **GET /contexts/list.json**
 
-Retrieve a list of record contexts with IDs, names, custom fields and fieldsets.  This includes contexts contributed by :doc:`plugins </plugins/index>`.
+Retrieve a list of object contexts with IDs, names, custom fields and fieldsets.  This includes object contexts contributed by :doc:`plugins </plugins/index>`.
 
 .. versionadded:: 6.6.0
 
