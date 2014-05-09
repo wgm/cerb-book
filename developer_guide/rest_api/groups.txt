@@ -1,25 +1,28 @@
 Groups
 ------
-The groups API allows you to retrieve and search Group records.
 
 .. versionadded:: 6.6.3
+
+Retrieve and search group objects.
 
 Retrieve
 ========
 **GET /groups/<id>.json**
 
-Retrieves information about a specific group record.
+Retrieve a group object.
 
 Options:
 
 * **expand**
-	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
 	
 	``buckets``
 		Retrieve the list of buckets for each group.
 
 	``members``
 		Retrieve the list of members for each group.
+
+**Example:**
 
 .. code-block:: php
 
@@ -30,24 +33,55 @@ Search
 ======
 **POST /groups/search.json**
 
-Performs a search across group objects.
-
-================      =======
-Field                 Type
-================      =======
-``name``              string
-================      =======
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for group objects.
 
 Options:
 
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ===============      =========  ===
+    Field                Type
+    ===============      =========  ===
+    ``id``               integer
+    ``name``             string
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============      =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
 * **expand**
-	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
 	
 	``buckets``
 		Retrieve the list of buckets for each group.
 
 	``members``
 		Retrieve the list of members for each group.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ===============      ========
+    Key                  Description
+    ===============      ========
+    ``fieldsets``        Custom fieldsets on groups
+    ``links``            Objects linked to groups
+    ===============      ========
+
+**Example:**
 
 .. code-block:: php
 	
