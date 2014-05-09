@@ -1,25 +1,27 @@
 Workers
 -------
-The workers API allows you to create, retrieve, update, and search Worker objects.
+Create, retrieve, update, and search worker objects.
 
 Create
 ======
 **POST /workers/create.json**
 
-Creates a new worker.
+Create a worker object.
 
-================      =======
-Field                 Type
-================      =======
-``email``             string
-``first_name``        string
-``last_name``         string
-``password``          string
-``title``             string
-``is_disabled``       bit
-``is_superuser``      bit
-``custom_*``          mixed
-================      =======
+    =================   ========   ===
+    Field               Type
+    =================   ========   ===
+    ``email``           string     **required**
+    ``first_name``      string
+    ``last_name``       string
+    ``password``        string
+    ``title``           string
+    ``is_disabled``     bit        0=active, 1=disabled
+    ``is_superuser``    bit        0=worker, 1=superuser
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================   ========   ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -36,7 +38,9 @@ Retrieve
 ========
 **GET /workers/<id>.json**
 
-Retrieves information about a Worker.
+Retrieve a worker object.
+
+**Example:**
 
 .. code-block:: php
 
@@ -47,20 +51,22 @@ Update
 ======
 **PUT /workers/<id>.json**
 
-Updates a worker.
+Update a worker object.
 
-================      =======
-Field                 Type
-================      =======
-``email``             string
-``first_name``        string
-``last_name``         string
-``password``          string
-``title``             string
-``is_disabled``       bit
-``is_superuser``      bit
-``custom_*``          mixed
-================      =======
+    =================   ========   ===
+    Field               Type
+    =================   ========   ===
+    ``email``           string
+    ``first_name``      string
+    ``last_name``       string
+    ``password``        string
+    ``title``           string
+    ``is_disabled``     bit        0=active, 1=disabled
+    ``is_superuser``    bit        0=worker, 1=superuser
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================   ========   ===
+
+**Example:**
 
 .. code-block:: php
 	
@@ -75,19 +81,54 @@ Search
 ======
 **POST /workers/search.json**
 
-Performs a search across worker objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for worker objects.
 
-================      =======
-Field                 Type
-================      =======
-``id``                integer
-``email``             string
-``first_name``        string
-``last_name``         string
-``title``             string
-``is_disabled``       bit
-``is_superuser``      bit
-================      =======
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ================    ========   ===
+    Field               Type
+    ================    ========   ===
+    ``email``           string
+    ``first_name``      string
+    ``id``              integer
+    ``is_disabled``     bit        0=active, 1=disabled
+    ``is_superuser``    bit        0=worker, 1=superuser
+    ``last_name``       string
+    ``title``           string
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ================    ========   ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ================     ========
+    Key                  Description
+    ================     ========
+    ``fieldsets``        Custom fieldsets on workers
+    ``first_name``       Workers by first name
+    ``is_disabled``      Workers by active/disabled
+    ``is_superuser``     Workers by superuser/worker
+    ``last_name``        Workers by last name
+    ``links``            Objects linked to workers
+    ``title``            Workers by title
+    ================     ========
 	
 .. code-block:: php
 	
