@@ -1,20 +1,23 @@
 Domains
 -------
-The domains API allows you to create, retrieve, update, and search Domain records.
+Create, retrieve, update, and search domain objects.
 
 Create
 ======
 **POST /domains/create.json**
 
-Creates a new domain.
+Create a domain object.
 
-================      =======
-Field                 Type
-================      =======
-``created``           timestamp
-``name``              string
-``server_id``         int
-================      =======
+    ===============       =========  ===
+    Field                 Type
+    ===============       =========  ===
+    ``created``           timestamp
+    ``name``              string
+    ``server_id``         integer
+    ``custom_*``          mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============       =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -29,12 +32,12 @@ Retrieve
 ========
 **GET /domains/<id>.json**
 
-Retrieves information about a specific domain record.
+Retrieves a domain object.
 
 Options:
 
 * **expand**
-	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
 	
 	``contacts``
 		Retrieve full contacts list for each domain.
@@ -45,6 +48,8 @@ Options:
 	``watchers``
 		Retrieve watchers list for each domain.
 
+**Example:**
+
 .. code-block:: php
 
     <?php
@@ -54,15 +59,18 @@ Update
 ======
 **PUT /domains/<id>.json**
 
-Updates a domain.
+Update a domain object.
 
-================      =======
-Field                 Type
-================      =======
-``created``           timestamp
-``name``              string
-``server_id``         int
-================      =======
+    ===============       =========  ===
+    Field                 Type
+    ===============       =========  ===
+    ``created``           timestamp
+    ``name``              string
+    ``server_id``         integer
+    ``custom_*``          mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============       =========  ===
+
+**Example:**
 
 .. code-block:: php
 	
@@ -76,15 +84,59 @@ Search
 ======
 **POST /domains/search.json**
 
-Performs a search across domain objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for domain objects.
 
-================      =======
-Field                 Type
-================      =======
-``created``           timestamp
-``name``              string
-``server_id``         int
-================      =======
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ===============      =========  ===
+    Field                Type
+    ===============      =========  ===
+    ``created``          timestamp
+    ``name``             string
+    ``server_id``        integer
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ===============      =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **expand**
+	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
+	
+	``contacts``
+		Retrieve full contacts list for each domain.
+
+	``contacts_list``
+		Retrieve comma-separated contacts list for each domain.
+
+	``watchers``
+		Retrieve watchers list for each domain.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ===============      ========
+    Key                  Description
+    ===============      ========
+    ``fieldsets``        Custom fieldsets on the domains
+    ``links``            Objects linked to domains
+    ``server``           Parent server object
+    ``watchers``         Watchers on domains
+    ===============      ========
 	
 .. code-block:: php
 	
@@ -104,7 +156,7 @@ Contacts
 ========
 **POST /domains/123/contacts.json**
 
-Add or remove contacts on a domain record.  The contacts can be specified by email address, ID, or any combination of both.
+Add or remove contacts on a domain object.  The contacts can be specified by email address, ID, or any combination of both.
 
 Parameters:
 
@@ -117,6 +169,8 @@ Parameters:
 * **ids**
     A comma-separated list of email address IDs to add or remove.
 	
+**Example:**
+
 .. code-block:: php
 	
     <?php
