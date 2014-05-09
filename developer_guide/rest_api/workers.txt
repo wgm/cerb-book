@@ -4,7 +4,7 @@ The workers API allows you to create, retrieve, update, and search Worker object
 
 Create
 ======
-**POST /workers/create.xml**
+**POST /workers/create.json**
 
 Creates a new worker.
 
@@ -30,22 +30,22 @@ Field                 Type
         array('last_name','Stark'),
         array('password','test'),
     );
-    $out = $cerb->post($base_url . 'workers/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'workers/create.json', $postfields);
 	
 Retrieve
 ========
-**GET /workers/<id>.xml**
+**GET /workers/<id>.json**
 
 Retrieves information about a Worker.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'workers/1.xml');
+    $out = $cerb->get($base_url . 'workers/1.json');
 	
 Update
 ======
-**PUT /workers/<id>.xml**
+**PUT /workers/<id>.json**
 
 Updates a worker.
 
@@ -69,11 +69,11 @@ Field                 Type
         array('title','Superhero'),
         array('password','new'),
     );
-    $out = $cerb->put($base_url . 'workers/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'workers/1.json', $postfields);
 	
 Search
 ======
-**POST /workers/search.xml**
+**POST /workers/search.json**
 
 Performs a search across worker objects.
 
@@ -103,5 +103,5 @@ Field                 Type
          array('sortAsc','1'),
          array('page','1'),
     );
-    $out = $cerb->post($base_url . 'workers/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'workers/search.json', $postfields);
 	

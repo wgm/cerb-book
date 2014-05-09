@@ -4,7 +4,7 @@ The organizations API allows you to create, retrieve, update, and search Organiz
 
 Create
 ======
-**POST /orgs/create.xml**
+**POST /orgs/create.json**
 
 Creates a new organization.
 
@@ -29,22 +29,22 @@ Field             Type
     $postfields = array(
         array('name','deCODE Genetics'),
     );
-    $out = $cerb->post($base_url . 'orgs/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'orgs/create.json', $postfields);
 	
 Retrieve
 ========
-**GET /orgs/<id>.xml**
+**GET /orgs/<id>.json**
 
 Retrieves information about an organization.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'orgs/1.xml');
+    $out = $cerb->get($base_url . 'orgs/1.json');
 	
 Update
 ======
-**PUT /orgs/<id>.xml**
+**PUT /orgs/<id>.json**
 
 Updates an existing organization.
 
@@ -69,11 +69,11 @@ Field            Type
     $postfields = array(
         array('name','deCODE Genetics'),
     );
-    $out = $cerb->post($base_url . 'orgs/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'orgs/create.json', $postfields);
 	
 Search
 ======
-**POST /orgs/search.xml**
+**POST /orgs/search.json**
 
 Performs a search across organization objects.
 
@@ -104,4 +104,4 @@ Field           Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'orgs/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'orgs/search.json', $postfields);

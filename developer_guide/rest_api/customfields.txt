@@ -11,7 +11,7 @@ The custom field API allows you to retrieve the Custom Field objects for a given
 
 Retrieve
 ========
-**GET /customfields/<context>.xml** OR **GET /customfields/<object>.xml**
+**GET /customfields/<context>.json** OR **GET /customfields/<object>.json**
 
 Retrieves the custom fields for a context or an object. You can use either the context or the object shortcuts from the below table
 

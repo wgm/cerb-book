@@ -4,7 +4,7 @@ The opportunities API allows you to create, retrieve, update, and search Opportu
 
 Create
 ======
-**POST /opps/create.xml**
+**POST /opps/create.json**
 
 Creates a new opportunity.
 
@@ -29,12 +29,12 @@ Field                                  Type
         array('title','Sell Cerb6 to Salesforce'),
         array('email_address','unlikely@example.com'),
     );
-    $out = $cerb->post($base_url . 'opps/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'opps/create.json', $postfields);
 	
 	
 Update
 ======
-**PUT /opps/<id>.xml**
+**PUT /opps/<id>.json**
 
 Updates an opportunity.
 
@@ -59,22 +59,22 @@ Field                                  Type
         array('title','Sell Cerb6 to Atlassian'),
         array('email_address','nothappening@example.com'),
     );
-    $out = $cerb->post($base_url . 'opps/1.xml', $postfields);
+    $out = $cerb->post($base_url . 'opps/1.json', $postfields);
 
 Retrieve
 ========
-**GET /opps/<id>.xml**
+**GET /opps/<id>.json**
 
 Retrieves information about an opportunity.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'opps/1.xml');
+    $out = $cerb->get($base_url . 'opps/1.json');
 	
 Search
 ======
-**POST /opps/search.xml**
+**POST /opps/search.json**
 
 Performs a search across opportunity objects.
 
@@ -109,4 +109,4 @@ Field                                  Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'opps/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'opps/search.json', $postfields);

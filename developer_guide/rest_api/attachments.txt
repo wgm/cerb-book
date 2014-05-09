@@ -5,29 +5,29 @@ The attachments API allows you to retrieve, download, and search Attachment obje
 
 Retrieve
 ========
-**GET /attachments/<id>.xml**
+**GET /attachments/<id>.json**
 
 Retrieves information about an Attachment object.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'attachments/1.xml');
+    $out = $cerb->get($base_url . 'attachments/1.json');
 	
 Download
 ========
-**GET /attachments/<id>/download.xml**
+**GET /attachments/<id>/download.json**
 
 Downloads an Attachment object.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'attachments/1/download.xml');
+    $out = $cerb->get($base_url . 'attachments/1/download.json');
 
 Upload
 ======
-**POST /attachments/upload.xml**
+**POST /attachments/upload.json**
 
 Uploads an Attachment object.
 
@@ -51,7 +51,7 @@ Field               Type
 		array('encoding','text'), // text, base64
 		array('content','These are the file contents'),
 	);
-	$out = $cerb6->post($base_url . 'attachments/upload.xml', $postfields);
+	$out = $cerb6->post($base_url . 'attachments/upload.json', $postfields);
 
 Using base64 encoding for binary files:
 
@@ -64,11 +64,11 @@ Using base64 encoding for binary files:
 		array('encoding','base64'), // text, base64
 		array('content',base64_encode(file_get_contents('/path/to/image.png'))),
 	);
-	$out = $cerb6->post($base_url . 'attachments/upload.xml', $postfields);
+	$out = $cerb6->post($base_url . 'attachments/upload.json', $postfields);
 	
 Search
 ======
-**POST /attachments/search.xml**
+**POST /attachments/search.json**
 
 Performs a search across attachment objects.
 
@@ -91,5 +91,5 @@ Field               Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'attachments/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'attachments/search.json', $postfields);
 

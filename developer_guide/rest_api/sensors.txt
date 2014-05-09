@@ -4,7 +4,7 @@ The sensors API allows you to create, retrieve, update, and search Sensor object
 
 Create
 ======
-**POST /sensors/create.xml**
+**POST /sensors/create.json**
 
 Creates a new sensor.
 
@@ -29,11 +29,11 @@ Field                 Type
         array('type', `cerberusweb.datacenter.sensor.http`),
         array('status', 'O'),
     );
-    $out = $cerb->post($base_url . 'sensors/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'sensors/create.json', $postfields);
 
 Bulk Update
 ===========
-**POST /sensors/bulk_update.xml**
+**POST /sensors/bulk_update.json**
 
 Updates multiple sensors at once. You'll need to post an XML string containing all of the sensors to update.
 
@@ -50,22 +50,22 @@ Updates multiple sensors at once. You'll need to post an XML string containing a
 .. code-block:: php
 
     <?php
-    $out = $cerb->post($base_url . 'sensors/bulk_update.xml', $contents);
+    $out = $cerb->post($base_url . 'sensors/bulk_update.json', $contents);
 
 Retrieve
 ========
-**GET /sensors/<id>.xml**
+**GET /sensors/<id>.json**
 
 Retrieves information about a Sensor.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'sensors/1.xml');
+    $out = $cerb->get($base_url . 'sensors/1.json');
 	
 Update
 ======
-**PUT /sensors/<id>.xml**
+**PUT /sensors/<id>.json**
 
 Updates a sensor.
 
@@ -86,11 +86,11 @@ Field                 Type
     $postfields = array(
         array('output', 'C'),
     );
-    $out = $cerb->put($base_url . 'sensors/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'sensors/1.json', $postfields);
 	
 Search
 ======
-**POST /sensors/search.xml**
+**POST /sensors/search.json**
 
 Performs a search across sensor objects.
 
@@ -116,4 +116,4 @@ Field                 Type
          array('sortAsc','1'),
          array('page','1'),
     );
-    $out = $cerb->post($base_url . 'sensors/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'sensors/search.json', $postfields);

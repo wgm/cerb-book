@@ -125,4 +125,4 @@ Parameters:
     	array('emails','jeff@example.com,darren@example.com'),
     	array('ids','1'),
     );
-    $out = $cerb6->post($base_url . 'domains/123/contacts.xml', $postfields);
+    $out = $cerb6->post($base_url . 'domains/123/contacts.json', $postfields);

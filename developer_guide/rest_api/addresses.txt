@@ -4,7 +4,7 @@ The addresses API allows you to create, retrieve, update, and search Address Boo
 
 Create
 ======
-**POST /addresses/create.xml**
+**POST /addresses/create.json**
 
 Creates a new email address.
 
@@ -43,7 +43,7 @@ Retrieves information about an address record.
 
 Update
 ======
-**PUT /addresses/<id>.xml**
+**PUT /addresses/<id>.json**
 
 Updates an existing email address.
 
@@ -67,11 +67,11 @@ Field               Type
         array('last_name','Baltar'),
         array('custom_16','http://www.cerberusdemo.com/'),
     );
-    $out = $cerb->post($base_url . 'addresses/1.xml', $postfields);
+    $out = $cerb->post($base_url . 'addresses/1.json', $postfields);
 
 Search
 ======
-**POST /addresses/search.xml**
+**POST /addresses/search.json**
 
 Performs a search across address objects.
 
@@ -106,4 +106,4 @@ Field                Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'addresses/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'addresses/search.json', $postfields);

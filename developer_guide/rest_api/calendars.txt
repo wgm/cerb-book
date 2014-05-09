@@ -29,7 +29,7 @@ Options:
 
 Retrieve
 ========
-**GET /calendars/<id>.xml**
+**GET /calendars/<id>.json**
 
 Retrieves information about a calendar.
 
@@ -60,11 +60,11 @@ Options:
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'calendar/1.xml?month=12&year=2013&expand=weeks_events');
+    $out = $cerb->get($base_url . 'calendar/1.json?month=12&year=2013&expand=weeks_events');
 	
 Search
 ======
-**POST /calendars/search.xml**
+**POST /calendars/search.json**
 
 Performs a search across Calendar objects.
 
@@ -92,4 +92,4 @@ Field                 Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'calendars/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'calendars/search.json', $postfields);

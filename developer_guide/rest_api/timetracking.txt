@@ -17,7 +17,7 @@ Retrieve a list of activity IDs and names.
 
 Create
 ======
-**POST /timetracking/create.xml**
+**POST /timetracking/create.json**
 
 Creates a new time tracking entry.
 
@@ -42,22 +42,22 @@ Field                 Type
         array('mins','65'),
         array('worker_id','1'),
     );
-    $out = $cerb->post($base_url . 'timetracking/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'timetracking/create.json', $postfields);
 
 Retrieve
 ========
-**GET /timetracking/<id>.xml**
+**GET /timetracking/<id>.json**
 
 Retrieves information about a time tracking object.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'timetracking/1.xml');
+    $out = $cerb->get($base_url . 'timetracking/1.json');
 
 Update
 ======
-**PUT /timetracking/<id>.xml**
+**PUT /timetracking/<id>.json**
 
 Updates a time tracking entry.
 
@@ -81,11 +81,11 @@ Field                 Type
         array('activity_id','1'),
         array('is_closed','1'),
     );
-    $out = $cerb->put($base_url . 'timetracking/123.xml', $postfields);
+    $out = $cerb->put($base_url . 'timetracking/123.json', $postfields);
 
 Search
 ======
-**POST /timetracking/search.xml**
+**POST /timetracking/search.json**
 
 Performs a search across all time tracking objects.
 
@@ -114,4 +114,4 @@ Field                  Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'timetracking/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'timetracking/search.json', $postfields);

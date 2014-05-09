@@ -5,18 +5,18 @@ The messages API allows you to retrieve and search Message objects.
 
 Retrieve
 ========
-**GET /messages/<id>.xml**
+**GET /messages/<id>.json**
 
 Retrieves information about message object.
 
 .. code-block:: php
 	
     <?php
-    $out = $cerb->get($base_url . 'messages/1.xml');
+    $out = $cerb->get($base_url . 'messages/1.json');
 	
 Search
 ======
-**POST /messages/search.xml**
+**POST /messages/search.json**
 
 Performs a search across message objects.
 
@@ -44,4 +44,4 @@ Field               Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'messages/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'messages/search.json', $postfields);

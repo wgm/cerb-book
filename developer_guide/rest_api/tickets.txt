@@ -4,16 +4,16 @@ The tickets API allows you to retrieve, update, and search ticket objects.
 
 Retrieve
 ========
-**GET /tickets/<id>.xml**
+**GET /tickets/<id>.json**
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'tickets/1.xml');
+    $out = $cerb->get($base_url . 'tickets/1.json');
 
 Compose
 =======
-**POST /tickets/compose.xml**
+**POST /tickets/compose.json**
 
 .. versionadded:: 6.3
 
@@ -54,11 +54,11 @@ Field               Type
 		array('custom_6',"Line 1\nLine 2\nLine 3"), // multi-line
 		array('custom_4','Option 3'), // picklist
 	);
-	$out = $cerb6->post($base_url . 'tickets/compose.xml', $postfields);
+	$out = $cerb6->post($base_url . 'tickets/compose.json', $postfields);
 
 Update
 ======
-**PUT /tickets/<id>.xml**
+**PUT /tickets/<id>.json**
 
 ==============      ======
 Field               Type
@@ -79,11 +79,11 @@ Field               Type
         array('custom_6',"Line 1\nLine 2\nLine 3"), // multi-line
         array('custom_4','Option 3'), // picklist
     );
-    $out = $cerb->put($base_url . 'tickets/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'tickets/1.json', $postfields);
 	
 Search
 ======
-**POST /tickets/search.xml**
+**POST /tickets/search.json**
 
 ===============      =========
 Field                Type     
@@ -126,4 +126,4 @@ Field                Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'tickets/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'tickets/search.json', $postfields);

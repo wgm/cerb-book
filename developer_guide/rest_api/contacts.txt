@@ -4,7 +4,7 @@ The address API allows you to create, retrieve, update, and search registered Su
 
 Create
 ======
-**POST /contacts/create.xml**
+**POST /contacts/create.json**
 
 Creates a new support center contact.
 
@@ -22,23 +22,23 @@ Field                          Type
         array('email','gaius.baltar@localhost'),
         array('password','s3cr3t'),
     );
-    $out = $cerb->post($base_url . 'contacts/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'contacts/create.json', $postfields);
 
 Retrieve
 ========
-**GET /contacts/<id>.xml**
+**GET /contacts/<id>.json**
 
 Retrieves information about a support center contact.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'contacts/1.xml');
+    $out = $cerb->get($base_url . 'contacts/1.json');
 	
 	
 Update
 ======
-**PUT /contacts/<id>.xml**
+**PUT /contacts/<id>.json**
 
 Updates a support center contact.
 
@@ -54,11 +54,11 @@ Field             Type
     $postfields = array(
         array('password','new'),
     );
-    $out = $cerb->put($base_url . 'contacts/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'contacts/1.json', $postfields);
         
 Search
 ======
-**POST /contacts/search.xml**
+**POST /contacts/search.json**
 
 Performs a search across support center contacts.
 
@@ -84,15 +84,15 @@ Field                     Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'contacts/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'contacts/search.json', $postfields);
 
 Delete
 ======
-**DELETE /contacts/<id>.xml**
+**DELETE /contacts/<id>.json**
 
 Deletes a support center contact.
 
 .. code-block:: php
 	
     <?php
-    $out = $cerb->delete($base_url . 'contacts/1.xml');
+    $out = $cerb->delete($base_url . 'contacts/1.json');

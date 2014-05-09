@@ -5,7 +5,7 @@ The knowledgebase article API allows you to create, retrieve, update, and search
 
 Create
 ======
-**POST /kbarticles/create.xml**
+**POST /kbarticles/create.json**
 
 ============      ======================================================
 Field             Type     
@@ -28,23 +28,23 @@ Field             Type
         array('category_id[]','+661'),
         array('category_id[]','662'),
     );
-    $out = $cerb->post($base_url . 'kbarticles/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'kbarticles/create.json', $postfields);
 	
 	
 Retrieve
 ========
-**GET /kbarticles/<id>.xml**
+**GET /kbarticles/<id>.json**
 
 Retrieves information about a knowledgebase article object.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'kbarticles/4.xml');
+    $out = $cerb->get($base_url . 'kbarticles/4.json');
 	
 Update
 ======
-**PUT /kbarticles/<id>.xml**
+**PUT /kbarticles/<id>.json**
 
 Updates a knowledgebase article object.
 
@@ -70,7 +70,7 @@ Field             Type
         array('category_id[]','-661'),
         array('category_id[]','-662'),
     );
-    $out = $cerb->put($base_url . 'kbarticles/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'kbarticles/1.json', $postfields);
 	
 Search
 ======
@@ -99,4 +99,4 @@ Field             Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'kbarticles/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'kbarticles/search.json', $postfields);

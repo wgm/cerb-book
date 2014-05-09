@@ -5,7 +5,7 @@ The notifications API allows you to create, retrieve, update and list all notifi
 
 Create
 ======
-**POST /notifications/create.xml**
+**POST /notifications/create.json**
 
 Creates a new notification.
 
@@ -29,20 +29,20 @@ Field                Type
         array('url','http://www.cerberusweb.com'),
         array('assignee_id', 1),
     );
-    $out = $cerb->post($base_url . 'notifications/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'notifications/create.json', $postfields);
 	
 Retrieve
 ========
-**GET /notifications/<id>.xml**
+**GET /notifications/<id>.json**
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'notifications/1.xml');
+    $out = $cerb->get($base_url . 'notifications/1.json');
 	
 Update
 ======
-**PUT /notifications/<id>.xml**
+**PUT /notifications/<id>.json**
 
 ===============      =========
 Field                Type
@@ -62,22 +62,22 @@ Field                Type
         array('assignee_id','1'),
         array('title','You have a *new* notification!'),
     );
-    $out = $cerb->put($base_url . 'notifications/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'notifications/1.json', $postfields);
 	
 List
 ====
-**GET /notifications/list.xml**
+**GET /notifications/list.json**
 
 Lists the notifications for the authenticated worker.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'notifications/list.xml');
+    $out = $cerb->get($base_url . 'notifications/list.json');
 	
 You an also list all unread notifications like so:
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'notifications/list.xml?unread=1');
+    $out = $cerb->get($base_url . 'notifications/list.json?unread=1');

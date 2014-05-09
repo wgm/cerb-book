@@ -4,7 +4,7 @@ The feedback API allows you to create, retrieve, update, and search Feedback obj
 
 Create
 ======
-**POST /feedback/create.xml**
+**POST /feedback/create.json**
 
 Creates a new feedback entry.
 
@@ -26,18 +26,18 @@ Field                   Type
         array('quote_text','This is the best app ever!'),
         array('author_address','happy-user@example.com'),	
     );
-    $out = $cerb->post($base_url . 'feedback/create.xml', $postfields);
+    $out = $cerb->post($base_url . 'feedback/create.json', $postfields);
 
 Retrieve
 ========
-**GET /feedback/<id>.xml**
+**GET /feedback/<id>.json**
 
 Retrieves information about a feedback entry.
 
 .. code-block:: php
 
     <?php
-    $out = $cerb->get($base_url . 'feedback/1.xml');
+    $out = $cerb->get($base_url . 'feedback/1.json');
 	
 Update
 ======
@@ -63,11 +63,11 @@ Field                   Type
         array('url','http://www.google.com/'),
         array('quote_mood','praise'),
     );
-    $out = $cerb->put($base_url . 'feedback/1.xml', $postfields);
+    $out = $cerb->put($base_url . 'feedback/1.json', $postfields);
 	
 Search
 ======
-**POST /feedback/search.xml**
+**POST /feedback/search.json**
 
 Performs a search across feedback objects.
 
@@ -93,4 +93,4 @@ Field                   Type
         array('sortAsc','1'),
         array('page','1'),
     );
-    $out = $cerb->post($base_url . 'feedback/search.xml', $postfields);
+    $out = $cerb->post($base_url . 'feedback/search.json', $postfields);
