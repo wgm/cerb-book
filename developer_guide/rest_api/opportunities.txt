@@ -1,32 +1,34 @@
 Opportunities
 -------------
-The opportunities API allows you to create, retrieve, update, and search Opportunity objects.
+Create, retrieve, update, and search opportunity objects.
 
 Create
 ======
 **POST /opps/create.json**
 
-Creates a new opportunity.
+Create an opportunity object.
 
-=================================      =================
-Field                                  Type
-=================================      =================
-``amount``                             float
-``assignee_id``                        int
-``created``                            timestamp
-``email_address`` or ``email_id``      string or integer
-``is_closed``                          bit
-``is_won``                             bit
-``title``                              string
-``updated``                            timestamp
-``custom_*``                           mixed
-=================================      =================
+    =================    =========  ===
+    Field                Type
+    =================    =========  ===
+    ``amount``           float
+    ``created``          timestamp
+    ``email_address``    string     **required**, or ``email_id``
+    ``email_id``         integer    **required**, or ``email_address``
+    ``is_closed``        bit
+    ``is_won``           bit
+    ``title``            string     **required**
+    ``updated``          timestamp
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================    =========  ===
+
+**Example:**
 
 .. code-block:: php
 
     <?php
     $postfields = array(
-        array('title','Sell Cerb6 to Salesforce'),
+        array('title','Sell Cerb to Salesforce'),
         array('email_address','unlikely@example.com'),
     );
     $out = $cerb->post($base_url . 'opps/create.json', $postfields);
@@ -36,28 +38,30 @@ Update
 ======
 **PUT /opps/<id>.json**
 
-Updates an opportunity.
+Update an opportunity object.
 
-=================================      =================
-Field                                  Type
-=================================      =================
-``amount``                             float
-``assignee_id``                        int
-``created``                            timestamp
-``email_address`` or ``email_id``      string or integer
-``is_closed``                          bit
-``is_won``                             bit
-``title``                              string
-``updated``                            timestamp
-``custom_*``                           mixed
-=================================      =================
+    =================    =========  ===
+    Field                Type
+    =================    =========  ===
+    ``amount``           float
+    ``created``          timestamp
+    ``email_address``    string
+    ``email_id``         integer
+    ``is_closed``        bit
+    ``is_won``           bit
+    ``title``            string
+    ``updated``          timestamp
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================    =========  ===
+
+**Example:**
 
 .. code-block:: php
 
     <?php
     $postfields = array(
-        array('title','Sell Cerb6 to Atlassian'),
-        array('email_address','nothappening@example.com'),
+        array('title','Sell Cerb to Atlassian'),
+        array('email_address','not_happening@example.com'),
     );
     $out = $cerb->post($base_url . 'opps/1.json', $postfields);
 
@@ -65,7 +69,9 @@ Retrieve
 ========
 **GET /opps/<id>.json**
 
-Retrieves information about an opportunity.
+Retrieve an opportunity object.
+
+**Example:**
 
 .. code-block:: php
 
@@ -76,21 +82,61 @@ Search
 ======
 **POST /opps/search.json**
 
-Performs a search across opportunity objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for opportunity records.
 
-=================================      =================
-Field                                  Type
-=================================      =================
-``id``                                 integer
-``amount``                             float
-``assignee_id``                        integer
-``created``                            timestamp
-``email_address`` or ``email_id``      string or integer
-``is_closed``                          bit
-``is_won``                             bit
-``title``                              string
-``updated``                            timestamp
-=================================      =================
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    =================    =========  ===
+    Field                Type
+    =================    =========  ===
+    ``id``               integer
+    ``amount``           float
+    ``created``          timestamp
+    ``email_address``    string
+    ``email_id``         integer
+    ``is_closed``        bit
+    ``is_won``           bit
+    ``title``            string
+    ``updated``          timestamp
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================    =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ====================  ========
+    Key                   Description
+    ====================  ========
+    ``email_address``     Opps by contact email
+    ``email_is_defunct``  Opps by contact defunct flag
+    ``email_first_name``  Opps by contact first name
+    ``email_last_name``   Opps by contact last name
+    ``fieldsets``         Custom fieldsets on the opps
+    ``is_closed``         Opps by closed status
+    ``is_won``            Opps by won status
+    ``links``             Objects linked to opps
+    ``org``               Opps by contact org
+    ``watchers``          Watchers on opps
+    ====================  ========
+
+**Example:**
 
 .. code-block:: php
 
