@@ -3,107 +3,47 @@ Contexts
 
 Contexts describe a particular type of :doc:`object </concepts/objects/index>`.
 
-Email Addresses
-===============
-
-The `cerberusweb.contexts.address` context describes an :doc:`email address </concepts/contexts/address>` object.
-
-Calls
-=====
-
-The `cerberusweb.contexts.call` context describes a Call object.
-
-Comments
-========
-
-The `cerberusweb.contexts.comment` context describes a Comment object.
-
-Registered Contacts
-===================
-
-The `cerberusweb.contexts.contact_person` context describes :doc:`Registered Contacts </concepts/contexts/contact>`.
-
-Domains
-=======
-
-The `cerberusweb.contexts.datacenter.domain` context describes a Domain object.
-
-Servers
-=======
-
-The `cerberusweb.contexts.datacenter.server` context describes a Server object.
-
-Feedback
-========
-
-The `cerberusweb.contexts.datacenter.server` context describes a Feedback object.
-
-Groups
-======
-
-The `cerberusweb.contexts.group` context describes a :doc:`Group </concepts/contexts/group>` object.
-
-Knowledgebase Articles
-======================
-
-The `cerberusweb.contexts.kb_article` context describes a Knowledgebase Article object.
-
-Knowledgebase Categories
-========================
-
-The `cerberusweb.contexts.kb_category` context describes a Knowledgebase Category object.
-
-Messages
-========
-
-The `cerberusweb.contexts.message` context describes a Message object.
-
-Notifications
-=============
-
-The `cerberusweb.contexts.notification` context describes a Notification object.
-
-Opportunities
-=============
-
-The `cerberusweb.contexts.opportunity` context describes an :doc:`Opportunity </concepts/contexts/opportunity>` object.
-
-Organizations
-=============
-
-The `cerberusweb.contexts.org` context describes an :doc:`Organization </concepts/contexts/organization>` object.
-
-Community Portals
-=================
-
-The `cerberusweb.contexts.portal` context describes a Community Portal object.
-
-Roles
-=====
-
-The `cerberusweb.contexts.role` context describes a :doc:`Role </concepts/contexts/role>` object.
-
-Snippets
-========
-
-The `cerberusweb.contexts.snippet` context describes a Snippet object.
-
-Tasks
-=====
-
-The `cerberusweb.contexts.task` context describes a :doc:`Task </concepts/contexts/task>` object.
-
-Tickets
-=======
-
-The `cerberusweb.contexts.ticket` context describes a :doc:`Ticket </concepts/contexts/ticket>` object.
-
-Time Tracking
-=============
-
-The `cerberusweb.contexts.timetracking` context describes a Time Tracking object.
-
-Workers
-=======
-
-The `cerberusweb.contexts.worker` context describes a :doc:`Worker </concepts/contexts/worker>` object.
+=============================================  =================================================  ===
+Context                                        Object                                             API Documentation
+=============================================  =================================================  ===
+cerberusweb.contexts.application               Application
+cerberusweb.contexts.activity_log              Activity Log                                       :doc:`API </developer_guide/rest_api/contexts>`
+cerberusweb.contexts.address                   :doc:`/concepts/contexts/address`                  :doc:`API </developer_guide/rest_api/addresses>`
+cerberusweb.contexts.asset                     Asset
+cerberusweb.contexts.attachment                Attachment
+cerberusweb.contexts.attachment_link           Attachment Link
+cerberusweb.contexts.bucket                    Bucket
+cerberusweb.contexts.calendar                  Calendar                                           :doc:`API </developer_guide/rest_api/calendars>`
+cerberusweb.contexts.calendar_event            Calendar Event
+cerberusweb.contexts.calendar_event_recurring  Calendar Recurring Event
+cerberusweb.contexts.call                      Call
+cerberusweb.contexts.comment                   Comment                                            :doc:`API </developer_guide/rest_api/comments>`
+cerberusweb.contexts.contact_person            :doc:`/concepts/contexts/contact`                  :doc:`API </developer_guide/rest_api/contacts>`
+cerberusweb.contexts.custom_field              Custom Field                                       :doc:`API </developer_guide/rest_api/contexts>`
+cerberusweb.contexts.custom_fieldset           Custom Fieldset                                    :doc:`API </developer_guide/rest_api/contexts>`
+cerberusweb.contexts.datacenter.domain         Domain                                             :doc:`API </developer_guide/rest_api/domains>`
+cerberusweb.contexts.datacenter.sensor         Sensor                                             :doc:`API </developer_guide/rest_api/sensors>`
+cerberusweb.contexts.datacenter.server         Server                                             :doc:`API </developer_guide/rest_api/servers>`
+cerberusweb.contexts.draft                     Draft
+cerberusweb.contexts.feed                      Feed
+cerberusweb.contexts.feed_item                 Feed Item
+cerberusweb.contexts.feedback                  Feedback                                           :doc:`API </developer_guide/rest_api/feedback>`
+cerberusweb.contexts.group                     :doc:`/concepts/contexts/group`                    :doc:`API </developer_guide/rest_api/groups>`
+cerberusweb.contexts.kb_article                Knowledgebase Article                              :doc:`API </developer_guide/rest_api/kbarticles>`
+cerberusweb.contexts.kb_category               Knowledgebase Category
+cerberusweb.contexts.message                   Message                                            :doc:`API </developer_guide/rest_api/messages>`
+cerberusweb.contexts.notification              Notification                                       :doc:`API </developer_guide/rest_api/notifications>`
+cerberusweb.contexts.opportunity               :doc:`/concepts/contexts/opportunity`              :doc:`API </developer_guide/rest_api/opportunities>`
+cerberusweb.contexts.org                       :doc:`/concepts/contexts/organization`             :doc:`API </developer_guide/rest_api/organizations>`
+cerberusweb.contexts.portal                    Community Portal
+cerberusweb.contexts.role                      :doc:`/concepts/contexts/role`
+cerberusweb.contexts.snippet                   Snippet
+cerberusweb.contexts.task                      :doc:`/concepts/contexts/task`                     :doc:`API </developer_guide/rest_api/tasks>`
+cerberusweb.contexts.ticket                    :doc:`/concepts/contexts/ticket`                   :doc:`API </developer_guide/rest_api/tickets>`
+cerberusweb.contexts.timetracking              Time Tracking                                      :doc:`API </developer_guide/rest_api/timetracking>`
+cerberusweb.contexts.virtual.attendant         Virtual Attendant                                  :doc:`API </developer_guide/rest_api/virtual_attendants>`
+cerberusweb.contexts.worker                    :doc:`/concepts/contexts/worker`                   :doc:`API </developer_guide/rest_api/workers>`
+cerberusweb.contexts.workspace.page            Workspace Page                                     :doc:`API </developer_guide/rest_api/workspaces>`
+cerberusweb.contexts.workspace.tab             Workspace Tab                                      :doc:`API </developer_guide/rest_api/workspaces>`
+cerberusweb.contexts.workspace.widget          Workspace Widget                                   :doc:`API </developer_guide/rest_api/workspaces>`
+=============================================  =================================================  ===
