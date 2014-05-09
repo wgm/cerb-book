@@ -1,26 +1,28 @@
 Calendars
 ---------
-The calendars API allows you to retrieve and search Calendar objects.
+Retrieve and search calendar objects.
 
 List
 ====
 **GET /calendars/list.json**
 
-Retrieves the calendars accessible by the current worker.  This includes calendars owned by the worker, their groups, or roles.
+Retrieve the calendars accessible by the current worker.  This includes calendars owned by the worker, their groups, or roles.
 
 Options:
 
 * **month**
-    The calendar month to display.
+    The calendar month to display.  This defaults to the current month.
 
 * **year**
-    The calendar year to display.
+    The calendar year to display.  This defaults to the current year.
 
 * **expand**
-	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	The :ref:`keys to expand <api_key_expansion>` on each object as a comma-separated list, including any of these special keys:
 	
 	``owner``
 		Retrieve full owner information.
+
+**Example:**
 
 .. code-block:: php
 
@@ -31,7 +33,7 @@ Retrieve
 ========
 **GET /calendars/<id>.json**
 
-Retrieves information about a calendar.
+Retrieve a calendar object.
 
 Options:
 
@@ -42,7 +44,7 @@ Options:
     The calendar year to display.
 
 * **expand**
-	Includes additional information in the response.  The following tokens may be provided in a comma-separated list:
+	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
 	
 	``owner``
 		Retrieve detailed information about this calendar's owner.
@@ -56,6 +58,7 @@ Options:
 	``events``
 		Retrieve event information for this calendar.  Unlike ``weeks_events``, this just returns a flat list of events sorted by their start date in ascending order.
 
+**Example:**
 
 .. code-block:: php
 
@@ -66,29 +69,76 @@ Search
 ======
 **POST /calendars/search.json**
 
-Performs a search across Calendar objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for calendar objects.
 
-================      =======
-Field                 Type
-================      =======
-``name``              string
-``updated``           timestamp
-================      =======
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ====================  =========  ===
+    Field                 Type
+    ====================  =========  ===
+    ``id``                integer
+    ``name``              string
+    ``owner_context``     string
+    ``owner_context_id``  integer
+    ``updated``           timestamp
+    ``custom_*``          mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ====================  =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **expand**
+	The :ref:`keys to expand <api_key_expansion>` on each object as a comma-separated list, including any of these special keys:
+	
+	``owner``
+		Retrieve detailed information about this calendar's owner.
+
+	``weeks``
+		Retrieve a padded list of weeks and days to easily render this calendar.
+        
+	``weeks_events``
+		Retrieves event information for each day on this calendar.  This automatically includes ``weeks`` and adds an ``events`` list to each day.
+
+	``events``
+		Retrieve event information for this calendar.  Unlike ``weeks_events``, this just returns a flat list of events sorted by their start date in ascending order.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ===============      ========
+    Key                  Description
+    ===============      ========
+    ``fieldsets``        Custom fieldsets on the calendars
+    ``owner``            Calendar owners
+    ``links``            Objects linked to calendars
+    ``watchers``         Watchers on calendars
+    ===============      ========
+
+**Example:**
 
 .. code-block:: php
 	
     <?php
     $postfields = array(
-        array('criteria[]','assignee_id'),
-        array('oper[]','!='),
-        array('value[]','8'),
-        array('criteria[]','title'),
-        array('oper[]','like'),
-        array('value[]','t*'),
-        array('criteria[]','watchers'),
-        array('oper[]','in'),
-        array('value[]','[1,2,3]'),
-        array('sortBy','id'),
+        array('expand','owner,weeks_events'),
+        array('criteria[]','name'),
+        array('oper[]','='),
+        array('value[]','SLA'),
+        array('sortBy','name'),
         array('sortAsc','1'),
         array('page','1'),
     );
