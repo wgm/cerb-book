@@ -1,24 +1,25 @@
 Tasks
 -----
-The tasks API allows you to create, retrieve, update, and search Task objects.
+Create, retrieve, update, and search task objects.
 
 Create
 ======
 **POST /tasks/create.json**
 
-Creates a new task.
+Create a task object.
 
-================      =========
-Field                 Type
-================      =========
-``assignee_id``       integer
-``completed``         timestamp
-``due``               timestamp
-``is_completed``      bit
-``title``             string
-``updated``           timestamp
-``custom_*``          mixed
-================      =========
+    ================    =========  ===
+    Field                 Type
+    ================    =========  ===
+    ``completed``       timestamp
+    ``due``             timestamp
+    ``is_completed``    bit
+    ``title``           string     **required**
+    ``updated``         timestamp
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ================    =========  ===    
+
+**Example:**
 
 .. code-block:: php
 
@@ -32,7 +33,9 @@ Retrieve
 ========
 **GET /tasks/<id>.json**
 
-Retrieves information about a task.
+Retrieve a task object.
+
+**Example:**
 
 .. code-block:: php
 
@@ -43,19 +46,20 @@ Update
 ======
 **PUT /tasks/<id>.json**
 
-Updates a task.
+Update a task object.
 
-================      =========
-Field                 Type
-================      =========
-``assignee_id``       integer
-``completed``         timestamp
-``due``               timestamp
-``is_completed``      bit
-``title``             string
-``updated``           timestamp
-``custom_*``          mixed
-================      =========
+    ================    =========  ===
+    Field                 Type
+    ================    =========  ===
+    ``completed``       timestamp
+    ``due``             timestamp
+    ``is_completed``    bit
+    ``title``           string
+    ``updated``         timestamp
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ================    =========  ===
+
+**Example:**
 
 .. code-block:: php
 	
@@ -70,28 +74,58 @@ Search
 ======
 **POST /tasks/search.json**
 
-Performs a search across Task objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for task objects.
 
-================      =======
-Field                 Type
-================      =======
-``assignee_id``       integer
-``completed``         timestamp
-``due``               timestamp
-``is_completed``      bit
-``title``             string
-``updated``           timestamp
-``custom_*``          mixed
-``watchers``          integer
-================      =======
+Options:
 
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ================    =========  ===
+    Field                 Type
+    ================    =========  ===
+    ``completed``       timestamp
+    ``due``             timestamp
+    ``id``              integer
+    ``is_completed``    bit
+    ``title``           string
+    ``updated``         timestamp
+    ``watchers``        integer[]
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ================    =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    =================    ========
+    Key                  Description
+    =================    ========
+    ``fieldsets``        Custom fieldsets on the addresses
+    ``is_completed``     Tasks by completion status
+    ``links``            Objects linked to addresses
+    ``watchers``         Watchers on addresses
+    =================    ========
+
+**Example:**
+    
 .. code-block:: php
 	
     <?php
     $postfields = array(
-        array('criteria[]','assignee_id'),
-        array('oper[]','!='),
-        array('value[]','8'),
         array('criteria[]','title'),
         array('oper[]','like'),
         array('value[]','t*'),
