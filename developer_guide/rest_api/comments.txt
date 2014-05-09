@@ -1,29 +1,31 @@
 Comments
 --------
-The comments API allows you to create, retrieve, and search Comment objects.
+Create, retrieve, and search comment objects.
 
 Create
 ======
 **POST /comments/create.json**
 
-Creates a new comment.
+Create a comment object.
 
-=============================      =================
-Field                              Type
-=============================      =================
-``context``                        string
-``context_id``                     integer
-``owner_context``                  string
-``owner_context_id``               integer
-``comment``                        string
-``created``                        timestamp
-=============================      =================
+    ====================   =========  ===
+    Field                  Type     
+    ====================   =========  ===
+    ``context``            string     **required**
+    ``context_id``         integer    **required**
+    ``owner_context``      string     **required**
+    ``owner_context_id``   integer    **required**
+    ``comment``            string     **required**
+    ``created``            timestamp
+    ====================   =========  ===
+
+**Example:**
 
 .. code-block:: php
 
     <?php
     $postfields = array(
-		array('expand', 'author_label,author_type,record_label,record_type'),
+        array('expand', 'author_label,author_type,record_label,record_type'),
         array('context', 'cerberusweb.contexts.ticket'),
         array('context_id', 1),
         array('owner_context', 'cerberusweb.contexts.address'),
@@ -36,7 +38,9 @@ Retrieve
 ========
 **GET /comments/<id>.json**
 
-Retrieves information about a Comment.
+Retrieve a comment object.
+
+**Example:**
 
 .. code-block:: php
 
@@ -47,30 +51,62 @@ Search
 ======
 **POST /comments/search.json**
 
-Performs a search across Comment objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for comment objects.
 
-=============================      =================
-Field                              Type
-=============================      =================
-``id``                             integer
-``context``                        string
-``context_id``                     integer
-``owner_context``                  string
-``owner_context_id``               integer
-``comment``                        string
-``created``                        timestamp
-=============================      =================
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ==================== =========  ===
+    Field                Type
+    ==================== =========  ===
+    ``id``               integer
+    ``context``          string
+    ``context_id``       integer
+    ``owner_context``    string
+    ``owner_context_id`` integer
+    ``comment``          string
+    ``created``          timestamp
+    ==================== =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ===============      ========
+    Key                  Description
+    ===============      ========
+    ``fieldsets``        Custom fieldsets on the comments
+    ``owner``            Comment author
+    ``target``           The object containing the comment
+    ===============      ========
+
+**Example:**
 
 .. code-block:: php
 
     <?php
     $postfields = array(
-		 array('expand', 'author_label,author_type,record_label,record_type'),
-         array('criteria[]','context'),
-         array('oper[]','='),
-         array('value[]','cerberusweb.contexts.ticket'),
-         array('criteria[]','context_id'),
-         array('oper[]','='),
-         array('value[]','1'),
+        array('expand', 'author_label,author_type,record_label,record_type'),
+        array('criteria[]','context'),
+        array('oper[]','='),
+        array('value[]','cerberusweb.contexts.ticket'),
+        array('criteria[]','context_id'),
+        array('oper[]','='),
+        array('value[]','1'),
     );
     $out = $cerb->post($base_url . 'comments/search.json', $postfields);
