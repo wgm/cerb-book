@@ -1,24 +1,26 @@
 Notifications
 -------------
 
-The notifications API allows you to create, retrieve, update and list all notification objects for a worker.
+Create, retrieve, update, search, and list notification objects.
 
 Create
 ======
 **POST /notifications/create.json**
 
-Creates a new notification.
+Create a notification object.
 
-===============      =========
-Field                Type
-===============      =========
-``assignee_id``      integer
-``content``          string
-``created``          timestamp
-``is_read``          bit
-``title``            string
-``url``              string
-===============      =========
+    ===============      =========
+    Field                Type
+    ===============      =========
+    ``assignee_id``      integer
+    ``content``          string
+    ``created``          timestamp
+    ``is_read``          bit
+    ``title``            string
+    ``url``              string
+    ===============      =========
+
+**Example:**
 
 .. code-block:: php
 
@@ -35,6 +37,10 @@ Retrieve
 ========
 **GET /notifications/<id>.json**
 
+Retrieve a notification object.
+
+**Example:**
+
 .. code-block:: php
 
     <?php
@@ -44,16 +50,20 @@ Update
 ======
 **PUT /notifications/<id>.json**
 
-===============      =========
-Field                Type
-===============      =========
-``assignee_id``      integer
-``content``          string
-``created``          timestamp
-``is_read``          bit
-``title``            string
-``url``              string
-===============      =========
+Update a notification object.
+
+    ===============      =========
+    Field                Type
+    ===============      =========
+    ``assignee_id``      integer
+    ``content``          string
+    ``created``          timestamp
+    ``is_read``          bit
+    ``title``            string
+    ``url``              string
+    ===============      =========
+
+**Example:**
 
 .. code-block:: php
 
@@ -68,7 +78,9 @@ List
 ====
 **GET /notifications/list.json**
 
-Lists the notifications for the authenticated worker.
+Lists the notification objects for the authenticated worker.
+
+**Examples:**
 
 .. code-block:: php
 
@@ -81,3 +93,67 @@ You an also list all unread notifications like so:
 
     <?php
     $out = $cerb->get($base_url . 'notifications/list.json?unread=1');
+    
+Search
+======
+**POST /notifications/search.json**
+
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for notification records.
+
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    =================    =========  ===
+    Field                Type
+    =================    =========  ===
+    ``created``          timestamp
+    ``id``               integer
+    ``is_read``          bit
+    ``message``          string
+    ``url``              string
+    ``worker_id``        integer
+    =================    =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ====================  ========
+    Key                   Description
+    ====================  ========
+    ``is_read``           Notifications by read status
+    ``url``               Notifications by URL
+    ====================  ========
+
+**Example:**
+
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+        array('criteria[]','is_read'),
+        array('oper[]','='),
+        array('value[]','0'),
+        array('criteria[]','worker_id'),
+        array('oper[]','='),
+        array('value[]','1'),
+        array('sortBy','created'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb->post($base_url . 'notifications/search.json', $postfields);
