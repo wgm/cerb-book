@@ -1,22 +1,27 @@
 Knowledgebase Articles
 ----------------------
 
-The knowledgebase article API allows you to create, retrieve, update, and search Knowledgebase Article objects.
+Create, retrieve, update, and search knowledgebase article objects.
 
 Create
 ======
 **POST /kbarticles/create.json**
 
-============      ======================================================
-Field             Type     
-============      ======================================================
-``title``         string
-``content``       string   
-``format``        integer: ``0``/``1``/``2``; Plaintext/HTML/Markdown
-``views``         integer
-``updated``       timestamp
-``custom_*``      mixed    
-============      ======================================================
+Create a knowledgebase article object.
+
+    =================    =========  ===
+    Field                Type
+    =================    =========  ===
+    ``category_id[]``    integer    prefix with ``+`` to add, ``-`` to remove
+    ``content``          string     **required**
+    ``format``           integer:   plaintext=0, html=1, markdown=2
+    ``title``            string     **required**
+    ``updated``          timestamp
+    ``views``            integer
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================    =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -35,7 +40,9 @@ Retrieve
 ========
 **GET /kbarticles/<id>.json**
 
-Retrieves information about a knowledgebase article object.
+Retrieve a knowledgebase article object.
+
+**Example:**
 
 .. code-block:: php
 
@@ -46,18 +53,21 @@ Update
 ======
 **PUT /kbarticles/<id>.json**
 
-Updates a knowledgebase article object.
+Update a knowledgebase article object.
 
-============      ======================================================
-Field             Type     
-============      ======================================================
-``title``         string
-``content``       string   
-``format``        integer: ``0``/``1``/``2``; Plaintext/HTML/Markdown
-``views``         integer
-``updated``       timestamp
-``custom_*``      mixed    
-============      ======================================================
+    =================    =========  ===
+    Field                Type
+    =================    =========  ===
+    ``category_id[]``    integer    prefix with ``+`` to add, ``-`` to remove
+    ``content``          string   
+    ``format``           integer:   plaintext=0, html=1, markdown=2
+    ``title``            string
+    ``updated``          timestamp
+    ``views``            integer
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================    =========  ===
+
+**Example:**
 
 .. code-block:: php
 
@@ -68,25 +78,61 @@ Field             Type
         array('content',"<h1>Header</h1><br><b>BOLD</b><br><i>Italics</i><br>Some list<br><ol><li>One</li><li>Two</li><li>Three</li></ol>"),
         array('format',"1"),
         array('category_id[]','-661'),
-        array('category_id[]','-662'),
+        array('category_id[]','+662'),
     );
     $out = $cerb->put($base_url . 'kbarticles/1.json', $postfields);
 	
 Search
 ======
 
-Performs a search across knowledgebase article objects.
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for knowledgebase article objects.
 
-============      ======================================================
-Field             Type     
-============      ======================================================
-``id``            integer
-``title``         string
-``content``       string   
-``format``        integer: ``0``/``1``/``2``; Plaintext/HTML/Markdown
-``views``         integer
-``updated``       timestamp
-============      ======================================================
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    =================    =========  ===
+    Field                Type
+    =================    =========  ===
+    ``category_id``      integer
+    ``content``          string   
+    ``format``           integer:   plaintext=0, html=1, markdown=2
+    ``id``               integer
+    ``title``            string
+    ``updated``          timestamp
+    ``views``            integer
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================    =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    ===============      ========
+    Key                  Description
+    ===============      ========
+    ``fieldsets``        Custom fieldsets on article objects
+    ``format``           Article markup format
+    ``links``            Objects linked to articles
+    ``topic``            Knowledgebase topic parent
+    ``watchers``         Watchers on articles
+    ===============      ========
+
+**Example:**
 
 .. code-block:: php
 
