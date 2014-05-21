@@ -69,7 +69,7 @@ Create a new :program:`MySQL` database using the console or your favorite GUI.
 
 From the MySQL console, you can issue the following SQL statements::
 
-    mysql> CREATE DATABASE cerb6 CHARACTER SET utf8;
+    mysql> CREATE DATABASE cerb CHARACTER SET utf8;
     mysql> GRANT ALL PRIVILEGES ON cerb.*  
             TO cerb@localhost 
             IDENTIFIED BY 'secret_password';
