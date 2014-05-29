@@ -138,7 +138,7 @@ Install Cerb dependencies
 
 ::
 
-    apt-get install make php-pear php5-mysql php5-curl php5-gd php5-imap
+    apt-get install make php-pear php5-dev php5-mysql php5-curl php5-gd php5-imap
 
 There isn't an apt package for the :program:`mailparse` extension.  We'll install it from :program:`PECL` instead:
 
@@ -200,6 +200,23 @@ Enable the extension in :program:`PHP-FPM`:
 .. code-block:: bash
 
     echo "extension=oauth.so" > /etc/php5/fpm/conf.d/oauth.ini
+
+Zend OPCache
+------------
+
+PHP 5.5+ contains a built-in opcode cache, which removes the need for XCache.
+
+Put simply, an opcode cache improves the performance of PHP pages by caching the machine-readable output that is compiled from human-readable source code.  This eliminates the need for the webserver to compile the PHP source code every time a request is made.
+
+To enable::
+
+    vi /etc/php5/fpm/php.ini
+    
+Modify the following options::
+
+    opcache.enable = 1
+    opcache.memory_consumption = 64
+    opcache.max_accelerated_files = 5000
 
 Restart PHP-FPM
 ---------------
