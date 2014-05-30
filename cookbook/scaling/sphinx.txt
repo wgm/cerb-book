@@ -301,7 +301,7 @@ Once you've configured the `sources` and `indexes` in the :file:`sphinx.conf` fi
 
 .. code-block:: bash
 
-    indexer --all --rotate
+    su - sphinx -s /bin/bash -c "indexer --all --rotate"
     
 Starting Sphinx
 ^^^^^^^^^^^^^^^
