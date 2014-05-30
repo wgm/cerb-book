@@ -443,7 +443,7 @@ You'll want to intermittently run the :program:`indexer` in order to update your
 
 .. code-block:: bash
 
-    indexer --all --rotate
+    indexer --all --rotate --quiet
 
 .. ::
     jira plugin
