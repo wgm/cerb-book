@@ -66,7 +66,7 @@ Once the server has rebooted you're ready to continue.
 Configure PHP-FPM
 -----------------
 
-:program:`Nginx` will relay PHP requests to :program:`PHP-FRM` on local port :code:`9000`. Install it from :program:`apt`:
+:program:`Nginx` will relay PHP requests to :program:`PHP-FRM` on local socket :code:`/var/run/php5-fpm.sock`. Install it from :program:`apt`:
 
 ::
 
@@ -319,7 +319,7 @@ Use the following configuration file, but replace :code:`yoursite.example.com` w
         # Allow the installer to work
     	location ~ /install/index\.php {
     		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    		fastcgi_pass 127.0.0.1:9000;
+    		fastcgi_pass unix:/var/run/php5-fpm.sock;
     		fastcgi_index index.php;
     		fastcgi_read_timeout 300;
     		include fastcgi_params;
@@ -329,7 +329,7 @@ Use the following configuration file, but replace :code:`yoursite.example.com` w
         # Relay any ajax.php or index.php requests to PHP-FPM
     	location ~ /(index|ajax)\.php$ {
     		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    		fastcgi_pass 127.0.0.1:9000;
+    		fastcgi_pass unix:/var/run/php5-fpm.sock;
     		fastcgi_index index.php;
     		fastcgi_read_timeout 30;
     		include fastcgi_params;
@@ -458,7 +458,7 @@ And comment out (or delete) the :code:`location` directive for the :file:`instal
     # Allow the installer to work
     #location ~ /install/index\.php {
     #	fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    #	fastcgi_pass 127.0.0.1:9000;
+    #	fastcgi_pass unix:/var/run/php5-fpm.sock;
     #	fastcgi_index index.php;
     #	fastcgi_read_timeout 300;
     #	include fastcgi_params;
