@@ -96,8 +96,8 @@ Options:
     Field                Type
     =================    =========  ===
     ``category_id``      integer
-    ``content``          string   
-    ``format``           integer:   plaintext=0, html=1, markdown=2
+    ``content``          string     Use ``oper[]=fulltext``
+    ``format``           integer    plaintext=0, html=1, markdown=2
     ``id``               integer
     ``title``            string
     ``updated``          timestamp

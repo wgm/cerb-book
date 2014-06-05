@@ -177,7 +177,7 @@ Options:
     Field               Type     
     ================    =========  ===
     ``bucket_id``       integer
-    ``content``         string   
+    ``content``         string     Use ``oper[]=fulltext``
     ``created``         timestamp
     ``first_wrote``     string   
     ``id``              integer

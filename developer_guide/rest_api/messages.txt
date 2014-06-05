@@ -43,7 +43,7 @@ Options:
     ===============      =========  ===
     ``id``               integer
     ``created``          timestamp
-    ``content``          string
+    ``content``          string     Use ``oper[]=fulltext``
     ``sender_id``        integer
     ``ticket_id``        integer
     ===============      =========  ===
