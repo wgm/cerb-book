@@ -35,6 +35,9 @@ Cerb6Api.php
     /**
      * @author Jeff Standen <jeff@webgroupmedia.com>
      */
+     
+    if(!extension_loaded('curl'))
+        die("The 'curl' PHP extension is required.");
 
     class Cerb6_WebAPI {
     	private $_access_key = '';
