@@ -250,6 +250,12 @@ We don't want to act as a public mail server, so we'll configure :program:`Postf
 
     postconf -e "inet_interfaces=127.0.0.1"
 
+You probably also want to bump the message size limit from the default of 10MB to something like 20MB:
+
+.. code-block:: bash
+
+    postconf -e "message_size_limit=20480000"
+
 Then we need to restart :program:`Postfix` for the changes to take effect:
 
 ::
