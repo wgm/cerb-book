@@ -2,6 +2,19 @@ Workers
 -------
 Create, retrieve, update, and search worker objects.
 
+Current Worker
+==============
+**GET /workers/me.json**
+
+Retrieve the object for the current worker based on the given API credentials.
+
+**Example:**
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'workers/me.json');
+
 Create
 ======
 **POST /workers/create.json**
