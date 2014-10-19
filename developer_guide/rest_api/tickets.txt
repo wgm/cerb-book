@@ -23,22 +23,24 @@ Compose
 
 Create a ticket object.
 
-    ==============      =========  ===
-    Field               Type
-    ==============      =========  ===
-    ``group_id``        integer    **required**
-    ``bucket_id``       integer
-    ``org_id``          integer    :doc:`/developer_guide/rest_api/organizations`
-    ``to``              string     **required**
-    ``cc``              string
-    ``bcc``             string
-    ``subject``         string     **required**
-    ``content``         string     **required**
-    ``file_id[]``       integer    Upload with :doc:`/developer_guide/rest_api/attachments`
-    ``status``          integer    0=open, 1=closed, 2=waiting
-    ``reopen_at``       timestamp
-    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
-    ==============      =========  ===
+    ==================== =========  ===
+    Field                Type
+    ==================== =========  ===
+    ``group_id``         integer    **required**
+    ``bucket_id``        integer
+    ``org_id``           id         :doc:`/developer_guide/rest_api/organizations`
+    ``to``               string     **required**
+    ``cc``               string
+    ``bcc``              string
+    ``subject``          string     **required**
+    ``content``          string     **required**
+    ``content_format``   string     "markdown" for HTML or blank for plaintext
+    ``html_template_id`` id         :doc:`/developer_guide/rest_api/mail_html_templates`
+    ``file_id[]``        ids        Upload with :doc:`/developer_guide/rest_api/attachments`
+    ``status``           integer    0=open, 1=closed, 2=waiting
+    ``reopen_at``        timestamp
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ==================== =========  ===
 
 **Example:**
 
@@ -58,6 +60,7 @@ Create a ticket object.
         array('status','1'), // 0=open, 1=closed, 2=waiting
         array('reopen_at', strtotime('+1 day')),
         array('file_id[]', '368'), // optional, can send multiple instances
+        array('html_template_id', '1'), // optional
         array('custom_5','+1 hour'), // date custom field
         array('custom_6',"Line 1\nLine 2\nLine 3"), // multi-line
         array('custom_4','Option 3'), // picklist
@@ -114,28 +117,29 @@ Reply to a ticket message as a worker.
 
 **Optional fields:**
 
-    ==================  =========  ===
-    Field               Type
-    ==================  =========  ===
-    ``bcc``             string     A comma-separated list of email addresses that will privately receive a copy of this message.
-    ``bucket_id``       id         Move the ticket to a new :doc:`Bucket </developer_guide/rest_api/groups>`, or ``0`` for *Inbox*.  If a non-zero value is specified then ``group_id`` is unnecessary
-    ``cc``              string     A comma-separated list of email addresses that will publicly receive a copy of this message.
-    ``content_format``  string     The optional format of the content: ``markdown``, ``parsedown``, or ``html``.  Leave blank to default to plaintext.
-    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
-    ``dont_keep_copy``  boolean    Send the reply by email without saving a copy in Cerb: 0=no, 1=yes
-    ``dont_send``       boolean    Save the reply in Cerb without sending email: 0=no, 1=yes
-    ``file_id[]``       integer    Upload with :doc:`/developer_guide/rest_api/attachments`
-    ``group_id``        id         Move the ticket to a new :doc:`Group </developer_guide/rest_api/groups>`
-    ``is_autoreply``    boolean    Automatically include auto-reply mail headers: 0=no, 1=yes
-    ``is_broadcast``    boolean    Set the broadcast flag: 0=no, 1=yes
-    ``is_forward``      boolean    Send the message without updating the ticket with the new subject or requesters: 0=no, 1=yes
-    ``owner_id``        id         Assign the ticket to a :doc:`Worker </developer_guide/rest_api/workers>`, or ``0`` to unassign from the current owner
-    ``reopen_at``       timestamp  If waiting or closed, the point in time that the ticket will be reopened
-    ``status``          integer    0=open, 1=closed, 2=waiting
-    ``subject``         string     Update the ticket's subject
-    ``to``              string     A comma-separated list of email addresses to include as recipients.  If blank, it uses the ticket's current requesters
-    ``worker_id``       id         The specific :doc:`Worker </developer_guide/rest_api/workers>` to send the message as.  This defaults to the current API user, and can only be changed by administrators
-    ==================  =========  ===
+    ==================== =========  ===
+    Field                Type
+    ==================== =========  ===
+    ``bcc``              string     A comma-separated list of email addresses that will privately receive a copy of this message.
+    ``bucket_id``        id         Move the ticket to a new :doc:`Bucket </developer_guide/rest_api/groups>`, or ``0`` for *Inbox*.  If a non-zero value is specified then ``group_id`` is unnecessary
+    ``cc``               string     A comma-separated list of email addresses that will publicly receive a copy of this message.
+    ``content_format``   string     "markdown" for HTML or blank for plaintext
+    ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ``dont_keep_copy``   boolean    Send the reply by email without saving a copy in Cerb: 0=no, 1=yes
+    ``dont_send``        boolean    Save the reply in Cerb without sending email: 0=no, 1=yes
+    ``file_id[]``        ids        Upload with :doc:`/developer_guide/rest_api/attachments`
+    ``group_id``         id         Move the ticket to a new :doc:`Group </developer_guide/rest_api/groups>`
+    ``html_template_id`` id         :doc:`/developer_guide/rest_api/mail_html_templates`
+    ``is_autoreply``     boolean    Automatically include auto-reply mail headers: 0=no, 1=yes
+    ``is_broadcast``     boolean    Set the broadcast flag: 0=no, 1=yes
+    ``is_forward``       boolean    Send the message without updating the ticket with the new subject or requesters: 0=no, 1=yes
+    ``owner_id``         id         Assign the ticket to a :doc:`Worker </developer_guide/rest_api/workers>`, or ``0`` to unassign from the current owner
+    ``reopen_at``        timestamp  If waiting or closed, the point in time that the ticket will be reopened
+    ``status``           integer    0=open, 1=closed, 2=waiting
+    ``subject``          string     Update the ticket's subject
+    ``to``               string     A comma-separated list of email addresses to include as recipients.  If blank, it uses the ticket's current requesters
+    ``worker_id``        id         The specific :doc:`Worker </developer_guide/rest_api/workers>` to send the message as.  This defaults to the current API user, and can only be changed by administrators
+    ==================== =========  ===
 
 .. ::
 	'html_template_id'
@@ -161,6 +165,7 @@ Reply to a ticket message as a worker.
         array('status','1'), // 0=open, 1=closed, 2=waiting
         array('subject','Testing compose from API'), // optional
         array('to','customer@example.com'), // optional
+        array('html_template_id', '1'), // optional
     );
     $out = $cerb6->post($base_url . 'tickets/reply.json', $postfields);
 	
