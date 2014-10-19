@@ -1,0 +1,137 @@
+Mail HTML Templates
+-------------------
+Create, retrieve, update, and search mail HTML template objects.
+
+.. versionadded:: 6.8.2
+
+Create
+======
+**POST /mail_html_templates/create.json**
+
+Create a mail HTML template object.
+
+    ================    =========  ===
+    Field                 Type
+    ================    =========  ===
+    ``content``         string     
+    ``name``            string	   **required**
+    ``signature``    	string
+    ``updated_at``      timestamp
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ================    =========  ===    
+
+**Example:**
+
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+        array('name', 'Urgent template'),
+        array('content', '<div id="body">{{message_body}}</div><style type="text/css">#body { color: red; }</style>'),
+        array('signature', '-- {{full_name}}, Company Inc.'),
+    );
+    $out = $cerb->post($base_url . 'mail_html_templates/create.json', $postfields);
+
+Retrieve
+========
+**GET /mail_html_templates/<id>.json**
+
+Retrieve a mail HTML template object.
+
+**Example:**
+
+.. code-block:: php
+
+    <?php
+    $out = $cerb->get($base_url . 'mail_html_templates/1.json');
+	
+Update
+======
+**PUT /mail_html_templates/<id>.json**
+
+Update a mail HTML template object.
+
+    ================    =========  ===
+    Field                 Type
+    ================    =========  ===
+    ``content``       	string
+    ``name``            string
+    ``signature``    	string
+    ``updated_at``      timestamp
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ================    =========  ===
+
+**Example:**
+
+.. code-block:: php
+	
+    <?php
+    $postfields = array(
+        array('name','Sales Newsletter'),
+    );
+    $out = $cerb->put($base_url . 'mail_html_templates/123.json', $postfields);
+	
+Search
+======
+**POST /mail_html_templates/search.json**
+
+:doc:`Perform a search </developer_guide/rest_api/topics/search>` for mail HTML template objects.
+
+Options:
+
+* **criteria[]**, **oper[]**, **value[]**
+    Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
+
+    ================    =========  ===
+    Field                 Type
+    ================    =========  ===
+    ``content``       	string
+    ``id``            	id
+    ``name``            string
+    ``signature``    	string
+    ``updated_at``      timestamp
+    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ================    =========  ===
+
+* **sortBy**
+    The *field* to sort the results by, from the ``criteria[]`` table above.
+
+* **sortAsc**
+    ``1`` for ascending, ``0`` for descending
+
+* **limit**
+    The number of results to display per page.
+
+* **page**
+    The page number of results to display, starting with ``1``.
+
+* **subtotals[]**
+    .. versionadded:: 6.7.2
+
+    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+    
+    =================    ========
+    Key                  Description
+    =================    ========
+    ``fieldsets``        Custom fieldsets on the addresses
+    ``links``            Objects linked to addresses
+    ``watchers``         Watchers on addresses
+    =================    ========
+
+**Example:**
+    
+.. code-block:: php
+	
+    <?php
+    $postfields = array(
+        array('criteria[]','name'),
+        array('oper[]','like'),
+        array('value[]','sales*'),
+        array('criteria[]','watchers'),
+        array('oper[]','in'),
+        array('value[]','[1,2,3]'),
+        array('sortBy','id'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb->post($base_url . 'mail_html_templates/search.json', $postfields);

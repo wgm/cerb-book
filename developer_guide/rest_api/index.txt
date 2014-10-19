@@ -33,6 +33,7 @@ Modules
     feedback
     groups
     kbarticles
+    mail_html_templates
     messages
     notifications
     opportunities
