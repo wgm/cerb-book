@@ -73,6 +73,8 @@ Update a ticket object.
     ==============      =========  ===
     Field               Type
     ==============      =========  ===
+    ``group_id``        integer
+    ``bucket_id``       integer
     ``is_closed``       bit
     ``is_deleted``      bit
     ``is_waiting``      bit
