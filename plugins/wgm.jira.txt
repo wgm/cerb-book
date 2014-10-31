@@ -51,7 +51,11 @@ Instead, you will start seeing output like::
     [INFO] [JIRA] Finished
 
 After you've synchronized JIRA information using the scheduler, you're ready to view project and issue records.
-    
+
+.. note::
+
+	After your first import, you need to edit your Jira Project records and set the :guilabel:`Sync` field to :guilabel:`Yes` for any projects you want to have issue records synchronized for.  Issue records will be downloaded the next time the scheduler job runs (including :guilabel:`Run now`).
+
 Viewing JIRA Projects
 ---------------------
 
@@ -86,95 +90,244 @@ Integrating JIRA with Cerb Virtual Attendants
 Creating a JIRA Issue from a Virtual Attendant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. figure:: /images/plugins/wgm.jira/va_create_issue.png
+   :figclass: bordered
+
+You can :doc:`import this behavior </index>` into a :doc:`Virtual Attendant </index>` to create JIRA issues::
+
+	{
+	  "behavior":{
+	    "title":"Create an New Issue in JIRA",
+	    "is_disabled":false,
+	    "is_private":false,
+	    "event":{
+	      "key":"event.macro.virtual_attendant",
+	      "label":"Custom virtual attendant behavior"
+	    },
+	    "configure": [
+	        { 
+	            "label": "Create issues for which JIRA project key (e.g. CHD)?",
+	            "path": "behavior.variables.var_project.params.options",
+	            "type": "S"
+	        }
+	    ],		
+	    "variables":{
+	      "var_project":{
+	        "key":"var_project",
+	        "label":"Project",
+	        "type":"D",
+	        "is_private":"0",
+	        "params":{
+	          "options":"CHD"
+	        }
+	      },
+	      "var_type":{
+	        "key":"var_type",
+	        "label":"Type",
+	        "type":"S",
+	        "is_private":"0",
+	        "params":{
+	          "widget":"single"
+	        }
+	      },
+	      "var_summary":{
+	        "key":"var_summary",
+	        "label":"Summary",
+	        "type":"S",
+	        "is_private":"0",
+	        "params":{
+	          "widget":"single"
+	        }
+	      },
+	      "var_description":{
+	        "key":"var_description",
+	        "label":"Description",
+	        "type":"S",
+	        "is_private":"0",
+	        "params":{
+	          "widget":"multiple"
+	        }
+	      },
+	      "var_reporter":{
+	        "key":"var_reporter",
+	        "label":"Reporter",
+	        "type":"S",
+	        "is_private":"0",
+	        "params":{
+	          "widget":"single"
+	        }
+	      },
+	      "var_assignee":{
+	        "key":"var_assignee",
+	        "label":"Assignee",
+	        "type":"S",
+	        "is_private":"0",
+	        "params":{
+	          "widget":"single"
+	        }
+	      },
+	      "var_version":{
+	        "key":"var_version",
+	        "label":"Version",
+	        "type":"S",
+	        "is_private":"0",
+	        "params":{
+	          "widget":"single"
+	        }
+	      },
+	      "var_comment":{
+	        "key":"var_comment",
+	        "label":"Comment",
+	        "type":"S",
+	        "is_private":"0",
+	        "params":{
+	          "widget":"multiple"
+	        }
+	      }
+	    },
+	    "nodes":[
+	      {
+	        "type":"action",
+	        "title":"Create a new issue",
+	        "params":{
+	          "actions":[
+	            {
+	              "action":"wgmjira.event.action.api_call",
+	              "api_verb":"post",
+	              "api_path":"\/rest\/api\/2\/issue",
+	              "json":"{% spaceless %}\r\n\r\n{% set r = {} %}\r\n{% set r = jsonpath_set(r, 'fields.project.key', var_project) %}\r\n{% set r = jsonpath_set(r, 'fields.issuetype.name', var_type) %}\r\n{% set r = jsonpath_set(r, 'fields.summary', var_summary) %}\r\n\r\n{% if var_description %}\r\n{% set r = jsonpath_set(r, 'fields.description', var_description) %}\r\n{% endif %}\r\n\r\n{% if var_reporter %}\r\n{% set r = jsonpath_set(r, 'fields.reporter.name', var_reporter) %}\r\n{% endif %}\r\n\r\n{% endspaceless %}\r\n{{r|json_encode|json_pretty}}",
+	              "response_placeholder":"_jira_issue"
+	            },
+	            {
+	              "action":"_set_custom_var",
+	              "value":"{% set json = jsonpath_set(json, 'key', 'CHD-1234') %}\r\n{{json|json_encode|json_pretty}}",
+	              "format":"json",
+	              "is_simulator_only":"1",
+	              "var":"_jira_issue"
+	            }
+	          ]
+	        }
+	      },
+	      {
+	        "type":"switch",
+	        "title":"Created?",
+	        "nodes":[
+	          {
+	            "type":"outcome",
+	            "title":"Yes",
+	            "params":{
+	              "groups":[
+	                {
+	                  "any":0,
+	                  "conditions":[
+	                    {
+	                      "condition":"_custom_script",
+	                      "tpl":"{{_jira_issue.key}}",
+	                      "oper":"!is",
+	                      "value":""
+	                    }
+	                  ]
+	                }
+	              ]
+	            },
+	            "nodes":[
+	              {
+	                "type":"switch",
+	                "title":"Do we have optional fields?",
+	                "nodes":[
+	                  {
+	                    "type":"outcome",
+	                    "title":"Yes",
+	                    "params":{
+	                      "groups":[
+	                        {
+	                          "any":0,
+	                          "conditions":[
+	                            {
+	                              "condition":"_custom_script",
+	                              "tpl":"{% if var_assignee or var_version or var_comment %}true{% endif %}",
+	                              "oper":"is",
+	                              "value":"true"
+	                            }
+	                          ]
+	                        }
+	                      ]
+	                    },
+	                    "nodes":[
+	                      {
+	                        "type":"action",
+	                        "title":"Set optional fields",
+	                        "params":{
+	                          "actions":[
+	                            {
+	                              "action":"wgmjira.event.action.api_call",
+	                              "api_verb":"put",
+	                              "api_path":"\/rest\/api\/2\/issue\/{{_jira_issue.key}}",
+	                              "json":"{% spaceless %}\r\n\r\n{% if var_assignee %}\r\n{% set r = jsonpath_set(r, 'fields.assignee.name', var_assignee) %}\r\n{% endif %}\r\n\r\n{% if var_version %}\r\n{% set r = jsonpath_set(r, 'fields.fixVersions', [{\"name\":var_version}]) %}\r\n{% endif %}\r\n\r\n{% if var_comment %}\r\n{% set r = jsonpath_set(r, 'update.comment[]', {'add':{'body':var_comment}} ) %}\r\n{% endif %}\r\n\r\n{% endspaceless %}\r\n{{r|json_encode|json_pretty}}",
+	                              "response_placeholder":"_jira_response"
+	                            }
+	                          ]
+	                        }
+	                      }
+	                    ]
+	                  }
+	                ]
+	              }
+	            ]
+	          },
+	          {
+	            "type":"outcome",
+	            "title":"No",
+	            "params":{
+	              "groups":[
+	                {
+	                  "any":0,
+	                  "conditions":[
+                    
+	                  ]
+	                }
+	              ]
+	            }
+	          }
+	        ]
+	      }
+	    ]
+	  }
+	}
+	
+Creating JIRA Issues from Tickets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The above behavior isn't used directly to create JIRA issues.  Instead, it can be delegated to by any other Virtual Attendant behavior.  This saves you the trouble of having to deal with JSON and API posts in multiple places in order to create JIRA issues from tickets, tasks, etc.  All of the heavy lifting is done in the behavior above, and other behaviors ask it to do that work for them.
+
+Now let's go through an example of using the behavior as a delegate.
+
+A common place you may want to create a new issue is when viewing a ticket. To accomplish this, you can create a custom ticket behavior that uses the :guilabel:`(Run behavior)` action.
+
+You can prompt for fields like :guilabel:`Summary` using text-based public behavior variables.
+
+For fields like :guilabel:`Issue Type` or :guilabel:`Version`, where selections come from a list of options, you can use picklist-based public behavior variables.
+
+On a field like :guilabel:`Reporter`, you can use a hardcoded value (like *Cerb*), or a picklist-based behavior variable.
+
+The behavior you create will depend on your needs, but here's a basic example.
+
+This behavior simply allows a worker to create a new JIRA issue while looking at a ticket:
+
 .. figure:: /images/plugins/wgm.jira/va_create_issue_from_ticket.png
    :figclass: bordered
 
-You can :doc:`import this behavior </index>` into a :doc:`Virtual Attendant </index>` to create JIRA issues from tickets::
+It has three behavior variables that prompt a worker for information:
 
-    {
-      "behavior":{
-        "title":"Create JIRA Issue",
-        "event":{
-          "key":"event.macro.ticket",
-          "label":"Custom ticket behavior"
-        },
-        "variables":{
-          "var_summary":{
-            "key":"var_summary",
-            "label":"Summary",
-            "type":"S",
-            "is_private":"0"
-          },
-          "var_description":{
-            "key":"var_description",
-            "label":"Description",
-            "type":"S",
-            "is_private":"0"
-          }
-        },
-        "nodes":[
-          {
-            "type":"action",
-            "title":"Create JIRA Issue",
-            "params":{
-              "actions":[
-                {
-                  "action":"wgmjira.event.action.create_issue",
-                  "project_key":"CHD",
-                  "summary":"{{var_summary}}",
-                  "type":"Bug",
-                  "description":"{{var_description}}",
-                  "link_to":[
-                    "ticket_id"
-                  ],
-                  "response_placeholder":"_jira_issue"
-                }
-              ]
-            }
-          },
-          {
-            "type":"switch",
-            "title":"Successful?",
-            "nodes":[
-              {
-                "type":"outcome",
-                "title":"Yes",
-                "params":{
-                  "groups":[
-                    {
-                      "any":0,
-                      "conditions":[
-                        {
-                          "condition":"_custom_script",
-                          "tpl":"{% if _jira_issue.id %}true{% endif %}",
-                          "oper":"is",
-                          "value":"true"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "nodes":[
-                  {
-                    "type":"action",
-                    "title":"Comment on ticket",
-                    "params":{
-                      "actions":[
-                        {
-                          "action":"create_comment",
-                          "on":"ticket_id",
-                          "content":"Created: {{_jira_issue._label}} <{{_jira_issue.record_url}}>"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    }
+.. figure:: /images/plugins/wgm.jira/va_create_issue_from_ticket1.png
+   :figclass: bordered
+
+It uses those placeholders in :guilabel:`(Run behavior)`:
+
+.. figure:: /images/plugins/wgm.jira/va_create_issue_from_ticket2.png
+   :figclass: bordered
+
+You can follow the same pattern to do almost anything.
 
 Integrating JIRA with Cerb Dashboards
 -------------------------------------
