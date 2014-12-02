@@ -9,7 +9,7 @@ Cerb6_WebAPI.pm
 .. code-block:: perl
 
     #!/usr/bin/perl
-    # @author Merlijn Hofstra <merlijn@netground.nl>
+    # @author Net Ground / www.netground.nl
 
     use strict;
     use warnings;
