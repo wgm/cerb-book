@@ -15,4 +15,5 @@ Virtual Attendants
     sla_escalation
     strip_history_from_message
     relay_emails_to_workers
+    relay_new_messages_to_group_members
     jira_comments_notify_watchers

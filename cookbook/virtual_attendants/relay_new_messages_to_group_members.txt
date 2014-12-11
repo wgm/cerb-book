@@ -1,0 +1,184 @@
+Relay New Messages to All Group Members
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In environments where most workers use external email clients rather than the Cerb web interface, Virtual Attendants are usually responsible for relaying new mail to workers.
+
+Normally, each group would create a Virtual Attendant with a distribution list for relaying mail.  This is flexible, but it also requires the group manangers to constantly add and remove workers to the relay behavior.
+
+This cookbook recipe demonstrates how to automatically relay new messages to every active member based on the group of each ticket.
+
+**This requires Cerb 6.8.6 or later.**
+
+Setting up the Virtual Attendant
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: /images/cookbook/relay_entire_group/relay_to_group_behavior.png
+    :figclass: bordered
+
+We'll be setting up the behavior on a global Virtual Attendant so it's implemented for all groups in a single place.  It's also possible for this behavior to only run for certain groups, but our example will run for everything.
+
+* As an administrator, click :guilabel:`setup` in the top right navigation menu.
+* In the :guilabel:`Configure` menu, select :guilabel:`Virtual Attendants`.
+* Click into the desired Virtual Attendant with an owner of :guilabel:`Cerb (Application)`.  If one doesn't exist you can create it.
+* Click the :guilabel:`Create Behavior` button.
+* On the :guilabel:`Import` tab, paste the following::
+
+    {
+      "behavior":{
+        "title":"Notify all group members",
+        "is_disabled":false,
+        "is_private":false,
+        "event":{
+          "key":"event.mail.received",
+          "label":"Message added to a conversation"
+        },
+        "variables":{
+          "var_group_members":{
+            "key":"var_group_members",
+            "label":"Group Members",
+            "type":"ctx_cerberusweb.contexts.worker",
+            "is_private":"1",
+            "params":[
+          
+            ]
+          }
+        },
+        "nodes":[
+          {
+            "type":"switch",
+            "title":"Is this a new ticket?",
+            "nodes":[
+              {
+                "type":"outcome",
+                "title":"Yes",
+                "params":{
+                  "groups":[
+                    {
+                      "any":0,
+                      "conditions":[
+                        {
+                          "condition":"is_first",
+                          "bool":"1"
+                        },
+                        {
+                          "condition":"is_outgoing",
+                          "bool":"0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "nodes":[
+                  {
+                    "type":"action",
+                    "title":"Find group members",
+                    "params":{
+                      "actions":[
+                        {
+                          "action":"var_group_members",
+                          "limit":"",
+                          "limit_count":"10",
+                          "mode":"add",
+                          "worklist_model":{
+                            "columns":[
+                              "w_first_name",
+                              "w_last_name",
+                              "w_title"
+                            ],
+                            "params":{
+                              "*_groups":{
+                                "field":"*_groups",
+                                "operator":"in",
+                                "value":[
+                                  "{{group_id}}"
+                                ]
+                              },
+                              "w_is_disabled":{
+                                "field":"w_is_disabled",
+                                "operator":"=",
+                                "value":false
+                              }
+                            },
+                            "limit":"10",
+                            "sort_by":"w_first_name",
+                            "sort_asc":true,
+                            "subtotals":"",
+                            "context":"cerberusweb.contexts.worker"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type":"action",
+                    "title":"Relay to group members",
+                    "params":{
+                      "actions":[
+                        {
+                          "action":"relay_email",
+                          "to":[
+                            "var_group_members"
+                          ],
+                          "subject":"[relay #{{ticket_mask}}] {{ticket_subject}}",
+                          "content":"## Relayed from {{ticket_url}}\r\n## Your reply to this message will be broadcast to the requesters. \r\n## Instructions: http:\/\/wiki.cerbweb.com\/Email_Relay\r\n##\r\n{{content}}\r\n"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+    
+How it works
+^^^^^^^^^^^^
+
+Behavior: Notify all group members
+==================================
+
+.. figure:: /images/cookbook/relay_entire_group/relay_to_group_trigger.png
+    :figclass: bordered
+
+Our behavior is on the :guilabel:`Message added to a conversation` event.  It runs every time a new incoming or outgoing message is added to a ticket.
+
+It has a private list variable called :guilabel:`Group Members` of type :guilabel:`(List) Worker`.  This is used to store a list of the current group members.
+
+Decision: Is this a new ticket?
+===============================
+
+.. figure:: /images/cookbook/relay_entire_group/behavior_decision_new.png
+    :figclass: bordered
+
+This decision asks whether the ticket is new.  The first matching outcome will be used.
+
+Outcome: Yes
+============
+
+.. figure:: /images/cookbook/relay_entire_group/behavior_outcome_yes.png
+    :figclass: bordered
+    
+The :guilabel:`Yes` outcome is used when the current message is incoming and the first message in a conversation.
+
+Action: Find group members
+==========================
+
+.. figure:: /images/cookbook/relay_entire_group/behavior_action_find_members.png
+    :figclass: bordered
+    
+This action sets the :guilabel:`Group Members` list variable with the results of the following worklist.
+
+.. figure:: /images/cookbook/relay_entire_group/behavior_action_find_members_worklist.png
+    :figclass: bordered
+    
+This worklist returns all the members of the group of the current ticket using the :guilabel:`{{group_id}}` placeholder.  This placeholder will change for each incoming message.
+
+Action: Relay to group members
+==============================
+
+.. figure:: /images/cookbook/relay_entire_group/behavior_action_relay_members.png
+    :figclass: bordered
+
+Once the list of group members is set, this action uses it in the :guilabel:`Relay to:` option to send each worker a copy of the message.  Workers can then reply to these messages from their external mail client and those responses will be relayed to the ticket participants.
