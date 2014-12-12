@@ -1,0 +1,71 @@
+Using Mailgun for SMTP and improved email deliverability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you're using a shared SMTP server to send mail for your Cerb instance, chances are you've had to deal with your messages being delivered into recipient's spam folders.  This can be caused by many factors: your IP ends up listed in RBL registries (Real-time Blackhole Lists), your server is flagged as an open relay, your server doesn't have a positive reputation, it doesn't support SPF/DKIM, etc.
+
+**Mailgun** (http://mailgun.com/) is an email sending service that specializes in improving deliverability.  Here are some of their noteworthy features:
+
+* Support for multiple domains (e.g. separate newsletters from transactional email).  Each gets its own queue and reputation.
+
+* Automatic throttling and reputation management.
+
+* Support for `DomainKeys Identified Mail (DKIM) <http://en.wikipedia.org/wiki/DomainKeys_Identified_Mail>`_.
+
+* Support for `Sender Policy Framework (SPF) <http://en.wikipedia.org/wiki/Sender_Policy_Framework>`_.
+
+* Delivery through `SMTP <http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol>`_ or API.
+
+* A web-based control panel for configuration, viewing delivery logs, etc.
+
+* Webhooks for spam complaint and bounce management.
+
+* The first 10,000 delivered messages per month are free, with simple pricing and volume discounts thereafter.  See http://www.mailgun.com/pricing for the most recent pricing.
+
+You can switch to Mailgun for outgoing mail in Cerb regardless of how you handle incoming email (Google Apps, etc).
+
+Using Mailgun with Cerb
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Signing up
+==========
+
+The first step is to sign up for a Mailgun account if you don't have one already: https://mailgun.com/signup
+
+Verifying a domain
+==================
+
+Once signed up, you'll need to verify ownership of one of more domain names to remove the "sandbox" limits imposed on your account by default.
+
+At minimum, you only need to add and verify a single domain with Mailgun.  If it all possible, the root domain of your mail server should be the same as most of the outgoing mail in Cerb.  For instance, since we deliver most of our outgoing mail as *@webgroupmedia.com, we use **mail.webgroupmedia.com** for our Mailgun domain.  This isn't strictly required, but it's rumored to help improve your deliverability.
+
+When you add a new domain to Mailgun, you'll need to add a few new records to your DNS to verify that you own it.  These also enable support for SPF and DKIM.
+
+.. warning::
+	Don't add the MX records to your DNS, as that will change how you receive inbound mail for your domain.  You only want to authorize an additional way to send mail for your domain.
+	
+.. note::
+	If you already have an SPF record in your DNS, you'll just want to add "``include:mailgun.org``" to it rather than replacing the entire value.
+	
+Depending on how long your DNS is set to cache for, you may have to intermittently click the :guilabel:`Check DNS Records Now` button until the changes are live.  At this point you can use the domain with Mailgun.
+
+Configuring Cerb to use Mailgun for outgoing mail
+=================================================
+
+In the :guilabel:`Domains` section of the Mailgun Control Panel, you will find the SMTP details for your mail server domain.
+
+These look like:
+
+.. figure:: /images/cookbook/scaling/mailgun/mailgun_smtp_details.png
+    :figclass: bordered
+
+You need to enter the SMTP details into Cerb.
+
+* Click :guilabel:`setup` in the top right of the navigation menu.
+* In the :guilabel:`Mail` menu, select :guilabel:`SMTP Server`.
+* Enter the details from Mailgun:
+	.. figure:: /images/cookbook/scaling/mailgun/mailgun_cerb_smtp.png
+	    :figclass: bordered
+
+When you click the :guilabel:`Save Changes` button your SMTP connection details will be tested.  Unless you get an error, you're all set.
+
+Send a test message from Cerb and then check the :guilabel:`Logs` tab in the Mailgun Control Panel.

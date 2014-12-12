@@ -3,5 +3,7 @@ Scaling and Performance
 
 .. toctree::
     :maxdepth: 1
-
+    
+    mailgun
     sphinx
+    
