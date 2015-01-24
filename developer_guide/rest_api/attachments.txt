@@ -50,26 +50,26 @@ Upload an attachment object.
 .. code-block:: php
 
     <?php
-	$postfields = array(
-		array('file_name','test.txt'),
-		array('mime_type','text/plain'),
-		array('encoding','text'), // text, base64
-		array('content','These are the file contents'),
-	);
-	$out = $cerb6->post($base_url . 'attachments/upload.json', $postfields);
+    $postfields = array(
+        array('file_name','test.txt'),
+        array('mime_type','text/plain'),
+        array('encoding','text'), // text, base64
+        array('content','These are the file contents'),
+    );
+    $out = $cerb6->post($base_url . 'attachments/upload.json', $postfields);
 
 Using base64 encoding for binary files:
 
 .. code-block:: php
 
     <?php
-	$postfields = array(
-		array('file_name','image.png'),
-		array('mime_type','image/png'),
-		array('encoding','base64'), // text, base64
-		array('content',base64_encode(file_get_contents('/path/to/image.png'))),
-	);
-	$out = $cerb6->post($base_url . 'attachments/upload.json', $postfields);
+    $postfields = array(
+        array('file_name','image.png'),
+        array('mime_type','image/png'),
+        array('encoding','base64'), // text, base64
+        array('content',base64_encode(file_get_contents('/path/to/image.png'))),
+    );
+    $out = $cerb6->post($base_url . 'attachments/upload.json', $postfields);
 	
 Search
 ======
@@ -111,9 +111,10 @@ Options:
 * **page**
     The page number of results to display, starting with ``1``.
 
+* **expand**
+    The :ref:`keys to expand <api_key_expansion>` on each object as a comma-separated list.
+    
 * **subtotals[]**
-    .. versionadded:: 6.7.2
-
     Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
     
     =====================  ========
@@ -138,4 +139,3 @@ Options:
         array('page','1'),
     );
     $out = $cerb->post($base_url . 'attachments/search.json', $postfields);
-

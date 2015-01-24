@@ -17,10 +17,9 @@ Options:
     The calendar year to display.  This defaults to the current year.
 
 * **expand**
-	The :ref:`keys to expand <api_key_expansion>` on each object as a comma-separated list, including any of these special keys:
-	
-	``owner``
-		Retrieve full owner information.
+    The :ref:`keys to expand <api_key_expansion>` on each object as a comma-separated list, including any of these special keys:
+    
+    .. include:: _includes/expands/calendars.txt
 
 **Example:**
 
@@ -44,19 +43,9 @@ Options:
     The calendar year to display.
 
 * **expand**
-	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
-	
-	``owner``
-		Retrieve detailed information about this calendar's owner.
-
-	``weeks``
-		Retrieve a padded list of weeks and days to easily render this calendar.
-        
-	``weeks_events``
-		Retrieves event information for each day on this calendar.  This automatically includes ``weeks`` and adds an ``events`` list to each day.
-
-	``events``
-		Retrieve event information for this calendar.  Unlike ``weeks_events``, this just returns a flat list of events sorted by their start date in ascending order.
+    The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
+    
+    .. include:: _includes/expands/calendars.txt
 
 **Example:**
 
@@ -100,23 +89,11 @@ Options:
     The page number of results to display, starting with ``1``.
 
 * **expand**
-	The :ref:`keys to expand <api_key_expansion>` on each object as a comma-separated list, including any of these special keys:
-	
-	``owner``
-		Retrieve detailed information about this calendar's owner.
+    The :ref:`keys to expand <api_key_expansion>` on each object as a comma-separated list, including any of these special keys:
 
-	``weeks``
-		Retrieve a padded list of weeks and days to easily render this calendar.
-        
-	``weeks_events``
-		Retrieves event information for each day on this calendar.  This automatically includes ``weeks`` and adds an ``events`` list to each day.
-
-	``events``
-		Retrieve event information for this calendar.  Unlike ``weeks_events``, this just returns a flat list of events sorted by their start date in ascending order.
+    .. include:: _includes/expands/calendars.txt
 
 * **subtotals[]**
-    .. versionadded:: 6.7.2
-
     Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
     
     ===============      ========

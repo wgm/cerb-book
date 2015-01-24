@@ -70,9 +70,7 @@ Options:
 		Retrieve the list of members for each group.
 
 * **subtotals[]**
-    .. versionadded:: 6.7.2
-
-    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+	Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
     
     ===============      ========
     Key                  Description

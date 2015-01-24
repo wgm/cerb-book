@@ -1,0 +1,20 @@
+``owner``
+	Retrieve detailed information about this calendar's owner.
+
+``scope``
+	Retrieve full calendar information with enough information to render the calendar.  This is automatically included when any of the ``events`` or ``weeks`` keys are expanded.
+
+``events``
+	Retrieve event information for this calendar.  Unlike ``weeks_events``, this just returns a flat list of events sorted by their start date in ascending order.
+
+``events_occluded``
+	Retrieve event information for this calendar.  Unlike ``weeks_events``, this just returns a flat list of events sorted by their start date in ascending order.  Any available events that are completely occluded by busy events (e.g. all-day holidays) will be filtered out automatically.
+
+``weeks``
+	Retrieve a padded list of weeks and days to easily render this calendar.
+    
+``weeks_events``
+	Retrieves event information for each day on this calendar.  This automatically includes ``weeks`` and adds an ``events`` list to each day.
+
+``weeks_events_occluded``
+	Retrieves event information for each day on this calendar.  This automatically includes ``weeks`` and adds an ``events_occluded`` list to each day.  Any available events that are completely occluded by busy events (e.g. all-day holidays) will be filtered out automatically.

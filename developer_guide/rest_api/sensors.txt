@@ -133,9 +133,7 @@ Options:
     The page number of results to display, starting with ``1``.
 
 * **subtotals[]**
-    .. versionadded:: 6.7.2
-
-    Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
+	Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
     
     =================    ========
     Key                  Description

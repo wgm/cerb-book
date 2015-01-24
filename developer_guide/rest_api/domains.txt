@@ -125,8 +125,6 @@ Options:
 		Retrieve watchers list for each domain.
 
 * **subtotals[]**
-    .. versionadded:: 6.7.2
-
     Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
     
     ===============      ========
