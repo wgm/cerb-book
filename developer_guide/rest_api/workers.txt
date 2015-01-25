@@ -21,18 +21,19 @@ Create
 
 Create a worker object.
 
-    =================   ========   ===
+    =================   =========   ===
     Field               Type
-    =================   ========   ===
-    ``email``           string     **required**
-    ``first_name``      string
-    ``last_name``       string
-    ``password``        string
-    ``title``           string
-    ``is_disabled``     bit        0=active, 1=disabled
-    ``is_superuser``    bit        0=worker, 1=superuser
-    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
-    =================   ========   ===
+    =================   =========   ===
+    ``email``           string      **required**
+    ``first_name``      string 
+    ``last_name``       string 
+    ``password``        string 
+    ``title``           string 
+    ``is_disabled``     bit         0=active, 1=disabled
+    ``is_superuser``    bit         0=worker, 1=superuser
+    ``updated``         timestamp 
+    ``custom_*``        mixed       :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================   =========   ===
 
 **Example:**
 
@@ -66,18 +67,19 @@ Update
 
 Update a worker object.
 
-    =================   ========   ===
+    =================   =========   ===
     Field               Type
-    =================   ========   ===
-    ``email``           string
-    ``first_name``      string
-    ``last_name``       string
-    ``password``        string
-    ``title``           string
-    ``is_disabled``     bit        0=active, 1=disabled
-    ``is_superuser``    bit        0=worker, 1=superuser
-    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
-    =================   ========   ===
+    =================   =========   ===
+    ``email``           string 
+    ``first_name``      string 
+    ``last_name``       string 
+    ``password``        string 
+    ``title``           string 
+    ``is_disabled``     bit         0=active, 1=disabled
+    ``is_superuser``    bit         0=worker, 1=superuser
+    ``updated``         timestamp 
+    ``custom_*``        mixed       :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =================   =========   ===
 
 **Example:**
 
@@ -104,18 +106,19 @@ Options:
 * **criteria[]**, **oper[]**, **value[]**
     Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
 
-    ================    ========   ===
+    ================    =========   ===
     Field               Type
-    ================    ========   ===
+    ================    =========   ===
     ``email``           string
     ``first_name``      string
     ``id``              integer
-    ``is_disabled``     bit        0=active, 1=disabled
-    ``is_superuser``    bit        0=worker, 1=superuser
+    ``is_disabled``     bit         0=active, 1=disabled
+    ``is_superuser``    bit         0=worker, 1=superuser
     ``last_name``       string
     ``title``           string
-    ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
-    ================    ========   ===
+    ``updated``         timestamp
+    ``custom_*``        mixed       :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    ================    =========   ===
 
 * **sortBy**
     The *field* to sort the results by, from the ``criteria[]`` table above.

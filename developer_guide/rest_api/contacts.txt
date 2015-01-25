@@ -14,6 +14,7 @@ Create a contact object.
     ``email``                  string      **required** if ``email_id`` is not provided
     ``email_id``               integer     **required** if ``email`` is not provided
     ``password``               string      **required**
+    ``updated``                timestamp
     ``custom_*``               mixed       :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     =========================  ==========  ===
 
@@ -51,6 +52,7 @@ Update a contact object.
     Field             Type
     ===============   =========  ===
     ``password``      string
+    ``updated``       timestamp
     ``custom_*``      mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     ===============   =========  ===
 
@@ -87,6 +89,7 @@ Options:
     ``email_first_name``       string
     ``email_last_name``        string
     ``last_login``             timestamp
+    ``updated``                timestamp
     ``custom_*``               mixed             :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     =========================  ================= ===
 

@@ -47,7 +47,9 @@ Options:
     Field                Type
     ===============      =========  ===
     ``id``               integer
+    ``created``          timestamp
     ``name``             string
+    ``updated``          timestamp
     ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     ===============      =========  ===
 

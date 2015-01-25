@@ -20,6 +20,7 @@ Create an organization object.
     ``phone``            string   
     ``website``          string   
     ``created``          timestamp
+    ``updated``          timestamp
     ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     ===============      =========  ===
 
@@ -63,6 +64,7 @@ Update an organization object.
     ``postal``           string   
     ``province``         string   
     ``street``           string   
+    ``updated``          timestamp
     ``website``          string   
     ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     ===============      =========  ===
@@ -103,6 +105,7 @@ Options:
     ``postal``           string   
     ``province``         string   
     ``street``           string   
+    ``updated``          timestamp
     ``website``          string   
     ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     ===============      =========  ===
