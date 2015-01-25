@@ -79,6 +79,9 @@ Search
 
 Options:
 
+* **q**
+    .. include:: _includes/search/common_option_q.txt
+
 * **criteria[]**, **oper[]**, **value[]**
     Each search filter should include an options triplet with a criteria, operator, and value.  ``criteria[]`` specifies a field from the list below.  ``oper[]`` specifies one of :doc:`these operators </developer_guide/rest_api/topics/search>`.  The format of ``value[]`` varies depending on the criteria and operator.
 
@@ -118,8 +121,19 @@ Options:
     ``watchers``         Watchers on feedback
     ==================   ========
 
-**Example:**
+**Examples:**
 
+.. code-block:: php
+
+    <?php
+    $postfields = array(
+        array('q','mood:praise'),
+        array('sortBy','id'),
+        array('sortAsc','1'),
+        array('page','1'),
+    );
+    $out = $cerb->post($base_url . 'feedback/search.json', $postfields);
+    
 .. code-block:: php
 
     <?php
