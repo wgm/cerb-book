@@ -115,7 +115,7 @@ Most worklists implement the following behaviors.
 Actions Toolbar
 ===============
 
-Below the results is the :doc:`actions </concepts/worklists/actions>` toolbar.
+Below the results is the actions toolbar.
 
 .. toctree::
     :maxdepth: 1
