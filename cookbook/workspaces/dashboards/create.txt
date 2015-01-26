@@ -1,7 +1,7 @@
 Create a workspace dashboard
 ----------------------------
 
-Navigate to an existing workspace page or :doc:`create a new one </worker_guide/ui/pages>`.
+Navigate to an existing workspace page or :doc:`create a new one </worker_guide/workspaces>`.
 
 Click the :guilabel:`+` tab.
 

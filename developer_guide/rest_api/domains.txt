@@ -84,7 +84,7 @@ Search
 ======
 **POST /domains/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for domain objects.
+Perform a search for domain objects.
 
 Options:
 

@@ -1,0 +1,6 @@
+Mobile
+------
+:Author: Webgroup Media LLC
+:Repository: https://github.com/cerb-plugins/cerberusweb.mobile
+
+The Mobile plugin...

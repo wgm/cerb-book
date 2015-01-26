@@ -75,7 +75,7 @@ Search
 ======
 **POST /feedback/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for feedback objects.
+Perform a search for feedback objects.
 
 Options:
 

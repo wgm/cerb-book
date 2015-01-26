@@ -14,15 +14,16 @@ There are two special plugins in Cerb that are required, and they cannot be disa
 * **Core** (cerberusweb.core)
     This plugin implements the the higher-level building blocks that constitute Cerb: user interface elements like tabs and popups, workspaces, records, custom fields, email, worklists, dashboard widgets, workers, Virtual Attendants, community portals, etc.
 
-Built-in Plugins
-================
+.. ::
+    Built-in Plugins
+    ================
 
-These plugins are bundled with Cerb:
+    These plugins are bundled with Cerb:
 
-.. toctree::
-    :maxdepth: 1
+    .. toctree::
+        :maxdepth: 1
 
-    REST-based Web API <cerberusweb.restapi>
+        REST-based Web API <cerberusweb.restapi>
     
 Plugin Library
 ==============

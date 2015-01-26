@@ -95,7 +95,7 @@ Search
 ======
 **POST /timetracking/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for time tracking objects.
+Perform a search for time tracking objects.
 
 Options:
 

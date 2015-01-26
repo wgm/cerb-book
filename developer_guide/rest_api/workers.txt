@@ -96,7 +96,7 @@ Search
 ======
 **POST /workers/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for worker objects.
+Perform a search for worker objects.
 
 Options:
 

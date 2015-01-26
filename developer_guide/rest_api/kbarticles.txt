@@ -85,7 +85,7 @@ Update a knowledgebase article object.
 Search
 ======
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for knowledgebase article objects.
+Perform a search for knowledgebase article objects.
 
 Options:
 

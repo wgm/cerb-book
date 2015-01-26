@@ -74,7 +74,7 @@ Search
 ======
 **POST /tasks/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for task objects.
+Perform a search for task objects.
 
 Options:
 

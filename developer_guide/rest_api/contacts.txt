@@ -70,7 +70,7 @@ Search
 ======
 **POST /contacts/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for contact objects.
+Perform a search for contact objects.
 
 Options:
 

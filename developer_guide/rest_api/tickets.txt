@@ -173,7 +173,7 @@ Search
 ======
 **POST /tickets/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for ticket objects.
+Perform a search for ticket objects.
 
 Options:
 

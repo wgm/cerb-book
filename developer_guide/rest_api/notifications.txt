@@ -98,7 +98,7 @@ Search
 ======
 **POST /notifications/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for notification records.
+Perform a search for notification records.
 
 Options:
 

@@ -58,7 +58,7 @@ Search
 ======
 **POST /calendars/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for calendar objects.
+Perform a search for calendar objects.
 
 Options:
 

@@ -1,0 +1,6 @@
+Cloudglue Integration
+---------------------
+:Author: Webgroup Media LLC
+:Repository: https://github.com/cerb-plugins/wgm.cloudglue
+
+The Cloudglue Integration plugin...

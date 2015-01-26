@@ -6,7 +6,7 @@ This cookbook recipe will demonstrate how to parse a reply to an existing ticket
 Setup
 =====
 
-You'll need to setup your environment before you can use the below code samples. Information on setting up your environment can be found in our :doc:`Rest API introduction </developer_guide/rest_api/introduction>`.
+You'll need to setup your environment before you can use the below code samples. Information on setting up your environment can be found in our :doc:`Rest API introduction </developer_guide/rest_api/topics/introduction>`.
 
 Code Sample
 ===========

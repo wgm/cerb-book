@@ -8,7 +8,7 @@ The API uses per-application credentials and per-worker permissions to authorize
 Enable the Web API plugin
 =========================
 
-The Web API functionality is provided through a built-in :doc:`plugin </plugins/index>`. Make sure that the :doc:`Web API plugin </plugins/cerberusweb.restapi>` is enabled before continuing.
+The Web API functionality is provided through a built-in :doc:`plugin </plugins/index>`. Make sure that the **Web API plugin** is enabled before continuing.
 
 .. _credentials:
 

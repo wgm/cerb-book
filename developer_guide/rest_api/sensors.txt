@@ -100,7 +100,7 @@ Search
 ======
 **POST /sensors/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for sensor objects.
+Perform a search for sensor objects.
 
 Options:
 

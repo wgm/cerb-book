@@ -75,7 +75,7 @@ Search
 ======
 **POST /mail_html_templates/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for mail HTML template objects.
+Perform a search for mail HTML template objects.
 
 Options:
 

@@ -83,7 +83,7 @@ Search
 ======
 **POST /addresses/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for address objects.
+Perform a search for address objects.
 
 Options:
 

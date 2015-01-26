@@ -64,9 +64,9 @@ release = '6.9'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = []
+exclude_patterns = ['plugins/Gatekeeper.php.txt', 'worker_guide/_old/*', 'concepts/_old/*', 'developer_guide/rest_api/_includes']
 
-unused_docs = ['todo','examples', 'plugins/Gatekeeper.php']
+unused_docs = []
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None

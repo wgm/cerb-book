@@ -20,7 +20,7 @@ If you stick with the defaults, this is the proposed workflow:
 **Sales**
     Collects issues related to sales: leads, new orders, refunds, resellers, etc.
 
-The workers inside groups can either be :term:`members <member>` or :term:`managers <manager>`. Groups are designed to be autonomous; a group manager has the power to make most configuration changes related to the group without requiring help from an :term:`administrator`. Managers can add new members to the group, manage buckets, and configure :doc:`workflow </worker_guide/mail/tabs/workflow>` using the group's :doc:`Virtual Attendant </concepts/virtual_attendants/index>`.
+The workers inside groups can either be :term:`members <member>` or :term:`managers <manager>`. Groups are designed to be autonomous; a group manager has the power to make most configuration changes related to the group without requiring help from an :term:`administrator`. Managers can add new members to the group, manage buckets, and configure workflow using the group's :doc:`Virtual Attendant </concepts/virtual_attendants/index>`.
 
 The common practice is to use groups for building a roster of fairly interchangeable workers. Work can be given to the group from the outside with the confidence that any member knows what to do with it. Groups share an organization system based on *buckets*, but workers outside the group aren't expected to know how other groups organize their work (and it shouldn't matter to them). Instead, new work is given to groups through their *inbox*, and the group's own filters will decide how work is routed or assigned from there.
 

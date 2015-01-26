@@ -16,7 +16,7 @@ For instructions on installing the Call Logging plugin, see the documentation on
 
 Using the Call Logging plugin
 =============================
-This plugin adds a new :guilabel:`Call` item to the :doc:`Search menu</worker_guide/search/index>`.
+This plugin adds a new :guilabel:`Call` item to the Search menu.
 
 .. figure:: /images/plugins/cerberusweb.calls/search_calls.png
    :figclass: bordered

@@ -75,7 +75,7 @@ Search
 ======
 **POST /attachments/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for attachment objects.
+Perform a search for attachment objects.
 
 Options:
 

@@ -12,7 +12,7 @@ This page provides an interface for managing :doc:`attachments </concepts/contex
 Using subtotals to generate statistics
 ======================================
 
-1. If :doc:`subtotals </concepts/worklists/subtotals>` aren't currently displayed, click the :guilabel:`subtotals` link in the top right of the attachments :doc:`worklist </concepts/worklists/index>`.
+1. If subtotals aren't currently displayed, click the :guilabel:`subtotals` link in the top right of the attachments :doc:`worklist </concepts/worklists/index>`.
 
     .. figure:: /images/admin_guide/setup/storage_attachments_subtotals_link.gif
         :alt: The subtotals link

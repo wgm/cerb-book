@@ -51,7 +51,7 @@ Search
 ======
 **POST /comments/search.json**
 
-:doc:`Perform a search </developer_guide/rest_api/topics/search>` for comment objects.
+Perform a search for comment objects.
 
 Options:
 

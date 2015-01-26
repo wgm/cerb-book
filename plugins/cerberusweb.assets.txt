@@ -1,0 +1,6 @@
+Asset Tracking
+--------------
+:Author: Webgroup Media LLC
+:Repository: https://github.com/cerb-plugins/cerberusweb.assets
+
+The Asset Tracking plugin...

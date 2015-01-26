@@ -6,7 +6,7 @@ This short cookbook recipe will explain how to retrieve tickets for multiple req
 Setup
 =====
 
-You'll need to setup your environment before you can use the below code samples. Information on setting up your environment can be found in our :doc:`Rest API introduction </developer_guide/rest_api/introduction>`.
+You'll need to setup your environment before you can use the below code samples. Information on setting up your environment can be found in our :doc:`Rest API introduction </developer_guide/rest_api/topics/introduction>`.
 
 Code Sample (JSON extension required)
 =====================================
