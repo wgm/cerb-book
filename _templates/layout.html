@@ -1,5 +1,15 @@
 {% extends "!layout.html" %}
 
+{% block extrahead %}
+{{ super() }}
+<meta property="og:title" content="{{ title|striptags|e }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://cerbweb.com/book/latest/{{ pagename }}">
+<meta property="og:image" content="http://cerbweb.com/book/latest/_static/cerb_opengraph.png">
+<meta property="og:site-name" content="Cerb {{version}} Documentation">
+<meta property="og:article:author" content="http://www.facebook.com/cerbapp">
+{% endblock %}
+
 {% block relbar1 %}
 <div class="related">
     <ul>
