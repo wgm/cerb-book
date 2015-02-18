@@ -8,6 +8,7 @@ Cookbook
     custom_fields/index
     rest_api/index
     virtual_attendants/index
+    webhooks/index
     workspaces/dashboards/index
     scaling/index
     

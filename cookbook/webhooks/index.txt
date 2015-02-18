@@ -1,0 +1,12 @@
+Webhooks
+--------
+
+Freshbooks
+==========
+
+Here are some common integrations between Cerb and `Freshbooks <https://webgroupmedia.freshbooks.com/refer/www>`_ using webhooks:
+
+.. toctree::
+    :maxdepth: 1
+    
+    freshbooks/notifying_hipchat_about_freshbooks_payments

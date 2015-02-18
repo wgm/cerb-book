@@ -1,0 +1,254 @@
+Notifying a HipChat room about new Freshbooks payments
+======================================================
+
+When you receive a new payment in Freshbooks you can trigger a Virtual Attendant behavior in real-time.  This might just be a quick notification to the appropriate team members, but it could also be a fully automated workflow that continues the next step of processing an order.
+
+In this example we'll keep things simple and post a notification message to a HipChat room every time we receive a new payment.
+
+.. figure:: /images/cookbook/webhooks/freshbooks/behavior.png
+    :figclass: bordered
+
+Requirements
+~~~~~~~~~~~~
+
+For this example to work, you'll need:
+
+* a `Freshbooks <https://webgroupmedia.freshbooks.com/refer/www>`_ account
+* a `HipChat <https://www.hipchat.com>`_ account
+* the Webhooks plugin installed, enabled, and configured in Cerb
+* the HipChat plugin installed, enabled, and configured in Cerb
+
+Setting up the Virtual Attendant
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, we'll import our Virtual Attendant behavior.  This is where the magic happens -- it processes the HTTP POST sent by Freshbooks, uses that payment ID to look up the payment and invoice records using their API, assembles a notification message, and then posts it in your desired HipChat room.
+
+You can easily import the fully implemented behavior into your Cerb environment:
+
+#. Create a new Virtual Attendant or select an existing one.  In this example we'll assume that you're using a VA named **Freshbooks Bot** that's owned by **Cerb**.
+#. View that Virtual Attendant's profile page.
+#. Click the :guilabel:`Create Behavior` button.
+#. Click the :guilabel:`Import` tab.
+#. Paste the following behavior into the text box::
+
+    {
+      "behavior":{
+        "title":"Freshbooks payment received webhook",
+        "is_disabled":false,
+        "is_private":false,
+        "event":{
+          "key":"event.webhook.received",
+          "label":"Webhook received"
+        },
+        "configure": [
+          { 
+            "label": "What is the name of the HipChat room you want to send notification messages to?",
+            "path": "behavior.nodes[1].nodes[1].nodes[0].params.actions[5].room",
+            "type": "S"
+          }
+        ],		
+        "nodes":[
+          {
+            "type":"action",
+            "title":"Simulator",
+            "params":{
+              "actions":[
+                {
+                  "action":"_set_custom_var",
+                  "value":"{\"name\": \"payment.create\"}",
+                  "format":"json",
+                  "is_simulator_only":"1",
+                  "var":"http_params"
+                }
+              ]
+            }
+          },
+          {
+            "type":"switch",
+            "title":"Event:",
+            "nodes":[
+              {
+                "type":"outcome",
+                "title":"callback.verify",
+                "params":{
+                  "groups":[
+                    {
+                      "any":0,
+                      "conditions":[
+                        {
+                          "condition":"http_param",
+                          "name":"name",
+                          "oper":"is",
+                          "value":"callback.verify"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "nodes":[
+                  {
+                    "type":"action",
+                    "title":"Make HTTP request to Freshbooks API",
+                    "params":{
+                      "actions":[
+                        {
+                          "action":"wgm.freshbooks.event.action.api_call",
+                          "xml":"<request method=\"callback.verify\">  \r\n  <callback>  \r\n    <callback_id>{{http_params.object_id}}<\/callback_id>  \r\n    <verifier>{{http_params.verifier}}<\/verifier>  \r\n  <\/callback>  \r\n<\/request>",
+                          "response_placeholder":"_freshbooks_response",
+                          "run_in_simulator":"0"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type":"outcome",
+                "title":"payment.create",
+                "params":{
+                  "groups":[
+                    {
+                      "any":0,
+                      "conditions":[
+                        {
+                          "condition":"http_param",
+                          "name":"name",
+                          "oper":"is",
+                          "value":"payment.create"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "nodes":[
+                  {
+                    "type":"action",
+                    "title":"Loads records from API and post to HipChat",
+                    "params":{
+                      "actions":[
+                        {
+                          "action":"wgm.freshbooks.event.action.api_call",
+                          "xml":"<?xml version=\"1.0\" encoding=\"utf-8\"?> \r\n<request method=\"payment.get\">\r\n<payment_id>{{http_params.object_id}}<\/payment_id>\r\n<\/request>",
+                          "response_placeholder":"_http_response_payment",
+                          "run_in_simulator":"0"
+                        },
+                        {
+                          "action":"_set_custom_var",
+                          "value":"<response xmlns=\"http:\/\/www.freshbooks.com\/api\/\">\r\n<client_id>1<\/client_id>\r\n<invoice_id>123<\/invoice_id>\r\n<amount>2500.00<\/amount>\r\n<type>VISA<\/type>\r\n<\/response>",
+                          "format":"",
+                          "is_simulator_only":"1",
+                          "var":"_http_response_payment"
+                        },
+                        {
+                          "action":"_set_custom_var",
+                          "value":"{% set xml = xml_decode(_http_response_payment) %}\r\n{% set xml = xml_xpath_ns(xml, 'ns', 'http:\/\/www.freshbooks.com\/api\/') %}\r\n{% set xml_client_id = xml_xpath(xml, '\/\/ns:client_id')|first|format %}\r\n{% set xml_invoice_id = xml_xpath(xml, '\/\/ns:invoice_id')|first|format %}\r\n{% set xml_amount = xml_xpath(xml, '\/\/ns:amount')|first|format %}\r\n{% set xml_type = xml_xpath(xml, '\/\/ns:type')|first|format %}\r\n{% set json = {} %}\r\n{% set json = jsonpath_set(json, 'client_id', xml_client_id) %}\r\n{% set json = jsonpath_set(json, 'invoice_id', xml_invoice_id) %}\r\n{% set json = jsonpath_set(json, 'amount', xml_amount) %}\r\n{% set json = jsonpath_set(json, 'type', xml_type) %}\r\n{{json|json_encode}}",
+                          "format":"json",
+                          "is_simulator_only":"0",
+                          "var":"_json_payment"
+                        },
+                        {
+                          "action":"wgm.freshbooks.event.action.api_call",
+                          "xml":"<?xml version=\"1.0\" encoding=\"utf-8\"?> \r\n<request method=\"invoice.get\">\r\n<invoice_id>{{_json_payment.invoice_id}}<\/invoice_id>\r\n<\/request>",
+                          "response_placeholder":"_http_response_invoice",
+                          "run_in_simulator":"0"
+                        },
+                        {
+                          "action":"_set_custom_var",
+                          "value":"<response xmlns=\"http:\/\/www.freshbooks.com\/api\/\">\r\n<invoice>\r\n<organization>Example Inc.<\/organization>\r\n<\/invoice>\r\n<links>\r\n<view>https:\/\/freshbooks.example.com\/invoices\/123<\/view>\r\n<\/links>\r\n<\/response>\r\n",
+                          "format":"",
+                          "is_simulator_only":"1",
+                          "var":"_http_response_invoice"
+                        },
+                        {
+                          "action":"wgmhipchat.event.action.post",
+                          "room":"WGM",
+                          "from":"Freshbooks",
+                          "is_html":"0",
+                          "content":"{% set xml = xml_decode(_http_response_invoice) %}\r\n{% set xml = xml_xpath_ns(xml, 'ns', 'http:\/\/www.freshbooks.com\/api\/') %}\r\n{% set org = xml_xpath(xml, '\/\/ns:organization')|first|format %}\r\n{% set amount = xml_xpath(xml, '\/\/ns:amount')|first|format %}\r\n{% set type = xml_xpath(xml, '\/\/ns:type')|first|format %}\r\n{% set link = xml_xpath(xml, '\/\/ns:links\/ns:view')|first|format %}\r\n{{org}} paid {{_json_payment.amount}} via {{_json_payment.type}} - {{link}}\r\n",
+                          "color":"green",
+                          "run_in_simulator":"0"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+
+You'll be prompted for the HipChat room you want to post to.  This assumes you've already set up your HipChat API credentials in Cerb.
+
+Simulating the Virtual Attendant behavior
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When you create Virtual Attendant behaviors, it's a good idea to make them simulator-friendly.  For instance, the behavior you just imported expects real responses from the Freshbooks API to work properly.  You could switch :guilabel:`Send live API requests in simulator mode` to **Yes** in a few places and it would work, but there's a much better way to make sure the behavior's logic works properly first.
+
+If you edit the first actions node on the behavior it looks like this:
+
+.. figure:: /images/cookbook/webhooks/freshbooks/simulator_webhook.png
+    :figclass: bordered
+
+This *simulates* the HTTP parameters of the webhook by overriding the **http_params** placeholder only when the simulator is running.  The content is in JSON format, which is automatically converted to an object by Cerb in the placeholder.
+
+With that in place, when we run the simulator, the behavior will traverse down the **payment.create** outcome in the :guilabel:`Event:` decision.  Without the placeholder being set, the simulator wouldn't have done anything at all, because the **http_params** placeholder would have been blank (the simulator doesn't receive a real HTTP POST).
+
+Similarly, if you look at the :guilabel:`Loads records from API and post to HipChat` actions node, you'll see these two actions:
+
+.. figure:: /images/cookbook/webhooks/freshbooks/simulator_http.png
+    :figclass: bordered
+    
+The first action executes an API request to Freshbooks to retrieve the full record for the new payment, since the webhook only includes the payment's ID.  This API request is only made when the behavior actually runs (not when it's simulated), and it saves the response to a placeholder named **_http_response_payment**.
+
+Conversely, the second action sets a placeholder only when the behavior is simulated, and it *simulates* the API response from Freshbooks.  It saves its content using the same placeholder name that the API request would have.
+
+Using this approach, all the subsequent logic in the behavior will continue to work properly whether you're sending real API requests or simulating them.  You can modify the simulated HTTP responses to test different use cases.
+
+Once the simulator output looks correct, you can continue.
+
+Setting up the webhook listener in Cerb
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Next, we need to create the webhook listener that receives HTTP POSTs from Freshbooks when new payments are made and passes them on to our Virtual Attendant behavior:
+
+#. Navigate to Setup -> Configure -> Webhooks.
+#. Click the green (+) icon in the blue bar above the worklist to add a new webhook listener.
+#. Name it **Freshbooks Payment Received** and select :guilabel:`Virtual Attendant Behavior` as the type.
+#. Select :guilabel:`Freshbooks Bot` and the :guilabel:`Freshbooks payment received webhook` behavior.
+#. Click the :guilabel:`Save Changes` button.
+
+.. figure:: /images/cookbook/webhooks/freshbooks/webhook.png
+    :figclass: bordered
+    
+You'll see the worklist refresh after the new webhook listener is created.
+
+The :guilabel:`GUID` column contains the link that you'll need to copy and paste into Freshbooks.  In most browsers, you can right click the link and select :guilabel:`Copy Link`.  Otherwise, you can just click on the link and copy it from your browser's location bar.
+
+Setting up the webhook event in Freshbooks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now that everything is set up in Cerb, we want to let Freshbooks know about our new webhook listener:
+
+#. Log in to your Freshbooks account.
+#. Click :guilabel:`My Account` at the top.
+#. Click the :guilabel:`Freshbooks API` tab.
+#. Scroll down and click the :guilabel:`Customize` link in the :guilabel:`Webhooks` section.
+#. Click the big, green :guilabel:`New Webhook` button.
+#. Select **payment.create** in the :guilabel:`Event` dropdown.
+#. Paste the webhook listener URL from Cerb into the :guilabel:`URI` field.
+#. Click the :guilabel:`Add Webhook` button to save your changes.
+
+.. figure:: /images/cookbook/webhooks/freshbooks/freshbooks_webhook.png
+    :figclass: bordered
+
+Freshbooks will send a verification HTTP POST to the URL in Cerb to verify that you control it.  Our webhook listener anticipates this and it will respond appropriately from the **callback.verify** section in the VA behavior.
+
+That's it!
+~~~~~~~~~~
+
+Your future new payments in Freshbooks should send a message to your HipChat room:
+
+.. figure:: /images/cookbook/webhooks/freshbooks/notification.png
+    :figclass: bordered
