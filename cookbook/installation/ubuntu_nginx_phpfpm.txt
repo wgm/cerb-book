@@ -132,7 +132,7 @@ Install Cerb dependencies
 
 ::
 
-    apt-get install make php5-dev php5-mysql php5-curl php5-gd php5-imap
+    apt-get install make php5-dev php5-mysql php5-curl php5-gd php5-imap php5-tidy
 
 There isn't an apt package for the :program:`mailparse` extension.  We'll install it from :program:`PECL` instead:
 
