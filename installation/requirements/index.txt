@@ -11,12 +11,12 @@ Required
 
 - An Internet or intranet connection to the server (e.g. Ethernet, wifi, mobile data)
 
-- Any of these modern HTML5 web browsers, with Javascript enabled:
+- The latest version of any of these modern HTML5 web browsers, with Javascript enabled:
     - :program:`Google Chrome`
     - :program:`Firefox`
     - :program:`Safari`
     - :program:`Opera`
-    - :program:`Internet Explorer`
+    - :program:`Internet Explorer` (10.0+)
 
 Recommended
 ~~~~~~~~~~~
