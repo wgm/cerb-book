@@ -59,4 +59,5 @@ Libraries
     examples/php
     examples/perl
     examples/nodejs
+    examples/apex
     examples/zapier
