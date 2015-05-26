@@ -12,12 +12,12 @@ Create a notification object.
     ===============      =========
     Field                Type
     ===============      =========
-    ``assignee_id``      integer
-    ``content``          string
+    ``context``          string
+    ``context_id``       integer
     ``created``          timestamp
     ``is_read``          bit
-    ``title``            string
-    ``url``              string
+    ``message``          string
+    ``worker_id``        integer
     ===============      =========
 
 **Example:**
@@ -26,13 +26,13 @@ Create a notification object.
 
     <?php
     $postfields = array(
-        array('title','This is a new notification!'),
-        array('content',"One line of text.\nAnd a second line."),
-        array('url','http://www.cerberusweb.com'),
-        array('assignee_id', 1),
+        array('context','cerberusweb.contexts.ticket'),
+        array('context_id',123),
+        array('message','This is a new notification!'),
+        array('worker_id', 1),
     );
     $out = $cerb->post($base_url . 'notifications/create.json', $postfields);
-	
+
 Retrieve
 ========
 **GET /notifications/<id>.json**
@@ -45,7 +45,7 @@ Retrieve a notification object.
 
     <?php
     $out = $cerb->get($base_url . 'notifications/1.json');
-	
+
 Update
 ======
 **PUT /notifications/<id>.json**
@@ -55,12 +55,12 @@ Update a notification object.
     ===============      =========
     Field                Type
     ===============      =========
-    ``assignee_id``      integer
-    ``content``          string
+    ``context``          string
+    ``context_id``       integer
     ``created``          timestamp
     ``is_read``          bit
-    ``title``            string
-    ``url``              string
+    ``message``          string
+    ``worker_id``        integer
     ===============      =========
 
 **Example:**
@@ -69,11 +69,11 @@ Update a notification object.
 
     <?php
     $postfields = array(
-        array('assignee_id','1'),
+        array('worker_id','1'),
         array('title','You have a *new* notification!'),
     );
     $out = $cerb->put($base_url . 'notifications/1.json', $postfields);
-	
+
 List
 ====
 **GET /notifications/list.json**
@@ -86,14 +86,14 @@ Lists the notification objects for the authenticated worker.
 
     <?php
     $out = $cerb->get($base_url . 'notifications/list.json');
-	
+
 You an also list all unread notifications like so:
 
 .. code-block:: php
 
     <?php
     $out = $cerb->get($base_url . 'notifications/list.json?unread=1');
-    
+
 Search
 ======
 **POST /notifications/search.json**
@@ -111,13 +111,12 @@ Options:
     =================    =========  ===
     Field                Type
     =================    =========  ===
+    ``context``          string
+    ``context_id``       integer
     ``created``          timestamp
-    ``id``               integer
     ``is_read``          bit
     ``message``          string
-    ``url``              string
     ``worker_id``        integer
-    =================    =========  ===
 
 * **sortBy**
     The *field* to sort the results by, from the ``criteria[]`` table above.
@@ -133,12 +132,12 @@ Options:
 
 * **subtotals[]**
 	Multiple subtotal sets can be returned with the results by adding a ``subtotals[]`` field for each one using the following keys:
-    
+
     ====================  ========
     Key                   Description
     ====================  ========
+    ``activity_point``    Notifications by activity type
     ``is_read``           Notifications by read status
-    ``url``               Notifications by URL
     ====================  ========
 
 **Examples:**
