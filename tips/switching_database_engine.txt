@@ -1,0 +1,27 @@
+Switching Cerb's database engine
+================================
+
+During Cerb's installation you were asked which database engine to use. If you selected MyISAM and now want to switch to InnoDB, the convert process is pretty straightforward. Here's how you do it:
+
+Generating a convert file
+-------------------------
+
+You can use the following SQL command to generate a file containing the alter commands for each of your table. (make sure to change ``dbname`` to the name of your cerb database.)
+
+    mysql -se "SELECT concat('ALTER TABLE ',TABLE_NAME,' ENGINE=InnoDB;') FROM Information_schema.TABLES WHERE TABLE_SCHEMA = 'dbname' AND ENGINE = 'MyISAM' AND TABLE_TYPE='BASE TABLE';"|tail -n+2 > myisam-to-innodb.sql
+
+Now you can go ahead and execute the command:
+
+    mysql -f < myisam-to-innodb.sql
+
+Changing framework.config.php
+-----------------------------
+
+Now edit framework.config.php and set APP_DB_ENGINE to ``InnoDB``, this ensures new tables are created with the InnoDB engine going forward.
+
+Innodb configuration tips
+-------------------------
+
+innodb_file_per_table
+~~~~~~~~~~~~~~~~~~~~~
+The InnoDB data files by default can only grow in size, deleting data from the database does not reclaim the size on disk. It might be a good idea to enable the MySQL option: `innodb_file_per_table <https://dev.mysql.com/doc/refman/5.5/en/innodb-multiple-tablespaces.html>`_. since in those cases an OPTIMIZE of the table can reclaim size on disk.
