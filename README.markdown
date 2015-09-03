@@ -1,13 +1,13 @@
-# Cerb6 User's Guide #
+# Cerb User's Guide #
 
-Copyright (C) 2012, WebGroup Media LLC.
+Copyright (C) 2015, WebGroup Media LLC.
 
-<http://www.cerberusweb.com/>
+<http://www.cerbweb.com/>
 
 Introduction
 ------------
 
-These are the raw materials required to build the _Cerb6 User's Guide_ in a variety of formats (HTML, ePub, PDF, Docbook, etc).
+These are the raw materials required to build the _Cerb User's Guide_ in a variety of formats (HTML, ePub, PDF, Docbook, etc).
 
 Requirements
 ------------
@@ -47,7 +47,7 @@ This project makes use of the following technology:
 License
 -------
 
-The _Cerb6 User's Guide_ by WebGroup Media LLC is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
+The _Cerb User's Guide_ by WebGroup Media LLC is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
 
 You are free:
 
