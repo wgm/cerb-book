@@ -6,7 +6,7 @@ Retrieve page, tab, widget, and worklist objects.
 
 List Pages
 ==========
-**GET /workspaces/list.json**
+**GET /workspaces/pages/list.json**
 
 Retrieve the workspace pages accessible by the current worker.  This includes pages owned by the worker, their groups, or roles.
 
