@@ -117,6 +117,7 @@ Options:
     ``is_read``          bit
     ``message``          string
     ``worker_id``        integer
+    =================    =========  ===
 
 * **sortBy**
     The *field* to sort the results by, from the ``criteria[]`` table above.
