@@ -38,7 +38,7 @@ Create a ticket object.
     ``html_template_id`` id         :doc:`/developer_guide/rest_api/mail_html_templates`
     ``file_id[]``        ids        Upload with :doc:`/developer_guide/rest_api/attachments`
     ``status``           integer    0=open, 1=closed, 2=waiting
-    ``reopen_at``        timestamp
+    ``reopen_at``        mixed      unix timestamp or string (e.g. "Friday 2pm", "+2 hours")
     ``custom_*``         mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     ==================== =========  ===
 
@@ -134,7 +134,7 @@ Reply to a ticket message as a worker.
     ``is_broadcast``     boolean    Set the broadcast flag: 0=no, 1=yes
     ``is_forward``       boolean    Send the message without updating the ticket with the new subject or requesters: 0=no, 1=yes
     ``owner_id``         id         Assign the ticket to a :doc:`Worker </developer_guide/rest_api/workers>`, or ``0`` to unassign from the current owner
-    ``reopen_at``        timestamp  If waiting or closed, the point in time that the ticket will be reopened
+    ``reopen_at``        mixed      unix timestamp or string (e.g. "Friday 2pm", "+2 hours")
     ``status``           integer    0=open, 1=closed, 2=waiting
     ``subject``          string     Update the ticket's subject
     ``to``               string     A comma-separated list of email addresses to include as recipients.  If blank, it uses the ticket's current requesters
