@@ -61,11 +61,16 @@ These look like:
 You need to enter the SMTP details into Cerb.
 
 * Click :guilabel:`setup` in the top right of the navigation menu.
-* In the :guilabel:`Mail` menu, select :guilabel:`SMTP Server`.
+* In the :guilabel:`Mail` menu, select :guilabel:`Mail Transports`.
+* Add a new mail transport record, or replace your existing one.
 * Enter the details from Mailgun:
 	.. figure:: /images/cookbook/scaling/mailgun/mailgun_cerb_smtp.png
 	    :figclass: bordered
+* If desired, make Mailgun your default mail transport.
+* When you click the :guilabel:`Save Changes` button your SMTP connection details will be tested.  Unless you get an error, you're all set.
 
-When you click the :guilabel:`Save Changes` button your SMTP connection details will be tested.  Unless you get an error, you're all set.
+If you want to use Mailgun selectively, you can set it as the transport for those sender addresses now.
+
+* In the :guilabel:`Mail` menu, select :guilabel:`Reply-To Addresses`.
 
 Send a test message from Cerb and then check the :guilabel:`Logs` tab in the Mailgun Control Panel.
