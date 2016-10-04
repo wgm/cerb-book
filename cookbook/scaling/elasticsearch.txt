@@ -1,0 +1,157 @@
+Using Elastic Search for full-text searching
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Elastic Search** (http://elastic.co/). Elastic Search (ES) builds distributed capabilities on top of Apache Lucene to provide the most powerful full- text search capabilities available. Powerful, developer-friendly query API supports multilingual search, geolocation, contextual did-you-mean suggestions, autocomplete, and result snippets. 
+
+Installing Elastic Search 
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Generally, Elastic Search should be installed through your operating system's package manager.  
+
+These instructions should be followed for installation:
+<https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html>
+
+You can also use their awesome configuration management modules to install and configure it for you.
+* <https://github.com/elastic/puppet-elasticsearch>
+* <https://github.com/elastic/ansible-elasticsearch> 
+
+Make sure to add a firewall so that your ES instance isn't world readable, or simply bind ES only to your local network adapter if you're adding it on the same machine that cerb is running on.
+
+Testing Elastic Search
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As soon as your Elastic Search instance is running, you can check it lives by opening a terminal and running:
+
+.. code-block:: bash
+
+    curl 'http://localhost:9200/?pretty'
+
+It should output something like:
+
+.. code-block:: json
+
+{
+  "status" : 200,
+  "name" : "cerb",
+  "cluster_name" : "elasticsearch",
+  "version" : {
+    "number" : "1.6.2",
+    "build_hash" : "622039121e53e5f520b5ff8720fdbd3d0cb5326b",
+    "build_timestamp" : "2015-07-29T09:24:47Z",
+    "build_snapshot" : false,
+    "lucene_version" : "4.10.4"
+  },
+  "tagline" : "You Know, for Search"
+}    
+
+Configuring Cerb to use Elastic Search 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once you've verified that Elastic Search is working properly, you're ready to configure Cerb to use it instead of the default MySQL fulltext feature.
+
+* Click :guilabel:`setup` in the top right.
+
+* Hover over the :guilabel:`Configure` menu and select :guilabel:`Search`.
+    .. figure:: /images/cookbook/scaling/sphinx_setup_search.png
+        :figclass: bordered
+
+* Click the :guilabel:`(edit)` link next to a search index.
+
+* Select :guilabel:`Elastic Search` and enter the details referenced below:
+
+Base URL:
+http://localhost:9200/
+
+Search index:
+cerb (or the name of your index)
+
+Default query field:
+_all
+
+Max results:
+1000 should be more than sufficient.
+
+Quick search examples:
+
+You can add additional suggestions to the ones already present.
+
+
+Searching from Cerb
+^^^^^^^^^^^^^^^^^^^
+
+Now we're ready to search in Cerb using Elastic Search.
+
+* Hover over the :guilabel:`search` menu in the top right, and select :guilabel:`Ticket`.
+
+* In the quick search box in the top right, select :guilabel:`Message Content`
+
+* You should now see the Elastic Search suggestions:
+
+    .. figure:: /images/cookbook/scaling/sphinx_search_cerb.png
+        :figclass: bordered
+
+Finishing up
+^^^^^^^^^^^^
+
+Remove the database tables that are no longer used
+--------------------------------------------------
+
+Now that your search indexes are handled by Elastic Search, you can delete the ``fulltext_*`` tables in Cerb's database:
+
+.. code-block:: mysql
+
+    DROP TABLE fulltext_comment_content;
+    
+    DROP TABLE fulltext_kb_article;
+    
+    DROP TABLE fulltext_message_content;
+    
+This reduces the amount of storage space used, and it also speeds up ongoing processes like database backups.
+
+Bulk importing
+^^^^^^^^^^^^^^
+
+If you already have a huge history that needs to be indexed, you can do this faster by utilizing the following script:
+install/extras/developers/search_dump_elasticsearch_json.php
+
+Edit the script and fill in the cerb database and ES index name so they match your setup. Then run it like so:
+
+.. code-block:: bash
+
+    time php search_dump_elasticsearch_json.php
+
+This might take a while depending on the size of your datastore and the specs of the hardware your cerb instance is running on. So it might best to run it in a `screen` session.
+
+The script will dump your message table into dump_xxx.json files which can then be imported like so:
+
+.. code-block:: bash
+
+    for dumpfile in $(ls dump_*.json); do echo $dumpfile; curl -XPOST 'localhost:9200/_bulk' --data-binary @$dumpfile; done
+
+Check the last dumpfile and jot down the id number for the last index.
+
+Now use the following SQL queries to let cerb know how much has been indexed:
+.. code-block:: mysql
+
+    UPDATE cerb_property_store SET value = 'the-id-you-noted' WHERE property = 'last_indexed_id' AND extension_id = 'cerberusweb.search.schema.message_content';
+
+Dropping the ElasticSearch index
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can use the following curl command to drop everything from ElasticSearch:
+
+.. code-block: bash
+
+    curl -XDELETE localhost:9200/cerb
+
+This is assuming cerb is your ES instance name.
+
+Note that this does not reset the indexing times and id in cerb.
+
+To reset the indexing time use the following SQL query:
+
+.. code-block: mysql
+
+    DELETE FROM cerb_property_store WHERE property = 'last_indexed_time' AND extension_id LIKE '%search.schema%';
+
+
