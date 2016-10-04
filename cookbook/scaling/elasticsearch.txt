@@ -9,11 +9,14 @@ Installing Elastic Search
 Generally, Elastic Search should be installed through your operating system's package manager.  
 
 These instructions should be followed for installation:
-<https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html>
 
-You can also use their awesome configuration management modules to install and configure it for you.
-* <https://github.com/elastic/puppet-elasticsearch>
-* <https://github.com/elastic/ansible-elasticsearch> 
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html
+
+You can also use their awesome configuration management modules to install and configure it for you:
+
+* https://github.com/elastic/puppet-elasticsearch
+
+* https://github.com/elastic/ansible-elasticsearch
 
 Make sure to add a firewall so that your ES instance isn't world readable, or simply bind ES only to your local network adapter if you're adding it on the same machine that cerb is running on.
 
@@ -30,19 +33,19 @@ It should output something like:
 
 .. code-block:: json
 
-{
-  "status" : 200,
-  "name" : "cerb",
-  "cluster_name" : "elasticsearch",
-  "version" : {
-    "number" : "1.6.2",
-    "build_hash" : "622039121e53e5f520b5ff8720fdbd3d0cb5326b",
-    "build_timestamp" : "2015-07-29T09:24:47Z",
-    "build_snapshot" : false,
-    "lucene_version" : "4.10.4"
-  },
-  "tagline" : "You Know, for Search"
-}    
+  {
+    "status" : 200,
+    "name" : "cerb",
+    "cluster_name" : "elasticsearch",
+    "version" : {
+      "number" : "1.6.2",
+      "build_hash" : "622039121e53e5f520b5ff8720fdbd3d0cb5326b",
+      "build_timestamp" : "2015-07-29T09:24:47Z",
+      "build_snapshot" : false,
+      "lucene_version" : "4.10.4"
+    },
+    "tagline" : "You Know, for Search"
+  }
 
 Configuring Cerb to use Elastic Search 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,23 +129,30 @@ The script will dump your message table into dump_xxx.json files which can then 
 
 .. code-block:: bash
 
-    for dumpfile in $(ls dump_*.json); do echo $dumpfile; curl -XPOST 'localhost:9200/_bulk' --data-binary @$dumpfile; done
+    for dumpfile in $(ls dump_*.json);
+    do echo $dumpfile;
+    curl -XPOST 'localhost:9200/_bulk' --data-binary @$dumpfile;
+    done
 
 Check the last dumpfile and jot down the id number for the last index.
 
 Now use the following SQL queries to let cerb know how much has been indexed:
-.. code-block:: mysql
 
-    UPDATE cerb_property_store SET value = 'the-id-you-noted' WHERE property = 'last_indexed_id' AND extension_id = 'cerberusweb.search.schema.message_content';
+.. code-block:: sql
+
+    UPDATE cerb_property_store 
+    SET value = 'the-id-you-noted' 
+    WHERE property = 'last_indexed_id' 
+    AND extension_id = 'cerberusweb.search.schema.message_content';
 
 Dropping the ElasticSearch index
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can use the following curl command to drop everything from ElasticSearch:
 
-.. code-block: bash
+.. code-block:: bash
 
-    curl -XDELETE localhost:9200/cerb
+    curl -XDELETE 'http://localhost:9200/cerb'
 
 This is assuming cerb is your ES instance name.
 
@@ -150,8 +160,10 @@ Note that this does not reset the indexing times and id in cerb.
 
 To reset the indexing time use the following SQL query:
 
-.. code-block: mysql
+.. code-block:: sql
 
-    DELETE FROM cerb_property_store WHERE property = 'last_indexed_time' AND extension_id LIKE '%search.schema%';
+    DELETE FROM cerb_property_store 
+    WHERE property = 'last_indexed_time' 
+    AND extension_id LIKE '%search.schema%';
 
 

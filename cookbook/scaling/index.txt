@@ -5,5 +5,5 @@ Scaling and Performance
     :maxdepth: 1
     
     mailgun
+    elasticsearch
     sphinx
-    
