@@ -424,7 +424,7 @@ Grant permissions to a new database user.  You should change the database name (
 
 .. code-block:: mysql
 
-    GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,DROP,CREATE TEMPORARY TABLES 
+    GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,DROP,INDEX,CREATE TEMPORARY TABLES,LOCK TABLES 
     ON cerb.* 
     TO cerb@localhost 
     IDENTIFIED BY 's3cr3t_password';
