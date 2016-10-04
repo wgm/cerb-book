@@ -17,6 +17,7 @@ Create a comment object.
     ``owner_context_id``   integer    **required**
     ``comment``            string     **required**
     ``created``            timestamp
+    ``file_id[]``          array
     ====================   =========  ===
 
 **Example:**
@@ -31,6 +32,8 @@ Create a comment object.
         array('owner_context', 'cerberusweb.contexts.address'),
         array('owner_context_id', 123),
         array('comment', 'This is a comment'),
+        array('file_id[]', 123),
+        array('file_id[]', 456),
     );
     $out = $cerb->post($base_url . 'comments/create.json', $postfields);
 	
@@ -39,6 +42,14 @@ Retrieve
 **GET /comments/<id>.json**
 
 Retrieve a comment object.
+
+Options:
+
+* **expand**
+	The :ref:`keys to expand <api_key_expansion>` on the object as a comma-separated list, including any of these special keys:
+	
+	``attachments``
+		Retrieve attachment information.
 
 **Example:**
 
@@ -105,7 +116,7 @@ Options:
 
     <?php
     $postfields = array(
-        array('expand', 'author_label,author_type,record_label,record_type'),
+        array('expand', 'author_label,author_type,record_label,record_type,attachments'),
         array('q','@Hildy'),
     );
     $out = $cerb->post($base_url . 'comments/search.json', $postfields);
@@ -114,7 +125,7 @@ Options:
 
     <?php
     $postfields = array(
-        array('expand', 'author_label,author_type,record_label,record_type'),
+        array('expand', 'author_label,author_type,record_label,record_type,attachments'),
         array('criteria[]','context'),
         array('oper[]','='),
         array('value[]','cerberusweb.contexts.ticket'),

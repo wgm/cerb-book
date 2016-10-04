@@ -36,7 +36,7 @@ This module can be included by :program:`Node.js` applications to simplify inter
     var request = require('request');
     var url_parser = require('url');
     var querystring = require('querystring');
-    var md5 = require('MD5');
+    var md5 = require('md5');
 
     var _access_key = '';
     var _secret_key = '';
