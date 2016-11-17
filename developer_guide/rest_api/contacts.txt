@@ -11,10 +11,22 @@ Create a contact object.
     =========================  ==========  ===
     Field                      Type
     =========================  ==========  ===
-    ``email``                  string      **required** if ``email_id`` is not provided
-    ``email_id``               integer     **required** if ``email`` is not provided
-    ``password``               string      **required**
-    ``updated``                timestamp
+    ``created_at``             timestamp
+    ``dob``                    string      YYYY-MM-DD
+    ``email_id``               integer
+    ``first_name``             string      **required**
+    ``gender``                 string      F=Female, M=Male, blank=Unknown
+    ``language``               string      en_US
+    ``last_name``              string
+    ``location``               string
+    ``mobile``                 string
+    ``org_id``                 integer
+    ``password``               string
+    ``phone``                  string
+    ``timezone``               string      America/Los_Angeles
+    ``title``                  string
+    ``updated_at``             timestamp
+    ``username``               string
     ``custom_*``               mixed       :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     =========================  ==========  ===
 
@@ -24,7 +36,7 @@ Create a contact object.
 
     <?php
     $postfields = array(
-        array('email','gaius.baltar@localhost'),
+        array('email_id','1234'),
         array('password','s3cr3t'),
     );
     $out = $cerb->post($base_url . 'contacts/create.json', $postfields);
@@ -48,13 +60,27 @@ Update
 
 Update a contact object.
 
-    ===============   =========  ===
-    Field             Type
-    ===============   =========  ===
-    ``password``      string
-    ``updated``       timestamp
-    ``custom_*``      mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
-    ===============   =========  ===
+    =========================  ==========  ===
+    Field                      Type
+    =========================  ==========  ===
+    ``created_at``             timestamp
+    ``dob``                    string      YYYY-MM-DD
+    ``email_id``               integer
+    ``first_name``             string      **required**
+    ``gender``                 string      F=Female, M=Male, blank=Unknown
+    ``language``               string      en_US
+    ``last_name``              string
+    ``location``               string
+    ``mobile``                 string
+    ``org_id``                 integer
+    ``password``               string
+    ``phone``                  string
+    ``timezone``               string      America/Los_Angeles
+    ``title``                  string
+    ``updated_at``             timestamp
+    ``username``               string
+    ``custom_*``               mixed       :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
+    =========================  ==========  ===
 
 **Example:**
 
@@ -83,13 +109,21 @@ Options:
     =========================  ================= ===
     Field                      Type
     =========================  ================= ===
-    ``created``                timestamp
+    ``created_at``             timestamp
+    ``dob``                    string
     ``email_id``               integer
-    ``email_address``          string
-    ``email_first_name``       string
-    ``email_last_name``        string
-    ``last_login``             timestamp
-    ``updated``                timestamp
+    ``first_name``             string
+    ``gender``                 string
+    ``language``               string
+    ``last_name``              string
+    ``location``               string
+    ``mobile``                 string
+    ``org_id``                 integer
+    ``phone``                  string
+    ``timezone``               string
+    ``title``                  string
+    ``updated_at``             timestamp
+    ``username``               string
     ``custom_*``               mixed             :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     =========================  ================= ===
 
@@ -111,9 +145,14 @@ Options:
     ====================  ========
     Key                   Description
     ====================  ========
-    ``email_address``     Contact email
-    ``email_first_name``  Contact first name
-    ``email_last_name``   Contact last name
+    ``first_name``        Given name
+    ``gender``            Gender (F = Female, M = Male)
+    ``language``          Spoken language and dialect (e.g. en_US)
+    ``last_name``         Surname
+    ``location``          Geographical location
+    ``org``               Organizational affiliation
+    ``timezone``          Timezone (e.g. America/Los_Angeles)
+    ``title``             Job title (e.g. VP of Engineering)
     ``fieldsets``         Custom fieldsets on contacts
     ``links``             Objects linked to contacts
     ``watchers``          Watchers on contacts
@@ -136,7 +175,7 @@ Options:
 
     <?php
     $postfields = array(
-        array('criteria[]','email_address'),
+        array('criteria[]','first_name'),
         array('oper[]','like'),
         array('value[]','jeff@*'),
         array('sortBy','email'),
