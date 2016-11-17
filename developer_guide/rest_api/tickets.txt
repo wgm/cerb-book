@@ -78,9 +78,7 @@ Update a ticket object.
     ==============      =========  ===
     ``group_id``        integer
     ``bucket_id``       integer
-    ``is_closed``       bit
-    ``is_deleted``      bit
-    ``is_waiting``      bit
+    ``status_id``       integer    0=open, 1=waiting, 2=closed, 3=deleted
     ``subject``         string
     ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
     ==============      =========  ===    
@@ -191,14 +189,12 @@ Options:
     ``created``         timestamp
     ``first_wrote``     string   
     ``id``              integer
-    ``is_closed``       bit      
-    ``is_deleted``      bit      
-    ``is_waiting``      bit      
     ``group_id``        integer
     ``mask``            string   
     ``requester``       string   
     ``org_id``          integer
     ``org_name``        string
+    ``status_id``       integer    0=open, 1=waiting, 2=closed, 3=deleted
     ``subject``         string   
     ``updated``         timestamp
     ``custom_*``        mixed      :doc:`instructions </developer_guide/rest_api/topics/custom_fields>`
